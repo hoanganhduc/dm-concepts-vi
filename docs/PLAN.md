@@ -364,6 +364,7 @@ Hội đồng biên tập (`agent-group-discuss`) đã chốt các quy ước sa
 7. **Ví dụ tự chứa:** không dựa vào đại lượng dẫn xuất (số clique, $$\kappa$$) mà định nghĩa chưa giới thiệu.
 8. **Không chèn nghĩa khác trong định nghĩa:** biến thể đặt ở `vi_terms`/`notes`; ngoặc đơn chỉ để nhắc lại chính đối tượng đang định nghĩa.
 9. **see_also:** chỉ `<xref>` tới id cùng chương; tham chiếu chương khác là forward reference (vd. `coloring`, `graph-coloring` → gộp/khử trùng ở chương G).
+10. **Nguồn so sánh (recency + đầy đủ):** thuật ngữ *khuyến nghị* lấy chuẩn từ các sách **mới nhất** (2019–2020: Lê Anh Vinh, Nguyễn Hoàng Thạch, Nguyễn Hữu Điển), liệt kê trích dẫn mới trước; **nhưng vẫn khai thác đầy đủ các bản cũ** (2004–2011) để thu **mọi** biến thể đã dùng (D4). Bản dịch cũ (Rosen VI 2003) chỉ để **tham khảo**, không OCR, không làm thuật ngữ chính.
 
 **Nguồn scan (không có text layer):** Rosen (bản dịch VI), Lê Anh Vinh, Hoàng Chí Thành. Trước đây hoãn; nay có **fallback OCR tiếng Việt** — `workflow/scripts/ocr-pdf.py`, chuỗi engine: **tesseract `vie`** (model `tessdata_best`, đặt ở `~/.local/share/tessdata`) → **RapidOCR** → **EasyOCR**. OCR tạo cùng định dạng `@@PAGE n@@` nên khai thác y như nguồn text-layer. Nguồn OCR được đánh dấu `origin=ocr` trong `workflow/corpus/manifest.json`; khi tìm/kiểm chứng nên dùng `--loose` để chịu sai số dấu của OCR. Kho text-layer (chất lượng cao nhất): Ngô Đắc Tân (2004), Nguyễn Đức Nghĩa & Nguyễn Tô Thành (2006), Nguyễn Hữu Điển (2019).
 

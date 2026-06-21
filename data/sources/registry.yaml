@@ -5,13 +5,21 @@
 #
 # roles:
 #   primary-en : the primary English source (Rosen).
-#   bridge     : a Vietnamese translation of an English source (EN<->VI bridge).
+#   reference  : an older Vietnamese translation, kept for reference only (NOT
+#                preferred for the recommended term; may be outdated).
 #   source     : a Vietnamese discrete-math / graph-theory terminology source.
 #   secondary  : Vietnamese algorithms / data-structures book (graph & tree terms).
 meta:
   seeded_from: "Zotero collection 'Discrete Math' (IAEL4K2C) via keyword search"
   seeded_on: "2026-06-21"
   lookup_order: "Zotero -> Calibre -> online (strict)"
+  terminology_policy: >
+    PRIMARY comparison sources are the MOST RECENTLY PUBLISHED Vietnamese books
+    (prefer 2019-2020 editions: bib-leanhvinh-2020, bib-nguyenhoangthach-2020,
+    bib-nguyenhuudien-2019). The recommended term should be one attested in those;
+    list their citations first. Older books (2004-2011) corroborate. Old
+    translations (notably bib-rosen-2003-vi, 2003) are reference-only and must
+    never be chosen as the recommended/lead term.
   coverage_note: >
     Seeded with core Vietnamese DM / graph-theory titles found by keyword search
     of the 'Discrete Math' collection. Reconcile against the FULL collection in
@@ -28,11 +36,12 @@ sources:
 
   - biblio_id: bib-rosen-2003-vi
     zotero_key: SEQ4XBTW
-    role: bridge
+    role: reference          # old (2003) VI translation of Rosen; reference only
     lang: vi
     year: 2003
     authors: ["Rosen, Kenneth"]
     title: "Toán rời rạc ứng dụng trong tin học"
+    note: "Old translation; may be outdated. Not OCR'd; not used as a preferred citation."
 
   - biblio_id: bib-nguyenhoangthach-2020
     zotero_key: 2LKFSD6B

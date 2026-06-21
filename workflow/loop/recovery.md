@@ -17,3 +17,5 @@
 **Stop:** all letters processed; or user pause/stop; or a letter fails build 3× (skip + record).
 
 **Evidence gates:** verified citations carry source_id+pdf_page+snippet; recommended from newest source; definitions checked vs Rosen by the panel; every chapter must build before commit.
+
+- 2026-06-21T15:34:15 done G; next=A; done=2 skipped=0 pending=24

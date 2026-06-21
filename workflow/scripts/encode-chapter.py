@@ -25,7 +25,10 @@ ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)
 
 
 def esc_text(s):
-    return s.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
+    s = s.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
+    # LaTeX emphasis habits from drafters -> PreTeXt <em>
+    s = re.sub(r"\\(?:emph|textit|textbf)\{([^{}]*)\}", r"<em>\1</em>", s)
+    return s
 
 
 def esc_math(s):
@@ -108,6 +111,22 @@ def render_entry(e, chapter_ids):
     return "\n".join(lines)
 
 
+def update_main_includes():
+    """Rewrite the auto-managed chapter <xi:include> block in source/main.ptx
+    from the set of existing source/ch-*.ptx files, in alphabetical letter order."""
+    import glob as _glob
+    main_path = os.path.join(ROOT, "source", "main.ptx")
+    text = open(main_path, encoding="utf-8").read()
+    chs = [os.path.basename(p)[:-4] for p in _glob.glob(os.path.join(ROOT, "source", "ch-*.ptx"))]
+    chs = sorted(chs, key=lambda c: c.split("-", 1)[1])
+    block = "\n".join('    <xi:include href="./%s.ptx" />' % c for c in chs)
+    new = re.sub(
+        r"(<!-- BEGIN chapter includes \(auto-managed\) -->\n).*?(\n[ \t]*<!-- END chapter includes -->)",
+        lambda m: m.group(1) + block + m.group(2), text, flags=re.S)
+    open(main_path, "w", encoding="utf-8").write(new)
+    return chs
+
+
 def main():
     letter = (sys.argv[1] if len(sys.argv) > 1 else "c").lower()
     src = os.path.join(ROOT, "workflow", "panels", f"chapter-{letter}-final.json")
@@ -156,7 +175,9 @@ def main():
 '''
     ppath = os.path.join(ROOT, "source", f"ch-{letter}.ptx")
     open(ppath, "w", encoding="utf-8").write(ptx)
+    chs = update_main_includes()
     print(f"Wrote {len(entries)} entries -> {os.path.relpath(ypath, ROOT)} and {os.path.relpath(ppath, ROOT)}")
+    print(f"main.ptx chapters: {', '.join(chs)}")
 
 
 if __name__ == "__main__":

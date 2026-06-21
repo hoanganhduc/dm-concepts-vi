@@ -1,0 +1,916 @@
+{
+ "locked_conventions": [
+  "Math delimiters: every inline mathematical symbol (G, V, E, K_n, C_n, P_n, \\chi(G), g(G), \\gcd(a,b), set braces, etc.) is wrapped in $$...$$. Bare unwrapped math is never left in definition_vi or example_vi. Block math uses a ```math fence. Math delimiters wrap SYMBOLS only: a bare Vietnamese word (đồ thị, nhóm, tổng cấp số nhân) is never wrapped in $$...$$; first introduction of a central concept is marked with \\emph{...} OUTSIDE math, not with $$...$$ or \\textit{...} inside math.",
+  "Inequalities and relations: ASCII '>=', '<=', '!=' are forbidden in finished prose; use $$\\geq$$, $$\\leq$$, $$\\neq$$.",
+  "Bipartite rendering is fixed book-wide to 'đồ thị hai phần' (book standard for this volume). The variants 'đồ thị hai phía' and 'đồ thị phân đôi' are recorded only as deferred source variants, never used in running prose. In chapter G the bipartite term appears only as the see_also id 'bipartite-graph', so no definition renders it.",
+  "Exactly one vi_term per entry has recommended=true. The recommended term is, whenever possible, a verified=true term backed by source_id + pdf_page + page + snippet, attested in a 2019-2020 source where the concept exists there; newest citations are listed first. EVERY variant from ALL sources (old and new) is still recorded. A recommended term may be verified=false only when NO corpus source attests any candidate (standard-but-unattested terminology); in that case the unverified status is surfaced explicitly in notes.",
+  "Citation hygiene: every verified=true vi_term carries source_id, pdf_page, page, and a quoted snippet whose surface form actually contains the term string. vi_terms with verified=false AND page=\"\" are dropped, except a single recommended standard term retained to keep the required vi_terms field non-empty and preserve the single-recommendation invariant. Diacritics-insensitive (--loose) search is used to confirm hits/0-hits on the OCR sources (bib-leanhvinh-2020, bib-hoangchithanh-2007).",
+  "Examples are self-contained: an example_vi never relies on a derived quantity the definition_vi did not introduce.",
+  "No synonym glosses inside the definition; variants live in vi_terms/notes. An English parenthetical gloss of the headword is not placed inside definition_vi (the English equivalent is carried by headword_en).",
+  "see_also lists kebab ids only. Cross-chapter ids are permitted as forward references (per the chapter-C precedent, where see_also freely links graph-coloring, bipartite-graph, simple-graph, etc.); same-chapter ids are direct links. The notes never claim a 'same-chapter only' restriction.",
+  "Notation collision is flagged, not hidden: girth and genus both use $$g(G)$$ in this corpus, so each entry states which quantity its $$g(G)$$ denotes."
+ ],
+ "deferred_note": "Applied the panel's clearly-correct fixes and kept ALL 14 chapter-G entries. CONCEPT-DIVERGENCE FLAGS (panel high/med): (1) grid-graph — the only attesting source bib-leanhvinh-2020 (tr. 216) defines its $$L_n$$ on $$[n]^2$$ with $$(a,b)\\sim(c,d)$$ iff same row OR same column (a rook's/Hamming graph $$K_n\\square K_n$$, with Hình 8.7 stating $$L_2$$ equals the Paley graph $$P_5$$), NOT Rosen's unit-distance rectangular grid that definition_vi describes; the divergence is now stated explicitly in definition_vi and notes, the vi_term carries a divergence note, and the headword is generalized to the $$m\\times n$$ grid. (2) The term 'bài toán tô màu' (graph-coloring) attests the coloring PROBLEM, and 'đẳng cấu đồ thị' at nguyenhoangthach-2020 tr. 73 attests the isomorphism PROBLEM ('Bài toán đẳng cấu đồ thị'); both are annotated as problem-framing rather than synonyms of the headword object. (3) 'cấp số nhân' (geometric-series) attests the geometric PROGRESSION used as a recurrence trial solution, the lexical root of the unattested-but-standard series term 'tổng cấp số nhân'. CITATION FIX (panel high): geodesic recommended vi_term surface form changed from 'khoảng cách giữa hai đỉnh' (0 hits in bib-leanhvinh-2020, re-verified strict+loose) to 'khoảng cách', which IS attested verbatim in the cited tr. 17 snippet, keeping the 2020 source. ROSEN-REF FIX (panel med): girth rosen_ref reassigned from §10.8 (Graph Coloring, where girth is not defined) to §10.4 (Connectivity/paths). MATH-WRAPPING FIXES (panel high): graph '$$đồ thị$$' -> '\\emph{đồ thị}'; geometric-series '$$\\textit{tổng cấp số nhân}$$' -> '\\emph{tổng cấp số nhân}'. EXPOSITION FIXES: geometric-series made finite ('tổng hữu hạn ... từ $$j = 0$$ đến $$n$$'); girth '(girth)' gloss dropped from definition_vi; \\displaystyle added to inline \\sum in generating-function and geometric-series. ID FIX (panel low): 'graph-bipartite-detection-gcd-euclidean' renamed to 'euclidean-algorithm' (matches the greatest-common-divisor entry's see_also forward reference and reflects the headword). NOTES CORRECTIONS: graph-coloring/graph-isomorphism/girth notes no longer claim a same-chapter-only see_also restriction or mislabel cross-chapter ids; 'graph' is acknowledged as a same-chapter G link in graph-isomorphism. UNVERIFIED RECOMMENDED FALLBACKS retained (verified=false, empty page, single recommended term kept so vi_terms is non-empty), each with a 0-hit corpus search disclosed in notes: gray-code 'mã Gray', geometric-series 'tổng cấp số nhân', graph-of-a-function 'đồ thị của hàm số'. All verified=true vi_terms keep source_id + pdf_page + page + snippet; non-recommended verified=false empty-page citations are dropped. Cross-chapter see_also ids are forward references to be created in their own chapters.",
+ "final_entries": [
+  {
+   "id": "graph",
+   "letter": "G",
+   "headword_en": "Graph",
+   "notation": "G = (V, E)",
+   "rosen_ref": "Rosen §10.1",
+   "definition_vi": "Một \\emph{đồ thị} $$G = (V, E)$$ gồm một tập đỉnh $$V$$ khác rỗng và một tập cạnh $$E$$, trong đó mỗi cạnh được gắn với một hoặc hai đỉnh, gọi là các đầu mút của cạnh đó.",
+   "example_vi": "Xét $$G = (V, E)$$ với tập đỉnh $$V = \\{a, b, c, d\\}$$ và tập cạnh $$E = \\{ab, bc, cd\\}$$; khi đó cạnh $$ab$$ có hai đầu mút là $$a$$ và $$b$$.",
+   "notes": "Recommended term \"đồ thị\" is the universal Vietnamese standard, attested with a formal definition $$G = (V, E)$$ in BOTH 2020 sources (leanhvinh-2020 Def 1.1, nguyenhoangthach-2020 Def 5.1) and in all four older sources. Newest citations are listed first. The first introduction of the central concept is marked with \\emph{đồ thị} OUTSIDE math (panel fix: the previous draft wrapped the Vietnamese word in $$...$$, which the math-wrapping convention forbids — math delimiters wrap symbols only, e.g. $$G$$, $$V$$, $$E$$). \"đồ thị G\" is not a separate term but the same word applied to a named graph $$G$$ (recorded as a variant from hoangchithanh-2007 p.6). The English loanword \"graph\" appears only as a parenthetical gloss next to \"đồ thị\" in hoangchithanh-2007 p.5 (\"Đồ thị (graph)...\"); it is not used as a standalone Vietnamese term and is recorded only for completeness. Several sources introduce the concept via \"đơn đồ thị\" (simple graph), \"đa đồ thị\" (multigraph), and \"giả đồ thị\" (pseudograph) — these are restricted variants of the general \"đồ thị\" and belong to their own entries. nguyenhuudien-2019's Def 6.1 states the simple-graph case; the bare term \"đồ thị\" for the general object is attested there throughout (e.g. p.157 \"đồ thị G = (V, E)\"). OCR sources (leanhvinh-2020, hoangchithanh-2007) were searched both normally and with --loose; diacritics confirmed correct in the cited definitional snippets. The definition follows Rosen §10.1's general graph (edges with one or two endpoints, allowing loops and multiple edges); \"đầu mút\" is the standard Vietnamese rendering of \"endpoint\". see_also targets are cross-chapter forward references except where their own chapter-G entries are created.",
+   "see_also": [
+    "directed-graph",
+    "simple-graph",
+    "multigraph",
+    "vertex",
+    "edge",
+    "bipartite-graph",
+    "subgraph"
+   ],
+   "vi_terms": [
+    {
+     "term": "đồ thị",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-leanhvinh-2020",
+     "pdf_page": 8,
+     "page": "tr. 8 (PDF)",
+     "snippet": "Định nghĩa 1.1. Đồ thị G = (V,E) gồm hai tập hữu hạn, tập đỉnh"
+    },
+    {
+     "term": "đồ thị",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhoangthach-2020",
+     "pdf_page": 61,
+     "page": "tr. 61 (PDF)",
+     "snippet": "Định nghĩa 5.1 (Đồ thị vô hướng). Một đồ thị (vô hướng) G = (V, E) được"
+    },
+    {
+     "term": "đồ thị",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 154,
+     "page": "tr. 154 (PDF)",
+     "snippet": "Định nghĩa 6.1 Một đơn đồ thị G = (V, E) gồm một tập khác rỗng V mà các phần tử"
+    },
+    {
+     "term": "đồ thị",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-hoangchithanh-2007",
+     "pdf_page": 5,
+     "page": "tr. 5 (PDF)",
+     "snippet": "Định nghĩa 1.1: Đồ thị là một cặp G = (V, E), trong đó:"
+    },
+    {
+     "term": "đồ thị",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenducnghia-2006",
+     "pdf_page": 152,
+     "page": "tr. 152 (PDF)",
+     "snippet": "LÝ THUYẾT ĐỒ THỊ"
+    },
+    {
+     "term": "đồ thị",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-ngodactan-2004",
+     "pdf_page": 188,
+     "page": "tr. 188 (PDF)",
+     "snippet": "Đồ thị G = (V, E) được gọi là đồ thị có trọng luợnq hay thường gọi"
+    },
+    {
+     "term": "đồ thị G",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-hoangchithanh-2007",
+     "pdf_page": 6,
+     "page": "tr. 6 (PDF)",
+     "snippet": "Đồ thị G ở Hình 1.1 với tập các đỉnh V = {a, b, c, d, e) và tập các"
+    },
+    {
+     "term": "graph",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-hoangchithanh-2007",
+     "pdf_page": 5,
+     "page": "tr. 5 (PDF)",
+     "snippet": "D6 thi (graph) là một mô hình toán học được ứng dụng trong"
+    }
+   ]
+  },
+  {
+   "id": "graph-coloring",
+   "letter": "G",
+   "headword_en": "Graph coloring",
+   "notation": "",
+   "rosen_ref": "Rosen §10.8",
+   "definition_vi": "Một phép tô màu đồ thị của một đơn đồ thị $$G$$ là một phép gán cho mỗi đỉnh của $$G$$ một màu sao cho không có hai đỉnh kề nhau nào được gán cùng một màu. Nói cách khác, với mọi cạnh $$uv \\in E(G)$$, hai đỉnh $$u$$ và $$v$$ nhận hai màu khác nhau.",
+   "example_vi": "Trong chu trình $$C_4$$ với các đỉnh $$v_1, v_2, v_3, v_4$$ và các cạnh $$v_1v_2$$, $$v_2v_3$$, $$v_3v_4$$, $$v_4v_1$$, ta có thể tô $$v_1$$ và $$v_3$$ bằng màu đỏ, $$v_2$$ và $$v_4$$ bằng màu xanh; khi đó hai đỉnh kề nhau bất kỳ đều nhận hai màu khác nhau, nên đây là một phép tô màu đồ thị của $$C_4$$.",
+   "see_also": [
+    "chromatic-number",
+    "proper-coloring"
+   ],
+   "vi_terms": [
+    {
+     "term": "tô màu đồ thị",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-nguyenhoangthach-2020",
+     "pdf_page": 81,
+     "page": "tr. 81 (PDF)",
+     "snippet": "Trong mục này, chúng ta giới thiệu về tô màu đồ thị, mối liên hệ giữa bản đồ"
+    },
+    {
+     "term": "tô màu đồ thị",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 223,
+     "page": "tr. 223 (PDF)",
+     "snippet": "9. ĐỒ THỊ PHẲNG VÀ TÔ MÀU ĐỒ THỊ"
+    },
+    {
+     "term": "tô màu đồ thị",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-leanhvinh-2020",
+     "pdf_page": 90,
+     "page": "tr. 90 (PDF)",
+     "snippet": "Tô màu đồ thị"
+    },
+    {
+     "term": "tô màu đồ thị",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenducnghia-2006",
+     "pdf_page": 166,
+     "page": "tr. 166 (PDF)",
+     "snippet": "Một phép gán màu cho các đính như vậy được gọi là một phép tô màu đồ thị."
+    },
+    {
+     "term": "tô màu đồ thị",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-ngodactan-2004",
+     "pdf_page": 283,
+     "page": "tr. 283 (PDF)",
+     "snippet": "Người đầu tiên đề cập tới vấn đề tô màu đồ thị là Augustus De Morgan."
+    },
+    {
+     "term": "tô màu đồ thị",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-hoangchithanh-2007",
+     "pdf_page": 51,
+     "page": "tr. 51 (PDF)",
+     "snippet": "Khái niệm sắc s6 liên quan đến bài toán tô màu đồ thị như sau:"
+    },
+    {
+     "term": "tô màu các đỉnh",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-leanhvinh-2020",
+     "pdf_page": 107,
+     "page": "tr. 107 (PDF)",
+     "snippet": "Trong các mục trước, ta đã tìm hiểu về cách tô màu các đỉnh của"
+    },
+    {
+     "term": "tô màu các đỉnh",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 227,
+     "page": "tr. 227 (PDF)",
+     "snippet": "Hãy tô màu các đỉnh của một đồ thị đã cho, sao cho hai đỉnh kề nhau phải được tô bằng hai màu"
+    },
+    {
+     "term": "tô màu các đỉnh",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-hoangchithanh-2007",
+     "pdf_page": 51,
+     "page": "tr. 51 (PDF)",
+     "snippet": "Hãy tô màu các đỉnh của một đồ thi đã cho, sao cho hai đỉnh kề nhau"
+    },
+    {
+     "term": "bài toán tô màu",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 227,
+     "page": "tr. 227 (PDF)",
+     "snippet": "Khái niệm sắc số liên quan đến bài toán tô màu đồ thị như sau:"
+    },
+    {
+     "term": "bài toán tô màu",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenducnghia-2006",
+     "pdf_page": 166,
+     "page": "tr. 166 (PDF)",
+     "snippet": "16. Bài toán tô màu đỏ thị: Cho đơn đồ thị vô hướng Ơ = (V,E)."
+    },
+    {
+     "term": "bài toán tô màu",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-hoangchithanh-2007",
+     "pdf_page": 51,
+     "page": "tr. 51 (PDF)",
+     "snippet": "Khái niệm sắc s6 liên quan đến bài toán tô màu đồ thị như sau:"
+    },
+    {
+     "term": "tô màu tốt",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-leanhvinh-2020",
+     "pdf_page": 90,
+     "page": "tr. 90 (PDF)",
+     "snippet": "một cách tô màu tốt các đỉnh của G bởi k màu."
+    },
+    {
+     "term": "tô màu đỉnh",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-ngodactan-2004",
+     "pdf_page": 283,
+     "page": "tr. 283 (PDF)",
+     "snippet": "Một tô màu đỉnh của một đồ thị, mà ta sẽ đơn giản gọi là một tô màu,"
+    },
+    {
+     "term": "phép tô màu đồ thị",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenducnghia-2006",
+     "pdf_page": 166,
+     "page": "tr. 166 (PDF)",
+     "snippet": "Một phép gán màu cho các đính như vậy được gọi là một phép tô màu đồ thị."
+    },
+    {
+     "term": "tô màu",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-ngodactan-2004",
+     "pdf_page": 283,
+     "page": "tr. 283 (PDF)",
+     "snippet": "Một tô màu đỉnh của một đồ thị, mà ta sẽ đơn giản gọi là một tô màu,"
+    }
+   ],
+   "notes": "Concept: A coloring of a simple graph $$G$$ is an assignment of a color to each vertex of $$G$$ so that no two adjacent vertices receive the same color (Rosen §10.8). Rosen's \"coloring\" already means a proper coloring, so the no-two-adjacent-same-color constraint IS the properness condition; the see_also target proper-coloring is the same notion under a fuller name, not a distinct concept.\n\nRecommended term: \"tô màu đồ thị\" — the standard chapter-title term attested in both 2019-2020 sources (nguyenhoangthach-2020 tr. 81; nguyenhuudien-2019 tr. 223/227; leanhvinh-2020 tr. 90) and consistently used across the older corpus. Citations ordered newest source first.\n\nVariant terms:\n- \"tô màu các đỉnh\" (\"coloring the vertices\") — matches Rosen's vertex-assignment phrasing.\n- \"bài toán tô màu\" (\"the coloring PROBLEM\") — concept-divergence flag: this names the decision/optimization PROBLEM (nguyenducnghia-2006 tr. 166 \"Bài toán tô màu đồ thị\"), a related framing of the headword, NOT the coloring assignment itself; recorded as a variant but not a synonym of the recommended term.\n- \"tô màu đỉnh\" / \"tô màu\" (bare) — ngodactan-2004 tr. 283 abbreviates vertex coloring to \"tô màu\".\n- \"tô màu tốt\" (\"proper/good coloring\") — leanhvinh-2020 tr. 90; \"tốt\" encodes the no-two-adjacent-same-color constraint.\n- \"phép tô màu đồ thị\" (\"a coloring of a graph\") — nominal form for the coloring map (nguyenducnghia-2006 tr. 166), used as the definition's leading phrase.\n\nDefinition wording uses the recommended \"tô màu đồ thị\" (nominal \"phép tô màu đồ thị\"), states the constraint formally, and restates it edge-wise with $$uv \\in E(G)$$. Example is self-contained: $$C_4$$ with an explicit 2-coloring; no chromatic number is invoked.\n\nsee_also: cross-chapter kebab forward references are permitted (per the chapter-C precedent, whose see_also freely links cross-chapter ids); the earlier draft incorrectly claimed a same-chapter-only restriction and dropped bipartite-graph/planar-graph on that mistaken ground. The kept targets chromatic-number (chapter C) and proper-coloring are the closest related concepts and are forward references. bipartite-graph and planar-graph are omitted for conceptual distance, not for any chapter restriction.\n\nOCR note: leanhvinh-2020 and hoangchithanh-2007 are OCR sources; loose search confirmed the cited pages. All vi_term source_id/pdf_page/snippet verified verbatim."
+  },
+  {
+   "id": "graph-isomorphism",
+   "letter": "G",
+   "headword_en": "Graph isomorphism",
+   "notation": "G_1 \\cong G_2",
+   "rosen_ref": "Rosen §10.3",
+   "definition_vi": "Hai đồ thị đơn $$G_1 = (V_1, E_1)$$ và $$G_2 = (V_2, E_2)$$ được gọi là đẳng cấu, ký hiệu $$G_1 \\cong G_2$$, nếu tồn tại một song ánh $$f : V_1 \\to V_2$$ sao cho với mọi cặp đỉnh $$u, v \\in V_1$$, hai đỉnh $$u$$ và $$v$$ kề nhau trong $$G_1$$ khi và chỉ khi $$f(u)$$ và $$f(v)$$ kề nhau trong $$G_2$$. Khi đó, song ánh $$f$$ được gọi là một đẳng cấu giữa $$G_1$$ và $$G_2$$.",
+   "example_vi": "Cho $$G_1$$ có tập đỉnh $$\\{a, b, c, d\\}$$ và các cạnh $$ab, bc, cd, da$$, và $$G_2$$ có tập đỉnh $$\\{1, 2, 3, 4\\}$$ và các cạnh $$12, 23, 34, 41$$. Song ánh $$f$$ xác định bởi $$f(a) = 1$$, $$f(b) = 2$$, $$f(c) = 3$$, $$f(d) = 4$$ bảo toàn quan hệ kề: mỗi cạnh của $$G_1$$ tương ứng với một cạnh của $$G_2$$ và ngược lại. Do đó $$G_1 \\cong G_2$$.",
+   "see_also": [
+    "graph",
+    "simple-graph",
+    "bipartite-graph",
+    "subgraph",
+    "adjacency-matrix"
+   ],
+   "notes": "Recommended term \"đẳng cấu đồ thị\" is the standard noun-phrase naming the concept. The cited 2020 snippet (bib-nguyenhoangthach-2020 tr. 73) attests the term inside \"Bài toán đẳng cấu đồ thị\" (the isomorphism PROBLEM) — concept-divergence flag: this snippet attests the term string but in the problem-framing sense, whereas the bijection definition $$f : V_1 \\to V_2$$ appears at §5.1.6 of the same source; both occurrences are the same lexical term applied to this concept. The variant \"sự đẳng cấu đồ thị\" is attested in bib-nguyenhuudien-2019. Newer 2020 graph-theory text bib-leanhvinh-2020 (Định nghĩa 1.6, tr. 12, OCR) states the concept with the predicate form \"được gọi là đẳng cấu với\" (standalone \"đẳng cấu\"), confirmed via --loose. Older sources: bib-nguyenducnghia-2006 (tr. 165) uses \"đẳng cấu\" predicatively; bib-ngodactan-2004 uses \"đồ thị đẳng cấu\". bib-hoangchithanh-2007 (tr. 8) uses \"sự đẳng cấu\" (there labelling the underlying vertex-set bijection; that source calls the graph relation \"đẳng hình\"). Variant forms recorded: noun phrase \"đẳng cấu đồ thị\" / \"sự đẳng cấu đồ thị\"; attributive \"đồ thị đẳng cấu\" (an isomorphic graph); predicate/relation \"đẳng cấu\" / \"sự đẳng cấu\". The autoisomorphism notion \"tự đẳng cấu\" (bib-leanhvinh-2020 tr. 37) is a related distinct concept, not listed here. The definition opens with the recommended term and states the bijection condition matching the English ground truth; the example is self-contained. see_also: \"graph\" is a same-chapter G link (correctly listed); simple-graph, bipartite-graph, subgraph (chapters S/B) and adjacency-matrix (chapter A) are cross-chapter forward references. The earlier draft's claim that \"no same-chapter G entry is linked\" was wrong — \"graph\" is in this very batch.",
+   "vi_terms": [
+    {
+     "term": "đẳng cấu đồ thị",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-nguyenhoangthach-2020",
+     "pdf_page": 73,
+     "page": "tr. 73 (PDF)",
+     "snippet": "Bài toán đẳng cấu đồ thị, tức là kiểm tra xem hai đồ thị cho trước bất kỳ"
+    },
+    {
+     "term": "đẳng cấu",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-leanhvinh-2020",
+     "pdf_page": 12,
+     "page": "tr. 12 (PDF)",
+     "snippet": "Định nghĩa 1.6. Đồ thị G; = (Vij, E,) được gọi là đẳng cấu với dé"
+    },
+    {
+     "term": "sự đẳng cấu đồ thị",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 163,
+     "page": "tr. 163 (PDF)",
+     "snippet": "6.4. Biểu diễn đồ thị bằng ma trận và sự đẳng cấu đồ thị 163"
+    },
+    {
+     "term": "đồ thị đẳng cấu",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 165,
+     "page": "tr. 165 (PDF)",
+     "snippet": "Figure 6.21: Hai đồ thị đẳng cấu"
+    },
+    {
+     "term": "sự đẳng cấu",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-hoangchithanh-2007",
+     "pdf_page": 8,
+     "page": "tr. 8 (PDF)",
+     "snippet": "sao cho sự đẳng cấu ấy bảo toàn được các cạnh của đồ thị."
+    }
+   ]
+  },
+  {
+   "id": "girth",
+   "letter": "G",
+   "headword_en": "Girth",
+   "notation": "g(G)",
+   "rosen_ref": "Rosen §10.4",
+   "definition_vi": "Đai của một đồ thị $$G$$ chứa ít nhất một chu trình là độ dài của một chu trình ngắn nhất trong $$G$$, ký hiệu $$g(G)$$. Nếu $$G$$ không chứa chu trình nào thì $$g(G)$$ không được xác định.",
+   "example_vi": "Đồ thị đầy đủ $$K_4$$ chứa các chu trình có độ dài $$3$$ và $$4$$, nên $$g(K_4) = 3$$.",
+   "see_also": [
+    "cycle",
+    "circuit"
+   ],
+   "vi_terms": [
+    {
+     "term": "độ dài chu trình ngắn nhất",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-leanhvinh-2020",
+     "pdf_page": 118,
+     "page": "tr. 118 (PDF)",
+     "snippet": "e Dé thị G không phải là cay. Gọi g là độ dài chu trình ngắn nhất"
+    },
+    {
+     "term": "độ dài chu trình ngắn nhất",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhoangthach-2020",
+     "pdf_page": 80,
+     "page": "tr. 80 (PDF)",
+     "snippet": "liên thông với v cạnh, e đỉnh. Gọi g là độ dài chu trình ngắn nhất của G và"
+    },
+    {
+     "term": "đai",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 233,
+     "page": "tr. 233 (PDF)",
+     "snippet": "có chu trình. Số δ được gọi là đai của đồ thị."
+    },
+    {
+     "term": "đai",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-hoangchithanh-2007",
+     "pdf_page": 118,
+     "page": "tr. 118 (PDF)",
+     "snippet": "Đai của đồ thị trên là = 4. Vậy thì:"
+    },
+    {
+     "term": "chu trình ngắn nhất",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-ngodactan-2004",
+     "pdf_page": 207,
+     "page": "tr. 207 (PDF)",
+     "snippet": "Độ dài của chu trình ngắn nhất trong một đồ thị đứợc gọi lả chu vi"
+    },
+    {
+     "term": "chu vi nhỏ nhất",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-ngodactan-2004",
+     "pdf_page": 207,
+     "page": "tr. 207 (PDF)",
+     "snippet": "nhỏ nhất (girth) của đồ thị đó. Chu vi nhỏ nhất của đồ thị G thường"
+    }
+   ],
+   "notes": "Concept: girth $$g(G)$$ = length of a shortest cycle in a graph that contains at least one cycle.\n\nrosen_ref reassigned from §10.8 (Graph Coloring, where girth is NOT defined) to §10.4 (Connectivity/paths), the section that actually treats cycles and paths (panel fix). Girth is not a headword term in Rosen; the standard graph-theory definition is used. The corpus splits notation: $$\\delta$$ in the 2007/2019 texts, $$g$$ in the 2004/2020 texts. This lexicon standardizes on $$g(G)$$. NOTATION COLLISION: $$g(G)$$ here means girth; the genus entry also uses $$g(G)$$ — see the genus entry, which states its own usage.\n\nRecommended term: \"độ dài chu trình ngắn nhất\" — the descriptive standard form, attested in BOTH 2020 sources (newest): bib-leanhvinh-2020 tr.118 and bib-nguyenhoangthach-2020 tr.80, where both write \"Gọi $$g$$ là độ dài chu trình ngắn nhất của $$G$$\". Newest citations first.\n\nVariants (all verified):\n- \"đai\" — the established one-word Vietnamese term for girth (often denoted $$\\delta$$). bib-nguyenhuudien-2019 (tr.233 \"Số $$\\delta$$ được gọi là đai của đồ thị\") and OCR source bib-hoangchithanh-2007 (tr.118 \"Đai của đồ thị trên là = 4\"). Not used in the 2020 sources.\n- \"chu vi nhỏ nhất\" — bib-ngodactan-2004 (tr.207), explicitly glossed in-text \"(girth)\".\n- \"chu trình ngắn nhất\" — the phrase for the shortest cycle itself, head of the recommended longer form.\n\nThe definition_vi states the concept formally with \"ký hiệu $$g(G)$$\" and notes girth is undefined for acyclic $$G$$. Per the no-inline-gloss convention, the English \"(girth)\" parenthetical was dropped from definition_vi (panel fix); the English equivalent is carried by headword_en. example_vi is self-contained: $$K_4$$ contains cycles of length $$3$$ and $$4$$ only, so $$g(K_4) = 3$$.\n\nsee_also: \"cycle\" and \"circuit\" are cross-chapter (chapter C) forward references kept for conceptual relevance to shortest cycles, not because they are same-chapter G ids; the earlier draft mislabeled them as same-chapter. \"shortest-path\" dropped as not girth-related.\n\nOCR note: bib-hoangchithanh-2007 tr.117 OCR-mangles the symbol; bib-leanhvinh-2020 OCR drops some diacritics; --loose runs confirmed the same girth pages. All verified vi_terms re-mined; every source_id/pdf_page/snippet confirmed to denote girth."
+  },
+  {
+   "id": "genus",
+   "letter": "G",
+   "headword_en": "Genus",
+   "definition_vi": "Giống của một đồ thị $$G$$ là số quai ít nhất cần gắn thêm vào mặt cầu để $$G$$ có thể được vẽ trên mặt thu được mà không có cạnh nào cắt nhau; ký hiệu $$g(G)$$.",
+   "example_vi": "Mặt cầu là mặt giống $$0$$ và mặt xuyến là mặt giống $$1$$. Do đó một đồ thị phẳng có $$g(G) = 0$$, vì nó vẽ được trên mặt cầu mà không có cạnh nào cắt nhau.",
+   "notation": "g(G)",
+   "rosen_ref": "Rosen §10.7",
+   "notes": "No 2019-2020 source attests the genus concept. The only Vietnamese source covering it is bib-ngodactan-2004 (2004), Section 6 (pp. 210-214), where the noun \"giống\" denotes the genus of a graph: \"Giống của mỗi đồ thị $$G$$ không vượt quá giao số của nó\" (Định lý 6.14, p.212, verified) and the genus theorem Định lý 6.17 (p.214, verified) is applied to $$K_n$$. The recommended term \"giống\" is therefore verified only against this 2004 source (no newer attestation exists; \"giống\" in the 2020 sources is only \"giống nhau/hệt/như\" = identical/similar, never the topological genus). The source defines a surface of genus $$g$$ as a sphere with $$g$$ handles added (p.212), and a graph has genus $$g$$ if it embeds in some genus-$$g$$ surface but not in a genus-$$(g-1)$$ surface (p.212), matching the English ground truth. The notation $$g(G)$$ is attested at p.214 (\"$$2 - 2g(G) \\leq v - e + \\dots$$\"). NOTATION COLLISION: $$g(G)$$ here means genus; the girth entry also uses $$g(G)$$ (girth also uses $$\\delta$$ in some sources) — readers should note which quantity is meant in each entry. The exact candidate \"giống của đồ thị\" does not appear verbatim in any source (0 hits, including --loose); the book's actual phrasings are \"Giống của mỗi đồ thị $$G$$\" and the construction \"đồ thị giống $$g$$\". The variant \"giống của mặt\" denotes the genus of a SURFACE (p.212), the related topological notion underlying the graph definition. The single \"giống\" hit in bib-leanhvinh-2020 (p.103) is the adverb \"giống như\" (= \"similar to\"). OCR sources searched in both normal and --loose modes: only \"giống như\"/\"giống nhau\" appear, no genus attestation.",
+   "see_also": [
+    "genus-of-a-surface",
+    "planar-graph"
+   ],
+   "vi_terms": [
+    {
+     "term": "giống",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-ngodactan-2004",
+     "pdf_page": 212,
+     "page": "tr. 212 (PDF)",
+     "snippet": "Đ inh lý 6.14. Giống của mỗi đồ thị G không vượt quá giao s ố của nó."
+    },
+    {
+     "term": "đồ thị giống g",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-ngodactan-2004",
+     "pdf_page": 212,
+     "page": "tr. 212 (PDF)",
+     "snippet": "Đồ thị G được gọi là đồ thị giống g nếu G có thể nhúng được vào mặt"
+    },
+    {
+     "term": "giống của mặt",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-ngodactan-2004",
+     "pdf_page": 212,
+     "page": "tr. 212 (PDF)",
+     "snippet": "giống của mặt cầu là 0, còn của mặt xuyến là 1. (Xem Hình 6-18)"
+    }
+   ]
+  },
+  {
+   "id": "geodesic",
+   "letter": "G",
+   "headword_en": "Geodesic",
+   "notation": "d(u,v)",
+   "definition_vi": "Một đường đi ngắn nhất nối hai đỉnh $$u$$ và $$v$$ trong một đồ thị $$G$$ là một đường đi giữa $$u$$ và $$v$$ có độ dài nhỏ nhất. Độ dài của đường đi ngắn nhất đó được gọi là khoảng cách giữa hai đỉnh $$u$$ và $$v$$, ký hiệu $$d(u,v)$$.",
+   "example_vi": "Trong đồ thị đường đi $$P_4$$ với các đỉnh $$v_1, v_2, v_3, v_4$$ nối tiếp nhau, đường đi $$v_1 v_2 v_3 v_4$$ là đường đi ngắn nhất giữa $$v_1$$ và $$v_4$$, do đó $$d(v_1, v_4) = 3$$.",
+   "notes": "The Vietnamese rendering of Rosen's geodesic/distance concept splits into two attested strands covered jointly. (1) \"khoảng cách\" denotes the distance $$d(u,v)$$ — the length of a shortest path; (2) \"đường đi ngắn nhất\" denotes the geodesic, i.e. the shortest path realizing that distance. CITATION FIX (panel high): the recommended term surface form was \"khoảng cách giữa hai đỉnh\", but that exact phrase returns 0 hits in bib-leanhvinh-2020 (re-verified strict and --loose; it occurs in leanhvinh-2020 only at tr.222 in the distinct distance-regular-graph context). The recommended term is therefore set to \"khoảng cách\", which IS attested verbatim in the cited tr.17 snippet \"khoảng cách giữa u và v, kí hiệu bởi $$d_G(u,v)$$\", keeping the 2020 source and a definitional sense. The longer phrase \"khoảng cách giữa hai đỉnh\" is attested verbatim only in bib-ngodactan-2004 (tr.216) and (as \"khoảng cách giữa đỉnh\") in bib-hoangchithanh-2007 (tr.99), both older; it is retained as a variant. The same identity (distance = length of shortest path) is stated in bib-nguyenhoangthach-2020 (tr.88), bib-nguyenhuudien-2019 (tr.186, where \"khoảng cách $$d(u,v)$$\" appears), bib-hoangchithanh-2007 (tr.99, OCR), and bib-ngodactan-2004 (tr.216). OCR sources searched normal and --loose; loose returned identical hits for the relevant phrases.",
+   "rosen_ref": "Rosen §10.4",
+   "see_also": [
+    "distance",
+    "shortest-path",
+    "eccentricity",
+    "diameter",
+    "radius"
+   ],
+   "vi_terms": [
+    {
+     "term": "khoảng cách",
+     "source_id": "bib-leanhvinh-2020",
+     "page": "tr. 17 (PDF)",
+     "pdf_page": 17,
+     "snippet": "Với hai đỉnh u,v € V, khoảng cách giữa u va v, kí hiệu bởi dg(u, v) ... là độ dài đường đi ngắn nhất giữa chúng.",
+     "verified": true,
+     "recommended": true
+    },
+    {
+     "term": "khoảng cách",
+     "source_id": "bib-nguyenhoangthach-2020",
+     "page": "tr. 88 (PDF)",
+     "pdf_page": 88,
+     "snippet": "khoảng cách giữa u và v trong G, tức là độ dài đường đi ngắn nhất giữa u và",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "đường đi ngắn nhất giữa hai đỉnh",
+     "source_id": "bib-nguyenhoangthach-2020",
+     "page": "tr. 92 (PDF)",
+     "pdf_page": 92,
+     "snippet": "Thuật toán Dijkstra tìm đường đi ngắn nhất giữa hai đỉnh được mô tả trong",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "đường đi ngắn nhất",
+     "source_id": "bib-nguyenhuudien-2019",
+     "page": "tr. 244 (PDF)",
+     "pdf_page": 244,
+     "snippet": "Ký hiệu d( x ) là độ dài của đường đi ngắn nhất nối đỉnh a với đỉnh x.",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "khoảng cách d(u, v)",
+     "source_id": "bib-nguyenhuudien-2019",
+     "page": "tr. 186 (PDF)",
+     "pdf_page": 186,
+     "snippet": "Ta gọi độ dài đường đi ngắn nhất từ u đến v là khoảng cách d(u, v).",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "khoảng cách giữa hai đỉnh",
+     "source_id": "bib-ngodactan-2004",
+     "page": "tr. 216 (PDF)",
+     "pdf_page": 216,
+     "snippet": "Q = (V,E). Khoảng cách giữa hai đỉnh u và V trong G, ký hiệu",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "khoảng cách giữa đỉnh",
+     "source_id": "bib-hoangchithanh-2007",
+     "page": "tr. 99 (PDF)",
+     "pdf_page": 99,
+     "snippet": "Ký hiệu d(x, y) là khoảng cách giữa đỉnh x và đỉnh y trong đồ",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "đường đi ngắn nhất",
+     "source_id": "bib-nguyenducnghia-2006",
+     "page": "tr. 222 (PDF)",
+     "pdf_page": 222,
+     "snippet": "Trong các ứng dụng thực tế, Bài toán tìm đường đi ngắn nhất giữa hai đính của một",
+     "verified": true,
+     "recommended": false
+    }
+   ]
+  },
+  {
+   "id": "grid-graph",
+   "letter": "G",
+   "headword_en": "Grid graph",
+   "definition_vi": "Đồ thị lưới là đồ thị đơn vô hướng mà tập đỉnh gồm các điểm của một lưới chữ nhật $$m \\times n$$ trong mặt phẳng, trong đó hai đỉnh kề nhau khi và chỉ khi chúng cách nhau đúng một đơn vị theo phương ngang hoặc phương dọc. (Lưu ý: trong nguồn tiếng Việt duy nhất chứng thực tên này, ký hiệu $$L_n$$ lại chỉ một đối tượng khác — đồ thị quân xe trên $$[n]^2$$; xem ghi chú.)",
+   "notation": "",
+   "rosen_ref": "Rosen §10.2",
+   "example_vi": "Đồ thị lưới $$2 \\times 2$$ có $$4$$ đỉnh nằm tại bốn điểm lưới và $$4$$ cạnh nối các đỉnh cách nhau một đơn vị theo phương ngang hoặc phương dọc, tạo thành một chu trình bốn cạnh.",
+   "notes": "CONCEPT-DIVERGENCE FLAG (panel high). headword_en \"Grid graph\" is Rosen's standard rectangular grid: vertices are the points of an $$m \\times n$$ lattice and two vertices are adjacent iff they differ by exactly one unit horizontally or vertically (the Cartesian product $$P_m \\square P_n$$). The ONLY Vietnamese source attesting both the term \"đồ thị lưới\" and the notation $$L_n$$ is bib-leanhvinh-2020 (2020), tr. 216 (Ví dụ 8.18, Hình 8.7) and tr. 244 (Bài tập 8.11) — but there $$L_n$$ is defined on $$[n]^2$$ with $$(a,b) \\sim (c,d)$$ iff $$a = c$$ HOẶC $$b = d$$ (same row or same column), i.e. the ROOK'S GRAPH / Hamming graph $$K_n \\square K_n$$ (strongly regular), and Hình 8.7 explicitly states $$L_2$$ equals the Paley graph $$P_5$$ — NOT the unit-distance grid (whose $$L_2$$ is a 4-cycle). The source's object is therefore a different graph than the headword. RESOLUTION (panel fix (b)): the standard Rosen grid-graph definition is kept as the headword and generalized to the $$m \\times n$$ grid; the notation field is left empty so $$L_n$$ is NOT presented as if it denoted Rosen's grid; the divergence is stated in definition_vi and here; and the single vi_term \"đồ thị lưới\" stays verified=true (the term IS genuinely attested) but carries a per-term divergence note recording that the source binds it to the rook's graph. No corpus source attests \"đồ thị lưới\" for Rosen's unit-distance rectangular grid; the recommended Vietnamese name is retained because it is the natural rendering and the only attested form, with the divergence disclosed. Candidate \"đồ thị dạng lưới\" returned 0 hits (normal + --loose). The 2004 source (ngodactan) uses \"lưới nguyên\"/\"lưới vuông\"/\"điểm lưới\" for the geometric integer lattice, not as a graph name, so they are not variants here. OCR of bib-leanhvinh-2020 shows \"đỏ thị lưới\"; --loose matched.",
+   "see_also": [
+    "paley-graph",
+    "regular-graph"
+   ],
+   "vi_terms": [
+    {
+     "term": "đồ thị lưới",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-leanhvinh-2020",
+     "pdf_page": 216,
+     "page": "tr. 216 (PDF)",
+     "snippet": "Vi dụ 8.18. Với n nguyên dương, đỏ thị lưới L,, có tập đỉnh là các ... các đỉnh của L,, là các điểm trên lưới vuông",
+     "notes": "CONCEPT DIVERGENCE: the source binds \"đồ thị lưới $$L_n$$\" to the rook's graph on $$[n]^2$$ (adjacent iff same row or same column; $$L_2 = $$ Paley graph $$P_5$$), NOT to Rosen's unit-distance rectangular grid that this entry's headword/definition describes. Term and page verify verbatim; the object differs."
+    }
+   ]
+  },
+  {
+   "id": "generating-function",
+   "letter": "G",
+   "headword_en": "Generating function",
+   "notation": "G(x) = \\sum_{k=0}^{\\infty} a_k x^k",
+   "rosen_ref": "Rosen §8.4",
+   "definition_vi": "Hàm sinh của dãy số thực $$a_0, a_1, \\ldots, a_k, \\ldots$$ là chuỗi lũy thừa hình thức $$\\displaystyle\\sum_{k=0}^{\\infty} a_k x^k$$, ký hiệu $$G(x)$$. Mỗi số hạng $$a_k$$ của dãy là hệ số của $$x^k$$ trong chuỗi này.",
+   "example_vi": "Dãy hằng $$a_k = 1$$ với mọi $$k \\geq 0$$ có hàm sinh $$G(x) = \\displaystyle\\sum_{k=0}^{\\infty} x^k$$.",
+   "notes": "Recommended term \"hàm sinh\" is the standard Vietnamese rendering and is attested with a formal definition in the newest source bib-nguyenhoangthach-2020 (Định nghĩa 3.9, tr. 45 (PDF): \"Hàm sinh (thường) của dãy $$a_0, a_1, a_2, \\ldots, a_n, \\ldots$$ là chuỗi ...\"), where \"(thường)\" is an inline parenthetical qualifier rather than a standalone term. The variants \"hàm sinh thông thường\" (ordinary generating function) and \"hàm sinh mũ\" (exponential generating function) are attested only in the older bib-ngodactan-2004; they denote specific subtypes. \\displaystyle was added to the inline $$\\sum$$ in definition_vi and example_vi (panel exposition fix: tall stacked operator inline). The OCR sources bib-leanhvinh-2020 and bib-hoangchithanh-2007 returned 0 hits in both normal and --loose modes, and the text source bib-nguyenhuudien-2019 returned 0 hits.",
+   "see_also": [],
+   "vi_terms": [
+    {
+     "term": "hàm sinh",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-nguyenhoangthach-2020",
+     "pdf_page": 45,
+     "page": "tr. 45 (PDF)",
+     "snippet": "Định nghĩa 3.9. Hàm sinh (thường) của dãy a0 , a1 , a2 , · · · , an , · · · là chuỗi"
+    },
+    {
+     "term": "hàm sinh",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenducnghia-2006",
+     "pdf_page": 38,
+     "page": "tr. 38 (PDF)",
+     "snippet": "Định nghĩa. Hàm sinh g(x) của dãy số {h,ln=0,1,2.....] là chuỗi vô hạn"
+    },
+    {
+     "term": "hàm sinh",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-ngodactan-2004",
+     "pdf_page": 59,
+     "page": "tr. 59 (PDF)",
+     "snippet": "Trong chương này ta đề cập tới các phương pháp đếm dùng hàm sinh."
+    },
+    {
+     "term": "hàm sinh thông thường",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-ngodactan-2004",
+     "pdf_page": 87,
+     "page": "tr. 87 (PDF)",
+     "snippet": "thông thường cho dãy (dj)ỗ°. Như vậy, hàm sinh thông thường cho dãy"
+    },
+    {
+     "term": "hàm sinh mũ",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-ngodactan-2004",
+     "pdf_page": 97,
+     "page": "tr. 97 (PDF)",
+     "snippet": "Ở mục trước ta đã định nghĩa hàm sinh mũ cho dãy số (aj)ỗ° là chuỗi"
+    }
+   ]
+  },
+  {
+   "id": "greatest-common-divisor",
+   "letter": "G",
+   "headword_en": "Greatest common divisor",
+   "notation": "\\gcd(a,b)",
+   "rosen_ref": "Rosen §4.3",
+   "definition_vi": "Ước chung lớn nhất của hai số nguyên $$a$$ và $$b$$ không đồng thời bằng $$0$$ là số nguyên lớn nhất $$d$$ chia hết cả $$a$$ và $$b$$, ký hiệu $$\\gcd(a,b)$$.",
+   "example_vi": "Với $$a = 12$$ và $$b = 18$$, các ước chung của chúng là $$1, 2, 3, 6$$, nên $$\\gcd(12,18) = 6$$.",
+   "notes": "Recommended term \"ước chung lớn nhất\" is attested in the newest source bib-nguyenhuudien-2019 (2019, discrete math), p.141-147, with an earlier corroboration in bib-nguyenducnghia-2006 p.89; citations listed newest-first. Variant \"ước số chung lớn nhất\" (inserts \"số\") is attested in bib-nguyenhuudien-2019 p.124 and bib-ngodactan-2004 p.156, 176. The abbreviation \"ƯCLN\" appears in the corpus as OCR/typeset form \"UCLN\" (the Ư horn diacritic is dropped in typesetting, so searching \"UCLN\" returns hits while \"ƯCLN\" returns none); bib-nguyenhuudien-2019 p.142 explicitly defines it: \"UCLN(a,b) để chỉ ước chung lớn nhất của a và b\", so the abbreviation is verified for this concept via that source. The graph-theory sources (bib-leanhvinh-2020, bib-nguyenhoangthach-2020, bib-hoangchithanh-2007) return 0 hits since GCD is a number-theory concept absent from those graph-focused texts; thus no 2020 attestation exists, and the recommended term falls back to the 2019 source as permitted.",
+   "see_also": [
+    "least-common-multiple",
+    "relatively-prime",
+    "division-algorithm",
+    "euclidean-algorithm"
+   ],
+   "vi_terms": [
+    {
+     "term": "ước chung lớn nhất",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 141,
+     "page": "tr. 141 (PDF)",
+     "snippet": "Phương pháp tính ước chung lớn nhất của hai số bằng cách dùng phân tích các số"
+    },
+    {
+     "term": "ước chung lớn nhất",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 142,
+     "page": "tr. 142 (PDF)",
+     "snippet": "(Ở đây UCLN ( a, b) để chỉ ước chung lớn nhất của a và b.)"
+    },
+    {
+     "term": "ước chung lớn nhất",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenducnghia-2006",
+     "pdf_page": 89,
+     "page": "tr. 89 (PDF)",
+     "snippet": "Thí dụ 1I. Phân tích thuật toán Euclide tìm ước chung lớn nhất của hai số nguyên"
+    },
+    {
+     "term": "ước số chung lớn nhất",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 124,
+     "page": "tr. 124 (PDF)",
+     "snippet": "a ∧ b = ( a, b) (ước số chung lớn nhất của a và b)"
+    },
+    {
+     "term": "ước số chung lớn nhất",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-ngodactan-2004",
+     "pdf_page": 176,
+     "page": "tr. 176 (PDF)",
+     "snippet": "<Pi(n) — <f(n). Ký hiệu gcd(n,m) là ước số chung lớn nhất của hai số"
+    },
+    {
+     "term": "ước số chung lớn nhất",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-ngodactan-2004",
+     "pdf_page": 156,
+     "page": "tr. 156 (PDF)",
+     "snippet": "Suy ra, m = n / (i, n), ờ đây (í, n) là ước số chung lớn nhất của i và n."
+    },
+    {
+     "term": "ƯCLN",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 142,
+     "page": "tr. 142 (PDF)",
+     "snippet": "(Ở đây UCLN ( a, b) để chỉ ước chung lớn nhất của a và b.)"
+    }
+   ]
+  },
+  {
+   "id": "gray-code",
+   "letter": "G",
+   "headword_en": "Gray code",
+   "notation": "",
+   "rosen_ref": "Rosen §10.5",
+   "definition_vi": "Mã Gray độ dài $$n$$ là một cách sắp xếp toàn bộ $$2^n$$ xâu bit độ dài $$n$$ thành một dãy sao cho hai xâu liên tiếp bất kỳ chỉ khác nhau đúng tại một vị trí bit, và xâu cuối cũng chỉ khác xâu đầu đúng tại một vị trí bit.",
+   "example_vi": "Với $$n = 2$$, dãy $$00, 01, 11, 10$$ là một mã Gray: mỗi xâu khác xâu liền sau đúng một bit, và xâu cuối $$10$$ cũng chỉ khác xâu đầu $$00$$ đúng một bit.",
+   "see_also": [
+    "n-cube",
+    "hamilton-circuit",
+    "bit-string"
+   ],
+   "notes": "No Vietnamese source in the corpus attests the Gray code concept under any candidate term. All three candidates (mã Gray, mã Grây, bộ mã Gray) returned 0 hits in both normal and --loose modes across all six sources. Common alternative names were also searched and returned 0 relevant hits: \"mã vòng\", \"mã phản xạ\", \"mã hóa Gray\", \"mã nhị phân Gray\", \"xâu Gray\", \"chuỗi Gray\", \"phản xạ nhị phân\", and the bare English \"Gray\"/\"Gray code\". The tool was sanity-checked (3747 hits for \"đồ thị\"), confirming the corpus is searchable. OCR-tolerant variants (\"Grei\", \"Grê\", \"Grav\", \"Gtay\") only surfaced unrelated names (Grötzsch graph, Greenwood/Gleason Ramsey results, Graver, \"giấy bạc\"/banknotes), none denoting Gray code. Per the locked conventions, the standard term \"mã Gray\" is kept as recommended with verified=false and page=\"\" so vi_terms is non-empty; the variants \"mã Grây\" and \"bộ mã Gray\" are documented here but dropped from vi_terms (verified=false with empty page). UNVERIFIED RECOMMENDED TERM (standard-usage basis), mirroring the unattested-standard-term precedent in chapter C. see_also entries (n-cube, hamilton-circuit, bit-string) are cross-chapter forward references: Rosen §10.5 builds Gray codes as Hamilton circuits of the n-cube $$Q_n$$ over bit strings.",
+   "vi_terms": [
+    {
+     "term": "mã Gray",
+     "verified": false,
+     "recommended": true,
+     "page": "",
+     "snippet": "",
+     "source_id": ""
+    }
+   ]
+  },
+  {
+   "id": "greedy-algorithm",
+   "letter": "G",
+   "headword_en": "Greedy algorithm",
+   "notation": "",
+   "rosen_ref": "Rosen §3.1",
+   "definition_vi": "Thuật toán tham lam là thuật toán mà tại mỗi bước đều chọn phương án tối ưu cục bộ theo một tiêu chí đã định, với hy vọng đạt được lời giải tối ưu toàn cục.",
+   "example_vi": "Để tìm cây bao trùm nhỏ nhất của một đồ thị liên thông có trọng số, thuật toán tham lam lần lượt thêm vào cây cạnh có trọng số nhỏ nhất trong số các cạnh chưa tạo thành chu trình.",
+   "notes": "Recommended term \"thuật toán tham lam\" is attested in two 2020 sources (newest-first: bib-leanhvinh-2020 tr. 61, where it names the greedy algorithm building a minimum spanning tree by adding edges in turn; and bib-nguyenhoangthach-2020 tr. 93, \"basic example of the greedy algorithm\"). The bare adjective \"tham lam\" appears in bib-leanhvinh-2020 tr. 59 naming the greedy method for the minimum spanning tree. Candidate \"giải thuật tham lam\" returned 0 hits in both normal and --loose searches across all six sources and is recorded here only as an unattested synonym variant (dropped from vi_terms per citation hygiene). In bib-nguyenhoangthach-2020 tr. 88, \"tham lam\" occurs in quotation marks as an adverb describing how DFS explores (\"khám phá một cách 'tham lam'\"), a descriptive use rather than naming the concept, so that hit is not recorded as a term attestation. OCR sources searched both normally and with --loose; the older text sources and bib-hoangchithanh-2007 returned no attestations of any candidate term for this concept. The example draws on the minimum-spanning-tree usage attested in bib-leanhvinh-2020 and is self-contained. see_also is empty: no other letter-G entry is the closest related concept here.",
+   "see_also": [],
+   "vi_terms": [
+    {
+     "term": "thuật toán tham lam",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-leanhvinh-2020",
+     "pdf_page": 61,
+     "page": "tr. 61 (PDF)",
+     "snippet": "một thuật toán tham lam trong đó ta sẽ thêm lan lượt các cạnh với"
+    },
+    {
+     "term": "thuật toán tham lam",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhoangthach-2020",
+     "pdf_page": 93,
+     "page": "tr. 93 (PDF)",
+     "snippet": "dụ cơ bản về thuật toán tham lam."
+    },
+    {
+     "term": "tham lam",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-leanhvinh-2020",
+     "pdf_page": 59,
+     "page": "tr. 59 (PDF)",
+     "snippet": "tham lam để tìm cây bao trùm nhỏ nhất của một mạng lưới võ hướng."
+    }
+   ]
+  },
+  {
+   "id": "geometric-series",
+   "letter": "G",
+   "headword_en": "Geometric series",
+   "notation": "\\sum_{j=0}^{n} a r^j",
+   "rosen_ref": "Rosen §2.4",
+   "definition_vi": "Một \\emph{tổng cấp số nhân} là tổng hữu hạn của các số hạng liên tiếp của một cấp số nhân, tức là tổng có dạng $$\\displaystyle\\sum_{j=0}^{n} a r^j$$, trong đó số hạng đầu $$a$$ và công bội $$r$$ là các số thực. Tổng này, ký hiệu $$\\displaystyle\\sum_{j=0}^{n} a r^j = a + a r + a r^2 + \\dots + a r^n$$, được lấy trên các số mũ $$j$$ từ $$0$$ đến $$n$$.",
+   "example_vi": "Với $$a = 3$$, $$r = 2$$ và $$n = 4$$, tổng cấp số nhân tương ứng là $$\\displaystyle\\sum_{j=0}^{4} 3 \\cdot 2^j = 3 + 6 + 12 + 24 + 48 = 93$$.",
+   "notes": "Mining hit only \"cấp số nhân\" once, in bib-nguyenhoangthach-2020 (tr. 41 PDF), where it denotes the geometric progression $$a_n = r^n$$ used as the trial solution to a linear recurrence (characteristic-equation method) — concept-divergence flag: this is the underlying PROGRESSION, not the series sum itself, and it is recorded as a variant only because it is the lexical root of the recommended series term. The recommended standard term for the SERIES (the sum $$\\sum_{j=0}^{n} a r^j$$) is \"tổng cấp số nhân\" (\"sum of a geometric progression\"), which no corpus source attests with a snippet; it is kept verified=false with an empty page so vi_terms carries a standard headword (UNVERIFIED RECOMMENDED TERM, standard-usage basis). The candidates \"chuỗi cấp số nhân\", \"tổng cấp số nhân\", \"chuỗi hình học\", \"công bội\", and \"tổng của cấp số nhân\" returned 0 hits in both normal and --loose modes across all sources (including OCR sources). Exposition fixes (panel): definition_vi made FINITE (\"tổng hữu hạn ... từ $$j = 0$$ đến $$n$$\") to match Rosen §2.4; the term \"tổng cấp số nhân\" set with \\emph OUTSIDE math (the previous \\textit inside math violated the math-wrapping convention, modeled on the 'group' entry); \\displaystyle added to the inline $$\\sum$$. Snippet re-verified against the corpus line for bib-nguyenhoangthach-2020 tr. 41.",
+   "see_also": [
+    "geometric-progression"
+   ],
+   "vi_terms": [
+    {
+     "term": "tổng cấp số nhân",
+     "verified": false,
+     "recommended": true,
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": ""
+    },
+    {
+     "term": "cấp số nhân",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhoangthach-2020",
+     "page": "tr. 41 (PDF)",
+     "pdf_page": 41,
+     "snippet": "(3.4) có dạng cấp số nhân, tức là an = rn , r 6= 0. Thay an = rn vào (3.4), chuyển vế và rút"
+    }
+   ]
+  },
+  {
+   "id": "group",
+   "letter": "G",
+   "headword_en": "Group",
+   "notation": "(G, \\ast)",
+   "rosen_ref": "Rosen §9.6",
+   "definition_vi": "Một \\emph{nhóm} là một tập hợp $$G$$ cùng với một phép toán hai ngôi $$\\ast$$ trên $$G$$, ký hiệu $$(G, \\ast)$$, thỏa mãn ba điều kiện: phép toán $$\\ast$$ có tính kết hợp, tồn tại phần tử đơn vị $$e \\in G$$ sao cho $$e \\ast a = a \\ast e = a$$ với mọi $$a \\in G$$, và mỗi phần tử $$a \\in G$$ đều có phần tử nghịch đảo $$a' \\in G$$ sao cho $$a \\ast a' = a' \\ast a = e$$.",
+   "example_vi": "Tập các số nguyên $$\\mathbb{Z}$$ với phép cộng $$+$$ là một nhóm: phép cộng có tính kết hợp, $$0$$ là phần tử đơn vị, và mỗi $$a \\in \\mathbb{Z}$$ có nghịch đảo $$-a$$.",
+   "notes": "Standard Vietnamese term for the algebraic group structure $$(G, \\ast)$$ is \"nhóm\", recommended here. The concept (a set with an associative binary operation having an identity and inverses) is NOT attested in any 2019-2020 corpus source: in bib-leanhvinh-2020 (and absent from bib-nguyenhoangthach-2020 / bib-nguyenhuudien-2019) \"nhóm\" appears only in the everyday sense \"nhóm các đỉnh / nhóm người\" (a cluster of vertices/people), not the algebraic structure. The recommended term is therefore attested in the newest available algebraic source, bib-ngodactan-2004 (p.140: \"$$G$$ là một nhóm đối với phép nhân ánh xạ\"; p.139: \"$$e$$ là đơn vị của nhóm $$G$$\"). The candidate \"cấu trúc nhóm\" returned 0 hits in all sources and is dropped. \"nhóm giao hoán\" (abelian/commutative group) is a special case that still denotes a group and is attested in bib-hoangchithanh-2007 p.25 and bib-ngodactan-2004 p.318. Related but distinct concepts (forward references, not this headword): \"nhóm con\" (subgroup), \"nhóm hoán vị\" (permutation group), \"nhóm xyclic\" (cyclic group); \"nửa nhóm\" (semigroup) is explicitly NOT a group.",
+   "see_also": [
+    "semigroup",
+    "subgroup",
+    "binary-operation",
+    "permutation-group"
+   ],
+   "vi_terms": [
+    {
+     "term": "nhóm",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-ngodactan-2004",
+     "pdf_page": 140,
+     "page": "tr. 140 (PDF)",
+     "snippet": "G là một nhóm đối với phép nhân ánh xạ. Mỗi tự đẳng cấu của hình"
+    },
+    {
+     "term": "nhóm giao hoán",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-hoangchithanh-2007",
+     "pdf_page": 25,
+     "page": "tr. 25 (PDF)",
+     "snippet": "Vậy cặp (N, ®) trở thành một nhóm giao hoán."
+    }
+   ]
+  },
+  {
+   "id": "graph-of-a-function",
+   "letter": "G",
+   "headword_en": "Graph of a function",
+   "notation": "\\{(a, f(a)) : a \\in A\\}",
+   "rosen_ref": "Rosen §2.3",
+   "definition_vi": "Đồ thị của hàm số $$f$$ từ tập $$A$$ đến tập $$B$$ là tập các cặp sắp thứ tự gồm mỗi phần tử $$a \\in A$$ và ảnh $$f(a)$$ của nó, ký hiệu\n\n```math\n\\{(a, b) : a \\in A \\text{ và } f(a) = b\\}.\n```\n\nĐồ thị của hàm số $$f$$ là một tập con của tích Descartes $$A \\times B$$.",
+   "example_vi": "Đồ thị của hàm số $$f(n) = 2n + 1$$ từ $$\\mathbb{Z}$$ đến $$\\mathbb{Z}$$ là tập các cặp sắp thứ tự $$\\{(n, 2n + 1) : n \\in \\mathbb{Z}\\}$$.",
+   "notes": "Bản dịch tiếng Việt của Rosen (bib-rosen-2003-vi, 2003) chứng thực trực tiếp khái niệm này: mục \"ĐỒ THỊ CỦA HÀM\", ĐỊNH NGHĨA 11 (tr. 90 PDF) định nghĩa đồ thị của hàm $$f$$ là tập các cặp sắp thứ tự $$\\{(a, b) : a \\in A$$ và $$f(a) = b\\}$$ — đúng theo Rosen §2.3. Tuy nhiên theo registry, bib-rosen-2003-vi là nguồn reference-only (bản dịch cũ, chỉ dùng để thu biến thể, KHÔNG được chọn làm thuật ngữ recommended). Vì vậy thuật ngữ recommended là \"đồ thị của hàm số\" (verified=false, UNVERIFIED RECOMMENDED TERM, standard-usage basis), còn biến thể được chứng thực \"đồ thị của hàm\" ghi nhận với verified=true từ bib-rosen-2003-vi. Snippet của \"đồ thị của hàm\" là văn bản OCR của Định nghĩa 11 trải qua một ngắt dòng OCR; per citation hygiene nó được đánh dấu rõ là tái dựng nhiều dòng (per-term note) — thuật ngữ và trang chính xác, dòng find-term đơn lẻ kết thúc \"...Đồ thị của\". Không nguồn nào trong sáu nguồn so sánh chính/đối chiếu chứng thực khái niệm tập cặp sắp thứ tự $$\\{(a, f(a)) : a \\in A\\}$$ của Rosen §2.3; trong các nguồn này \"đồ thị\" luôn chỉ đồ thị tổ hợp $$G = (V, E)$$. Các cụm \"đồ thị của hàm số\", \"đồ thị hàm số\", \"đồ thị của hàm\", \"đồ thị của ánh xạ\", \"biểu đồ của hàm\" đều cho 0 hit (cả normal và --loose) trong sáu nguồn đó.",
+   "see_also": [
+    "function",
+    "ordered-pair",
+    "cartesian-product"
+   ],
+   "vi_terms": [
+    {
+     "term": "đồ thị của hàm số",
+     "verified": false,
+     "recommended": true,
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": "",
+     "notes": "Thuật ngữ chuẩn dịch sát Rosen §2.3; không nguồn so sánh chính/đối chiếu nào chứng thực khái niệm tập cặp sắp thứ tự này (0 hit normal+loose). Bản dịch Rosen 2003 dùng dạng rút gọn 'đồ thị của hàm' (reference-only) nên không lấy làm recommended."
+    },
+    {
+     "term": "đồ thị của hàm",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-rosen-2003-vi",
+     "page": "tr. 90 (PDF)",
+     "pdf_page": 90,
+     "snippet": "ĐỊNH NGHĨA 11. Cho ƒ là một hàm từ tập A đến tập B. Đồ thị của",
+     "notes": "Chứng thực theo Rosen §2.3 trong bản dịch tiếng Việt của Rosen (Định nghĩa 11, tr. 90 PDF). Snippet là dòng find-term đơn lẻ kết thúc '...Đồ thị của'; phần còn lại của định nghĩa (tập cặp sắp thứ tự {(a,b) | a ∈ A và f(a)=b}) nằm ở các dòng tiếp theo. bib-rosen-2003-vi là nguồn reference-only (role: reference) nên không được chọn làm thuật ngữ recommended."
+    }
+   ]
+  },
+  {
+   "id": "euclidean-algorithm",
+   "letter": "G",
+   "headword_en": "Greatest common divisor (Euclidean algorithm)",
+   "notation": "\\gcd(a,b)",
+   "rosen_ref": "Rosen §4.3",
+   "definition_vi": "Thuật toán Euclide là thủ tục tính ước chung lớn nhất của hai số nguyên dương $$a$$ và $$b$$, ký hiệu $$\\gcd(a,b)$$, bằng cách lặp lại việc thay cặp $$(a, b)$$ bởi cặp $$(b, a \\bmod b)$$ cho đến khi thành phần thứ hai bằng $$0$$. Khi đó thành phần thứ nhất chính là $$\\gcd(a, b)$$.",
+   "example_vi": "Để tính $$\\gcd(662, 414)$$, ta thực hiện liên tiếp: $$(662, 414) \\to (414, 248) \\to (248, 166) \\to (166, 82) \\to (82, 2) \\to (2, 0)$$, vì $$662 \\bmod 414 = 248$$, $$414 \\bmod 248 = 166$$, $$248 \\bmod 166 = 82$$, $$166 \\bmod 82 = 2$$ và $$82 \\bmod 2 = 0$$. Thành phần thứ nhất khi thành phần thứ hai bằng $$0$$ là $$2$$, do đó $$\\gcd(662, 414) = 2$$.",
+   "notes": "ID FIX (panel low): the entry id was renamed from \"graph-bipartite-detection-gcd-euclidean\" (which referenced unrelated concepts) to \"euclidean-algorithm\", matching the headword and the forward reference already listed in the greatest-common-divisor entry's see_also. Concept not attested in any 2019-2020 graph-theory source: in bib-leanhvinh-2020 \"Euclid\" denotes only the finite Euclidean graph (\"đồ thị Euclid hữu hạn\", tr. 97) and in bib-ngodactan-2004 only Euclidean space (\"không gian Euclid\"), neither of which is this concept. The newest source attesting the gcd Euclidean algorithm is bib-nguyenhuudien-2019 (2019, discrete math), which attests both component terms in full; bib-nguyenducnghia-2006 confirms the combined name \"thuật toán Euclide tìm ước chung lớn nhất\". The candidate spelling \"thuật toán Ơclit tìm ước chung lớn nhất\" (Vietnamized \"Ơclit\") is NOT attested in any source; all sources spell the name \"Euclide\"/\"Euclid\", so the recommended term uses the attested spelling. Sources abbreviate gcd as $$\\mathrm{UCLN}(a,b)$$. The example follows the worked instance in bib-nguyenhuudien-2019 (tr. 142, Ví dụ 5.8, $$\\gcd(414,662)=2$$), reordered as $$(662,414)$$ so the larger argument starts the sequence per the source's pseudocode.",
+   "see_also": [
+    "greatest-common-divisor",
+    "division-algorithm"
+   ],
+   "vi_terms": [
+    {
+     "term": "thuật toán Euclide",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 141,
+     "page": "tr. 141 (PDF)",
+     "snippet": "gọi là thuật toán Euclide. Thuật toán này đã biết từ thời cổ đại. Nó mang tên nhà toán học cổ"
+    },
+    {
+     "term": "ước chung lớn nhất",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 142,
+     "page": "tr. 142 (PDF)",
+     "snippet": "Do đó, ước chung lớn nhất là số dư khác không cuối cùng trong dãy các phép chia."
+    },
+    {
+     "term": "thuật toán Euclide tìm ước chung lớn nhất",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenducnghia-2006",
+     "pdf_page": 89,
+     "page": "tr. 89 (PDF)",
+     "snippet": "Thí dụ 1I. Phân tích thuật toán Euclide tìm ước chung lớn nhất của hai số nguyên"
+    }
+   ]
+  }
+ ]
+}

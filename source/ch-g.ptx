@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<chapter xml:id="ch-g" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>G</title>
+
+  <introduction>
+    <p>
+      Chương này tập hợp các thuật ngữ tiếng Anh bắt đầu bằng chữ <q>G</q>, kèm
+      định nghĩa và các thuật ngữ tiếng Việt tương ứng cùng trích dẫn nguồn.
+    </p>
+  </introduction>
+
+  <definition xml:id="def-graph">
+    <title>Graph — đồ thị</title>
+    <idx><h>graph</h></idx>
+    <idx><h>đồ thị</h></idx>
+    <idx><h>đồ thị G</h></idx>
+    <notation>
+      <usage><m>G = (V, E)</m></usage>
+      <description>đồ thị</description>
+    </notation>
+    <statement>
+      <p>Một <em>đồ thị</em> <m>G = (V, E)</m> gồm một tập đỉnh <m>V</m> khác rỗng và một tập cạnh <m>E</m>, trong đó mỗi cạnh được gắn với một hoặc hai đỉnh, gọi là các đầu mút của cạnh đó (theo <xref ref="bib-rosen-2019" />, Rosen §10.1).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>đồ thị</term> <xref ref="bib-leanhvinh-2020" /> (tr. 8 (PDF)); <xref ref="bib-nguyenhoangthach-2020" /> (tr. 61 (PDF)); <xref ref="bib-nguyenhuudien-2019" /> (tr. 154 (PDF)); <xref ref="bib-hoangchithanh-2007" /> (tr. 5 (PDF)); <xref ref="bib-nguyenducnghia-2006" /> (tr. 152 (PDF)); <xref ref="bib-ngodactan-2004" /> (tr. 188 (PDF)) — cách dùng phổ biến.</p></li>
+        <li><p><term>graph</term> <xref ref="bib-hoangchithanh-2007" /> (tr. 5 (PDF)).</p></li>
+        <li><p><term>đồ thị G</term> <xref ref="bib-hoangchithanh-2007" /> (tr. 6 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Xét <m>G = (V, E)</m> với tập đỉnh <m>V = \{a, b, c, d\}</m> và tập cạnh <m>E = \{ab, bc, cd\}</m>; khi đó cạnh <m>ab</m> có hai đầu mút là <m>a</m> và <m>b</m>.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-graph-coloring">
+    <title>Graph coloring — tô màu đồ thị</title>
+    <idx><h>graph coloring</h></idx>
+    <idx><h>bài toán tô màu</h></idx>
+    <idx><h>phép tô màu đồ thị</h></idx>
+    <idx><h>tô màu</h></idx>
+    <idx><h>tô màu các đỉnh</h></idx>
+    <idx><h>tô màu tốt</h></idx>
+    <idx><h>tô màu đỉnh</h></idx>
+    <idx><h>tô màu đồ thị</h></idx>
+    <statement>
+      <p>Một phép tô màu đồ thị của một đơn đồ thị <m>G</m> là một phép gán cho mỗi đỉnh của <m>G</m> một màu sao cho không có hai đỉnh kề nhau nào được gán cùng một màu. Nói cách khác, với mọi cạnh <m>uv \in E(G)</m>, hai đỉnh <m>u</m> và <m>v</m> nhận hai màu khác nhau (theo <xref ref="bib-rosen-2019" />, Rosen §10.8).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>tô màu đồ thị</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 81 (PDF)); <xref ref="bib-nguyenhuudien-2019" /> (tr. 223 (PDF)); <xref ref="bib-leanhvinh-2020" /> (tr. 90 (PDF)); <xref ref="bib-nguyenducnghia-2006" /> (tr. 166 (PDF)); <xref ref="bib-ngodactan-2004" /> (tr. 283 (PDF)); <xref ref="bib-hoangchithanh-2007" /> (tr. 51 (PDF)) — cách dùng phổ biến.</p></li>
+        <li><p><term>bài toán tô màu</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 227 (PDF)); <xref ref="bib-nguyenducnghia-2006" /> (tr. 166 (PDF)); <xref ref="bib-hoangchithanh-2007" /> (tr. 51 (PDF)).</p></li>
+        <li><p><term>phép tô màu đồ thị</term> <xref ref="bib-nguyenducnghia-2006" /> (tr. 166 (PDF)).</p></li>
+        <li><p><term>tô màu</term> <xref ref="bib-ngodactan-2004" /> (tr. 283 (PDF)).</p></li>
+        <li><p><term>tô màu các đỉnh</term> <xref ref="bib-leanhvinh-2020" /> (tr. 107 (PDF)); <xref ref="bib-nguyenhuudien-2019" /> (tr. 227 (PDF)); <xref ref="bib-hoangchithanh-2007" /> (tr. 51 (PDF)).</p></li>
+        <li><p><term>tô màu tốt</term> <xref ref="bib-leanhvinh-2020" /> (tr. 90 (PDF)).</p></li>
+        <li><p><term>tô màu đỉnh</term> <xref ref="bib-ngodactan-2004" /> (tr. 283 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Trong chu trình <m>C_4</m> với các đỉnh <m>v_1, v_2, v_3, v_4</m> và các cạnh <m>v_1v_2</m>, <m>v_2v_3</m>, <m>v_3v_4</m>, <m>v_4v_1</m>, ta có thể tô <m>v_1</m> và <m>v_3</m> bằng màu đỏ, <m>v_2</m> và <m>v_4</m> bằng màu xanh; khi đó hai đỉnh kề nhau bất kỳ đều nhận hai màu khác nhau, nên đây là một phép tô màu đồ thị của <m>C_4</m>.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-graph-isomorphism">
+    <title>Graph isomorphism — đẳng cấu đồ thị</title>
+    <idx><h>graph isomorphism</h></idx>
+    <idx><h>sự đẳng cấu</h></idx>
+    <idx><h>sự đẳng cấu đồ thị</h></idx>
+    <idx><h>đẳng cấu</h></idx>
+    <idx><h>đẳng cấu đồ thị</h></idx>
+    <idx><h>đồ thị đẳng cấu</h></idx>
+    <notation>
+      <usage><m>G_1 \cong G_2</m></usage>
+      <description>đẳng cấu đồ thị</description>
+    </notation>
+    <statement>
+      <p>Hai đồ thị đơn <m>G_1 = (V_1, E_1)</m> và <m>G_2 = (V_2, E_2)</m> được gọi là đẳng cấu, ký hiệu <m>G_1 \cong G_2</m>, nếu tồn tại một song ánh <m>f : V_1 \to V_2</m> sao cho với mọi cặp đỉnh <m>u, v \in V_1</m>, hai đỉnh <m>u</m> và <m>v</m> kề nhau trong <m>G_1</m> khi và chỉ khi <m>f(u)</m> và <m>f(v)</m> kề nhau trong <m>G_2</m>. Khi đó, song ánh <m>f</m> được gọi là một đẳng cấu giữa <m>G_1</m> và <m>G_2</m> (theo <xref ref="bib-rosen-2019" />, Rosen §10.3).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>đẳng cấu đồ thị</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 73 (PDF)) — cách dùng phổ biến.</p></li>
+        <li><p><term>sự đẳng cấu</term> <xref ref="bib-hoangchithanh-2007" /> (tr. 8 (PDF)).</p></li>
+        <li><p><term>sự đẳng cấu đồ thị</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 163 (PDF)).</p></li>
+        <li><p><term>đẳng cấu</term> <xref ref="bib-leanhvinh-2020" /> (tr. 12 (PDF)).</p></li>
+        <li><p><term>đồ thị đẳng cấu</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 165 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Cho <m>G_1</m> có tập đỉnh <m>\{a, b, c, d\}</m> và các cạnh <m>ab, bc, cd, da</m>, và <m>G_2</m> có tập đỉnh <m>\{1, 2, 3, 4\}</m> và các cạnh <m>12, 23, 34, 41</m>. Song ánh <m>f</m> xác định bởi <m>f(a) = 1</m>, <m>f(b) = 2</m>, <m>f(c) = 3</m>, <m>f(d) = 4</m> bảo toàn quan hệ kề: mỗi cạnh của <m>G_1</m> tương ứng với một cạnh của <m>G_2</m> và ngược lại. Do đó <m>G_1 \cong G_2</m>.</p>
+      <p>Xem thêm <xref ref="def-graph" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-girth">
+    <title>Girth — độ dài chu trình ngắn nhất</title>
+    <idx><h>girth</h></idx>
+    <idx><h>chu trình ngắn nhất</h></idx>
+    <idx><h>chu vi nhỏ nhất</h></idx>
+    <idx><h>đai</h></idx>
+    <idx><h>độ dài chu trình ngắn nhất</h></idx>
+    <notation>
+      <usage><m>g(G)</m></usage>
+      <description>độ dài chu trình ngắn nhất</description>
+    </notation>
+    <statement>
+      <p>Đai của một đồ thị <m>G</m> chứa ít nhất một chu trình là độ dài của một chu trình ngắn nhất trong <m>G</m>, ký hiệu <m>g(G)</m>. Nếu <m>G</m> không chứa chu trình nào thì <m>g(G)</m> không được xác định (theo <xref ref="bib-rosen-2019" />, Rosen §10.4).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>độ dài chu trình ngắn nhất</term> <xref ref="bib-leanhvinh-2020" /> (tr. 118 (PDF)); <xref ref="bib-nguyenhoangthach-2020" /> (tr. 80 (PDF)) — cách dùng phổ biến.</p></li>
+        <li><p><term>chu trình ngắn nhất</term> <xref ref="bib-ngodactan-2004" /> (tr. 207 (PDF)).</p></li>
+        <li><p><term>chu vi nhỏ nhất</term> <xref ref="bib-ngodactan-2004" /> (tr. 207 (PDF)).</p></li>
+        <li><p><term>đai</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 233 (PDF)); <xref ref="bib-hoangchithanh-2007" /> (tr. 118 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Đồ thị đầy đủ <m>K_4</m> chứa các chu trình có độ dài <m>3</m> và <m>4</m>, nên <m>g(K_4) = 3</m>.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-genus">
+    <title>Genus — giống</title>
+    <idx><h>genus</h></idx>
+    <idx><h>giống</h></idx>
+    <idx><h>giống của mặt</h></idx>
+    <idx><h>đồ thị giống g</h></idx>
+    <notation>
+      <usage><m>g(G)</m></usage>
+      <description>giống</description>
+    </notation>
+    <statement>
+      <p>Giống của một đồ thị <m>G</m> là số quai ít nhất cần gắn thêm vào mặt cầu để <m>G</m> có thể được vẽ trên mặt thu được mà không có cạnh nào cắt nhau; ký hiệu <m>g(G)</m> (theo <xref ref="bib-rosen-2019" />, Rosen §10.7).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>giống</term> <xref ref="bib-ngodactan-2004" /> (tr. 212 (PDF)) — cách dùng phổ biến.</p></li>
+        <li><p><term>giống của mặt</term> <xref ref="bib-ngodactan-2004" /> (tr. 212 (PDF)).</p></li>
+        <li><p><term>đồ thị giống g</term> <xref ref="bib-ngodactan-2004" /> (tr. 212 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Mặt cầu là mặt giống <m>0</m> và mặt xuyến là mặt giống <m>1</m>. Do đó một đồ thị phẳng có <m>g(G) = 0</m>, vì nó vẽ được trên mặt cầu mà không có cạnh nào cắt nhau.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-geodesic">
+    <title>Geodesic — khoảng cách</title>
+    <idx><h>geodesic</h></idx>
+    <idx><h>khoảng cách</h></idx>
+    <idx><h>khoảng cách d(u, v)</h></idx>
+    <idx><h>khoảng cách giữa hai đỉnh</h></idx>
+    <idx><h>khoảng cách giữa đỉnh</h></idx>
+    <idx><h>đường đi ngắn nhất</h></idx>
+    <idx><h>đường đi ngắn nhất giữa hai đỉnh</h></idx>
+    <notation>
+      <usage><m>d(u,v)</m></usage>
+      <description>khoảng cách</description>
+    </notation>
+    <statement>
+      <p>Một đường đi ngắn nhất nối hai đỉnh <m>u</m> và <m>v</m> trong một đồ thị <m>G</m> là một đường đi giữa <m>u</m> và <m>v</m> có độ dài nhỏ nhất. Độ dài của đường đi ngắn nhất đó được gọi là khoảng cách giữa hai đỉnh <m>u</m> và <m>v</m>, ký hiệu <m>d(u,v)</m> (theo <xref ref="bib-rosen-2019" />, Rosen §10.4).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>khoảng cách</term> <xref ref="bib-leanhvinh-2020" /> (tr. 17 (PDF)); <xref ref="bib-nguyenhoangthach-2020" /> (tr. 88 (PDF)) — cách dùng phổ biến.</p></li>
+        <li><p><term>khoảng cách d(u, v)</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 186 (PDF)).</p></li>
+        <li><p><term>khoảng cách giữa hai đỉnh</term> <xref ref="bib-ngodactan-2004" /> (tr. 216 (PDF)).</p></li>
+        <li><p><term>khoảng cách giữa đỉnh</term> <xref ref="bib-hoangchithanh-2007" /> (tr. 99 (PDF)).</p></li>
+        <li><p><term>đường đi ngắn nhất</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 244 (PDF)); <xref ref="bib-nguyenducnghia-2006" /> (tr. 222 (PDF)).</p></li>
+        <li><p><term>đường đi ngắn nhất giữa hai đỉnh</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 92 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Trong đồ thị đường đi <m>P_4</m> với các đỉnh <m>v_1, v_2, v_3, v_4</m> nối tiếp nhau, đường đi <m>v_1 v_2 v_3 v_4</m> là đường đi ngắn nhất giữa <m>v_1</m> và <m>v_4</m>, do đó <m>d(v_1, v_4) = 3</m>.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-grid-graph">
+    <title>Grid graph — đồ thị lưới</title>
+    <idx><h>grid graph</h></idx>
+    <idx><h>đồ thị lưới</h></idx>
+    <statement>
+      <p>Đồ thị lưới là đồ thị đơn vô hướng mà tập đỉnh gồm các điểm của một lưới chữ nhật <m>m \times n</m> trong mặt phẳng, trong đó hai đỉnh kề nhau khi và chỉ khi chúng cách nhau đúng một đơn vị theo phương ngang hoặc phương dọc. (Lưu ý: trong nguồn tiếng Việt duy nhất chứng thực tên này, ký hiệu <m>L_n</m> lại chỉ một đối tượng khác — đồ thị quân xe trên <m>[n]^2</m>; xem ghi chú.) (theo <xref ref="bib-rosen-2019" />, Rosen §10.2).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>đồ thị lưới</term> <xref ref="bib-leanhvinh-2020" /> (tr. 216 (PDF)) — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Đồ thị lưới <m>2 \times 2</m> có <m>4</m> đỉnh nằm tại bốn điểm lưới và <m>4</m> cạnh nối các đỉnh cách nhau một đơn vị theo phương ngang hoặc phương dọc, tạo thành một chu trình bốn cạnh.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-generating-function">
+    <title>Generating function — hàm sinh</title>
+    <idx><h>generating function</h></idx>
+    <idx><h>hàm sinh</h></idx>
+    <idx><h>hàm sinh mũ</h></idx>
+    <idx><h>hàm sinh thông thường</h></idx>
+    <notation>
+      <usage><m>G(x) = \sum_{k=0}^{\infty} a_k x^k</m></usage>
+      <description>hàm sinh</description>
+    </notation>
+    <statement>
+      <p>Hàm sinh của dãy số thực <m>a_0, a_1, \ldots, a_k, \ldots</m> là chuỗi lũy thừa hình thức <m>\displaystyle\sum_{k=0}^{\infty} a_k x^k</m>, ký hiệu <m>G(x)</m>. Mỗi số hạng <m>a_k</m> của dãy là hệ số của <m>x^k</m> trong chuỗi này (theo <xref ref="bib-rosen-2019" />, Rosen §8.4).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>hàm sinh</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 45 (PDF)); <xref ref="bib-nguyenducnghia-2006" /> (tr. 38 (PDF)); <xref ref="bib-ngodactan-2004" /> (tr. 59 (PDF)) — cách dùng phổ biến.</p></li>
+        <li><p><term>hàm sinh mũ</term> <xref ref="bib-ngodactan-2004" /> (tr. 97 (PDF)).</p></li>
+        <li><p><term>hàm sinh thông thường</term> <xref ref="bib-ngodactan-2004" /> (tr. 87 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Dãy hằng <m>a_k = 1</m> với mọi <m>k \geq 0</m> có hàm sinh <m>G(x) = \displaystyle\sum_{k=0}^{\infty} x^k</m>.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-greatest-common-divisor">
+    <title>Greatest common divisor — ước chung lớn nhất</title>
+    <idx><h>greatest common divisor</h></idx>
+    <idx><h>ƯCLN</h></idx>
+    <idx><h>ước chung lớn nhất</h></idx>
+    <idx><h>ước số chung lớn nhất</h></idx>
+    <notation>
+      <usage><m>\gcd(a,b)</m></usage>
+      <description>ước chung lớn nhất</description>
+    </notation>
+    <statement>
+      <p>Ước chung lớn nhất của hai số nguyên <m>a</m> và <m>b</m> không đồng thời bằng <m>0</m> là số nguyên lớn nhất <m>d</m> chia hết cả <m>a</m> và <m>b</m>, ký hiệu <m>\gcd(a,b)</m> (theo <xref ref="bib-rosen-2019" />, Rosen §4.3).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>ước chung lớn nhất</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 141 (PDF)); <xref ref="bib-nguyenhuudien-2019" /> (tr. 142 (PDF)); <xref ref="bib-nguyenducnghia-2006" /> (tr. 89 (PDF)) — cách dùng phổ biến.</p></li>
+        <li><p><term>ƯCLN</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 142 (PDF)).</p></li>
+        <li><p><term>ước số chung lớn nhất</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 124 (PDF)); <xref ref="bib-ngodactan-2004" /> (tr. 176 (PDF)); <xref ref="bib-ngodactan-2004" /> (tr. 156 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Với <m>a = 12</m> và <m>b = 18</m>, các ước chung của chúng là <m>1, 2, 3, 6</m>, nên <m>\gcd(12,18) = 6</m>.</p>
+      <p>Xem thêm <xref ref="def-euclidean-algorithm" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-gray-code">
+    <title>Gray code — mã Gray</title>
+    <idx><h>gray code</h></idx>
+    <idx><h>mã Gray</h></idx>
+    <statement>
+      <p>Mã Gray độ dài <m>n</m> là một cách sắp xếp toàn bộ <m>2^n</m> xâu bit độ dài <m>n</m> thành một dãy sao cho hai xâu liên tiếp bất kỳ chỉ khác nhau đúng tại một vị trí bit, và xâu cuối cũng chỉ khác xâu đầu đúng tại một vị trí bit (theo <xref ref="bib-rosen-2019" />, Rosen §10.5).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>mã Gray</term> <em>(thuật ngữ chuẩn; chưa truy được trong kho văn bản)</em> — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Với <m>n = 2</m>, dãy <m>00, 01, 11, 10</m> là một mã Gray: mỗi xâu khác xâu liền sau đúng một bit, và xâu cuối <m>10</m> cũng chỉ khác xâu đầu <m>00</m> đúng một bit.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-greedy-algorithm">
+    <title>Greedy algorithm — thuật toán tham lam</title>
+    <idx><h>greedy algorithm</h></idx>
+    <idx><h>tham lam</h></idx>
+    <idx><h>thuật toán tham lam</h></idx>
+    <statement>
+      <p>Thuật toán tham lam là thuật toán mà tại mỗi bước đều chọn phương án tối ưu cục bộ theo một tiêu chí đã định, với hy vọng đạt được lời giải tối ưu toàn cục (theo <xref ref="bib-rosen-2019" />, Rosen §3.1).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>thuật toán tham lam</term> <xref ref="bib-leanhvinh-2020" /> (tr. 61 (PDF)); <xref ref="bib-nguyenhoangthach-2020" /> (tr. 93 (PDF)) — cách dùng phổ biến.</p></li>
+        <li><p><term>tham lam</term> <xref ref="bib-leanhvinh-2020" /> (tr. 59 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Để tìm cây bao trùm nhỏ nhất của một đồ thị liên thông có trọng số, thuật toán tham lam lần lượt thêm vào cây cạnh có trọng số nhỏ nhất trong số các cạnh chưa tạo thành chu trình.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-geometric-series">
+    <title>Geometric series — tổng cấp số nhân</title>
+    <idx><h>geometric series</h></idx>
+    <idx><h>cấp số nhân</h></idx>
+    <idx><h>tổng cấp số nhân</h></idx>
+    <notation>
+      <usage><m>\sum_{j=0}^{n} a r^j</m></usage>
+      <description>tổng cấp số nhân</description>
+    </notation>
+    <statement>
+      <p>Một <em>tổng cấp số nhân</em> là tổng hữu hạn của các số hạng liên tiếp của một cấp số nhân, tức là tổng có dạng <m>\displaystyle\sum_{j=0}^{n} a r^j</m>, trong đó số hạng đầu <m>a</m> và công bội <m>r</m> là các số thực. Tổng này, ký hiệu <m>\displaystyle\sum_{j=0}^{n} a r^j = a + a r + a r^2 + \dots + a r^n</m>, được lấy trên các số mũ <m>j</m> từ <m>0</m> đến <m>n</m> (theo <xref ref="bib-rosen-2019" />, Rosen §2.4).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>tổng cấp số nhân</term> <em>(thuật ngữ chuẩn; chưa truy được trong kho văn bản)</em> — cách dùng phổ biến.</p></li>
+        <li><p><term>cấp số nhân</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 41 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Với <m>a = 3</m>, <m>r = 2</m> và <m>n = 4</m>, tổng cấp số nhân tương ứng là <m>\displaystyle\sum_{j=0}^{4} 3 \cdot 2^j = 3 + 6 + 12 + 24 + 48 = 93</m>.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-group">
+    <title>Group — nhóm</title>
+    <idx><h>group</h></idx>
+    <idx><h>nhóm</h></idx>
+    <idx><h>nhóm giao hoán</h></idx>
+    <notation>
+      <usage><m>(G, \ast)</m></usage>
+      <description>nhóm</description>
+    </notation>
+    <statement>
+      <p>Một <em>nhóm</em> là một tập hợp <m>G</m> cùng với một phép toán hai ngôi <m>\ast</m> trên <m>G</m>, ký hiệu <m>(G, \ast)</m>, thỏa mãn ba điều kiện: phép toán <m>\ast</m> có tính kết hợp, tồn tại phần tử đơn vị <m>e \in G</m> sao cho <m>e \ast a = a \ast e = a</m> với mọi <m>a \in G</m>, và mỗi phần tử <m>a \in G</m> đều có phần tử nghịch đảo <m>a' \in G</m> sao cho <m>a \ast a' = a' \ast a = e</m> (theo <xref ref="bib-rosen-2019" />, Rosen §9.6).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>nhóm</term> <xref ref="bib-ngodactan-2004" /> (tr. 140 (PDF)) — cách dùng phổ biến.</p></li>
+        <li><p><term>nhóm giao hoán</term> <xref ref="bib-hoangchithanh-2007" /> (tr. 25 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Tập các số nguyên <m>\mathbb{Z}</m> với phép cộng <m>+</m> là một nhóm: phép cộng có tính kết hợp, <m>0</m> là phần tử đơn vị, và mỗi <m>a \in \mathbb{Z}</m> có nghịch đảo <m>-a</m>.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-graph-of-a-function">
+    <title>Graph of a function — đồ thị của hàm số</title>
+    <idx><h>graph of a function</h></idx>
+    <idx><h>đồ thị của hàm</h></idx>
+    <idx><h>đồ thị của hàm số</h></idx>
+    <notation>
+      <usage><m>\{(a, f(a)) : a \in A\}</m></usage>
+      <description>đồ thị của hàm số</description>
+    </notation>
+    <statement>
+      <p>Đồ thị của hàm số <m>f</m> từ tập <m>A</m> đến tập <m>B</m> là tập các cặp sắp thứ tự gồm mỗi phần tử <m>a \in A</m> và ảnh <m>f(a)</m> của nó, ký hiệu
+
+```math
+\{(a, b) : a \in A \text{ và } f(a) = b\}.
+```
+
+Đồ thị của hàm số <m>f</m> là một tập con của tích Descartes <m>A \times B</m> (theo <xref ref="bib-rosen-2019" />, Rosen §2.3).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>đồ thị của hàm số</term> <em>(thuật ngữ chuẩn; chưa truy được trong kho văn bản)</em> — cách dùng phổ biến.</p></li>
+        <li><p><term>đồ thị của hàm</term> <xref ref="bib-rosen-2003-vi" /> (tr. 90 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Đồ thị của hàm số <m>f(n) = 2n + 1</m> từ <m>\mathbb{Z}</m> đến <m>\mathbb{Z}</m> là tập các cặp sắp thứ tự <m>\{(n, 2n + 1) : n \in \mathbb{Z}\}</m>.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-euclidean-algorithm">
+    <title>Greatest common divisor (Euclidean algorithm) — thuật toán Euclide</title>
+    <idx><h>greatest common divisor (euclidean algorithm)</h></idx>
+    <idx><h>thuật toán Euclide</h></idx>
+    <idx><h>thuật toán Euclide tìm ước chung lớn nhất</h></idx>
+    <idx><h>ước chung lớn nhất</h></idx>
+    <notation>
+      <usage><m>\gcd(a,b)</m></usage>
+      <description>thuật toán Euclide</description>
+    </notation>
+    <statement>
+      <p>Thuật toán Euclide là thủ tục tính ước chung lớn nhất của hai số nguyên dương <m>a</m> và <m>b</m>, ký hiệu <m>\gcd(a,b)</m>, bằng cách lặp lại việc thay cặp <m>(a, b)</m> bởi cặp <m>(b, a \bmod b)</m> cho đến khi thành phần thứ hai bằng <m>0</m>. Khi đó thành phần thứ nhất chính là <m>\gcd(a, b)</m> (theo <xref ref="bib-rosen-2019" />, Rosen §4.3).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>thuật toán Euclide</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 141 (PDF)) — cách dùng phổ biến.</p></li>
+        <li><p><term>thuật toán Euclide tìm ước chung lớn nhất</term> <xref ref="bib-nguyenducnghia-2006" /> (tr. 89 (PDF)).</p></li>
+        <li><p><term>ước chung lớn nhất</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 142 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Để tính <m>\gcd(662, 414)</m>, ta thực hiện liên tiếp: <m>(662, 414) \to (414, 248) \to (248, 166) \to (166, 82) \to (82, 2) \to (2, 0)</m>, vì <m>662 \bmod 414 = 248</m>, <m>414 \bmod 248 = 166</m>, <m>248 \bmod 166 = 82</m>, <m>166 \bmod 82 = 2</m> và <m>82 \bmod 2 = 0</m>. Thành phần thứ nhất khi thành phần thứ hai bằng <m>0</m> là <m>2</m>, do đó <m>\gcd(662, 414) = 2</m>.</p>
+      <p>Xem thêm <xref ref="def-greatest-common-divisor" text="title" />.</p>
+    </statement>
+  </definition>
+</chapter>

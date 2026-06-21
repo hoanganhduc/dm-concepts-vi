@@ -1,27 +1,82 @@
 {
-  "goal": "Build verified EN-VI lexicon chapters for every alphabet letter that has discrete-math terms",
-  "success_criteria": "For each processed letter: panel-approved chapter-<l>-final.json -> source/ch-<l>.ptx (xincluded in main.ptx); validate-entry passes; pretext build web succeeds; committed.",
-  "mode": "bounded-research",
-  "autonomous": true,
-  "engine": "workflow/workflows/build-chapter.js  (Workflow with args={letter})",
-  "per_letter_pipeline": "build-chapter workflow -> encode-chapter.py <l> -> add xinclude to main.ptx -> validate-entry -> build-search-index -> pretext build web -> commit",
-  "corpus": "6 sources (Rosen VI excluded by find-term default until its OCR finishes; a final Rosen reference-enrichment pass enriches all chapters afterwards)",
-  "letters_order": ["A","B","D","E","F","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"],
-  "done": ["C"],
-  "in_progress": ["G"],
-  "pending": ["A","B","D","E","F","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"],
-  "skipped": [],
-  "current": "G",
-  "stop_conditions": [
-    "all letters in letters_order processed (done or skipped)",
-    "user asks to stop, pause, or switch tasks",
-    "a letter fails encode/build 3x consecutively -> skip it, record, continue"
-  ],
-  "rule": "process ONE letter at a time (sequential workflows); a letter yielding 0 terms is skipped as 'no DM terms'",
-  "status": "running",
-  "finalization": [
-    "Rosen VI reference-enrichment pass across all chapters once its OCR completes",
-    "whole-book bilingual index + notation + cross-reference consolidation",
-    "deploy"
-  ]
+ "goal": "Build verified EN-VI lexicon chapters for every alphabet letter that has discrete-math terms",
+ "success_criteria": "For each processed letter: panel-approved chapter-<l>-final.json -> source/ch-<l>.ptx (xincluded in main.ptx); validate-entry passes; pretext build web succeeds; committed.",
+ "mode": "bounded-research",
+ "autonomous": true,
+ "engine": "workflow/workflows/build-chapter.js  (Workflow with args={letter})",
+ "per_letter_pipeline": "build-chapter workflow -> encode-chapter.py <l> -> add xinclude to main.ptx -> validate-entry -> build-search-index -> pretext build web -> commit",
+ "corpus": "6 sources (Rosen VI excluded by find-term default until its OCR finishes; a final Rosen reference-enrichment pass enriches all chapters afterwards)",
+ "letters_order": [
+  "A",
+  "B",
+  "D",
+  "E",
+  "F",
+  "H",
+  "I",
+  "J",
+  "K",
+  "L",
+  "M",
+  "N",
+  "O",
+  "P",
+  "Q",
+  "R",
+  "S",
+  "T",
+  "U",
+  "V",
+  "W",
+  "X",
+  "Y",
+  "Z"
+ ],
+ "done": [
+  "C",
+  "G"
+ ],
+ "in_progress": [
+  "A"
+ ],
+ "pending": [
+  "A",
+  "B",
+  "D",
+  "E",
+  "F",
+  "H",
+  "I",
+  "J",
+  "K",
+  "L",
+  "M",
+  "N",
+  "O",
+  "P",
+  "Q",
+  "R",
+  "S",
+  "T",
+  "U",
+  "V",
+  "W",
+  "X",
+  "Y",
+  "Z"
+ ],
+ "skipped": [],
+ "current": "A",
+ "stop_conditions": [
+  "all letters in letters_order processed (done or skipped)",
+  "user asks to stop, pause, or switch tasks",
+  "a letter fails encode/build 3x consecutively -> skip it, record, continue"
+ ],
+ "rule": "process ONE letter at a time (sequential workflows); a letter yielding 0 terms is skipped as 'no DM terms'",
+ "status": "running",
+ "finalization": [
+  "Rosen VI reference-enrichment pass across all chapters once its OCR completes",
+  "whole-book bilingual index + notation + cross-reference consolidation",
+  "deploy"
+ ]
 }

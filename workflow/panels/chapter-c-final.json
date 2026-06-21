@@ -1,0 +1,231 @@
+{
+  "locked_conventions": [
+    "Math delimiters: every inline mathematical symbol (G, n, r, K_n, C_n, K_{m,n}, \\chi(G), \\kappa(G), set braces, etc.) is wrapped in $$...$$. Bare unwrapped math is never left in definition_vi or example_vi. Block math uses a ```math fence.",
+    "Inequalities and relations: ASCII '>=', '<=', '!=' are forbidden in finished prose; use $$\\geq$$, $$\\leq$$, $$\\neq$$. Phrases like 'ít nhất bằng 1' are rendered as 'có độ dài $$\\geq 1$$' or kept as words consistently, never as ASCII operators.",
+    "Bipartite rendering is fixed book-wide to 'đồ thị hai phía' (đồ thị hai phía = bipartite, definition-grade attestation at bib-nguyenducnghia-2006 pdf_page 160). The unvetted gloss '(đồ thị lưỡng phân)' is dropped; 'hai phần' and 'phân đôi' are recorded only as deferred source variants, never used in running prose.",
+    "Circuit/cycle terminology discipline: the bare word 'chu trình' is never used to denote Rosen's circuit, because it denotes a cycle in Ngo Dac Tan (2004) and a general closed walk elsewhere. Circuit = 'chu trình đơn' (recommended, cross-corpus) with 'mạch' as the precise single-word match in the strongest graph source; the cycle graph C_n = 'đồ thị vòng'.",
+    "Exactly one vi_term per entry has recommended=true. The recommended term is, whenever possible, a verified=true term backed by source_id + pdf_page + snippet. A recommended term may be verified=false only when no corpus attestation exists for any candidate (standard-but-unattested terminology); in that case the unverified status is surfaced explicitly in notes.",
+    "Citation hygiene: vi_terms with verified=false AND page=\"\" are dropped, except a single recommended standard term that must be retained to keep the required vi_terms field non-empty and preserve the single-recommendation invariant. Every verified=true vi_term carries source_id, pdf_page, page, and a quoted snippet. Diacritics-insensitive (--loose) search is used to confirm hits/0-hits on this scanned-PDF corpus.",
+    "Examples are self-contained: an example_vi never relies on a derived quantity (e.g. clique number, \\kappa value) that the definition_vi did not introduce, unless that quantity is defined inline in the example first.",
+    "Inline synonym glosses inside definitions are avoided; synonyms live in vi_terms or notes. A parenthetical is used only when it clarifies the defined object itself (e.g. 'có cùng lực lượng' restating 'đồng lực lượng'), not to inject an unvetted alternative term.",
+    "see_also lists in-lexicon entry ids only; targets outside the current letter chapter are forward references to be created in their own chapters. 'coloring' and 'graph-coloring' are treated as forward references pending dedup in chapter G."
+  ],
+  "deferred_note": "Dropped all unverifiable citations (verified=false with empty page) per the citation-hygiene rule, EXCEPT countable-set's recommended term 'tập đếm được': it is standard Vietnamese terminology but returns 0 hits in all three text-layer sources (re-verified strict and --loose), and dropping it would empty the required vi_terms field and break the single-recommendation invariant. It is retained as recommended=true / verified=false with an explicit standard-usage caveat in notes. The related form 'vô hạn đếm được' (countably infinite) is attested once at bib-ngodactan-2004 pdf_page 321 but denotes the countably-infinite sub-notion, not a standalone 'countable set', so it is deliberately NOT recorded as a verified hit for this headword. Forward references in see_also that are not yet chapter-C ids (coloring, graph-coloring, closed-walk, walk, trail, euler-circuit, self-complementary-graph, simple-graph, adjacency, bipartite-graph, binomial-coefficient, permutation, countably-infinite-set, finite-set, infinite-set, uncountable-set, edge-connectivity, cut-edge, bridge, subgraph, hamilton-circuit, wheel, path) are kept as cross-chapter forward references to be created in their own letter chapters; 'coloring' vs 'graph-coloring' is flagged for dedup in chapter G.",
+  "final_entries": [
+    {
+      "id": "chromatic-number",
+      "letter": "C",
+      "headword_en": "Chromatic number",
+      "notation": "\\chi(G)",
+      "rosen_ref": "Rosen §10.8",
+      "definition_vi": "Sắc số của một đồ thị $$G$$, ký hiệu $$\\chi(G)$$, là số màu nhỏ nhất cần dùng để tô màu các đỉnh của $$G$$ sao cho không có hai đỉnh kề nhau nào được tô cùng một màu.",
+      "example_vi": "Sắc số của đồ thị đầy đủ $$K_n$$ là $$\\chi(K_n) = n$$, và sắc số của một đồ thị hai phía có ít nhất một cạnh là $$2$$.",
+      "notes": "Recommended term 'sắc số' verified in all three sources; deferred candidate 'số sắc' (inverted word order) was unverifiable (page empty) and dropped per the citation-hygiene rule. The example conditions the bipartite case on 'có ít nhất một cạnh', which is necessary since a bipartite graph with no edges has sắc số 1. The unvetted gloss '(đồ thị lưỡng phân)' was removed in favor of the book-standard rendering 'đồ thị hai phía'.",
+      "see_also": ["coloring", "graph-coloring", "complete-graph", "bipartite-graph"],
+      "vi_terms": [
+        {"term": "sắc số", "verified": true, "recommended": true, "source_id": "bib-ngodactan-2004", "pdf_page": 283, "page": "tr. 283 (PDF)", "snippet": "Sắc số của một đồ thị G, ký hiệu là x(G), là số tự nhiên k nhỏ nhất"},
+        {"term": "sắc số", "verified": true, "recommended": false, "source_id": "bib-nguyenducnghia-2006", "pdf_page": 166, "page": "tr. 166 (PDF)", "snippet": "Ta gọi sắc số của đồ thì Ơ, ký hiệu là y(G), là số màu ít nhất cần dùng để tô màu đồ"},
+        {"term": "sắc số", "verified": true, "recommended": false, "source_id": "bib-nguyenhuudien-2019", "pdf_page": 228, "page": "tr. 228 (PDF)", "snippet": "Định nghĩa 9.3 Sắc số của một đồ thị chính là số màu ít nhất dùng để tô các đỉnh của"}
+      ]
+    },
+    {
+      "id": "circuit",
+      "letter": "C",
+      "headword_en": "Circuit",
+      "notation": "",
+      "rosen_ref": "Rosen §10.4",
+      "definition_vi": "Chu trình đơn trong một đồ thị $$G$$ là một đường đi khép kín có độ dài $$\\geq 1$$, tức là bắt đầu và kết thúc tại cùng một đỉnh, sao cho không có cạnh nào bị lặp lại (các đỉnh có thể được lặp lại). Trong Ngô Đắc Tân (2004), khái niệm này được gọi bằng từ đơn 'mạch'; xem ghi chú.",
+      "example_vi": "Xét đồ thị gồm các cạnh $$ab, bc, ca, bd, de, eb$$. Dãy đỉnh $$a, b, d, e, b, c, a$$ là một chu trình đơn: nó khép kín và không lặp lại cạnh nào (đỉnh $$b$$ được lặp lại). Trái lại, dãy $$a, b, a$$ không phải là chu trình đơn vì cạnh $$ab$$ được dùng lại hai lần.",
+      "notes": "Rosen's 'circuit' is a closed walk of length at least one with no repeated edge (vertices may repeat). In a simple undirected graph an edge has no orientation, so a circuit/no-repeated-edge example must reuse no undirected edge. Source terminology splits two ways. In Ngo Dac Tan (2004) the single-word match for Rosen's circuit is 'mạch': 'Một hành trình khép kín được gọi là mạch nếu mọi cạnh của nó đều khác nhau' (pdf_page 195); in that same source 'chu trình' is reserved for a CYCLE (length >= 3, distinct vertices), so the bare 'chu trình' does NOT denote this concept there. In Nguyen Duc Nghia & Nguyen To Thanh (2006) and Nguyen Huu Dien (2019), 'chu trình' denotes a general closed walk and the circuit concept is named 'chu trình đơn'. 'chu trình đơn' is the most widely used cross-corpus term and is recommended; 'mạch' is the precise single-word match in the strongest graph-theory source and is surfaced in the definition. The bare 'chu trình' and 'chu tuyến' candidates were unverifiable (page empty) and dropped.",
+      "see_also": ["cycle", "closed-walk", "walk", "trail", "euler-circuit"],
+      "vi_terms": [
+        {"term": "chu trình đơn", "verified": true, "recommended": true, "source_id": "bib-nguyenducnghia-2006", "pdf_page": 156, "page": "tr. 156 (PDF)", "snippet": "trùng với đỉnh cuối (tức là u = v) được gọi là chu trình. Đường đi hay chu trình được gọi là đơn nếu như không có cạnh nào bị lặp lại."},
+        {"term": "mạch", "verified": true, "recommended": false, "source_id": "bib-ngodactan-2004", "pdf_page": 195, "page": "tr. 195 (PDF)", "snippet": "Một hành trình khép kín được gọi là mạch nếu mọi cạnh của nó đều khác nhau."}
+      ]
+    },
+    {
+      "id": "clique",
+      "letter": "C",
+      "headword_en": "Clique",
+      "notation": "",
+      "rosen_ref": "Rosen §10.2",
+      "definition_vi": "Một clique của đồ thị $$G$$ là một tập con các đỉnh đôi một kề nhau, tức là một tập con cảm sinh một đồ thị con đầy đủ.",
+      "example_vi": "Trong đồ thị đầy đủ $$K_n$$, toàn bộ tập đỉnh là một clique, vì mọi cặp đỉnh đều kề nhau.",
+      "notes": "In Ngo Dac Tan (2004) the loanword 'clique' is used directly: 'số clique của nó cl(H) = 3 (tức là không có đồ thị con K4)'. This verified hit attests the clique NUMBER cl(H) usage (tying 'clique' to a complete subgraph) rather than a standalone definitional sentence, so the recommendation of the loanword 'clique' rests on usage-grounding. The example was tightened to reference only the defined concept (a clique as a vertex set); the earlier clause 'số clique của K_n bằng n' was removed because it referenced the clique number, an invariant not introduced in the definition. The descriptive forms 'đồ thị con đầy đủ' and 'tập đỉnh đầy đủ' are standard renderings but were not found in the three text sources (0 hits, strict and loose) and were dropped as unverifiable.",
+      "see_also": ["complete-graph"],
+      "vi_terms": [
+        {"term": "clique", "verified": true, "recommended": true, "source_id": "bib-ngodactan-2004", "pdf_page": 314, "page": "tr. 314 (PDF)", "snippet": "không một đồ thị H với số clique của nó cl{H) = 3 (tức là không có"}
+      ]
+    },
+    {
+      "id": "complement-of-a-graph",
+      "letter": "C",
+      "headword_en": "Complement of a graph",
+      "notation": "\\overline{G}",
+      "rosen_ref": "Rosen §10.2",
+      "definition_vi": "Đồ thị bù của một đơn đồ thị $$G$$, ký hiệu $$\\overline{G}$$, là đồ thị có cùng tập đỉnh với $$G$$, trong đó hai đỉnh phân biệt kề nhau khi và chỉ khi chúng không kề nhau trong $$G$$.",
+      "example_vi": "Đồ thị bù của đồ thị đầy đủ $$K_n$$ là đồ thị rỗng trên $$n$$ đỉnh, vì trong $$K_n$$ mọi cặp đỉnh đều kề nhau nên không có cặp đỉnh nào kề nhau trong $$\\overline{K_n}$$.",
+      "notes": "'đồ thị bù' is the standard Vietnamese term, verified in all three text sources with formal definitions matching Rosen §10.2 (same vertex set; two distinct vertices adjacent in the complement iff not adjacent in G). The candidates 'phần bù' (set complement in the corpus) and 'đồ thị phần bù' (0 hits) do not denote the graph complement and were dropped as unverifiable.",
+      "see_also": ["self-complementary-graph", "simple-graph", "adjacency"],
+      "vi_terms": [
+        {"term": "đồ thị bù", "verified": true, "recommended": true, "source_id": "bib-nguyenhuudien-2019", "pdf_page": 167, "page": "tr. 167 (PDF)", "snippet": "Định nghĩa 6.17 Đơn đồ thị G ′ = (V, E′ ) được gọi là đồ thị bù của đơn đồ thị G = (V, E)"},
+        {"term": "đồ thị bù", "verified": true, "recommended": false, "source_id": "bib-nguyenducnghia-2006", "pdf_page": 164, "page": "tr. 164 (PDF)", "snippet": "11. Ta gọi đồ thị Ơ” là đồ thị bù của đơn đồ thị G nếu các đỉnh của nó là đỉnh của đồ"},
+        {"term": "đồ thị bù", "verified": true, "recommended": false, "source_id": "bib-ngodactan-2004", "pdf_page": 336, "page": "tr. 336 (PDF)", "snippet": "đồ thị bù, 190"}
+      ]
+    },
+    {
+      "id": "complete-graph",
+      "letter": "C",
+      "headword_en": "Complete graph",
+      "notation": "K_n",
+      "rosen_ref": "Rosen §10.2",
+      "definition_vi": "Đồ thị đầy đủ $$n$$ đỉnh, ký hiệu $$K_n$$, là đơn đồ thị vô hướng mà giữa mọi cặp đỉnh phân biệt đều có một cạnh nối.",
+      "example_vi": "$$K_3$$ là tam giác gồm $$3$$ đỉnh và $$3$$ cạnh, trong đó mỗi cặp trong $$3$$ đỉnh đều được nối với nhau.",
+      "notes": "'đồ thị đầy đủ' is the canonical term, attested in all three sources. The recommended citation is bib-nguyenducnghia-2006 (pdf_page 158); cross-source confirmation added from bib-nguyenhuudien-2019 (pdf_page 159, definition-grade hit 'Đồ thị đầy đủ n đỉnh, ký hiệu là Kn, là đơn đồ thị mà hai đỉnh phân biệt bất kỳ của nó...') and bib-ngodactan-2004 (pdf_page 190, 'n-đồ thị đầy đủ'), bringing variant depth in line with sibling entries.",
+      "see_also": ["chromatic-number", "complete-bipartite-graph", "clique", "complement-of-a-graph"],
+      "vi_terms": [
+        {"term": "đồ thị đầy đủ", "verified": true, "recommended": true, "source_id": "bib-nguyenducnghia-2006", "pdf_page": 158, "page": "tr. 158 (PDF)", "snippet": "Đồ thị đầy đủ. Đồ thị đầy đủ „ đỉnh, ký hiệu bởi X„ là đơn đồ thị vô hướng mà giữa"},
+        {"term": "đồ thị đầy đủ", "verified": true, "recommended": false, "source_id": "bib-nguyenhuudien-2019", "pdf_page": 159, "page": "tr. 159 (PDF)", "snippet": "Đồ thị đầy đủ n đỉnh, ký hiệu là Kn , là đơn đồ thị mà hai đỉnh phân biệt bất kỳ của nó"},
+        {"term": "đồ thị đầy đủ", "verified": true, "recommended": false, "source_id": "bib-ngodactan-2004", "pdf_page": 190, "page": "tr. 190 (PDF)", "snippet": "cấp n và cỡ m = (2) được gọi là n-đồ thị đầy đủ và thường được ký"}
+      ]
+    },
+    {
+      "id": "complete-bipartite-graph",
+      "letter": "C",
+      "headword_en": "Complete bipartite graph",
+      "notation": "K_{m,n}",
+      "rosen_ref": "Rosen §10.2",
+      "definition_vi": "Đồ thị hai phía đầy đủ, ký hiệu $$K_{m,n}$$, là đồ thị đơn có tập đỉnh được phân hoạch thành hai tập rời nhau có kích thước $$m$$ và $$n$$, trong đó mỗi đỉnh thuộc tập này được nối với mọi đỉnh thuộc tập kia bằng đúng một cạnh và không có cạnh nào nối hai đỉnh trong cùng một tập.",
+      "example_vi": "Đồ thị $$K_{2,3}$$ có một tập gồm $$2$$ đỉnh và một tập gồm $$3$$ đỉnh, với tổng cộng $$6$$ cạnh nối mỗi đỉnh của tập thứ nhất tới mỗi đỉnh của tập thứ hai.",
+      "notes": "Three Vietnamese terms are attested, reflecting two translations of 'bipartite': 'hai phía'/'hai phần' (two-sided/two-part) and 'phân đôi' (split-in-two). 'đồ thị hai phía đầy đủ' (Nguyen Duc Nghia & Nguyen To Thanh) is recommended as it matches the book-standard 'hai phía' = bipartite convention; bib-nguyenducnghia-2006 pdf_page 160 carries the definition-grade attestation of 'hai phía' ('Đơn đồ thị G = (V,E) được gọi là hai phía nếu...'), supporting the recommended term with a concept anchor. The page-198 hit for the full phrase required loose search because OCR mangled 'đầy' to 'đây' and K_{m,n} to 'X'. 'đồ thị phân đôi đầy đủ' (Nguyen Huu Dien, pdf_page 160) has the cleanest definitional hit with explicit K_{m,n} notation.",
+      "see_also": ["bipartite-graph", "complete-graph"],
+      "vi_terms": [
+        {"term": "đồ thị hai phía đầy đủ", "verified": true, "recommended": true, "source_id": "bib-nguyenducnghia-2006", "pdf_page": 198, "page": "tr. 198 (PDF)", "snippet": "2. 2) Với những giá trị nào của z và. # đồ thị hai phía đây đủ X „„"},
+        {"term": "đồ thị phân đôi đầy đủ", "verified": true, "recommended": false, "source_id": "bib-nguyenhuudien-2019", "pdf_page": 160, "page": "tr. 160 (PDF)", "snippet": "được gọi là đồ thị phân đôi đầy đủ. Nếu |V1 | = m, |V2 | = n thì đồ thị phân đôi đầy đủ G ký"},
+        {"term": "đồ thị hai phần đầy đủ", "verified": true, "recommended": false, "source_id": "bib-ngodactan-2004", "pdf_page": 216, "page": "tr. 216 (PDF)", "snippet": "mà là đồ thị hai phần đầy đủ."}
+      ]
+    },
+    {
+      "id": "connected-graph",
+      "letter": "C",
+      "headword_en": "Connected graph",
+      "notation": "",
+      "rosen_ref": "Rosen §10.4",
+      "definition_vi": "Một đồ thị vô hướng $$G$$ được gọi là đồ thị liên thông nếu giữa mọi cặp đỉnh phân biệt của $$G$$ luôn có một đường đi nối chúng.",
+      "example_vi": "Đồ thị đầy đủ $$K_n$$ với $$n \\geq 1$$ là một đồ thị liên thông, vì giữa hai đỉnh phân biệt bất kỳ luôn có một cạnh nối chúng.",
+      "notes": "'đồ thị liên thông' recommended (definition-grade hit at bib-nguyenhuudien-2019 pdf_page 169); the bare adjective 'liên thông' is the predicate form, kept as a verified deferred variant. see_also populated with in-chapter hub links, since connected-graph is referenced by connected-component, connectivity, and cut-vertex.",
+      "see_also": ["connected-component", "connectivity", "cut-vertex", "complete-graph"],
+      "vi_terms": [
+        {"term": "đồ thị liên thông", "verified": true, "recommended": true, "source_id": "bib-nguyenhuudien-2019", "pdf_page": 169, "page": "tr. 169 (PDF)", "snippet": "Mệnh đề 6.4 Giữa mọi cặp đỉnh phân biệt của một đồ thị liên thông luôn có đường đi sơ"},
+        {"term": "liên thông", "verified": true, "recommended": false, "source_id": "bib-ngodactan-2004", "pdf_page": 195, "page": "tr. 195 (PDF)", "snippet": "Một đồ thị (có hướng, vô hướngịì G = (Vi E) được gọi là liên thông"}
+      ]
+    },
+    {
+      "id": "connectivity",
+      "letter": "C",
+      "headword_en": "Connectivity",
+      "notation": "\\kappa(G)",
+      "rosen_ref": "Rosen §10.4",
+      "definition_vi": "Độ liên thông đỉnh của một đồ thị $$G$$, ký hiệu $$\\kappa(G)$$, là số đỉnh nhỏ nhất cần loại bỏ để $$G$$ trở thành đồ thị không liên thông hoặc chỉ còn một đỉnh. Khái niệm tương ứng theo cạnh là độ liên thông cạnh $$\\lambda(G)$$.",
+      "example_vi": "Với đồ thị đầy đủ $$K_n$$ ta có $$\\kappa(K_n) = n - 1$$.",
+      "notes": "Ngo Dac Tan (2004) defines độ liên thông of G with notation k(G) = κ(G) (pdf_page 266), characterized via the minimum number of vertices whose removal disconnects G (số nhỏ nhất các đỉnh tách được, pdf_page 268) — matching Rosen's vertex-connectivity. The definition now leads with the recommended-term form and names the edge-connectivity counterpart độ liên thông cạnh λ(G) (pdf_page 266) to justify the see_also link. The deferred variant 'liên thông đỉnh' attests the parameterized k-vertex-connected property ('k-liên thông đỉnh', pdf_page 265) rather than the invariant κ(G) itself; this is annotated in its snippet. 'số liên thông' was unverifiable (0 hits, re-verified) and dropped. The value κ(K_n) = n-1 is a standard fact, not a verbatim quote.",
+      "see_also": ["cut-vertex", "edge-connectivity"],
+      "vi_terms": [
+        {"term": "độ liên thông", "verified": true, "recommended": true, "source_id": "bib-ngodactan-2004", "pdf_page": 266, "page": "tr. 266 (PDF)", "snippet": "gọi là độ liên thông của G và được ký hiệu là k (G)."},
+        {"term": "liên thông đỉnh", "verified": true, "recommended": false, "source_id": "bib-ngodactan-2004", "pdf_page": 265, "page": "tr. 265 (PDF)", "snippet": "Đồ thị G = (V, E) được gọi là k-liên thông đỉnh hay gọi tắt là k-liên... [attests the k-vertex-connected property, not the κ(G) invariant]"}
+      ]
+    },
+    {
+      "id": "connected-component",
+      "letter": "C",
+      "headword_en": "Connected component",
+      "notation": "",
+      "rosen_ref": "Rosen §10.4",
+      "definition_vi": "Thành phần liên thông của một đồ thị $$G$$ là một đồ thị con liên thông cực đại của $$G$$, tức là một đồ thị con liên thông không chứa trong bất kỳ đồ thị con liên thông nào lớn hơn.",
+      "example_vi": "Đồ thị gồm hai chu trình rời nhau $$C_3$$ và $$C_4$$ có đúng hai thành phần liên thông.",
+      "notes": "'thành phần liên thông' is the dominant standard term (85 hits in Ngo Dac Tan 2004), with the formal definition at pdf_page 196. 'mảng liên thông' (Nguyen Huu Dien 2019, pdf_page 180) is a valid algorithmic-context synonym. The older synonym 'bộ phận liên thông' (0 hits, exact and loose) was unverifiable and dropped.",
+      "see_also": ["connected-graph", "subgraph"],
+      "vi_terms": [
+        {"term": "thành phần liên thông", "verified": true, "recommended": true, "source_id": "bib-ngodactan-2004", "pdf_page": 196, "page": "tr. 196 (PDF)", "snippet": "hướng) G = (V, E) được gọi là một thành phần liên thông của G, nếu"},
+        {"term": "mảng liên thông", "verified": true, "recommended": false, "source_id": "bib-nguyenhuudien-2019", "pdf_page": 180, "page": "tr. 180 (PDF)", "snippet": "Cho đồ thị G , hãy tìm số mảng liên thông p của đồ thị này và xác định xem mỗi mảng"}
+      ]
+    },
+    {
+      "id": "cut-vertex",
+      "letter": "C",
+      "headword_en": "Cut vertex",
+      "notation": "",
+      "rosen_ref": "Rosen §10.4",
+      "definition_vi": "Đỉnh cắt của một đồ thị liên thông là đỉnh mà việc xoá nó cùng tất cả các cạnh kề làm cho đồ thị con thu được không liên thông (có nhiều hơn một thành phần liên thông).",
+      "example_vi": "Trong đồ thị đường đi $$P_5$$ với các đỉnh $$v_1, v_2, v_3, v_4, v_5$$, đỉnh $$v_3$$ là một đỉnh cắt vì khi xoá $$v_3$$ thì đồ thị còn lại tách thành hai thành phần liên thông.",
+      "notes": "'đỉnh cắt' is the primary term in both Ngo Dac Tan (2004) and Nguyen Huu Dien (2019); the latter gives 'điểm khớp' as an explicit synonym ('đỉnh cắt hay điểm khớp'), so the recommended snippet co-locates both verified terms. The definition at pdf_page 169 matches Rosen: removing the cut vertex from a connected graph yields a disconnected subgraph. The variant 'đỉnh khớp' was not found in the three sources and was dropped as unverifiable.",
+      "see_also": ["cut-edge", "bridge", "connected-component", "connectivity"],
+      "vi_terms": [
+        {"term": "đỉnh cắt", "verified": true, "recommended": true, "source_id": "bib-nguyenhuudien-2019", "pdf_page": 169, "page": "tr. 169 (PDF)", "snippet": "đỉnh cắt hay điểm khớp. Việc xoá đỉnh cắt khỏi một đồ thị liên thông sẽ tạo ra một đồ thị con"},
+        {"term": "điểm khớp", "verified": true, "recommended": false, "source_id": "bib-nguyenhuudien-2019", "pdf_page": 170, "page": "tr. 170 (PDF)", "snippet": "Do đó G1 là đồ thị không liên thông hay đỉnh x là điểm khớp của G ."}
+      ]
+    },
+    {
+      "id": "cycle",
+      "letter": "C",
+      "headword_en": "Cycle",
+      "notation": "C_n",
+      "rosen_ref": "Rosen §10.2",
+      "definition_vi": "Đồ thị vòng, ký hiệu là $$C_n$$ với $$n \\geq 3$$, là đồ thị gồm $$n$$ đỉnh $$v_1, v_2, \\ldots, v_n$$ và các cạnh $$\\{v_1,v_2\\}, \\{v_2,v_3\\}, \\ldots, \\{v_{n-1},v_n\\}, \\{v_n,v_1\\}$$. Như vậy, mỗi đỉnh của $$C_n$$ có bậc là $$2$$.",
+      "example_vi": "$$C_3$$ là tam giác với ba đỉnh $$v_1, v_2, v_3$$ và ba cạnh $$\\{v_1,v_2\\}, \\{v_2,v_3\\}, \\{v_3,v_1\\}$$.",
+      "notes": "Rosen §10.2 defines C_n as the graph on n vertices with n cyclic edges (n >= 3). 'đồ thị vòng' is the exact match: bib-nguyenducnghia-2006 (pdf_page 159) gives the verbatim Rosen-style definition, and bib-nguyenhuudien-2019 (pdf_page 159) confirms '...được gọi là đồ thị vòng, ký hiệu là C_n. Như vậy, mỗi đỉnh của C_n có bậc là 2.' The candidate 'chu trình' denotes a cycle as a closed walk (not the graph C_n); 'chu trình đơn' denotes a simple cycle/closed walk; 'vòng' appears only as 'vòng tròn'/'vòng hạt'. All three were unverifiable for this concept (empty page) and dropped; the recommended term for the graph C_n is 'đồ thị vòng'.",
+      "see_also": ["path", "wheel", "hamilton-circuit"],
+      "vi_terms": [
+        {"term": "đồ thị vòng", "verified": true, "recommended": true, "source_id": "bib-nguyenducnghia-2006", "pdf_page": 159, "page": "tr. 159 (PDF)", "snippet": "Đồ thị vòng. Đồ thị vòng C„, n >3, gồm n đỉnh v, v,. .. , v„và các cạnh"},
+        {"term": "đồ thị vòng", "verified": true, "recommended": false, "source_id": "bib-nguyenhuudien-2019", "pdf_page": 159, "page": "tr. 159 (PDF)", "snippet": "được gọi là đồ thị vòng, ký hiệu là Cn . Như vậy, mỗi đỉnh của Cn có bậc là 2."}
+      ]
+    },
+    {
+      "id": "combination",
+      "letter": "C",
+      "headword_en": "Combination",
+      "notation": "\\binom{n}{r}",
+      "rosen_ref": "Rosen §6.3",
+      "definition_vi": "Một tổ hợp chập $$r$$ của một tập hợp là một cách chọn không có thứ tự $$r$$ phần tử của tập hợp đó. Số tổ hợp chập $$r$$ của một tập hợp gồm $$n$$ phần tử, ký hiệu $$\\binom{n}{r}$$, bằng $$\\binom{n}{r} = \\dfrac{n!}{r!\\,(n-r)!}$$.",
+      "example_vi": "Số tổ hợp chập $$2$$ của tập hợp $$\\{a, b, c, d\\}$$ là $$\\binom{4}{2} = 6$$, ứng với các cách chọn $$\\{a,b\\}, \\{a,c\\}, \\{a,d\\}, \\{b,c\\}, \\{b,d\\}, \\{c,d\\}$$.",
+      "notes": "Recommended term 'tổ hợp' is the canonical short noun; the phrase-level forms 'tổ hợp chập r' (bib-nguyenhuudien-2019 pdf_page 89) and 'tổ hợp chập k của n phần tử' (bib-ngodactan-2004 pdf_page 29) are verified deferred variants of the same concept, consistent with the binomial-coefficient formula in the definition.",
+      "see_also": ["permutation", "binomial-coefficient"],
+      "vi_terms": [
+        {"term": "tổ hợp", "verified": true, "recommended": true, "source_id": "bib-ngodactan-2004", "pdf_page": 29, "page": "tr. 29 (PDF)", "snippet": "là một tổ hợp không lặp chập k của n phần tử của A. Tổ hợp không"},
+        {"term": "tổ hợp chập r", "verified": true, "recommended": false, "source_id": "bib-nguyenhuudien-2019", "pdf_page": 89, "page": "tr. 89 (PDF)", "snippet": "Định nghĩa 3.9 Một tổ hợp chập r của một tập hợp là một cách chọn không có thứ tự r"},
+        {"term": "tổ hợp chập k của n phần tử", "verified": true, "recommended": false, "source_id": "bib-ngodactan-2004", "pdf_page": 29, "page": "tr. 29 (PDF)", "snippet": "Như vậy, một tổ hợp chập k của n phần tử cửa A có thể được xem"}
+      ]
+    },
+    {
+      "id": "cardinality",
+      "letter": "C",
+      "headword_en": "Cardinality",
+      "notation": "|A|",
+      "rosen_ref": "Rosen §2.5",
+      "definition_vi": "Lực lượng của một tập hợp $$A$$, ký hiệu $$|A|$$, là số phần tử của $$A$$. Hai tập hợp $$A$$ và $$B$$ được gọi là đồng lực lượng (có cùng lực lượng) khi tồn tại một song ánh từ $$A$$ vào $$B$$.",
+      "example_vi": "Nếu $$A = \\{a, b, c\\}$$ thì $$|A| = 3$$; tập hợp rỗng có lực lượng $$|\\varnothing| = 0$$.",
+      "notes": "In Ngo Dac Tan (2004), 'bản số' appears in cardinal-arithmetic context (pp. 25-26), while 'lực lượng' is used for the cardinality of finite sets. The bib-nguyenducnghia-2006 pdf_page 294 'bản số' hit is a false positive ('xuất bản số' = publication number). Nguyen Huu Dien (2019) Định nghĩa 3.6 (pdf_page 76) gives lực lượng = số phần tử, ký hiệu |A|; pdf_page 78 supports the bijection characterization and the |∅| = 0 example value. 'bản số' is kept as a verified deferred variant for the cardinal-number sense.",
+      "see_also": ["countable-set", "finite-set", "infinite-set"],
+      "vi_terms": [
+        {"term": "lực lượng", "verified": true, "recommended": true, "source_id": "bib-nguyenhuudien-2019", "pdf_page": 76, "page": "tr. 76 (PDF)", "snippet": "Định nghĩa 3.6 Lực lượng của một tập hợp A là số phần tử của tập hợp A, ký hiệu là | A|"},
+        {"term": "lực lượng của tập hợp", "verified": true, "recommended": false, "source_id": "bib-nguyenhuudien-2019", "pdf_page": 76, "page": "tr. 76 (PDF)", "snippet": "3.1.4. Lực lượng của tập hợp"},
+        {"term": "số phần tử", "verified": true, "recommended": false, "source_id": "bib-nguyenhuudien-2019", "pdf_page": 76, "page": "tr. 76 (PDF)", "snippet": "Định nghĩa 3.6 Lực lượng của một tập hợp A là số phần tử của tập hợp A, ký hiệu là | A|"},
+        {"term": "bản số", "verified": true, "recommended": false, "source_id": "bib-ngodactan-2004", "pdf_page": 25, "page": "tr. 25 (PDF)", "snippet": "trên suy ra từ định nghĩa tổng của hai bản số. Giả sừ đẳng thức trên"}
+      ]
+    },
+    {
+      "id": "countable-set",
+      "letter": "C",
+      "headword_en": "Countable set",
+      "notation": "",
+      "rosen_ref": "Rosen §2.5",
+      "definition_vi": "Một tập hợp được gọi là tập đếm được nếu nó hữu hạn hoặc có cùng lực lượng với tập các số nguyên dương. Khi một tập vô hạn là đếm được, ta nói nó vô hạn đếm được và lực lượng của nó được ký hiệu là $$\\aleph_0$$ (đọc là \"aleph không\").",
+      "example_vi": "Tập các số nguyên dương lẻ là tập đếm được, vì hàm $$f(n) = 2n - 1$$ là một song ánh từ tập các số nguyên dương lên tập đó.",
+      "notes": "UNVERIFIED RECOMMENDED TERM (standard-usage basis). No candidate term ('tập đếm được', 'tập khả đếm', 'tập hợp đếm được') was found in the three text-layer sources, including under diacritics-insensitive (--loose) search (0 hits each, re-verified). 'tập đếm được' is standard Vietnamese terminology and is recommended on that basis, but it is the only chapter-C recommended term with verified=false; this status is surfaced here per the citation-hygiene convention. The related form 'vô hạn đếm được' (countably infinite) is attested once at bib-ngodactan-2004 pdf_page 321 ('các tập con vô hạn đếm được của tập M'), but it denotes the countably-infinite sub-notion rather than a standalone countable set, so it is NOT recorded as a verified hit for this headword. The two non-recommended unverifiable candidates were dropped; 'tập đếm được' is retained to keep the required vi_terms field non-empty and preserve the single-recommendation invariant.",
+      "see_also": ["countably-infinite-set", "cardinality", "uncountable-set"],
+      "vi_terms": [
+        {"term": "tập đếm được", "verified": false, "recommended": true, "page": "", "snippet": "Standard Vietnamese terminology; not attested in the three text-layer sources (0 hits, strict and --loose). Recommended on standard-usage grounds; see notes."}
+      ]
+    }
+  ]
+}

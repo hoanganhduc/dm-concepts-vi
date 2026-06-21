@@ -74,20 +74,30 @@ def main() -> int:
 
             recommended = 0
             for t in e.get("vi_terms", []) or []:
-                if not t.get("term"):
+                term = t.get("term")
+                if not term:
                     errors.append(f"{where}: a vi_term has no 'term'")
                 sid = t.get("source_id")
-                if not sid:
-                    errors.append(f"{where}: vi_term '{t.get('term')}' has no source_id")
-                elif sid not in source_ids:
-                    errors.append(f"{where}: source_id '{sid}' not in registry")
+                page = str(t.get("page", "")).strip()
+                verified = bool(t.get("verified"))
                 if t.get("recommended"):
                     recommended += 1
-                if not str(t.get("page", "")).strip():
-                    msg = f"{where}: vi_term '{t.get('term')}' has empty page"
-                    (errors if status != "draft" else warnings).append(msg)
-            if recommended > 1:
-                errors.append(f"{where}: more than one 'recommended' vi_term")
+                if verified:
+                    # A verified citation must carry a real source + page.
+                    if not sid:
+                        errors.append(f"{where}: verified vi_term '{term}' has no source_id")
+                    elif sid not in source_ids:
+                        errors.append(f"{where}: source_id '{sid}' not in registry")
+                    if not page:
+                        errors.append(f"{where}: verified vi_term '{term}' has empty page")
+                else:
+                    # Unverified term: source/page must be absent (no fabrication).
+                    if sid and sid not in source_ids:
+                        errors.append(f"{where}: source_id '{sid}' not in registry")
+                    if page:
+                        warnings.append(f"{where}: unverified vi_term '{term}' has a page (should be empty)")
+            if recommended != 1:
+                errors.append(f"{where}: must have exactly one 'recommended' vi_term (found {recommended})")
 
     for w in warnings:
         print(f"WARN  {w}")

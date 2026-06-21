@@ -1,6 +1,6 @@
 # Kế hoạch xây dựng cuốn sách mở: *Một số thuật ngữ trong Toán rời rạc*
 
-> **Trạng thái:** Pha 0 hoàn thành — khung repo build ra bản web tìm kiếm được; sẵn sàng Pha 1 (pilot **C**).
+> **Trạng thái:** Pha 1 (pilot **C**) hoàn thành — chương C có **14 mục đã qua hội đồng**, build web OK, trích dẫn có số trang thật. Khuôn đã khóa (xem Phụ lục A). Sẵn sàng nhân rộng A–Z (Pha 2).
 > **Tựa sách (VI):** *Một số thuật ngữ trong Toán rời rạc*
 > **Subtitle (EN):** *Selected Terms in Discrete Mathematics — An English–Vietnamese Annotated Lexicon*
 > **Giấy phép:** CC BY-SA 4.0 (xem `LICENSE`).
@@ -348,3 +348,23 @@ DM-Concepts/
 4. **Cách chạy nhà máy:** vì quy trình nhiều-agent (Pha 1–2) tốn nhiều token, xác nhận bạn muốn khởi chạy bằng orchestration nhiều-agent (mở lại `ultracode`/Workflow) khi tới Pha 1.
 
 > Sau khi bạn duyệt, tôi bắt đầu **Pha 0** (chỉ thao tác cục bộ, an toàn) rồi mới tới pilot.
+
+---
+
+## Phụ lục A — Quy ước biên tập đã chốt (Pha 1, pilot C)
+
+Hội đồng biên tập (`agent-group-discuss`) đã chốt các quy ước sau, áp dụng **toàn sách** khi nhân rộng A–Z:
+
+1. **Ký hiệu toán học:** mọi ký hiệu inline ($$G$$, $$n$$, $$K_n$$, $$\chi(G)$$, $$\kappa(G)$$, dấu ngoặc tập hợp…) bọc `$$...$$` trong dữ liệu YAML, dịch thành `<m>...</m>` khi sang PreTeXt; block math dùng fence ```math. Không để math trần.
+2. **Quan hệ/bất đẳng thức:** cấm `>=`, `<=`, `!=` dạng ASCII trong văn xuôi; dùng $$\geq$$, $$\leq$$, $$\neq$$.
+3. **Bipartite = "đồ thị hai phía"** (chốt toàn sách; có trích dẫn cỡ-định-nghĩa tại Nguyễn Đức Nghĩa, tr. 160). "hai phần", "phân đôi" chỉ ghi làm biến thể nguồn, không dùng trong văn xuôi.
+4. **Circuit vs Cycle:** KHÔNG dùng "chu trình" trần cho *circuit* (ở Ngô Đắc Tân nó nghĩa là *cycle*). *Circuit* = "chu trình đơn" (khuyến nghị), "mạch" là từ-đơn chính xác; *cycle graph* $$C_n$$ = "đồ thị vòng".
+5. **Đúng một** `recommended=true` mỗi mục; ưu tiên thuật ngữ `verified=true` có nguồn + trang. Chỉ cho phép recommended `verified=false` khi không ứng viên nào có trong kho — và phải nêu rõ trong `notes`.
+6. **Vệ sinh trích dẫn:** bỏ mọi vi_term `verified=false` + `page=""` (trừ một thuật ngữ chuẩn recommended để giữ trường không rỗng). Mỗi `verified=true` mang `source_id` + `pdf_page` + `snippet`. Dùng tìm không-dấu (`--loose`) để xác nhận hit/0-hit.
+7. **Ví dụ tự chứa:** không dựa vào đại lượng dẫn xuất (số clique, $$\kappa$$) mà định nghĩa chưa giới thiệu.
+8. **Không chèn nghĩa khác trong định nghĩa:** biến thể đặt ở `vi_terms`/`notes`; ngoặc đơn chỉ để nhắc lại chính đối tượng đang định nghĩa.
+9. **see_also:** chỉ `<xref>` tới id cùng chương; tham chiếu chương khác là forward reference (vd. `coloring`, `graph-coloring` → gộp/khử trùng ở chương G).
+
+**Nguồn đã hoãn (scan, không có OCR tiếng Việt):** Rosen (bản dịch VI), Lê Anh Vinh, Hoàng Chí Thành — **không trích dẫn** cho tới khi có OCR. Kho text-layer đang dùng: Ngô Đắc Tân (2004), Nguyễn Đức Nghĩa & Nguyễn Tô Thành (2006), Nguyễn Hữu Điển (2019).
+
+**Quy trình tái lập (mỗi chữ cái):** workflow `pilot-chapter-c` (đổi chữ) → `encode-chapter.py <l>` → `validate-entry.py` (build-gate) → `build-search-index.py` → `pretext build web`.

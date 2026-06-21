@@ -8,12 +8,19 @@ is the single source of truth (it also drives the PreTeXt source).
 import glob
 import json
 import os
+import re
 import sys
 
 try:
     import yaml
 except ImportError:
     sys.exit("PyYAML required: pip install pyyaml")
+
+
+def to_mathjax(text):
+    """Convert the book's $$...$$ math delimiters to \\(...\\) for MathJax."""
+    text = " ".join((text or "").split())
+    return re.sub(r"\$\$(.+?)\$\$", r"\\(\1\\)", text)
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 TERM_FILES = glob.glob(os.path.join(ROOT, "data", "terms", "entries-*.yaml"))
@@ -31,8 +38,8 @@ def main() -> int:
                 "letter": letter,
                 "headword_en": e.get("headword_en", ""),
                 "notation": e.get("notation", ""),
-                "vi_terms": [t.get("term", "") for t in e.get("vi_terms", [])],
-                "definition_vi": " ".join((e.get("definition_vi") or "").split()),
+                "vi_terms": sorted({t.get("term", "") for t in e.get("vi_terms", [])}),
+                "definition_vi": to_mathjax(e.get("definition_vi")),
                 # PreTeXt renders a <definition xml:id="def-<id>"> on ch-<letter>.html.
                 "url": "ch-{0}.html#def-{1}".format(letter.lower(), e["id"]),
             })

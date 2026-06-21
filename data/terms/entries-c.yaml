@@ -1,0 +1,50 @@
+# Entry data for chapter C (machine-checkable source of truth).
+# Schema: see docs/PLAN.md §3. Each entry is rendered into source/ch-c.ptx and
+# fed into assets/search/entries.json (quick-lookup page) by the workflow scripts.
+#
+# NOTE (Pha 0): the two entries below are scaffold samples that lock the format.
+# page fields are intentionally empty ("") = not yet verified; the Vietnamese
+# Term Miner + Verifier fill and confirm them in Pha 1.
+letter: C
+entries:
+  - id: chromatic-number
+    letter: C
+    headword_en: "Chromatic number"
+    notation: "\\chi(G)"
+    rosen_ref: "Rosen §10.8"
+    definition_vi: >-
+      Sắc số của một đồ thị G, ký hiệu \chi(G), là số màu nhỏ nhất cần dùng để tô
+      các đỉnh của G sao cho hai đỉnh kề nhau luôn được tô khác màu.
+    vi_terms:
+      - term: "sắc số"
+        source_id: bib-hoangchithanh-2011
+        page: ""          # chưa kiểm chứng (Pha 1)
+        recommended: true
+      - term: "số màu"
+        source_id: bib-rosen-2003-vi
+        page: ""
+        recommended: false
+    example_vi: "Với đồ thị đầy đủ K_n ta có \\chi(K_n) = n."
+    see_also: [complete-graph]
+    status: draft
+    provenance:
+      note: "Pha 0 scaffold sample; citations and page numbers unverified."
+
+  - id: complete-graph
+    letter: C
+    headword_en: "Complete graph"
+    notation: "K_n"
+    rosen_ref: "Rosen §10.2"
+    definition_vi: >-
+      Đồ thị đầy đủ K_n là đồ thị đơn gồm n đỉnh, trong đó mọi cặp đỉnh phân biệt
+      đều kề nhau.
+    vi_terms:
+      - term: "đồ thị đầy đủ"
+        source_id: bib-nguyenducnghia-2006
+        page: ""
+        recommended: true
+    example_vi: "K_3 là tam giác; \\chi(K_n) = n."
+    see_also: [chromatic-number]
+    status: draft
+    provenance:
+      note: "Pha 0 scaffold sample; citations and page numbers unverified."

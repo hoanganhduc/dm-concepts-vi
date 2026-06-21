@@ -1,7 +1,6 @@
-# DM-Concepts
+# Một số thuật ngữ trong Toán rời rạc
 
-*Từ điển chú giải Thuật ngữ Toán Rời rạc & Lý thuyết Đồ thị (Anh–Việt)*
-— **Discrete Mathematics & Graph Theory: An English–Vietnamese Annotated Lexicon**
+*Selected Terms in Discrete Mathematics — An English–Vietnamese Annotated Lexicon*
 
 Một cuốn **sách mở** viết bằng [PreTeXt](https://pretextbook.org/) (theo khuôn của
 *[Discrete Mathematics: An Open Introduction](https://github.com/oscarlevin/discrete-book/)*
@@ -27,4 +26,4 @@ thiết kế: mô hình mục từ, ánh xạ PreTeXt, kiến trúc sản xuất
 
 ## Giấy phép
 
-Dự kiến CC BY-SA 4.0 (sẽ bổ sung `LICENSE` ở Pha 0).
+CC BY-SA 4.0 — xem [`LICENSE`](LICENSE).

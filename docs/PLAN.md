@@ -1,8 +1,9 @@
-# Kế hoạch xây dựng cuốn sách mở: *Từ điển chú giải Thuật ngữ Toán Rời rạc & Lý thuyết Đồ thị (Anh–Việt)*
+# Kế hoạch xây dựng cuốn sách mở: *Một số thuật ngữ trong Toán rời rạc*
 
-> **Trạng thái:** Bản kế hoạch (chờ duyệt). Chưa khởi chạy quy trình nhiều-agent.
-> **Working title (EN):** *Discrete Mathematics & Graph Theory: An English–Vietnamese Annotated Lexicon*
-> **Working title (VI):** *Thuật ngữ Toán Rời rạc và Lý thuyết Đồ thị: Từ điển chú giải Anh–Việt*
+> **Trạng thái:** Pha 0 hoàn thành — khung repo build ra bản web tìm kiếm được; sẵn sàng Pha 1 (pilot **C**).
+> **Tựa sách (VI):** *Một số thuật ngữ trong Toán rời rạc*
+> **Subtitle (EN):** *Selected Terms in Discrete Mathematics — An English–Vietnamese Annotated Lexicon*
+> **Giấy phép:** CC BY-SA 4.0 (xem `LICENSE`).
 > **Định dạng:** PreTeXt (theo khuôn của *Discrete Mathematics: An Open Introduction* — Oscar Levin).
 > **Repo:** `DM-Concepts` (chính là repo này).
 
@@ -254,7 +255,8 @@ Mọi vai sinh văn bản phải nạp khối văn phong (`writing-style-setting
 - **0.2** Cài đặt PreTeXt CLI; dựng khung repo (xem §8); cấu hình xuất web + PDF (kiểm thử Unicode tiếng Việt với `xelatex`); **bật tìm kiếm web** + script sinh `entries.json` cho trang tra cứu nhanh (§5).
 - **0.3** CI/CD: GitHub Actions build + deploy GitHub Pages; chọn giấy phép mở (đề xuất **CC BY-SA 4.0**, như sách mở).
 - **0.4** Chốt lược đồ dữ liệu mục từ (§3) + script `validate-entry`.
-- **Tiêu chí ra:** repo build ra trang web rỗng + 1 mục mẫu; CI xanh; registry nguồn khởi tạo.
+- **Tiêu chí ra:** repo build ra trang web + mục mẫu; CI xanh; registry nguồn khởi tạo.
+  **✓ Đã đạt:** `pretext build web` OK (11 trang); 2 mục mẫu (chữ C); validator (build-gate) + trang tra cứu (lọc không dấu) chạy; registry 21 nguồn (gồm bản dịch Rosen tiếng Việt).
 
 ### Pha 1 — Pilot: chữ **C** (khóa khuôn) *(D3)*
 - Chạy trọn dây chuyền §6.4 cho chữ C (Connected, Chromatic number, Cycle, Coloring, Clique, Complement, Complete graph, …).
@@ -284,8 +286,8 @@ DM-Concepts/
 ├── docs/
 │   └── PLAN.md                 # tài liệu này
 ├── project.ptx                 # manifest PreTeXt CLI
-├── publish/
-│   └── publication.ptx         # cấu hình xuất web/PDF
+├── publication/
+│   └── publication.ptx         # cấu hình xuất web/PDF (bật search, xelatex)
 ├── source/
 │   ├── main.ptx                # gốc sách: frontmatter + chương A..Z + backmatter
 │   ├── frontmatter.ptx

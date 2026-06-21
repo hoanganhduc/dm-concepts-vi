@@ -357,7 +357,7 @@ Hội đồng biên tập (`agent-group-discuss`) đã chốt các quy ước sa
 
 1. **Ký hiệu toán học:** mọi ký hiệu inline ($$G$$, $$n$$, $$K_n$$, $$\chi(G)$$, $$\kappa(G)$$, dấu ngoặc tập hợp…) bọc `$$...$$` trong dữ liệu YAML, dịch thành `<m>...</m>` khi sang PreTeXt; block math dùng fence ```math. Không để math trần.
 2. **Quan hệ/bất đẳng thức:** cấm `>=`, `<=`, `!=` dạng ASCII trong văn xuôi; dùng $$\geq$$, $$\leq$$, $$\neq$$.
-3. **Bipartite = "đồ thị hai phía"** (chốt toàn sách; có trích dẫn cỡ-định-nghĩa tại Nguyễn Đức Nghĩa, tr. 160). "hai phần", "phân đôi" chỉ ghi làm biến thể nguồn, không dùng trong văn xuôi.
+3. **Bipartite = "đồ thị hai phần"** (chốt toàn sách theo chính sách recency — Lê Anh Vinh 2020, Nguyễn Hoàng Thạch 2020). "đồ thị hai phía" (Nguyễn Đức Nghĩa 2006) và "đồ thị phân đôi" (Nguyễn Hữu Điển 2019) ghi làm biến thể nguồn, không dùng trong văn xuôi chính. *(Quyết định 2026-06-21: recency đè lên bản chốt cũ "hai phía".)*
 4. **Circuit vs Cycle:** KHÔNG dùng "chu trình" trần cho *circuit* (ở Ngô Đắc Tân nó nghĩa là *cycle*). *Circuit* = "chu trình đơn" (khuyến nghị), "mạch" là từ-đơn chính xác; *cycle graph* $$C_n$$ = "đồ thị vòng".
 5. **Đúng một** `recommended=true` mỗi mục; ưu tiên thuật ngữ `verified=true` có nguồn + trang. Chỉ cho phép recommended `verified=false` khi không ứng viên nào có trong kho — và phải nêu rõ trong `notes`.
 6. **Vệ sinh trích dẫn:** bỏ mọi vi_term `verified=false` + `page=""` (trừ một thuật ngữ chuẩn recommended để giữ trường không rỗng). Mỗi `verified=true` mang `source_id` + `pdf_page` + `snippet`. Dùng tìm không-dấu (`--loose`) để xác nhận hit/0-hit.

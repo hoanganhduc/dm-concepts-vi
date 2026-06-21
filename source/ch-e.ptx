@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<chapter xml:id="ch-e" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>E</title>
+
+  <introduction>
+    <p>
+      Chương này tập hợp các thuật ngữ tiếng Anh bắt đầu bằng chữ <q>E</q>, kèm
+      định nghĩa và các thuật ngữ tiếng Việt tương ứng cùng trích dẫn nguồn.
+    </p>
+  </introduction>
+
+  <definition xml:id="def-edge">
+    <title>Edge — cạnh</title>
+    <idx><h>edge</h></idx>
+    <idx><h>cung</h></idx>
+    <idx><h>cạnh</h></idx>
+    <idx><h>cạnh có hướng</h></idx>
+    <idx><h>cạnh của đồ thị</h></idx>
+    <idx><h>cạnh vô hướng</h></idx>
+    <notation>
+      <usage><m>e = \{u, v\}</m></usage>
+      <description>cạnh</description>
+    </notation>
+    <statement>
+      <p><em>Cạnh</em> của một đồ thị <m>G</m> nối một cặp đỉnh <m>u</m> và <m>v</m>, gọi là hai đầu mút của nó, ký hiệu <m>e = \{u, v\}</m>. Trong đồ thị vô hướng, một cạnh là một cặp đỉnh không sắp thứ tự <m>\{u, v\}</m>; trong đồ thị có hướng, một cạnh là một cặp đỉnh sắp thứ tự <m>(u, v)</m> (theo <xref ref="bib-rosen-2019" />, Rosen §10.1).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>cạnh</term> <xref ref="bib-leanhvinh-2020" /> (tr. 8 (PDF)); <xref ref="bib-nguyenhoangthach-2020" /> (tr. 61 (PDF)); <xref ref="bib-hoangchithanh-2007" /> (tr. 5 (PDF)) — cách dùng phổ biến.</p></li>
+        <li><p><term>cung</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 62 (PDF)); <xref ref="bib-nguyenhuudien-2019" /> (tr. 158 (PDF)).</p></li>
+        <li><p><term>cạnh có hướng</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 62 (PDF)).</p></li>
+        <li><p><term>cạnh của đồ thị</term> <xref ref="bib-leanhvinh-2020" /> (tr. 59 (PDF)).</p></li>
+        <li><p><term>cạnh vô hướng</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 63 (PDF)); <xref ref="bib-nguyenhuudien-2019" /> (tr. 156 (PDF)); <xref ref="bib-hoangchithanh-2007" /> (tr. 6 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Trong đồ thị <m>G</m> với tập đỉnh <m>V(G) = \{u, v, w\}</m>, cặp không sắp thứ tự <m>\{u, v\}</m> là một cạnh có hai đầu mút <m>u</m> và <m>v</m>, trong khi <m>\{u, w\}</m> không phải là cạnh của <m>G</m> nếu <m>u</m> và <m>w</m> không được nối với nhau.</p>
+      <p>Xem thêm <xref ref="def-endpoint" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-edge-coloring">
+    <title>Edge coloring — tô màu cạnh</title>
+    <idx><h>edge coloring</h></idx>
+    <idx><h>sắc số cạnh</h></idx>
+    <idx><h>tô màu các cạnh</h></idx>
+    <idx><h>tô màu cạnh</h></idx>
+    <notation>
+      <usage><m>\chi'(G)</m></usage>
+      <description>tô màu cạnh</description>
+    </notation>
+    <statement>
+      <p>Một <em>tô màu cạnh</em> của đồ thị <m>G</m> là một phép gán màu cho các cạnh của <m>G</m> sao cho không có hai cạnh kề nhau (cùng chung một đỉnh đầu mút) nào được gán cùng một màu. Số màu nhỏ nhất cần dùng để có một tô màu cạnh của <m>G</m> được gọi là sắc số cạnh, ký hiệu <m>\chi'(G)</m> (theo <xref ref="bib-rosen-2019" />, Rosen §10.8).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>tô màu cạnh</term> <xref ref="bib-leanhvinh-2020" /> (tr. 107 (PDF)) — cách dùng phổ biến.</p></li>
+        <li><p><term>sắc số cạnh</term> <xref ref="bib-leanhvinh-2020" /> (tr. 107 (PDF)).</p></li>
+        <li><p><term>tô màu các cạnh</term> <xref ref="bib-leanhvinh-2020" /> (tr. 107 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Đồ thị chu trình <m>C_4</m>, trong đó hai cạnh liên tiếp dọc theo chu trình thì kề nhau, có thể được tô bằng <m>2</m> màu, tô luân phiên hai màu dọc theo chu trình, nên <m>\chi'(C_4) = 2</m>.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-edge-connectivity">
+    <title>Edge connectivity — độ liên thông cạnh</title>
+    <idx><h>edge connectivity</h></idx>
+    <idx><h>chỉ số liên thông cạnh</h></idx>
+    <idx><h>số liên thông cạnh</h></idx>
+    <idx><h>độ liên thông cạnh</h></idx>
+    <notation>
+      <usage><m>\lambda(G)</m></usage>
+      <description>độ liên thông cạnh</description>
+    </notation>
+    <statement>
+      <p><em>Độ liên thông cạnh</em> của một đồ thị <m>G</m>, ký hiệu <m>\lambda(G)</m>, là số cạnh ít nhất cần xóa để làm cho <m>G</m> mất liên thông hoặc trở thành đồ thị chỉ có một đỉnh. Với <m>G</m> có ít nhất hai đỉnh, <m>\lambda(G)</m> cũng bằng số nguyên <m>k</m> lớn nhất sao cho <m>G</m> là <m>k</m>-liên thông cạnh (theo <xref ref="bib-rosen-2019" />, Rosen §10.4).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>độ liên thông cạnh</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 75 (PDF)); <xref ref="bib-ngodactan-2004" /> (tr. 266 (PDF)) — cách dùng phổ biến.</p></li>
+        <li><p><term>chỉ số liên thông cạnh</term> <xref ref="bib-leanhvinh-2020" /> (tr. 26 (PDF)).</p></li>
+        <li><p><term>số liên thông cạnh</term> <xref ref="bib-leanhvinh-2020" /> (tr. 225 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Với đồ thị chu trình <m>C_n</m> (trong đó <m>n \geq 3</m>), ta có <m>\lambda(C_n) = 2</m>, vì cần xóa ít nhất hai cạnh mới làm cho <m>C_n</m> mất liên thông.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-eigenvalue">
+    <title>Eigenvalue — giá trị riêng</title>
+    <idx><h>eigenvalue</h></idx>
+    <idx><h>giá trị riêng</h></idx>
+    <idx><h>giá trị riêng của ma trận</h></idx>
+    <notation>
+      <usage><m>A\mathbf{x} = \lambda \mathbf{x}</m></usage>
+      <description>giá trị riêng</description>
+    </notation>
+    <statement>
+      <p><em>Giá trị riêng</em> của một ma trận vuông <m>A</m> là một số vô hướng <m>\lambda</m> sao cho tồn tại một vectơ khác không <m>\mathbf{x}</m> thỏa mãn <m>A\mathbf{x} = \lambda\mathbf{x}</m>. Giá trị riêng của một đồ thị <m>G</m> là giá trị riêng của ma trận kề <m>A_G</m> của nó (theo <xref ref="bib-rosen-2019" />, Rosen §10.3).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>giá trị riêng</term> <xref ref="bib-leanhvinh-2020" /> (tr. 206 (PDF)) — cách dùng phổ biến.</p></li>
+        <li><p><term>giá trị riêng của ma trận</term> <xref ref="bib-leanhvinh-2020" /> (tr. 57 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Với ma trận <m>A = \begin{pmatrix} 0  \amp  1 \\ 1  \amp  0 \end{pmatrix}</m>, số <m>\lambda = 1</m> là một giá trị riêng vì <m>A\mathbf{x} = \mathbf{x}</m> với <m>\mathbf{x} = \begin{pmatrix} 1 \\ 1 \end{pmatrix} \neq \mathbf{0}</m>.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-empty-graph">
+    <title>Empty graph — đồ thị rỗng</title>
+    <idx><h>empty graph</h></idx>
+    <idx><h>đồ thị hoàn toàn rời rạc</h></idx>
+    <idx><h>đồ thị rỗng</h></idx>
+    <notation>
+      <usage><m>\overline{K_n}</m></usage>
+      <description>đồ thị rỗng</description>
+    </notation>
+    <statement>
+      <p><em>Đồ thị rỗng</em> trên <m>n</m> đỉnh, ký hiệu <m>\overline{K_n}</m>, là đồ thị có <m>n</m> đỉnh và không có cạnh nào, tức là <m>E(\overline{K_n}) = \varnothing</m>. Do đó mọi đỉnh của <m>\overline{K_n}</m> đều là đỉnh cô lập (theo <xref ref="bib-rosen-2019" />, Rosen §10.2).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>đồ thị rỗng</term> <xref ref="bib-leanhvinh-2020" /> (tr. 90 (PDF)); <xref ref="bib-leanhvinh-2020" /> (tr. 106 (PDF)); <xref ref="bib-nguyenhoangthach-2020" /> (tr. 70 (PDF)); <xref ref="bib-ngodactan-2004" /> (tr. 190 (PDF)); <xref ref="bib-ngodactan-2004" /> (tr. 289 (PDF)) — cách dùng phổ biến.</p></li>
+        <li><p><term>đồ thị hoàn toàn rời rạc</term> <xref ref="bib-ngodactan-2004" /> (tr. 190 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Đồ thị <m>\overline{K_3}</m> gồm ba đỉnh và không có cạnh nào; cả ba đỉnh đều là đỉnh cô lập.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-endpoint">
+    <title>Endpoint — đầu mút</title>
+    <idx><h>endpoint</h></idx>
+    <idx><h>điểm đầu mút</h></idx>
+    <idx><h>đầu mút</h></idx>
+    <idx><h>đỉnh cuối</h></idx>
+    <idx><h>đỉnh đầu</h></idx>
+    <idx><h>đỉnh đầu mút</h></idx>
+    <notation>
+      <usage><m>e = uv = \{u,v\};\ (u,v)</m></usage>
+      <description>đầu mút</description>
+    </notation>
+    <statement>
+      <p><em>Đầu mút</em> của một cạnh trong đồ thị <m>G</m> là một trong hai đỉnh mà cạnh đó nối; cạnh nối hai đỉnh <m>u</m> và <m>v</m> có hai đầu mút là <m>u</m> và <m>v</m>. Với cạnh có hướng <m>(u,v)</m>, đỉnh <m>u</m> là đỉnh đầu và đỉnh <m>v</m> là đỉnh cuối. Khi cạnh là một khuyên <m>\{u,u\}</m> thì hai đầu mút trùng nhau tại một đỉnh (theo <xref ref="bib-rosen-2019" />, Rosen §10.1).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>đầu mút</term> <xref ref="bib-leanhvinh-2020" /> (tr. 8 (PDF)) — cách dùng phổ biến.</p></li>
+        <li><p><term>điểm đầu mút</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 157 (PDF)).</p></li>
+        <li><p><term>đỉnh cuối</term> <xref ref="bib-ngodactan-2004" /> (tr. 185 (PDF)); <xref ref="bib-leanhvinh-2020" /> (tr. 54 (PDF)); <xref ref="bib-hoangchithanh-2007" /> (tr. 7 (PDF)).</p></li>
+        <li><p><term>đỉnh đầu</term> <xref ref="bib-ngodactan-2004" /> (tr. 185 (PDF)); <xref ref="bib-leanhvinh-2020" /> (tr. 54 (PDF)).</p></li>
+        <li><p><term>đỉnh đầu mút</term> <xref ref="bib-ngodactan-2004" /> (tr. 186 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Xét cạnh <m>e = uv</m> nối hai đỉnh <m>u</m> và <m>v</m>. Khi đó <m>u</m> và <m>v</m> là hai đầu mút của <m>e</m>. Nếu thay <m>e</m> bằng cạnh có hướng <m>(u,v)</m> thì <m>u</m> là đỉnh đầu và <m>v</m> là đỉnh cuối của cạnh đó.</p>
+      <p>Xem thêm <xref ref="def-edge" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-equivalence-class">
+    <title>Equivalence class — lớp tương đương</title>
+    <idx><h>equivalence class</h></idx>
+    <idx><h>lớp tương đương</h></idx>
+    <idx><h>lớp tương đương của</h></idx>
+    <idx><h>lớp tương đương theo quan hệ</h></idx>
+    <notation>
+      <usage><m>[a]_R = \{ x : x\,R\,a \}</m></usage>
+      <description>lớp tương đương</description>
+    </notation>
+    <statement>
+      <p><em>Lớp tương đương</em> của phần tử <m>a</m> theo quan hệ tương đương <m>R</m> trên tập <m>S</m>, ký hiệu <m>[a]_R</m>, là tập tất cả các phần tử của <m>S</m> có quan hệ <m>R</m> với <m>a</m>, tức là <m>[a]_R = \{x \in S : x\,R\,a\}</m>. Các lớp tương đương phân biệt tạo thành một phân hoạch của <m>S</m> (theo <xref ref="bib-rosen-2019" />, Rosen §9.5).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>lớp tương đương</term> <xref ref="bib-leanhvinh-2020" /> (tr. 230 (PDF)) — cách dùng phổ biến.</p></li>
+        <li><p><term>lớp tương đương của</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 74 (PDF)).</p></li>
+        <li><p><term>lớp tương đương theo quan hệ</term> <xref ref="bib-nguyenducnghia-2006" /> (tr. 23 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Xét quan hệ đồng dư theo modulo <m>2</m> trên tập số nguyên <m>\mathbb{Z}</m>, trong đó <m>a\,R\,b</m> khi <m>a - b</m> chia hết cho <m>2</m>. Quan hệ này có đúng hai lớp tương đương: lớp <m>[0]_R</m> gồm các số chẵn và lớp <m>[1]_R</m> gồm các số lẻ, và hai lớp này tạo thành một phân hoạch của <m>\mathbb{Z}</m>.</p>
+      <p>Xem thêm <xref ref="def-equivalence-relation" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-equivalence-relation">
+    <title>Equivalence relation — quan hệ tương đương</title>
+    <idx><h>equivalence relation</h></idx>
+    <idx><h>quan hệ tương đương</h></idx>
+    <idx><h>quan hệ tương đương trên tập</h></idx>
+    <notation>
+      <usage><m>a \sim b</m></usage>
+      <description>quan hệ tương đương</description>
+    </notation>
+    <statement>
+      <p><em>Quan hệ tương đương</em> trên một tập <m>A</m> là một quan hệ hai ngôi <m>R</m> trên <m>A</m> vừa có tính phản xạ, vừa có tính đối xứng, vừa có tính truyền. Khi <m>(a,b) \in R</m> ta nói <m>a</m> và <m>b</m> tương đương với nhau, ký hiệu <m>a \sim b</m> (theo <xref ref="bib-rosen-2019" />, Rosen §9.5).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>quan hệ tương đương</term> <xref ref="bib-leanhvinh-2020" /> (tr. 17 (PDF)); <xref ref="bib-nguyenhuudien-2019" /> (tr. 115 (PDF)); <xref ref="bib-hoangchithanh-2007" /> (tr. 13 (PDF)); <xref ref="bib-nguyenducnghia-2006" /> (tr. 14 (PDF)); <xref ref="bib-ngodactan-2004" /> (tr. 37 (PDF)) — cách dùng phổ biến.</p></li>
+        <li><p><term>quan hệ tương đương trên tập</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 129 (PDF)); <xref ref="bib-nguyenducnghia-2006" /> (tr. 14 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Trên tập số nguyên <m>\mathbb{Z}</m>, quan hệ <m>a \sim b</m> khi và chỉ khi <m>a - b</m> chia hết cho <m>3</m> là một quan hệ tương đương, vì nó phản xạ, đối xứng và truyền.</p>
+      <p>Xem thêm <xref ref="def-equivalence-class" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-euler-circuit">
+    <title>Euler circuit — chu trình Euler</title>
+    <idx><h>euler circuit</h></idx>
+    <idx><h>chu trình Euler</h></idx>
+    <statement>
+      <p>Một <em>chu trình Euler</em> của đồ thị <m>G</m> là một chu trình đi qua mỗi cạnh của <m>G</m> đúng một lần và quay về đỉnh xuất phát; các đỉnh có thể được đi qua nhiều lần, nhưng mỗi cạnh chỉ xuất hiện đúng một lần (theo <xref ref="bib-rosen-2019" />, Rosen §10.5).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>chu trình Euler</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 76 (PDF)); <xref ref="bib-leanhvinh-2020" /> (tr. 109 (PDF)); <xref ref="bib-nguyenducnghia-2006" /> (tr. 190 (PDF)); <xref ref="bib-hoangchithanh-2007" /> (tr. 77 (PDF)) — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Đồ thị <m>K_3</m> với ba đỉnh <m>u</m>, <m>v</m>, <m>w</m> và ba cạnh <m>uv</m>, <m>vw</m>, <m>wu</m> có chu trình Euler <m>u, v, w, u</m>, vì nó đi qua cả ba cạnh đúng một lần và quay về đỉnh xuất phát <m>u</m>.</p>
+      <p>Xem thêm <xref ref="def-euler-path" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-euler-path">
+    <title>Euler path — đường đi Euler</title>
+    <idx><h>euler path</h></idx>
+    <idx><h>đường Euler</h></idx>
+    <idx><h>đường đi Euler</h></idx>
+    <statement>
+      <p>Một <em>đường đi Euler</em> trong đồ thị <m>G</m> là một đường đi (không nhất thiết đóng) đi qua mỗi cạnh của <m>G</m> đúng một lần (theo <xref ref="bib-rosen-2019" />, Rosen §10.5).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>đường đi Euler</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 76 (PDF)); <xref ref="bib-nguyenhuudien-2019" /> (tr. 180 (PDF)); <xref ref="bib-hoangchithanh-2007" /> (tr. 89 (PDF)); <xref ref="bib-nguyenducnghia-2006" /> (tr. 190 (PDF)) — cách dùng phổ biến.</p></li>
+        <li><p><term>đường Euler</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 187 (PDF)); <xref ref="bib-hoangchithanh-2007" /> (tr. 77 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Đồ thị đường <m>P_3</m> với các đỉnh <m>a, b, c</m> và các cạnh <m>ab, bc</m> có một đường đi Euler <m>a, b, c</m>, đi qua mỗi cạnh đúng một lần.</p>
+      <p>Xem thêm <xref ref="def-euler-circuit" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-eulerian-graph">
+    <title>Eulerian graph — đồ thị Euler</title>
+    <idx><h>eulerian graph</h></idx>
+    <idx><h>đồ thị Euler</h></idx>
+    <idx><h>đồ thị nửa Euler</h></idx>
+    <statement>
+      <p>Một <em>đồ thị Euler</em> là một đồ thị liên thông <m>G</m> chứa một chu trình Euler. Với <m>G</m> liên thông và có ít nhất hai đỉnh, <m>G</m> là đồ thị Euler khi và chỉ khi mọi đỉnh của <m>G</m> đều có bậc chẵn. Nếu <m>G</m> chứa một đường đi Euler nhưng không chứa chu trình Euler thì <m>G</m> được gọi là đồ thị nửa Euler (theo <xref ref="bib-rosen-2019" />, Rosen §10.5).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>đồ thị Euler</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 76 (PDF)); <xref ref="bib-nguyenhuudien-2019" /> (tr. 181 (PDF)); <xref ref="bib-nguyenducnghia-2006" /> (tr. 190 (PDF)); <xref ref="bib-ngodactan-2004" /> (tr. 201 (PDF)) — cách dùng phổ biến.</p></li>
+        <li><p><term>đồ thị nửa Euler</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 181 (PDF)); <xref ref="bib-nguyenducnghia-2006" /> (tr. 191 (PDF)); <xref ref="bib-ngodactan-2004" /> (tr. 201 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Đồ thị đầy đủ <m>K_5</m> là một đồ thị Euler vì nó liên thông và mọi đỉnh đều có bậc <m>4</m>.</p>
+      <p>Xem thêm <xref ref="def-euler-circuit" text="title" />, <xref ref="def-euler-path" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-even-integer">
+    <title>Even integer — số nguyên chẵn</title>
+    <idx><h>even integer</h></idx>
+    <idx><h>số chẵn</h></idx>
+    <idx><h>số nguyên chẵn</h></idx>
+    <notation>
+      <usage><m>n = 2k</m></usage>
+      <description>số nguyên chẵn</description>
+    </notation>
+    <statement>
+      <p><em>Số nguyên chẵn</em> là một số nguyên <m>n</m> chia hết cho <m>2</m>, nghĩa là <m>n = 2k</m> với <m>k</m> là một số nguyên nào đó (theo <xref ref="bib-rosen-2019" />, Rosen §4.1).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>số nguyên chẵn</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 40 (PDF)) — cách dùng phổ biến.</p></li>
+        <li><p><term>số chẵn</term> <xref ref="bib-leanhvinh-2020" /> (tr. 11 (PDF)); <xref ref="bib-nguyenhoangthach-2020" /> (tr. 64 (PDF)); <xref ref="bib-nguyenhuudien-2019" /> (tr. 58 (PDF)); <xref ref="bib-hoangchithanh-2007" /> (tr. 14 (PDF)); <xref ref="bib-nguyenducnghia-2006" /> (tr. 40 (PDF)); <xref ref="bib-ngodactan-2004" /> (tr. 201 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Các số <m>-4</m>, <m>0</m> và <m>10</m> là các số nguyên chẵn vì <m>-4 = 2 \cdot (-2)</m>, <m>0 = 2 \cdot 0</m> và <m>10 = 2 \cdot 5</m>.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-element">
+    <title>Element — phần tử</title>
+    <idx><h>element</h></idx>
+    <idx><h>phần tử</h></idx>
+    <idx><h>phần tử của tập</h></idx>
+    <idx><h>phần tử của tập hợp</h></idx>
+    <notation>
+      <usage><m>a \in A</m></usage>
+      <description>phần tử</description>
+    </notation>
+    <statement>
+      <p><em>Phần tử</em> của một tập hợp <m>A</m> là một đối tượng thuộc về <m>A</m>; ký hiệu <m>a \in A</m> để chỉ rằng <m>a</m> là một phần tử của <m>A</m>, và <m>a \notin A</m> để chỉ rằng <m>a</m> không là phần tử của <m>A</m> (theo <xref ref="bib-rosen-2019" />, Rosen §2.1).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>phần tử</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 16 (PDF)) — cách dùng phổ biến.</p></li>
+        <li><p><term>phần tử của tập</term> <xref ref="bib-ngodactan-2004" /> (tr. 31 (PDF)).</p></li>
+        <li><p><term>phần tử của tập hợp</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 19 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Với tập hợp <m>A = \{1, 2, 3\}</m>, ta có <m>2 \in A</m> và <m>4 \notin A</m>.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-expected-value">
+    <title>Expected value — giá trị kì vọng</title>
+    <idx><h>expected value</h></idx>
+    <idx><h>giá trị kì vọng</h></idx>
+    <idx><h>kì vọng</h></idx>
+    <notation>
+      <usage><m>E(X) = \sum_{s \in S} p(s)\,X(s)</m></usage>
+      <description>giá trị kì vọng</description>
+    </notation>
+    <statement>
+      <p><em>Giá trị kì vọng</em> của một biến ngẫu nhiên <m>X</m> trên không gian mẫu <m>S</m> là trung bình có trọng số các giá trị <m>X(s)</m> của nó, mỗi giá trị được lấy trọng số bằng xác suất <m>p(s)</m> của kết quả <m>s</m>. Giá trị này được ký hiệu <m>E(X)</m> và xác định bởi
+<me>E(X) = \sum_{s \in S} p(s)\,X(s).</me> (theo <xref ref="bib-rosen-2019" />, Rosen §7.4).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>giá trị kì vọng</term> <xref ref="bib-leanhvinh-2020" /> (tr. 193 (PDF)) — cách dùng phổ biến.</p></li>
+        <li><p><term>kì vọng</term> <xref ref="bib-leanhvinh-2020" /> (tr. 191 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Khi tung một con xúc xắc cân đối, không gian mẫu là <m>S = \{1,2,3,4,5,6\}</m> với <m>p(s) = \tfrac{1}{6}</m> cho mỗi <m>s</m>, và biến ngẫu nhiên <m>X(s) = s</m> ghi lại số chấm xuất hiện. Khi đó giá trị kì vọng là <m>E(X) = \sum_{s \in S} \tfrac{1}{6}\,s = \tfrac{1}{6}(1+2+3+4+5+6) = \tfrac{7}{2}</m>.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-exponential-generating-function">
+    <title>Exponential generating function — hàm sinh mũ</title>
+    <idx><h>exponential generating function</h></idx>
+    <idx><h>hàm sinh</h></idx>
+    <idx><h>hàm sinh mũ</h></idx>
+    <notation>
+      <usage><m>\sum_{k=0}^{\infty} a_k \frac{x^k}{k!}</m></usage>
+      <description>hàm sinh mũ</description>
+    </notation>
+    <statement>
+      <p><em>Hàm sinh mũ</em> của một dãy số thực <m>(a_k)_{k \geq 0}</m> là chuỗi lũy thừa hình thức, ký hiệu <m>f(x)</m>, được cho bởi <m>f(x) = \sum_{k=0}^{\infty} a_k \frac{x^k}{k!}</m> (theo <xref ref="bib-rosen-2019" />, Rosen §8.4).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>hàm sinh mũ</term> <xref ref="bib-ngodactan-2004" /> (tr. 97 (PDF)); <xref ref="bib-ngodactan-2004" /> (tr. 87 (PDF)) — cách dùng phổ biến.</p></li>
+        <li><p><term>hàm sinh</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 45 (PDF)); <xref ref="bib-nguyenducnghia-2006" /> (tr. 38 (PDF)); <xref ref="bib-ngodactan-2004" /> (tr. 59 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Với dãy hằng <m>a_k = 1</m> với mọi <m>k \geq 0</m>, hàm sinh mũ là <m>\sum_{k=0}^{\infty} \frac{x^k}{k!} = e^x</m>.</p>
+    </statement>
+  </definition>
+</chapter>

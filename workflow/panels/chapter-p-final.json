@@ -1,0 +1,725 @@
+{
+  "locked_conventions": [
+    "Math delimiters: every inline mathematical symbol in definition_vi, example_vi, and notes prose is wrapped in $$...$$ ($$G$$, $$K_n$$, $$\\binom{n}{k}$$, $$\\chi(G)$$, $$\\preceq$$, $$\\mathcal{P}(S)$$, $$P(n,r)$$, set braces, $$\\geq$$, $$\\leq$$, $$\\neq$$, $$\\gcd(a,b)$$). Block math uses a ```math fence. Bare Vietnamese words (đường đi, đồ thị phẳng, mệnh đề, giả đồ thị, chân trị) are never wrapped in $$...$$, and the $$\\text{...}$$ wrapper is never used around prose words.",
+    "Inequalities and relations: ASCII '>=', '<=', '!=' are forbidden in finished prose; use $$\\geq$$, $$\\leq$$, $$\\neq$$. No ASCII inequalities appear in any chapter-P definition, example, or note.",
+    "Notation field carries a BARE symbolic LaTeX token (\\binom{n}{k}, \\preceq, (S, \\preceq), \\mathcal{P}(S), P(x), P(n,r), u = v_0, v_1, \\ldots, v_n = v, M \\subseteq E(G), p), NOT wrapped in $$...$$; encode-chapter.py strips $$ before wrapping in <m>. Four entries that stored the notation dollar-wrapped or as a prose sentence (path, perfect-matching, prime-number, proposition) were normalized to bare LaTeX to match the chapter majority and the chapter-O ordered-tree normalization precedent.",
+    "First-concept emphasis uses LaTeX \\emph{...} in plain text, never $$...$$ math mode and never Markdown *...*. proposition's $$\\textit{mệnh đề}$$ / $$\\textit{chân trị}$$, pseudograph's $$giả đồ thị$$, and poset's *tập hợp có thứ tự* were all normalized to \\emph{...}; genuine symbols ($$T$$, $$F$$, $$p$$, $$\\preceq$$) stay wrapped.",
+    "Bipartite rendering is fixed book-wide to 'đồ thị hai phần' (book standard); 'đồ thị hai phía' / 'đồ thị phân đôi' are recorded only as deferred source variants. Where a verbatim OCR snippet quotes a variant (e.g. nguyenhuudien-2019 'đồ thị phân đôi đầy đủ') it is preserved as raw citation/notes text and flagged as a variant, not adopted as the book term.",
+    "Exactly one vi_term per entry has recommended=true, backed by source_id + pdf_page + page + snippet, attested in a 2019-2020 source where the concept exists there, with newest citations listed first. EVERY variant from ALL sources (old and new) is recorded. Two entries correctly fall back to older sources because no 2019-2020 attestation exists: petersen-graph (newest = 2006) and power-set (only 2004, modern spelling unattested), both disclosed in notes.",
+    "Citation hygiene: every verified=true vi_term carries source_id, pdf_page, page, and a quoted snippet whose surface form contains the term (OCR sources may show diacritic-mangled forms stored verbatim). Verified=false empty-page NON-recommended citations are dropped; the single standard recommended term is kept even when verified=false (power-set 'tập lũy thừa') so vi_terms is non-empty, with the no-attestation status explained in notes.",
+    "Examples are self-contained: an example_vi never relies on a derived quantity the definition_vi did not introduce. path's example uses only the edges and resulting length; perfect-matching's $$K_4$$ example uses only the matching the definition introduces; pascals-triangle's row-4 example uses only the binomial entries and the recurrence the definition states.",
+    "No synonym glosses inside the definition; variants and refinements live in vi_terms/notes. path's vi_terms hold only genuine 'đường đi' synonyms; the stricter 'đường đi đơn' (simple path) and 'đường đi sơ cấp' (elementary path) refinements are kept in notes as forward references to the dedicated simple-path entry, matching the chapter-C circuit precedent where the refinement term gets its own headword.",
+    "see_also lists kebab ids only. Same-chapter (P) ids are direct links; cross-chapter ids are forward references retained (NOT emptied) to be created in their own letter chapters. partial-order's dangling 'partially-ordered-set' id was repointed to the actual in-chapter id 'poset'; petersen-graph's misleading 'bipartite-graph' link (Petersen is non-bipartite) was dropped. Empty see_also (partition, pigeonhole-principle, prime-number) is explicitly justified in notes."
+  ],
+  "deferred_note": "Applied the panel's clearly-correct fixes and kept ALL 15 chapter-P entries; each retains exactly one recommended=true vi_term, every verified=true vi_term keeps source_id + pdf_page + page + snippet, and no fabricated citations were introduced. TERMINOLOGY: (HIGH) path — vi_terms previously bundled FIVE refinement rows (four 'đường đi đơn' = simple path, one 'đường đi sơ cấp' = elementary path) under the general path headword, contradicting the entry's own notes and the chapter-C circuit precedent (where the '...đơn' refinement gets its own headword whose vi_terms hold only that refinement's synonyms). The five refinement rows were removed from vi_terms; only the four genuine 'đường đi' attestations remain (nguyenhoangthach-2020 p73 recommended, leanhvinh-2020 p15, nguyenhuudien-2019 p168, hoangchithanh-2007 p7). The đường đi đơn / đường đi sơ cấp citations are recorded in notes as forward references to the dedicated simple-path entry. (HIGH) partial-order — recommends 'quan hệ thứ tự' (nguyenhuudien-2019 p118), the SAME term + citation as the already-finalized chapter-O order-relation entry. This is disclosed: a notes cross-reference now states the shared Vietnamese term is intentional (the 2019 corpus collapses 'order relation' and 'partial ordering' under 'quan hệ thứ tự'), and the see_also is made reciprocal with order-relation. The recommended term is kept (it is the lone 2019 attestation), with 'thứ tự bộ phận' (ngodactan-2004 p163) as the explicit-partial variant. (MED) proposition — $$\\textit{mệnh đề}$$ and $$\\textit{chân trị}$$ (prose words in math italics) normalized to \\emph{mệnh đề} / \\emph{chân trị}; $$T$$, $$F$$ stay math-wrapped. (MED) pseudograph — $$giả đồ thị$$ (spaced Vietnamese prose in math delimiters) normalized to \\emph{giả đồ thị}. (MED) perfect-matching — the notation field, a two-clause prose sentence, was reduced to bare LaTeX 'M \\subseteq E(G)'; the explanatory clause moved into definition_vi/notes. CORRECTNESS: (MED) partial-order — definition_vi now states the explicit partial qualifier, 'quan hệ thứ tự bộ phận (partial order)', parenthetically noting the recommended short form 'quan hệ thứ tự', so the partial-order meaning is unambiguous and consistent with the poset entry and chapter-O order-relation; the three axioms are unchanged. (LOW) poset — definition_vi aligned to 'quan hệ thứ tự bộ phận $$\\preceq$$' matching the partial-order entry; the $$(S, \\preceq)$$ notation and axioms are unchanged. (LOW) pascals-triangle — the duplicated parenthetical 'hệ số nhị thức $$\\binom{n}{k}$$ (ký hiệu $$\\binom{n}{k}$$ với ...)' was collapsed to a single occurrence with the range attached: 'hệ số nhị thức $$\\binom{n}{k}$$ với $$0 \\leq k \\leq n$$'; the recurrence is unchanged. EXPOSITION / EMPHASIS: (HIGH) poset — Markdown '*tập hợp có thứ tự*' emphasis normalized to \\emph{tập hợp có thứ tự}. (MED) partial-order notes — $$\\text{phản xạ}$$ / $$\\text{phản đối xứng}$$ / $$\\text{bắc cầu}$$ (prose words in math) unwrapped to plain Vietnamese; genuine symbols $$\\preceq$$, $$R$$ stay wrapped. (MED) planar-graph notes — the bib-nguyenhuudien-2019 'đồ thị phân đôi đầy đủ' mention is now flagged with the book-standard 'đồ thị hai phần' and 'đồ thị phân đôi' marked as a listed variant only. NOTATION-FIELD NORMALIZATION TO BARE LaTeX (LOW): path (u = v_0, v_1, \\ldots, v_n = v), prime-number (p), proposition (p, q, r, \\ldots; truth values T, F) un-$$-wrapped to match the O/N/B chapters; partial-order \\preceq, pascals-triangle \\binom{n}{k}, permutation P(n,r), poset (S, \\preceq), power-set \\mathcal{P}(S), predicate P(x) were already bare. SEE_ALSO FIXES: partial-order 'partially-ordered-set' -> 'poset' (the actual in-chapter id) and order-relation added for reciprocity; petersen-graph 'bipartite-graph' dropped as a misleading link (Petersen is non-bipartite, girth 5); planar-graph keeps its see_also and notes now document that all its ids are cross-chapter forward references and that bipartite is 'đồ thị hai phần'; perfect-matching keeps its forward references. EMPTY-see_also justifications added to notes for prime-number and pigeonhole-principle, matching the partition/power-set pattern. NOT APPLIED (correct as-is / optional / out of scope): the LOW optional permutation suggestions (splitting into permutation = hoán vị and r-permutation = chỉnh hợp; a half-line that the source uses k where the entry uses r) were left as-is — the recommended term, notation, and disclosing notes are already valid; the path closing-sentence restatement ('Số $$n$$ ... độ dài') was kept as a standard definitional naming of the quantity; perfect-matching's even-order consequence remains a non-Rosen derivable property recorded as optional; no new simple-path / elementary-path entries were created here (out of scope for the chapter-P editor) — their citations are surfaced as forward references in path's notes for the entry-author to place. power-set's verified=false + recommended=true (modern spelling 'tập lũy thừa') with the attested 2004 spelling 'tập luỹ thừa' recorded separately is kept exactly per the chapter-O ordered-tree precedent.",
+  "final_entries": [
+    {
+      "id": "path",
+      "letter": "P",
+      "headword_en": "Path",
+      "notation": "u = v_0, v_1, \\ldots, v_n = v",
+      "rosen_ref": "Rosen §10.4",
+      "definition_vi": "Một đường đi độ dài $$n$$ từ đỉnh $$u$$ tới đỉnh $$v$$ trong đồ thị $$G$$ là một dãy gồm $$n$$ cạnh nối tiếp một dãy đỉnh $$u = v_0, v_1, \\ldots, v_n = v$$, trong đó mỗi cạnh nối hai đỉnh liên tiếp $$v_{i-1}$$ và $$v_i$$ của dãy với mọi $$1 \\leq i \\leq n$$. Số $$n$$ được gọi là độ dài của đường đi.",
+      "example_vi": "Trong đồ thị với các cạnh $$\\{a,b\\}$$, $$\\{b,c\\}$$, $$\\{c,d\\}$$, dãy đỉnh $$a, b, c, d$$ là một đường đi độ dài $$3$$ từ $$a$$ tới $$d$$, vì mỗi cặp đỉnh liên tiếp được nối bởi một cạnh.",
+      "vi_terms": [
+        {
+          "term": "đường đi",
+          "source_id": "bib-nguyenhoangthach-2020",
+          "page": "tr. 73 (PDF)",
+          "pdf_page": 73,
+          "snippet": "Định nghĩa 5.25. Một đường đi độ dài ` từ đỉnh u tới đỉnh v là một dãy",
+          "verified": true,
+          "recommended": true
+        },
+        {
+          "term": "đường đi",
+          "source_id": "bib-leanhvinh-2020",
+          "page": "tr. 15 (PDF)",
+          "pdf_page": 15,
+          "snippet": "Tiếp theo ta sẽ định nghĩa hành trình, đường đi và chu trình trong",
+          "verified": true,
+          "recommended": false
+        },
+        {
+          "term": "đường đi",
+          "source_id": "bib-nguyenhuudien-2019",
+          "page": "tr. 168 (PDF)",
+          "pdf_page": 168,
+          "snippet": "Định nghĩa 6.18 Đường đi độ dài n từ đỉnh u đến đỉnh v, với n là một số nguyên dương,",
+          "verified": true,
+          "recommended": false
+        },
+        {
+          "term": "đường đi",
+          "source_id": "bib-hoangchithanh-2007",
+          "page": "tr. 7 (PDF)",
+          "pdf_page": 7,
+          "snippet": "cạnh của đường đi được gọi là dé dài của đường đi đó.",
+          "verified": true,
+          "recommended": false
+        }
+      ],
+      "see_also": ["simple-path", "circuit", "cycle", "connected-graph"],
+      "notes": "Recommended term \"đường đi\" (general path) is the base concept matching Rosen §10.4 and is attested in both 2020 sources: bib-nguyenhoangthach-2020 p73 (Định nghĩa 5.25: \"Một đường đi độ dài ` từ đỉnh u tới đỉnh v là một dãy ...\") and bib-leanhvinh-2020 p15-16, plus bib-nguyenhuudien-2019 p168 (Định nghĩa 6.18), bib-hoangchithanh-2007 p7. Vi_terms ordered newest-source first.\n\ndefinition_vi follows the recommended term and the wording of the recommended source (bib-nguyenhoangthach-2020 Định nghĩa 5.25), expressing Rosen's general path: a length-$$n$$ path is a sequence of $$n$$ edges successively connecting a vertex sequence from $$u$$ to $$v$$. The notation field gives the vertex sequence $$u = v_0, v_1, \\ldots, v_n = v$$ as in the source (stored as bare LaTeX; the renderer adds the math wrapping). The example is self-contained: it introduces only edges and the resulting path/length, no derived quantity beyond what the definition states.\n\nCONCEPT BOUNDARY (per panel terminology HIGH finding): two stricter refinements of the path concept appear in the corpus but denote notions narrower than Rosen's general \"đường đi\", so they are NOT listed as vi_terms of this entry. Following the chapter-C precedent (id=circuit, whose vi_terms hold only synonyms of the \"...đơn\" refinement, while the general \"chu trình\" lives under id=cycle), each refinement belongs to its own headword. They are recorded here as forward references for the simple-path entry (and an elementary-path entry if treated separately):\n- \"đường đi đơn\" = simple path: bib-nguyenhoangthach-2020 p73 (\"Một đường đi đơn (tương tự, chu trình đơn) là một đường đi ...\"), bib-nguyenhuudien-2019 p168 (\"Đường đi hoặc chu trình gọi là đơn nếu nó không chứa cùng một cạnh ... quá\"), bib-nguyenducnghia-2006 p156, bib-hoangchithanh-2007 p7 (\"Đường đi đơn là đường đi mà các đỉnh trên nó khác nhau từng đôi.\"). The Vietnamese \"đơn\" usage is the no-repeated-edge sense in nguyenhuudien-2019/nguyenducnghia-2006, aligning with Rosen's \"simple path\" (no repeated edge), but the vertex/edge convention varies by book.\n- \"đường đi sơ cấp\" = elementary path (distinct vertices): bib-nguyenhuudien-2019 p168-169 (\"... được gọi là đường đi hoặc chu trình sơ cấp\"); the hierarchy is explicit there (an elementary path is a simple path).\n\nbib-leanhvinh-2020 (OCR) and bib-hoangchithanh-2007 (OCR) were searched in BOTH normal and --loose modes; both attest \"đường đi\" cleanly. bib-ngodactan-2004 also uses \"đường đi\" (bib id present in references.ptx) but a clean definitional snippet was not isolated; the base term is already amply attested in newer sources.\n\nVerifier note: all cited bibliography ids confirmed to exist in source/references.ptx and data/sources/registry.yaml. The four remaining \"đường đi\" snippet/pdf_page pairs were re-mined against the corpus text and reconfirmed (OCR sources checked normal + --loose). No fabricated citations.\n\nsee_also: \"simple-path\" is the in-chapter refinement (đường đi đơn); \"circuit\"/\"cycle\"/\"connected-graph\" are related P/C-chapter concepts and remain cross-chapter forward references where not in chapter P.\n\nDiacritic note: snippets contain OCR artifacts in the 2020/2007 OCR sources (e.g., \"dé dài\" = \"độ dài\"). Clean text terms: đường đi (and the refinements đường đi đơn, đường đi sơ cấp, recorded above)."
+    },
+    {
+      "id": "planar-graph",
+      "letter": "P",
+      "headword_en": "Planar graph",
+      "notation": "",
+      "rosen_ref": "Rosen §10.7",
+      "definition_vi": "Đồ thị $$G$$ được gọi là đồ thị phẳng nếu nó có thể được vẽ trên mặt phẳng sao cho không có hai cạnh nào của nó cắt nhau, nghĩa là các cạnh chỉ gặp nhau tại đầu mút chung của chúng. Một cách vẽ như vậy được gọi là một biểu diễn phẳng của $$G$$.",
+      "example_vi": "Đồ thị $$K_4$$ là đồ thị phẳng, vì nó có thể được vẽ trên mặt phẳng với một đỉnh nằm bên trong tam giác tạo bởi ba đỉnh còn lại sao cho không có hai cạnh nào cắt nhau.",
+      "vi_terms": [
+        {
+          "term": "đồ thị phẳng",
+          "source_id": "bib-leanhvinh-2020",
+          "page": "tr. 114 (PDF)",
+          "pdf_page": 114,
+          "snippet": "biểu diễn ƒ. Đồ thị G được gọi là đồ thị phẳng nếu Ơ có một biểu diễn",
+          "verified": true,
+          "recommended": true
+        },
+        {
+          "term": "đồ thị phẳng",
+          "source_id": "bib-nguyenhuudien-2019",
+          "page": "tr. 235 (PDF)",
+          "pdf_page": 235,
+          "snippet": "Figure 9.16: (a), (b) là đồ thị phẳng, (c) là đồ thị không phẳng",
+          "verified": true,
+          "recommended": false
+        },
+        {
+          "term": "đồ thị phẳng",
+          "source_id": "bib-hoangchithanh-2007",
+          "page": "tr. 115 (PDF)",
+          "pdf_page": 115,
+          "snippet": "Định nghĩa 10.1: Da đồ thi vô hướng G được gọi là đồ thị phẳng",
+          "verified": true,
+          "recommended": false
+        },
+        {
+          "term": "đồ thị phẳng",
+          "source_id": "bib-ngodactan-2004",
+          "page": "tr. 183 (PDF)",
+          "pdf_page": 183,
+          "snippet": "Hamilton, đồ thị phẳng. Cuối cùng ta đề cập tới vấn đề nhúng đồ thị",
+          "verified": true,
+          "recommended": false
+        },
+        {
+          "term": "đồ thị không phẳng",
+          "source_id": "bib-leanhvinh-2020",
+          "page": "tr. 126 (PDF)",
+          "pdf_page": 126,
+          "snippet": "vẫn là đồ thị không phẳng. Một cách tương tự, nếu ta chia một cạnh",
+          "verified": true,
+          "recommended": false
+        },
+        {
+          "term": "đồ thị không phẳng",
+          "source_id": "bib-nguyenhuudien-2019",
+          "page": "tr. 233 (PDF)",
+          "pdf_page": 233,
+          "snippet": "Định lý 9.12 Đồ thị đầy đủ K5 là một đồ thị không phẳng.",
+          "verified": true,
+          "recommended": false
+        },
+        {
+          "term": "đồ thị không phẳng",
+          "source_id": "bib-ngodactan-2004",
+          "page": "tr. 16 (PDF)",
+          "pdf_page": 16,
+          "snippet": "6.15 Ví dụ đồ thị phằng và đồ thị không phẳng ......................206",
+          "verified": true,
+          "recommended": false
+        }
+      ],
+      "see_also": ["bipartite-graph", "complete-graph", "chromatic-number"],
+      "notes": "Recommended term \"đồ thị phẳng\" (planar graph) is the standard term, attested in the newest 2020 source (bib-leanhvinh-2020 p.114, formal definition) and across all corpus sources (2020, 2019, 2007, 2004). The negated form \"đồ thị không phẳng\" (nonplanar graph) is recorded as a closely related variant denoting graphs that are NOT planar; it is attested in bib-leanhvinh-2020 (p.126), bib-nguyenhuudien-2019 (p.233, theorem on K5), and bib-ngodactan-2004 (p.16). For the OCR sources (bib-hoangchithanh-2007, bib-leanhvinh-2020) both normal and --loose searches were run; loose added no new term forms. The phrase \"biểu diễn phẳng\" (planar representation/embedding) used in definition_vi follows the source wording \"biểu diễn\" in bib-leanhvinh-2020 p.114.\n\nTerminology consistency (per panel exposition finding): bib-nguyenhuudien-2019 renders complete bipartite locally as \"đồ thị phân đôi đầy đủ\", but the book-standard rendering for bipartite is \"đồ thị hai phần\" and \"đồ thị phân đôi\" is a listed variant only; the planar-graph term itself is consistently \"đồ thị phẳng\" in every source.\n\nsee_also: all three ids (bipartite-graph, complete-graph, chromatic-number) are cross-chapter forward references to be created in their own letter chapters, consistent with the path/poset entries which flag forward references."
+    },
+    {
+      "id": "partial-order",
+      "letter": "P",
+      "headword_en": "Partial order",
+      "notation": "\\preceq",
+      "rosen_ref": "Rosen §9.6",
+      "definition_vi": "Một quan hệ hai ngôi $$R$$ trên tập $$S$$ được gọi là một quan hệ thứ tự bộ phận (partial order; thường gọi vắn tắt là quan hệ thứ tự) nếu nó đồng thời có ba tính chất: phản xạ, phản đối xứng và bắc cầu. Quan hệ thứ tự bộ phận thường được ký hiệu là $$\\preceq$$, và ta viết $$a \\preceq b$$ thay cho $$(a, b) \\in R$$.",
+      "example_vi": "Xét tập $$S = \\{1, 2, 3\\}$$ và quan hệ \"chia hết\" $$\\preceq$$ trên $$S$$, trong đó $$a \\preceq b$$ khi và chỉ khi $$a$$ chia hết $$b$$. Quan hệ này là một quan hệ thứ tự bộ phận: nó phản xạ vì mỗi số chia hết chính nó, phản đối xứng vì $$a \\mid b$$ và $$b \\mid a$$ kéo theo $$a = b$$ với $$a, b$$ nguyên dương, và bắc cầu vì $$a \\mid b$$ cùng $$b \\mid c$$ kéo theo $$a \\mid c$$.",
+      "notes": "Recommended term \"quan hệ thứ tự\" is attested in the newest available source bib-nguyenhuudien-2019 (2019, tr. 118 PDF), where a binary relation that is reflexive (phản xạ), antisymmetric (phản đối xứng), and transitive (bắc cầu) is called a \"quan hệ thứ tự (hay vắn tắt, là một thứ tự)\" — exactly Rosen's partial order. That source reserves \"quan hệ thứ tự toàn phần\" (tr. 118 PDF) for total order, so the bare \"quan hệ thứ tự\" denotes the partial (general) order relation. Per the panel correctness finding, definition_vi now states the explicit partial qualifier \"quan hệ thứ tự bộ phận (partial order)\", parenthetically noting the recommended short form \"quan hệ thứ tự\", so the partial-order meaning is unambiguous and consistent with the poset entry. The three defining properties are rendered with the book-standard terms phản xạ / phản đối xứng / bắc cầu, matching the bib-nguyenhuudien-2019 snippet on tr. 118 PDF.\n\nCross-reference (per panel terminology HIGH finding): the chapter-O entry id=order-relation (also Rosen §9.6) recommends the IDENTICAL term \"quan hệ thứ tự\" with the IDENTICAL citation (bib-nguyenhuudien-2019 p118). This duplication is intentional and disclosed: the 2019 corpus collapses Rosen's generic \"order relation\" and the §9.6 \"partial ordering\" under the single Vietnamese term \"quan hệ thứ tự\". The explicit-partial form \"thứ tự bộ phận\" (the literal \"partial order\") is attested only in the older bib-ngodactan-2004 (2004, tr. 163 PDF) and is recorded as the variant. see_also is made reciprocal with order-relation, and \"partially-ordered-set\" was repointed to the actual in-chapter id \"poset\".\n\nThe candidate \"quan hệ thứ tự bộ phận\" as a verbatim phrase returned 0 hits across all sources (normal and --loose); it is used in definition_vi only as the explicit-partial composition of the attested \"quan hệ thứ tự\" + \"bộ phận\", not claimed as an attested surface form. No partial-order term appears in the graph-theory sources bib-leanhvinh-2020 or bib-hoangchithanh-2007 (OCR, both normal and --loose searched), nor in bib-nguyenhoangthach-2020 or bib-nguyenducnghia-2006: those sources use \"thứ tự\" only in sorting/ordering contexts. Other plausible variants (\"thứ tự riêng phần\", \"thứ tự từng phần\") returned 0 hits.",
+      "vi_terms": [
+        {
+          "term": "quan hệ thứ tự",
+          "source_id": "bib-nguyenhuudien-2019",
+          "page": "tr. 118 (PDF)",
+          "pdf_page": 118,
+          "snippet": "quan hệ thứ tự (hay vắn tắt, là một thứ tự) nếu và chỉ nếu nó có 3 tính chất: phản xạ, phản",
+          "verified": true,
+          "recommended": true
+        },
+        {
+          "term": "thứ tự bộ phận",
+          "source_id": "bib-ngodactan-2004",
+          "page": "tr. 163 (PDF)",
+          "pdf_page": 163,
+          "snippet": "Quan hệ hai ngôi a trên tập X được gọi là một thứ tự bộ phận trên",
+          "verified": true,
+          "recommended": false
+        }
+      ],
+      "see_also": ["total-order", "binary-relation", "poset", "order-relation", "reflexive-relation", "antisymmetric-relation", "transitive-relation"]
+    },
+    {
+      "id": "partition",
+      "letter": "P",
+      "headword_en": "Partition of a set",
+      "notation": "",
+      "rosen_ref": "Rosen §2.1",
+      "definition_vi": "Một phân hoạch của tập hợp $$S$$ là một họ các tập con khác rỗng, đôi một rời nhau của $$S$$ mà hợp của chúng bằng $$S$$. Mỗi tập con trong họ này được gọi là một khối của phân hoạch.",
+      "example_vi": "Họ $$\\{\\{1, 2\\}, \\{3\\}, \\{4, 5\\}\\}$$ là một phân hoạch của tập hợp $$\\{1, 2, 3, 4, 5\\}$$, vì ba tập con này đều khác rỗng, đôi một rời nhau và có hợp bằng $$\\{1, 2, 3, 4, 5\\}$$.",
+      "see_also": [],
+      "notes": "\"phân hoạch\" is the core noun and the recommended term, attested in the newest sources (nguyenhoangthach-2020, leanhvinh-2020) as well as older ones. The full descriptive phrase \"phân hoạch của tập hợp\" is a verified variant (section title in ngodactan-2004 p.7; nguyenhuudien-2019 pp.78,116). \"phân hoạch tương đương\" (nguyenhuudien-2019 p.116) names the partition induced by an equivalence relation; it is the same concept restricted to equivalence classes and is listed as a variant. In nguyenhoangthach-2020 the concept appears as \"phân hoạch của {1,...,n} thành k khối khác rỗng\" (partition into k nonempty blocks), confirming the Rosen sense (disjoint nonempty subsets/\"khối\" whose union is the whole set). nguyenducnghia-2006 p.14 confirms the equivalence-relation correspondence. The 2020 text source nguyenhoangthach-2020 and OCR source leanhvinh-2020 both attest the recommended term, so it is grounded in 2019-2020 sources. definition_vi uses \"đôi một rời nhau\" (pairwise disjoint) and \"khối\" (block), the latter directly attested in nguyenhoangthach-2020 (\"k khối khác rỗng\") and ngodactan-2004 (\"k khối\"); no synonym glosses are placed inside the definition. notation is empty because Rosen §2.1 introduces no single standard symbol for a partition. see_also is empty: chapter P has no other directly-related same-chapter entry, and related concepts (set, equivalence relation, Stirling number of the second kind) live in other chapters and remain forward references rather than linked ids.",
+      "vi_terms": [
+        {
+          "term": "phân hoạch",
+          "source_id": "bib-nguyenhoangthach-2020",
+          "page": "tr. 32 (PDF)",
+          "pdf_page": 32,
+          "snippet": "bằng cách lấy một phân hoạch của {1, 2, · · · , n} thành k khối khác rỗng,",
+          "verified": true,
+          "recommended": true
+        },
+        {
+          "term": "phân hoạch",
+          "source_id": "bib-leanhvinh-2020",
+          "page": "tr. 107 (PDF)",
+          "pdf_page": 107,
+          "snippet": "các cạnh đỏ thị G bởi k màu là một phân hoạch £ = (E..... Ex) của",
+          "verified": true,
+          "recommended": false
+        },
+        {
+          "term": "phân hoạch của tập hợp",
+          "source_id": "bib-nguyenhuudien-2019",
+          "page": "tr. 78 (PDF)",
+          "pdf_page": 78,
+          "snippet": "của các tập hợp con tạo thành phân hoạch của tập hợp đã cho, được phát biểu trong mệnh",
+          "verified": true,
+          "recommended": false
+        },
+        {
+          "term": "phân hoạch tương đương",
+          "source_id": "bib-nguyenhuudien-2019",
+          "page": "tr. 116 (PDF)",
+          "pdf_page": 116,
+          "snippet": "A1 , A2 , ..., An là một phân hoạch tương đương trên tập A.",
+          "verified": true,
+          "recommended": false
+        },
+        {
+          "term": "phân hoạch",
+          "source_id": "bib-nguyenducnghia-2006",
+          "page": "tr. 14 (PDF)",
+          "pdf_page": 14,
+          "snippet": "họ các tập con khác rỗng của một tập hợp có tính chất vừa nêu là một phân hoạch của",
+          "verified": true,
+          "recommended": false
+        },
+        {
+          "term": "phân hoạch của tập hợp",
+          "source_id": "bib-ngodactan-2004",
+          "page": "tr. 7 (PDF)",
+          "pdf_page": 7,
+          "snippet": "1.3.7 Phân hoạch của tập hợp. Số Stirling loại hai và",
+          "verified": true,
+          "recommended": false
+        },
+        {
+          "term": "phân hoạch",
+          "source_id": "bib-ngodactan-2004",
+          "page": "tr. 35 (PDF)",
+          "pdf_page": 35,
+          "snippet": "Ri và i ?2 được gọi là một phân hoạch của A thành k khối.",
+          "verified": true,
+          "recommended": false
+        }
+      ]
+    },
+    {
+      "id": "pascals-triangle",
+      "letter": "P",
+      "headword_en": "Pascal's triangle",
+      "notation": "\\binom{n}{k}",
+      "rosen_ref": "Rosen §6.4",
+      "definition_vi": "Tam giác Pascal là bảng số tam giác của các hệ số nhị thức, trong đó phần tử ở hàng $$n$$ và vị trí $$k$$ là hệ số nhị thức $$\\binom{n}{k}$$ với $$0 \\leq k \\leq n$$. Mỗi phần tử bên trong bằng tổng của hai phần tử nằm ngay phía trên nó, tức $$\\binom{n}{k} = \\binom{n-1}{k-1} + \\binom{n-1}{k}$$.",
+      "example_vi": "Hàng $$n = 4$$ của tam giác Pascal gồm các phần tử $$\\binom{4}{0}, \\binom{4}{1}, \\binom{4}{2}, \\binom{4}{3}, \\binom{4}{4}$$, tức $$1, 4, 6, 4, 1$$; chẳng hạn phần tử bên trong $$\\binom{4}{2} = 6$$ bằng tổng $$\\binom{3}{1} + \\binom{3}{2} = 3 + 3$$ của hai phần tử ngay phía trên nó.",
+      "vi_terms": [
+        {
+          "term": "tam giác Pascal",
+          "source_id": "bib-nguyenhoangthach-2020",
+          "page": "tr. 24 (PDF)",
+          "pdf_page": 24,
+          "snippet": "theo bằng tổng hai số ở ngay trên nó. Trong Hình 2.1 là tam giác Pascal cho",
+          "verified": true,
+          "recommended": true
+        },
+        {
+          "term": "tam giác Pascal",
+          "source_id": "bib-nguyenducnghia-2006",
+          "page": "tr. 21 (PDF)",
+          "pdf_page": 21,
+          "snippet": "Dưới đây là tam giác Pascal kích thước 8:",
+          "verified": true,
+          "recommended": false
+        },
+        {
+          "term": "tam giác Pascal",
+          "source_id": "bib-ngodactan-2004",
+          "page": "tr. 43 (PDF)",
+          "pdf_page": 43,
+          "snippet": "nhất thức Pascal ta nhận được tam giăc sau đây gọi là tam giác Pascal:",
+          "verified": true,
+          "recommended": false
+        }
+      ],
+      "see_also": ["binomial-coefficient", "binomial-theorem", "pascals-identity"],
+      "notes": "Only one distinct Vietnamese term denotes this concept across the entire corpus: \"tam giác Pascal\". Verified in the newest source bib-nguyenhoangthach-2020 (2020) on pp. 24-25, where the surrounding text gives the defining recurrence (mỗi số bằng tổng hai số ở ngay trên nó) and links the entries to the binomial coefficients via Đẳng thức Pascal (Pascal's identity); also verified in bib-nguyenducnghia-2006 (pp. 21-22, 33) and bib-ngodactan-2004 (p. 43, index p. 339). Re-checked: no hits in bib-leanhvinh-2020, bib-nguyenhuudien-2019, or bib-hoangchithanh-2007 (OCR sources searched normal + --loose, both 0 hits). No transliterated variants (tam giác Pat-xcan / Pa-xcan / tam giác số) are attested. The OCR snippet from ngodactan-2004 shows \"tam giăc\" (mangled diacritic) but the index entry confirms the canonical spelling \"tam giác Pascal\". The recurrence in the definition is Pascal's identity, hence see_also includes pascals-identity; binomial-coefficient and binomial-theorem are the core related P-entries (cross-chapter forward references). EDIT (per panel correctness LOW): the duplicated parenthetical \"(ký hiệu $$\\binom{n}{k}$$ với ...)\" was collapsed in definition_vi so the symbol $$\\binom{n}{k}$$ appears once with the range $$0 \\leq k \\leq n$$ attached; the recurrence is unchanged."
+    },
+    {
+      "id": "perfect-matching",
+      "letter": "P",
+      "headword_en": "Perfect matching",
+      "notation": "M \\subseteq E(G)",
+      "rosen_ref": "Rosen §10.2",
+      "definition_vi": "Cho đồ thị $$G = (V(G), E(G))$$ và một cặp ghép $$M \\subseteq E(G)$$ của $$G$$, tức một tập cạnh đôi một không có đỉnh chung. Cặp ghép $$M$$ được gọi là một cặp ghép hoàn hảo nếu mỗi đỉnh của $$G$$ là đầu mút của đúng một cạnh thuộc $$M$$.",
+      "example_vi": "Trong đồ thị đầy đủ $$K_4$$ với các đỉnh $$\\{1, 2, 3, 4\\}$$, tập cạnh $$M = \\{\\,12, 34\\,\\}$$ là một cặp ghép hoàn hảo, vì mỗi đỉnh trong $$\\{1, 2, 3, 4\\}$$ là đầu mút của đúng một cạnh thuộc $$M$$.",
+      "see_also": ["matching", "maximal-matching", "bipartite-graph"],
+      "notes": "\"cặp ghép hoàn hảo\" is the recommended term: it is the standard term and is formally defined in the newest source bib-leanhvinh-2020 (2020, pdf_page 67) as a maximum matching covering all vertices of $$G$$ (page-67 text: \"Nếu cặp ghép cực đại của G chứa tất cả các đỉnh của G thì ta gọi đó là một cặp ghép hoàn hảo\"). The candidate \"ghép cặp hoàn hảo\" returned 0 hits across all sources (normal and loose) and is dropped. \"1-nhân tử\" (1-factor) in bib-ngodactan-2004 (2004, pdf_page 276) is an exact synonym: a 1-factor is a spanning subgraph in which every vertex has degree 1, i.e. a perfect matching (the base term \"nhân tử\"/factor is defined on pdf_page 275 as a non-empty spanning subgraph). The term \"ghép cặp đầy đủ\" (complete matching) in bib-ngodactan-2004 (pdf_page 270) denotes a matching saturating $$V_1$$ in a bipartite graph from $$V_1$$ to $$V_2$$; it coincides with a perfect matching only when $$|V_1|=|V_2|$$, so it is recorded as a related variant rather than a strict synonym. The base term \"cặp ghép\"/\"ghép cặp\" (matching) is not listed here as it denotes the general matching concept. bib-leanhvinh-2020 and bib-hoangchithanh-2007 are OCR sources; both normal and --loose runs were performed.\n\nNotation/definition edit (per panel terminology MED + exposition LOW): the notation field was reduced from a two-clause prose sentence to the bare LaTeX symbol \"M \\subseteq E(G)\" to match the chapter-O/N/B convention (terse bare-LaTeX notation; the renderer adds the math wrapping). The descriptive content that $$M$$ is a perfect matching of $$G = (V(G), E(G))$$ was folded into definition_vi. Optional (not applied, non-Rosen): a perfect matching forces $$|V(G)|$$ to be even; this is a derivable property, not part of Rosen's definition, so it is noted here only.",
+      "vi_terms": [
+        {
+          "term": "cặp ghép hoàn hảo",
+          "source_id": "bib-leanhvinh-2020",
+          "page": "tr. 67 (PDF)",
+          "pdf_page": 67,
+          "snippet": "của G chứa tat cả các đính của G thì ta gọt đó là một cặp ghép hoàn hảo.",
+          "verified": true,
+          "recommended": true
+        },
+        {
+          "term": "1-nhân tử",
+          "source_id": "bib-ngodactan-2004",
+          "page": "tr. 276 (PDF)",
+          "pdf_page": 276,
+          "snippet": "Trước hết ta đặc trưng các đồ thị có 1-nhân tử.",
+          "verified": true,
+          "recommended": false
+        },
+        {
+          "term": "ghép cặp đầy đủ",
+          "source_id": "bib-ngodactan-2004",
+          "page": "tr. 270 (PDF)",
+          "pdf_page": 270,
+          "snippet": "IVĩ I = 771,'thì ta nói rằng G có một ghép cặp đầy đủ từ Vị tới V2 nếu",
+          "verified": true,
+          "recommended": false
+        }
+      ]
+    },
+    {
+      "id": "permutation",
+      "letter": "P",
+      "headword_en": "Permutation",
+      "notation": "P(n,r)",
+      "rosen_ref": "Rosen §6.3",
+      "definition_vi": "Một chỉnh hợp chập $$r$$ của một tập hợp gồm $$n$$ phần tử phân biệt là một cách sắp xếp có thứ tự của $$r$$ trong số $$n$$ phần tử đó, trong đó $$0 \\leq r \\leq n$$. Số các chỉnh hợp chập $$r$$ của $$n$$ phần tử được ký hiệu là $$P(n,r)$$; trường hợp $$r = n$$ là một cách sắp xếp có thứ tự của toàn bộ $$n$$ phần tử và được gọi là một hoán vị của tập hợp đó.",
+      "example_vi": "Với tập hợp $$\\{a, b, c\\}$$, các chỉnh hợp chập $$2$$ là $$ab$$, $$ba$$, $$ac$$, $$ca$$, $$bc$$, $$cb$$, nên $$P(3,2) = 6$$; các hoán vị (chỉnh hợp chập $$3$$) là $$abc$$, $$acb$$, $$bac$$, $$bca$$, $$cab$$, $$cba$$, nên $$P(3,3) = 6$$.",
+      "notes": "Rosen §6.3 covers two related notions under one heading: a permutation of $$n$$ distinct objects (an ordered arrangement of all of them) and an $$r$$-permutation (an ordered arrangement of $$r$$ of them, counted by $$P(n,r)$$). The Vietnamese tradition splits these into two distinct terms: \"chỉnh hợp\" denotes the $$r$$-permutation (arrangement of $$r$$ of $$n$$ elements) and matches Rosen's notation $$P(n,r)$$ directly, while \"hoán vị\" denotes the full permutation of all $$n$$ elements (the case $$r=n$$). Because the headword notation is $$P(n,r)$$ (the $$r$$-permutation), the recommended term is \"chỉnh hợp\", attested in the newest source bib-nguyenhoangthach-2020 (tr. 20 PDF), which writes \"Một chỉnh hợp chập k, hay còn gọi là một k-hoán vị\" and gives the notation $$P(n,k)$$. The variant \"k-hoán vị\" (calque of $$k$$-permutation) appears as an explicit synonym there. The full formal names \"chỉnh hợp không lặp\" and \"hoán vị không lặp\" (no-repetition variants) are recorded from bib-nguyenducnghia-2006 and bib-ngodactan-2004, which note these are usually shortened to \"chỉnh hợp\" and \"hoán vị\" respectively. The term \"hoán vị\" is retained because the $$r=n$$ permutation is central to the same Rosen concept; it is the recommended Vietnamese term for the full-permutation sense even though the headword notation $$P(n,r)$$ targets the $$r$$-permutation \"chỉnh hợp\". Sources bib-nguyenhuudien-2019, bib-leanhvinh-2020, and bib-hoangchithanh-2007 do not attest these counting terms (\"hoán vị\" appears in bib-leanhvinh-2020 only in the graph-coloring sense of \"permuting colours\", not the counting concept). Note (snippet-vs-notation): the recommended source uses the index $$k$$ where this entry uses $$r$$; the snippet is faithful to the source and no citation change is needed.",
+      "see_also": ["combination", "r-combination", "product-rule"],
+      "vi_terms": [
+        {
+          "term": "chỉnh hợp",
+          "source_id": "bib-nguyenhoangthach-2020",
+          "page": "tr. 20 (PDF)",
+          "pdf_page": 20,
+          "snippet": "Một chỉnh hợp chập k, hay còn gọi là một k-hoán vị, của ... Số chỉnh hợp chập k của n phần tử thường được ký hiệu là P (n, k)",
+          "verified": true,
+          "recommended": true
+        },
+        {
+          "term": "k-hoán vị",
+          "source_id": "bib-nguyenhoangthach-2020",
+          "page": "tr. 20 (PDF)",
+          "pdf_page": 20,
+          "snippet": "nguyên không âm. Một chỉnh hợp chập k, hay còn gọi là một k-hoán vị, của",
+          "verified": true,
+          "recommended": false
+        },
+        {
+          "term": "chỉnh hợp không lặp",
+          "source_id": "bib-nguyenducnghia-2006",
+          "page": "tr. 18 (PDF)",
+          "pdf_page": 18,
+          "snippet": "1.4.2. Chỉnh hợp không lặp",
+          "verified": true,
+          "recommended": false
+        },
+        {
+          "term": "hoán vị",
+          "source_id": "bib-ngodactan-2004",
+          "page": "tr. 32 (PDF)",
+          "pdf_page": 32,
+          "snippet": "tử của A. Hoán vị không lặp thường được gọi đơn giản là hoán vị.",
+          "verified": true,
+          "recommended": false
+        },
+        {
+          "term": "chỉnh hợp",
+          "source_id": "bib-ngodactan-2004",
+          "page": "tr. 28 (PDF)",
+          "pdf_page": 28,
+          "snippet": "là một chỉnh hợp không lặp chập k của n phần tử của A. Chỉnh hợp không lặp thường đơn giản được gọi là chỉnh hợp.",
+          "verified": true,
+          "recommended": false
+        },
+        {
+          "term": "hoán vị không lặp",
+          "source_id": "bib-ngodactan-2004",
+          "page": "tr. 32 (PDF)",
+          "pdf_page": 32,
+          "snippet": "n của n phần tử của A được gọi là một hoán vị không lặp của n phần tử của A.",
+          "verified": true,
+          "recommended": false
+        }
+      ]
+    },
+    {
+      "id": "pigeonhole-principle",
+      "letter": "P",
+      "headword_en": "Pigeonhole principle",
+      "notation": "",
+      "rosen_ref": "Rosen §6.2",
+      "definition_vi": "Nguyên lý Dirichlet phát biểu rằng nếu xếp $$k+1$$ đối tượng trở lên vào $$k$$ chiếc hộp thì có ít nhất một hộp chứa từ hai đối tượng trở lên.",
+      "example_vi": "Trong một nhóm gồm $$13$$ người luôn có ít nhất hai người sinh cùng một tháng, vì khi xếp $$13$$ người vào $$12$$ tháng (đóng vai trò các chiếc hộp) thì theo nguyên lý Dirichlet có một tháng ứng với từ hai người trở lên.",
+      "notes": "Mined across all six Vietnamese sources. \"nguyên lý Dirichlet\" is the dominant standard term and is the only candidate attested in 2019-2020 sources (leanhvinh-2020 pp. 32/144/145/188, nguyenhoangthach-2020 p. 53 as the named theorem \"Định lý 4.1 (Nguyên lý Dirichlet)\", nguyenhuudien-2019 p. 71/86); also in nguyenducnghia-2006 (§3.3, full statement on p. 59) and ngodactan-2004 (§1.5, p. 48), so it is chosen as recommended. The pigeonhole-imagery variant \"nguyên lý chuồng bồ câu\" is attested in nguyenhoangthach-2020 (p. 53) and ngodactan-2004 (p. 48, explicitly given as a synonym of nguyên lý Dirichlet). The drawer variant: the standard form \"nguyên lý ngăn kéo\" returns 0 hits anywhere in the corpus (normal and --loose); the only attested drawer spelling is \"nguyên lý ngăn khéo\" in nguyenhoangthach-2020 p. 53, an apparent source typo / OCR-adjacent spelling slip for \"ngăn kéo\". The vi_term is therefore recorded under the exact attested spelling \"nguyên lý ngăn khéo\" so its term matches its snippet. OCR source bib-hoangchithanh-2007 yielded no attestation under normal or --loose searches; bib-leanhvinh-2020 (OCR) attests only \"nguyên lý Dirichlet\" (confirmed under both normal and --loose). Rosen §6.2: if k+1 or more objects are placed into k boxes, then at least one box contains two or more objects. Definition wording follows the attested book statements (nguyenhoangthach-2020 p. 53 \"Nếu cho n quả bóng vào k chiếc hộp, thì...\"; nguyenducnghia-2006 p. 59 \"Nếu đem xếp nhiều hơn n đối tượng vào n cái hộp, thì luôn tìm...\"). see_also is empty: chapter P has no other directly-related same-chapter id; related counting concepts (counting principles, function) live in other chapters and remain forward references rather than linked ids, matching the partition/power-set pattern of explaining an empty see_also.",
+      "vi_terms": [
+        {
+          "term": "nguyên lý Dirichlet",
+          "source_id": "bib-leanhvinh-2020",
+          "page": "tr. 144 (PDF)",
+          "pdf_page": 144,
+          "snippet": "xanh và đỏ, Co định một đỉnh uụ của K„. Theo Nguyên lý Dirichlet,",
+          "verified": true,
+          "recommended": true
+        },
+        {
+          "term": "nguyên lý Dirichlet",
+          "source_id": "bib-nguyenhoangthach-2020",
+          "page": "tr. 53 (PDF)",
+          "pdf_page": 53,
+          "snippet": "Định lý 4.1 (Nguyên lý Dirichlet). Nếu cho n quả bóng vào k chiếc hộp, thì",
+          "verified": true,
+          "recommended": false
+        },
+        {
+          "term": "nguyên lý Dirichlet",
+          "source_id": "bib-nguyenhuudien-2019",
+          "page": "tr. 71 (PDF)",
+          "pdf_page": 71,
+          "snippet": "3.3. Nguyên lý Dirichlet . . . 86",
+          "verified": true,
+          "recommended": false
+        },
+        {
+          "term": "nguyên lý Dirichlet",
+          "source_id": "bib-nguyenducnghia-2006",
+          "page": "tr. 59 (PDF)",
+          "pdf_page": 59,
+          "snippet": "Nguyên lý Dirichlet. Vếu đem .xếp nhều hơn n đối tượng vào n cái hộp, thì luôn tìm",
+          "verified": true,
+          "recommended": false
+        },
+        {
+          "term": "nguyên lý Dirichlet",
+          "source_id": "bib-ngodactan-2004",
+          "page": "tr. 48 (PDF)",
+          "pdf_page": 48,
+          "snippet": "nguyên lý Dirichlet hay cũng gọi là nguyên lý chuồng bồ câu, tỏ ra rất",
+          "verified": true,
+          "recommended": false
+        },
+        {
+          "term": "nguyên lý chuồng bồ câu",
+          "source_id": "bib-nguyenhoangthach-2020",
+          "page": "tr. 53 (PDF)",
+          "pdf_page": 53,
+          "snippet": "Dirichlet (hay nguyên lý chuồng bồ câu, nguyên lý ngăn khéo, v.v.) để giải",
+          "verified": true,
+          "recommended": false
+        },
+        {
+          "term": "nguyên lý chuồng bồ câu",
+          "source_id": "bib-ngodactan-2004",
+          "page": "tr. 48 (PDF)",
+          "pdf_page": 48,
+          "snippet": "nguyên lý Dirichlet hay cũng gọi là nguyên lý chuồng bồ câu, tỏ ra rất",
+          "verified": true,
+          "recommended": false
+        },
+        {
+          "term": "nguyên lý ngăn khéo",
+          "source_id": "bib-nguyenhoangthach-2020",
+          "page": "tr. 53 (PDF)",
+          "pdf_page": 53,
+          "snippet": "Dirichlet (hay nguyên lý chuồng bồ câu, nguyên lý ngăn khéo, v.v.) để giải",
+          "verified": true,
+          "recommended": false
+        }
+      ],
+      "see_also": []
+    },
+    {
+      "id": "poset",
+      "letter": "P",
+      "headword_en": "Poset (partially ordered set)",
+      "notation": "(S, \\preceq)",
+      "rosen_ref": "Rosen §9.6",
+      "definition_vi": "Một \\emph{tập hợp có thứ tự} (poset) là một tập hợp $$S$$ cùng với một quan hệ thứ tự bộ phận $$\\preceq$$ trên $$S$$, tức là quan hệ có tính phản xạ, phản đối xứng và bắc cầu. Tập hợp có thứ tự này được ký hiệu là $$(S, \\preceq)$$.",
+      "example_vi": "Tập hợp các số nguyên dương $$S = \\{1, 2, 3, \\dots\\}$$ cùng với quan hệ chia hết $$\\preceq$$, trong đó $$a \\preceq b$$ khi và chỉ khi $$a$$ chia hết $$b$$, là một tập hợp có thứ tự $$(S, \\preceq)$$.",
+      "vi_terms": [
+        {
+          "term": "tập hợp có thứ tự",
+          "source_id": "bib-nguyenhuudien-2019",
+          "page": "tr. 119 (PDF)",
+          "pdf_page": 119,
+          "snippet": "Định nghĩa 4.13 Cho ( X, ≤) là một tập hợp có thứ tự, và A ⊂ X.",
+          "verified": true,
+          "recommended": true
+        },
+        {
+          "term": "tập được sắp bộ phận",
+          "source_id": "bib-ngodactan-2004",
+          "page": "tr. 164 (PDF)",
+          "pdf_page": 164,
+          "snippet": "Nếu < X, <> là tập được sắp bộ phận đối với thứ tự bộ phận < và",
+          "verified": true,
+          "recommended": false
+        }
+      ],
+      "see_also": ["partial-order", "hasse-diagram", "lattice", "total-order", "relation"],
+      "notes": "Concept: a poset is a set $$S$$ together with a partial order $$\\preceq$$ (reflexive, antisymmetric, transitive), written $$(S, \\preceq)$$ (Rosen §9.6).\n\nRecommended term \"tập hợp có thứ tự\" is taken from the newest attested order-theory source, bib-nguyenhuudien-2019 (2019), which gives the formal Định nghĩa 4.13 \"Cho $$(X, \\le)$$ là một tập hợp có thứ tự\" with the partial-order axioms (phản xạ, phản đối xứng, bắc cầu) and develops Hasse diagrams and lattices from it (pdf pages 119-125). In this source the \"bộ phận\"/\"partial\" qualifier is left implicit (a \"thứ tự\" satisfying the three axioms), so \"tập hợp có thứ tự\" is the surface form actually attested in 2019.\n\nVariant \"tập được sắp bộ phận\" is the explicit \"partially ordered set\" form from bib-ngodactan-2004 (2004, pdf pages 163-165), where \"thứ tự bộ phận\" (partial order) is defined and the poset is denoted $$\\langle X, \\preceq \\rangle$$ with Hasse-diagram development. The qualifier \"thứ tự bộ phận\" appears ONLY in bib-ngodactan-2004 across the whole corpus.\n\nConsistency with the partial-order entry (per panel finding): definition_vi uses \"quan hệ thứ tự bộ phận $$\\preceq$$\", matching the explicit-partial wording adopted in the partial-order entry's definition_vi so the two P-chapter entries describe the same underlying relation consistently; the recommended Vietnamese term in partial-order remains the attested \"quan hệ thứ tự\". First-concept emphasis was normalized from Markdown \"*...*\" to \\emph{tập hợp có thứ tự}.\n\nCandidate terms \"tập sắp thứ tự bộ phận\" and the full literal \"tập hợp có thứ tự bộ phận\" returned 0 hits in every source (normal and --loose) and are therefore not recorded as verified terms.\n\nThe OCR graph sources bib-leanhvinh-2020 (2020) and bib-hoangchithanh-2007 (2007), and the combinatorics source bib-nguyenhoangthach-2020 (2020), do not cover posets; their only \"sắp thứ tự\"/\"tập được sắp\" hits refer to ordered pairs/directed edges or to exercises \"sắp xếp\" (arranged) by difficulty, not to the partial-order concept. Both OCR sources were searched with --loose as well, with no poset attestation."
+    },
+    {
+      "id": "power-set",
+      "letter": "P",
+      "headword_en": "Power set",
+      "notation": "\\mathcal{P}(S)",
+      "rosen_ref": "Rosen §2.1",
+      "definition_vi": "Tập lũy thừa của một tập $$S$$, ký hiệu $$\\mathcal{P}(S)$$, là tập gồm tất cả các tập con của $$S$$. Nói cách khác, $$\\mathcal{P}(S) = \\{X : X \\subseteq S\\}$$.",
+      "example_vi": "Với $$X = \\{1, 2, 3\\}$$, tập lũy thừa của $$X$$ là $$\\mathcal{P}(X) = \\{\\emptyset, \\{1\\}, \\{2\\}, \\{3\\}, \\{1,2\\}, \\{1,3\\}, \\{2,3\\}, \\{1,2,3\\}\\}$$.",
+      "notes": "Recommended term \"tập lũy thừa\" (modern orthography) is the modern standard spelling (lũy) of the attested older \"luỹ\" form. The corpus only attests the older \"luỹ\" spelling: \"tập luỹ thừa\" appears in bib-ngodactan-2004 (2004) p. 164, 165, 179, where $$P(X)$$ is defined as the set of all subsets of $$X$$, with Example 5.5 (p. 165) using $$X=\\{1,2,3\\}$$. The modern \"tập lũy thừa\" returns 0 hits, so the recommended entry is marked verified=false (kept as the single standard recommended term so vi_terms is non-empty, per the citation-hygiene exception) and the attested 2004 spelling \"tập luỹ thừa\" is recorded separately with full citation. No 2019-2020 source in the corpus attests the power set concept under any spelling; the newer sources (nguyenhuudien-2019, nguyenhoangthach-2020, leanhvinh-2020) discuss subsets and the count $$2^n$$ but use no fixed \"power set\" term. Descriptive paraphrases such as \"tập tất cả các tập con của X\" / \"tập các tập con của X\" appear (e.g. bib-ngodactan-2004 p. 89, bib-nguyenducnghia-2006 p. 95, p. 116) but are not fixed terms for the power set and are not listed as variants. This verified=false-recommended + attested-old-spelling pattern matches the chapter-O ordered-tree precedent.",
+      "see_also": ["subset", "cardinality-of-a-set"],
+      "vi_terms": [
+        {
+          "term": "tập lũy thừa",
+          "source_id": "",
+          "page": "",
+          "pdf_page": 0,
+          "snippet": "",
+          "verified": false,
+          "recommended": true
+        },
+        {
+          "term": "tập luỹ thừa",
+          "source_id": "bib-ngodactan-2004",
+          "page": "tr. 164 (PDF)",
+          "pdf_page": 164,
+          "snippet": "trên tập luỹ thừa P{X) tấ t cả các tập con của tập X . □",
+          "verified": true,
+          "recommended": false
+        }
+      ]
+    },
+    {
+      "id": "predicate",
+      "letter": "P",
+      "headword_en": "Predicate",
+      "notation": "P(x)",
+      "rosen_ref": "Rosen §1.4",
+      "definition_vi": "Một vị từ, ký hiệu $$P(x)$$, là một phát biểu phụ thuộc vào các biến lấy giá trị trên các miền xác định cho trước, sao cho khi mỗi biến được gán một giá trị cụ thể thuộc miền của nó thì $$P(x)$$ trở thành một mệnh đề có giá trị chân lý xác định.",
+      "example_vi": "Xét vị từ $$P(x)$$ là phát biểu \"$$x > 3$$\" với biến $$x$$ lấy giá trị trên tập số nguyên. Khi gán $$x = 4$$, ta được mệnh đề $$P(4)$$ là \"$$4 > 3$$\", có giá trị chân lý đúng; khi gán $$x = 2$$, ta được mệnh đề $$P(2)$$ là \"$$2 > 3$$\", có giá trị chân lý sai.",
+      "see_also": ["proposition", "quantifier", "universal-quantifier", "existential-quantifier", "domain-of-discourse"],
+      "vi_terms": [
+        {
+          "term": "vị từ",
+          "source_id": "bib-nguyenhuudien-2019",
+          "page": "tr. 46 (PDF)",
+          "pdf_page": 46,
+          "snippet": "Định nghĩa 2.1 Một vị từ là một phát biểu P( x, y, . . .) phụ thuộc theo các biến x, y, . . . lấy giá trị trên các miền xác định A, B, . . . nào đó.",
+          "verified": true,
+          "recommended": true
+        }
+      ],
+      "notes": "Recommended term \"vị từ\" is attested with a formal definition in bib-nguyenhuudien-2019 (2019, Định nghĩa 2.1, tr. 46 PDF): \"Một vị từ là một phát biểu $$P(x, y, \\ldots)$$ phụ thuộc theo các biến $$x, y, \\ldots$$ lấy giá trị trên các miền xác định $$A, B, \\ldots$$ nào đó\" — an exact match for the Rosen concept (a statement that becomes a proposition once each variable is assigned a value from its domain). The same source uses \"vị từ\" consistently as the chapter title \"Lôgic vị từ\" (predicate logic) and throughout §2.1. The candidate variant \"hàm mệnh đề\" (propositional function) was NOT attested in any corpus source: 0 hits in both normal and --loose mode across all six books, so it is not retained as a vi_term (dropped per citation hygiene) but recorded here as a known variant. The two OCR sources (bib-leanhvinh-2020, bib-hoangchithanh-2007) returned 0 hits for \"vị từ\" in both normal and --loose mode (these are graph-theory/algorithm texts that do not cover predicate logic). The \"vị từ\" hits in bib-nguyenducnghia-2006 (pdf_page 97) are false positives from the substring \"hoán vị từ ... phần tử\" (permutations of elements), not the predicate concept, so 2006 is not cited. No 2020 source attests this concept; the newest valid attestation is the 2019 source."
+    },
+    {
+      "id": "prime-number",
+      "letter": "P",
+      "headword_en": "Prime number",
+      "notation": "p",
+      "rosen_ref": "Rosen §4.3",
+      "definition_vi": "Một số nguyên $$p > 1$$ được gọi là số nguyên tố nếu các ước nguyên dương duy nhất của $$p$$ là $$1$$ và $$p$$.",
+      "example_vi": "Số $$23$$ là số nguyên tố vì các ước nguyên dương duy nhất của nó là $$1$$ và $$23$$, trong khi $$6$$ không phải là số nguyên tố vì $$6 = 2 \\cdot 3$$.",
+      "notes": "Hai thuật ngữ đều chỉ khái niệm này. \"số nguyên tố\" là thuật ngữ chuẩn, đầy đủ, dùng cho danh từ (\"p là một số nguyên tố\"); được chứng thực trong cả hai nguồn 2020 (bib-leanhvinh-2020) và 2019 (bib-nguyenhuudien-2019). \"nguyên tố\" là dạng tính từ/rút gọn (\"với p nguyên tố\" = \"với p là số nguyên tố\"), chứng thực trong bib-leanhvinh-2020 (2020); lưu ý \"nguyên tố\" còn xuất hiện trong các cụm khác như \"nguyên tố cùng nhau\" (coprime) và \"ước nguyên tố\" (prime divisor) — các cụm này KHÔNG được tính là chứng thực cho khái niệm \"prime number\". Nguồn OCR bib-hoangchithanh-2007 chỉ khớp ở tên tác giả \"Nguyễn Tô Thành\", không chứng thực khái niệm này. see_also để trống: chương P không có mục cùng chương liên quan trực tiếp; các khái niệm liên quan (chia hết, $$\\gcd(a,b)$$, định lý cơ bản của số học) nằm ở các chữ cái khác và được giữ làm tham chiếu chuyển tiếp, theo đúng cách giải thích see_also trống của các mục partition/power-set.",
+      "see_also": [],
+      "vi_terms": [
+        {
+          "term": "số nguyên tố",
+          "source_id": "bib-leanhvinh-2020",
+          "page": "tr. 190 (PDF)",
+          "pdf_page": 190,
+          "snippet": "ta chọn p là một số nguyên tố nằm trong khoảng {(1—o0(1))./n, yn} và",
+          "verified": true,
+          "recommended": true
+        },
+        {
+          "term": "nguyên tố",
+          "source_id": "bib-leanhvinh-2020",
+          "page": "tr. 179 (PDF)",
+          "pdf_page": 179,
+          "snippet": "Với p nguyên tố, ta xét đỏ thị tích võ hướng đơn vị G với tập đỉnh",
+          "verified": true,
+          "recommended": false
+        },
+        {
+          "term": "số nguyên tố",
+          "source_id": "bib-nguyenhuudien-2019",
+          "page": "tr. 40 (PDF)",
+          "pdf_page": 40,
+          "snippet": "b) 23 là số nguyên tố.",
+          "verified": true,
+          "recommended": false
+        },
+        {
+          "term": "số nguyên tố",
+          "source_id": "bib-nguyenducnghia-2006",
+          "page": "tr. 82 (PDF)",
+          "pdf_page": 82,
+          "snippet": "Đầu ra: true nếu m là số nguyên tố, false nếu ngược lại.",
+          "verified": true,
+          "recommended": false
+        },
+        {
+          "term": "số nguyên tố",
+          "source_id": "bib-ngodactan-2004",
+          "page": "tr. 173 (PDF)",
+          "pdf_page": 173,
+          "snippet": "Suy ra, với số nguyên tố p ta có",
+          "verified": true,
+          "recommended": false
+        }
+      ]
+    },
+    {
+      "id": "proposition",
+      "letter": "P",
+      "headword_en": "Proposition",
+      "notation": "p, q, r, \\ldots (truth values T, F)",
+      "rosen_ref": "Rosen §1.1",
+      "definition_vi": "Một \\emph{mệnh đề} là một câu khẳng định nhận đúng một trong hai giá trị đúng hoặc sai, không thể đồng thời vừa đúng vừa sai. Giá trị đúng hoặc sai của một mệnh đề được gọi là \\emph{chân trị} của nó, thường ký hiệu $$T$$ (true) cho đúng và $$F$$ (false) cho sai.",
+      "example_vi": "Câu \"$$1 + 1 = 2$$\" là một mệnh đề có chân trị $$T$$, còn câu \"$$2$$ là số lẻ\" là một mệnh đề có chân trị $$F$$. Ngược lại, câu \"$$x + 1 = 2$$\" không phải là mệnh đề vì chân trị của nó phụ thuộc vào giá trị của $$x$$.",
+      "notes": "Recommended term \"mệnh đề\" is the standard Vietnamese term for THIS concept (a declarative statement that is either true or false, but not both), defined explicitly in bib-nguyenhuudien-2019 p.14 (\"một mệnh đề là nó đúng hoặc sai, và không thể vừa đúng vừa sai\"). The chapter heading there is \"Lôgic mệnh đề\" (propositional logic). Variant \"mệnh đề toán học\" (mathematical proposition) is attested on the same page and explicitly equated with \"mệnh đề\". The candidate \"mệnh đề logic\" returned 0 hits in any source and is dropped. Many corpus hits of the form \"Mệnh đề 2.2\" / \"Mệnh đề 1\" in bib-nguyenducnghia-2006 (and similarly in bib-nguyenhoangthach-2020, bib-ngodactan-2004) use \"Mệnh đề\" as a theorem-type label (English \"Proposition\" as a numbered statement), NOT this propositional-logic concept; those are excluded. The bib-nguyenducnghia-2006 p.13 hit IS this concept (proposition algebra: \"Các mệnh đề, cùng với các phép toán trên nó, lập nên một đại số, gọi là đại số mệnh đề\"). The 2020 graph theory source bib-leanhvinh-2020 has no propositional-logic coverage. The newest source actually defining the concept is the 2019 discrete-math text, so the recommended term is attested in 2019. The term \"chân trị\" (truth value) used in definition_vi and example_vi is drawn from the same defining snippet (bib-nguyenhuudien-2019 p.14: \"Giá trị đúng hoặc sai của một mệnh đề được gọi là chân trị của mệnh đề\"). EMPHASIS/NOTATION edits (per panel terminology MED + LOW): first-concept emphasis $$\\textit{mệnh đề}$$ / $$\\textit{chân trị}$$ (prose words in math italics) normalized to \\emph{mệnh đề} / \\emph{chân trị}; the genuine symbols $$T$$, $$F$$ stay math-wrapped. The notation field was un-$$-wrapped to bare LaTeX \"p, q, r, \\ldots (truth values T, F)\" to match the O/N/B convention.",
+      "see_also": ["propositional-logic", "truth-value", "logical-connective", "compound-proposition", "predicate", "tautology"],
+      "vi_terms": [
+        {
+          "term": "mệnh đề",
+          "source_id": "bib-nguyenhuudien-2019",
+          "page": "tr. 14 (PDF)",
+          "pdf_page": 14,
+          "snippet": "một mệnh đề là nó đúng hoặc sai, và không thể vừa đúng vừa sai. Giá trị đúng hoặc sai của một mệnh đề được gọi là chân trị của mệnh đề.",
+          "verified": true,
+          "recommended": true
+        },
+        {
+          "term": "mệnh đề toán học",
+          "source_id": "bib-nguyenhuudien-2019",
+          "page": "tr. 14 (PDF)",
+          "pdf_page": 14,
+          "snippet": "nhiên trong chương này ta chỉ xét đến các mệnh đề toán học, và chúng ta nói vắn tắt các mệnh đề toán học là các mệnh đề.",
+          "verified": true,
+          "recommended": false
+        },
+        {
+          "term": "mệnh đề",
+          "source_id": "bib-nguyenducnghia-2006",
+          "page": "tr. 13 (PDF)",
+          "pdf_page": 13,
+          "snippet": "Các mệnh đề, cùng với các phép toán trên nó, lập nên một đại số, gọi là đại số mệnh đề (còn gọi là đại số lôgic).",
+          "verified": true,
+          "recommended": false
+        }
+      ]
+    },
+    {
+      "id": "pseudograph",
+      "letter": "P",
+      "headword_en": "Pseudograph",
+      "notation": "",
+      "rosen_ref": "Rosen §10.1",
+      "definition_vi": "Một \\emph{giả đồ thị} là một đồ thị vô hướng $$G$$ trong đó cho phép có nhiều cạnh nối cùng một cặp đỉnh, đồng thời cho phép có khuyên, tức là cạnh nối một đỉnh với chính nó. Đây là loại đồ thị vô hướng tổng quát nhất, vì nó có thể chứa cả cạnh bội lẫn khuyên.",
+      "example_vi": "Xét đồ thị vô hướng trên tập đỉnh $$\\{a, b, c\\}$$ gồm hai cạnh nối $$a$$ với $$b$$, một cạnh nối $$b$$ với $$c$$, và một khuyên tại $$c$$. Vì có cặp đỉnh được nối bởi hai cạnh và có một cạnh nối $$c$$ với chính nó, đồ thị này là một giả đồ thị.",
+      "notes": "Hai thuật ngữ đều chỉ cùng khái niệm pseudograph. \"giả đồ thị\" (nguyenhuudien-2019) là cách dịch sát và chuẩn của \"pseudograph\", được nêu thành Định nghĩa 6.3 với mô tả là loại đồ thị vô hướng tổng quát nhất chứa cả khuyên lẫn cạnh bội; đây là thuật ngữ được khuyến nghị. \"đa đồ thị có khuyên\" (nguyenhoangthach-2020) là cách diễn đạt mô tả (đa đồ thị có thêm khuyên), xuất hiện trong chú thích hình đối chiếu với \"đồ thị đơn\". Các nguồn graph theory cũ hơn được mã hóa (leanhvinh-2020, hoangchithanh-2007) trình bày khuyên và cạnh song song nhưng không dùng riêng một thuật ngữ \"giả đồ thị\"; nguyenducnghia-2006 và ngodactan-2004 cũng không chứng thực thuật ngữ này. EMPHASIS edit (per panel terminology MED): first-concept emphasis $$giả đồ thị$$ (a spaced Vietnamese phrase wrapped directly in math delimiters, which would render run-together) was normalized to \\emph{giả đồ thị}; the genuine math ($$G$$, vertex/edge set braces) stays wrapped.",
+      "see_also": ["multigraph", "simple-graph", "loop", "multiple-edges", "undirected-graph"],
+      "vi_terms": [
+        {
+          "term": "đa đồ thị có khuyên",
+          "source_id": "bib-nguyenhoangthach-2020",
+          "page": "tr. 62 (PDF)",
+          "pdf_page": 62,
+          "snippet": "Hình 5.1: Một đồ thị đơn (trái) và một đa đồ thị có khuyên (phải).",
+          "verified": true,
+          "recommended": false
+        },
+        {
+          "term": "giả đồ thị",
+          "source_id": "bib-nguyenhuudien-2019",
+          "page": "tr. 155 (PDF)",
+          "pdf_page": 155,
+          "snippet": "Định nghĩa 6.3 Một giả đồ thị G = (V, E) gồm một tập khác rỗng V mà các phần tử",
+          "verified": true,
+          "recommended": true
+        }
+      ]
+    },
+    {
+      "id": "petersen-graph",
+      "letter": "P",
+      "headword_en": "Petersen graph",
+      "notation": "",
+      "rosen_ref": "Rosen §10.3",
+      "definition_vi": "Đồ thị Petersen là đồ thị $$3$$-chính quy gồm $$10$$ đỉnh và $$15$$ cạnh, trong đó mỗi đỉnh tương ứng với một tập con gồm $$2$$ phần tử của một tập $$5$$ phần tử cho trước. Hai đỉnh kề nhau khi và chỉ khi hai tập con tương ứng rời nhau.",
+      "example_vi": "Xét tập $$\\{1,2,3,4,5\\}$$. Hai đỉnh ứng với các tập con $$\\{1,2\\}$$ và $$\\{3,4\\}$$ kề nhau vì $$\\{1,2\\}\\cap\\{3,4\\}=\\varnothing$$, trong khi hai đỉnh ứng với $$\\{1,2\\}$$ và $$\\{2,3\\}$$ không kề nhau vì $$\\{1,2\\}\\cap\\{2,3\\}=\\{2\\}\\neq\\varnothing$$.",
+      "vi_terms": [
+        {
+          "term": "đồ thị Petersen",
+          "source_id": "bib-nguyenducnghia-2006",
+          "page": "tr. 167 (PDF)",
+          "pdf_page": 167,
+          "snippet": "a) Đồ thị Petersen",
+          "verified": true,
+          "recommended": true
+        },
+        {
+          "term": "đồ thị Petersen",
+          "source_id": "bib-ngodactan-2004",
+          "page": "tr. 195 (PDF)",
+          "pdf_page": 195,
+          "snippet": "gọi là đồ thị Petersen. Khi đó,",
+          "verified": true,
+          "recommended": false
+        }
+      ],
+      "see_also": ["regular-graph", "graph-coloring"],
+      "notes": "Only one Vietnamese term denotes this concept across the whole corpus: \"đồ thị Petersen\" (a proper-noun-based name, identical in all sources). It is attested in two older sources: bib-nguyenducnghia-2006 (tr. 167 PDF, labeling a figure for a chromatic-number exercise) and bib-ngodactan-2004 (tr. 195 PDF, \"gọi là đồ thị Petersen\" introducing the graph via Hình 6.9; also tr. 217 and tr. 281). No 2019-2020 source (bib-leanhvinh-2020, bib-nguyenhoangthach-2020, bib-nguyenhuudien-2019) attests the term; both normal and --loose searches for \"Petersen\" returned hits only in the 2004 and 2006 books. The OCR sources (bib-leanhvinh-2020, bib-hoangchithanh-2007) yielded no Petersen hits under either mode. No Vietnamese-transliterated spelling (e.g. \"Pêtécxen\") exists in the corpus. The recommended term is therefore verified=true but its newest attestation is 2006 rather than 2019-2020; this is the standard and only form, so no variant is needed. vi_terms ordered newest-source first (2006 before 2004).\n\nsee_also edit (per panel exposition LOW): the misleading \"bipartite-graph\" link was dropped — the Petersen graph is a standard example of a NON-bipartite graph (girth 5, contains odd cycles). \"regular-graph\" (the definition is 3-regular) and \"graph-coloring\" (the example is chromatic-related) are retained as well-chosen cross-chapter forward references."
+    }
+  ]
+}

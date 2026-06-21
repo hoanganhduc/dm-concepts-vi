@@ -18,6 +18,7 @@ if [ "$N" -lt 1 ]; then
   echo "SKIP $U (no entries)"
   NEXT=$("$PY" workflow/scripts/loop-advance.py "$U" --skip)
   GIT add -A; GIT commit -q -m "Chapter $U skipped (no DM terms) [autonomous]" || true
+  bash workflow/scripts/notify-telegram.sh "⏭️ Chương $U bỏ qua (không có thuật ngữ toán rời rạc). Tiếp theo: $NEXT." || true
   echo "NEXT=$NEXT"; exit 0
 fi
 
@@ -30,4 +31,6 @@ pretext build web > "/tmp/ptxbuild-$L.log" 2>&1 || { echo "BUILD FAILED $U"; tai
 NEXT=$("$PY" workflow/scripts/loop-advance.py "$U")
 GIT add -A
 GIT commit -q -m "Chapter $U: $N verified entries [autonomous Phase 2]"
+DONEN=$("$PY" -c "import json;s=json.load(open('workflow/loop/loop_state.json'));print(len(s['done']))" 2>/dev/null || echo '?')
+bash workflow/scripts/notify-telegram.sh "✅ Chương $U xong: $N mục đã kiểm chứng (có trích dẫn + số trang). Đã xong $DONEN chữ. Tiếp theo: $NEXT. — Một số thuật ngữ trong Toán rời rạc" || true
 echo "COMMITTED $U ($N entries). NEXT=$NEXT"

@@ -20,6 +20,9 @@ import unicodedata
 
 CORPUS = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "corpus")
 PAGE_RE = re.compile(r"@@PAGE (\d+)@@")
+# Reference-only / partially-OCR'd sources excluded from "search all"; still
+# searchable when requested by exact biblio_id (e.g. the dedicated Rosen pass).
+EXCLUDE_DEFAULT = {"bib-rosen-2003-vi"}
 
 
 def strip(s):
@@ -34,6 +37,8 @@ def search(term, bid=None, loose=False):
     out = []
     for f in files:
         source_id = os.path.basename(f)[:-4]
+        if bid is None and source_id in EXCLUDE_DEFAULT:
+            continue
         page = 0
         with open(f, encoding="utf-8") as fh:
             for line in fh:

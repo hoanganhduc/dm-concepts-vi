@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<chapter xml:id="ch-n" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>N</title>
+
+  <introduction>
+    <p>
+      Chương này tập hợp các thuật ngữ tiếng Anh bắt đầu bằng chữ <q>N</q>, kèm
+      định nghĩa và các thuật ngữ tiếng Việt tương ứng cùng trích dẫn nguồn.
+    </p>
+  </introduction>
+
+  <definition xml:id="def-neighborhood">
+    <title>neighborhood — lân cận</title>
+    <idx><h>neighborhood</h></idx>
+    <idx><h>láng giềng</h></idx>
+    <idx><h>lân cận</h></idx>
+    <idx><h>tập các đỉnh kề</h></idx>
+    <idx><h>tập đỉnh kề</h></idx>
+    <notation>
+      <usage><m>N(v)</m></usage>
+      <description>lân cận</description>
+    </notation>
+    <statement>
+      <p>Lân cận của một đỉnh <m>v</m> trong đồ thị <m>G</m>, ký hiệu <m>N(v)</m>, là tập hợp tất cả các đỉnh kề với <m>v</m> (theo <xref ref="bib-rosen-2019" />, Rosen §10.2).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>lân cận</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 63 (PDF)) — cách dùng phổ biến.</p></li>
+        <li><p><term>láng giềng</term> <xref ref="bib-ngodactan-2004" /> (tr. 271 (PDF)); <xref ref="bib-ngodactan-2004" /> (tr. 230 (PDF)).</p></li>
+        <li><p><term>tập các đỉnh kề</term> <xref ref="bib-leanhvinh-2020" /> (tr. 224 (PDF)); <xref ref="bib-hoangchithanh-2007" /> (tr. 62 (PDF)).</p></li>
+        <li><p><term>tập đỉnh kề</term> <xref ref="bib-leanhvinh-2020" /> (tr. 68 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Trong đồ thị <m>G</m> với tập đỉnh <m>\{a, b, c, d\}</m> và tập cạnh <m>\{ab, ac, ad\}</m>, lân cận của đỉnh <m>a</m> là <m>N(a) = \{b, c, d\}</m>.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-network-flow">
+    <title>network flow — luồng vận tải</title>
+    <idx><h>network flow</h></idx>
+    <idx><h>luồng</h></idx>
+    <idx><h>luồng qua mạng</h></idx>
+    <idx><h>luồng trong mạng</h></idx>
+    <idx><h>luồng trong mạng vận tải</h></idx>
+    <idx><h>luồng vận tải</h></idx>
+    <notation>
+      <usage><m>f: E \to \mathbb{R}^{+} \cup \{0\}</m></usage>
+      <description>luồng vận tải</description>
+    </notation>
+    <statement>
+      <p>Một <em>luồng vận tải</em> của một mạng vận tải là một hàm <m>f</m> gán cho mỗi cung có hướng <m>e \in E</m> một giá trị không âm <m>f(e)</m> không vượt quá khả năng thông qua <m>c(e)</m> của cung đó, ký hiệu <m>f: E \to \mathbb{R}^{+} \cup \{0\}</m>. Tại mỗi đỉnh trung gian <m>v</m>, tổng luồng đi vào <m>v</m> bằng tổng luồng đi ra khỏi <m>v</m> (điều kiện bảo toàn luồng) (theo <xref ref="bib-rosen-2019" />, Rosen — network flow not covered; anchored to nguyenhuudien-2019 §6 (luồng vận tải), with codomain $$\mathbb{R}^{+} \cup \{0\}$$ from ngodactan-2004 / nguyenducnghia-2006).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>luồng vận tải</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 210 (PDF)); <xref ref="bib-hoangchithanh-2007" /> (tr. 4 (PDF)) — cách dùng phổ biến.</p></li>
+        <li><p><term>luồng</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 211 (PDF)); <xref ref="bib-nguyenducnghia-2006" /> (tr. 243 (PDF)); <xref ref="bib-ngodactan-2004" /> (tr. 244 (PDF)).</p></li>
+        <li><p><term>luồng qua mạng</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 210 (PDF)); <xref ref="bib-hoangchithanh-2007" /> (tr. 104 (PDF)).</p></li>
+        <li><p><term>luồng trong mạng</term> <xref ref="bib-nguyenducnghia-2006" /> (tr. 242 (PDF)).</p></li>
+        <li><p><term>luồng trong mạng vận tải</term> <xref ref="bib-ngodactan-2004" /> (tr. 255 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Xét mạng vận tải với nguồn <m>s</m>, đích <m>t</m> và một đỉnh trung gian <m>v</m>, trong đó các cung <m>sv</m>, <m>vt</m> đều có khả năng thông qua bằng <m>3</m>. Gán <m>f(sv) = f(vt) = 2</m> thì tổng luồng vào <m>v</m> bằng tổng luồng ra khỏi <m>v</m> và mỗi giá trị không vượt quá khả năng thông qua, nên <m>f</m> là một luồng vận tải của mạng.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-node">
+    <title>node — đỉnh</title>
+    <idx><h>node</h></idx>
+    <idx><h>nút</h></idx>
+    <idx><h>đỉnh</h></idx>
+    <notation>
+      <usage><m>v \in V(G)</m></usage>
+      <description>đỉnh</description>
+    </notation>
+    <statement>
+      <p>Đỉnh của một đồ thị <m>G = (V, E)</m> là một phần tử của tập đỉnh <m>V</m>, tức một trong những điểm cơ bản của đồ thị. Các cạnh của đồ thị nối các cặp đỉnh, nhưng một đỉnh không nhất thiết phải là mút của một cạnh nào (đỉnh cô lập). Một đỉnh thường được ký hiệu là <m>v \in V(G)</m> (theo <xref ref="bib-rosen-2019" />, Rosen §10.1).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>đỉnh</term> <xref ref="bib-leanhvinh-2020" /> (tr. 8 (PDF)); <xref ref="bib-nguyenhoangthach-2020" /> (tr. 61 (PDF)); <xref ref="bib-nguyenhuudien-2019" /> (tr. 154 (PDF)); <xref ref="bib-hoangchithanh-2007" /> (tr. 6 (PDF)); <xref ref="bib-nguyenducnghia-2006" /> (tr. 66 (PDF)); <xref ref="bib-ngodactan-2004" /> (tr. 21 (PDF)) — cách dùng phổ biến.</p></li>
+        <li><p><term>nút</term> <xref ref="bib-nguyenducnghia-2006" /> (tr. 25 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Xét đồ thị <m>G = (V, E)</m> với <m>V = \{a, b, c\}</m> và <m>E = \{ab, bc\}</m>. Khi đó <m>a</m>, <m>b</m>, <m>c</m> là ba đỉnh của <m>G</m>, trong đó cạnh <m>ab</m> nối hai đỉnh <m>a</m> và <m>b</m>.</p>
+      <p>Xem thêm <xref ref="def-neighborhood" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-nonplanar-graph">
+    <title>nonplanar graph — đồ thị không phẳng</title>
+    <idx><h>nonplanar graph</h></idx>
+    <idx><h>không phẳng</h></idx>
+    <idx><h>đồ thị không phẳng</h></idx>
+    <statement>
+      <p>Đồ thị không phẳng là đồ thị <m>G</m> không thể vẽ được trong mặt phẳng sao cho không có hai cạnh nào của nó cắt nhau (ngoài các điểm mút chung) (theo <xref ref="bib-rosen-2019" />, Rosen §10.7).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>đồ thị không phẳng</term> <xref ref="bib-leanhvinh-2020" /> (tr. 127 (PDF)); <xref ref="bib-nguyenhuudien-2019" /> (tr. 233 (PDF)); <xref ref="bib-ngodactan-2004" /> (tr. 206 (PDF)) — cách dùng phổ biến.</p></li>
+        <li><p><term>không phẳng</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 81 (PDF)); <xref ref="bib-hoangchithanh-2007" /> (tr. 117 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Đồ thị đầy đủ <m>K_5</m> và đồ thị hai phần đầy đủ <m>K_{3,3}</m> là các đồ thị không phẳng.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-null-graph">
+    <title>null graph (empty graph) — đồ thị rỗng</title>
+    <idx><h>null graph (empty graph)</h></idx>
+    <idx><h>đồ thị hoàn toàn rời rạc</h></idx>
+    <idx><h>đồ thị rỗng</h></idx>
+    <notation>
+      <usage><m>N_n</m></usage>
+      <description>đồ thị rỗng</description>
+    </notation>
+    <statement>
+      <p>Đồ thị rỗng trên <m>n</m> đỉnh là đồ thị có <m>n</m> đỉnh và không có cạnh nào, tức là <m>|E(G)| = 0</m>. Đồ thị này được ký hiệu là <m>N_n</m> (theo <xref ref="bib-rosen-2019" />, Rosen §10.2).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>đồ thị rỗng</term> <xref ref="bib-leanhvinh-2020" /> (tr. 106 (PDF)); <xref ref="bib-nguyenhoangthach-2020" /> (tr. 70 (PDF)); <xref ref="bib-ngodactan-2004" /> (tr. 190 (PDF)) — cách dùng phổ biến.</p></li>
+        <li><p><term>đồ thị hoàn toàn rời rạc</term> <xref ref="bib-ngodactan-2004" /> (tr. 190 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Đồ thị <m>N_4</m> gồm bốn đỉnh và không có cạnh nào.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-n-cube">
+    <title>n-cube — đồ thị lập phương</title>
+    <idx><h>n-cube</h></idx>
+    <idx><h>mạng kiểu siêu khối</h></idx>
+    <idx><h>siêu khối</h></idx>
+    <idx><h>siêu lập phương</h></idx>
+    <idx><h>đồ thị lập phương</h></idx>
+    <idx><h>đồ thị siêu lập phương</h></idx>
+    <notation>
+      <usage><m>Q_n</m></usage>
+      <description>đồ thị lập phương</description>
+    </notation>
+    <statement>
+      <p>Đồ thị lập phương <m>n</m> chiều, ký hiệu <m>Q_n</m>, là đồ thị có tập đỉnh gồm <m>2^n</m> xâu nhị phân độ dài <m>n</m>, trong đó hai đỉnh kề nhau khi và chỉ khi hai xâu nhị phân tương ứng khác nhau tại đúng một bit (theo <xref ref="bib-rosen-2019" />, Rosen §10.2).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>đồ thị lập phương</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 160 (PDF)); <xref ref="bib-nguyenducnghia-2006" /> (tr. 159 (PDF)) — cách dùng phổ biến.</p></li>
+        <li><p><term>mạng kiểu siêu khối</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 162 (PDF)).</p></li>
+        <li><p><term>siêu khối</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 67 (PDF)).</p></li>
+        <li><p><term>siêu lập phương</term> <xref ref="bib-leanhvinh-2020" /> (tr. 222 (PDF)).</p></li>
+        <li><p><term>đồ thị siêu lập phương</term> <xref ref="bib-leanhvinh-2020" /> (tr. 58 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Đồ thị <m>Q_3</m> có <m>8</m> đỉnh là các xâu <m>000, 001, 010, 011, 100, 101, 110, 111</m>; chẳng hạn <m>000</m> kề với <m>001</m>, <m>010</m> và <m>100</m> vì mỗi xâu này khác <m>000</m> tại đúng một bit.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-nearest-neighbor-algorithm">
+    <title>nearest-neighbor algorithm — thuật toán láng giềng gần nhất</title>
+    <idx><h>nearest-neighbor algorithm</h></idx>
+    <idx><h>thuật toán láng giềng gần nhất</h></idx>
+    <statement>
+      <p>Thuật toán láng giềng gần nhất là một thuật toán heuristic cho bài toán người du lịch trên một đồ thị có trọng số. Xuất phát từ một đỉnh ban đầu, thuật toán lặp lại việc di chuyển từ đỉnh hiện tại tới đỉnh chưa thăm gần nhất (đỉnh nối với đỉnh hiện tại bởi cạnh có trọng số nhỏ nhất), cho đến khi mọi đỉnh đều được thăm rồi quay trở về đỉnh xuất phát để tạo thành một chu trình (theo <xref ref="bib-rosen-2019" />, Rosen §10.6).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>thuật toán láng giềng gần nhất</term> <em>(thuật ngữ chuẩn; chưa truy được trong kho văn bản)</em> — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Xét đồ thị có trọng số với các đỉnh <m>a</m>, <m>b</m>, <m>c</m>, <m>d</m> và các trọng số cạnh <m>ab = 1</m>, <m>ac = 4</m>, <m>ad = 3</m>, <m>bc = 2</m>, <m>bd = 5</m>, <m>cd = 6</m>. Bắt đầu tại <m>a</m>, đỉnh chưa thăm gần nhất là <m>b</m> (vì <m>ab = 1</m> nhỏ nhất); từ <m>b</m>, đỉnh chưa thăm gần nhất là <m>c</m> (vì <m>bc = 2</m>); từ <m>c</m>, đỉnh chưa thăm còn lại là <m>d</m>; cuối cùng quay về <m>a</m>, cho chu trình <m>a, b, c, d, a</m>.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-negation">
+    <title>negation — mệnh đề phủ định</title>
+    <idx><h>negation</h></idx>
+    <idx><h>mệnh đề phủ định</h></idx>
+    <idx><h>phép phủ định</h></idx>
+    <idx><h>phủ định</h></idx>
+    <notation>
+      <usage><m>\neg p</m></usage>
+      <description>mệnh đề phủ định</description>
+    </notation>
+    <statement>
+      <p>Mệnh đề phủ định của một mệnh đề <m>p</m>, ký hiệu <m>\neg p</m>, là mệnh đề có chân trị đúng khi và chỉ khi <m>p</m> có chân trị sai (theo <xref ref="bib-rosen-2019" />, Rosen §1.1).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>mệnh đề phủ định</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 16 (PDF)) — cách dùng phổ biến.</p></li>
+        <li><p><term>phép phủ định</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 16 (PDF)).</p></li>
+        <li><p><term>phủ định</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 16 (PDF)); <xref ref="bib-nguyenducnghia-2006" /> (tr. 267 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Nếu <m>p</m> là mệnh đề "<m>2</m> là số chẵn" thì <m>\neg p</m> là mệnh đề "<m>2</m> không phải là số chẵn", nhận chân trị sai vì <m>p</m> đúng.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-normal-form">
+    <title>normal form — dạng chuẩn tắc</title>
+    <idx><h>normal form</h></idx>
+    <idx><h>dạng chuẩn tắc</h></idx>
+    <idx><h>dạng chuẩn tắc hội</h></idx>
+    <idx><h>dạng chuẩn tắc tuyển</h></idx>
+    <idx><h>dạng chính tắc</h></idx>
+    <idx><h>dạng hội chuẩn tắc</h></idx>
+    <idx><h>dạng tuyển chuẩn tắc</h></idx>
+    <statement>
+      <p>Dạng chuẩn tắc của một công thức mệnh đề là cách viết chuẩn hóa công thức đó dưới dạng tuyển của các hội các literal (dạng chuẩn tắc tuyển) hoặc dưới dạng hội của các tuyển các literal (dạng chuẩn tắc hội). Một literal là một biến mệnh đề <m>p</m> hoặc phủ định của nó <m>\neg p</m> (theo <xref ref="bib-rosen-2019" />, Rosen §1.3).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>dạng chuẩn tắc</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 25 (PDF)) — cách dùng phổ biến.</p></li>
+        <li><p><term>dạng chuẩn tắc hội</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 26 (PDF)).</p></li>
+        <li><p><term>dạng chuẩn tắc tuyển</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 26 (PDF)).</p></li>
+        <li><p><term>dạng chính tắc</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 25 (PDF)).</p></li>
+        <li><p><term>dạng hội chuẩn tắc</term> <xref ref="bib-nguyenducnghia-2006" /> (tr. 270 (PDF)).</p></li>
+        <li><p><term>dạng tuyển chuẩn tắc</term> <xref ref="bib-nguyenducnghia-2006" /> (tr. 270 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Công thức <m>(p \wedge \neg q) \vee (\neg p \wedge q)</m> là một dạng chuẩn tắc tuyển, còn <m>(p \vee q) \wedge (\neg p \vee \neg q)</m> là một dạng chuẩn tắc hội.</p>
+      <p>Xem thêm <xref ref="def-negation" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-n-ary-relation">
+    <title>n-ary relation — quan hệ n ngôi</title>
+    <idx><h>n-ary relation</h></idx>
+    <idx><h>quan hệ 2 ngôi</h></idx>
+    <idx><h>quan hệ hai ngôi</h></idx>
+    <idx><h>quan hệ n ngôi</h></idx>
+    <notation>
+      <usage><m>R \subseteq A_1 \times \cdots \times A_n</m></usage>
+      <description>quan hệ n ngôi</description>
+    </notation>
+    <statement>
+      <p>Quan hệ <m>n</m> ngôi trên các tập hợp <m>A_1, A_2, \ldots, A_n</m> là một tập hợp con của tích Descartes <m>A_1 \times A_2 \times \cdots \times A_n</m>, ký hiệu <m>R \subseteq A_1 \times A_2 \times \cdots \times A_n</m>. Mỗi phần tử của <m>R</m> là một bộ <m>n</m> phần tử <m>(a_1, a_2, \ldots, a_n)</m> với <m>a_i \in A_i</m> (theo <xref ref="bib-rosen-2019" />, Rosen §9.2).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>quan hệ n ngôi</term> <em>(thuật ngữ chuẩn; chưa truy được trong kho văn bản)</em> — cách dùng phổ biến.</p></li>
+        <li><p><term>quan hệ 2 ngôi</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 106 (PDF)).</p></li>
+        <li><p><term>quan hệ hai ngôi</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 74 (PDF)); <xref ref="bib-nguyenducnghia-2006" /> (tr. 14 (PDF)); <xref ref="bib-ngodactan-2004" /> (tr. 163 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Với <m>A_1 = \{1, 2\}</m>, <m>A_2 = \{a, b\}</m> và <m>A_3 = \{x\}</m>, tập hợp <m>R = \{(1, a, x), (2, b, x)\}</m> là một quan hệ <m>3</m> ngôi trên <m>A_1, A_2, A_3</m>.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-np-complete-problem">
+    <title>NP-complete problem — bài toán NP-đầy đủ</title>
+    <idx><h>np-complete problem</h></idx>
+    <idx><h>bài toán NP-đầy đủ</h></idx>
+    <statement>
+      <p>Một bài toán quyết định thuộc lớp <m>\mathsf{NP}</m> được gọi là <em>bài toán NP-đầy đủ</em> nếu mọi bài toán trong <m>\mathsf{NP}</m> đều quy dẫn được về nó trong thời gian đa thức. Nói cách khác, <m>L</m> là bài toán NP-đầy đủ khi <m>L \in \mathsf{NP}</m> và với mọi <m>L' \in \mathsf{NP}</m> tồn tại một phép quy dẫn thời gian đa thức từ <m>L'</m> về <m>L</m> (theo <xref ref="bib-rosen-2019" />, Rosen §3.3).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>bài toán NP-đầy đủ</term> <em>(thuật ngữ chuẩn; chưa truy được trong kho văn bản)</em> — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Bài toán thoả mãn được (SAT), hỏi một biểu thức logic ở dạng chuẩn hội có nhận giá trị đúng với một cách gán giá trị chân lý nào đó cho các biến hay không, là một bài toán NP-đầy đủ: nó thuộc <m>\mathsf{NP}</m> và mọi bài toán trong <m>\mathsf{NP}</m> đều quy dẫn được về nó trong thời gian đa thức.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-null-set">
+    <title>null set (empty set) — tập rỗng</title>
+    <idx><h>null set (empty set)</h></idx>
+    <idx><h>tập hợp rỗng</h></idx>
+    <idx><h>tập rỗng</h></idx>
+    <notation>
+      <usage><m>\emptyset</m></usage>
+      <description>tập rỗng</description>
+    </notation>
+    <statement>
+      <p>Tập rỗng là tập hợp không chứa phần tử nào, ký hiệu <m>\emptyset</m>. Đây là tập hợp duy nhất không có phần tử, và <m>\emptyset</m> là tập con của mọi tập hợp (theo <xref ref="bib-rosen-2019" />, Rosen §2.1).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>tập rỗng</term> <xref ref="bib-leanhvinh-2020" /> (tr. 90 (PDF)); <xref ref="bib-nguyenhuudien-2019" /> (tr. 252 (PDF)); <xref ref="bib-hoangchithanh-2007" /> (tr. 137 (PDF)); <xref ref="bib-nguyenducnghia-2006" /> (tr. 12 (PDF)); <xref ref="bib-ngodactan-2004" /> (tr. 30 (PDF)) — cách dùng phổ biến.</p></li>
+        <li><p><term>tập hợp rỗng</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 16 (PDF)); <xref ref="bib-nguyenhuudien-2019" /> (tr. 72 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Tập hợp các số nguyên <m>x</m> thỏa mãn <m>x \neq x</m> là tập rỗng, tức là <m>\{x : x \neq x\} = \emptyset</m>.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-natural-number">
+    <title>natural number — số tự nhiên</title>
+    <idx><h>natural number</h></idx>
+    <idx><h>số tự nhiên</h></idx>
+    <idx><h>tập số tự nhiên</h></idx>
+    <notation>
+      <usage><m>\mathbb{N}</m></usage>
+      <description>số tự nhiên</description>
+    </notation>
+    <statement>
+      <p>Số tự nhiên là một trong các số nguyên không âm <m>0, 1, 2, 3, \ldots</m>. Tập hợp tất cả các số tự nhiên được ký hiệu là <m>\mathbb{N}</m> (theo <xref ref="bib-rosen-2019" />, Rosen §2.1).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>số tự nhiên</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 22 (PDF)); <xref ref="bib-nguyenhoangthach-2020" /> (tr. 37 (PDF)); <xref ref="bib-nguyenhuudien-2019" /> (tr. 62 (PDF)); <xref ref="bib-nguyenducnghia-2006" /> (tr. 20 (PDF)); <xref ref="bib-ngodactan-2004" /> (tr. 321 (PDF)); <xref ref="bib-hoangchithanh-2007" /> (tr. 9 (PDF)) — cách dùng phổ biến.</p></li>
+        <li><p><term>tập số tự nhiên</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 62 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Các số <m>0</m>, <m>1</m> và <m>2</m> là số tự nhiên, do đó <m>0, 1, 2 \in \mathbb{N}</m>.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-necessary-condition">
+    <title>necessary condition — điều kiện cần</title>
+    <idx><h>necessary condition</h></idx>
+    <idx><h>điều kiện cần</h></idx>
+    <idx><h>điều kiện cần và đủ</h></idx>
+    <notation>
+      <usage><m>p \to q</m></usage>
+      <description>điều kiện cần</description>
+    </notation>
+    <statement>
+      <p>Trong mệnh đề kéo theo <m>p \to q</m>, mệnh đề <m>q</m> được gọi là điều kiện cần cho <m>p</m>, nghĩa là <m>p</m> không thể đúng nếu <m>q</m> không đúng. Ta cũng đọc phát biểu này là "<m>p</m> chỉ nếu <m>q</m>" (theo <xref ref="bib-rosen-2019" />, Rosen §1.1).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>điều kiện cần</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 19 (PDF)); <xref ref="bib-leanhvinh-2020" /> (tr. 17 (PDF)); <xref ref="bib-nguyenducnghia-2006" /> (tr. 158 (PDF)); <xref ref="bib-ngodactan-2004" /> (tr. 271 (PDF)) — cách dùng phổ biến.</p></li>
+        <li><p><term>điều kiện cần và đủ</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 70 (PDF)); <xref ref="bib-nguyenhuudien-2019" /> (tr. 25 (PDF)); <xref ref="bib-nguyenducnghia-2006" /> (tr. 191 (PDF)); <xref ref="bib-hoangchithanh-2007" /> (tr. 77 (PDF)); <xref ref="bib-ngodactan-2004" /> (tr. 203 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Xét mệnh đề "nếu <m>n</m> chia hết cho <m>4</m> thì <m>n</m> chia hết cho <m>2</m>", có dạng <m>p \to q</m> với <m>p</m> là "<m>n</m> chia hết cho <m>4</m>" và <m>q</m> là "<m>n</m> chia hết cho <m>2</m>". Khi đó <m>q</m> là điều kiện cần cho <m>p</m>: nếu <m>n</m> không chia hết cho <m>2</m> thì <m>n</m> cũng không thể chia hết cho <m>4</m>.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-nondeterministic-finite-automaton">
+    <title>nondeterministic finite automaton — ôtômat hữu hạn không tất định</title>
+    <idx><h>nondeterministic finite automaton</h></idx>
+    <idx><h>máy hữu hạn trạng thái không tất định</h></idx>
+    <idx><h>ôtômat hữu hạn không tất định</h></idx>
+    <idx><h>ôtômát hữu hạn không đơn định</h></idx>
+    <idx><h>ôtômát hữu hạn phi đơn định</h></idx>
+    <notation>
+      <usage><m>M = (S, I, f, s_0, F)</m></usage>
+      <description>ôtômat hữu hạn không tất định</description>
+    </notation>
+    <statement>
+      <p>Một <em>ôtômat hữu hạn không tất định</em> là một máy hữu hạn trạng thái <m>M = (S, I, f, s_0, F)</m> gồm tập trạng thái <m>S</m>, bộ chữ cái đầu vào <m>I</m>, hàm chuyển <m>f</m> gán cho mỗi cặp gồm trạng thái và đầu vào một tập các trạng thái kế tiếp, trạng thái xuất phát <m>s_0 \in S</m> và tập con <m>F \subseteq S</m> gồm các trạng thái kết thúc. Điểm khác biệt so với ôtômat hữu hạn tất định là với mỗi cặp gồm trạng thái và giá trị đầu vào có thể có một số trạng thái kế tiếp khả dĩ thay vì duy nhất một (theo <xref ref="bib-rosen-2019" />, Rosen §13.3).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>ôtômat hữu hạn không tất định</term> <xref ref="bib-rosen-2003-vi" /> (tr. 800 (PDF)) — cách dùng phổ biến.</p></li>
+        <li><p><term>máy hữu hạn trạng thái không tất định</term> <em>(thuật ngữ chuẩn; chưa truy được trong kho văn bản)</em>.</p></li>
+        <li><p><term>ôtômát hữu hạn không đơn định</term> <em>(thuật ngữ chuẩn; chưa truy được trong kho văn bản)</em>.</p></li>
+        <li><p><term>ôtômát hữu hạn phi đơn định</term> <em>(thuật ngữ chuẩn; chưa truy được trong kho văn bản)</em>.</p></li>
+      </ul>
+      <p>Ví dụ: Xét <m>M = (S, I, f, s_0, F)</m> với <m>S = \{s_0, s_1\}</m>, <m>I = \{0, 1\}</m>, <m>F = \{s_1\}</m>, trong đó <m>f(s_0, 0) = \{s_0, s_1\}</m>, <m>f(s_0, 1) = \{s_1\}</m>, còn <m>f(s_1, 0) = f(s_1, 1) = \emptyset</m>. Vì <m>f(s_0, 0)</m> chứa hai trạng thái nên <m>M</m> là ôtômat hữu hạn không tất định: từ <m>s_0</m> với đầu vào <m>0</m>, máy có thể chuyển tới <m>s_0</m> hoặc tới <m>s_1</m>.</p>
+    </statement>
+  </definition>
+</chapter>

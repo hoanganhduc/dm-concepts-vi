@@ -1,0 +1,1032 @@
+{
+ "locked_conventions": [
+  "Math delimiters: every inline mathematical symbol (G, n, v, K_n, C_n, P_n, \\deg_G(v), \\operatorname{diam}(G), d(u,v), G^{*}, a \\mid b, set braces, \\gcd(a,b), etc.) is wrapped in $$...$$. Bare unwrapped math is never left in definition_vi or example_vi. Block math uses a ```math fence.",
+  "Inequalities and relations: ASCII '>=', '<=', '!=' are forbidden in finished prose; use $$\\geq$$, $$\\leq$$, $$\\neq$$ (and $$\\nmid$$, $$\\emptyset$$). Every relation symbol is wrapped in $$...$$.",
+  "Bipartite rendering is fixed book-wide to 'đồ thị hai phần' (book standard); 'đồ thị hai phía' and 'đồ thị phân đôi' are recorded only as deferred source variants, never used in running prose. (Not exercised in chapter D: no entry renders the bipartite term.)",
+  "Exactly one vi_term per entry has recommended=true. The recommended term is, whenever possible, a verified=true term attested in a 2019-2020 source, with citations ordered newest-first (a clean non-OCR attestation is preferred over a mangled OCR snippet for the recommended slot). A recommended term may be verified=false only when no corpus source attests any candidate for the concept; in that case the unverified status is surfaced explicitly in notes.",
+  "Citation hygiene: every verified=true vi_term carries source_id + pdf_page + page + a quoted snippet. vi_terms with verified=false AND empty page are dropped, except a single recommended standard term retained to keep the required vi_terms field non-empty and preserve the single-recommendation invariant. Diacritics-insensitive (--loose) search is used on OCR sources to confirm hits / 0-hits.",
+  "Examples are self-contained: an example_vi never relies on a derived quantity or notation that the definition_vi did not introduce.",
+  "No synonym glosses inside definitions: the English headword and alternative Vietnamese terms live in headword_en / vi_terms / notes, never as a parenthetical inside definition_vi.",
+  "First introduction of the recommended Vietnamese head term in definition_vi is emphasized with \\emph{...} (LaTeX), applied uniformly across the chapter; Markdown '*...*' emphasis is never used.",
+  "see_also lists kebab-case ids only; same-chapter (letter D) ids are linked, cross-chapter ids are forward references to be created in their own letter chapters."
+ ],
+ "deferred_note": "Applied the panel's clearly-correct fixes. dual-graph: completed the G* construction so the bridge case yields a loop, making E(G)<->E(G*) a bijection per Rosen §10.7. degree: promoted the clean 2020 attestation bib-nguyenhoangthach-2020 p.63 ('5.1.1 Bậc của đỉnh') to recommended=true and demoted the mangled OCR bib-leanhvinh-2020 p.153 snippet to recommended=false. degree-sequence: reframed the nonincreasing ordering as a presentation convention (not definitional) and fixed the broken same-chapter link 'degree-of-a-vertex' -> 'degree'. digraph: added 'khác rỗng' to V to match Rosen and the parallel directed-graph entry, and recorded in notes that 'digraph' and 'directed graph' denote the identical object (both entries retained as Rosen lists both headwords). dominating-set: removed the inline English gloss '(dominating set)' from definition_vi and removed the dangling same-chapter see_also id 'dominating-set-number'. disjoint-sets: replaced Markdown '*rời nhau*' with '\\emph{rời nhau}'. divisibility: introduced the $$\\nmid$$ notation in definition_vi so the example is self-contained. division-algorithm: added a term-level disambiguation note that bib-nguyenhuudien-2019 p.65 'thuật chia Euclide' names the single division/mod step, not the gcd Euclidean algorithm. depth-first-search: aligned the recommended verb family with the sibling breadth-first-search entry (chapter B recommends 'duyệt theo chiều rộng'), so DFS now recommends 'duyệt theo chiều sâu' (bib-nguyenhuudien-2019 p.176) for cross-pair traversal-verb consistency, with the lexical decision noted. Emphasis standardized to \\emph{...} on the recommended head term in every definition_vi. No verified=false term with an empty page was kept except dominating-set's recommended 'tập thống trị' (no corpus attestation of a Vietnamese noun for the graph-theoretic dominating set), retained to keep vi_terms non-empty. Cross-chapter see_also forward references (degree-distribution, handshaking-theorem, graph-isomorphism, inclusion-exclusion-principle, permutation, radius, eccentricity, connected-graph, shortest-path-problem, weighted-graph, pairwise-disjoint-sets, empty-set, intersection, union, set, gcd, prime, codomain, function, image-of-function, range, independent-set, vertex-cover, graph-coloring, dual-of-a-map, breadth-first-search, spanning-tree, tree, in-degree, out-degree, directed-edge, directed-multigraph, simple-directed-graph, undirected-graph, graph) are kept to be created in their own letter chapters.",
+ "final_entries": [
+  {
+   "id": "degree",
+   "letter": "D",
+   "headword_en": "Degree of a vertex",
+   "notation": "\\deg_G(v)",
+   "rosen_ref": "Rosen §10.2",
+   "definition_vi": "\\emph{Bậc của đỉnh} $$v$$ trong đồ thị vô hướng $$G$$, ký hiệu $$\\deg_G(v)$$, là số cạnh kề với $$v$$, trong đó mỗi khuyên tại $$v$$ được tính hai lần.",
+   "example_vi": "Trong đồ thị $$G$$ với tập đỉnh $$\\{u, v, w\\}$$ và các cạnh $$uv$$, $$uw$$ cùng một khuyên tại $$v$$, ta có $$\\deg_G(u) = 2$$, $$\\deg_G(v) = 3$$ và $$\\deg_G(w) = 1$$.",
+   "notes": "Recommended term \"bậc của đỉnh\" is the dominant standard form. The recommended=true citation is anchored to the clean (non-OCR) 2020 source bib-nguyenhoangthach-2020 p.63 (\"5.1.1 Bậc của đỉnh\") with correct diacritics; the OCR 2020 source bib-leanhvinh-2020 p.153 is demoted to a recommended=false supporting attestation because its snippet is OCR-mangled (\"bạc của đỉnh\", notation d(v)). The term is also attested in the 2019 source bib-nguyenhuudien-2019 (p.157, formal Định nghĩa 6.8) and in older sources (bib-hoangchithanh-2007, bib-ngodactan-2004, bib-nguyenducnghia-2006); citations ordered newest-first, clean source first. Variant \"bậc của một đỉnh\" appears in bib-nguyenhoangthach-2020 (p.63) and bib-hoangchithanh-2007 (p.14, OCR --loose). The bare term \"bậc\" is used widely once the vertex is clear from context. Notation varies across sources: bib-nguyenhuudien-2019 and bib-nguyenhoangthach-2020 use deg(v); bib-ngodactan-2004 uses deg_G(v); bib-leanhvinh-2020 uses d(v); bib-hoangchithanh-2007 uses r(a). OCR sources (bib-leanhvinh-2020, bib-hoangchithanh-2007) were mined with both normal and --loose modes; snippets show OCR-mangled diacritics but unambiguously denote this concept. The loop-counted-twice convention follows Rosen §10.2; Vietnamese sources state \"số cạnh kề\" and the loop rule is added for completeness with the English ground truth.",
+   "see_also": [
+    "degree-sequence",
+    "degree-distribution"
+   ],
+   "vi_terms": [
+    {
+     "term": "bậc của đỉnh",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-nguyenhoangthach-2020",
+     "pdf_page": 63,
+     "page": "tr. 63 (PDF)",
+     "snippet": "5.1.1 Bậc của đỉnh"
+    },
+    {
+     "term": "bậc của đỉnh",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-leanhvinh-2020",
+     "pdf_page": 153,
+     "page": "tr. 153 (PDF)",
+     "snippet": "Với mỗi đỉnh v € V(Ơ), d(u) la bạc của đỉnh v và N(v) là tập các"
+    },
+    {
+     "term": "bậc của đỉnh",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 157,
+     "page": "tr. 157 (PDF)",
+     "snippet": "Định nghĩa 6.8 Bậc của đỉnh v trong đồ thị G = (V, E), ký hiệu deg(v), là số các cạnh"
+    },
+    {
+     "term": "bậc của đỉnh",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-hoangchithanh-2007",
+     "pdf_page": 14,
+     "page": "tr. 14 (PDF)",
+     "snippet": "hiệu là r(a) là bậc của đỉnh a trong đồ thị Ơ."
+    },
+    {
+     "term": "bậc của đỉnh",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-ngodactan-2004",
+     "pdf_page": 191,
+     "page": "tr. 191 (PDF)",
+     "snippet": "Ta định nghĩa bậc của đỉnh V trong đồ thị G, ký hiệu là degGr(u)"
+    },
+    {
+     "term": "bậc của đỉnh",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenducnghia-2006",
+     "pdf_page": 169,
+     "page": "tr. 169 (PDF)",
+     "snippet": "kề chính bảng bậc của đỉnh ¿"
+    },
+    {
+     "term": "bậc của một đỉnh",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhoangthach-2020",
+     "pdf_page": 63,
+     "page": "tr. 63 (PDF)",
+     "snippet": "Bậc của một đỉnh v, ký hiệu là deg(v) là số cạnh kề với nó."
+    },
+    {
+     "term": "bậc của một đỉnh",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-hoangchithanh-2007",
+     "pdf_page": 14,
+     "page": "tr. 14 (PDF)",
+     "snippet": "Ta gọi bac của một đỉnh là số cạnh kề với đính đó, và thường ký"
+    },
+    {
+     "term": "bậc",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-hoangchithanh-2007",
+     "pdf_page": 14,
+     "page": "tr. 14 (PDF)",
+     "snippet": "Định lý 1.3: Tổng tất cả các bậc của các đỉnh trong một đồ thị"
+    }
+   ]
+  },
+  {
+   "id": "degree-sequence",
+   "letter": "D",
+   "headword_en": "Degree sequence",
+   "notation": "(d_1, d_2, \\ldots, d_n)",
+   "rosen_ref": "Rosen §10.2",
+   "definition_vi": "\\emph{Dãy bậc} của một đồ thị $$G$$ có $$n$$ đỉnh là dãy gồm bậc của tất cả các đỉnh của $$G$$. Khi cần, ta sắp xếp dãy này theo thứ tự không tăng và ký hiệu $$(d_1, d_2, \\ldots, d_n)$$ với $$d_1 \\geq d_2 \\geq \\cdots \\geq d_n$$.",
+   "example_vi": "Xét đồ thị $$G$$ có các đỉnh $$v_1, v_2, v_3, v_4$$ với $$\\deg_G(v_1) = 3$$, $$\\deg_G(v_2) = 2$$, $$\\deg_G(v_3) = 2$$, $$\\deg_G(v_4) = 1$$. Khi đó dãy bậc của $$G$$ sắp theo thứ tự không tăng là $$(3, 2, 2, 1)$$.",
+   "notes": "Per Rosen §10.2 the degree sequence is the list of all vertex degrees; listing it in nonincreasing order is a presentation convention, not part of the definition. The definition_vi now states the concept as the sequence of all vertex degrees and marks the nonincreasing ordering and the notation $$(d_1, \\ldots, d_n)$$ as an optional convention. Recommended term \"dãy bậc\" is formally defined in bib-leanhvinh-2020 (2020) at PDF p.9 (Định nghĩa 1.2) and used with the canonical notation $$(a_1, \\ldots, a_n)$$ on p.64; it is the standard term attested in a 2020 source. The fuller variant \"dãy bậc của các đỉnh\" (sequence of the degrees of the vertices) is attested in bib-ngodactan-2004 (2004) p.280. The candidate terms \"dãy bậc của đồ thị\" and \"dãy các bậc\" returned 0 hits in both normal and loose modes across all six corpus sources and are therefore not recorded as verified variants. The phrase \"bậc của các đỉnh\" appears widely but denotes the degrees of the vertices in general, not the ordered sequence, so it is not a term for this concept on its own. No attestation found in bib-nguyenhoangthach-2020, bib-nguyenhuudien-2019, bib-hoangchithanh-2007, or bib-nguyenducnghia-2006 (OCR sources checked with --loose).",
+   "see_also": [
+    "degree",
+    "handshaking-theorem",
+    "graph-isomorphism"
+   ],
+   "vi_terms": [
+    {
+     "term": "dãy bậc",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-leanhvinh-2020",
+     "pdf_page": 9,
+     "page": "tr. 9 (PDF)",
+     "snippet": "Định nghĩa 1.2. Cho đồ thị G với các đỉnh t,...,ua. Day bậc của"
+    },
+    {
+     "term": "dãy bậc của các đỉnh",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-ngodactan-2004",
+     "pdf_page": 280,
+     "page": "tr. 280 (PDF)",
+     "snippet": "8.6 (*) Giả sử d\\ < d.2 < • •. < dn là dãy bậc của các đỉnh của đồ thị"
+    }
+   ]
+  },
+  {
+   "id": "derangement",
+   "letter": "D",
+   "headword_en": "Derangement",
+   "notation": "D_n",
+   "rosen_ref": "Rosen §8.6",
+   "definition_vi": "Một \\emph{hoán vị mất thứ tự} của một tập hợp là một hoán vị $$\\sigma$$ của các phần tử của tập hợp đó không giữ cố định phần tử nào, tức là $$\\sigma(i) \\neq i$$ với mọi phần tử $$i$$. Số các hoán vị mất thứ tự của một tập hợp gồm $$n$$ phần tử được ký hiệu là $$D_n$$.",
+   "example_vi": "Với tập hợp $$\\{1, 2, 3\\}$$, hoán vị đưa $$1 \\mapsto 2$$, $$2 \\mapsto 3$$, $$3 \\mapsto 1$$ là một hoán vị mất thứ tự vì không phần tử nào được giữ cố định, trong khi hoán vị đưa $$1 \\mapsto 1$$, $$2 \\mapsto 3$$, $$3 \\mapsto 2$$ thì không phải vì $$\\sigma(1) = 1$$.",
+   "notes": "Recommended term \"hoán vị mất thứ tự\" is attested in the newest 2020 combinatorics source (bib-nguyenhoangthach-2020, p.57 PDF) with an exact definitional match: \"Một hoán vị mất thứ tự của n phần tử là một hoán vị σ\" and \"Số hoán vị mất thứ tự của n phần tử được ký hiệu là Dn.\" The core noun \"mất thứ tự\"/\"số mất thứ tự\" is the dominant attestation chain across all text sources (2019 nguyenhuudien p.85, 2006 nguyenducnghia p.29, 2004 ngodactan p.98/99/112/136) and all use notation Dn. The descriptive variant \"hoán vị không có điểm bất động\" appears once in ngodactan-2004 (p.99 PDF). Candidate \"phép thế hoàn toàn\" had 0 hits in any source and is dropped. The two OCR graph sources (bib-leanhvinh-2020, bib-hoangchithanh-2007) returned no hits under both normal and --loose searches, consistent with derangements being a combinatorics topic absent from graph-only texts.",
+   "see_also": [
+    "inclusion-exclusion-principle",
+    "permutation"
+   ],
+   "vi_terms": [
+    {
+     "term": "hoán vị mất thứ tự",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-nguyenhoangthach-2020",
+     "page": "tr. 57 (PDF)",
+     "pdf_page": 57,
+     "snippet": "Định nghĩa 4.4. Một hoán vị mất thứ tự của n phần tử là một hoán vị σ"
+    },
+    {
+     "term": "mất thứ tự",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhuudien-2019",
+     "page": "tr. 85 (PDF)",
+     "pdf_page": 85,
+     "snippet": "Số N trong bài toán này được gọi là số mất thứ tự và được ký hiệu là Dn . Dưới đây là"
+    },
+    {
+     "term": "số mất thứ tự",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenducnghia-2006",
+     "page": "tr. 29 (PDF)",
+     "pdf_page": 29,
+     "snippet": "lớn. Số X trong bài toán trên được gọi là sổ mất thứ tự và được ký hiệu là Ð,.. Dưới đây"
+    },
+    {
+     "term": "mất thứ tự",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-ngodactan-2004",
+     "page": "tr. 98 (PDF)",
+     "pdf_page": 98,
+     "snippet": "có điểm bất động nào, được gọi là một mất thứ tự của X . Số tấ t cả"
+    },
+    {
+     "term": "hoán vị không có điểm bất động",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-ngodactan-2004",
+     "page": "tr. 99 (PDF)",
+     "pdf_page": 99,
+     "snippet": "ở đây ơ là một hoán vị không có điểm bất động trên K c [n] (một"
+    }
+   ]
+  },
+  {
+   "id": "diameter",
+   "letter": "D",
+   "headword_en": "Diameter",
+   "notation": "\\operatorname{diam}(G)",
+   "definition_vi": "\\emph{Đường kính} của một đồ thị liên thông $$G$$, ký hiệu $$\\operatorname{diam}(G)$$, là khoảng cách lớn nhất giữa hai đỉnh bất kỳ của $$G$$, tức là $$\\operatorname{diam}(G) = \\max_{u,v} d(u,v)$$, trong đó cực đại được lấy trên mọi cặp đỉnh $$u, v \\in V(G)$$.",
+   "example_vi": "Trong đồ thị đường đi $$P_n$$ với $$n$$ đỉnh, hai đỉnh đầu mút có khoảng cách lớn nhất, nên $$\\operatorname{diam}(P_n) = n - 1$$. Trong đồ thị đầy đủ $$K_n$$ với $$n \\geq 2$$, mọi cặp đỉnh đều kề nhau, do đó $$\\operatorname{diam}(K_n) = 1$$.",
+   "notes": "Recommended term \"đường kính\" attested in the newest source (bib-leanhvinh-2020, 2020, pg 17), where it is defined with the notation $$\\operatorname{diam}(G)$$: \"Đường kính của G, kí hiệu bởi diam(G)\". The same source also gives the longer form \"đường kính của G\". The 2007 source (bib-hoangchithanh-2007) states the defining property: \"Đường kính của đồ thị là khoảng cách dài nhất giữa các cặp\" (greatest distance between pairs of vertices); OCR renders \"thị\" as \"thi\" in its snippets. Excluded as NOT denoting this concept: bib-ngodactan-2004 pg 211 (\"đường kính với điểm tiếp xúc\") is a geometric/circle diameter; bib-nguyenducnghia-2006 and bib-nguyenhuudien-2019 hits are Tower-of-Hanoi disk diameters (\"đĩa có đường kính\"); bib-nguyenhoangthach-2020 has no attestation of the graph diameter.",
+   "rosen_ref": "Rosen §10.4",
+   "see_also": [
+    "distance",
+    "radius",
+    "eccentricity",
+    "connected-graph"
+   ],
+   "vi_terms": [
+    {
+     "term": "đường kính",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-leanhvinh-2020",
+     "pdf_page": 17,
+     "page": "tr. 17 (PDF)",
+     "snippet": "như vậy, ta đặt dg(u,v) = 00. Đường kính của G, kí hiệu bởi diam(G),"
+    },
+    {
+     "term": "đường kính của G",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-leanhvinh-2020",
+     "pdf_page": 17,
+     "page": "tr. 17 (PDF)",
+     "snippet": "như vậy, ta đặt dg(u,v) = 00. Đường kính của G, kí hiệu bởi diam(G),"
+    },
+    {
+     "term": "đường kính của đồ thị",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-hoangchithanh-2007",
+     "pdf_page": 100,
+     "page": "tr. 100 (PDF)",
+     "snippet": "3. Đường kính của đồ thi là khoảng cách dài nhất giữa các cặp"
+    },
+    {
+     "term": "đường kính của một đồ thị",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-hoangchithanh-2007",
+     "pdf_page": 100,
+     "page": "tr. 100 (PDF)",
+     "snippet": "Các khái niệm bán kính, tâm và đường kính của một đồ thị được"
+    }
+   ]
+  },
+  {
+   "id": "digraph",
+   "letter": "D",
+   "headword_en": "Digraph",
+   "notation": "G = (V, E)",
+   "rosen_ref": "Rosen §10.2",
+   "definition_vi": "Một \\emph{đồ thị có hướng} (ký hiệu $$G = (V, E)$$) gồm một tập khác rỗng $$V$$ các đỉnh và một tập $$E$$ các cặp đỉnh có thứ tự, gọi là các cạnh có hướng (hay cung). Mỗi cung $$(u, v) \\in E$$ có $$u$$ là đỉnh đầu và $$v$$ là đỉnh cuối.",
+   "example_vi": "Cho $$V = \\{a, b, c\\}$$ và $$E = \\{(a, b), (b, c), (a, c)\\}$$. Khi đó $$G = (V, E)$$ là một đồ thị có hướng; chẳng hạn cung $$(a, b)$$ có đỉnh đầu $$a$$ và đỉnh cuối $$b$$.",
+   "vi_terms": [
+    {
+     "term": "đồ thị có hướng",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-leanhvinh-2020",
+     "pdf_page": 11,
+     "page": "tr. 11 (PDF)",
+     "snippet": "Định nghĩa 1.4. Đồ thị có hướng G = (V.E) gồm hai tập hữu hạn,"
+    },
+    {
+     "term": "đồ thị định hướng",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 187,
+     "page": "tr. 187 (PDF)",
+     "snippet": "7.3.4. Đường Euler trong đồ thị định hướng ... Thuật ngữ về đường Euler trong đồ thị định hướng là đường mòn có hướng."
+    },
+    {
+     "term": "đơn đồ thị có hướng",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhoangthach-2020",
+     "pdf_page": 62,
+     "page": "tr. 62 (PDF)",
+     "snippet": "Các khái niệm đơn đồ thị có hướng, đa đồ thị có hướng và cạnh khuyên ... Với đơn đồ thị có hướng, tập hợp cạnh E có thể được coi là một tập hợp"
+    },
+    {
+     "term": "đa đồ thị có hướng",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhoangthach-2020",
+     "pdf_page": 62,
+     "page": "tr. 62 (PDF)",
+     "snippet": "Các khái niệm đơn đồ thị có hướng, đa đồ thị có hướng và cạnh khuyên"
+    }
+   ],
+   "notes": "digraph and directed-graph denote the IDENTICAL object: Rosen §10.2 lists \"directed graph (or digraph)\" as one concept, so both headwords are retained but neither contributes a divergent definition. V is required to be nonempty, matching Rosen and the parallel directed-graph entry; \"khác rỗng\" was added to V in this entry's definition_vi for consistency. Recommended term \"đồ thị có hướng\" is attested in the newest (2020) source bib-leanhvinh-2020 as a formal definition (Định nghĩa 1.4, p.11: \"Đồ thị có hướng $$G = (V,E)$$ gồm hai tập hữu hạn...\"), and also appears as a formal definition in bib-ngodactan-2004 p.185 (\"Một đồ thị có hướng $$G$$ là một cặp có thứ tự $$G = (V, E)$$\") and throughout bib-hoangchithanh-2007 (e.g. p.23, p.84). This is the book-standard rendering for Rosen's \"directed graph (digraph)\".\n\nVariant \"đồ thị định hướng\" is a true synonym for the same concept, attested in the 2019 source bib-nguyenhuudien-2019 (p.187, p.224, and p.226 \"Đồ thị định hướng $$G = (V, E)$$ là phi chu trình khi và chỉ khi...\") and extensively in bib-hoangchithanh-2007 (e.g. p.19, p.49). It denotes the identical structure, not a subclass.\n\n\"đơn đồ thị có hướng\" (simple digraph) and \"đa đồ thị có hướng\" (directed multigraph) are the simple/multigraph refinements. bib-ngodactan-2004 p.21 explicitly notes that \"đơn đồ thị có hướng ... thường được gọi tắt là đồ thị có hướng\" (a simple digraph is commonly abbreviated to \"đồ thị có hướng\"), confirming \"đồ thị có hướng\" as the base term. \"đa đồ thị có hướng\" is the multigraph generalization (allows parallel arcs/loops); attested with a formal definition in bib-nguyenhuudien-2019 p.156, and in bib-nguyenhoangthach-2020 (p.62, p.63, p.64 \"Giả sử $$G = (V, E)$$ là một đa đồ thị có hướng, có thể có khuyên\"), bib-ngodactan-2004 p.187, bib-hoangchithanh-2007, and bib-nguyenducnghia-2006 p.198.\n\nVerifier re-ran find-term.py for all four verified terms; every source_id/pdf_page and snippet was reproduced exactly. Recommended term confirmed in 2020 source bib-leanhvinh-2020 p.11. Exactly one recommended=true.\n\nOCR note: bib-leanhvinh-2020 and bib-hoangchithanh-2007 are OCR sources; both normal and --loose searches were run. OCR mangles \"G = (V,E)\" as \"G = (V.E)\" and renders some accents loosely (e.g. \"đỏ thị\", \"đổ thị\"), but the term \"đồ thị có hướng\" / \"đồ thị định hướng\" is unambiguously present.\n\nDefinition follows the Vietnamese style: opens with the recommended term marked by \\emph{...}, gives notation with \"ký hiệu\", states the nonemptiness of V, and states start/end of an arc using book terminology \"đỉnh đầu\"/\"đỉnh cuối\". Example is self-contained, using only vertices and arcs that the definition introduced.",
+   "see_also": [
+    "directed-graph",
+    "directed-edge",
+    "directed-multigraph",
+    "simple-directed-graph",
+    "in-degree",
+    "out-degree"
+   ]
+  },
+  {
+   "id": "directed-graph",
+   "letter": "D",
+   "headword_en": "Directed graph",
+   "notation": "G = (V, E)",
+   "rosen_ref": "Rosen §10.2",
+   "definition_vi": "Một \\emph{đồ thị có hướng} $$G = (V, E)$$ gồm một tập khác rỗng các đỉnh $$V$$ và một tập các cạnh có hướng $$E$$, trong đó mỗi cạnh có hướng được gắn với một cặp đỉnh có thứ tự $$(u, v)$$ thể hiện hướng của nó từ đỉnh $$u$$ đến đỉnh $$v$$.",
+   "example_vi": "Cho tập đỉnh $$V = \\{a, b, c\\}$$ và tập cạnh có hướng $$E = \\{(a, b), (b, c), (a, c)\\}$$. Khi đó $$G = (V, E)$$ là một đồ thị có hướng, trong đó cạnh $$(a, b)$$ đi từ đỉnh $$a$$ đến đỉnh $$b$$.",
+   "notes": "\"đồ thị có hướng\" is the book-standard term, attested across all six corpus sources including both 2020 sources (leanhvinh-2020 gives the formal Định nghĩa 1.4 on p. 11; nguyenhoangthach-2020 gives Định nghĩa 5.2 on p. 62). digraph and directed-graph denote the IDENTICAL Rosen §10.2 object (\"directed graph (or digraph)\"); both headwords are retained because Rosen lists both, and this entry shares the same recommended term and lead citation as the digraph entry. The arc vocabulary is aligned with the digraph entry (cung / cạnh có hướng) and V is stated to be nonempty in both. \"đồ thị định hướng\" is a genuine variant denoting the same concept, attested in nguyenhuudien-2019 (e.g. p. 226, Định lý 9.3 \"Đồ thị định hướng G = (V, E)...\") and hoangchithanh-2007 (p. 19-20, 45-50). Both OCR sources (leanhvinh-2020, hoangchithanh-2007) were mined with --loose in addition to the normal pass; loose mining surfaced no additional distinct term. No source uses \"đồ thị hữu hướng\" (0 hits, verified). Several sources also distinguish \"đơn đồ thị có hướng\" (simple directed graph) and \"đa đồ thị có hướng\" (directed multigraph); these are refinements of the base term, not separate variant names for the plain concept.",
+   "see_also": [
+    "digraph",
+    "directed-edge",
+    "directed-multigraph",
+    "simple-directed-graph",
+    "undirected-graph",
+    "graph"
+   ],
+   "vi_terms": [
+    {
+     "term": "đồ thị có hướng",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-leanhvinh-2020",
+     "pdf_page": 11,
+     "page": "tr. 11 (PDF)",
+     "snippet": "Định nghĩa 1.4. Đồ thị có hướng G = (V.E) gồm hai tập hữu hạn,"
+    },
+    {
+     "term": "đồ thị có hướng",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhoangthach-2020",
+     "pdf_page": 62,
+     "page": "tr. 62 (PDF)",
+     "snippet": "Các khái niệm đơn đồ thị có hướng, đa đồ thị có hướng và cạnh khuyên"
+    },
+    {
+     "term": "đồ thị định hướng",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 226,
+     "page": "tr. 226 (PDF)",
+     "snippet": "Định lý 9.3 Đồ thị định hướng G = (V, E) là phi chu trình khi và chỉ khi các đỉnh của nó"
+    },
+    {
+     "term": "đồ thị định hướng",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-hoangchithanh-2007",
+     "pdf_page": 19,
+     "page": "tr. 19 (PDF)",
+     "snippet": "Bình phương của đồ thị định hướng G = (V, E) là đồ thị"
+    },
+    {
+     "term": "đồ thị có hướng",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-hoangchithanh-2007",
+     "pdf_page": 84,
+     "page": "tr. 84 (PDF)",
+     "snippet": "Ví du 7.6: Xét đồ thị có hướng G = (V, F) được cho trong hình vẽ"
+    },
+    {
+     "term": "đồ thị có hướng",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenducnghia-2006",
+     "pdf_page": 171,
+     "page": "tr. 171 (PDF)",
+     "snippet": "XéG=(V,E),(V=11,2....n].E= [e, 6 .. 6„}), là đơn đồ thị có hướng. Xây dựng"
+    },
+    {
+     "term": "đồ thị có hướng",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-ngodactan-2004",
+     "pdf_page": 185,
+     "page": "tr. 185 (PDF)",
+     "snippet": "Một đồ thị có hướng G là một cặp có thứ tự G = (V, E), ờ đây V"
+    }
+   ]
+  },
+  {
+   "id": "dijkstra-algorithm",
+   "letter": "D",
+   "headword_en": "Dijkstra's algorithm",
+   "notation": "",
+   "rosen_ref": "Rosen §10.6",
+   "definition_vi": "\\emph{Thuật toán Dijkstra} là một thủ tục tham lam tìm độ dài đường đi ngắn nhất giữa hai đỉnh trong một đồ thị liên thông có trọng số với mọi trọng số cạnh không âm. Bắt đầu từ đỉnh nguồn, thuật toán lặp lại việc thêm vào một tập hợp $$S$$ đỉnh chưa thuộc $$S$$ có khoảng cách đã biết nhỏ nhất tính từ đỉnh nguồn, cho đến khi đỉnh đích được thêm vào $$S$$.",
+   "example_vi": "Trong đồ thị có trọng số với các đỉnh $$a, b, c$$, các cạnh $$ab$$ trọng số $$4$$, $$bc$$ trọng số $$1$$, và $$ac$$ trọng số $$6$$, thuật toán Dijkstra xuất phát từ $$a$$ chọn lần lượt $$b$$ (khoảng cách $$4$$) rồi $$c$$ (khoảng cách $$5$$), cho đường đi ngắn nhất từ $$a$$ đến $$c$$ có độ dài $$5$$.",
+   "vi_terms": [
+    {
+     "term": "thuật toán Dijkstra",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-leanhvinh-2020",
+     "pdf_page": 34,
+     "page": "tr. 34 (PDF)",
+     "snippet": "Thuật toán Dijkstra [33] giúp ta tìm được đường đi ngắn nhất từ"
+    },
+    {
+     "term": "thuật toán Dijkstra",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhoangthach-2020",
+     "pdf_page": 92,
+     "page": "tr. 92 (PDF)",
+     "snippet": "Thuật toán Dijkstra tìm đường đi ngắn nhất giữa hai đỉnh được mô tả trong"
+    },
+    {
+     "term": "thuật toán Dijkstra",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 207,
+     "page": "tr. 207 (PDF)",
+     "snippet": "Mệnh đề 8.1 Thuật toán Dijkstra tìm đường đi ngắn nhất từ một đỉnh cho trước đến một"
+    },
+    {
+     "term": "thuật toán Dijkstra",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-hoangchithanh-2007",
+     "pdf_page": 95,
+     "page": "tr. 95 (PDF)",
+     "snippet": "Khi đó, thuật toán Dijkstra được trình bày chi tiết hơn như sau:"
+    },
+    {
+     "term": "thuật toán Dijkstra",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenducnghia-2006",
+     "pdf_page": 227,
+     "page": "tr. 227 (PDF)",
+     "snippet": "Thuật toán Dijkstra"
+    },
+    {
+     "term": "thuật toán Dijkstra",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-ngodactan-2004",
+     "pdf_page": 236,
+     "page": "tr. 236 (PDF)",
+     "snippet": "ngày nay ta gọi là thuật toán Dijkstra. Thuật toán này về nguyên tắc"
+    },
+    {
+     "term": "thuật toán Dijkstra tìm đường đi ngắn nhất",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhoangthach-2020",
+     "pdf_page": 92,
+     "page": "tr. 92 (PDF)",
+     "snippet": "Thuật toán Dijkstra tìm đường đi ngắn nhất giữa hai đỉnh được mô tả trong"
+    },
+    {
+     "term": "thuật toán Dijkstra tìm đường đi ngắn nhất",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 207,
+     "page": "tr. 207 (PDF)",
+     "snippet": "Mệnh đề 8.1 Thuật toán Dijkstra tìm đường đi ngắn nhất từ một đỉnh cho trước đến một"
+    },
+    {
+     "term": "thuật toán Dijkstra tìm đường đi ngắn nhất",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-hoangchithanh-2007",
+     "pdf_page": 93,
+     "page": "tr. 93 (PDF)",
+     "snippet": "8.3. THUẬT TOÁN DIJKSTRA TÌM DUONG DI NGẮN NHẤT"
+    }
+   ],
+   "notes": "Recommended term \"thuật toán Dijkstra\" is the standard name, attested in both 2020 sources (bib-leanhvinh-2020 tr. 34, bib-nguyenhoangthach-2020 tr. 92) and in every other corpus source (2019, 2007, 2006, 2004); vi_terms listed newest-source first. The leanhvinh-2020 source is OCR; both normal and --loose searches return the same 6 clean hits for this term, so the attestation is reliable. The candidate \"giải thuật Dijkstra\" returned 0 hits in every source (normal and --loose), so it is not recorded. The descriptive variant \"thuật toán Dijkstra tìm đường đi ngắn nhất\" appears as a section/proposition heading in bib-nguyenhoangthach-2020 (tr. 92), bib-nguyenhuudien-2019 (tr. 207), and bib-hoangchithanh-2007 (tr. 93, OCR all-caps \"DUONG DI NGẮN NHẤT\"); it is recorded as a non-standard descriptive variant rather than the headword name. The concept is confirmed in context: bib-leanhvinh-2020 \"giúp ta tìm được đường đi ngắn nhất\", bib-nguyenhoangthach-2020 \"tìm đường đi ngắn nhất giữa hai đỉnh\" — both denote this shortest-path greedy procedure. definition_vi opens with the recommended term, states the greedy shortest-path procedure formally, clarifies that the vertex of smallest known distance is added to $$S$$, and notes the nonnegative-weight condition matching Rosen §10.6; example_vi is self-contained (introduces its own weighted graph and edge weights, deriving only the shortest-path length the definition mentions). Verifier re-ran find-term.py for all 9 vi_terms: every source_id/pdf_page/snippet matches exactly (OCR sources confirmed identical under normal and --loose). Example arithmetic checked: a→b→c = 4+1 = 5 is shorter than direct a→c = 6, so Dijkstra from a selects b (dist 4) then c (dist 5), length 5. Exactly one recommended=true.",
+   "see_also": [
+    "shortest-path-problem",
+    "weighted-graph"
+   ]
+  },
+  {
+   "id": "disjoint-sets",
+   "letter": "D",
+   "headword_en": "Disjoint sets",
+   "notation": "A \\cap B = \\emptyset",
+   "rosen_ref": "Rosen §2.2",
+   "definition_vi": "Hai tập hợp $$A$$ và $$B$$ được gọi là \\emph{rời nhau} nếu giao của chúng là tập rỗng, ký hiệu $$A \\cap B = \\emptyset$$; nghĩa là $$A$$ và $$B$$ không có phần tử chung.",
+   "example_vi": "Hai tập hợp $$A = \\{1, 3, 5\\}$$ và $$B = \\{2, 4, 6\\}$$ là hai tập hợp rời nhau vì $$A \\cap B = \\emptyset$$.",
+   "notes": "Recommended term \"tập hợp rời nhau\" (disjoint sets) is the standard full form, attested in the 2020 source bib-nguyenhoangthach-2020 (p.24) describing two disjoint sets $$S$$ and $$T$$, and confirmed in bib-nguyenducnghia-2006 (p.15) with the canonical phrasing \"Nếu $$A$$ và $$B$$ là hai tập hợp rời nhau\" (if $$A$$ and $$B$$ are two disjoint sets). The first-introduction emphasis in definition_vi now uses \\emph{rời nhau} (replacing the earlier Markdown asterisks) to match the chapter-wide \\emph{...} convention. Variants: \"tập rời nhau\" is the common shortened form attested in bib-leanhvinh-2020 (p.37, \"hai tập rời nhau khác rỗng\" = two nonempty disjoint sets; p.202) and bib-ngodactan-2004 (p.21). \"rời nhau\" alone is the predicate form (\"hai tập ... là rời nhau\"), attested in bib-leanhvinh-2020 (p.69) and bib-hoangchithanh-2007 (p.106). \"tập con rời nhau\" (disjoint subsets) appears in bib-nguyenducnghia-2006 (p.15) in the addition-principle generalization. \"không giao nhau\" (not intersecting / having no common element) is a descriptive variant attested across four sources including bib-nguyenhuudien-2019 (p.228), bib-nguyenducnghia-2006 (p.210), bib-ngodactan-2004 (p.206), and bib-hoangchithanh-2007 (p.18); it conveys the same emptiness-of-intersection idea but is typically used as a property phrase rather than a noun for the sets themselves. OCR sources bib-leanhvinh-2020 and bib-hoangchithanh-2007 were checked with both normal and --loose modes; results were identical for the relevant terms.",
+   "see_also": [
+    "pairwise-disjoint-sets",
+    "empty-set",
+    "intersection",
+    "union",
+    "set"
+   ],
+   "vi_terms": [
+    {
+     "term": "tập hợp rời nhau",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-nguyenhoangthach-2020",
+     "pdf_page": 24,
+     "page": "tr. 24 (PDF)",
+     "snippet": "Chứng minh. Xét hai tập hợp rời nhau: S có m phần tử, T có n phần tử. Khi"
+    },
+    {
+     "term": "tập hợp rời nhau",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenducnghia-2006",
+     "pdf_page": 15,
+     "page": "tr. 15 (PDF)",
+     "snippet": "Nếu A và Blà hai tập hợp rời nhau thì"
+    },
+    {
+     "term": "tập rời nhau",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-leanhvinh-2020",
+     "pdf_page": 37,
+     "page": "tr. 37 (PDF)",
+     "snippet": "chỉ khi tập đỉnh V có thể phần thành hai tập rời nhau khác rỗng Vị"
+    },
+    {
+     "term": "tập rời nhau",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-leanhvinh-2020",
+     "pdf_page": 202,
+     "page": "tr. 202 (PDF)",
+     "snippet": "Như vậy ta có hai tập rời nhau N(x), XV(n;) với"
+    },
+    {
+     "term": "tập rời nhau",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-ngodactan-2004",
+     "pdf_page": 21,
+     "page": "tr. 21 (PDF)",
+     "snippet": "trúc tổ hợp trên V nếu V và Ẹ là các tập rời nhau, / là một hàm từ E"
+    },
+    {
+     "term": "rời nhau",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-leanhvinh-2020",
+     "pdf_page": 69,
+     "page": "tr. 69 (PDF)",
+     "snippet": "Do hai tập Ng,(T) và NG(U,) là rời nhau, ta có"
+    },
+    {
+     "term": "rời nhau",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-hoangchithanh-2007",
+     "pdf_page": 106,
+     "page": "tr. 106 (PDF)",
+     "snippet": "Hai tap W (Bị) va W, rời nhau, nên:"
+    },
+    {
+     "term": "tập con rời nhau",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenducnghia-2006",
+     "pdf_page": 15,
+     "page": "tr. 15 (PDF)",
+     "snippet": "Nguyên lý cộng được mở rộng cho nhiều tập con rời nhau:"
+    },
+    {
+     "term": "không giao nhau",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 228,
+     "page": "tr. 228 (PDF)",
+     "snippet": "thành các tập ổn định trong không giao nhau, mỗi tập ứng với một màu."
+    },
+    {
+     "term": "không giao nhau",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenducnghia-2006",
+     "pdf_page": 210,
+     "page": "tr. 210 (PDF)",
+     "snippet": "không giao nhau, mỗi tập xác định bởi một cây con trong 7 (được hình thành ở các"
+    },
+    {
+     "term": "không giao nhau",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-ngodactan-2004",
+     "pdf_page": 206,
+     "page": "tr. 206 (PDF)",
+     "snippet": "các cạnh hoặc không giao nhau hoặc giao nhau chỉ ờ các đỉnh chung."
+    },
+    {
+     "term": "không giao nhau",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-hoangchithanh-2007",
+     "pdf_page": 18,
+     "page": "tr. 18 (PDF)",
+     "snippet": ". chúng không giao nhau."
+    }
+   ]
+  },
+  {
+   "id": "distance",
+   "letter": "D",
+   "headword_en": "Distance",
+   "notation": "d(u, v)",
+   "rosen_ref": "Rosen §10.4",
+   "definition_vi": "\\emph{Khoảng cách} giữa hai đỉnh $$u$$ và $$v$$ trong một đồ thị $$G$$, ký hiệu $$d(u, v)$$, là độ dài của một đường đi ngắn nhất giữa $$u$$ và $$v$$. Nếu không tồn tại đường đi nào giữa $$u$$ và $$v$$ thì $$d(u, v)$$ được quy ước bằng $$\\infty$$.",
+   "example_vi": "Trong đồ thị chu trình $$C_5$$ với các đỉnh $$v_1, v_2, v_3, v_4, v_5$$ nối tiếp nhau thành vòng, ta có $$d(v_1, v_3) = 2$$ vì đường đi ngắn nhất là $$v_1, v_2, v_3$$.",
+   "notes": "Six attestations across five distinct corpus sources confirm this concept. The recommended head term \"khoảng cách\" appears in the 2020 definition (bib-leanhvinh-2020, PDF p.17): \"Với hai đỉnh u, v ∈ V, khoảng cách giữa u và v, kí hiệu bởi $$d_G(u,v)$$ ... là độ dài đường đi ngắn nhất giữa chúng. Nếu không tồn tại đường đi [thì khoảng cách bằng vô cùng]\" — matching Rosen, including the infinite-distance clause. The full descriptive form \"khoảng cách giữa hai đỉnh\" (variant) is attested in bib-leanhvinh-2020 p.222, bib-nguyenhuudien-2019, and bib-ngodactan-2004. OCR sources (bib-leanhvinh-2020, bib-hoangchithanh-2007) were searched both normally and with --loose; loose returned identical hits, and the diacritics in the relevant snippets were clean enough to confirm the term. Variant \"khoảng cách giữa đỉnh x và đỉnh y\" (bib-hoangchithanh-2007 p.99) is the dyadic phrasing $$d(x,y)$$. Notation forms across the corpus: $$d_G(u,v)$$ (leanhvinh-2020), $$d(u,v)$$ (nguyenhuudien-2019), $$\\operatorname{dist}(v, A)$$ (ngodactan-2004 for set distance).",
+   "see_also": [
+    "diameter",
+    "shortest-path-problem",
+    "eccentricity"
+   ],
+   "vi_terms": [
+    {
+     "term": "khoảng cách",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-leanhvinh-2020",
+     "pdf_page": 17,
+     "page": "tr. 17 (PDF)",
+     "snippet": "Với hai đỉnh u,v € V, khoảng cách giữa u va v, kí hiệu bởi dg(u, v)"
+    },
+    {
+     "term": "khoảng cách giữa hai đỉnh",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-leanhvinh-2020",
+     "pdf_page": 222,
+     "page": "tr. 222 (PDF)",
+     "snippet": "có đường kính bằng d và khoảng cách giữa hai đỉnh bằng số các chỉ"
+    },
+    {
+     "term": "khoảng cách giữa u và v",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhoangthach-2020",
+     "pdf_page": 88,
+     "page": "tr. 88 (PDF)",
+     "snippet": "khoảng cách giữa u và v trong G, tức là độ dài đường đi ngắn nhất giữa u và"
+    },
+    {
+     "term": "khoảng cách d(u, v)",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 202,
+     "page": "tr. 202 (PDF)",
+     "snippet": "Khoảng cách d(u, v) giữa hai đỉnh u và v là chiều dài đường"
+    },
+    {
+     "term": "khoảng cách giữa đỉnh x và đỉnh y",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-hoangchithanh-2007",
+     "pdf_page": 99,
+     "page": "tr. 99 (PDF)",
+     "snippet": "Ký hiệu d(x, y) là khoảng cách giữa đỉnh x và đỉnh y trong đồ"
+    },
+    {
+     "term": "khoảng cách giữa hai đỉnh u và v",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-ngodactan-2004",
+     "pdf_page": 216,
+     "page": "tr. 216 (PDF)",
+     "snippet": "Q = (V,E). Khoảng cách giữa hai đỉnh u và V trong G, ký hiệu"
+    }
+   ]
+  },
+  {
+   "id": "divisibility",
+   "letter": "D",
+   "headword_en": "Divisibility",
+   "notation": "a \\mid b",
+   "rosen_ref": "Rosen §4.1",
+   "definition_vi": "Cho hai số nguyên $$a$$ và $$b$$ với $$a \\neq 0$$, ta nói $$a$$ \\emph{chia hết} $$b$$, ký hiệu $$a \\mid b$$, nếu tồn tại một số nguyên $$c$$ sao cho $$b = ac$$; nếu $$a$$ không chia hết $$b$$ ta viết $$a \\nmid b$$. Khi $$a \\mid b$$, ta nói $$a$$ là một ước của $$b$$ và $$b$$ là một bội của $$a$$.",
+   "example_vi": "Ta có $$3 \\mid 12$$ vì $$12 = 3 \\cdot 4$$ với $$4$$ là số nguyên, nhưng $$3 \\nmid 7$$ vì không tồn tại số nguyên $$c$$ nào sao cho $$7 = 3c$$.",
+   "notes": "Mining covered all six corpus sources (normal + --loose for OCR sources). \"chia hết\" is the standard Vietnamese term for divisibility and is the recommended term; it is attested in the newest sources (nguyenhoangthach-2020 p.54, nguyenhuudien-2019 p.15) and consistently in older sources (nguyenducnghia-2006 p.14, ngodactan-2004 p.173). Citations for the recommended term are ordered newest-first. The variant \"quan hệ chia hết\" (the divisibility relation) is attested only in ngodactan-2004 (pp.173, 177, 178) where the relation \"d | n\" is treated as a partial order. The candidate \"tính chia hết\" (divisibility property) returned 0 hits across all sources (normal and --loose) and is dropped as unattested. The two OCR graph-theory sources (leanhvinh-2020, hoangchithanh-2007) contain no attestation of any divisibility term even under --loose, as expected for graph-theory texts. ngodactan-2004 p.173 uses notation d|n for \"d divides n\" and d/n for \"d does not divide n\". The terms \"ước\" (divisor) and \"bội\" (multiple) are introduced in the definition body as the standard Vietnamese terms paired with chia hết. To keep the example self-contained, the non-divides notation $$a \\nmid b$$ is now introduced in definition_vi (the example uses $$3 \\nmid 7$$).",
+   "see_also": [
+    "gcd",
+    "prime"
+   ],
+   "vi_terms": [
+    {
+     "term": "chia hết",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-nguyenhoangthach-2020",
+     "pdf_page": 54,
+     "page": "tr. 54 (PDF)",
+     "snippet": "Lời giải: Ta nhận xét rằng hai số nguyên có hiệu chia hết cho n nếu và chỉ"
+    },
+    {
+     "term": "chia hết",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 15,
+     "page": "tr. 15 (PDF)",
+     "snippet": "p = \"15 chia hết cho 3\"."
+    },
+    {
+     "term": "chia hết",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenducnghia-2006",
+     "pdf_page": 14,
+     "page": "tr. 14 (PDF)",
+     "snippet": "ta nói ạ có quan hệ (Ø) đối với ÿ nếu ạ chia hết cho ò. Khi đó"
+    },
+    {
+     "term": "chia hết",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-ngodactan-2004",
+     "pdf_page": 173,
+     "page": "tr. 173 (PDF)",
+     "snippet": "Ta sẽ viết d\\n nếu d chia hết n và sẽ viết d / n nếu d"
+    },
+    {
+     "term": "quan hệ chia hết",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-ngodactan-2004",
+     "pdf_page": 173,
+     "page": "tr. 173 (PDF)",
+     "snippet": "< là quan hệ chia hết, tức là X < y khi và chỉ khi X chia hết y . K h i"
+    }
+   ]
+  },
+  {
+   "id": "division-algorithm",
+   "letter": "D",
+   "headword_en": "Division algorithm",
+   "notation": "a = bq + r,\\ 0 \\leq r < b",
+   "rosen_ref": "Rosen §4.1",
+   "definition_vi": "\\emph{Thuật toán chia} khẳng định rằng với mọi số nguyên $$a$$ và mọi số nguyên dương $$b$$, tồn tại duy nhất hai số nguyên $$q$$ và $$r$$ thỏa mãn $$0 \\leq r < b$$ sao cho $$a = bq + r$$; ký hiệu $$q$$ là thương số và $$r$$ là số dư trong phép chia $$a$$ cho $$b$$.",
+   "example_vi": "Với $$a = 17$$ và $$b = 5$$, ta có $$q = 3$$ và $$r = 2$$ vì $$17 = 5 \\cdot 3 + 2$$ và $$0 \\leq 2 < 5$$.",
+   "notes": "Khái niệm này (thuộc số học, Rosen §4.1) chỉ được chứng thực trong nguồn toán rời rạc bib-nguyenhuudien-2019; các nguồn đồ thị/tổ hợp (leanhvinh-2020, hoangchithanh-2007, nguyenhoangthach-2020, ngodactan-2004) không phát biểu định lý này — các lần xuất hiện \"phép chia\"/\"số dư\" ở đó là về \"phép chia cạnh\" (edge subdivision) hoặc chỉ số dưới/hằng số dương, là khái niệm khác. Thuật ngữ chuẩn được chọn là \"thuật toán chia\" (bib-nguyenhuudien-2019, tr. 141 (PDF), Mệnh đề 5.2), kèm thuật ngữ định danh \"thuật chia (Euclide)\" (tr. 65 (PDF)). DISAMBIGUATION: tại bib-nguyenhuudien-2019 tr. 65, cụm \"thuật chia Euclide\" ở đây đặt tên cho BƯỚC chia/lấy dư đơn lẻ (phép toán mod, số dư), KHÔNG phải thuật toán Euclid tìm ước chung lớn nhất (gcd, Rosen §4.3); không được nối biến thể này với một mục 'euclidean-algorithm' trong tương lai. Tại tr. 142 (PDF) nguồn này đặt tên các thành phần: $$b$$ là số chia, $$a$$ là số bị chia, $$q$$ là thương số, $$r$$ là số dư. Lưu ý: nguồn phát biểu tổng quát cho $$b \\neq 0$$ với $$0 \\leq r < |b|$$; ở đây định nghĩa theo Rosen §4.1 với $$b$$ nguyên dương và $$0 \\leq r < b$$. Hai ứng viên \"phép chia có dư\" và \"định lý phép chia\" không tìm thấy trong bất kỳ nguồn nào (0 hits, cả bản thường lẫn --loose cho nguồn OCR); ghi nhận là biến thể chưa chứng thực, không đưa vào vi_terms.",
+   "see_also": [
+    "divisibility",
+    "gcd",
+    "prime"
+   ],
+   "vi_terms": [
+    {
+     "term": "thuật toán chia",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 141,
+     "page": "tr. 141 (PDF)",
+     "snippet": "Mệnh đề 5.2 — Thuật toán chia. Cho a và b là hai số nguyên và b ̸= 0. Khi đó"
+    },
+    {
+     "term": "thuật chia (Euclide)",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 65,
+     "page": "tr. 65 (PDF)",
+     "snippet": "phép toán mod (chia lấy dư số). Định lý này còn được gọi là thuật chia Euclide. Xem xét"
+    }
+   ]
+  },
+  {
+   "id": "domain",
+   "letter": "D",
+   "headword_en": "Domain",
+   "notation": "f : A \\to B",
+   "rosen_ref": "Rosen §2.3",
+   "definition_vi": "\\emph{Miền xác định} của một hàm $$f : A \\to B$$ là tập $$A$$ gồm mọi phần tử mà $$f$$ gán cho một giá trị, tức là tập tất cả các đầu vào có thể có của $$f$$.",
+   "example_vi": "Với hàm $$f : \\mathbb{Z} \\to \\mathbb{Z}$$ cho bởi $$f(n) = n^2$$, miền xác định là tập $$\\mathbb{Z}$$ các số nguyên.",
+   "vi_terms": [
+    {
+     "term": "miền xác định",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 129,
+     "page": "tr. 129 (PDF)",
+     "snippet": "▷ 4.11. Giả sử A là một tệp khác rỗng và f là một hàm số có A là miền xác định. Trên A ta"
+    },
+    {
+     "term": "miền xác định",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 82,
+     "page": "tr. 82 (PDF)",
+     "snippet": "tử trong miền xác định của ánh xạ là a1 , a2 , ..., am . Có n cách chọn ảnh qua ánh xạ cho"
+    },
+    {
+     "term": "miền xác định",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenducnghia-2006",
+     "pdf_page": 267,
+     "page": "tr. 267 (PDF)",
+     "snippet": "được gọi là một hàm đại số lôgic không đầy đủ và tập con 3 được gọi là miền xác định"
+    },
+    {
+     "term": "miền xác định",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-ngodactan-2004",
+     "pdf_page": 128,
+     "page": "tr. 128 (PDF)",
+     "snippet": "ở đây ta giả thiết rằng miền xác định của / chứa X + 1 mỗi khi nó"
+    },
+    {
+     "term": "tập nguồn",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenducnghia-2006",
+     "pdf_page": 19,
+     "page": "tr. 19 (PDF)",
+     "snippet": "Giải Biểu diễn mỗi đơn ánh bằng bộ ảnh của tập nguồn như trong thí dụ 1 mục trên."
+    }
+   ],
+   "notes": "Recommended term is \"miền xác định\", the standard Vietnamese term for the domain of a function/map $$f : A \\to B$$. It is attested in the newest available text source, bib-nguyenhuudien-2019 (2019), where pdf_page 129 gives the exact function-domain sense (\"f là một hàm số có A là miền xác định\") and pdf_page 82 gives the map-domain sense (\"miền xác định của ánh xạ\"). The 2020 graph-theory sources (bib-leanhvinh-2020, bib-nguyenhoangthach-2020) and the OCR source bib-hoangchithanh-2007 returned no hits for any candidate on normal or --loose searches; function domains are outside their scope, so no 2020 attestation is available and the 2019 source is the newest. Many other \"miền xác định\" hits in nguyenhuudien-2019 (pp. 46-67) refer to the domain of a predicate/variable (vị từ), a related but broader use; only the clearly function/map-domain pages are recorded above. \"tập nguồn\" (source set) is a distinct attested term for the domain (source) of a map, found in bib-nguyenducnghia-2006 p.19. The candidate \"tập xác định\" was NOT recorded: its single corpus hit (bib-nguyenducnghia-2006 p.210, \"mỗi tập xác định bởi một cây con\") is the passive phrase \"set determined by ...\", not the domain concept, so it is verified=false and dropped per citation hygiene. The candidate \"miền xác định của hàm\" returned 0 hits (descriptive long form, not attested) and is dropped.",
+   "see_also": [
+    "codomain",
+    "function",
+    "image-of-function",
+    "range"
+   ]
+  },
+  {
+   "id": "dominating-set",
+   "letter": "D",
+   "headword_en": "Dominating set",
+   "notation": "D \\subseteq V(G)",
+   "rosen_ref": "Rosen §10.1",
+   "definition_vi": "Một \\emph{tập thống trị} của đồ thị $$G$$ là một tập con $$D \\subseteq V(G)$$ các đỉnh sao cho mỗi đỉnh của $$G$$ hoặc thuộc $$D$$, hoặc kề với một đỉnh nào đó trong $$D$$. Nói cách khác, với mọi đỉnh $$v \\in V(G)$$ ta có $$v \\in D$$ hoặc tồn tại $$u \\in D$$ sao cho $$uv \\in E(G)$$.",
+   "example_vi": "Xét đường đi $$P_5$$ với các đỉnh $$v_1, v_2, v_3, v_4, v_5$$ và các cạnh $$v_1 v_2$$, $$v_2 v_3$$, $$v_3 v_4$$, $$v_4 v_5$$. Tập $$D = \\{v_2, v_4\\}$$ là một tập thống trị, vì $$v_1$$ kề $$v_2$$, $$v_3$$ kề cả $$v_2$$ và $$v_4$$, $$v_5$$ kề $$v_4$$, còn $$v_2, v_4$$ thì thuộc $$D$$.",
+   "notes": "Không có nguồn nào trong kho ngữ liệu tiếng Việt (2004–2020) chứng thực một thuật ngữ danh từ đặt tên cho khái niệm \"dominating set\" của đồ thị. Vì vậy thuật ngữ chuẩn được khuyến nghị \"tập thống trị\" được giữ với verified=false và page=\"\" (chưa có dẫn chứng). The English headword lives only in headword_en; no inline gloss appears in definition_vi.\n\nPhân biệt quan trọng để tránh ghi nhầm: bib-leanhvinh-2020 (tr. 77–82, tr. 176) và bib-nguyenducnghia-2006 (tr. 263) dùng \"tập phủ đỉnh\" / \"phủ đỉnh\" (vertex cover), một khái niệm KHÁC: phủ đỉnh yêu cầu mỗi CẠNH có ít nhất một đầu mút trong tập, trong khi tập thống trị yêu cầu mỗi ĐỈNH nằm trong tập hoặc kề một đỉnh của tập. Do đó \"tập phủ đỉnh\" KHÔNG được ghi cho mục này.\n\nTài liệu duy nhất nói gần khái niệm là bib-nguyenducnghia-2006 (tr. 108–112) trong bài toán quân cờ \"khống chế tất cả các ô của bàn cờ\" (queens domination). Tuy nhiên \"khống chế\" ở đó dùng dạng động từ (kiểm soát/chi phối các ô), không phải cụm danh từ đặt tên cho một tập đỉnh thống trị của đồ thị, nên không đủ điều kiện verified=true.\n\nCác biến thể từng gặp trong thực tế (không có trong kho ngữ liệu): \"tập thống trị\" (theo sát \"domination\" của Rosen, phổ biến nhất hiện nay), \"tập trội\", \"tập chi phối\", \"tập khống chế\". Trong kho ngữ liệu, \"thống trị\" chỉ xuất hiện với nghĩa \"luật thống trị\" trong logic mệnh đề (bib-nguyenhuudien-2019, tr. 22, 75) và \"trội\" chỉ ở \"số hạng trội\" trong phân tích tiệm cận (bib-nguyenducnghia-2006, tr. 84) — đều không phải khái niệm đồ thị này.",
+   "see_also": [
+    "independent-set",
+    "vertex-cover",
+    "graph-coloring"
+   ],
+   "vi_terms": [
+    {
+     "term": "tập thống trị",
+     "verified": false,
+     "recommended": true,
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": "",
+     "notes": "Thuật ngữ chuẩn khuyến nghị; theo sát 'domination' của Rosen. Không nguồn nào trong kho ngữ liệu chứng thực cụm này cho khái niệm đồ thị (verified=false). Các biến thể không được chứng thực khác (tập trội, tập chi phối, tập khống chế) được ghi trong phần notes của mục."
+    }
+   ]
+  },
+  {
+   "id": "dual-graph",
+   "letter": "D",
+   "headword_en": "Dual graph",
+   "notation": "G^{*}",
+   "rosen_ref": "Rosen §10.7",
+   "definition_vi": "\\emph{Đồ thị đối ngẫu} của một đồ thị phẳng $$G$$, ký hiệu $$G^{*}$$, là đồ thị có mỗi đỉnh tương ứng với một miền (mặt) của $$G$$. Mỗi cạnh của $$G$$ nằm chung trên biên của hai miền $$R_1$$ và $$R_2$$ cho một cạnh của $$G^{*}$$ nối hai đỉnh ứng với $$R_1$$ và $$R_2$$; mỗi cạnh kề cùng một miền ở cả hai phía (một cầu) cho một khuyên tại đỉnh ứng với miền đó. Như vậy tương ứng giữa các cạnh của $$G$$ và các cạnh của $$G^{*}$$ là một song ánh.",
+   "example_vi": "Đồ thị đối ngẫu của chu trình $$C_4$$ vẽ trên mặt phẳng có hai đỉnh, ứng với miền trong và miền ngoài; mỗi cạnh trong bốn cạnh của $$C_4$$ nằm chung trên biên hai miền này nên $$G^{*}$$ có bốn cạnh nối hai đỉnh đó.",
+   "notes": "Definition completed per Rosen §10.7 so the edge correspondence E(G) <-> E(G*) is a bijection: an edge of G bordering two distinct regions R1, R2 yields an edge of G* joining the corresponding vertices, while an edge bordering the SAME region on both sides (a bridge / cut-edge) yields a LOOP at that single vertex. The earlier wording covered only the two-region case and silently dropped the bridge/loop case, which would have made G* have fewer edges than G; the bijection is now stated explicitly.\n\nRecommended term \"đồ thị đối ngẫu\" is the standard rendering, attested in the newest corpus (bib-nguyenhoangthach-2020, tr. 81-82), and again in bib-nguyenhuudien-2019 (tr. 235) and bib-ngodactan-2004 (tr. 294-295). vi_terms ordered newest-source first.\n\nThe bare adjective \"đối ngẫu\" alone is NOT recorded as a standalone variant: across all sources it most often denotes unrelated concepts (ideal thứ tự đối ngẫu, mạng/lát cắt đối ngẫu, lập luận đối ngẫu) rather than the dual graph; its only graph-relevant occurrences are inside the full phrase \"đồ thị đối ngẫu\" already captured. The hit in bib-nguyenducnghia-2006 (tr. 13) is an isolated bare parenthetical \"- (đối ngẫu)\" with no surrounding context tying it to the plane-graph dual, so it is excluded as unverified for THIS concept.\n\n\"đồ thị đối ngẫu của\" is the same head term with the genitive particle \"của\" (= \"of\"); recorded as a phrase variant where it appears in the defining sentence.\n\nOCR sources bib-leanhvinh-2020 and bib-hoangchithanh-2007 returned 0 hits for both \"đồ thị đối ngẫu\" and \"đối ngẫu\" in normal and --loose modes; no attestation there.\n\nNote that in all attesting Vietnamese sources the dual graph $$G^{*}$$ is introduced via a map/plane graph (bản đồ): each region (miền) becomes a vertex of $$G^{*}$$, matching Rosen's definition.\n\nThe example uses only objects the definition introduces (a plane graph and its regions/edges), with $$C_4$$ as a concrete plane graph; it derives no quantity outside the definition's scope.",
+   "see_also": [
+    "dual-of-a-map"
+   ],
+   "vi_terms": [
+    {
+     "term": "đồ thị đối ngẫu",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-nguyenhoangthach-2020",
+     "pdf_page": 82,
+     "page": "tr. 82 (PDF)",
+     "snippet": "Mỗi miền của bản đồ tương ứng với một đỉnh của đồ thị đối ngẫu;"
+    },
+    {
+     "term": "đồ thị đối ngẫu",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhoangthach-2020",
+     "pdf_page": 81,
+     "page": "tr. 81 (PDF)",
+     "snippet": "khái niệm đồ thị đối ngẫu sau:"
+    },
+    {
+     "term": "đồ thị đối ngẫu",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 235,
+     "page": "tr. 235 (PDF)",
+     "snippet": "Đồ thị nhận được bằng cách này gọi là đồ thị đối ngẫu của bản đồ đang xét."
+    },
+    {
+     "term": "đồ thị đối ngẫu của",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 235,
+     "page": "tr. 235 (PDF)",
+     "snippet": "bằng hai đỉnh này là kề nhau. Đồ thị nhận được bằng cách này gọi là đồ thị đối ngẫu của bản"
+    },
+    {
+     "term": "đồ thị đối ngẫu",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-ngodactan-2004",
+     "pdf_page": 294,
+     "page": "tr. 294 (PDF)",
+     "snippet": "không có khuyên) M* gọi là đồ thị đối ngẫu của M như sau. Trước hết"
+    },
+    {
+     "term": "đồ thị đối ngẫu",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-ngodactan-2004",
+     "pdf_page": 295,
+     "page": "tr. 295 (PDF)",
+     "snippet": "Mệnh đề 9.9. Giả sử M là bản đồ và M* là đồ thị đối ngẫu tương"
+    },
+    {
+     "term": "đồ thị đối ngẫu của",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-ngodactan-2004",
+     "pdf_page": 294,
+     "page": "tr. 294 (PDF)",
+     "snippet": "không có khuyên) M* gọi là đồ thị đối ngẫu của M như sau. Trước hết"
+    }
+   ]
+  },
+  {
+   "id": "depth-first-search",
+   "letter": "D",
+   "headword_en": "Depth-first search",
+   "notation": "",
+   "rosen_ref": "Rosen §11.4",
+   "definition_vi": "\\emph{Duyệt theo chiều sâu} là một phép duyệt đồ thị xây dựng một cây khung của đồ thị liên thông $$G$$ bằng cách bắt đầu từ một đỉnh gốc, rồi lặp lại việc đi xa nhất có thể dọc theo mỗi nhánh và chỉ quay lui khi không còn đỉnh kề chưa được thăm. Mỗi cạnh dùng để đi tới một đỉnh chưa thăm được thêm vào cây khung, nên kết quả là một cây khung của $$G$$.",
+   "example_vi": "Xét đồ thị $$G$$ với tập đỉnh $$V(G)=\\{a,b,c,d\\}$$ và tập cạnh $$E(G)=\\{ab,bc,bd,cd\\}$$. Bắt đầu duyệt theo chiều sâu tại đỉnh gốc $$a$$, ta đi $$a\\to b\\to c\\to d$$; tại $$d$$ mọi đỉnh kề đều đã được thăm nên ta quay lui. Cây khung thu được có tập cạnh $$\\{ab,bc,cd\\}$$.",
+   "notes": "Recommended verb family is aligned with the sibling entry breadth-first-search (chapter B), which recommends \"duyệt theo chiều rộng\"; to keep the traversal-verb convention consistent across the DFS/BFS pair, depth-first-search recommends \"duyệt theo chiều sâu\", attested in bib-nguyenhuudien-2019 (2019, p.176), which heads the DFS section with the English gloss \"(Depth-First Search)\". The lexical choice between \"tìm kiếm\" (search) and \"duyệt\" (traversal) is purely lexical; both denote the same graph traversal concept. The alternative \"tìm kiếm theo chiều sâu\" is attested in the newest source bib-nguyenhoangthach-2020 (2020, p.88), explicitly glossed as DFS (\"thuật toán tìm kiếm theo chiều sâu, hay DFS\"), and earlier in bib-nguyenducnghia-2006 (p.179); it is recorded as a non-recommended variant. The fuller \"duyệt đồ thị theo chiều sâu\" heads the DFS section in bib-nguyenhuudien-2019 and bib-hoangchithanh-2007. The 2020 graph-theory source bib-leanhvinh-2020 does not attest any DFS candidate term (no hits in normal or --loose search). All listed terms denote the same graph traversal concept.",
+   "see_also": [
+    "breadth-first-search",
+    "spanning-tree",
+    "tree"
+   ],
+   "vi_terms": [
+    {
+     "term": "duyệt theo chiều sâu",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 176,
+     "page": "tr. 176 (PDF)",
+     "snippet": "7.1.2. Duyệt theo chiều sâu (Depth-First Search)"
+    },
+    {
+     "term": "duyệt đồ thị theo chiều sâu",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 176,
+     "page": "tr. 176 (PDF)",
+     "snippet": "Listing 7.1: Duyệt đồ thị theo chiều sâu"
+    },
+    {
+     "term": "tìm kiếm theo chiều sâu",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhoangthach-2020",
+     "pdf_page": 88,
+     "page": "tr. 88 (PDF)",
+     "snippet": "thuật toán tìm kiếm theo chiều sâu, hay DFS, và thuật toán tìm kiếm theo"
+    },
+    {
+     "term": "duyệt theo chiều sâu",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-hoangchithanh-2007",
+     "pdf_page": 69,
+     "page": "tr. 69 (PDF)",
+     "snippet": "duyệt theo chiều sâu."
+    },
+    {
+     "term": "duyệt đồ thị theo chiều sâu",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-hoangchithanh-2007",
+     "pdf_page": 69,
+     "page": "tr. 69 (PDF)",
+     "snippet": "6.1.2. Duyệt đồ thị theo chiều sâu (Depth-First Search)"
+    },
+    {
+     "term": "tìm kiếm theo chiều sâu",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenducnghia-2006",
+     "pdf_page": 179,
+     "page": "tr. 179 (PDF)",
+     "snippet": "Khi đó, Tìm kiếm theo chiều sâu trên đồ thị được thực hiện nhờ thuật toán sau:"
+    }
+   ]
+  }
+ ]
+}

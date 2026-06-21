@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<chapter xml:id="ch-k" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>K</title>
+
+  <introduction>
+    <p>
+      Chương này tập hợp các thuật ngữ tiếng Anh bắt đầu bằng chữ <q>K</q>, kèm
+      định nghĩa và các thuật ngữ tiếng Việt tương ứng cùng trích dẫn nguồn.
+    </p>
+  </introduction>
+
+  <definition xml:id="def-k-coloring">
+    <title>k-coloring — tô màu một đồ thị đơn bằng k màu</title>
+    <idx><h>k-coloring</h></idx>
+    <idx><h>k-tô màu</h></idx>
+    <idx><h>tô màu (các đỉnh của G) bởi k màu</h></idx>
+    <idx><h>tô màu các đỉnh</h></idx>
+    <idx><h>tô màu một đồ thị đơn bằng k màu</h></idx>
+    <idx><h>tô màu đồ thị</h></idx>
+    <idx><h>tô được bằng k màu</h></idx>
+    <idx><h>tô được bởi k màu</h></idx>
+    <notation>
+      <usage><m>c: V(G) \to \{1, 2, \ldots, k\}</m></usage>
+      <description>tô màu một đồ thị đơn bằng k màu</description>
+    </notation>
+    <statement>
+      <p>Một \emph{cách tô màu bằng <m>k</m> màu} của một đồ thị đơn <m>G</m> là một phép gán cho mỗi đỉnh của <m>G</m> một trong <m>k</m> màu, tức một hàm <m>c: V(G) \to \{1, 2, \ldots, k\}</m> thỏa mãn <m>c(u) \neq c(v)</m> với mọi cạnh <m>uv \in E(G)</m>, nghĩa là không có hai đỉnh kề nhau nào được gán cùng một màu (theo <xref ref="bib-rosen-2019" />, Rosen §10.8).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>tô màu một đồ thị đơn bằng k màu</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 81 (PDF)) — cách dùng phổ biến.</p></li>
+        <li><p><term>k-tô màu</term> <xref ref="bib-ngodactan-2004" /> (tr. 283 (PDF)).</p></li>
+        <li><p><term>tô màu (các đỉnh của G) bởi k màu</term> <xref ref="bib-leanhvinh-2020" /> (tr. 90 (PDF)).</p></li>
+        <li><p><term>tô màu các đỉnh</term> <xref ref="bib-leanhvinh-2020" /> (tr. 245 (PDF)).</p></li>
+        <li><p><term>tô màu đồ thị</term> <xref ref="bib-leanhvinh-2020" /> (tr. 90 (PDF)).</p></li>
+        <li><p><term>tô được bằng k màu</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 227 (PDF)).</p></li>
+        <li><p><term>tô được bởi k màu</term> <xref ref="bib-leanhvinh-2020" /> (tr. 90 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Đồ thị chu trình <m>C_4</m> có một cách tô màu bằng <m>2</m> màu: tô hai đỉnh đối nhau bằng màu thứ nhất và hai đỉnh còn lại bằng màu thứ hai, khi đó không có hai đỉnh kề nhau nào cùng màu.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-k-connected-graph">
+    <title>k-connected graph — k-liên thông</title>
+    <idx><h>k-connected graph</h></idx>
+    <idx><h>k-liên thông</h></idx>
+    <idx><h>k-liên thông đỉnh</h></idx>
+    <idx><h>đồ thị k-liên thông</h></idx>
+    <notation>
+      <usage><m>\kappa(G) \geq k</m></usage>
+      <description>k-liên thông</description>
+    </notation>
+    <statement>
+      <p>Cho <m>k</m> là một số nguyên dương. Một đồ thị liên thông <m>G</m> được gọi là \emph{<m>k</m>-liên thông} nếu độ liên thông đỉnh của nó thỏa mãn <m>\kappa(G) \geq k</m>, tức là không thể làm cho <m>G</m> mất liên thông (hoặc trở thành đồ thị tầm thường một đỉnh) bằng cách xóa đi ít hơn <m>k</m> đỉnh bất kỳ (theo <xref ref="bib-rosen-2019" />, Rosen §10.4).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>k-liên thông</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 75 (PDF)); <xref ref="bib-leanhvinh-2020" /> (tr. 25 (PDF)) — cách dùng phổ biến.</p></li>
+        <li><p><term>k-liên thông đỉnh</term> <xref ref="bib-ngodactan-2004" /> (tr. 265 (PDF)).</p></li>
+        <li><p><term>đồ thị k-liên thông</term> <xref ref="bib-leanhvinh-2020" /> (tr. 31 (PDF)); <xref ref="bib-ngodactan-2004" /> (tr. 280 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Đồ thị đầy đủ <m>K_n</m> với <m>n \geq k+1</m> là <m>k</m>-liên thông, vì <m>\kappa(K_n) = n-1 \geq k</m>.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-k-regular-graph">
+    <title>k-regular graph — đồ thị k chính quy</title>
+    <idx><h>k-regular graph</h></idx>
+    <idx><h>k-chính qui</h></idx>
+    <idx><h>đồ thị bậc k</h></idx>
+    <idx><h>đồ thị chính qui bậc k</h></idx>
+    <idx><h>đồ thị k chính quy</h></idx>
+    <idx><h>đồ thị đều bậc k</h></idx>
+    <notation>
+      <usage><m>\deg_G(v) = k</m></usage>
+      <description>đồ thị k chính quy</description>
+    </notation>
+    <statement>
+      <p>Cho <m>k</m> là một số nguyên không âm. \emph{Đồ thị <m>k</m> chính quy} là đồ thị <m>G</m> trong đó mọi đỉnh đều có bậc đúng bằng <m>k</m>, tức là <m>\deg_G(v) = k</m> với mọi <m>v \in V(G)</m> (theo <xref ref="bib-rosen-2019" />, Rosen §10.2).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>đồ thị k chính quy</term> <xref ref="bib-leanhvinh-2020" /> (tr. 214 (PDF)) — cách dùng phổ biến.</p></li>
+        <li><p><term>k-chính qui</term> <xref ref="bib-ngodactan-2004" /> (tr. 191 (PDF)).</p></li>
+        <li><p><term>đồ thị bậc k</term> <xref ref="bib-ngodactan-2004" /> (tr. 336 (PDF)).</p></li>
+        <li><p><term>đồ thị chính qui bậc k</term> <xref ref="bib-nguyenducnghia-2006" /> (tr. 164 (PDF)); <xref ref="bib-ngodactan-2004" /> (tr. 191 (PDF)).</p></li>
+        <li><p><term>đồ thị đều bậc k</term> <xref ref="bib-leanhvinh-2020" /> (tr. 214 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Đồ thị đầy đủ <m>K_n</m> là đồ thị <m>(n-1)</m> chính quy, vì mỗi đỉnh kề với tất cả <m>n-1</m> đỉnh còn lại; chu trình <m>C_n</m> với <m>n \geq 3</m> là đồ thị <m>2</m> chính quy.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-kruskals-algorithm">
+    <title>Kruskal's algorithm — thuật toán Kruskal</title>
+    <idx><h>kruskal's algorithm</h></idx>
+    <idx><h>thuật toán Kruskal</h></idx>
+    <statement>
+      <p><em>Thuật toán Kruskal</em> là thuật toán tìm cây bao trùm nhỏ nhất của một đồ thị liên thông, vô hướng và có trọng số <m>G = (V, E)</m> với hàm trọng số <m>c \colon E \to \mathbb{R}</m>. Bắt đầu từ rừng gồm <m>|V|</m> đỉnh rời nhau và không có cạnh, ở mỗi bước thuật toán xét các cạnh theo thứ tự trọng số tăng dần và thêm vào cạnh có trọng số nhỏ nhất trong số các cạnh còn lại mà không tạo thành một chu trình, cho đến khi thu được một cây bao trùm (theo <xref ref="bib-rosen-2019" />, Rosen §11.5).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>thuật toán Kruskal</term> <xref ref="bib-leanhvinh-2020" /> (tr. 61 (PDF)); <xref ref="bib-nguyenhoangthach-2020" /> (tr. 95 (PDF)); <xref ref="bib-nguyenhuudien-2019" /> (tr. 250 (PDF)); <xref ref="bib-hoangchithanh-2007" /> (tr. 132 (PDF)); <xref ref="bib-nguyenducnghia-2006" /> (tr. 208 (PDF)); <xref ref="bib-ngodactan-2004" /> (tr. 224 (PDF)) — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Xét đồ thị liên thông <m>G</m> trên bốn đỉnh <m>\{a, b, c, d\}</m> với các cạnh có trọng số <m>c(ab) = 1</m>, <m>c(bc) = 2</m>, <m>c(cd) = 3</m> và <m>c(ac) = 4</m>. Thuật toán Kruskal lần lượt chọn <m>ab</m>, <m>bc</m>, rồi <m>cd</m>; cạnh <m>ac</m> bị bỏ qua vì nó tạo thành chu trình với <m>ab</m> và <m>bc</m>, và ta thu được cây bao trùm nhỏ nhất gồm các cạnh <m>ab</m>, <m>bc</m>, <m>cd</m> với tổng trọng số <m>6</m>.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-kuratowskis-theorem">
+    <title>Kuratowski's theorem — định lý Kuratowski</title>
+    <idx><h>kuratowski's theorem</h></idx>
+    <idx><h>định lý Kuratowski</h></idx>
+    <idx><h>định lý Kuratowski - Pontragin</h></idx>
+    <statement>
+      <p><em>Định lý Kuratowski</em> khẳng định rằng một đồ thị <m>G</m> là phẳng khi và chỉ khi nó không chứa đồ thị con nào đồng phôi với đồ thị đầy đủ <m>K_5</m> hoặc đồ thị hai phần đầy đủ <m>K_{3,3}</m> (theo <xref ref="bib-rosen-2019" />, Rosen §10.7).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>định lý Kuratowski</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 81 (PDF)); <xref ref="bib-leanhvinh-2020" /> (tr. 127 (PDF)); <xref ref="bib-nguyenhuudien-2019" /> (tr. 234 (PDF)); <xref ref="bib-hoangchithanh-2007" /> (tr. 119 (PDF)); <xref ref="bib-ngodactan-2004" /> (tr. 210 (PDF)) — cách dùng phổ biến.</p></li>
+        <li><p><term>định lý Kuratowski - Pontragin</term> <xref ref="bib-ngodactan-2004" /> (tr. 210 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Đồ thị hai phần đầy đủ <m>K_{3,3}</m> không phẳng: bản thân nó là một đồ thị con đồng phôi với <m>K_{3,3}</m>, nên theo định lý Kuratowski thì <m>K_{3,3}</m> không là đồ thị phẳng.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-karnaugh-map">
+    <title>Karnaugh map — bìa Karnaugh</title>
+    <idx><h>karnaugh map</h></idx>
+    <idx><h>bìa Karnaugh</h></idx>
+    <statement>
+      <p><em>Bìa Karnaugh</em> của một hàm Boole <m>f</m> với một số nhỏ biến (thường nhiều nhất <m>4</m> biến) là một sơ đồ dạng bảng biểu diễn các giá trị của <m>f</m>, trong đó các ô được sắp xếp theo mã Gray sao cho hai ô kề nhau (kể cả hai ô ở hai mép đối diện) ứng với hai số hạng chỉ khác nhau ở đúng một biến. Bìa Karnaugh được dùng để tối thiểu hóa <m>f</m> bằng cách gộp các ô kề nhau có giá trị <m>1</m> thành các nhóm (theo <xref ref="bib-rosen-2019" />, Rosen §12.4).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>bìa Karnaugh</term> <em>(thuật ngữ chuẩn; chưa truy được trong kho văn bản)</em> — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Với hàm Boole <m>f(x,y)</m>, bìa Karnaugh là bảng <m>2 \times 2</m> có các ô ứng với các tổ hợp giá trị của <m>x</m> và <m>y</m>; hai ô cùng một hàng hoặc cùng một cột là kề nhau vì chúng chỉ khác nhau ở một biến.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-kernel-of-a-graph">
+    <title>kernel of a graph — nhân của đồ thị</title>
+    <idx><h>kernel of a graph</h></idx>
+    <idx><h>nhân</h></idx>
+    <idx><h>nhân của đồ thị</h></idx>
+    <notation>
+      <usage><m>B \subseteq V(G)</m></usage>
+      <description>nhân của đồ thị</description>
+    </notation>
+    <statement>
+      <p><em>Nhân</em> của một đồ thị có hướng <m>G = (V, E)</m> là một tập đỉnh <m>B \subseteq V</m> vừa độc lập (không có cung nào nối hai đỉnh của <m>B</m>) vừa hấp thụ (mỗi đỉnh ngoài <m>B</m> đều có một cung đi vào <m>B</m>); trong tài liệu hai điều kiện này còn được gọi là tập ổn định trong và tập ổn định ngoài (theo <xref ref="bib-rosen-2019" />, Rosen §10.5 (directed graphs; kernel not a named §10.2 topic)).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>nhân của đồ thị</term> <xref ref="bib-hoangchithanh-2007" /> (tr. 34 (PDF)) — cách dùng phổ biến.</p></li>
+        <li><p><term>nhân</term> <xref ref="bib-hoangchithanh-2007" /> (tr. 35 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Xét đồ thị có hướng <m>G</m> với tập đỉnh <m>V = \{a, b, c\}</m> và tập cung <m>E = \{(b, a), (c, a)\}</m>. Khi đó <m>B = \{a\}</m> là một nhân của <m>G</m>: không có cung nào nối hai đỉnh trong <m>B</m> (vì <m>B</m> chỉ có một đỉnh), và mỗi đỉnh ngoài <m>B</m> là <m>b</m> và <m>c</m> đều có một cung đi vào <m>a \in B</m>.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-konigsberg-bridge-problem">
+    <title>Königsberg bridge problem — bài toán bảy cây cầu</title>
+    <idx><h>königsberg bridge problem</h></idx>
+    <idx><h>bài toán 7 cây cầu ở Konigsberg</h></idx>
+    <idx><h>bài toán bảy cây cầu</h></idx>
+    <idx><h>bài toán về bảy chiếc cầu ở Königsberg</h></idx>
+    <idx><h>bảy cái cầu ở Konigsberg</h></idx>
+    <idx><h>bảy cầu của thành phố Konigsberg</h></idx>
+    <statement>
+      <p><em>Bài toán bảy cây cầu Königsberg</em> hỏi liệu có thể đi dạo qua thành phố sao cho mỗi cây trong bảy cây cầu được đi qua đúng một lần hay không. Mô hình hóa thành phố bằng một đa đồ thị <m>G</m> trong đó mỗi vùng đất là một đỉnh và mỗi cây cầu là một cạnh, câu hỏi tương đương với việc <m>G</m> có một đường đi Euler (hoặc một chu trình Euler nếu yêu cầu quay về điểm xuất phát) hay không. Một đa đồ thị liên thông có một đường đi Euler khi và chỉ khi nó có đúng <m>0</m> hoặc <m>2</m> đỉnh bậc lẻ, và có một chu trình Euler khi và chỉ khi mọi đỉnh đều có bậc chẵn; Euler đã chứng minh rằng với Königsberg điều này là không thể (theo <xref ref="bib-rosen-2019" />, Rosen §10.5).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>bài toán bảy cây cầu</term> <xref ref="bib-leanhvinh-2020" /> (tr. 20 (PDF)) — cách dùng phổ biến.</p></li>
+        <li><p><term>bài toán 7 cây cầu ở Konigsberg</term> <xref ref="bib-hoangchithanh-2007" /> (tr. 76 (PDF)).</p></li>
+        <li><p><term>bài toán về bảy chiếc cầu ở Königsberg</term> <xref ref="bib-ngodactan-2004" /> (tr. 184 (PDF)).</p></li>
+        <li><p><term>bảy cái cầu ở Konigsberg</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 181 (PDF)).</p></li>
+        <li><p><term>bảy cầu của thành phố Konigsberg</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 181 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Đa đồ thị mô hình hóa bốn vùng đất của Königsberg có bốn đỉnh, mỗi đỉnh đều có bậc lẻ. Vì một đường đi Euler đòi hỏi không quá hai đỉnh bậc lẻ, nên không tồn tại hành trình đi qua mỗi cây cầu đúng một lần.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-knapsack-problem">
+    <title>knapsack problem — bài toán cái túi</title>
+    <idx><h>knapsack problem</h></idx>
+    <idx><h>bài toán cái túi</h></idx>
+    <statement>
+      <p><em>Bài toán cái túi</em> là bài toán tối ưu trong đó cho một cái túi có sức chứa trọng lượng <m>D</m> và <m>n</m> đồ vật, đồ vật thứ <m>j</m> có trọng lượng <m>a_j</m> và giá trị <m>c_j</m> (với <m>j = 1, 2, \ldots, n</m>), yêu cầu chọn một tập con các đồ vật sao cho tổng giá trị là lớn nhất trong khi tổng trọng lượng không vượt quá <m>D</m>. Mỗi phương án chọn được biểu diễn bởi một vectơ nhị phân <m>x = (x_1, x_2, \ldots, x_n)</m>, trong đó <m>x_j = 1</m> nghĩa là đồ vật thứ <m>j</m> được chọn và <m>x_j = 0</m> nghĩa là không chọn, và mục tiêu là cực đại hóa <m>\sum_{j=1}^{n} c_j x_j</m> với ràng buộc <m>\sum_{j=1}^{n} a_j x_j \leq D</m> (theo <xref ref="bib-rosen-2019" />, Rosen §8.1).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>bài toán cái túi</term> <xref ref="bib-nguyenducnghia-2006" /> (tr. 115 (PDF)) — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Với sức chứa <m>D = 5</m> và ba đồ vật có cặp trọng lượng và giá trị lần lượt là <m>(a_1, c_1) = (2, 3)</m>, <m>(a_2, c_2) = (3, 4)</m>, <m>(a_3, c_3) = (4, 5)</m>, chọn các đồ vật <m>1</m> và <m>2</m> cho tổng trọng lượng <m>2 + 3 = 5 \leq 5</m> và tổng giá trị <m>3 + 4 = 7</m>, là phương án có tổng giá trị lớn nhất không vượt quá sức chứa.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-knights-tour">
+    <title>knight's tour — hành trình của con mã</title>
+    <idx><h>knight's tour</h></idx>
+    <idx><h>bài toán mã đi tuần</h></idx>
+    <idx><h>hành trình của con mã</h></idx>
+    <idx><h>mã đi tuần</h></idx>
+    <idx><h>đường đi của con mã</h></idx>
+    <statement>
+      <p><em>Hành trình của con mã</em> trên một bàn cờ là một dãy các nước đi của con mã sao cho mỗi ô của bàn cờ được đi qua đúng một lần. Nếu con mã trở lại được ô xuất phát sau khi đi qua tất cả các ô, hành trình đó được gọi là khép kín; ngược lại, nó được gọi là hở (theo <xref ref="bib-rosen-2019" />, Rosen §10.5).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>hành trình của con mã</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 189 (PDF)) — cách dùng phổ biến.</p></li>
+        <li><p><term>bài toán mã đi tuần</term> <xref ref="bib-hoangchithanh-2007" /> (tr. 82 (PDF)).</p></li>
+        <li><p><term>mã đi tuần</term> <xref ref="bib-hoangchithanh-2007" /> (tr. 82 (PDF)).</p></li>
+        <li><p><term>đường đi của con mã</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 188 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Trên bàn cờ <m>8 \times 8</m>, một hành trình của con mã đi qua cả <m>64</m> ô, mỗi ô đúng một lần; nếu nước đi cuối cùng đưa con mã trở lại ô xuất phát thì đó là một hành trình khép kín.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-k-ary-tree">
+    <title>k-ary tree — cây m-phân</title>
+    <idx><h>k-ary tree</h></idx>
+    <idx><h>cây m-phân</h></idx>
+    <statement>
+      <p>Cho <m>m \geq 2</m> là một số nguyên dương. Một \emph{cây <m>m</m>-phân} là một cây có gốc trong đó mỗi đỉnh trong có không quá <m>m</m> con (theo <xref ref="bib-rosen-2019" />, Rosen §11.1).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>cây m-phân</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 85 (PDF)); <xref ref="bib-nguyenhuudien-2019" /> (tr. 253 (PDF)) — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Một cây có gốc trong đó mỗi đỉnh trong có nhiều nhất <m>3</m> con là một cây <m>3</m>-phân; trường hợp <m>m = 2</m> cho ta cây nhị phân.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-k-cube">
+    <title>k-cube — đồ thị lập phương</title>
+    <idx><h>k-cube</h></idx>
+    <idx><h>mạng kiểu siêu khối</h></idx>
+    <idx><h>siêu khối</h></idx>
+    <idx><h>đồ thị lập phương</h></idx>
+    <idx><h>đồ thị siêu lập phương</h></idx>
+    <notation>
+      <usage><m>Q_k</m></usage>
+      <description>đồ thị lập phương</description>
+    </notation>
+    <statement>
+      <p><em>Đồ thị lập phương</em> <m>Q_k</m> là đồ thị có <m>2^k</m> đỉnh, mỗi đỉnh tương ứng với một xâu nhị phân độ dài <m>k</m>, trong đó hai đỉnh kề nhau khi và chỉ khi hai xâu nhị phân biểu diễn chúng khác nhau tại đúng một vị trí (theo <xref ref="bib-rosen-2019" />, Rosen §10.2).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>đồ thị lập phương</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 160 (PDF)) — cách dùng phổ biến.</p></li>
+        <li><p><term>mạng kiểu siêu khối</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 162 (PDF)).</p></li>
+        <li><p><term>siêu khối</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 67 (PDF)).</p></li>
+        <li><p><term>đồ thị siêu lập phương</term> <xref ref="bib-leanhvinh-2020" /> (tr. 58 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Đồ thị <m>Q_3</m> có <m>2^3 = 8</m> đỉnh, ứng với các xâu <m>000, 001, 010, 011, 100, 101, 110, 111</m>; chẳng hạn, <m>000</m> kề với <m>001</m>, <m>010</m> và <m>100</m> vì mỗi cặp này khác nhau tại đúng một vị trí.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-k-tuple">
+    <title>k-tuple — bộ sắp thứ tự</title>
+    <idx><h>k-tuple</h></idx>
+    <idx><h>bộ có thứ tự</h></idx>
+    <idx><h>bộ có thứ tự gồm k thành phần</h></idx>
+    <idx><h>bộ sắp thứ tự</h></idx>
+    <idx><h>bộ sắp thứ tự gồm k phần tử</h></idx>
+    <idx><h>bộ thứ tự</h></idx>
+    <notation>
+      <usage><m>(a_1, a_2, \ldots, a_k)</m></usage>
+      <description>bộ sắp thứ tự</description>
+    </notation>
+    <statement>
+      <p>Một \emph{<m>k</m>-bộ sắp thứ tự} là một dãy gồm <m>k</m> đối tượng được liệt kê theo một thứ tự xác định, ký hiệu <m>(a_1, a_2, \ldots, a_k)</m>, trong đó <m>a_i</m> là thành phần thứ <m>i</m>. Thứ tự của các thành phần là quan trọng và các thành phần được phép lặp lại, nên <m>(a_1, a_2, \ldots, a_k) = (b_1, b_2, \ldots, b_k)</m> khi và chỉ khi <m>a_i = b_i</m> với mọi <m>i</m> thỏa <m>1 \leq i \leq k</m> (theo <xref ref="bib-rosen-2019" />, Rosen §2.1).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>bộ sắp thứ tự</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 21 (PDF)) — cách dùng phổ biến.</p></li>
+        <li><p><term>bộ có thứ tự</term> <xref ref="bib-nguyenducnghia-2006" /> (tr. 16 (PDF)).</p></li>
+        <li><p><term>bộ có thứ tự gồm k thành phần</term> <xref ref="bib-ngodactan-2004" /> (tr. 27 (PDF)).</p></li>
+        <li><p><term>bộ sắp thứ tự gồm k phần tử</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 20 (PDF)).</p></li>
+        <li><p><term>bộ thứ tự</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 236 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Bộ <m>(2, 1, 2)</m> là một <m>3</m>-bộ sắp thứ tự với <m>a_1 = 2</m>, <m>a_2 = 1</m>, <m>a_3 = 2</m>; nó khác với bộ <m>(1, 2, 2)</m> vì thứ tự các thành phần khác nhau, mặc dù cả hai cùng dùng các phần tử <m>1</m> và <m>2</m>.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-key">
+    <title>key — khóa</title>
+    <idx><h>key</h></idx>
+    <idx><h>khóa</h></idx>
+    <statement>
+      <p>Một <em>khóa</em> của một quan hệ <m>n</m>-ngôi <m>R \subseteq A_1 \times A_2 \times \cdots \times A_n</m> là một miền <m>A_i</m> hoặc một tập các miền sao cho các giá trị trên đó xác định duy nhất mỗi bộ <m>n</m> phần tử của <m>R</m>; nghĩa là, không có hai bộ phân biệt nào của <m>R</m> trùng nhau trên tất cả các thành phần thuộc khóa (theo <xref ref="bib-rosen-2019" />, Rosen §9.2).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>khóa</term> <em>(thuật ngữ chuẩn; chưa truy được trong kho văn bản)</em> — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Xét quan hệ <m>R</m> gồm các bộ ba <m>(\text{Mã số}, \text{Họ tên}, \text{Điểm})</m>. Nếu mỗi sinh viên có một mã số riêng biệt thì miền <m>\text{Mã số}</m> là một khóa của <m>R</m>, vì giá trị mã số xác định duy nhất một bộ trong <m>R</m>.</p>
+    </statement>
+  </definition>
+</chapter>

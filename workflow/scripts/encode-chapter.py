@@ -141,9 +141,15 @@ def main():
     letter = (sys.argv[1] if len(sys.argv) > 1 else "c").lower()
     src = os.path.join(ROOT, "workflow", "panels", f"chapter-{letter}-final.json")
     data = json.load(open(src, encoding="utf-8"))
-    entries = data["final_entries"]
-    chapter_ids = {e["id"] for e in entries}
     L = letter.upper()
+    # Guard: drop any entry whose headword does not start with this chapter's
+    # letter (the term extractor occasionally misfiles a term).
+    all_entries = data["final_entries"]
+    entries = [e for e in all_entries if e.get("headword_en", "")[:1].upper() == L]
+    dropped = [e.get("id") for e in all_entries if e.get("headword_en", "")[:1].upper() != L]
+    if dropped:
+        print(f"WARN dropped wrong-initial entries (not '{L}'): {dropped}")
+    chapter_ids = {e["id"] for e in entries}
 
     # ---- data/terms/entries-<l>.yaml ----
     ydoc = {"letter": L, "entries": []}

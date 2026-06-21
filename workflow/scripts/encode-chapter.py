@@ -84,9 +84,10 @@ def render_entry(e, chapter_ids):
         if h and h.lower() not in seen:
             seen.add(h.lower())
             lines.append(f"    <idx><h>{esc_text(h)}</h></idx>")
-    if e.get("notation"):
+    nota = (e.get("notation") or "").replace("$$", "").strip()
+    if nota:
         lines.append("    <notation>")
-        lines.append(f"      <usage><m>{esc_math(e['notation'])}</m></usage>")
+        lines.append(f"      <usage><m>{esc_math(nota)}</m></usage>")
         lines.append(f"      <description>{esc_text(rec or e['headword_en'])}</description>")
         lines.append("    </notation>")
     lines.append("    <statement>")

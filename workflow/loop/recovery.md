@@ -1,0 +1,19 @@
+# Autonomous loop — recovery
+
+**Goal:** build verified EN–VI lexicon chapters for all alphabet letters (autonomous, no re-prompt).
+
+**Current status:** running.
+
+- **Done:** C (14 entries, enriched, 85 citations).
+- **In progress:** G (build-chapter workflow `wpd4bi667`).
+- **Pending:** A, B, D, E, F, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z.
+
+**Next safe action:** when the G workflow completes → encode (`encode-chapter.py g`), add `ch-g.ptx` xinclude to `source/main.ptx`, validate, build, commit; then launch `build-chapter` for the next pending letter (A). Repeat per letter.
+
+**Side job:** Rosen VI OCR (~180/978) → on completion, un-defer for a final reference-enrichment pass across all chapters (Rosen never recommended).
+
+**Per-letter pipeline:** build-chapter workflow → `encode-chapter.py <l>` → xinclude in main.ptx → `validate-entry.py` → `build-search-index.py` → `pretext build web` → commit.
+
+**Stop:** all letters processed; or user pause/stop; or a letter fails build 3× (skip + record).
+
+**Evidence gates:** verified citations carry source_id+pdf_page+snippet; recommended from newest source; definitions checked vs Rosen by the panel; every chapter must build before commit.

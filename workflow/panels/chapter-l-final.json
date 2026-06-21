@@ -1,0 +1,785 @@
+{
+  "locked_conventions": [
+    "Math delimiters: every inline mathematical symbol in prose ($$G$$, $$K_n$$, $$\\deg_T(v)$$, $$\\operatorname{lcm}(a,b)$$, $$\\vee$$, $$\\wedge$$, $$\\preceq$$, set braces, set-builder) is wrapped in $$...$$ in definition_vi, example_vi, and notes. Block math uses a ```math fence. A bare Vietnamese word (dàn, lá, khuyên) is never wrapped; the first introduction of a central concept is marked with \\emph{...} OUTSIDE math.",
+    "Inequalities and relations: ASCII '>=', '<=', '!=' are forbidden in finished prose; use $$\\geq$$, $$\\leq$$, $$\\neq$$. linear-recurrence-relation correctly uses $$c_k \\neq 0$$.",
+    "Notation field: the structured 'notation' field carries a BARE symbolic LaTeX token (\\operatorname{lcm}(a, b), L(G), L(v), (L, \\preceq), \\deg(v) = 1, n \\times n), NOT wrapped in $$...$$. This is by design: encode-chapter.py strips $$ from the notation value (line 87) and the build layer wraps it in <m>. The exposition/terminology panel request to WRAP notation fields in $$ was therefore NOT applied; instead the two outliers (latin-square '$$n \\times n$$' and list-coloring '$$L(v)$$') were NORMALIZED to bare LaTeX ('n \\times n', 'L(v)'), matching lattice/leaf/line-graph/least-common-multiple/linear-recurrence-relation.",
+    "Bipartite rendering is fixed book-wide to 'đồ thị hai phần' (book standard); 'đồ thị hai phía' / 'đồ thị phân đôi' are recorded only as deferred source variants. The bipartite convention is not exercised by any chapter-L headword.",
+    "Exactly one vi_term per entry has recommended=true. The recommended term is, whenever possible, a verified=true term backed by source_id + pdf_page + page + snippet, attested in a 2019-2020 source where the concept exists there; newest citations are listed first. EVERY variant from ALL sources (old and new) is still recorded. A recommended term may be verified=false only when NO corpus source attests any candidate; that unverified status is surfaced explicitly in notes (here: labeled-graph 'đồ thị gán nhãn', list-coloring 'tô màu danh sách', logic-gate 'cổng logic').",
+    "Citation hygiene: every verified=true vi_term carries source_id, pdf_page, page, and a quoted snippet whose surface form contains the term (OCR sources may show diacritic-mangled forms stored verbatim, e.g. line-graph p244 'Dé thị đường', latin-square p48 'hình vuông la tnh'). vi_terms with verified=false AND empty page are dropped, except a single recommended standard term retained to keep vi_terms non-empty (labeled-graph, list-coloring, logic-gate). No verified=false non-recommended empty-page citations remain.",
+    "Examples are self-contained: an example_vi never relies on a derived quantity the definition_vi did not introduce. length-of-a-path now uses a simple path $$P_4$$ whose length $$3$$ equals the edge count the definition introduces (replacing the non-simple walk); linear-recurrence-relation's example uses only $$c_1, c_2$$ named by the displayed form.",
+    "No synonym glosses inside the definition; variants live in vi_terms/notes. lattice's parenthetical synonym pairing (hợp)/(gặp) was reframed as defining clauses for the join/meet operations being introduced ('cận trên đúng, gọi là hợp và ký hiệu $$a \\vee b$$, ...').",
+    "see_also lists kebab ids only. Same-chapter (L) ids are direct links; cross-chapter ids are forward references to be created in their own letter chapters. Same-chapter targets not yet present in this 15-entry batch (least-upper-bound, greatest-lower-bound, logically-equivalent, latin-rectangle) are preserved as forward references and will not render as links until those L entries exist (encode-chapter.py filters see_also to chapter_ids).",
+    "First introduction of each headword concept in definition_vi is marked with LaTeX \\emph{...} where the entry uses emphasis (lattice, linear-recurrence-relation, labeled-graph, line-graph), not markdown asterisks; the marker stays OUTSIDE math delimiters.",
+    "Chapter-wide editorial notes are written in English; the prose-facing definition_vi and example_vi are in Vietnamese."
+  ],
+  "deferred_note": "Applied the panel's clearly-correct fixes and kept ALL 15 chapter-L entries. CORRECTNESS FIXES: (1) linear-recurrence-relation (MED) — the displayed form $$a_n = c_1 a_{n-1} + \\cdots + c_k a_{n-k}$$ is Rosen's linear HOMOGENEOUS constant-coefficient recurrence, but the title and recommended term omitted 'thuần nhất'; the definiendum and all three vi_terms now carry 'thuần nhất' so name/scope match the formula and the attested source definitions (the inhomogeneous $$F(n)$$ generalization is described in notes). (2) leaf (LOW) — the deg-1 clause is now scoped to FREE (unrooted) trees and the no-children clause to ROOTED trees, with the root exception stated ('đỉnh gốc có bậc một không được coi là lá'), removing the implied deg-1 = leaf equivalence in the rooted case (Rosen §11.1). (3) length-of-a-path (LOW) — the non-simple walk example $$a,b,c,b,d$$ (which mislabeled the undirected edge $$\\{b,c\\}$$ as two edges $$bc,cb$$) was replaced with a self-contained simple path $$P_4$$ of length $$3$$ = edge count; the redundant 'Độ dài đường đi của một đường đi' doubling was cut. EXPOSITION FIXES: (4) lattice (MED) — the parenthetical synonym glosses (hợp)/(gặp) were reframed as defining clauses for the join/meet operations being introduced, so no synonym gloss sits inside the definition. (5) level-of-a-tree (LOW) — the provenance annotation '(OCR)' was removed from the vi_term VALUE 'mức của đỉnh (OCR)' → 'mức của đỉnh' (provenance stays in notes), deduplicating the surface form. SCHEMA-SHAPE FIX: (6) list-coloring (LOW) — the single unattested recommended vi_term now carries empty placeholders source_id:\"\", pdf_page:0, page:\"\", snippet:\"\", matching the other two unattested entries (labeled-graph, logic-gate). NOTATION NORMALIZATION: (7) latin-square and list-coloring notation fields were stripped of $$ → 'n \\times n' and 'L(v)'; the structured notation field stores BARE LaTeX by design (encode-chapter.py line 87 strips $$ before wrapping in <m>), so the panel's HIGH/MED requests to WRAP notation in $$ were the INVERSE of the build contract and were NOT applied (confirmed against encode-chapter.py and the chapter-K/chapter-J locked conventions). NOT APPLIED (out of scope / chapter completeness, flagged for editor-at-large): adding the missing same-chapter L entries that several see_also lists forward-reference (least-upper-bound, greatest-lower-bound, logically-equivalent, latin-rectangle) — these remain forward references and will not render as links until those L entries exist; the linking convention is intact. The lattice/lower-bound classification of least-upper-bound vs greatest-lower-bound (L vs G) should be reconciled when those entries are created. OPTIONAL/NOT APPLIED: re-anchoring line-graph's recommended citation from bib-leanhvinh-2020 p244 (OCR-mangled 'Dé thị đường') to the cleaner p245 hit (kept p244 as recommended with p245 retained as a second attestation; both are genuine and documented in notes); moving length-of-a-path's recommended citation to a bare-concept definitional hit (kept bib-leanhvinh-2020 p17, both 2020 sources are equally newest and the bare-concept attestation at bib-nguyenhuudien-2019 p112 stays prominent in notes); verbose-notes conciseness passes (lattice, leaf, labeled-graph, latin-square, level-of-a-tree) and loop's ordered-pair edge notation (left as-is for chapter consistency). Each entry retains exactly one recommended=true; every verified=true vi_term keeps source_id + pdf_page + page + snippet; no fabricated citations were introduced and no verified=false non-recommended empty-page citations remain.",
+  "final_entries": [
+    {
+      "id": "lattice",
+      "letter": "L",
+      "headword_en": "lattice",
+      "notation": "(L, \\preceq)",
+      "rosen_ref": "Rosen §9.6",
+      "definition_vi": "Một \\emph{dàn} là một tập hợp có thứ tự bộ phận $$(L, \\preceq)$$ trong đó mọi cặp phần tử $$a, b \\in L$$ đều có cận trên đúng, gọi là hợp và ký hiệu $$a \\vee b$$, và cận dưới đúng, gọi là gặp và ký hiệu $$a \\wedge b$$.",
+      "example_vi": "Với một tập hợp $$E$$, tập các tập con $$(\\mathcal{P}(E), \\subseteq)$$ là một dàn: với mọi $$A, B \\in \\mathcal{P}(E)$$ ta có $$A \\vee B = A \\cup B$$ và $$A \\wedge B = A \\cap B$$.",
+      "vi_terms": [
+        {
+          "term": "dàn",
+          "source_id": "bib-nguyenhuudien-2019",
+          "page": "tr. 123 (PDF)",
+          "pdf_page": 123,
+          "snippet": "Định nghĩa 4.19 Cho ( L, ≤) là một tập hợp có thứ tự. Ta nói ( L, ≤ 4) là một dàn nếu và",
+          "verified": true,
+          "recommended": true
+        },
+        {
+          "term": "dàn (lattice)",
+          "source_id": "bib-nguyenhuudien-2019",
+          "page": "tr. 123 (PDF)",
+          "pdf_page": 123,
+          "snippet": "4.6. Dàn (lattice - tập bị chặn)",
+          "verified": true,
+          "recommended": false
+        }
+      ],
+      "see_also": [
+        "partially-ordered-set",
+        "poset",
+        "hasse-diagram",
+        "least-upper-bound",
+        "greatest-lower-bound"
+      ],
+      "notes": "Nguồn duy nhất trong kho ngữ liệu định nghĩa khái niệm dàn theo nghĩa lý thuyết thứ tự (tập hợp có thứ tự bộ phận trong đó mỗi cặp phần tử đều có cận trên đúng/hợp $$\\vee$$ và cận dưới đúng/gặp $$\\wedge$$) là bib-nguyenhuudien-2019 (2019), Mục 4.6 \"Dàn (lattice - tập bị chặn)\", Định nghĩa 4.19. Nguồn này cũng nêu khái niệm liên quan \"dàn con\" (tr. 124-125) và \"đồng cấu dàn\" (tr. 124-126). Thuật ngữ tiếng Anh \"lattice\" trong toàn kho chỉ xuất hiện ở nguồn này, đi kèm với \"dàn\", xác nhận đây là thuật ngữ chuẩn. Hai nguồn 2020 (bib-leanhvinh-2020, bib-nguyenhoangthach-2020) là sách lý thuyết đồ thị/tổ hợp, không trình bày dàn theo nghĩa lý thuyết thứ tự, nên thuật ngữ chuẩn được chứng thực ở nguồn 2019. CẢNH BÁO trùng từ: \"mạng\" và \"lưới\" trong kho chỉ \"mạng vận tải\" (transport network) và \"mạng kiểu lưới\" (mesh/lưới bộ xử lý) chứ KHÔNG phải dàn lý thuyết thứ tự; mọi lần khớp \"dàn\" trong bib-leanhvinh-2020 và bib-nguyenhoangthach-2020 đều là nhiễu từ thông dụng (\"dễ dàng\", \"dành\", \"tăng dần\"). Do đó \"mạng\" và \"lưới\" không được ghi nhận là biến thể của khái niệm này."
+    },
+    {
+      "id": "leaf",
+      "letter": "L",
+      "headword_en": "leaf",
+      "notation": "\\deg(v) = 1",
+      "rosen_ref": "Rosen §11.1",
+      "definition_vi": "Lá của một cây $$T$$ không gốc là một đỉnh $$v$$ có bậc bằng một, tức là $$\\deg_T(v) = 1$$. Trong cây có gốc, lá là đỉnh không có con; đỉnh gốc có bậc một không được coi là lá.",
+      "example_vi": "Trong đường đi $$P_3$$ với các đỉnh $$a, b, c$$ và các cạnh $$ab, bc$$, hai đỉnh đầu mút $$a$$ và $$c$$ là lá vì $$\\deg(a) = \\deg(c) = 1$$, còn $$b$$ không phải là lá vì $$\\deg(b) = 2$$.",
+      "vi_terms": [
+        {
+          "term": "lá",
+          "source_id": "bib-leanhvinh-2020",
+          "page": "tr. 39 (PDF)",
+          "pdf_page": 39,
+          "snippet": "Định nghĩa 2.3. Trong cây, các đỉnh bậc một được gọi là lá.",
+          "verified": true,
+          "recommended": true
+        },
+        {
+          "term": "đỉnh lá",
+          "source_id": "bib-leanhvinh-2020",
+          "page": "tr. 49 (PDF)",
+          "pdf_page": 49,
+          "snippet": "Tại bước thứ i, ta xóa đi cạnh nối với đỉnh lá có nhãn nhỏ nhất",
+          "verified": true,
+          "recommended": false
+        },
+        {
+          "term": "đỉnh treo",
+          "source_id": "bib-nguyenhoangthach-2020",
+          "page": "tr. 64 (PDF)",
+          "pdf_page": 64,
+          "snippet": "Một đỉnh bậc 0 được gọi là một đỉnh cô lập, một đỉnh bậc 1 được gọi là [một đỉnh treo].",
+          "verified": true,
+          "recommended": false
+        },
+        {
+          "term": "đỉnh ngoài",
+          "source_id": "bib-leanhvinh-2020",
+          "page": "tr. 39 (PDF)",
+          "pdf_page": 39,
+          "snippet": "[lá] được gọi là đỉnh ngoài của cây.",
+          "verified": true,
+          "recommended": false
+        },
+        {
+          "term": "đỉnh treo",
+          "source_id": "bib-nguyenhuudien-2019",
+          "page": "tr. 157 (PDF)",
+          "pdf_page": 157,
+          "snippet": "Đỉnh v gọi là đỉnh treo nếu deg(v) = 1 và gọi là đỉnh cô lập nếu deg(v) = 0.",
+          "verified": true,
+          "recommended": false
+        },
+        {
+          "term": "đỉnh ngoài",
+          "source_id": "bib-nguyenhuudien-2019",
+          "page": "tr. 251 (PDF)",
+          "pdf_page": 251,
+          "snippet": "đỉnh ngoài của cây. Đỉnh gốc là đỉnh duy nhất không có cha.",
+          "verified": true,
+          "recommended": false
+        },
+        {
+          "term": "đỉnh lá",
+          "source_id": "bib-nguyenhuudien-2019",
+          "page": "tr. 252 (PDF)",
+          "pdf_page": 252,
+          "snippet": "Ví dụ 10.7. Cây T dưới đây có đỉnh gốc a, các đỉnh lá b, g, e, h, k.",
+          "verified": true,
+          "recommended": false
+        },
+        {
+          "term": "đỉnh treo",
+          "source_id": "bib-nguyenducnghia-2006",
+          "page": "tr. 201 (PDF)",
+          "pdf_page": 201,
+          "snippet": "được ít nhất một đỉnh là đỉnh treo (tức là đỉnh có bậc là 1).",
+          "verified": true,
+          "recommended": false
+        },
+        {
+          "term": "lá",
+          "source_id": "bib-hoangchithanh-2007",
+          "page": "tr. 136 (PDF)",
+          "pdf_page": 136,
+          "snippet": "đỉnh không phải là lá được gọi là đỉnh trong của cây, còn lá được gọi là đỉnh ngoài của cây.",
+          "verified": true,
+          "recommended": false
+        },
+        {
+          "term": "đỉnh lá",
+          "source_id": "bib-hoangchithanh-2007",
+          "page": "tr. 137 (PDF)",
+          "pdf_page": 137,
+          "snippet": "Ví dụ 11.7: Cây T dưới đây có đỉnh gốc a, các đỉnh lá b, g, e, h, k.",
+          "verified": true,
+          "recommended": false
+        },
+        {
+          "term": "đỉnh ngoài",
+          "source_id": "bib-hoangchithanh-2007",
+          "page": "tr. 136 (PDF)",
+          "pdf_page": 136,
+          "snippet": "lá được gọi là đỉnh ngoài của cây. Đỉnh gốc là đỉnh duy nhất [...]",
+          "verified": true,
+          "recommended": false
+        },
+        {
+          "term": "đỉnh treo",
+          "source_id": "bib-hoangchithanh-2007",
+          "page": "tr. 37 (PDF)",
+          "pdf_page": 37,
+          "snippet": "cạnh đi ra từ a và a sẽ là đỉnh treo. [...] a là đỉnh treo.",
+          "verified": true,
+          "recommended": false
+        }
+      ],
+      "see_also": [
+        "tree",
+        "rooted-tree",
+        "degree-of-a-vertex",
+        "pendant-vertex",
+        "internal-vertex"
+      ],
+      "notes": "Bốn biến thể đều chỉ cùng khái niệm đỉnh bậc một trong cây. \"lá\" là thuật ngữ chuẩn và được khuyến nghị: định nghĩa trực tiếp tại bib-leanhvinh-2020 tr.39 (PDF) \"Trong cây, các đỉnh bậc một được gọi là lá\" (nguồn lý thuyết đồ thị mới nhất 2019-2020). \"đỉnh lá\" là biến thể ghép, dùng phổ biến trong ngữ cảnh cây có gốc. \"đỉnh treo\" (pendant vertex) là thuật ngữ cho đỉnh $$\\deg(v)=1$$ trong đồ thị tổng quát; trong cây nó trùng với lá: bib-nguyenhuudien-2019 tr.157 (PDF) \"Đỉnh v gọi là đỉnh treo nếu $$\\deg(v)=1$$\", bib-nguyenhoangthach-2020 tr.64 (PDF) \"một đỉnh bậc 1 được gọi là... một đỉnh treo\". \"đỉnh ngoài\" là tên gọi của lá trong cây có gốc (đối lập với \"đỉnh trong\"): bib-leanhvinh-2020 tr.39, bib-hoangchithanh-2007 tr.136, bib-nguyenhuudien-2019 tr.251. Lưu ý phân biệt với \"tập ổn định ngoài\" (external stable set / dominating set) ở bib-hoangchithanh-2007 §3.2, là khái niệm khác hoàn toàn. Các nguồn OCR (bib-leanhvinh-2020, bib-hoangchithanh-2007, bib-nguyenducnghia-2006) đã được kiểm tra cả chế độ thường và --loose; với bib-leanhvinh-2020 (đỉnh ngoài) và bib-nguyenducnghia-2006 (đỉnh treo), thuật ngữ chỉ xuất hiện ở chế độ --loose do OCR làm sai dấu."
+    },
+    {
+      "id": "least-common-multiple",
+      "letter": "L",
+      "headword_en": "least common multiple",
+      "notation": "\\operatorname{lcm}(a, b)",
+      "rosen_ref": "Rosen §4.3",
+      "definition_vi": "Bội số chung nhỏ nhất của hai số nguyên dương $$a$$ và $$b$$ là số nguyên dương nhỏ nhất chia hết cho cả $$a$$ và $$b$$, ký hiệu $$\\operatorname{lcm}(a, b)$$.",
+      "example_vi": "Với $$a = 4$$ và $$b = 6$$, các số nguyên dương chia hết cho cả $$4$$ và $$6$$ là $$12, 24, 36, \\ldots$$, nên $$\\operatorname{lcm}(4, 6) = 12$$.",
+      "vi_terms": [
+        {
+          "term": "bội số chung nhỏ nhất",
+          "source_id": "bib-nguyenhuudien-2019",
+          "page": "tr. 124 (PDF)",
+          "pdf_page": 124,
+          "snippet": "a ∨ b = [ a, b] (bội số chung nhỏ nhất của a và b)",
+          "verified": true,
+          "recommended": true
+        }
+      ],
+      "see_also": [
+        "greatest-common-divisor"
+      ],
+      "notes": "Recommended term \"bội số chung nhỏ nhất\" is attested ONLY in bib-nguyenhuudien-2019 (2019 discrete math), 3 hits on PDF pp. 123-124; the lcm denotation is confirmed by the p. 124 snippet \"a ∨ b = [ a, b] (bội số chung nhỏ nhất của a và b)\" and the p. 123 text \"chận trên nhỏ nhất chính là bội số chung nhỏ nhất của chúng\" (the least upper bound of two natural numbers is their lcm). This satisfies the 2019-2020 attestation preference, so it is recommended. Standard real-world variants \"bội chung nhỏ nhất\" and \"bội chung bé nhất\" returned 0 hits in BOTH normal and --loose mode across all sources; abbreviation BCNN and variant \"bội số chung bé nhất\" also returned 0 hits. These unattested variants are recorded here for completeness but dropped from vi_terms per citation hygiene, since the recommended term is already attested and keeps vi_terms non-empty. None of the graph/combinatorics sources (leanhvinh-2020, nguyenhoangthach-2020, hoangchithanh-2007, nguyenducnghia-2006, ngodactan-2004) use the term; lcm appears only as a number-theory notion in the discrete-math source. The definition opens with the recommended term, states it formally, and gives the notation with \"ký hiệu\", mirroring the sibling greatest-common-divisor entry; all math symbols are wrapped in $$...$$. The example uses self-contained values (positive common multiples of 4 and 6, smallest identified), introducing no derived quantity the definition did not name. see_also links to greatest-common-divisor, the companion notion in the same number-theory source; gcd lives in chapter G, so this is a permitted cross-chapter forward reference, and the gcd entry already lists least-common-multiple in its own see_also."
+    },
+    {
+      "id": "lemma",
+      "letter": "L",
+      "headword_en": "lemma",
+      "notation": "",
+      "rosen_ref": "Rosen §1.8",
+      "definition_vi": "Bổ đề là một mệnh đề đã được chứng minh, được dùng làm bước trung gian trong chứng minh của một định lý quan trọng hơn. Bổ đề thường được phát biểu và chứng minh trước định lý chính để làm cho lập luận của chứng minh đó ngắn gọn và rõ ràng hơn.",
+      "example_vi": "Để chứng minh định lý $$\\sqrt{2}$$ là số vô tỉ, ta dùng bổ đề: nếu $$n^2$$ là số chẵn thì $$n$$ là số chẵn.",
+      "vi_terms": [
+        {
+          "term": "bổ đề",
+          "source_id": "bib-leanhvinh-2020",
+          "page": "tr. 98 (PDF)",
+          "pdf_page": 98,
+          "snippet": "Dé chứng minh Định lý 4.8, ta cin một số bổ đề sau.",
+          "verified": true,
+          "recommended": true
+        },
+        {
+          "term": "bổ đề",
+          "source_id": "bib-hoangchithanh-2007",
+          "page": "tr. 37 (PDF)",
+          "pdf_page": 37,
+          "snippet": "Trước hết ta có bổ đề sau:",
+          "verified": true,
+          "recommended": false
+        },
+        {
+          "term": "bổ đề",
+          "source_id": "bib-ngodactan-2004",
+          "page": "tr. 139 (PDF)",
+          "pdf_page": 139,
+          "snippet": "Trong mục này ta chứng minh bổ đề cơ sở làm nền tảng cho lý thuyết Pólya. Đó là bổ đề Burnside.",
+          "verified": true,
+          "recommended": false
+        }
+      ],
+      "see_also": [
+        "theorem",
+        "corollary",
+        "proof",
+        "conjecture"
+      ],
+      "notes": "Recommended term \"bổ đề\" is the standard Vietnamese term and is attested in the newest source (bib-leanhvinh-2020, 2020). The page-98 snippet shows the lemma-as-stepping-stone role (\"Dé chứng minh Định lý 4.8, ta cin một số bổ đề sau\", OCR for \"Để chứng minh Định lý 4.8, ta cần một số bổ đề sau\" = \"to prove Theorem 4.8 we need the following lemmas\"). It is also attested in bib-hoangchithanh-2007 (2007, OCR) and bib-ngodactan-2004 (2004, where it names Burnside's Lemma). The other two candidate terms returned ZERO hits in both normal and --loose modes across all sources: \"định lý phụ\" (0 hits) and \"mệnh đề phụ trợ\" (0 hits); they are dropped per citation hygiene (no verified=false empty-page terms kept since the recommended term is attested). vi_terms ordered newest-source first (2020 → 2007 → 2004)."
+    },
+    {
+      "id": "length-of-a-path",
+      "letter": "L",
+      "headword_en": "length of a path",
+      "notation": "",
+      "rosen_ref": "Rosen §10.4",
+      "definition_vi": "Độ dài của một đường đi trong đồ thị là số các cạnh xuất hiện trên đường đi đó. Cụ thể, đường đi $$x_0, x_1, \\ldots, x_n$$ có độ dài bằng $$n$$.",
+      "example_vi": "Trong đường đi $$P_4$$ với các đỉnh $$a, b, c, d$$ và các cạnh $$ab$$, $$bc$$, $$cd$$, độ dài đường đi bằng $$3$$, bằng số cạnh trên đường đi.",
+      "vi_terms": [
+        {
+          "term": "độ dài đường đi",
+          "source_id": "bib-leanhvinh-2020",
+          "page": "tr. 17 (PDF)",
+          "pdf_page": 17,
+          "snippet": "là độ dài đường đi ngắn nhất giữa chúng. Nếu không tỏn tại đường đi",
+          "verified": true,
+          "recommended": true
+        },
+        {
+          "term": "độ dài đường đi",
+          "source_id": "bib-nguyenhoangthach-2020",
+          "page": "tr. 89 (PDF)",
+          "pdf_page": 89,
+          "snippet": "Do k là độ dài đường đi từ v đến u trong cây nên k ≥ d.",
+          "verified": true,
+          "recommended": false
+        },
+        {
+          "term": "độ dài đường đi",
+          "source_id": "bib-nguyenhuudien-2019",
+          "page": "tr. 186 (PDF)",
+          "pdf_page": 186,
+          "snippet": "Ta gọi độ dài đường đi ngắn nhất từ u đến v là khoảng cách d(u, v).",
+          "verified": true,
+          "recommended": false
+        },
+        {
+          "term": "độ dài đường đi",
+          "source_id": "bib-hoangchithanh-2007",
+          "page": "tr. 93 (PDF)",
+          "pdf_page": 93,
+          "snippet": "Độ dài đường đi ngắn nhất từ đỉnh a đến đỉnh b còn được gọi là",
+          "verified": true,
+          "recommended": false
+        },
+        {
+          "term": "độ dài đường đi",
+          "source_id": "bib-nguyenducnghia-2006",
+          "page": "tr. 228 (PDF)",
+          "pdf_page": 228,
+          "snippet": "là độ dài đường đi ngắn nhất từ s đến u*.",
+          "verified": true,
+          "recommended": false
+        },
+        {
+          "term": "độ dài của đường đi",
+          "source_id": "bib-nguyenhuudien-2019",
+          "page": "tr. 112 (PDF)",
+          "pdf_page": 112,
+          "snippet": "Độ dài của đường đi là số các cung có mặt trong đường đó. Trong đường trên có độ dài",
+          "verified": true,
+          "recommended": false
+        },
+        {
+          "term": "độ dài của đường đi",
+          "source_id": "bib-nguyenducnghia-2006",
+          "page": "tr. 227 (PDF)",
+          "pdf_page": 227,
+          "snippet": "mà là độ dài của đường đi ngăn nhất từ định s đến nó.",
+          "verified": true,
+          "recommended": false
+        },
+        {
+          "term": "độ dài của đường đi",
+          "source_id": "bib-hoangchithanh-2007",
+          "page": "tr. 94 (PDF)",
+          "pdf_page": 94,
+          "snippet": "chính là độ dài của đường đi ngắn nhất từ đỉnh @ đến đỉnh b.",
+          "verified": true,
+          "recommended": false
+        },
+        {
+          "term": "độ dài của đường",
+          "source_id": "bib-ngodactan-2004",
+          "page": "tr. 216 (PDF)",
+          "pdf_page": 216,
+          "snippet": "là d(u,v), là độ dài của đường ngắn nhất trong G nối u với V",
+          "verified": true,
+          "recommended": false
+        }
+      ],
+      "see_also": [
+        "path",
+        "shortest-path-problem"
+      ],
+      "notes": "Recommended term \"độ dài đường đi\" is the standard graph-theory form and is attested in two 2020 sources (bib-leanhvinh-2020 tr. 17, bib-nguyenhoangthach-2020 tr. 88-89, the latter including a plain path-length use on tr. 89) and in 2019 (bib-nguyenhuudien-2019). The \"của\" form \"độ dài của đường đi\" is the variant carrying the explicit definitional sentence in bib-nguyenhuudien-2019 (tr. 112): \"Độ dài của đường đi là số các cung có mặt trong đường đó\" (the length of a path is the number of arcs occurring in that path), which directly matches Rosen's notion. The shorter variant \"độ dài của đường\" (without \"đi\") appears in bib-ngodactan-2004 (tr. 216, 285). Most corpus hits attach the term to the shortest-path / distance context (\"độ dài đường đi ngắn nhất\" = length of the shortest path), but the term itself denotes the length of a path generally; the definitional snippet in bib-nguyenhuudien-2019 confirms the bare concept. (Verifier: all 9 vi_terms re-mined and confirmed; bib-hoangchithanh-2007 loose search also exposes a plain definitional use \"Độ dài của đường đi là k - 1\" on tr. 11, not added here but reinforcing the bare-concept attestation.)"
+    },
+    {
+      "id": "level-of-a-tree",
+      "letter": "L",
+      "headword_en": "level of a vertex in a rooted tree",
+      "notation": "",
+      "rosen_ref": "Rosen §11.1",
+      "definition_vi": "Mức của đỉnh $$v$$ trong cây có gốc là độ dài của đường đi duy nhất từ gốc tới $$v$$, trong đó gốc có mức bằng $$0$$. Nếu đỉnh cha có mức $$i$$ thì mỗi đỉnh con của nó có mức $$i + 1$$.",
+      "example_vi": "Trong cây có gốc $$a$$, nếu $$b$$ là con của $$a$$ và $$d$$ là con của $$b$$, thì $$a$$ có mức $$0$$, $$b$$ có mức $$1$$ và $$d$$ có mức $$2$$.",
+      "vi_terms": [
+        {
+          "term": "tầng của đỉnh",
+          "source_id": "bib-nguyenhoangthach-2020",
+          "page": "tr. 85 (PDF)",
+          "pdf_page": 85,
+          "snippet": "Tầng của đỉnh u là khoảng cách từ u tới gốc. Tầng lớn nhất của một đỉnh",
+          "verified": true,
+          "recommended": false
+        },
+        {
+          "term": "tầng",
+          "source_id": "bib-nguyenhoangthach-2020",
+          "page": "tr. 85 (PDF)",
+          "pdf_page": 85,
+          "snippet": "Tầng của đỉnh u là khoảng cách từ u tới gốc. Tầng lớn nhất của một đỉnh",
+          "verified": true,
+          "recommended": false
+        },
+        {
+          "term": "mức của đỉnh",
+          "source_id": "bib-nguyenhuudien-2019",
+          "page": "tr. 252 (PDF)",
+          "pdf_page": 252,
+          "snippet": "Nếu mức của đỉnh cha là i thì mức của các đỉnh con là i + 1.",
+          "verified": true,
+          "recommended": true
+        },
+        {
+          "term": "mức của đỉnh trong cây",
+          "source_id": "bib-nguyenhuudien-2019",
+          "page": "tr. 252 (PDF)",
+          "pdf_page": 252,
+          "snippet": "- Mức của đỉnh trong cây phân cấp:",
+          "verified": true,
+          "recommended": false
+        },
+        {
+          "term": "mức",
+          "source_id": "bib-nguyenhuudien-2019",
+          "page": "tr. 252 (PDF)",
+          "pdf_page": 252,
+          "snippet": "Trong ví dụ trên, đỉnh gốc a có mức 0, các đỉnh b, c có mức 1, các đỉnh d, e, f có mức 2,",
+          "verified": true,
+          "recommended": false
+        },
+        {
+          "term": "mức của đỉnh",
+          "source_id": "bib-hoangchithanh-2007",
+          "page": "tr. 137 (PDF)",
+          "pdf_page": 137,
+          "snippet": "Nếu mức của đỉnh cha là i thì mức của các đỉnh con Jai + 1.",
+          "verified": true,
+          "recommended": false
+        }
+      ],
+      "see_also": [
+        "height-of-a-tree",
+        "rooted-tree",
+        "root-of-a-rooted-tree"
+      ],
+      "notes": "Two distinct Vietnamese terms denote this concept. (1) \"mức của đỉnh\" (level) is the dominant, standard term: defined identically in bib-nguyenhuudien-2019 (2019, p. 252) and bib-hoangchithanh-2007 (2007, OCR, p. 137) — \"Mức của đỉnh trong cây phân cấp: Gốc của cây có mức là 0. Nếu mức của đỉnh cha là i thì mức của các đỉnh con là i + 1.\" This matches Rosen exactly (root at level zero; children one level deeper). Chosen as recommended because it is the standard term and is attested in the 2019 text source with the precise definition. (2) \"tầng của đỉnh\" / \"tầng\" (layer/level) is an attested variant in the newest source bib-nguyenhoangthach-2020 (2020, p. 85): \"Tầng của đỉnh u là khoảng cách từ u tới gốc\" (distance from vertex to root = path length, same concept). vi_terms are ordered newest-source first (2020 tầng, then 2019/2007 mức); the recommended \"mức của đỉnh\" is the standard form even though the variant \"tầng\" appears in the slightly newer 2020 source. The bare \"mức\" hits in bib-nguyenhuudien-2019 p. 19 (priority levels of logical connectives) and p. 257 (codeword length) are DIFFERENT senses and were excluded; the cited p. 252 snippet is the tree-example passage. The OCR source bib-hoangchithanh-2007 was searched both normally and with --loose; both return the same p. 137 passage. Related term \"chiều cao của cây\" (height = highest level) appears alongside but is a separate concept (see height-of-a-tree). Verifier re-ran find-term.py for all six terms: every source_id/pdf_page/snippet confirmed denoting THIS concept; no fabrications."
+    },
+    {
+      "id": "linear-recurrence-relation",
+      "letter": "L",
+      "headword_en": "linear recurrence relation",
+      "notation": "a_n = c_1 a_{n-1} + \\cdots + c_k a_{n-k}",
+      "rosen_ref": "Rosen §8.2",
+      "definition_vi": "Một \\emph{quan hệ truy hồi tuyến tính thuần nhất} bậc $$k$$ với hệ số hằng là một quy tắc biểu diễn mỗi số hạng của một dãy dưới dạng tổ hợp tuyến tính cố định của $$k$$ số hạng liền trước, ký hiệu $$a_n = c_1 a_{n-1} + c_2 a_{n-2} + \\cdots + c_k a_{n-k}$$, trong đó $$c_1, c_2, \\ldots, c_k$$ là các hằng số và $$c_k \\neq 0$$.",
+      "example_vi": "Quan hệ truy hồi $$a_n = a_{n-1} + a_{n-2}$$ là một quan hệ truy hồi tuyến tính thuần nhất bậc $$2$$ với hệ số hằng, trong đó $$c_1 = c_2 = 1$$.",
+      "vi_terms": [
+        {
+          "term": "quan hệ truy hồi tuyến tính thuần nhất",
+          "source_id": "bib-nguyenhoangthach-2020",
+          "page": "tr. 40 (PDF)",
+          "pdf_page": 40,
+          "snippet": "Định nghĩa 3.1. Một quan hệ truy hồi tuyến tính thuần nhất bậc k là một",
+          "verified": true,
+          "recommended": true
+        },
+        {
+          "term": "hệ thức truy hồi tuyến tính thuần nhất",
+          "source_id": "bib-nguyenhuudien-2019",
+          "page": "tr. 98 (PDF)",
+          "pdf_page": 98,
+          "snippet": "Định nghĩa 3.13 Một hệ thức truy hồi tuyến tính thuần nhất bậc k với hệ số hằng số là",
+          "verified": true,
+          "recommended": false
+        },
+        {
+          "term": "công thức truy hồi tuyến tính thuần nhất",
+          "source_id": "bib-nguyenducnghia-2006",
+          "page": "tr. 34 (PDF)",
+          "pdf_page": 34,
+          "snippet": "Xét công thức truy hồi tuyến tính thuần nhất hệ số hằng bậc #:",
+          "verified": true,
+          "recommended": false
+        }
+      ],
+      "see_also": [],
+      "notes": "Recommended term \"quan hệ truy hồi tuyến tính thuần nhất\" is attested in the 2020 source bib-nguyenhoangthach-2020 with a formal definition (Định nghĩa 3.1, tr. 40 PDF: \"Một quan hệ truy hồi tuyến tính thuần nhất bậc k là một...\"). The displayed form $$a_n = c_1 a_{n-1} + \\cdots + c_k a_{n-k}$$ is exactly Rosen's linear HOMOGENEOUS constant-coefficient recurrence of degree $$k$$ (Rosen §8.2), so the definiendum now carries the qualifier \"thuần nhất\" to match the displayed formula and the attested source definitions (previously the title omitted \"thuần nhất\" while showing the homogeneous-only form, a name/scope mismatch flagged by the correctness panel). The general linear constant-coefficient recurrence adds an inhomogeneous term $$F(n)$$ ($$a_n = c_1 a_{n-1} + \\cdots + c_k a_{n-k} + F(n)$$, with $$F(n) \\equiv 0$$ giving this homogeneous case); bib-nguyenhoangthach-2020 covers both the homogeneous (§3.2.1, tr. 40 PDF) and non-homogeneous (§3.2.2 \"không thuần nhất\", tr. 44 PDF) cases. Two attested variants of the homogeneous form: \"hệ thức truy hồi tuyến tính\" (bib-nguyenhuudien-2019, Định nghĩa 3.13: \"Một hệ thức truy hồi tuyến tính thuần nhất bậc k với hệ số hằng số là\") and \"công thức truy hồi tuyến tính\" (bib-nguyenducnghia-2006, \"Xét công thức truy hồi tuyến tính thuần nhất hệ số hằng bậc\"). The OCR graph-theory sources bib-leanhvinh-2020 and bib-hoangchithanh-2007 returned no hits in either normal or --loose mode (they do not cover recurrence relations), so no OCR-variant terms were found there. The condition $$c_k \\neq 0$$ ensures the recurrence genuinely has degree $$k$$."
+    },
+    {
+      "id": "logical-equivalence",
+      "letter": "L",
+      "headword_en": "logical equivalence",
+      "notation": "p \\equiv q",
+      "rosen_ref": "Rosen §1.3",
+      "definition_vi": "Hai mệnh đề phức hợp $$p$$ và $$q$$ được gọi là tương đương logic nếu chúng có cùng chân trị trong mọi cách gán chân trị cho các biến mệnh đề của chúng, ký hiệu $$p \\equiv q$$.",
+      "example_vi": "Hai mệnh đề $$\\neg(p \\wedge q)$$ và $$\\neg p \\vee \\neg q$$ là tương đương logic, vì chúng nhận cùng chân trị với mọi cách gán chân trị cho $$p$$ và $$q$$.",
+      "vi_terms": [
+        {
+          "term": "tương đương logic",
+          "source_id": "bib-nguyenhuudien-2019",
+          "page": "tr. 21 (PDF)",
+          "pdf_page": 21,
+          "snippet": "tương đương logic (đồng nhất bằng nhau) khi E và F luôn luôn có cùng chân trị trong mọi",
+          "verified": true,
+          "recommended": true
+        },
+        {
+          "term": "sự tương đương logic",
+          "source_id": "bib-nguyenhuudien-2019",
+          "page": "tr. 20 (PDF)",
+          "pdf_page": 20,
+          "snippet": "1.3.2. Sự tương đương logic",
+          "verified": true,
+          "recommended": false
+        },
+        {
+          "term": "tương đương lôgic",
+          "source_id": "bib-nguyenhuudien-2019",
+          "page": "tr. 68 (PDF)",
+          "pdf_page": 68,
+          "snippet": "đương lôgic, còn (∀ x : P( x )) ∧ A và (∀ x : ( P( x ) ∧ A) là tương đương lôgic, với A là mệnh",
+          "verified": true,
+          "recommended": false
+        }
+      ],
+      "see_also": [
+        "logically-equivalent",
+        "tautology",
+        "compound-proposition",
+        "truth-table"
+      ],
+      "notes": "Recommended term \"tương đương logic\" is attested in bib-nguyenhuudien-2019 (2019), the newest source in the corpus that uses this concept; no 2020 or older source attests any candidate term. The 2019 source uses three surface variants of the same concept: the plain \"tương đương logic\" (most frequent, e.g. pp. 17, 18, 21, 26 PDF), the noun form \"sự tương đương logic\" (section heading 1.3.2, pp. 13, 20 PDF), and the alternate spelling \"tương đương lôgic\" (p. 68 PDF) where \"lôgic\" is the Vietnamese phonetic rendering of \"logic\". Page 21 confirms the concept matches Rosen: two logical expressions are \"tương đương logic\" when they \"luôn luôn có cùng chân trị trong mọi\" (always have the same truth value in every assignment). OCR sources (bib-leanhvinh-2020, bib-hoangchithanh-2007) returned zero hits in both normal and --loose modes; the graph/combinatorics sources do not cover propositional logic."
+    },
+    {
+      "id": "loop",
+      "letter": "L",
+      "headword_en": "loop",
+      "notation": "",
+      "rosen_ref": "Rosen §10.1",
+      "definition_vi": "Một khuyên là một cạnh của đồ thị $$G$$ nối một đỉnh với chính nó, tức là một cạnh có hai đầu mút trùng nhau. Với đỉnh $$v \\in V(G)$$, cạnh $$e = (v, v)$$ được gọi là một khuyên tại đỉnh $$v$$.",
+      "example_vi": "Trong đồ thị $$G$$ với tập đỉnh $$V(G) = \\{u, v\\}$$ và tập cạnh $$E(G) = \\{(u, v), (v, v)\\}$$, cạnh $$(v, v)$$ là một khuyên tại đỉnh $$v$$, còn cạnh $$(u, v)$$ thì không phải là khuyên vì hai đầu mút của nó là hai đỉnh khác nhau.",
+      "vi_terms": [
+        {
+          "term": "khuyên",
+          "source_id": "bib-nguyenhoangthach-2020",
+          "page": "tr. 62 (PDF)",
+          "pdf_page": 62,
+          "snippet": "Một cạnh của đồ thị có hai đầu trùng nhau được gọi là một khuyên. Sau",
+          "verified": true,
+          "recommended": true
+        },
+        {
+          "term": "khuyên",
+          "source_id": "bib-leanhvinh-2020",
+          "page": "tr. 8 (PDF)",
+          "pdf_page": 8,
+          "snippet": "mnit trùng nhau được gọi là khuyên. Bên cạnh đó, cũng có thể xảy ra",
+          "verified": true,
+          "recommended": false
+        },
+        {
+          "term": "khuyên",
+          "source_id": "bib-nguyenhuudien-2019",
+          "page": "tr. 155 (PDF)",
+          "pdf_page": 155,
+          "snippet": "Với v ∈ V, nếu (v, v) ∈ E thì ta nói có một khuyên tại đỉnh v.",
+          "verified": true,
+          "recommended": false
+        },
+        {
+          "term": "khuyên",
+          "source_id": "bib-nguyenducnghia-2006",
+          "page": "tr. 154 (PDF)",
+          "pdf_page": 154,
+          "snippet": "các cạnh. Cạnh e được gọi là khuyên nếu nó có dạng e=(u,u).",
+          "verified": true,
+          "recommended": false
+        },
+        {
+          "term": "khuyên",
+          "source_id": "bib-ngodactan-2004",
+          "page": "tr. 186 (PDF)",
+          "pdf_page": 186,
+          "snippet": "chúng có đỉnh chúng. Cung dạng (a,-a) với a € V được gọi là khuyên.",
+          "verified": true,
+          "recommended": false
+        },
+        {
+          "term": "cạnh khuyên",
+          "source_id": "bib-nguyenhoangthach-2020",
+          "page": "tr. 62 (PDF)",
+          "pdf_page": 62,
+          "snippet": "Các khái niệm đơn đồ thị có hướng, đa đồ thị có hướng và cạnh khuyên",
+          "verified": true,
+          "recommended": false
+        },
+        {
+          "term": "cạnh khuyên",
+          "source_id": "bib-leanhvinh-2020",
+          "page": "tr. 179 (PDF)",
+          "pdf_page": 179,
+          "snippet": "có thể xóa đi một số cạnh khuyên, d(u) > p — 1 với mọi đỉnh u của",
+          "verified": true,
+          "recommended": false
+        }
+      ],
+      "see_also": [
+        "multigraph",
+        "simple-graph",
+        "degree-of-a-vertex"
+      ],
+      "notes": "\"khuyên\" is the standard Vietnamese term and is attested in both 2020 sources (bib-nguyenhoangthach-2020 tr. 62 gives the exact Rosen wording \"Một cạnh của đồ thị có hai đầu trùng nhau được gọi là một khuyên\") as well as in bib-leanhvinh-2020, bib-nguyenhuudien-2019, bib-nguyenducnghia-2006, and bib-ngodactan-2004. \"cạnh khuyên\" (\"loop edge\") is a variant used in bib-leanhvinh-2020 (tr. 179) and bib-nguyenhoangthach-2020 (tr. 62). The candidates \"vòng\" and \"cung khuyên\" were NOT attested for this concept: every \"vòng\" hit denotes \"vòng lặp\" (algorithmic iteration loop), not a self-loop edge; \"cung khuyên\" returned 0 hits. The OCR source bib-hoangchithanh-2007 returned no hit for \"khuyên\" in either normal or loose mode."
+    },
+    {
+      "id": "lower-bound",
+      "letter": "L",
+      "headword_en": "lower bound",
+      "notation": "",
+      "rosen_ref": "Rosen §9.6",
+      "definition_vi": "Cho một tập con $$S$$ của một tập sắp thứ tự bộ phận $$(X, \\preceq)$$. Một phần tử $$x \\in X$$ được gọi là một chặn dưới của $$S$$ nếu $$x \\preceq s$$ với mọi $$s \\in S$$.",
+      "example_vi": "Trong tập sắp thứ tự $$(\\{1, 2, 3, 4, 6, 12\\}, \\mid)$$ với quan hệ chia hết, xét tập con $$S = \\{4, 6\\}$$. Khi đó $$1$$ và $$2$$ là các chặn dưới của $$S$$, vì $$1 \\mid 4$$, $$1 \\mid 6$$, $$2 \\mid 4$$ và $$2 \\mid 6$$.",
+      "vi_terms": [
+        {
+          "term": "chặn dưới",
+          "source_id": "bib-nguyenhuudien-2019",
+          "page": "tr. 120 (PDF)",
+          "pdf_page": 120,
+          "snippet": "x ∈ X là một chặn dưới của tập hợp A nếu và chỉ nếu với mọi a ∈ A ta có : x ≤ a. Chặn dưới",
+          "verified": true,
+          "recommended": true
+        },
+        {
+          "term": "chận dưới",
+          "source_id": "bib-nguyenhuudien-2019",
+          "page": "tr. 123 (PDF)",
+          "pdf_page": 123,
+          "snippet": "chỉ nếu với mọi a, b ∈ L, tập hợp { a, b} có chận dưới lớn nhất và có chận trên nhỏ nhất; tức là",
+          "verified": true,
+          "recommended": false
+        },
+        {
+          "term": "cận dưới",
+          "source_id": "bib-ngodactan-2004",
+          "page": "tr. 164 (PDF)",
+          "pdf_page": 164,
+          "snippet": "Các khái niệm cận dưới, phần tứ nhỏ nhất và phần 'tử cục tiểu",
+          "verified": true,
+          "recommended": false
+        }
+      ],
+      "see_also": [
+        "least-upper-bound",
+        "lattice"
+      ],
+      "notes": "Recommended term \"chặn dưới\" is attested with the exact poset definition in bib-nguyenhuudien-2019, p. 120 (PDF): \"x ∈ X là một chặn dưới của tập hợp A nếu và chỉ nếu với mọi a ∈ A ta có: x ≤ a\" — matching Rosen's definition of a lower bound of a subset of a partially ordered set. The variant spelling \"chận dưới\" appears in the same 2019 source (pp. 123–124) in the lattice context \"chận dưới lớn nhất\" (greatest lower bound); this reflects the alternate Vietnamese spelling chặn/chận. The variant \"cận dưới\" is attested in bib-ngodactan-2004, p. 164, listed alongside \"phần tử nhỏ nhất, phần tử cực tiểu\" in the order-theoretic sense. Many additional hits for \"chặn dưới\"/\"cận dưới\" in bib-leanhvinh-2020 and bib-nguyenducnghia-2006 use the term for a bound on a numeric quantity (Ramsey number, chromatic number, branch-and-bound objective), not the order-theoretic lower bound of a poset subset, and were excluded as off-concept. The candidate \"biên dưới\" had 0 hits in any source (normal and loose) and is dropped. see_also is restricted to same-chapter L-terms (least-upper-bound, lattice); upper-bound, greatest-lower-bound, and partial-order are cross-chapter forward references (U, G, P) and are not linked here."
+    },
+    {
+      "id": "labeled-graph",
+      "letter": "L",
+      "headword_en": "labeled graph",
+      "notation": "",
+      "rosen_ref": "Rosen §10.3",
+      "definition_vi": "Một \\emph{đồ thị gán nhãn} là một đồ thị $$G$$ trong đó mỗi đỉnh hoặc mỗi cạnh được gán một nhãn phân biệt, sao cho các đỉnh và các cạnh của $$G$$ được phân biệt với nhau.",
+      "example_vi": "Xét đồ thị $$G$$ có tập đỉnh $$\\{a, b, c\\}$$ và các cạnh $$ab$$, $$bc$$; gán cho ba đỉnh các nhãn phân biệt $$1$$, $$2$$, $$3$$ thì $$G$$ trở thành một đồ thị gán nhãn, trong đó hai đỉnh bất kỳ có thể được phân biệt qua nhãn của chúng.",
+      "vi_terms": [
+        {
+          "term": "đồ thị gán nhãn",
+          "source_id": "",
+          "page": "",
+          "pdf_page": 0,
+          "snippet": "",
+          "verified": false,
+          "recommended": true
+        }
+      ],
+      "see_also": [
+        "graph",
+        "vertex",
+        "edge",
+        "weighted-graph",
+        "graph-coloring"
+      ],
+      "notes": "No Vietnamese corpus source (2004-2020) attests a noun denoting \"labeled graph\". All four candidates (đồ thị gán nhãn, đồ thị được gán nhãn, đồ thị có nhãn, đồ thị dán nhãn) returned 0 hits in normal search; in --loose search only \"đồ thị có nhãn\" returned a single hit, which is a FALSE POSITIVE identical to the \"đồ thị có nhân\" loose hit in bib-hoangchithanh-2007 (pdf tr. 34, \"Hinh 2.4 Đồ thị có nhân và đổ thị không có nhân\"): OCR cannot distinguish \"nhân\" from \"nhãn\", and Section 3.3 \"NHÂN CỦA ĐỒ THỊ\" (KERNEL OF THE GRAPH), Định nghĩa 3.3 (corpus lines 1164-1168), confirms \"nhân\" here means graph KERNEL (lõi/nhân), not label. The phrases \"gán nhãn\"/\"được gán nhãn\" appear frequently in bib-hoangchithanh-2007 (pdf tr. 92-93, 141) but only as the VERB \"to assign a label to a vertex\" inside BFS shortest-path, Dijkstra, and expression-tree labeling algorithms, never as the NOUN \"labeled graph\" (re-verified independently). Recommended term \"đồ thị gán nhãn\" is the standard modern Vietnamese rendering, kept so vi_terms is non-empty; verified=false because no source attests it as a noun. Variants (unattested): \"đồ thị được gán nhãn\", \"đồ thị có nhãn\", \"đồ thị dán nhãn\". definition_vi opens with the term, marks its first introduction with \\emph{...} OUTSIDE math (math delimiters wrap symbols only, e.g. $$G$$), and follows Rosen §10.3 (each vertex or edge assigned a distinct label so vertices/edges can be distinguished). example_vi is self-contained, introducing only the labels named in the definition. see_also targets are cross-chapter forward references (graph, weighted-graph in chapter D; graph-coloring in C; vertex in E; edge in A) — there is no chapter-L file yet, so no same-chapter links exist and none are rendered as links; weighted-graph is the closest kin (a graph whose edges carry distinguishing values) and graph-coloring is the adjacent vertex/edge-assignment notion."
+    },
+    {
+      "id": "line-graph",
+      "letter": "L",
+      "headword_en": "line graph",
+      "notation": "L(G)",
+      "rosen_ref": "Rosen §10.2",
+      "definition_vi": "\\emph{Đồ thị đường} của một đồ thị $$G$$, ký hiệu $$L(G)$$, là đồ thị có tập đỉnh là tập cạnh của $$G$$, trong đó hai đỉnh của $$L(G)$$ kề nhau khi và chỉ khi hai cạnh tương ứng của $$G$$ có chung một đầu mút.",
+      "example_vi": "Xét đồ thị $$G$$ với các cạnh $$e_1 = ab$$ và $$e_2 = bc$$. Hai cạnh này có chung đầu mút $$b$$, nên trong $$L(G)$$ hai đỉnh $$e_1$$ và $$e_2$$ kề nhau.",
+      "vi_terms": [
+        {
+          "term": "đồ thị đường",
+          "source_id": "bib-leanhvinh-2020",
+          "page": "tr. 244 (PDF)",
+          "pdf_page": 244,
+          "snippet": "Bài tập 8.5. Dé thị đường L(G) của một đỏ thi G là đỏ thị với tập",
+          "verified": true,
+          "recommended": true
+        },
+        {
+          "term": "đồ thị đường",
+          "source_id": "bib-leanhvinh-2020",
+          "page": "tr. 245 (PDF)",
+          "pdf_page": 245,
+          "snippet": "Ví dụ 8.26 chính là đồ thị đường L(K,) của Kj.",
+          "verified": true,
+          "recommended": false
+        },
+        {
+          "term": "đồ thị đường",
+          "source_id": "bib-hoangchithanh-2007",
+          "page": "tr. 90 (PDF)",
+          "pdf_page": 90,
+          "snippet": "Đồ thị đường (line graph) L(G) của đô thị G là dé thị có tập đỉnh",
+          "verified": true,
+          "recommended": false
+        }
+      ],
+      "see_also": [
+        "graph",
+        "edge",
+        "adjacent",
+        "simple-graph",
+        "vertex"
+      ],
+      "notes": "Recommended term \"đồ thị đường\" is attested in the newest source bib-leanhvinh-2020 (2020) on tr. 244 (formal definition, Bài tập 8.5) and tr. 245 (example with $$L(K_n)$$), and in the OCR source bib-hoangchithanh-2007 (2007) on tr. 90, where the English gloss \"(line graph)\" appears explicitly alongside \"$$L(G)$$\". The definition was grounded against the OCR corpus: bib-leanhvinh-2020 (Bài tập 8.5, tr. 244) reads \"Đồ thị đường L(G) của một đồ thị G là đồ thị với tập đỉnh là các cạnh của G...\" (OCR mangled to \"Dé thị đường L(G) của một đỏ thi G là đỏ thị với tập\"), and bib-hoangchithanh-2007 (tr. 90) reads \"Đồ thị đường (line graph) L(G) của đồ thị G là đồ thị có tập đỉnh [là tập cạnh của G]\". Both match the English ground truth exactly: vertices of $$L(G)$$ are the edges of $$G$$, and two such vertices are adjacent iff the corresponding edges share a common endpoint. \"đầu mút\" follows the chapter-G \"graph\" entry's standard rendering of \"endpoint\". OCR sources were searched both normally and with --loose; results were identical, and the 2007/2020 snippets show mild OCR mangling of diacritics (\"đô thị\", \"dé thị\", \"đỏ thi\") that does not affect identification of the headword. Verifier re-ran find-term.py for all three verified terms (normal and --loose): tr. 244, tr. 245, and tr. 90 hits and snippets all reproduce and denote THIS concept. Candidate \"đồ thị cạnh\": no genuine attestation. Its single --loose hit in bib-nguyenducnghia-2006 (tr. 72) is a false positive — the matched text is the unrelated fragment \"...có màu đỏ thì cạnh này...\" (\"...is red, then this edge...\"), not the line-graph term; reconfirmed by Verifier. Candidate \"đồ thị đường thẳng\": no attestation in any source (0 hits normal and --loose; reconfirmed). Both unattested candidates are dropped per citation hygiene; only the verified recommended term is kept. Note on translation: \"đồ thị đường\" literally renders \"line graph\" (đường = line); some authors elsewhere prefer the edge-oriented gloss \"đồ thị cạnh\" (cạnh = edge), but no corpus source attests that variant. The example is self-contained: it introduces only the two edges $$e_1, e_2$$ and their shared endpoint $$b$$, then applies the adjacency rule directly, using no derived quantity the definition did not introduce. see_also targets are cross-chapter forward references (\"edge\" exists as a chapter-E entry; \"graph\", \"adjacent\", \"simple-graph\", \"vertex\" are forward references kept per the chapter-G precedent); no same-chapter L-terms exist yet."
+    },
+    {
+      "id": "latin-square",
+      "letter": "L",
+      "headword_en": "Latin square",
+      "notation": "n \\times n",
+      "rosen_ref": "Rosen §9.2",
+      "definition_vi": "Một hình vuông Latin bậc $$n$$ là một bảng vuông kích thước $$n \\times n$$ được điền bằng $$n$$ ký hiệu phân biệt sao cho mỗi ký hiệu xuất hiện đúng một lần trên mỗi hàng và đúng một lần trên mỗi cột. Số $$n$$ được gọi là bậc (cấp) của hình vuông Latin.",
+      "example_vi": "Bảng $$3 \\times 3$$ với các hàng $$\\langle 1, 2, 3 \\rangle$$, $$\\langle 2, 3, 1 \\rangle$$, $$\\langle 3, 1, 2 \\rangle$$ là một hình vuông Latin bậc $$3$$ trên tập ký hiệu $$\\{1, 2, 3\\}$$: mỗi ký hiệu xuất hiện đúng một lần trên mỗi hàng và mỗi cột.",
+      "vi_terms": [
+        {
+          "term": "hình vuông Latin",
+          "source_id": "bib-leanhvinh-2020",
+          "page": "tr. 216 (PDF)",
+          "pdf_page": 216,
+          "snippet": "dương, hình vuông Latin bậc n là một bảng vuông n x n trong đó mỗi [...] lần trên cùng một hàng hay cùng một cột.",
+          "verified": true,
+          "recommended": true
+        },
+        {
+          "term": "hình vuông La tinh",
+          "source_id": "bib-nguyenducnghia-2006",
+          "page": "tr. 48 (PDF)",
+          "pdf_page": 48,
+          "snippet": "Nếu ø = g = n, thì hình chữ nhật la tình được gọi là hình vuông la tnh. [...] vuông la tình cấp n được gọi là chuẩn nếu có dòng đầu và cột đầu là hoán vị 1 2....n.",
+          "verified": true,
+          "recommended": false
+        }
+      ],
+      "see_also": [
+        "latin-rectangle"
+      ],
+      "notes": "Recommended term \"hình vuông Latin\" is attested in the newest source bib-leanhvinh-2020 (2020), which gives a full definition matching Rosen on pdf page 216 (\"hình vuông Latin bậc n là một bảng vuông n x n trong đó mỗi ký hiệu xuất hiện đúng một lần trên mỗi hàng và mỗi cột\") and also names it on pages 71-72. Re-verified by Verifier: 8 normal hits / 10 loose hits across pdf pages 71, 72, 216, 217, 258. The older bib-nguyenducnghia-2006 (2006) uses the orthographic variant \"hình vuông La tinh\", OCR-mangled to \"la tỉnh\" / \"la tình\" / \"la tnh\" on pdf pages 48, 55, 56, 76; the exact phrase \"hình vuông La tinh\" returns 0 normal hits but the loose search and broad-fragment search confirm the concept. Page 48 explicitly defines it: \"Nếu m = n, thì hình chữ nhật la tình được gọi là hình vuông la tnh\" (a Latin rectangle with m = n is called a Latin square) — same concept as Latin square. Candidate terms \"bảng vuông Latin\" and \"ô vuông Latin\" returned zero hits in every source (normal and --loose) and are dropped. Note leanhvinh-2020 uses the phrase \"bảng vuông $$n \\times n$$\" only inside its prose definition, not as the term name. The related but DISTINCT concept \"hình chữ nhật Latin\" (Latin rectangle, an $$m \\times n$$ array, $$m \\leq n$$) appears in leanhvinh-2020 pp. 71-72 (4 hits) and nguyenducnghia-2006 p. 263; it is recorded as a see_also forward reference (latin-rectangle), not as a variant of Latin square. The definition_vi follows the recommended source wording (n distinct symbols, each appearing exactly once per row and per column) and adds the standard \"bậc (cấp)\" order terminology found in both sources. The example is self-contained, using only the order n and symbol set already introduced by the definition. Verifier change: the snippet for the variant term \"hình vuông La tinh\" (pdf page 48) was tightened to quote the actual definitional sentence on that page (\"hình chữ nhật la tình được gọi là hình vuông la tnh\")."
+    },
+    {
+      "id": "list-coloring",
+      "letter": "L",
+      "headword_en": "list coloring",
+      "notation": "L(v)",
+      "rosen_ref": "Rosen §10.8",
+      "definition_vi": "Tô màu danh sách của một đồ thị $$G$$ là phép gán cho mỗi đỉnh $$v \\in V(G)$$ một màu lấy từ danh sách màu cho phép $$L(v)$$ định trước của đỉnh đó, sao cho hai đỉnh kề nhau bất kỳ nhận được hai màu khác nhau.",
+      "example_vi": "Cho đồ thị đường $$P_3$$ với các đỉnh $$u, v, w$$ và các cạnh $$uv, vw$$. Gán các danh sách $$L(u) = \\{1, 2\\}$$, $$L(v) = \\{1, 3\\}$$ và $$L(w) = \\{2, 3\\}$$. Khi đó phép gán $$u \\mapsto 1$$, $$v \\mapsto 3$$, $$w \\mapsto 2$$ là một tô màu danh sách của $$P_3$$, vì mỗi đỉnh nhận một màu thuộc danh sách của nó và hai đỉnh kề nhau bất kỳ nhận hai màu khác nhau.",
+      "vi_terms": [
+        {
+          "term": "tô màu danh sách",
+          "source_id": "",
+          "page": "",
+          "pdf_page": 0,
+          "snippet": "",
+          "verified": false,
+          "recommended": true
+        }
+      ],
+      "see_also": [
+        "graph-coloring",
+        "chromatic-number"
+      ],
+      "notes": "No Vietnamese source in the corpus attests \"list coloring\" (tô màu danh sách / choosability) as a concept. The recommended rendering tô màu danh sách and the candidate variants tô màu theo danh sách, tô màu chọn, and tô màu từ danh sách all returned 0 hits in both normal and --loose modes across all sources, including the OCR sources bib-leanhvinh-2020 and bib-hoangchithanh-2007. Broader probes confirm the gap: the \"danh sách\" hits all denote \"danh sách kề\" (adjacency list, an unrelated data structure), and the single \"chọn màu\" hit (bib-hoangchithanh-2007, pdf p.57, \"Cách chọn màu cho đỉnh mới\") concerns greedy vertex coloring, not list coloring. Probes for \"danh sách màu\", \"danh sách cho phép\", \"sắc danh sách\", and English \"list coloring\"/\"choosability\" also returned 0 hits. List coloring / choosability is an advanced topic absent from these introductory Vietnamese textbooks. The recommended term tô màu danh sách is the standard Vietnamese rendering and is kept (verified=false, page empty) per the citation-hygiene rule so vi_terms is non-empty; the unattested candidate variants tô màu theo danh sách, tô màu chọn, and tô màu từ danh sách are recorded here only and dropped from vi_terms."
+    },
+    {
+      "id": "logic-gate",
+      "letter": "L",
+      "headword_en": "logic gate",
+      "notation": "",
+      "rosen_ref": "Rosen §12.3",
+      "definition_vi": "Cổng logic là khối xây dựng cơ bản của một mạch số, nhận một hoặc nhiều bit đầu vào và tạo ra một bit đầu ra theo một phép toán Boole cố định. Mỗi cổng logic ứng với một phép toán Boole sơ cấp như $$\\mathrm{AND}$$, $$\\mathrm{OR}$$ hoặc $$\\mathrm{NOT}$$, biến các giá trị đầu vào trong $$\\{0,1\\}$$ thành một giá trị đầu ra trong $$\\{0,1\\}$$.",
+      "example_vi": "Cổng $$\\mathrm{AND}$$ với hai bit đầu vào $$x$$ và $$y$$ tạo ra đầu ra $$x \\cdot y$$, bằng $$1$$ khi và chỉ khi $$x = y = 1$$.",
+      "vi_terms": [
+        {
+          "term": "cổng logic",
+          "source_id": "",
+          "page": "",
+          "pdf_page": 0,
+          "snippet": "",
+          "verified": false,
+          "recommended": true
+        }
+      ],
+      "see_also": [
+        "boolean-function",
+        "boolean-algebra",
+        "combinational-circuit"
+      ],
+      "notes": "No source in the mined Vietnamese corpus attests any candidate term for the digital-circuit concept \"logic gate\". The corpus consists of graph theory, combinatorics, and discrete mathematics textbooks, and the hardware notion of a logic gate (a Boolean primitive building block of a digital circuit) lies outside their scope. The recommended term \"cổng logic\" is the standard Vietnamese rendering but is kept verified=false with page=\"\" because it has zero attestation: normal and loose/OCR searches both returned 0 hits for cổng logic, cổng lôgic, and cổng luận lý, and related candidates cửa logic, cổng AND, and mạch số also returned 0 hits. Note the near-miss \"mạch logic\" in bib-nguyenducnghia-2006 p. 290 (\"một mạch logic điều khiển hệ thống cảnh báo tự động\"): this denotes a logic CONTROL CIRCUIT in an inclusion-exclusion application problem, not a single logic gate (a gate is one Boolean primitive inside such a circuit), so it does not attest THIS concept and is not recorded as a verified vi_term. Other false positives excluded: \"phần tử logic\" (bib-hoangchithanh-2007 p. 12) means matrix entries, not a logic gate. A search for \"cổng\" returns only 3 hits, none of which denote a logic gate (they mean \"công thức\" = formula via the OCR slip cổng thức, and computer \"cổng\" = ports in a counting exercise); \"Boole\" hits refer to Boolean functions, Boolean algebra, and Pascal boolean types, not to gates."
+    }
+  ]
+}

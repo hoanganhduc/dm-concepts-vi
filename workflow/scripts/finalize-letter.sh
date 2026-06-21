@@ -23,6 +23,7 @@ if [ "$N" -lt 1 ]; then
 fi
 
 "$PY" workflow/scripts/encode-chapter.py "$L"
+N=$(grep -c '<definition ' "source/ch-${L}.ptx" 2>/dev/null || echo "$N")  # post-guard count
 "$PY" workflow/scripts/validate-entry.py > "/tmp/val-$L.log" 2>&1 || { echo "VALIDATE FAILED $U"; tail -25 "/tmp/val-$L.log"; exit 1; }
 tail -1 "/tmp/val-$L.log"
 "$PY" workflow/scripts/build-search-index.py >/dev/null

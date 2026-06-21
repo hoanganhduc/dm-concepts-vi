@@ -1,0 +1,849 @@
+{
+ "locked_conventions": [
+  "Math delimiters: every inline mathematical symbol (G, u, v, n, K_n, A = [a_{ij}], \\chi(G), \\bar{d}(G), set braces, ordered pairs, \\gcd(a,b), etc.) is wrapped in $$...$$ inside definition_vi and example_vi. No bare unwrapped math is left in the prose fields. Block math uses a ```math fence.",
+  "Inequalities and relations: ASCII '>=', '<=', '!=' are forbidden in finished prose; use $$\\geq$$, $$\\leq$$, $$\\neq$$ (and $$\\mid$$ for divisibility). No ASCII operators were found in any A-chapter prose field.",
+  "Inline tall/stacked operators (\\frac, \\binom, \\sum, \\prod, \\bigcup, \\bigcap) carry \\displaystyle when they appear inside running prose, per the manuscript style profile; ordinary inline formulas do not.",
+  "Bipartite is rendered 'đồ thị hai phần' (book standard); 'đồ thị hai phía' and 'đồ thị phân đôi' are listed variants only. No chapter-A entry exercises the bipartite term in running prose, so the standard is recorded but not used here.",
+  "Exactly one vi_term per entry has recommended=true. The recommended term is, whenever possible, a verified=true term attested in a 2019-2020 source; the tie-break is the newest source that gives a DEFINITIONAL (not merely incidental) attestation, and vi_terms rows are ordered newest-first. When no 2019-2020 source attests the concept, the recommended term is taken from the oldest/only available source where the concept genuinely appears, and this is stated explicitly in notes. A recommended term may be verified=false only when no corpus source attests any candidate (then the unverified status is explained in notes). Every variant from all sources, old and new, is still recorded.",
+  "Citation hygiene: every verified=true vi_term carries source_id, pdf_page, page, and a quoted snippet. vi_terms with verified=false AND empty page are dropped, except a single recommended standard term retained to keep vi_terms non-empty and preserve the single-recommendation invariant. Diacritics-insensitive (--loose) search is used to confirm hits/0-hits on this scanned-PDF corpus; OCR-mangled lead snippets are flagged in notes.",
+  "Examples are self-contained: an example_vi never relies on a derived quantity the definition_vi did not introduce, unless that quantity is defined inline in the example first.",
+  "No synonym glosses are placed inside a definition; variants live in vi_terms and notes.",
+  "see_also uses kebab-case ids. In-chapter (letter-A) ids are in-lexicon links; ids outside chapter A are kept as cross-chapter forward references to be created in their own letter chapters (consistent with chapters C and G). The notation field stores bare LaTeX (no $$ wrapping), matching the book-wide convention."
+ ],
+ "deferred_note": "Editorial pass applied the panel's clearly-correct fixes only. (1) asymptotic-notation: the definition now names 'ký hiệu ô lớn' as the O-symbol only and 'các ký hiệu tiệm cận' as the O/Omega/Theta family, mirroring the source's distributive naming (nguyenducnghia-2006 p.85: 'ký hiệu ô lớn, Ômêga, têta'); the O/Omega glosses gained the constant-factor qualifier; the empty-page verified=false placeholder 'ký hiệu tiệm cận' was dropped per the hygiene rule (vi_terms stays non-empty via verified=true rows) and is now described only in notes. (2) arborescence and acyclic-graph: the directed (arborescence) and undirected (acyclic) settings are now made explicit in the definitions so the example, definition, and citations no longer silently mix directed/undirected senses; generic rooted-tree citations for arborescence are annotated as same-term-different-sense rather than dropped. (3) algorithm, antisymmetric-relation, automorphism, antichain, arithmetic-progression: notes clarify the recommended-term tie-break (definitional vs incidental), the 'phản đối xứng' = antisymmetric (not 'not symmetric') reading, the same-term-different-domain status of the ngodactan-2004 automorphism citation, and the explicit 'no 2019-2020 attestation' status where it applies. (4) Notation-field normalization: articulation-point, automorphism, and antichain notation values were changed from $$-wrapped to bare LaTeX (v, \\mathrm{Aut}(G), A \\subseteq X) to match the book-wide bare-LaTeX notation convention. average-degree gained \\displaystyle on its inline \\frac per the style profile. see_also cross-chapter ids are kept as forward references (book-wide convention from chapters C/G); only same-chapter A ids are in-lexicon links. All verified=true vi_terms retain source_id+pdf_page+page+snippet; no unverifiable non-recommended citation remains.",
+ "final_entries": [
+  {
+   "id": "adjacent-vertices",
+   "letter": "A",
+   "headword_en": "Adjacent vertices",
+   "notation": "u \\sim v",
+   "rosen_ref": "Rosen §10.2",
+   "definition_vi": "Hai đỉnh $$u$$ và $$v$$ trong một đồ thị vô hướng $$G$$ được gọi là *kề nhau* nếu chúng là hai đầu mút của một cạnh chung của $$G$$, tức là $$uv \\in E(G)$$; ký hiệu $$u \\sim v$$.",
+   "example_vi": "Trong đồ thị $$G$$ với tập đỉnh $$V(G) = \\{a, b, c\\}$$ và tập cạnh $$E(G) = \\{ab, bc\\}$$, hai đỉnh $$a$$ và $$b$$ kề nhau vì $$ab \\in E(G)$$, trong khi $$a$$ và $$c$$ không kề nhau vì $$ac \\notin E(G)$$.",
+   "notes": "Recommended term \"kề nhau\" is the standard Vietnamese rendering for two vertices being adjacent and is attested in the newest 2020 graph-theory source (bib-leanhvinh-2020, p.9 via OCR-loose) and the 2020 combinatorics source (bib-nguyenhoangthach-2020, p.63), as well as in every older source. The lead row rests on the OCR-mangled leanhvinh-2020 p.9 snippet (\"ké nhau\"), confirmed via --loose; clean 2020/2019 corroboration is available in bib-nguyenhoangthach-2020 p.63 (\"hai đỉnh kề nhau\") and bib-nguyenhuudien-2019 p.160. The formal definition \"Hai đỉnh u và v ... được gọi là liền kề\" appears in bib-nguyenhuudien-2019 (p.157), so \"liền kề\" is a fully equivalent variant; the matrix term \"ma trận liền kề\"/\"ma trận kề\" (adjacency matrix) is built from these. \"đỉnh kề\" is the noun form \"an adjacent vertex / neighbor\" (e.g. bib-hoangchithanh-2007 p.8, p.10). The bare adjective \"kề\" is used in collocations such as \"kề với\" and \"ma trận kề\". OCR sources bib-leanhvinh-2020 and bib-hoangchithanh-2007 mangle diacritics (e.g. \"ké nhau\", \"kể nhau\"); definitional snippets were confirmed via --loose. In bib-ngodactan-2004 the term also denotes adjacency of arcs/edges (\"cung ... kề nhau\"); the vertex sense is confirmed in the same definitional block (p.186) and is indexed as \"hai đỉnh kề nhau, 186\".",
+   "see_also": [
+    "edge",
+    "neighborhood",
+    "degree-of-a-vertex",
+    "adjacency-matrix",
+    "complete-graph"
+   ],
+   "vi_terms": [
+    {
+     "term": "kề nhau",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-leanhvinh-2020",
+     "pdf_page": 9,
+     "page": "tr. 9 (PDF)",
+     "snippet": "Ta nói hai đỉnh u,v € V là ké nhau nêu (u,v) là một cạnh của G."
+    },
+    {
+     "term": "kề nhau",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhoangthach-2020",
+     "pdf_page": 63,
+     "page": "tr. 63 (PDF)",
+     "snippet": "hai đỉnh kề nhau và cạnh e kề với các đỉnh u, v."
+    },
+    {
+     "term": "liền kề",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 157,
+     "page": "tr. 157 (PDF)",
+     "snippet": "Định nghĩa 6.7 Hai đỉnh u và v trong đồ thị (vô hướng) G = (V, E) được gọi là liền kề"
+    },
+    {
+     "term": "kề nhau",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 160,
+     "page": "tr. 160 (PDF)",
+     "snippet": "Đơn đồ thị 2n đỉnh, tương ứng với 2n xâu nhị phân độ dài n và hai đỉnh kề nhau khi và"
+    },
+    {
+     "term": "đỉnh kề",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-hoangchithanh-2007",
+     "pdf_page": 8,
+     "page": "tr. 8 (PDF)",
+     "snippet": "Trong một đồ thị, đỉnh mút là đỉnh kề với chính nó. Hai cạnh có ít"
+    },
+    {
+     "term": "kề nhau",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-hoangchithanh-2007",
+     "pdf_page": 17,
+     "page": "tr. 17 (PDF)",
+     "snippet": "— Nếu đồ thị Ơ có ba đỉnh không kề nhau là a, b, c. Các đỉnh khác"
+    },
+    {
+     "term": "kề nhau",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenducnghia-2006",
+     "pdf_page": 159,
+     "page": "tr. 159 (PDF)",
+     "snippet": "xâu nhị phân độ dài ⁄. Hai đỉnh của nó là kề nhau nếu như hai xâu nhị phân tương ứng"
+    },
+    {
+     "term": "kề nhau",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-ngodactan-2004",
+     "pdf_page": 186,
+     "page": "tr. 186 (PDF)",
+     "snippet": "được gọi là kề nhau. Hai cung bất kỳ của G được gọi là ke nhau nếu"
+    }
+   ]
+  },
+  {
+   "id": "adjacency-matrix",
+   "letter": "A",
+   "headword_en": "Adjacency matrix",
+   "notation": "A = [a_{ij}]",
+   "rosen_ref": "Rosen §10.3",
+   "definition_vi": "Ma trận kề của một đồ thị có tập đỉnh $$\\{v_1, v_2, \\ldots, v_n\\}$$, ký hiệu $$A = [a_{ij}]$$, là ma trận vuông cấp $$n$$ trong đó phần tử $$a_{ij}$$ bằng số cạnh nối đỉnh $$v_i$$ với đỉnh $$v_j$$. Với một đơn đồ thị, $$a_{ij} = 1$$ nếu $$v_i$$ và $$v_j$$ kề nhau và $$a_{ij} = 0$$ nếu ngược lại.",
+   "example_vi": "Xét đồ thị có tập đỉnh $$\\{v_1, v_2, v_3\\}$$ với các cạnh $$v_1 v_2$$ và $$v_2 v_3$$. Ma trận kề của nó là\n```math\nA = \\begin{bmatrix} 0 & 1 & 0 \\\\ 1 & 0 & 1 \\\\ 0 & 1 & 0 \\end{bmatrix}.\n```",
+   "notes": "Both \"ma trận kề\" and \"ma trận liền kề\" denote the adjacency matrix. \"Ma trận kề\" is the dominant, standard term, attested in two 2020 sources (bib-leanhvinh-2020 Định nghĩa 2.20 and bib-nguyenhoangthach-2020 Định nghĩa 5.8) and in all four older sources, so it is recommended. The lead leanhvinh-2020 p.54 snippet is OCR-mangled (\"Ma trận kể\"); a diacritically clean 2020 corroboration is bib-nguyenhoangthach-2020 p.66 (\"Ma trận kề của một đa đồ thị\"). \"Ma trận liền kề\" appears only in bib-nguyenhuudien-2019 (2019, Định nghĩa/Ví dụ 6.18-6.19) and is recorded as a verified variant. In leanhvinh-2020 (OCR) the term is mangled to \"ma trận kể\"/\"ma trận ké\"; --loose recovered the definition on pdf_page 54. The leanhvinh-2020 page references are PDF pages.",
+   "see_also": [
+    "adjacency-list",
+    "incidence-matrix",
+    "adjacent-vertices"
+   ],
+   "vi_terms": [
+    {
+     "term": "ma trận kề",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-leanhvinh-2020",
+     "pdf_page": 54,
+     "page": "tr. 54 (PDF)",
+     "snippet": "Định nghĩa 2.20. (a) Ma trận kể của G, kí hiệu bởi Ag = (Aij)"
+    },
+    {
+     "term": "ma trận kề",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhoangthach-2020",
+     "pdf_page": 66,
+     "page": "tr. 66 (PDF)",
+     "snippet": "Định nghĩa 5.8. Ma trận kề của một đa đồ thị vô hướng (có thể có khuyên)"
+    },
+    {
+     "term": "ma trận liền kề",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 163,
+     "page": "tr. 163 (PDF)",
+     "snippet": "Ma trận liền kề của G ứng với thứ tự các đỉnh v1 , v2 , ..., vn là ma trận"
+    },
+    {
+     "term": "ma trận kề",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-hoangchithanh-2007",
+     "pdf_page": 9,
+     "page": "tr. 9 (PDF)",
+     "snippet": "Ma trận vuông A„x„ được gọi là ma trận kể của đồ thị G nếu:"
+    },
+    {
+     "term": "ma trận kề",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenducnghia-2006",
+     "pdf_page": 169,
+     "page": "tr. 169 (PDF)",
+     "snippet": "I) Rõ ràng ma trận kề của đồ thị vô hướng là ma trận đối xứng,"
+    },
+    {
+     "term": "ma trận kề",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-ngodactan-2004",
+     "pdf_page": 220,
+     "page": "tr. 220 (PDF)",
+     "snippet": "Dễ thấy rằng ma trận kề A của đồ thị có hướng G hoàn toàn xác định"
+    }
+   ]
+  },
+  {
+   "id": "acyclic-graph",
+   "letter": "A",
+   "headword_en": "Acyclic graph",
+   "notation": "",
+   "rosen_ref": "Rosen §10.4",
+   "definition_vi": "Trong một đồ thị vô hướng $$G$$, đồ thị phi chu trình là một đồ thị không chứa chu trình nào. Một đồ thị vô hướng liên thông và phi chu trình chính là một cây, còn một đồ thị vô hướng (không nhất thiết liên thông) phi chu trình là một rừng.",
+   "example_vi": "Mọi cây và mọi rừng đều là đồ thị phi chu trình. Đồ thị đầy đủ $$K_3$$ với các cạnh $$ab, bc, ca$$ không phải là đồ thị phi chu trình, vì dãy đỉnh $$a, b, c, a$$ tạo thành một chu trình.",
+   "see_also": [
+    "cycle",
+    "tree",
+    "forest",
+    "directed-acyclic-graph",
+    "arborescence"
+   ],
+   "notes": "Concept: an undirected graph containing no cycle. The definition is stated for the simple undirected setting so the connected-acyclic = tree and acyclic = forest characterizations are unambiguous; the directed (DAG) sense is left to the cross-reference \"directed-acyclic-graph\". The recommended standard named term \"đồ thị phi chu trình\" is attested with an explicit definition in the 2019 source bib-nguyenhuudien-2019 (p.226: \"Đồ thị có chu số bằng 0 được gọi là đồ thị phi chu trình\"); note that the source defines the named term via chu số = 0 (cycle rank zero), a derived characterization, while this book takes the equivalent no-cycle formulation as its primary definition. The descriptive no-cycle phrasing is directly attested in the variant rows: bib-nguyenducnghia-2006 (p.230, \"Giả sử G là đồ thị không có chu trình\"; and p.200, where the connected case is named a tree and the general case a forest) and bib-hoangchithanh-2007 (p.123, \"đồ thị là một cây nếu nó liên thông và không có chu trình\"). The bare form \"phi chu trình\" is the adjectival predicate used in statements such as \"$$G$$ là phi chu trình\" (Định lý 9.3, nguyenhuudien-2019 p.226, which is in a directed setting). Note: the 2020 source bib-nguyenhoangthach-2020 (p.93) and several other \"không có chu trình\" hits qualify the cycle type (chu trình âm / Euler / Hamilton / độ dài lẻ); these do NOT denote the general acyclic concept and are not used as citations for it. OCR sources (bib-leanhvinh-2020, bib-hoangchithanh-2007) were re-run with --loose: leanhvinh-2020 yielded no occurrence of the named term \"phi chu trình\" (it uses \"không có chu trình\" descriptively), confirming the 2019 text as the strongest modern attestation of the recommended named term. The recommended named term (2019) is listed first.",
+   "vi_terms": [
+    {
+     "term": "đồ thị phi chu trình",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 226,
+     "page": "tr. 226 (PDF)",
+     "snippet": "Đồ thị có chu số bằng 0 được gọi là đồ thị phi chu trình. Lớp đồ thị phi chu trình là lớp"
+    },
+    {
+     "term": "phi chu trình",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 226,
+     "page": "tr. 226 (PDF)",
+     "snippet": "Định lý 9.3 Đồ thị định hướng G = (V, E) là phi chu trình khi và chỉ khi các đỉnh của nó"
+    },
+    {
+     "term": "đồ thị không có chu trình",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenducnghia-2006",
+     "pdf_page": 230,
+     "page": "tr. 230 (PDF)",
+     "snippet": "Định lý 2. G;d sửG là đồ thị không có chu trình. Khi đó các đỉnh của nó có thể đánh số"
+    },
+    {
+     "term": "không có chu trình",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-hoangchithanh-2007",
+     "pdf_page": 123,
+     "page": "tr. 123 (PDF)",
+     "snippet": "rằng đồ thị 7 là một cây nếu nó liên thóng và không có chu trình."
+    }
+   ]
+  },
+  {
+   "id": "algorithm",
+   "letter": "A",
+   "headword_en": "Algorithm",
+   "notation": "",
+   "rosen_ref": "Rosen §3.1",
+   "definition_vi": "Thuật toán là một dãy hữu hạn các chỉ dẫn (hay quy tắc) chính xác, rõ ràng, được thực hiện theo từng bước để giải một bài toán hoặc thực hiện một phép tính. Một thuật toán thường được đặc trưng bởi các tính chất đầu vào, đầu ra, tính chính xác, tính hữu hạn và tính tổng quát.",
+   "example_vi": "Thuật toán tìm phần tử lớn nhất trong một dãy hữu hạn các số nguyên $$a_1, a_2, \\ldots, a_n$$: khởi tạo giá trị lớn nhất tạm thời bằng $$a_1$$, rồi lần lượt so sánh với từng $$a_i$$ và cập nhật giá trị lớn nhất tạm thời mỗi khi gặp $$a_i$$ lớn hơn; sau khi duyệt hết dãy, giá trị lớn nhất tạm thời chính là phần tử lớn nhất.",
+   "notes": "Recommended term \"thuật toán\" is the standard Vietnamese rendering, attested in every corpus source and in all three 2019-2020 sources. The recommended=true flag sits on bib-nguyenhuudien-2019 (2019) because that is the only DEFINITIONAL attestation: Chương 5 (§5.1 \"Khái niệm thuật toán\") gives a textbook definition matching Rosen (tr. 132 PDF): \"Thuật toán là một bảng liệt kê các chỉ dẫn (hay quy tắc) cần thực hiện theo từng bước\". The two 2020 occurrences (bib-leanhvinh-2020 p.34 \"Thuật toán Dijkstra ...\", bib-nguyenhoangthach-2020 p.91 \"Có nhiều thuật toán ...\") are incidental usages, not definitions; per the definitional-attestation tie-break the 2019 definitional row is preferred over the newer incidental mentions, which are listed first only for newest-first ordering. bib-nguyenducnghia-2006 (tr. 77 PDF) explicitly maps the term to English: \"thuật ngữ Thuật toán (Algorithm)\" and lists the characteristic properties (Đầu vào/Input, Đầu ra/Output, Chính xác/Precision, Hữu hạn/Finiteness, Tổng quát/Generality). The candidate \"giải thuật\" returned 0 hits in every source under both strict and loose (OCR-tolerant) search, so it is not attested in this corpus; it is recorded here only as a known synonym used elsewhere in Vietnamese computer-science literature.",
+   "see_also": [
+    "asymptotic-notation",
+    "big-o-notation"
+   ],
+   "vi_terms": [
+    {
+     "term": "thuật toán",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-leanhvinh-2020",
+     "pdf_page": 34,
+     "page": "tr. 34 (PDF)",
+     "snippet": "Thuật toán Dijkstra [33] giúp ta tìm được đường đi ngắn nhất từ"
+    },
+    {
+     "term": "thuật toán",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhoangthach-2020",
+     "pdf_page": 91,
+     "page": "tr. 91 (PDF)",
+     "snippet": "Có nhiều thuật toán tìm đường ngắn nhất giữa hai đỉnh của một đồ thị liên thông."
+    },
+    {
+     "term": "thuật toán",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 132,
+     "page": "tr. 132 (PDF)",
+     "snippet": "Thuật toán là một bảng liệt kê các chỉ dẫn (hay quy tắc) cần thực hiện theo từng bước"
+    },
+    {
+     "term": "thuật toán",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-hoangchithanh-2007",
+     "pdf_page": 5,
+     "page": "tr. 5 (PDF)",
+     "snippet": "tính toán của một thuật toán, sơ đồ một mạng máy tính... Đó là những"
+    },
+    {
+     "term": "thuật toán",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenducnghia-2006",
+     "pdf_page": 77,
+     "page": "tr. 77 (PDF)",
+     "snippet": "Bản thân thuật ngữ Thuật toán (Algorithm) là"
+    }
+   ]
+  },
+  {
+   "id": "antisymmetric-relation",
+   "letter": "A",
+   "headword_en": "Antisymmetric relation",
+   "notation": "aRb \\wedge bRa \\Rightarrow a = b",
+   "rosen_ref": "Rosen §9.1",
+   "definition_vi": "Một quan hệ $$R$$ trên tập $$A$$ được gọi là phản xứng nếu với mọi $$a, b \\in A$$, hễ $$(a, b) \\in R$$ và $$(b, a) \\in R$$ thì $$a = b$$. Nói cách khác, $$R$$ phản xứng khi và chỉ khi $$(aRb \\wedge bRa) \\Rightarrow a = b$$ với mọi $$a, b \\in A$$.",
+   "example_vi": "Xét tập $$A = \\{1, 2, 3\\}$$ và quan hệ $$R = \\{(1, 1), (1, 2), (2, 3)\\}$$ trên $$A$$. Quan hệ này phản xứng vì cặp duy nhất $$(a, b) \\in R$$ mà đồng thời $$(b, a) \\in R$$ là $$(1, 1)$$, và khi đó $$1 = 1$$. Ngược lại, quan hệ $$R' = \\{(1, 2), (2, 1)\\}$$ trên $$A$$ không phản xứng vì $$(1, 2) \\in R'$$ và $$(2, 1) \\in R'$$ nhưng $$1 \\neq 2$$.",
+   "notes": "Hai biến thể được ghi nhận trong kho ngữ liệu, đều chỉ cùng khái niệm này. \"phản xứng\" được chọn làm thuật ngữ chuẩn vì xuất hiện trong nguồn mới nhất (Nguyễn Hữu Điển 2019) kèm chú thích tiếng Anh \"(antisymmetric)\" và điều kiện $$(xRy \\wedge yRx) \\Rightarrow x = y$$. \"phản đối xứng\" là biến thể, được dùng trong định nghĩa quan hệ thứ tự ở Ngô Đắc Tân 2004 (tr. 163) và cũng xuất hiện thay thế cho \"phản xứng\" trong Nguyễn Hữu Điển 2019 (tr. 111). Lưu ý: tuy \"phản đối xứng\" dịch sát nghĩa là \"anti-symmetric\", trong kho ngữ liệu nó vẫn chỉ đúng tính chất phản xứng (antisymmetric) chứ KHÔNG có nghĩa \"không đối xứng\"; cả \"phản xứng\" và \"phản đối xứng\" đều biểu thị cùng điều kiện $$(aRb \\wedge bRa) \\Rightarrow a = b$$. Các nguồn OCR đồ thị (bib-leanhvinh-2020, bib-hoangchithanh-2007) và các nguồn tổ hợp/đồ thị khác (bib-nguyenhoangthach-2020, bib-nguyenducnghia-2006) không có chỗ nào đề cập khái niệm này (đều cho 0 hit ở cả chế độ thường lẫn --loose), phù hợp vì chúng tập trung vào lý thuyết đồ thị chứ không trình bày tính chất quan hệ.",
+   "see_also": [
+    "reflexive-relation",
+    "symmetric-relation",
+    "transitive-relation",
+    "partial-order",
+    "equivalence-relation"
+   ],
+   "vi_terms": [
+    {
+     "term": "phản xứng",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 110,
+     "page": "tr. 110 (PDF)",
+     "snippet": "• Ta nói quan hệ R có tính phản xứng (antisymmetric) nếu và chỉ nếu ( xRy và yRx ) ⇒"
+    },
+    {
+     "term": "phản đối xứng",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 111,
+     "page": "tr. 111 (PDF)",
+     "snippet": "• R không phản đối xứng, vì (1, 2) ∈ R, (2, 1) ∈ R nhưng 2 ̸= 1."
+    },
+    {
+     "term": "phản đối xứng",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-ngodactan-2004",
+     "pdf_page": 163,
+     "page": "tr. 163 (PDF)",
+     "snippet": "(ii) phản đối xứng n ế u v ớ i m ọ i X, y € X t ừ x a y v k y a x s u ý ra"
+    }
+   ]
+  },
+  {
+   "id": "arborescence",
+   "letter": "A",
+   "headword_en": "Arborescence",
+   "notation": "",
+   "rosen_ref": "Rosen §11.1",
+   "definition_vi": "Cây có gốc (theo nghĩa có hướng) là một đồ thị có hướng $$T$$ với một đỉnh đặc biệt $$r$$ gọi là gốc, sao cho với mỗi đỉnh $$v \\neq r$$ tồn tại duy nhất một đường đi có hướng từ $$r$$ đến $$v$$; do đó mỗi đỉnh khác gốc có đúng một cung đi vào. Chính tính duy nhất của đường đi có hướng này phân biệt cây có gốc có hướng với cây có gốc vô hướng thông thường.",
+   "example_vi": "Xét đồ thị có hướng $$T$$ với tập đỉnh $$\\{r, a, b, c\\}$$ và tập cung $$\\{(r,a),(r,b),(b,c)\\}$$. Khi đó $$T$$ là một cây có gốc với gốc $$r$$, vì từ $$r$$ có duy nhất một đường đi có hướng đến mỗi đỉnh $$a$$, $$b$$, $$c$$.",
+   "notes": "Concept = arborescence: a rooted directed tree with a unique directed path from the root to every other vertex. The standard Vietnamese term is \"cây có gốc\", recommended and attested in 2020 sources (newest first). Term-vs-concept caveat: \"cây có gốc\" is also the generic term for an UNDIRECTED rooted tree, so the directed (arborescence) sense must be read from context; the definition above pins the distinguishing property (uniqueness of the directed path). Concept-bearing (directed) attestations: the strongest match is bib-nguyenhoangthach-2020 tr. 84 (PDF), Định nghĩa 6.3, which defines \"cây có gốc\" explicitly as a directed graph ($$\\text{đồ thị có hướng}$$), i.e. precisely an arborescence; bib-leanhvinh-2020 tr. 50 (PDF) reinforces the directed reading (\"n−1 cạnh được định hướng ... cây có gốc\"; also tr. 49 (PDF) \"một góc là cây có gốc\"). Same-term-different-sense attestations (generic UNDIRECTED rooted tree, recorded as variants, NOT as arborescence evidence): bib-nguyenhuudien-2019 tr. 259 (PDF) and bib-nguyenducnghia-2006 tr. 211 (PDF). Vietnamese has no distinct attested term for the directed arborescence: the disambiguating candidates \"cây có gốc có hướng\" (0 hits) and \"cây phân nhánh\" (0 hits) returned no hits in any corpus source under normal or --loose search, so \"cây có gốc\" doubles for both senses. OCR sources bib-leanhvinh-2020 and bib-hoangchithanh-2007 were run with --loose: leanhvinh-2020 confirmed \"cây có gốc\" (with OCR variant \"cây có góc\" on tr. 50, 52 PDF); hoangchithanh-2007 returned no hits for any candidate. see_also: rooted-tree, directed-graph, tree, root-of-a-rooted-tree are cross-chapter forward references; arborescence/acyclic-graph are the same-chapter A neighbors.",
+   "see_also": [
+    "rooted-tree",
+    "directed-graph",
+    "tree",
+    "root-of-a-rooted-tree",
+    "acyclic-graph"
+   ],
+   "vi_terms": [
+    {
+     "term": "cây có gốc",
+     "source_id": "bib-nguyenhoangthach-2020",
+     "pdf_page": 84,
+     "page": "tr. 84 (PDF)",
+     "snippet": "Định nghĩa 6.3. Một cây có gốc là một đồ thị có hướng, trong đó:",
+     "verified": true,
+     "recommended": true
+    },
+    {
+     "term": "cây có gốc",
+     "source_id": "bib-leanhvinh-2020",
+     "pdf_page": 50,
+     "page": "tr. 50 (PDF)",
+     "snippet": "n—1 cạnh được định hướng đến khi thu được một cây có gốc. Tại mỗi",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "cây có gốc",
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 259,
+     "page": "tr. 259 (PDF)",
+     "snippet": "có gốc chỉ gồm một đỉnh và với n = 3, 4, . . . cây có gốc T n được xây dựng từ gốc với Tn−1",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "cây có gốc",
+     "source_id": "bib-nguyenducnghia-2006",
+     "pdf_page": 211,
+     "page": "tr. 211 (PDF)",
+     "snippet": "Chú ý rằng mỗi tập con trong phân hoạch có thể lưu trữ như là một cây có gốc, và khi",
+     "verified": true,
+     "recommended": false
+    }
+   ]
+  },
+  {
+   "id": "arc",
+   "letter": "A",
+   "headword_en": "Arc",
+   "notation": "(u, v)",
+   "rosen_ref": "Rosen §10.2",
+   "definition_vi": "Cung của một đồ thị có hướng $$G$$ là một cạnh có hướng của $$G$$, tức là một cặp đỉnh có thứ tự $$(u, v)$$ với $$u, v \\in V(G)$$, đi từ đỉnh $$u$$ tới đỉnh $$v$$. Đỉnh $$u$$ được gọi là đỉnh đầu và đỉnh $$v$$ được gọi là đỉnh cuối của cung, ký hiệu cung này là $$(u, v)$$.",
+   "example_vi": "Trong đồ thị có hướng $$G$$ với tập đỉnh $$V(G) = \\{u, v\\}$$, cặp có thứ tự $$(u, v)$$ là một cung đi từ $$u$$ tới $$v$$, trong khi $$(v, u)$$ là một cung khác đi từ $$v$$ tới $$u$$.",
+   "notes": "Concept: a directed edge of a directed graph, the ordered pair $$(u, v)$$. The standard Vietnamese term is \"cung\" (arc), used precisely for a directed edge as distinct from \"cạnh\" (edge); recommended, attested in 2020 (nguyenhoangthach p.62 \"cạnh có hướng (hay cung)\", which equates the two terms) and 2019 (nguyenhuudien p.158, giving the exact ordered-pair definition \"(u, v) là một cung của G. Đỉnh u gọi là đỉnh đầu và đỉnh v gọi là đỉnh cuối\"), and across the corpus back to 2004 (ngodactan p.185 \"(a, b) được gọi là cung của G với đỉnh đầu là a, đỉnh cuối là b\"). Defining-sense citations for the variants: \"cạnh có hướng\" (literal calque of \"directed edge\") is defined by the ordered pair in leanhvinh-2020 p.11 (\"Cặp (u,v) được gọi là cạnh có hướng của G đi từ u vào v\"); the longer \"cung của đồ thị có hướng\" appears in ngodactan-2004 p.185 and nguyenducnghia-2006 p.190. Collocational/incidental rows: the \"cạnh có hướng\" rows at nguyenhuudien-2019 p.209 and nguyenducnghia-2006 p.154 record the term used while orienting an undirected edge (replacing each undirected edge by a pair of arcs), not the defining ordered-pair sense; they are retained as attestations of the variant but are weaker terminology evidence than the defining rows and should not be read as independent definitional support. OCR note: leanhvinh-2020 and hoangchithanh-2007 cited snippets came through cleanly in normal mode. Many \"cung\" hits in the corpus are false positives (cung cấp = \"provide\", dây cung = \"chord\"); only directed-edge-sense snippets are recorded. The nguyenhuudien-2019 p.158 snippet carries an OCR spacing artifact (\"cung của G .\") but is substantively identical. The definition_vi mirrors the đỉnh đầu/đỉnh cuối phrasing from nguyenhuudien-2019 p.158; the example is self-contained, introducing only the ordered pairs $$(u,v)$$ and $$(v,u)$$ over the two-vertex set.",
+   "see_also": [
+    "directed-graph",
+    "digraph",
+    "directed-edge",
+    "edge",
+    "initial-vertex",
+    "terminal-vertex"
+   ],
+   "vi_terms": [
+    {
+     "term": "cung",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-nguyenhoangthach-2020",
+     "pdf_page": 62,
+     "page": "tr. 62 (PDF)",
+     "snippet": "một tập hợp E gồm các cạnh có hướng (hay cung), mỗi cạnh đi từ một"
+    },
+    {
+     "term": "cạnh có hướng",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-leanhvinh-2020",
+     "pdf_page": 11,
+     "page": "tr. 11 (PDF)",
+     "snippet": "Cặp (u,v) được gọi là cạnh có hướng của G đi từ u vào v."
+    },
+    {
+     "term": "cung",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 158,
+     "page": "tr. 158 (PDF)",
+     "snippet": "có hướng G nếu (u, v) là một cung của G. Đỉnh u gọi là đỉnh đầu và đỉnh v gọi là đỉnh cuối"
+    },
+    {
+     "term": "cạnh có hướng",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 209,
+     "page": "tr. 209 (PDF)",
+     "snippet": "chỉ cần thay mỗi cạnh vô hướng (u, v) bằng một cặp cạnh có hướng (u, v) và (v, u) với"
+    },
+    {
+     "term": "cạnh có hướng",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-hoangchithanh-2007",
+     "pdf_page": 6,
+     "page": "tr. 6 (PDF)",
+     "snippet": "còn nếu nó có sắp thứ tự thì được gọi là cạnh có hướng. Vì thế, đồ thị"
+    },
+    {
+     "term": "cung",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenducnghia-2006",
+     "pdf_page": 155,
+     "page": "tr. 155 (PDF)",
+     "snippet": "Rất nhiều tính chất của đồ thị có hướng không phụ thuộc vào hướng trên các cung của"
+    },
+    {
+     "term": "cung của đồ thị có hướng",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenducnghia-2006",
+     "pdf_page": 190,
+     "page": "tr. 190 (PDF)",
+     "snippet": "cạnh của đồ thị v hướng cũng như cung của đồ thị có hướng."
+    },
+    {
+     "term": "cạnh có hướng",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenducnghia-2006",
+     "pdf_page": 154,
+     "page": "tr. 154 (PDF)",
+     "snippet": "chiều được thay thế bởi hai cạnh có hướng ngược chiều nhau."
+    },
+    {
+     "term": "cung của đồ thị có hướng",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-ngodactan-2004",
+     "pdf_page": 185,
+     "page": "tr. 185 (PDF)",
+     "snippet": "được gọi là các cung của đồ thị có hướng G. Cụ thề hơn, nếu (a, b) £ E"
+    },
+    {
+     "term": "cung",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-ngodactan-2004",
+     "pdf_page": 185,
+     "page": "tr. 185 (PDF)",
+     "snippet": "thì (a, b) được gọi là cung của G với đỉnh đầu là a, đỉnh cuối là b và có"
+    }
+   ]
+  },
+  {
+   "id": "arithmetic-progression",
+   "letter": "A",
+   "headword_en": "Arithmetic progression",
+   "notation": "a + nd",
+   "rosen_ref": "Rosen §2.4",
+   "definition_vi": "Cấp số cộng là một dãy số có dạng $$a, a+d, a+2d, \\ldots$$, trong đó mỗi số hạng nhận được từ số hạng liền trước bằng cách cộng thêm một số $$d$$ cố định, gọi là công sai. Số hạng tổng quát của dãy, ký hiệu $$a + nd$$, ứng với chỉ số $$n \\geq 0$$.",
+   "example_vi": "Dãy $$3, 7, 11, 15, \\ldots$$ là một cấp số cộng với số hạng đầu $$a = 3$$ và công sai $$d = 4$$; số hạng tổng quát của nó là $$3 + 4n$$.",
+   "notes": "\"cấp số cộng\" is the standard Vietnamese term for arithmetic progression; \"công sai\" is the standard term for the common difference $$d$$. No 2019-2020 attestation exists; the recommended term is therefore cited from the oldest available source where the concept genuinely appears: bib-ngodactan-2004 (tr. 318), in the van der Waerden theorem (a monochromatic arithmetic progression, \"cấp số cộng đơn sắc\"). A second genuine attestation of the same term \"cấp số cộng\" was found in the OCR'd reference translation bib-rosen-2003-vi (PDF page 282), in the context of the sum of the first terms of an arithmetic progression; this corroborates the term but is reference-only and is therefore recorded as verified=true, recommended=false (never the lead term per the registry policy). The current 2019-2020 corpus (bib-leanhvinh-2020, bib-nguyenhoangthach-2020, bib-nguyenhuudien-2019) does not attest this concept; their \"cặp số\" / \"cấp số nhân\" / \"số công\" occurrences are unrelated (pair of numbers, geometric progression, number of tasks/formulas). Both OCR sources (bib-leanhvinh-2020, bib-hoangchithanh-2007) were searched in normal and --loose modes with zero hits.",
+   "see_also": [],
+   "vi_terms": [
+    {
+     "term": "cấp số cộng",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-ngodactan-2004",
+     "pdf_page": 318,
+     "page": "tr. 318 (PDF)",
+     "snippet": "bằng k màu đều có một cấp số cộng đơn sắc gồm p số hạng."
+    },
+    {
+     "term": "cấp số cộng",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-rosen-2003-vi",
+     "pdf_page": 282,
+     "page": "tr. 282 (PDF)",
+     "snippet": "của một cấp số cộng là"
+    }
+   ]
+  },
+  {
+   "id": "articulation-point",
+   "letter": "A",
+   "headword_en": "Articulation point",
+   "notation": "v",
+   "rosen_ref": "Rosen §10.4",
+   "definition_vi": "Một đỉnh $$v$$ của một đồ thị liên thông $$G$$ được gọi là đỉnh cắt nếu việc xoá $$v$$ (cùng với các cạnh kề với nó) làm cho đồ thị không còn liên thông, tức là $$G - v$$ có nhiều thành phần liên thông hơn $$G$$.",
+   "example_vi": "Trong đường đi $$P_3$$ với các đỉnh $$a, b, c$$ và các cạnh $$ab, bc$$, đỉnh $$b$$ là một đỉnh cắt vì $$P_3 - b$$ có hai thành phần liên thông là $$\\{a\\}$$ và $$\\{c\\}$$, trong khi $$a$$ và $$c$$ không phải là đỉnh cắt.",
+   "notes": "Recommended term \"đỉnh cắt\" is attested in the newest 2020 source (bib-leanhvinh-2020, tr. 25, definition: a vertex whose removal yields more connected components, illustrated in \"Hình 1.20: Đỉnh cắt và cạnh cầu\") and is the most widely used standard term across the corpus, also appearing in bib-nguyenhoangthach-2020 (tr. 75), bib-nguyenhuudien-2019 (tr. 169, \"6.30 Đỉnh cắt và cầu\"), and bib-ngodactan-2004 (tr. 266, glossed \"(cutvertex)\"). The lead leanhvinh-2020 p.25 snippet is OCR-mangled (\"phan liên thong\") and a fragment; the cleanest definitional support for \"đỉnh cắt\" is the bib-nguyenhoangthach-2020 tr. 75 row (\"G − v có nhiều thành phần liên thông hơn G\"). Variants: \"đỉnh khớp\" (bib-nguyenhoangthach-2020, tr. 75, given as synonym of \"đỉnh cắt\"); \"điểm khớp\" (bib-nguyenhuudien-2019, tr. 169–170, also given as synonym of \"đỉnh cắt\"); \"đỉnh rẽ nhánh\" (bib-nguyenducnghia-2006, tr. 157, Định nghĩa 5, removal of the vertex with its incident edges disconnects the graph). The compound candidate \"đỉnh cắt (điểm khớp)\" is only a display pairing of the recommended term and its synonym, both already recorded separately. No attestation for any of these terms was found in bib-hoangchithanh-2007 (2007), checked with both normal and --loose OCR queries. Note: do not confuse a single \"đỉnh cắt\" (articulation point) with \"tập đỉnh cắt\"/\"cặp đỉnh cắt\" (vertex cut set), a distinct concept that dominates the later pages of bib-leanhvinh-2020. The example uses $$P_3$$ and connected components, both notions consistent with the definition and not introducing any derived quantity beyond it.",
+   "vi_terms": [
+    {
+     "term": "đỉnh cắt",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-leanhvinh-2020",
+     "pdf_page": 25,
+     "page": "tr. 25 (PDF)",
+     "snippet": "phan liên thong được gọi là đỉnh cắt. Một cạnh phan tách hai đầu mút"
+    },
+    {
+     "term": "đỉnh khớp",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhoangthach-2020",
+     "pdf_page": 75,
+     "page": "tr. 75 (PDF)",
+     "snippet": "cắt, hayđỉnh khớp, của G nếu G − v có nhiều thành phần liên thông hơn G."
+    },
+    {
+     "term": "điểm khớp",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 169,
+     "page": "tr. 169 (PDF)",
+     "snippet": "đỉnh cắt hay điểm khớp. Việc xoá đỉnh cắt khỏi một đồ thị liên thông sẽ tạo ra một đồ thị con"
+    },
+    {
+     "term": "đỉnh rẽ nhánh",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenducnghia-2006",
+     "pdf_page": 157,
+     "page": "tr. 157 (PDF)",
+     "snippet": "Định nghĩa 5. Đính v được gọi là đỉnh rẽ nhánh nếu việc loại bỏ v cùng với các cạnh"
+    }
+   ],
+   "see_also": [
+    "bridge"
+   ]
+  },
+  {
+   "id": "automorphism",
+   "letter": "A",
+   "headword_en": "Automorphism",
+   "notation": "\\mathrm{Aut}(G)",
+   "rosen_ref": "Rosen §10.3",
+   "definition_vi": "Một *tự đẳng cấu* của đồ thị $$G$$ là một đẳng cấu từ $$G$$ vào chính nó, tức là một hoán vị $$\\sigma$$ của tập đỉnh $$V(G)$$ sao cho $$uv \\in E(G)$$ khi và chỉ khi $$\\sigma(u)\\sigma(v) \\in E(G)$$. Tập tất cả các tự đẳng cấu của $$G$$, ký hiệu $$\\mathrm{Aut}(G)$$, lập thành một nhóm đối với phép hợp thành ánh xạ.",
+   "example_vi": "Ánh xạ đồng nhất trên $$V(G)$$ là một tự đẳng cấu của mọi đồ thị $$G$$. Đồ thị đầy đủ $$K_n$$ có $$n!$$ tự đẳng cấu, vì mọi hoán vị của tập đỉnh đều bảo toàn quan hệ kề.",
+   "notes": "Recommended term \"tự đẳng cấu\" is attested for THIS concept (an isomorphism from a graph to itself) in the newest source bib-leanhvinh-2020 (2020), tr. 37 (PDF), which defines it verbatim: \"Tự đẳng cấu của một đồ thị là một đẳng cấu từ một đồ thị vào chính nó\", with further graph usage on tr. 46 (PDF) (the unique automorphism of a tree being the identity). The bib-ngodactan-2004 p.140 row is a same-term-different-domain corroboration, NOT graph-automorphism evidence: it uses the identical Vietnamese term \"tự đẳng cấu\" in an algebraic/geometry setting (automorphisms of a square forming a group). It is retained only to record that the same term is used in the corpus and to corroborate the group structure, not as evidence of the graph sense, which is already attested by leanhvinh-2020 p.37. The longer candidate phrase \"tự đẳng cấu của đồ thị\" returned 0 contiguous hits and is not separately attested. OCR sources bib-hoangchithanh-2007 returned no hits (normal and --loose); bib-leanhvinh-2020 --loose confirmed the same attestations plus index entries (tr. 257–258 PDF, \"tự đẳng cấu, 38\"). No attestation in bib-nguyenhoangthach-2020, bib-nguyenhuudien-2019, or bib-nguyenducnghia-2006. Math symbols in the leanhvinh snippet ($$K_n$$, $$K_{1,n}$$) are OCR-garbled in the source (\"K,, Ki»,\") but the defining sentence is clean. The notation $$\\mathrm{Aut}(G)$$ and the group structure are standard (Rosen §10.3); the group statement is corroborated by bib-ngodactan-2004 tr. 140 (PDF) for the set of automorphisms forming a group under map composition.",
+   "see_also": [
+    "isomorphism",
+    "isomorphic-graphs"
+   ],
+   "vi_terms": [
+    {
+     "term": "tự đẳng cấu",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-leanhvinh-2020",
+     "pdf_page": 37,
+     "page": "tr. 37 (PDF)",
+     "snippet": "Bài tập 1.5. Tự đẳng cấu của một đồ thị là một đẳng cầu từ một đồ thị vào chính nó. Các đồ thị sau có bao nhiều tự đẳng cấu: K,, Ki»,"
+    },
+    {
+     "term": "tự đẳng cấu",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-ngodactan-2004",
+     "pdf_page": 140,
+     "page": "tr. 140 (PDF)",
+     "snippet": "Giả sử G là tập tất cả các tự đẳng cấu của hình vuông. Khi 'đó G là một nhóm đối với phép nhân ánh xạ. Mỗi tự đẳng cấu của hình..."
+    }
+   ]
+  },
+  {
+   "id": "addition-rule",
+   "letter": "A",
+   "headword_en": "Addition rule",
+   "notation": "n_1 + n_2",
+   "rosen_ref": "Rosen §6.1",
+   "definition_vi": "Quy tắc cộng là nguyên lý đếm phát biểu rằng nếu một công việc thứ nhất có thể được thực hiện theo $$n_1$$ cách và một công việc thứ hai có thể được thực hiện theo $$n_2$$ cách, trong đó hai công việc này không thể thực hiện đồng thời, thì có $$n_1 + n_2$$ cách để thực hiện một trong hai công việc đó.",
+   "example_vi": "Nếu một sinh viên có thể chọn một đề tài từ $$23$$ đề tài của môn thứ nhất hoặc một đề tài từ $$15$$ đề tài của môn thứ hai, và không đề tài nào thuộc cả hai môn, thì sinh viên có $$23 + 15 = 38$$ cách chọn một đề tài.",
+   "notes": "Two attested Vietnamese terms denote this concept: \"quy tắc cộng\" (rule of addition) and \"nguyên lý cộng\" (principle of addition). Recommended term \"quy tắc cộng\" is attested in the newest source (bib-nguyenhoangthach-2020, 2020) as a formally numbered rule \"Quy tắc 1.2 (Quy tắc cộng)\", and also in bib-nguyenhuudien-2019. The variant \"nguyên lý cộng\" is the dominant form in older combinatorics texts (bib-nguyenhuudien-2019 §3.2.2, bib-nguyenducnghia-2006 §1.3.1, bib-ngodactan-2004); within bib-nguyenhuudien-2019 (2019) both terms appear (\"nguyên lý cộng\" p.79 and \"quy tắc cộng\" p.83), so the 2019 source uses the two interchangeably. OCR graph sources (bib-leanhvinh-2020, bib-hoangchithanh-2007) returned no hits in normal or --loose search, as expected for graph-theory-focused texts that do not cover this counting principle.",
+   "see_also": [
+    "product-rule"
+   ],
+   "vi_terms": [
+    {
+     "term": "quy tắc cộng",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-nguyenhoangthach-2020",
+     "pdf_page": 15,
+     "page": "tr. 15 (PDF)",
+     "snippet": "Quy tắc 1.2 (Quy tắc cộng). Giả sử một công việc có thể được thực hiện"
+    },
+    {
+     "term": "quy tắc cộng",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 83,
+     "page": "tr. 83 (PDF)",
+     "snippet": "Khi hai công việc có thể được làm đồng thời, ta không thể dùng quy tắc cộng để tính số"
+    },
+    {
+     "term": "nguyên lý cộng",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 79,
+     "page": "tr. 79 (PDF)",
+     "snippet": "Nguyên lý cộng: Giả sử ta phải thực hiện công việc và để thực hiện công việc này ta có thể"
+    },
+    {
+     "term": "nguyên lý cộng",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenducnghia-2006",
+     "pdf_page": 15,
+     "page": "tr. 15 (PDF)",
+     "snippet": "1.3.1. Nguyên lý cộng"
+    },
+    {
+     "term": "nguyên lý cộng",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-ngodactan-2004",
+     "pdf_page": 38,
+     "page": "tr. 38 (PDF)",
+     "snippet": "Theo nguyên lý cộng,"
+    }
+   ]
+  },
+  {
+   "id": "average-degree",
+   "letter": "A",
+   "headword_en": "Average degree",
+   "notation": "\\bar{d}(G) = \\frac{2|E(G)|}{|V(G)|}",
+   "rosen_ref": "Rosen §10.2",
+   "definition_vi": "Bậc trung bình của một đồ thị $$G$$ với tập đỉnh $$V(G)$$ và tập cạnh $$E(G)$$ là trung bình cộng bậc của tất cả các đỉnh, ký hiệu $$\\bar{d}(G)$$ và bằng $$\\displaystyle \\bar{d}(G) = \\frac{2|E(G)|}{|V(G)|}$$.",
+   "example_vi": "Xét đồ thị $$G$$ có $$|V(G)| = 4$$ đỉnh và $$|E(G)| = 5$$ cạnh. Khi đó bậc trung bình của $$G$$ là $$\\displaystyle \\bar{d}(G) = \\frac{2 \\cdot 5}{4} = \\frac{5}{2}$$.",
+   "notes": "Thuật ngữ chỉ được chứng thực trong nguồn 2020 (bib-leanhvinh-2020); các nguồn 2019, 2007, 2006, 2004 không dùng thuật ngữ này (find-term trả 0 kết quả, cả thường lẫn --loose). \"bậc trung bình\" là dạng chuẩn, ngắn gọn, được dùng nhiều nhất (tr. 153: \"Cho đồ thị $$G$$ bậc $$n$$ với bậc trung bình $$d(G) = d$$\"). Dạng dài \"bậc trung bình của đồ thị\" là cùng thuật ngữ kèm bổ ngữ sở hữu, xuất hiện trong văn bản chạy ở tr. 195; chuỗi đầy đủ không khớp chính xác do OCR làm hỏng chữ \"thị\" (\"bậc trung bình của đỏ\"). Vì đây chỉ là cùng thuật ngữ kèm bổ ngữ sở hữu (không phải biến thể độc lập) và đoạn trích bị OCR cắt, nó được giữ lại như một hàng chứng thực phụ chứ không phải bằng chứng thuật ngữ độc lập. Nguồn dùng kí hiệu $$d(G)$$ cho bậc trung bình; ký pháp $$\\bar{d}(G) = \\frac{2|E(G)|}{|V(G)|}$$ theo Rosen §10.2 (do đó đoạn trích nguồn \"d(G) = d\" không hiển thị ký hiệu gạch ngang mà định nghĩa dùng).",
+   "see_also": [
+    "degree-of-a-vertex",
+    "handshaking-theorem"
+   ],
+   "vi_terms": [
+    {
+     "term": "bậc trung bình",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-leanhvinh-2020",
+     "pdf_page": 153,
+     "page": "tr. 153 (PDF)",
+     "snippet": "Bồ đề 6.13. Cho dé thị G bậc n với bậc trung bình d(G) = d và Ơ"
+    },
+    {
+     "term": "bậc trung bình của đồ thị",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-leanhvinh-2020",
+     "pdf_page": 195,
+     "page": "tr. 195 (PDF)",
+     "snippet": "bình của đồ thị nhận được sẽ không nhỏ hơn bậc trung bình của đỏ"
+    }
+   ]
+  },
+  {
+   "id": "ancestor",
+   "letter": "A",
+   "headword_en": "Ancestor",
+   "definition_vi": "Trong một cây có gốc, đỉnh $$u$$ được gọi là tổ tiên của đỉnh $$v$$ nếu $$u$$ nằm trên đường đi duy nhất từ gốc đến $$v$$ và $$u \\neq v$$.",
+   "example_vi": "Xét cây có gốc với gốc $$r$$ và đường đi duy nhất từ $$r$$ đến đỉnh $$v$$ là $$r, a, b, v$$. Khi đó $$r$$, $$a$$ và $$b$$ đều là tổ tiên của $$v$$, còn $$v$$ không phải là tổ tiên của chính nó.",
+   "notation": "",
+   "rosen_ref": "Rosen §11.1",
+   "see_also": [
+    "descendant",
+    "root",
+    "child",
+    "parent"
+   ],
+   "notes": "Recommended term \"tổ tiên\" is attested in the newest source (nguyenhoangthach-2020, tr. 84) with an exact match for this concept: \"u là một tổ tiên của v, v là một hậu duệ của u\" (u is an ancestor of v, v is a descendant of u). The bare noun \"tổ tiên\" also appears inside the construction đỉnh \"tổ tiên\" (the vertex called \"ancestor\") in bib-hoangchithanh-2007 (tr. 138, attested in both normal and --loose modes) and bib-nguyenhuudien-2019 (tr. 252), both contrasting it with đỉnh \"con cháu\" (descendant vertices) in a rooted/hierarchical tree; these are recorded as variants of the same term \"tổ tiên\". The descriptive noun-phrase \"đỉnh tổ tiên\" (lit. \"ancestor vertex\") returned 0 hits as an exact phrase in both normal and --loose modes in all sources, so it is NOT recorded as a separate term; the source uses đỉnh \"tổ tiên\" with quotation marks around the bare noun. Loose-mode hits for \"tờ tiền\" (banknotes) in bib-ngodactan-2004 and combinatorics examples are OCR/false positives and were excluded. No attestation of this concept was found in bib-leanhvinh-2020, bib-nguyenducnghia-2006, or bib-ngodactan-2004. see_also: descendant, root, child, parent are cross-chapter forward references (kept as forward refs per the book-wide convention from chapters C/G); rooted-tree was likewise a cross-chapter forward reference and is omitted here only because it is multi-word in the source discussion, but the four kebab forward-reference ids are retained.",
+   "vi_terms": [
+    {
+     "term": "tổ tiên",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-nguyenhoangthach-2020",
+     "pdf_page": 84,
+     "page": "tr. 84 (PDF)",
+     "snippet": "v thì ta nói u là một tổ tiên của v, v là một hậu duệ của u."
+    },
+    {
+     "term": "tổ tiên",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 252,
+     "page": "tr. 252 (PDF)",
+     "snippet": "chỉ đi từ đỉnh “tổ tiên” xuống các đỉnh “con cháu”."
+    },
+    {
+     "term": "tổ tiên",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-hoangchithanh-2007",
+     "pdf_page": 138,
+     "page": "tr. 138 (PDF)",
+     "snippet": "trong cây phân cấp chỉ đi từ đỉnh \"tổ tiên\" xuống các đỉnh \"con cháu”."
+    }
+   ]
+  },
+  {
+   "id": "antichain",
+   "letter": "A",
+   "headword_en": "Antichain",
+   "notation": "A \\subseteq X",
+   "rosen_ref": "Rosen §9.6",
+   "definition_vi": "Phản xích của một tập sắp thứ tự bộ phận $$X$$ là một tập con $$A \\subseteq X$$ sao cho hai phần tử khác nhau bất kỳ của $$A$$ đều không so sánh được với nhau.",
+   "example_vi": "Cho $$X = \\{2, 3, 4, 9\\}$$ sắp thứ tự theo quan hệ chia hết. Khi đó $$A = \\{2, 3\\}$$ là một phản xích của $$X$$ vì $$2$$ và $$3$$ không so sánh được với nhau, trong khi $$\\{2, 4\\}$$ không phải là phản xích vì $$2 \\mid 4$$.",
+   "notes": "Only bib-ngodactan-2004 attests an antichain term; it uses \"phản xích\" with a full definition on tr. 274 (PDF) — a subset $$A$$ of a poset $$X$$ in which any two distinct elements are incomparable (\"không so sánh được với nhau\"), and Dilworth's theorem on tr. 275 (PDF). The candidate \"phản chuỗi\" returns zero hits in every source (normal and loose), so it is dropped. No 2019-2020 attestation exists; the recommended term \"phản xích\" is therefore cited from the oldest/only available source where the concept genuinely appears (the 2004 source), which is the best available standard attestation.",
+   "see_also": [],
+   "vi_terms": [
+    {
+     "term": "phản xích",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-ngodactan-2004",
+     "pdf_page": 274,
+     "page": "tr. 274 (PDF)",
+     "snippet": "định nghĩa một phản xích. Tập A C X được gọi là một phản xích nếu"
+    }
+   ]
+  },
+  {
+   "id": "asymptotic-notation",
+   "letter": "A",
+   "headword_en": "Asymptotic notation",
+   "notation": "O(g(x)),\\ \\Omega(g(x)),\\ \\Theta(g(x))",
+   "rosen_ref": "Rosen §3.2",
+   "definition_vi": "Các ký hiệu tiệm cận gồm ký hiệu ô lớn $$O$$, ký hiệu Ômêga $$\\Omega$$ và ký hiệu têta $$\\Theta$$, dùng để mô tả tốc độ tăng của một hàm $$f(x)$$ so với một hàm tham chiếu $$g(x)$$ khi $$x \\to \\infty$$. Ký hiệu $$f(x) = O(g(x))$$ chỉ ra rằng $$f$$ tăng không nhanh hơn một bội hằng số của $$g$$, $$f(x) = \\Omega(g(x))$$ chỉ ra rằng $$f$$ tăng không chậm hơn một bội hằng số của $$g$$, và $$f(x) = \\Theta(g(x))$$ chỉ ra rằng $$f$$ và $$g$$ có cùng tốc độ tăng.",
+   "example_vi": "Với $$f(x) = 3x^2 + 2x + 1$$ và $$g(x) = x^2$$, ta có $$f(x) = \\Theta(g(x))$$, vì tồn tại các hằng số dương $$c_1$$, $$c_2$$ và $$k$$ sao cho $$c_1 g(x) \\leq f(x) \\leq c_2 g(x)$$ với mọi $$x \\geq k$$.",
+   "see_also": [],
+   "notes": "Naming discipline (panel fix): \"ký hiệu ô lớn\" names ONLY the $$O$$ symbol (big-O); the three symbols $$O$$, $$\\Omega$$, $$\\Theta$$ together are the asymptotic notations, mirroring the source's distributive naming in bib-nguyenducnghia-2006 (PDF p.85): \"Các biểu thức ... thường được gọi là ký hiệu ô lớn, Ômêga, têta đối với hàm ƒ\", where \"ô\" is the Vietnamese letter-name for O and \"ký hiệu\" applies distributively to all three names (ô lớn = O, Ômêga = Omega, têta = Theta). The O/Omega glosses carry the constant-factor qualifier (\"không nhanh hơn một bội hằng số của g\"), matching the rigor of the $$\\Theta$$ example's $$c_1, c_2, k$$ characterization. No 2019-2020 source supplies a Vietnamese family-name for the asymptotic-notation triple: bib-nguyenhuudien-2019 (2019) introduces only the borrowed English label \"big-O\" — \"Ta viết f(n) = O(g(n)) và còn nói f(n) thoả mãn quan hệ big-O đối với g(n)\" (PDF p.138), with \"đánh giá big-O\" for the corresponding estimate (PDF pp.150-151) — and does not name the Omega or Theta symbols. The recommended term is therefore the oldest available standard Vietnamese umbrella term \"ký hiệu ô lớn\" (together with \"Ômêga\", \"têta\") from bib-nguyenducnghia-2006; in the source snippet the three per-symbol names (ô lớn, Ômêga, têta) jointly constitute the family naming rather than \"ô lớn\" alone, while the 2019 borrowed label big-O is listed first as the newest attestation. The newer 2020 graph sources (bib-leanhvinh-2020, bib-nguyenhoangthach-2020) and the OCR sources only use $$O(\\cdot)$$ in passing for algorithm complexity and do not define or name the asymptotic-notation concept; bib-nguyenhoangthach-2020 explicitly states it does not go deep into algorithm complexity. The lone \"tiệm cận\" hit in bib-nguyenducnghia-2006 (PDF p.48) refers to \"dạng tiệm cận\" of a counting function $$Z(p,n)$$, an unrelated context, so the candidate \"ký hiệu tiệm cận\" is NOT supported by that hit. The unattested standard candidate \"ký hiệu tiệm cận\" returned 0 verbatim hits in every source; per the citation-hygiene rule its empty-page verified=false placeholder was dropped from vi_terms (which stays non-empty via the verified=true rows) and it is recorded here only as a forward-looking, currently-unattested variant. When wrapping symbols, use $$O(g(x))$$, $$\\Omega(g(x))$$, $$\\Theta(g(x))$$. The example is self-contained, illustrating $$\\Theta$$ with the standard constant-pair $$c_1, c_2, k$$ characterization without invoking any quantity not introduced in the definition. see_also is empty: no other A-chapter entry is the natural neighbor of this concept.",
+   "vi_terms": [
+    {
+     "term": "big-O",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhuudien-2019",
+     "page": "tr. 138 (PDF)",
+     "pdf_page": 138,
+     "snippet": "Ta viết f (n) = O( g(n)) và còn nói f (n) thoả mãn quan hệ big-O đối với g(n)."
+    },
+    {
+     "term": "quan hệ big-O",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhuudien-2019",
+     "page": "tr. 138 (PDF)",
+     "pdf_page": 138,
+     "snippet": "Ta viết f (n) = O( g(n)) và còn nói f (n) thoả mãn quan hệ big-O đối với g(n)."
+    },
+    {
+     "term": "đánh giá big-O",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhuudien-2019",
+     "page": "tr. 150 (PDF)",
+     "pdf_page": 150,
+     "snippet": "▷ 5.3. Cho một đánh giá big-O đối với các hàm cho dưới đây. Đối với hàm g( x ) trong đánh"
+    },
+    {
+     "term": "ký hiệu ô lớn",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-nguyenducnghia-2006",
+     "page": "tr. 85 (PDF)",
+     "pdf_page": 85,
+     "snippet": "Các biểu thức ... thường được gọi là ký hiệu ô lớn, Ômêga, têta đối với hàm ƒ."
+    },
+    {
+     "term": "ký hiệu Ômêga",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenducnghia-2006",
+     "page": "tr. 85 (PDF)",
+     "pdf_page": 85,
+     "snippet": "Các biểu thức ... thường được gọi là ký hiệu ô lớn, Ômêga, têta đối với hàm ƒ."
+    },
+    {
+     "term": "ký hiệu têta",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenducnghia-2006",
+     "page": "tr. 85 (PDF)",
+     "pdf_page": 85,
+     "snippet": "Các biểu thức ... thường được gọi là ký hiệu ô lớn, Ômêga, têta đối với hàm ƒ."
+    }
+   ]
+  }
+ ]
+}

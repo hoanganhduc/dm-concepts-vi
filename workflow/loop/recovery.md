@@ -19,3 +19,4 @@
 **Evidence gates:** verified citations carry source_id+pdf_page+snippet; recommended from newest source; definitions checked vs Rosen by the panel; every chapter must build before commit.
 
 - 2026-06-21T15:34:15 done G; next=A; done=2 skipped=0 pending=24
+- 2026-06-21T16:10:02 done A; next=B; done=3 skipped=0 pending=23

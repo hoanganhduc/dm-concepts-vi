@@ -32,15 +32,24 @@ def esc_text(s):
 
 
 def esc_math(s):
-    return s.replace("&", "&amp;").replace("<", "&lt;")
+    # PreTeXt math source: <, >, & must be the XML-safe macros \lt, \gt, \amp.
+    return s.replace("&", " \\amp ").replace("<", " \\lt ").replace(">", " \\gt ")
 
 
 def to_ptx(text):
-    """Convert prose with $$...$$ math into PreTeXt mixed content (<m>...</m>)."""
-    parts = re.split(r"\$\$(.+?)\$\$", text or "", flags=re.S)
-    out = []
-    for i, p in enumerate(parts):
-        out.append("<m>" + esc_math(p.strip()) + "</m>" if i % 2 else esc_text(p))
+    """Convert prose with $$...$$ inline math and ```math fenced blocks into
+    PreTeXt mixed content (<m> inline, <me> display)."""
+    text = text or ""
+    token = re.compile(r"```math\s*(.+?)```|\$\$(.+?)\$\$", re.S)
+    out, last = [], 0
+    for m in token.finditer(text):
+        out.append(esc_text(text[last:m.start()]))
+        if m.group(1) is not None:
+            out.append("<me>" + esc_math(m.group(1).strip()) + "</me>")
+        else:
+            out.append("<m>" + esc_math(m.group(2).strip()) + "</m>")
+        last = m.end()
+    out.append(esc_text(text[last:]))
     return "".join(out)
 
 

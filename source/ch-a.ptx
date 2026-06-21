@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<chapter xml:id="ch-a" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>A</title>
+
+  <introduction>
+    <p>
+      Chương này tập hợp các thuật ngữ tiếng Anh bắt đầu bằng chữ <q>A</q>, kèm
+      định nghĩa và các thuật ngữ tiếng Việt tương ứng cùng trích dẫn nguồn.
+    </p>
+  </introduction>
+
+  <definition xml:id="def-adjacent-vertices">
+    <title>Adjacent vertices — kề nhau</title>
+    <idx><h>adjacent vertices</h></idx>
+    <idx><h>kề nhau</h></idx>
+    <idx><h>liền kề</h></idx>
+    <idx><h>đỉnh kề</h></idx>
+    <notation>
+      <usage><m>u \sim v</m></usage>
+      <description>kề nhau</description>
+    </notation>
+    <statement>
+      <p>Hai đỉnh <m>u</m> và <m>v</m> trong một đồ thị vô hướng <m>G</m> được gọi là *kề nhau* nếu chúng là hai đầu mút của một cạnh chung của <m>G</m>, tức là <m>uv \in E(G)</m>; ký hiệu <m>u \sim v</m> (theo <xref ref="bib-rosen-2019" />, Rosen §10.2).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>kề nhau</term> <xref ref="bib-leanhvinh-2020" /> (tr. 9 (PDF)); <xref ref="bib-nguyenhoangthach-2020" /> (tr. 63 (PDF)); <xref ref="bib-nguyenhuudien-2019" /> (tr. 160 (PDF)); <xref ref="bib-hoangchithanh-2007" /> (tr. 17 (PDF)); <xref ref="bib-nguyenducnghia-2006" /> (tr. 159 (PDF)); <xref ref="bib-ngodactan-2004" /> (tr. 186 (PDF)) — cách dùng phổ biến.</p></li>
+        <li><p><term>liền kề</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 157 (PDF)).</p></li>
+        <li><p><term>đỉnh kề</term> <xref ref="bib-hoangchithanh-2007" /> (tr. 8 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Trong đồ thị <m>G</m> với tập đỉnh <m>V(G) = \{a, b, c\}</m> và tập cạnh <m>E(G) = \{ab, bc\}</m>, hai đỉnh <m>a</m> và <m>b</m> kề nhau vì <m>ab \in E(G)</m>, trong khi <m>a</m> và <m>c</m> không kề nhau vì <m>ac \notin E(G)</m>.</p>
+      <p>Xem thêm <xref ref="def-adjacency-matrix" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-adjacency-matrix">
+    <title>Adjacency matrix — ma trận kề</title>
+    <idx><h>adjacency matrix</h></idx>
+    <idx><h>ma trận kề</h></idx>
+    <idx><h>ma trận liền kề</h></idx>
+    <notation>
+      <usage><m>A = [a_{ij}]</m></usage>
+      <description>ma trận kề</description>
+    </notation>
+    <statement>
+      <p>Ma trận kề của một đồ thị có tập đỉnh <m>\{v_1, v_2, \ldots, v_n\}</m>, ký hiệu <m>A = [a_{ij}]</m>, là ma trận vuông cấp <m>n</m> trong đó phần tử <m>a_{ij}</m> bằng số cạnh nối đỉnh <m>v_i</m> với đỉnh <m>v_j</m>. Với một đơn đồ thị, <m>a_{ij} = 1</m> nếu <m>v_i</m> và <m>v_j</m> kề nhau và <m>a_{ij} = 0</m> nếu ngược lại (theo <xref ref="bib-rosen-2019" />, Rosen §10.3).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>ma trận kề</term> <xref ref="bib-leanhvinh-2020" /> (tr. 54 (PDF)); <xref ref="bib-nguyenhoangthach-2020" /> (tr. 66 (PDF)); <xref ref="bib-hoangchithanh-2007" /> (tr. 9 (PDF)); <xref ref="bib-nguyenducnghia-2006" /> (tr. 169 (PDF)); <xref ref="bib-ngodactan-2004" /> (tr. 220 (PDF)) — cách dùng phổ biến.</p></li>
+        <li><p><term>ma trận liền kề</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 163 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Xét đồ thị có tập đỉnh <m>\{v_1, v_2, v_3\}</m> với các cạnh <m>v_1 v_2</m> và <m>v_2 v_3</m>. Ma trận kề của nó là
+<me>A = \begin{bmatrix} 0  \amp  1  \amp  0 \\ 1  \amp  0  \amp  1 \\ 0  \amp  1  \amp  0 \end{bmatrix}.</me></p>
+      <p>Xem thêm <xref ref="def-adjacent-vertices" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-acyclic-graph">
+    <title>Acyclic graph — đồ thị phi chu trình</title>
+    <idx><h>acyclic graph</h></idx>
+    <idx><h>không có chu trình</h></idx>
+    <idx><h>phi chu trình</h></idx>
+    <idx><h>đồ thị không có chu trình</h></idx>
+    <idx><h>đồ thị phi chu trình</h></idx>
+    <statement>
+      <p>Trong một đồ thị vô hướng <m>G</m>, đồ thị phi chu trình là một đồ thị không chứa chu trình nào. Một đồ thị vô hướng liên thông và phi chu trình chính là một cây, còn một đồ thị vô hướng (không nhất thiết liên thông) phi chu trình là một rừng (theo <xref ref="bib-rosen-2019" />, Rosen §10.4).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>đồ thị phi chu trình</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 226 (PDF)) — cách dùng phổ biến.</p></li>
+        <li><p><term>không có chu trình</term> <xref ref="bib-hoangchithanh-2007" /> (tr. 123 (PDF)).</p></li>
+        <li><p><term>phi chu trình</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 226 (PDF)).</p></li>
+        <li><p><term>đồ thị không có chu trình</term> <xref ref="bib-nguyenducnghia-2006" /> (tr. 230 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Mọi cây và mọi rừng đều là đồ thị phi chu trình. Đồ thị đầy đủ <m>K_3</m> với các cạnh <m>ab, bc, ca</m> không phải là đồ thị phi chu trình, vì dãy đỉnh <m>a, b, c, a</m> tạo thành một chu trình.</p>
+      <p>Xem thêm <xref ref="def-arborescence" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-algorithm">
+    <title>Algorithm — thuật toán</title>
+    <idx><h>algorithm</h></idx>
+    <idx><h>thuật toán</h></idx>
+    <statement>
+      <p>Thuật toán là một dãy hữu hạn các chỉ dẫn (hay quy tắc) chính xác, rõ ràng, được thực hiện theo từng bước để giải một bài toán hoặc thực hiện một phép tính. Một thuật toán thường được đặc trưng bởi các tính chất đầu vào, đầu ra, tính chính xác, tính hữu hạn và tính tổng quát (theo <xref ref="bib-rosen-2019" />, Rosen §3.1).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>thuật toán</term> <xref ref="bib-leanhvinh-2020" /> (tr. 34 (PDF)); <xref ref="bib-nguyenhoangthach-2020" /> (tr. 91 (PDF)); <xref ref="bib-nguyenhuudien-2019" /> (tr. 132 (PDF)); <xref ref="bib-hoangchithanh-2007" /> (tr. 5 (PDF)); <xref ref="bib-nguyenducnghia-2006" /> (tr. 77 (PDF)) — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Thuật toán tìm phần tử lớn nhất trong một dãy hữu hạn các số nguyên <m>a_1, a_2, \ldots, a_n</m>: khởi tạo giá trị lớn nhất tạm thời bằng <m>a_1</m>, rồi lần lượt so sánh với từng <m>a_i</m> và cập nhật giá trị lớn nhất tạm thời mỗi khi gặp <m>a_i</m> lớn hơn; sau khi duyệt hết dãy, giá trị lớn nhất tạm thời chính là phần tử lớn nhất.</p>
+      <p>Xem thêm <xref ref="def-asymptotic-notation" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-antisymmetric-relation">
+    <title>Antisymmetric relation — phản xứng</title>
+    <idx><h>antisymmetric relation</h></idx>
+    <idx><h>phản xứng</h></idx>
+    <idx><h>phản đối xứng</h></idx>
+    <notation>
+      <usage><m>aRb \wedge bRa \Rightarrow a = b</m></usage>
+      <description>phản xứng</description>
+    </notation>
+    <statement>
+      <p>Một quan hệ <m>R</m> trên tập <m>A</m> được gọi là phản xứng nếu với mọi <m>a, b \in A</m>, hễ <m>(a, b) \in R</m> và <m>(b, a) \in R</m> thì <m>a = b</m>. Nói cách khác, <m>R</m> phản xứng khi và chỉ khi <m>(aRb \wedge bRa) \Rightarrow a = b</m> với mọi <m>a, b \in A</m> (theo <xref ref="bib-rosen-2019" />, Rosen §9.1).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>phản xứng</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 110 (PDF)) — cách dùng phổ biến.</p></li>
+        <li><p><term>phản đối xứng</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 111 (PDF)); <xref ref="bib-ngodactan-2004" /> (tr. 163 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Xét tập <m>A = \{1, 2, 3\}</m> và quan hệ <m>R = \{(1, 1), (1, 2), (2, 3)\}</m> trên <m>A</m>. Quan hệ này phản xứng vì cặp duy nhất <m>(a, b) \in R</m> mà đồng thời <m>(b, a) \in R</m> là <m>(1, 1)</m>, và khi đó <m>1 = 1</m>. Ngược lại, quan hệ <m>R' = \{(1, 2), (2, 1)\}</m> trên <m>A</m> không phản xứng vì <m>(1, 2) \in R'</m> và <m>(2, 1) \in R'</m> nhưng <m>1 \neq 2</m>.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-arborescence">
+    <title>Arborescence — cây có gốc</title>
+    <idx><h>arborescence</h></idx>
+    <idx><h>cây có gốc</h></idx>
+    <statement>
+      <p>Cây có gốc (theo nghĩa có hướng) là một đồ thị có hướng <m>T</m> với một đỉnh đặc biệt <m>r</m> gọi là gốc, sao cho với mỗi đỉnh <m>v \neq r</m> tồn tại duy nhất một đường đi có hướng từ <m>r</m> đến <m>v</m>; do đó mỗi đỉnh khác gốc có đúng một cung đi vào. Chính tính duy nhất của đường đi có hướng này phân biệt cây có gốc có hướng với cây có gốc vô hướng thông thường (theo <xref ref="bib-rosen-2019" />, Rosen §11.1).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>cây có gốc</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 84 (PDF)); <xref ref="bib-leanhvinh-2020" /> (tr. 50 (PDF)); <xref ref="bib-nguyenhuudien-2019" /> (tr. 259 (PDF)); <xref ref="bib-nguyenducnghia-2006" /> (tr. 211 (PDF)) — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Xét đồ thị có hướng <m>T</m> với tập đỉnh <m>\{r, a, b, c\}</m> và tập cung <m>\{(r,a),(r,b),(b,c)\}</m>. Khi đó <m>T</m> là một cây có gốc với gốc <m>r</m>, vì từ <m>r</m> có duy nhất một đường đi có hướng đến mỗi đỉnh <m>a</m>, <m>b</m>, <m>c</m>.</p>
+      <p>Xem thêm <xref ref="def-acyclic-graph" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-arc">
+    <title>Arc — cung</title>
+    <idx><h>arc</h></idx>
+    <idx><h>cung</h></idx>
+    <idx><h>cung của đồ thị có hướng</h></idx>
+    <idx><h>cạnh có hướng</h></idx>
+    <notation>
+      <usage><m>(u, v)</m></usage>
+      <description>cung</description>
+    </notation>
+    <statement>
+      <p>Cung của một đồ thị có hướng <m>G</m> là một cạnh có hướng của <m>G</m>, tức là một cặp đỉnh có thứ tự <m>(u, v)</m> với <m>u, v \in V(G)</m>, đi từ đỉnh <m>u</m> tới đỉnh <m>v</m>. Đỉnh <m>u</m> được gọi là đỉnh đầu và đỉnh <m>v</m> được gọi là đỉnh cuối của cung, ký hiệu cung này là <m>(u, v)</m> (theo <xref ref="bib-rosen-2019" />, Rosen §10.2).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>cung</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 62 (PDF)); <xref ref="bib-nguyenhuudien-2019" /> (tr. 158 (PDF)); <xref ref="bib-nguyenducnghia-2006" /> (tr. 155 (PDF)); <xref ref="bib-ngodactan-2004" /> (tr. 185 (PDF)) — cách dùng phổ biến.</p></li>
+        <li><p><term>cung của đồ thị có hướng</term> <xref ref="bib-nguyenducnghia-2006" /> (tr. 190 (PDF)); <xref ref="bib-ngodactan-2004" /> (tr. 185 (PDF)).</p></li>
+        <li><p><term>cạnh có hướng</term> <xref ref="bib-leanhvinh-2020" /> (tr. 11 (PDF)); <xref ref="bib-nguyenhuudien-2019" /> (tr. 209 (PDF)); <xref ref="bib-hoangchithanh-2007" /> (tr. 6 (PDF)); <xref ref="bib-nguyenducnghia-2006" /> (tr. 154 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Trong đồ thị có hướng <m>G</m> với tập đỉnh <m>V(G) = \{u, v\}</m>, cặp có thứ tự <m>(u, v)</m> là một cung đi từ <m>u</m> tới <m>v</m>, trong khi <m>(v, u)</m> là một cung khác đi từ <m>v</m> tới <m>u</m>.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-arithmetic-progression">
+    <title>Arithmetic progression — cấp số cộng</title>
+    <idx><h>arithmetic progression</h></idx>
+    <idx><h>cấp số cộng</h></idx>
+    <notation>
+      <usage><m>a + nd</m></usage>
+      <description>cấp số cộng</description>
+    </notation>
+    <statement>
+      <p>Cấp số cộng là một dãy số có dạng <m>a, a+d, a+2d, \ldots</m>, trong đó mỗi số hạng nhận được từ số hạng liền trước bằng cách cộng thêm một số <m>d</m> cố định, gọi là công sai. Số hạng tổng quát của dãy, ký hiệu <m>a + nd</m>, ứng với chỉ số <m>n \geq 0</m> (theo <xref ref="bib-rosen-2019" />, Rosen §2.4).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>cấp số cộng</term> <xref ref="bib-ngodactan-2004" /> (tr. 318 (PDF)); <xref ref="bib-rosen-2003-vi" /> (tr. 282 (PDF)) — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Dãy <m>3, 7, 11, 15, \ldots</m> là một cấp số cộng với số hạng đầu <m>a = 3</m> và công sai <m>d = 4</m>; số hạng tổng quát của nó là <m>3 + 4n</m>.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-articulation-point">
+    <title>Articulation point — đỉnh cắt</title>
+    <idx><h>articulation point</h></idx>
+    <idx><h>điểm khớp</h></idx>
+    <idx><h>đỉnh cắt</h></idx>
+    <idx><h>đỉnh khớp</h></idx>
+    <idx><h>đỉnh rẽ nhánh</h></idx>
+    <notation>
+      <usage><m>v</m></usage>
+      <description>đỉnh cắt</description>
+    </notation>
+    <statement>
+      <p>Một đỉnh <m>v</m> của một đồ thị liên thông <m>G</m> được gọi là đỉnh cắt nếu việc xoá <m>v</m> (cùng với các cạnh kề với nó) làm cho đồ thị không còn liên thông, tức là <m>G - v</m> có nhiều thành phần liên thông hơn <m>G</m> (theo <xref ref="bib-rosen-2019" />, Rosen §10.4).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>đỉnh cắt</term> <xref ref="bib-leanhvinh-2020" /> (tr. 25 (PDF)) — cách dùng phổ biến.</p></li>
+        <li><p><term>điểm khớp</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 169 (PDF)).</p></li>
+        <li><p><term>đỉnh khớp</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 75 (PDF)).</p></li>
+        <li><p><term>đỉnh rẽ nhánh</term> <xref ref="bib-nguyenducnghia-2006" /> (tr. 157 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Trong đường đi <m>P_3</m> với các đỉnh <m>a, b, c</m> và các cạnh <m>ab, bc</m>, đỉnh <m>b</m> là một đỉnh cắt vì <m>P_3 - b</m> có hai thành phần liên thông là <m>\{a\}</m> và <m>\{c\}</m>, trong khi <m>a</m> và <m>c</m> không phải là đỉnh cắt.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-automorphism">
+    <title>Automorphism — tự đẳng cấu</title>
+    <idx><h>automorphism</h></idx>
+    <idx><h>tự đẳng cấu</h></idx>
+    <notation>
+      <usage><m>\mathrm{Aut}(G)</m></usage>
+      <description>tự đẳng cấu</description>
+    </notation>
+    <statement>
+      <p>Một *tự đẳng cấu* của đồ thị <m>G</m> là một đẳng cấu từ <m>G</m> vào chính nó, tức là một hoán vị <m>\sigma</m> của tập đỉnh <m>V(G)</m> sao cho <m>uv \in E(G)</m> khi và chỉ khi <m>\sigma(u)\sigma(v) \in E(G)</m>. Tập tất cả các tự đẳng cấu của <m>G</m>, ký hiệu <m>\mathrm{Aut}(G)</m>, lập thành một nhóm đối với phép hợp thành ánh xạ (theo <xref ref="bib-rosen-2019" />, Rosen §10.3).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>tự đẳng cấu</term> <xref ref="bib-leanhvinh-2020" /> (tr. 37 (PDF)); <xref ref="bib-ngodactan-2004" /> (tr. 140 (PDF)) — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Ánh xạ đồng nhất trên <m>V(G)</m> là một tự đẳng cấu của mọi đồ thị <m>G</m>. Đồ thị đầy đủ <m>K_n</m> có <m>n!</m> tự đẳng cấu, vì mọi hoán vị của tập đỉnh đều bảo toàn quan hệ kề.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-addition-rule">
+    <title>Addition rule — quy tắc cộng</title>
+    <idx><h>addition rule</h></idx>
+    <idx><h>nguyên lý cộng</h></idx>
+    <idx><h>quy tắc cộng</h></idx>
+    <notation>
+      <usage><m>n_1 + n_2</m></usage>
+      <description>quy tắc cộng</description>
+    </notation>
+    <statement>
+      <p>Quy tắc cộng là nguyên lý đếm phát biểu rằng nếu một công việc thứ nhất có thể được thực hiện theo <m>n_1</m> cách và một công việc thứ hai có thể được thực hiện theo <m>n_2</m> cách, trong đó hai công việc này không thể thực hiện đồng thời, thì có <m>n_1 + n_2</m> cách để thực hiện một trong hai công việc đó (theo <xref ref="bib-rosen-2019" />, Rosen §6.1).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>quy tắc cộng</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 15 (PDF)); <xref ref="bib-nguyenhuudien-2019" /> (tr. 83 (PDF)) — cách dùng phổ biến.</p></li>
+        <li><p><term>nguyên lý cộng</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 79 (PDF)); <xref ref="bib-nguyenducnghia-2006" /> (tr. 15 (PDF)); <xref ref="bib-ngodactan-2004" /> (tr. 38 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Nếu một sinh viên có thể chọn một đề tài từ <m>23</m> đề tài của môn thứ nhất hoặc một đề tài từ <m>15</m> đề tài của môn thứ hai, và không đề tài nào thuộc cả hai môn, thì sinh viên có <m>23 + 15 = 38</m> cách chọn một đề tài.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-average-degree">
+    <title>Average degree — bậc trung bình</title>
+    <idx><h>average degree</h></idx>
+    <idx><h>bậc trung bình</h></idx>
+    <idx><h>bậc trung bình của đồ thị</h></idx>
+    <notation>
+      <usage><m>\bar{d}(G) = \frac{2|E(G)|}{|V(G)|}</m></usage>
+      <description>bậc trung bình</description>
+    </notation>
+    <statement>
+      <p>Bậc trung bình của một đồ thị <m>G</m> với tập đỉnh <m>V(G)</m> và tập cạnh <m>E(G)</m> là trung bình cộng bậc của tất cả các đỉnh, ký hiệu <m>\bar{d}(G)</m> và bằng <m>\displaystyle \bar{d}(G) = \frac{2|E(G)|}{|V(G)|}</m> (theo <xref ref="bib-rosen-2019" />, Rosen §10.2).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>bậc trung bình</term> <xref ref="bib-leanhvinh-2020" /> (tr. 153 (PDF)) — cách dùng phổ biến.</p></li>
+        <li><p><term>bậc trung bình của đồ thị</term> <xref ref="bib-leanhvinh-2020" /> (tr. 195 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Xét đồ thị <m>G</m> có <m>|V(G)| = 4</m> đỉnh và <m>|E(G)| = 5</m> cạnh. Khi đó bậc trung bình của <m>G</m> là <m>\displaystyle \bar{d}(G) = \frac{2 \cdot 5}{4} = \frac{5}{2}</m>.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-ancestor">
+    <title>Ancestor — tổ tiên</title>
+    <idx><h>ancestor</h></idx>
+    <idx><h>tổ tiên</h></idx>
+    <statement>
+      <p>Trong một cây có gốc, đỉnh <m>u</m> được gọi là tổ tiên của đỉnh <m>v</m> nếu <m>u</m> nằm trên đường đi duy nhất từ gốc đến <m>v</m> và <m>u \neq v</m> (theo <xref ref="bib-rosen-2019" />, Rosen §11.1).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>tổ tiên</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 84 (PDF)); <xref ref="bib-nguyenhuudien-2019" /> (tr. 252 (PDF)); <xref ref="bib-hoangchithanh-2007" /> (tr. 138 (PDF)) — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Xét cây có gốc với gốc <m>r</m> và đường đi duy nhất từ <m>r</m> đến đỉnh <m>v</m> là <m>r, a, b, v</m>. Khi đó <m>r</m>, <m>a</m> và <m>b</m> đều là tổ tiên của <m>v</m>, còn <m>v</m> không phải là tổ tiên của chính nó.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-antichain">
+    <title>Antichain — phản xích</title>
+    <idx><h>antichain</h></idx>
+    <idx><h>phản xích</h></idx>
+    <notation>
+      <usage><m>A \subseteq X</m></usage>
+      <description>phản xích</description>
+    </notation>
+    <statement>
+      <p>Phản xích của một tập sắp thứ tự bộ phận <m>X</m> là một tập con <m>A \subseteq X</m> sao cho hai phần tử khác nhau bất kỳ của <m>A</m> đều không so sánh được với nhau (theo <xref ref="bib-rosen-2019" />, Rosen §9.6).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>phản xích</term> <xref ref="bib-ngodactan-2004" /> (tr. 274 (PDF)) — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Cho <m>X = \{2, 3, 4, 9\}</m> sắp thứ tự theo quan hệ chia hết. Khi đó <m>A = \{2, 3\}</m> là một phản xích của <m>X</m> vì <m>2</m> và <m>3</m> không so sánh được với nhau, trong khi <m>\{2, 4\}</m> không phải là phản xích vì <m>2 \mid 4</m>.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-asymptotic-notation">
+    <title>Asymptotic notation — ký hiệu ô lớn</title>
+    <idx><h>asymptotic notation</h></idx>
+    <idx><h>big-O</h></idx>
+    <idx><h>ký hiệu têta</h></idx>
+    <idx><h>ký hiệu Ômêga</h></idx>
+    <idx><h>ký hiệu ô lớn</h></idx>
+    <idx><h>quan hệ big-O</h></idx>
+    <idx><h>đánh giá big-O</h></idx>
+    <notation>
+      <usage><m>O(g(x)),\ \Omega(g(x)),\ \Theta(g(x))</m></usage>
+      <description>ký hiệu ô lớn</description>
+    </notation>
+    <statement>
+      <p>Các ký hiệu tiệm cận gồm ký hiệu ô lớn <m>O</m>, ký hiệu Ômêga <m>\Omega</m> và ký hiệu têta <m>\Theta</m>, dùng để mô tả tốc độ tăng của một hàm <m>f(x)</m> so với một hàm tham chiếu <m>g(x)</m> khi <m>x \to \infty</m>. Ký hiệu <m>f(x) = O(g(x))</m> chỉ ra rằng <m>f</m> tăng không nhanh hơn một bội hằng số của <m>g</m>, <m>f(x) = \Omega(g(x))</m> chỉ ra rằng <m>f</m> tăng không chậm hơn một bội hằng số của <m>g</m>, và <m>f(x) = \Theta(g(x))</m> chỉ ra rằng <m>f</m> và <m>g</m> có cùng tốc độ tăng (theo <xref ref="bib-rosen-2019" />, Rosen §3.2).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>ký hiệu ô lớn</term> <xref ref="bib-nguyenducnghia-2006" /> (tr. 85 (PDF)) — cách dùng phổ biến.</p></li>
+        <li><p><term>big-O</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 138 (PDF)).</p></li>
+        <li><p><term>ký hiệu têta</term> <xref ref="bib-nguyenducnghia-2006" /> (tr. 85 (PDF)).</p></li>
+        <li><p><term>ký hiệu Ômêga</term> <xref ref="bib-nguyenducnghia-2006" /> (tr. 85 (PDF)).</p></li>
+        <li><p><term>quan hệ big-O</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 138 (PDF)).</p></li>
+        <li><p><term>đánh giá big-O</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 150 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Với <m>f(x) = 3x^2 + 2x + 1</m> và <m>g(x) = x^2</m>, ta có <m>f(x) = \Theta(g(x))</m>, vì tồn tại các hằng số dương <m>c_1</m>, <m>c_2</m> và <m>k</m> sao cho <m>c_1 g(x) \leq f(x) \leq c_2 g(x)</m> với mọi <m>x \geq k</m>.</p>
+    </statement>
+  </definition>
+</chapter>

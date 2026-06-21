@@ -26,8 +26,9 @@ ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)
 
 def esc_text(s):
     s = s.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
-    # LaTeX emphasis habits from drafters -> PreTeXt <em>
+    # LaTeX / markdown emphasis habits from drafters -> PreTeXt <em>
     s = re.sub(r"\\(?:emph|textit|textbf)\{([^{}]*)\}", r"<em>\1</em>", s)
+    s = re.sub(r"\*([^*\n]{1,80}?)\*", r"<em>\1</em>", s)
     return s
 
 

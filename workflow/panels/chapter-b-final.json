@@ -1,0 +1,885 @@
+{
+ "locked_conventions": [
+  "Math delimiters: every inline mathematical symbol (G, u, v, n, K_n, \\chi(G), \\binom{n}{k}, set braces, ordered pairs, \\gcd(a,b), R \\subseteq A \\times B, etc.) is wrapped in $$...$$ inside definition_vi and example_vi. No bare unwrapped math is left in the prose fields. Block math uses a ```math fence.",
+  "Inequalities and relations: ASCII '>=', '<=', '!=' are forbidden in finished prose; use $$\\geq$$, $$\\leq$$, $$\\neq$$ (and $$\\mid$$ for divisibility). No ASCII operators appear in any B-chapter prose field.",
+  "Term emphasis: the first introduction of a defined headword in definition_vi uses Markdown asterisk emphasis (*term*), never a math-mode wrapper such as $$\\textit{...}$$. Genuine symbols stay inside $$...$$.",
+  "Bipartite is rendered 'đồ thị hai phần' (book standard); 'đồ thị hai phía' and 'đồ thị phân đôi' are listed variants only.",
+  "Exactly one vi_term per entry has recommended=true. The recommended term is, whenever possible, a verified=true term attested in a 2019-2020 source; the tie-break is the newest source that gives a DEFINITIONAL (not merely incidental) attestation, and vi_terms rows are ordered newest-first. When no 2019-2020 source attests the concept, the recommended term is taken from the oldest/only available source where the concept genuinely appears, stated explicitly in notes. A recommended term may be verified=false only when no corpus source attests any candidate (then the unverified status is explained in notes). Every variant from all sources, old and new, is still recorded.",
+  "Citation hygiene: every verified=true vi_term carries source_id, pdf_page, page, and a quoted snippet. vi_terms with verified=false AND empty page are dropped, except a single recommended standard term retained to keep vi_terms non-empty and preserve the single-recommendation invariant. Diacritics-insensitive (--loose) search confirms hits/0-hits on this scanned-PDF corpus; OCR-mangled snippets are preserved honestly and flagged in notes.",
+  "Examples are self-contained: an example_vi never relies on a derived quantity the definition_vi did not introduce, unless that quantity is defined inline in the example first.",
+  "No synonym glosses are placed inside a definition; variants live in vi_terms and notes. Terms denoting a related-but-distinct concept are recorded in notes as cross-references, not as vi_terms rows of the headword.",
+  "see_also uses kebab-case ids. In-chapter (letter-B) ids are in-lexicon links; ids outside chapter B are kept as cross-chapter forward references to be created in their own letter chapters (consistent with chapters A, C, and G). The notation field stores bare LaTeX (no $$ wrapping), matching the book-wide convention."
+ ],
+ "deferred_note": "Editorial pass applied only the panel's clearly-correct fixes. CORRECTNESS: (1) boundary (med) — definition_vi changed from 'chu trình đóng' (always a cycle) to the general closed-walk notion ('chu trình đóng (closed walk)') with the bridge caveat that an edge may be traversed twice; the K_4 example is retained as a valid cycle instance (a triangle is a closed walk), phrased to stay consistent with the softened definition and matching the closed-walk forward reference already in see_also. (2) block (low) — 'cực đại' re-scoped to the 2-connected alternative ('cầu hoặc một đồ thị con $$2$$-liên thông cực đại của $$G$$'), matching the ngodactan-2004 snippet; the primary maximal-connected-no-cut-vertex clause is kept; the example now states the vertex-set extension explicitly ($$G' = G + uw$$ với $$V(G') = V(G) \\cup \\{w\\}$$). TERMINOLOGY: (3) binomial-theorem (high) — the recommended 'định lý nhị thức' row is re-anchored to the newest source bib-nguyenhoangthach-2020 tr. 47 (verified via find-term: snippet 'sử dụng Định lý nhị thức'); the 2019 nguyenhuudien-2019 tr. 89 occurrence is kept as a recommended=false row. (4) boolean-algebra (med) — concept-mismatched rows 'đại số logic'/'đại số lôgic' (propositional-logic / Boolean-function senses) moved out of vi_terms into notes as related-concept cross-references; the single recommended verified=false 'đại số Boole' row is retained to keep vi_terms non-empty per the no-attestation rule. (5) block (med) — 'song liên thông' (graph biconnectivity property, concept mismatch) demoted from a vi_terms row to a notes-only related-property reference; 'khối' (2004) stays recommended and 'đồ thị con 2-liên thông cực đại' stays as the descriptive variant. (6) bound (low) — the recommended head term 'cận' is re-anchored from bib-ngodactan-2004 tr. 22 (generic counting bound) to tr. 164, the poset upper/lower-bound definition page (verified: 'được gọi là cận trên cho A trong X'), so the recommended citation matches the headword's poset sense; the prior tr. 22 occurrence is kept as a recommended=false supporting row. EXPOSITION: (7) boolean-algebra (high) — '$$\\textit{đại số Boole}$$' replaced with asterisk emphasis '*đại số Boole*'. (8) binary-tree and binary-search-tree (med) — notation field normalized from '$$T$$' to bare 'T' to match the book-wide bare-LaTeX storage convention. (9) binary-search-tree (low) — the ~70-word example sentence split into four shorter sentences. NOT CHANGED (judgment calls, not clearly-correct): ball rosen_ref §9.1 (no confirmed correct Rosen section for a metric ball; flagged in notes only); see_also list trims (bound poset/partial-order redundancy, ball emptiness) left intact; OCR snippets preserved verbatim per honesty policy. All verified=true vi_terms retain source_id+pdf_page+page+snippet; no unverifiable non-recommended citation remains; exactly one recommended=true per entry.",
+ "final_entries": [
+  {
+   "id": "bijection",
+   "letter": "B",
+   "headword_en": "Bijection",
+   "notation": "f : A \\to B",
+   "rosen_ref": "Rosen §2.3",
+   "definition_vi": "Song ánh là một ánh xạ $$f : A \\to B$$ vừa đơn ánh vừa toàn ánh, nghĩa là mỗi phần tử của tập đích $$B$$ là ảnh của đúng một phần tử của tập nguồn $$A$$. Khi đó $$f$$ có ánh xạ ngược $$f^{-1} : B \\to A$$.",
+   "example_vi": "Ánh xạ $$f : \\mathbb{Z} \\to \\mathbb{Z}$$ cho bởi $$f(x) = x + 1$$ là một song ánh, vì mỗi số nguyên $$y$$ là ảnh của đúng một số nguyên $$x = y - 1$$.",
+   "notes": "Recommended term \"song ánh\" is the standard term, attested in both newest 2020 sources (bib-leanhvinh-2020, bib-nguyenhoangthach-2020) and the 2019 source (bib-nguyenhuudien-2019), as well as in all older sources. Variant \"tương ứng một-một\" is explicitly glossed as equivalent to \"song ánh\" in bib-nguyenhuudien-2019 p. 82 (\"sự tương ứng một-một (song ánh)\"). Variant \"tương ứng 1-1\" is the numeral spelling of the same notion. The candidate \"ánh xạ song ánh\" returned 0 hits across all sources (normal and loose) and is not retained.",
+   "see_also": [
+    "injection",
+    "surjection",
+    "function-domain-codomain",
+    "inverse-function",
+    "graph-isomorphism"
+   ],
+   "vi_terms": [
+    {
+     "term": "song ánh",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-leanhvinh-2020",
+     "pdf_page": 12,
+     "page": "tr. 12 (PDF)",
+     "snippet": "thị Ga = (V2, E2) nếu có một song ánh f từ tập đỉnh V, uào tập đỉnh"
+    },
+    {
+     "term": "song ánh",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhoangthach-2020",
+     "pdf_page": 73,
+     "page": "tr. 73 (PDF)",
+     "snippet": "đẳng cấu với nhau nếu tồn tại một song ánh f : V1 → V2 sao cho với mọi cặp"
+    },
+    {
+     "term": "song ánh",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 78,
+     "page": "tr. 78 (PDF)",
+     "snippet": "được nói là đồng lực lượng khi tồn tại một song ánh f từ A vào B."
+    },
+    {
+     "term": "song ánh",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-hoangchithanh-2007",
+     "pdf_page": 8,
+     "page": "tr. 8 (PDF)",
+     "snippet": "được gọi là dẳng hình nếu tôn tại một song ánh S trên các tập đỉnh"
+    },
+    {
+     "term": "song ánh",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenducnghia-2006",
+     "pdf_page": 19,
+     "page": "tr. 19 (PDF)",
+     "snippet": "Có thể đồng nhất một hoán vị của n phần tử với một song ánh của một tập z phần"
+    },
+    {
+     "term": "song ánh",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-ngodactan-2004",
+     "pdf_page": 37,
+     "page": "tr. 37 (PDF)",
+     "snippet": "cũng là hàm toàn ánh. Do đó, / cũng là song ánh từ N lên M . Ngược"
+    },
+    {
+     "term": "tương ứng một-một",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 82,
+     "page": "tr. 82 (PDF)",
+     "snippet": "bất kỳ. Ta có thể thấy rằng có sự tương ứng một-một trên (song ánh) giữa các tập hợp con"
+    },
+    {
+     "term": "tương ứng một-một",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-ngodactan-2004",
+     "pdf_page": 25,
+     "page": "tr. 25 (PDF)",
+     "snippet": "Nếu tồn tại tương ứng một-một giữa các phần tủ của các tập hữu"
+    },
+    {
+     "term": "tương ứng 1-1",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhoangthach-2020",
+     "pdf_page": 16,
+     "page": "tr. 16 (PDF)",
+     "snippet": "dễ dàng chứng minh rằng đây là một tương ứng 1-1 giữa tập hợp các tập hợp"
+    },
+    {
+     "term": "tương ứng 1-1",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 96,
+     "page": "tr. 96 (PDF)",
+     "snippet": "là một tập con, nên ta có thể dùng phép tương ứng 1-1 giữa các tập con của { a1 , a2 , ..., an }"
+    },
+    {
+     "term": "tương ứng 1-1",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenducnghia-2006",
+     "pdf_page": 115,
+     "page": "tr. 115 (PDF)",
+     "snippet": "Rõ ràng ta có thể thiết lập tương ứng 1-1 giữa hành trình"
+    }
+   ]
+  },
+  {
+   "id": "binary-relation",
+   "letter": "B",
+   "headword_en": "Binary relation",
+   "notation": "R \\subseteq A \\times B",
+   "rosen_ref": "Rosen §9.1",
+   "definition_vi": "Một *quan hệ hai ngôi* từ tập $$A$$ đến tập $$B$$ là một tập con của tích Descartes $$A \\times B$$, tức là một tập hợp các cặp có thứ tự $$(a, b)$$ với $$a \\in A$$ và $$b \\in B$$; ký hiệu $$R \\subseteq A \\times B$$, và ta viết $$a \\mathrel{R} b$$ khi $$(a, b) \\in R$$. Khi $$A = B$$, ta nói $$R$$ là một quan hệ hai ngôi trên tập $$A$$.",
+   "example_vi": "Với $$A = \\{1, 2\\}$$ và $$B = \\{x, y\\}$$, ta có $$A \\times B = \\{(1, x), (1, y), (2, x), (2, y)\\}$$, và $$R = \\{(1, x), (2, y)\\}$$ là một quan hệ hai ngôi từ $$A$$ đến $$B$$.",
+   "notes": "Recommended term \"quan hệ hai ngôi\" is attested in 2020 (bib-nguyenhoangthach-2020, p.74) and 2019 (bib-nguyenhuudien-2019, §4.1 heading p.106) sources, satisfying the freshness requirement; older attestations in bib-nguyenducnghia-2006 (p.14) and bib-ngodactan-2004 (p.163-185). The digit-form variant \"quan hệ 2 ngôi\" appears in the body text of bib-nguyenhuudien-2019 (Định nghĩa 4.2, p.108, the exact $$R \\subseteq A \\times B$$ concept relating a finite set $$A$$ to a finite set $$B$$); it is a typographic variant of the recommended term. Candidate \"quan hệ nhị phân\" returned 0 hits (normal + loose) and is not attested in any corpus source. The pattern \"Quan hệ hai ngôi ... trên tập X\" appears in bib-ngodactan-2004 (p.163) describing relations on a single set ($$A = B$$). OCR sources bib-leanhvinh-2020 and bib-hoangchithanh-2007 do not attest this concept under any tested spelling (verified via both normal and --loose searches, 0 hits each).",
+   "see_also": [
+    "cartesian-product"
+   ],
+   "vi_terms": [
+    {
+     "term": "quan hệ hai ngôi",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-nguyenhoangthach-2020",
+     "pdf_page": 74,
+     "page": "tr. 74 (PDF)",
+     "snippet": "Giả sử G là một đồ thị. Xét quan hệ hai ngôi sau giữa các đỉnh của G:"
+    },
+    {
+     "term": "quan hệ hai ngôi",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 106,
+     "page": "tr. 106 (PDF)",
+     "snippet": "4.1. Quan hệ hai ngôi"
+    },
+    {
+     "term": "quan hệ 2 ngôi",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 108,
+     "page": "tr. 108 (PDF)",
+     "snippet": "Định nghĩa 4.2 Giả sử R là một quan hệ 2 ngôi giữa một tập hợp hữu hạn A ="
+    },
+    {
+     "term": "quan hệ hai ngôi",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenducnghia-2006",
+     "pdf_page": 14,
+     "page": "tr. 14 (PDF)",
+     "snippet": "tập hợp đang xét. Một quan hệ hai ngôi # trên tập hữu hạn phần tử X được định nghĩa"
+    },
+    {
+     "term": "quan hệ hai ngôi",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-ngodactan-2004",
+     "pdf_page": 185,
+     "page": "tr. 185 (PDF)",
+     "snippet": "một quan hệ hai ngôi trên V."
+    }
+   ]
+  },
+  {
+   "id": "binary-tree",
+   "letter": "B",
+   "headword_en": "Binary tree",
+   "notation": "T",
+   "rosen_ref": "Rosen §11.1",
+   "definition_vi": "Cây nhị phân là một cây có gốc trong đó mỗi đỉnh có không quá hai con, và mỗi con được phân biệt là con trái hoặc con phải. Một cây nhị phân thường được ký hiệu là $$T$$.",
+   "example_vi": "Xét cây có gốc $$T$$ với gốc $$r$$, trong đó $$r$$ có con trái $$a$$ và con phải $$b$$, đỉnh $$a$$ có con trái $$c$$ và không có con phải, còn $$b$$ là lá. Vì mỗi đỉnh có không quá hai con và mỗi con được phân biệt là con trái hay con phải, $$T$$ là một cây nhị phân.",
+   "notes": "Hai biến thể ứng viên \"cây nhị phân có gốc\" và \"cây 2-phân\" không xuất hiện trong bất kỳ nguồn nào (0 hits, cả tìm thường lẫn --loose), nên bị loại theo quy tắc vệ sinh trích dẫn. Thuật ngữ chuẩn \"cây nhị phân\" được chứng thực trong nguồn mới nhất bib-nguyenhoangthach-2020 (2020), cũng như bib-nguyenhuudien-2019 (2019) và bib-hoangchithanh-2007 (2007, OCR). Định nghĩa khớp chính xác khái niệm này: mỗi đỉnh có không quá hai con, mỗi con được phân biệt là con trái hoặc con phải (nguyenhuudien-2019, tr. 254). Các nguồn bib-leanhvinh-2020, bib-nguyenducnghia-2006, bib-ngodactan-2004 không chứng thực thuật ngữ này.",
+   "see_also": [
+    "rooted-tree",
+    "ordered-rooted-tree",
+    "full-binary-tree",
+    "tree"
+   ],
+   "vi_terms": [
+    {
+     "term": "cây nhị phân",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-nguyenhoangthach-2020",
+     "pdf_page": 85,
+     "page": "tr. 85 (PDF)",
+     "snippet": "quá m con. Khi m = 2, cây được gọi là một cây nhị phân."
+    },
+    {
+     "term": "cây nhị phân",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 254,
+     "page": "tr. 254 (PDF)",
+     "snippet": "Cây nhị phân là cây phân cấp mà mỗi đỉnh của nó có không quá hai con. Các cây con của một đỉnh của cây nhị phân được phân biệt là cây con trái và cây con phải."
+    },
+    {
+     "term": "cây nhị phân",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-hoangchithanh-2007",
+     "pdf_page": 140,
+     "page": "tr. 140 (PDF)",
+     "snippet": "Cay nhị phân là cay phân cấp ma mỗi đỉnh của nó có không quá [hai con]. Các cây con của một đính của cây nhị phân được phân biệt là cây [con trái và cây con phải]."
+    }
+   ]
+  },
+  {
+   "id": "binary-search-tree",
+   "letter": "B",
+   "headword_en": "Binary search tree",
+   "notation": "T",
+   "rosen_ref": "Rosen §11.2",
+   "definition_vi": "Một cây tìm kiếm nhị phân là một cây nhị phân trong đó mỗi đỉnh được gán một khóa sao cho khóa của mỗi đỉnh lớn hơn mọi khóa thuộc cây con bên trái của nó và nhỏ hơn mọi khóa thuộc cây con bên phải của nó (cây tìm kiếm nhị phân thường được ký hiệu $$T$$).",
+   "example_vi": "Với danh sách từ mathematics, physics, geography, zoology theo thứ tự từ điển, lấy mathematics làm khóa của gốc. Vì physics đứng sau mathematics nên physics là khóa của con bên phải gốc. Vì geography đứng trước mathematics nên geography là khóa của con bên trái gốc. Cuối cùng, zoology đứng sau cả mathematics lẫn physics nên là khóa của con bên phải của đỉnh có khóa physics.",
+   "notes": "Chứng cứ đã được Verifier kiểm chứng lại: mining trên bản dịch tiếng Việt của Rosen (bib-rosen-2003-vi, OCR) cho 8 hit của thuật ngữ \"cây tìm kiếm nhị phân\" (tiêu đề mục \"CÂY TÌM KIẾM NHỊ PHÂN\" ở PDF tr.637; định nghĩa ở PDF tr.638). Định nghĩa OCR khớp đúng khái niệm gốc: mỗi đỉnh được gán một khóa; khóa của đỉnh lớn hơn khóa của tất cả các đỉnh thuộc cây con bên trái và nhỏ hơn khóa của tất cả các đỉnh thuộc cây con bên phải của nó. Snippet của vi_term đã được sửa cho khớp văn bản OCR thực tế (bản gốc dùng câu diễn giải có cụm \"mỗi đỉnh được gán một khóa\" vốn 0 hit). Lưu ý chính sách: bib-rosen-2003-vi là nguồn role=reference (bản dịch cũ 2003, OCR), không được dùng làm CƠ SỞ chọn thuật ngữ dẫn; thuật ngữ chuẩn hiện hành \"cây tìm kiếm nhị phân\" được chứng thực ở đây chỉ mang tính bổ trợ và thỏa quy tắc trích dẫn (verified=true có source_id + pdf_page + snippet). Editor flag: nguồn neo của thuật ngữ dẫn là nguồn reference-only; không có nguồn cơ sở nào trong kho chứng thực đúng cụm này, nên dạng một-term hiện tại là tối thiểu cho phép. Hai biến thể \"cây nhị phân tìm kiếm\" và \"cây tìm kiếm 2-phân\" đều 0 hit (cả normal lẫn --loose) trên bib-rosen-2003-vi và toàn kho, nên bị lược khỏi vi_terms theo quy tắc bỏ term verified=false/page trống và chỉ ghi nhận tại đây. Mining ba ứng viên trên bib-leanhvinh-2020, bib-nguyenhoangthach-2020, bib-nguyenhuudien-2019 và bib-hoangchithanh-2007 đều 0 hit; các nguồn này chỉ nói tới khái niệm gần kề nhưng KHÁC: (i) \"cây nhị phân\" = binary tree, không có điều kiện sắp thứ tự theo khóa (bib-nguyenhuudien-2019 tr.254, bib-hoangchithanh-2007 tr.140, bib-nguyenhoangthach-2020 tr.85, đều PDF); (ii) \"tìm kiếm nhị phân\" = binary search trên dãy đã sắp, không phải cây (bib-nguyenhuudien-2019 tr.134-148 PDF); (iii) \"cây tìm kiếm\" trong bib-nguyenducnghia-2006 tr.100-197 (PDF) là cây tìm kiếm lời giải của quay lui / nhánh-cận, không phải BST.",
+   "see_also": [
+    "binary-tree",
+    "rooted-tree",
+    "labeled-tree"
+   ],
+   "vi_terms": [
+    {
+     "term": "cây tìm kiếm nhị phân",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-rosen-2003-vi",
+     "page": "tr. 638 (PDF)",
+     "pdf_page": 638,
+     "snippet": "... được [bằng] cây tìm kiếm nhị phân. Đó là một cây nhị phân trong đó ... đỉnh được gán một khóa ... khóa của đỉnh lớn hơn khóa của tất cả các đỉnh thuộc cây con bên trái, và nhỏ hơn khóa của tất cả các đỉnh thuộc cây con bên phải của nó."
+    }
+   ]
+  },
+  {
+   "id": "binomial-coefficient",
+   "letter": "B",
+   "headword_en": "Binomial coefficient",
+   "notation": "\\binom{n}{k}",
+   "rosen_ref": "Rosen §6.3",
+   "definition_vi": "Hệ số nhị thức, ký hiệu $$\\binom{n}{k}$$, là số tập con gồm $$k$$ phần tử của một tập hợp gồm $$n$$ phần tử, với $$n$$ và $$k$$ là các số nguyên thỏa $$0 \\leq k \\leq n$$. Giá trị này được tính bởi công thức $$\\displaystyle \\binom{n}{k} = \\frac{n!}{k!\\,(n-k)!}$$.",
+   "example_vi": "Với $$n = 4$$ và $$k = 2$$, ta có $$\\displaystyle \\binom{4}{2} = \\frac{4!}{2!\\,2!} = 6$$, ứng với $$6$$ tập con gồm $$2$$ phần tử của tập $$\\{1,2,3,4\\}$$.",
+   "notes": "Recommended term \"hệ số nhị thức\" (binomial coefficient) is the direct equivalent of the English headword and is attested in the newest 2020 source (bib-nguyenhoangthach-2020, tr. 24), with older attestations in bib-nguyenducnghia-2006 (tr. 22, \"các hệ số tổ hợp còn được [gọi là các hệ số nhị thức]\") and bib-ngodactan-2004 (tr. 41, \"còn được gọi là hệ số nhị thức\"). The combinatorial reading \"số tổ hợp chập k của n\" denotes the value $$\\binom{n}{k}$$ as the number of $$k$$-element subsets; nguyenhoangthach-2020 (tr. 21) also notes $$\\binom{n}{k}$$ \"được đọc là 'n chọn k'\". Variant \"r\" indexing (số tổ hợp chập r của n) appears in nguyenhuudien-2019 (tr. 90). Variant \"hệ số tổ hợp\" in nguyenducnghia-2006 is explicitly equated with \"hệ số nhị thức\" on tr. 22. OCR graph-theory sources bib-leanhvinh-2020 and bib-hoangchithanh-2007 returned no hits in either normal or --loose mode (these books do not treat binomial coefficients), so no attestation from them. The Vietnamese symbol $$C_n^k$$ is the local notation for this concept; the book convention here uses $$\\binom{n}{k}$$.",
+   "see_also": [
+    "combination",
+    "binomial-theorem",
+    "pascals-triangle"
+   ],
+   "vi_terms": [
+    {
+     "term": "hệ số nhị thức",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-nguyenhoangthach-2020",
+     "pdf_page": 24,
+     "page": "tr. 24 (PDF)",
+     "snippet": "nhị thức một cách truy hồi. Đẳng thức này còn cho ta một biểu diễn trực quan của các hệ số nhị thức, gọi là tam giác"
+    },
+    {
+     "term": "số tổ hợp chập k của n",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhoangthach-2020",
+     "pdf_page": 21,
+     "page": "tr. 21 (PDF)",
+     "snippet": "Mệnh đề 2.6. Số tổ hợp chập k của n phần tử, ở đó k và n là các số nguyên"
+    },
+    {
+     "term": "tổ hợp chập k của n",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhoangthach-2020",
+     "pdf_page": 21,
+     "page": "tr. 21 (PDF)",
+     "snippet": "nguyên không âm. Một tổ hợp chập k của S là một bộ không sắp thứ tự gồm"
+    },
+    {
+     "term": "số tổ hợp chập r của n",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 90,
+     "page": "tr. 90 (PDF)",
+     "snippet": "Định lý 3.2 Số tổ hợp chập r của n phần tử là"
+    },
+    {
+     "term": "hệ số tổ hợp",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenducnghia-2006",
+     "pdf_page": 22,
+     "page": "tr. 22 (PDF)",
+     "snippet": "Công thức (5) còn được gọi là khai triển nhị thức Newton và các hệ số tổ hợp còn được"
+    }
+   ]
+  },
+  {
+   "id": "binomial-theorem",
+   "letter": "B",
+   "headword_en": "Binomial theorem",
+   "notation": "(x+y)^n = \\sum_{k=0}^{n} \\binom{n}{k} x^{n-k} y^{k}",
+   "rosen_ref": "Rosen §6.4",
+   "definition_vi": "Định lý nhị thức là đẳng thức khai triển lũy thừa của một tổng thành tổng các đơn thức, phát biểu rằng với mọi số nguyên không âm $$n$$, ta có $$\\displaystyle (x+y)^n = \\sum_{k=0}^{n} \\binom{n}{k} x^{n-k} y^{k}$$, trong đó $$\\binom{n}{k}$$ là hệ số nhị thức. Các số $$\\binom{n}{k}$$ với $$0 \\leq k \\leq n$$ được gọi là các hệ số trong khai triển.",
+   "example_vi": "Với $$n = 3$$, định lý nhị thức cho $$(x+y)^3 = \\binom{3}{0} x^3 + \\binom{3}{1} x^2 y + \\binom{3}{2} x y^2 + \\binom{3}{3} y^3 = x^3 + 3x^2 y + 3x y^2 + y^3$$.",
+   "notes": "Recommended term \"định lý nhị thức\" is the direct equivalent of English \"binomial theorem\"; it is attested in the newest 2020 source bib-nguyenhoangthach-2020 (tr. 47, snippet \"sử dụng Định lý nhị thức\", re-verified via find-term), and the recommended row is anchored there per the freshness rule. The same name also appears in the 2019 source nguyenhuudien-2019 (tr. 89, section heading \"Tổ hợp và định lý nhị thức\"), recorded as a recommended=false row. The most explicit definitional attestation tying a Vietnamese name to the identity $$(x+y)^n$$ is nguyenhoangthach-2020 tr. 23: \"Định lý 2.10 (Công thức nhị thức). Khai triển của biểu thức $$(x+y)^n$$ ...\"; the same page lists the synonyms \"Còn gọi là công thức Newton hoặc khai triển nhị thức Newton.\" The older sources use \"công thức nhị thức\" (ngodactan-2004, tr. 45-47, in the ring-theoretic form) and \"khai triển nhị thức (Newton)\" (nguyenducnghia-2006, tr. 22 and tr. 39). The OCR graph-theory sources bib-leanhvinh-2020 and bib-hoangchithanh-2007 do not cover the binomial theorem; both normal and --loose searches returned 0 hits, so they yield no attestation. Note nguyenhoangthach-2020 also defines the generalized form \"công thức Newton tổng quát\" (multinomial, tr. 28) and \"định lý nhị thức mở rộng\" (generalized binomial for real exponents, tr. 48); these are extensions of the concept, not separate names for the basic theorem, and are recorded here for context only.",
+   "see_also": [
+    "binomial-coefficient",
+    "combination",
+    "pascals-identity"
+   ],
+   "vi_terms": [
+    {
+     "term": "định lý nhị thức",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-nguyenhoangthach-2020",
+     "pdf_page": 47,
+     "page": "tr. 47 (PDF)",
+     "snippet": "cách tính F (x)2 hoặc viết 1/(1 − x)2 = (1 − x)−2 và sử dụng Định lý nhị thức"
+    },
+    {
+     "term": "định lý nhị thức",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 89,
+     "page": "tr. 89 (PDF)",
+     "snippet": "3.4.2. Tổ hợp và định lý nhị thức"
+    },
+    {
+     "term": "công thức nhị thức",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhoangthach-2020",
+     "pdf_page": 23,
+     "page": "tr. 23 (PDF)",
+     "snippet": "Định lý 2.10 (Công thức nhị thức2 ). Khai triển của biểu thức (x + y)n , ở"
+    },
+    {
+     "term": "công thức Newton",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhoangthach-2020",
+     "pdf_page": 23,
+     "page": "tr. 23 (PDF)",
+     "snippet": "Còn gọi là công thức Newton hoặc khai triển nhị thức Newton."
+    },
+    {
+     "term": "khai triển nhị thức Newton",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhoangthach-2020",
+     "pdf_page": 23,
+     "page": "tr. 23 (PDF)",
+     "snippet": "Còn gọi là công thức Newton hoặc khai triển nhị thức Newton."
+    },
+    {
+     "term": "khai triển nhị thức",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenducnghia-2006",
+     "pdf_page": 39,
+     "page": "tr. 39 (PDF)",
+     "snippet": "khai triển nhị thức: Hàm"
+    }
+   ]
+  },
+  {
+   "id": "bipartite-graph",
+   "letter": "B",
+   "headword_en": "Bipartite graph",
+   "notation": "G = (V_1, V_2, E)",
+   "rosen_ref": "Rosen §10.2",
+   "definition_vi": "Đồ thị hai phần là đồ thị $$G$$ mà tập đỉnh $$V(G)$$ phân hoạch được thành hai tập rời nhau $$V_1$$ và $$V_2$$ (ký hiệu $$G = (V_1, V_2, E)$$) sao cho mỗi cạnh của $$G$$ nối một đỉnh thuộc $$V_1$$ với một đỉnh thuộc $$V_2$$.",
+   "example_vi": "Chu trình $$C_4$$ với các đỉnh $$a, b, c, d$$ và các cạnh $$ab, bc, cd, da$$ là đồ thị hai phần, với $$V_1 = \\{a, c\\}$$ và $$V_2 = \\{b, d\\}$$, vì mỗi cạnh nối một đỉnh của $$V_1$$ với một đỉnh của $$V_2$$.",
+   "notes": "The book-standard rendering is \"đồ thị hai phần\" and it is attested in four sources: the clean 2020 source bib-nguyenhoangthach-2020 (Định nghĩa 5.16, p.67), bib-leanhvinh-2020 (2020, OCR), bib-hoangchithanh-2007 (Định nghĩa 5.2, p.60, OCR), and bib-ngodactan-2004 (p.216). Two attested variants denote the same concept: \"đồ thị hai phía\" (bib-nguyenducnghia-2006) and \"đồ thị phân đôi\" (bib-nguyenhuudien-2019). The candidate \"đồ thị lưỡng phân\" returned 0 hits across all sources (normal and --loose, including OCR sources), so it is not attested and is omitted. The recommended term is anchored to bib-nguyenhoangthach-2020 because it is the newest source carrying a clean (non-OCR) definition snippet. OCR sources (bib-leanhvinh-2020, bib-hoangchithanh-2007) mangle some diacritics (e.g. \"hai phan\"/\"hai phản\" for \"hai phần\"), but each snippet unambiguously denotes the bipartite-graph concept via its surrounding definition/usage. Snippets recorded verbatim from the mining tool output.",
+   "see_also": [
+    "complete-bipartite-graph",
+    "matching",
+    "graph"
+   ],
+   "vi_terms": [
+    {
+     "term": "đồ thị hai phần",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-nguyenhoangthach-2020",
+     "pdf_page": 67,
+     "page": "tr. 67 (PDF)",
+     "snippet": "Định nghĩa 5.16. Một đồ thị G = (V, E) là một đồ thị hai phần nếu tồn"
+    },
+    {
+     "term": "đồ thị hai phần",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-leanhvinh-2020",
+     "pdf_page": 14,
+     "page": "tr. 14 (PDF)",
+     "snippet": "thuộc Vị va một đầu mút thuộc V2 thì G được gọi là đồ thị hai phan."
+    },
+    {
+     "term": "đồ thị hai phần",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-hoangchithanh-2007",
+     "pdf_page": 60,
+     "page": "tr. 60 (PDF)",
+     "snippet": "Định nghĩa 5.2: Đồ thị G = (V, F) được gọi là dồ thị hai phần"
+    },
+    {
+     "term": "đồ thị hai phần",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-ngodactan-2004",
+     "pdf_page": 216,
+     "page": "tr. 216 (PDF)",
+     "snippet": "6.13 Chứng minh rằng cây là đồ thị hai phần. Hãy tìm tấ t cả các cây"
+    },
+    {
+     "term": "đồ thị phân đôi",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 160,
+     "page": "tr. 160 (PDF)",
+     "snippet": "của G được nối một đỉnh trong V1 và một đỉnh trong V2 được gọi là đồ thị phân đôi."
+    },
+    {
+     "term": "đồ thị hai phía",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenducnghia-2006",
+     "pdf_page": 160,
+     "page": "tr. 160 (PDF)",
+     "snippet": "Đồ thị hai phía Ơ = (XUY, E) với |X|=m,| V|=n được gọi là đồ thị hai phía"
+    }
+   ]
+  },
+  {
+   "id": "block",
+   "letter": "B",
+   "headword_en": "Block",
+   "notation": "B",
+   "rosen_ref": "Rosen §10.4",
+   "definition_vi": "Một *khối* của đồ thị $$G$$ là một đồ thị con liên thông cực đại của $$G$$ không chứa đỉnh cắt; nói cách khác, đó là một đồ thị con $$B$$ sao cho $$B$$ hoặc là một cầu (một cạnh đơn), hoặc là một đồ thị con $$2$$-liên thông cực đại của $$G$$.",
+   "example_vi": "Trong đồ thị $$G$$ gồm hai tam giác $$C_3$$ chung đúng một đỉnh $$v$$, đỉnh $$v$$ là đỉnh cắt và mỗi tam giác là một khối ($$2$$-liên thông) của $$G$$. Nếu lập đồ thị mới $$G' = G + uw$$ với $$u \\in V(G)$$, $$w \\notin V(G)$$ và $$V(G') = V(G) \\cup \\{w\\}$$ thì cạnh $$uw$$ là một cầu và bản thân nó tạo thành một khối của $$G'$$.",
+   "notes": "Recommended term: \"khối\", the standard Vietnamese graph-theoretic name for a block. It is defined explicitly in bib-ngodactan-2004 (2004), tr. 267 (PDF): \"Đồ thị con $$B$$ của một đồ thị $$G$$ được gọi là một khối của $$G$$ nếu hoặc...\" and immediately characterized as \"$$B$$ là cầu hoặc nó là đồ thị con 2-liên thông cực đại của $$G$$\" (a bridge, or a MAXIMAL 2-connected subgraph), exactly matching Rosen's definition. The maximality qualifier \"cực đại\" is therefore scoped to the 2-connected alternative, not globally over both clauses. The same source uses \"khối đầu mút\" (end block) at tr. 287 (PDF), confirming \"khối\" as the working term for this concept.\n\nNo 2019-2020 corpus source attests \"khối\" in the graph-block sense: every 2019-2020 \"khối\" hit denotes a polyhedron (\"khối đa diện\", bib-leanhvinh-2020 tr. 119) or a set-partition block, not a graph block. The OCR sources bib-leanhvinh-2020 and bib-hoangchithanh-2007 were searched both normally and with --loose; their \"khối\" hits are either \"khối đa diện\" (polyhedron) or OCR noise for \"khỏi\"/\"khởi\", none denoting the graph block. The recommended term is therefore attested only in the 2004 source; verified=true is justified by the explicit ngodactan-2004 definition, and it is kept recommended as the established standard term despite lacking a newer attestation.\n\nVariant \"đồ thị con 2-liên thông cực đại\" (maximal 2-connected subgraph) is the descriptive phrasing used inside the same ngodactan-2004 definition. The exact normalized term returns 0 hits because the OCR reads \"cực đặi\" for \"cực đại\"; searching \"đồ thị con 2-liên thông\" (or the --loose form) confirms the single hit at tr. 267 (PDF) with snippet \"B là cầu hoặc nó là đồ thị con 2-liên thông cực đặi của G\". The recorded term is the spelling-corrected form of this OCR'd phrase; the snippet honestly preserves the artifact \"cực đặi\".\n\nRelated-property cross-reference (NOT a vi_term of this headword): \"song liên thông\" (bib-nguyenhoangthach-2020, tr. 75, \"Đồ thị $$G$$ gọi là song liên thông nếu nó không...\") names the biconnected/2-connected PROPERTY of a whole graph, i.e. the connectivity a non-bridge block possesses, rather than the block subgraph itself. Per the concept-mismatch rule it is recorded here in notes only and removed from vi_terms.\n\nCandidate terms \"thành phần song liên thông\", \"thành phần 2-liên thông\", and \"khối của đồ thị\" returned 0 hits in all sources (normal and --loose) and are not recorded.\n\nDefinition wording: opens with the term, states the maximal-connected-no-cut-vertex form first, then gives the bridge-or-maximal-2-connected characterization from ngodactan-2004, matching Rosen §10.4. Example is self-contained: it uses only cut vertex, bridge, and 2-connectivity already named in the definition, with no derived quantity introduced, and now states the vertex-set extension $$G' = G + uw$$ explicitly.",
+   "see_also": [
+    "cut-vertex",
+    "bridge",
+    "biconnected-graph",
+    "connected-graph"
+   ],
+   "vi_terms": [
+    {
+     "term": "khối",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-ngodactan-2004",
+     "pdf_page": 267,
+     "page": "tr. 267 (PDF)",
+     "snippet": "Đồ thị con B của một đồ thị G được gọi là một khối của G nếu hoặc"
+    },
+    {
+     "term": "đồ thị con 2-liên thông cực đại",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-ngodactan-2004",
+     "pdf_page": 267,
+     "page": "tr. 267 (PDF)",
+     "snippet": "B là cầu hoặc nó là đồ thị con 2-liên thông cực đặi của G. Từ tính chất"
+    }
+   ]
+  },
+  {
+   "id": "boolean-algebra",
+   "letter": "B",
+   "headword_en": "Boolean algebra",
+   "notation": "(B, \\vee, \\wedge, \\overline{\\phantom{x}}, 0, 1)",
+   "rosen_ref": "Rosen §12.1",
+   "definition_vi": "Một *đại số Boole* là một cấu trúc đại số gồm một tập hợp $$B$$ cùng với hai phép toán hai ngôi là phép tuyển $$\\vee$$ và phép hội $$\\wedge$$, một phép toán một ngôi lấy phần bù $$\\overline{\\phantom{x}}$$, và hai phần tử phân biệt $$0$$ và $$1$$, ký hiệu là $$(B, \\vee, \\wedge, \\overline{\\phantom{x}}, 0, 1)$$. Các phép toán này thỏa mãn các luật đồng nhất, luật phần bù, luật kết hợp, luật giao hoán và luật phân phối.",
+   "example_vi": "Tập hợp $$B = \\{0, 1\\}$$ với phép tuyển $$\\vee$$, phép hội $$\\wedge$$, phép lấy phần bù $$\\overline{\\phantom{x}}$$ xác định bởi $$\\overline{0} = 1$$ và $$\\overline{1} = 0$$, cùng hai phần tử $$0$$ và $$1$$, tạo thành một đại số Boole.",
+   "notes": "No corpus source attests any candidate name (\"đại số Boole\", \"đại số Bool\", \"đại số Bun\") for the Boolean algebra STRUCTURE $$(B, \\vee, \\wedge, \\overline{\\phantom{x}}, 0, 1)$$. Searches (normal + --loose, incl. OCR sources bib-leanhvinh-2020 and bib-hoangchithanh-2007) returned zero hits for all three candidates. The recommended standard term \"đại số Boole\" is therefore kept verified=false with empty page, per the no-attestation rule, as the single row retained to keep vi_terms non-empty.\n\nRelated-concept cross-references (NOT vi_terms of this headword; moved here per the concept-mismatch rule because they denote propositional logic / Boolean functions, not the Boolean-algebra structure):\n- \"đại số logic\" (bib-nguyenhuudien-2019 tr. 16 PDF, snippet \"Điều này cho thấy rằng đại số logic là rõ ràng hoàn chỉnh ... Đại số logic còn đặc biệt quan trọng trong việc thiết kế mạch cho máy tính.\"): the algebra of propositional logic, the closest corpus rendering of the Boolean-algebra idea, but it names the propositional-logic system rather than the formal structure. Belongs with boolean-function / a propositional-logic entry.\n- \"đại số lôgic\" (bib-nguyenducnghia-2006 tr. 266 PDF, snippet \"0,.1. Một hàm như thế được gọi là một hàm đại số lôgic.\"): older diacritic spelling, appearing only inside the compound \"hàm đại số lôgic\" (Boolean/logic-algebra function), i.e. the Boolean-function concept. An attested orthographic/related variant of the function term, not the structure.\n\nOther closest corpus evidence (all RELATED but distinct):\n- \"hàm Boole\" (bib-ngodactan-2004 tr. 118 PDF, snippet \"gọi là hàm Boole n biến\"): Boolean function — confirms \"Boole\" as the standard Vietnamese rendering of the proper name, but a distinct concept (see the boolean-function entry).\n- \"tập hợp Boole B\" (bib-nguyenhuudien-2019 tr. 46 PDF, snippet \"Gọi Boole B là tập hợp gồm có hai giá trị : Sai (ký hiệu bởi 0), và Đúng (ký hiệu bởi 1)\"): the underlying carrier set B = {0,1}, not the full structure.\n- Boolean-algebra laws (luật giao hoán, luật kết hợp, luật phân phối, luật De Morgan) appear in bib-nguyenhuudien-2019 but applied to logical equivalence of propositions, never under the name \"đại số Boole\".\n\nDrafter note: recommended term \"đại số Boole\" is the established modern Vietnamese spelling (consistent with the attested \"hàm Boole\"); \"đại số Bool\" is an acceptable spelling variant; \"đại số Bun\"/\"đại số logic\" should be treated as nonstandard or related-concept renderings for this structure. The definition describes the structure as a set $$B$$ with two binary operations join $$\\vee$$ and meet $$\\wedge$$, a unary complement $$\\overline{\\phantom{x}}$$, and distinguished elements $$0$$ and $$1$$ satisfying the identity, complement, associative, commutative, and distributive laws.",
+   "see_also": [
+    "boolean-function",
+    "boolean-expression"
+   ],
+   "vi_terms": [
+    {
+     "term": "đại số Boole",
+     "verified": false,
+     "recommended": true,
+     "page": "",
+     "snippet": "",
+     "notes": "Standard modern Vietnamese term for the Boolean algebra structure. Not attested by name in any corpus source (0 hits normal + --loose, incl. OCR sources); kept as the recommended standard term per the no-attestation rule. The related function term \"hàm Boole\" (Boolean function) is attested in bib-ngodactan-2004 tr. 118 (PDF), supporting \"Boole\" as the accepted Vietnamese rendering of the proper name."
+    }
+   ]
+  },
+  {
+   "id": "boolean-function",
+   "letter": "B",
+   "headword_en": "Boolean function",
+   "notation": "f : \\{0,1\\}^n \\to \\{0,1\\}",
+   "rosen_ref": "Rosen §12.1",
+   "definition_vi": "Một *hàm Boole* $$n$$ biến là một ánh xạ $$f : \\{0,1\\}^n \\to \\{0,1\\}$$ gán cho mỗi bộ $$n$$ giá trị Boole một giá trị trong $$\\{0,1\\}$$, ký hiệu $$f(x_1, x_2, \\ldots, x_n)$$, trong đó mỗi biến $$x_i$$ nhận giá trị trong $$\\{0,1\\}$$.",
+   "example_vi": "Với $$n = 2$$, hàm $$f : \\{0,1\\}^2 \\to \\{0,1\\}$$ xác định bởi $$f(0,0) = 0$$, $$f(0,1) = 1$$, $$f(1,0) = 1$$ và $$f(1,1) = 1$$ là một hàm Boole $$2$$ biến.",
+   "notes": "Concept attested in two sources. The standard term \"hàm Boole\" appears in bib-ngodactan-2004 (tr. 118 PDF) with a clean definition of a Boolean function of $$n$$ variables. The synonymous calque \"hàm đại số lôgic\" (literally \"logic-algebra function\") is used systematically in bib-nguyenducnghia-2006 (defined tr. 266 PDF). The candidates \"hàm Bool\" and \"hàm Boolean\" have no independent attestation: \"hàm Bool\" only matches the same \"hàm Boole\" occurrences in 2004, and \"hàm Boolean\" returns zero math hits. The concept is NOT covered by the 2019-2020 sources (leanhvinh-2020, nguyenhoangthach-2020, nguyenhuudien-2019), so no 2019-2020 attestation exists; \"hàm Boole\" is kept as the recommended standard term, verified via the 2004 source.",
+   "see_also": [
+    "boolean-algebra",
+    "boolean-expression"
+   ],
+   "vi_terms": [
+    {
+     "term": "hàm đại số lôgic",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenducnghia-2006",
+     "pdf_page": 266,
+     "page": "tr. 266 (PDF)",
+     "snippet": "0,.1. Một hàm như thế được gọi là một hàm đại số lôgic."
+    },
+    {
+     "term": "hàm Boole",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-ngodactan-2004",
+     "pdf_page": 118,
+     "page": "tr. 118 (PDF)",
+     "snippet": "gọi là hàm Boole n biến và được ký hiệu là f ( x 1, X2 , ... , x n). Hàm Boole"
+    }
+   ]
+  },
+  {
+   "id": "boundary",
+   "letter": "B",
+   "headword_en": "Boundary",
+   "notation": "",
+   "rosen_ref": "Rosen §10.7",
+   "definition_vi": "Trong một biểu diễn phẳng của đồ thị $$G$$, biên của miền $$R$$ là một chu trình đóng (closed walk) gồm các cạnh và đỉnh bao quanh miền $$R$$; nói chung chu trình này có thể đi qua một cạnh hai lần (chẳng hạn khi cạnh đó là một cầu), và trong đồ thị $$2$$-liên thông thì biên là một chu trình đơn.",
+   "example_vi": "Trong biểu diễn phẳng của $$K_4$$, mỗi miền hữu hạn có biên là một tam giác, tức một chu trình gồm $$3$$ cạnh và $$3$$ đỉnh.",
+   "notes": "Concept: in a planar embedding, the boundary of a region (face) is the closed walk of edges and vertices bordering that region (Rosen §10.7). The boundary is a simple cycle only in the 2-connected case; in general a bridge or pendant edge bordering the face is traversed twice, so the boundary is a closed walk that may repeat an edge/vertex. The definition_vi was softened from the earlier \"chu trình đóng\" (cycle) to the closed-walk notion with the bridge caveat, consistent with the closed-walk forward reference in see_also; the K_4 example remains a valid cycle instance (a triangle is a closed walk) because K_4 is 2-connected.\n\nRecommended term: \"biên của miền\" (boundary of a region/face). It is attested for THIS concept in the newest available source bib-nguyenhoangthach-2020 (2020, p.79: \"là biên của miền\"), and the same phrase recurs in bib-nguyenhuudien-2019 (p.231: \"Chu trình giới hạn miền là biên của miền\") and bib-ngodactan-2004 (p.208: \"các cạnh ở trên biên của mỗi miền tạo thành một chu trình\"). Vietnamese sources use both \"miền\" and \"diện\" for a face/region, so \"biên của diện\" (bib-nguyenhuudien-2019, p.232) is an equivalent variant.\n\nBare \"biên\" / \"cạnh biên\" is used in the same sources to refer to the boundary edges of a face: bib-nguyenhoangthach-2020 p.80 (\"cạnh biên của một miền\", \"mỗi cạnh là biên của đúng hai miền\"), bib-ngodactan-2004 p.214 (\"mỗi cạnh là biên của đúng hai miền\"), bib-hoangchithanh-2007 p.116 (OCR, \"trên biên của một diện\"). The hoangchithanh hit was confirmed under both normal and loose OCR search.\n\nVariant \"đường biên\": in this corpus the standalone \"đường biên\" / \"đường biên giới\" mostly denotes the shared national border in the four-color map-coloring application (bib-leanhvinh-2020 p.123 \"có chung đường biên giới\"; bib-nguyenhoangthach-2020 p.81-82 \"có chung đường biên\"). In bib-nguyenhuudien-2019 p.235 \"hai miền có chung nhau một đường biên\" the term refers to the boundary SHARED BY TWO ADJACENT FACES/REGIONS (not the national border), i.e. the same face-boundary concept, so it is recorded as a verified variant; the vi_term notes field disambiguates this explicitly to prevent cross-linking to the four-color map-border application. Loose-mode OCR search of bib-leanhvinh-2020 found \"biên\" only in the \"biên giới\" (national-border) application sense or unrelated words (\"biên soạn\", \"biến\" = variable), so that 2020 source does not attest the pure graph face-boundary phrasing; the 2020 attestation for the recommended term therefore comes from bib-nguyenhoangthach-2020.\n\nNote on rendering: this is a planar-graph term; \"miền\" = region/face, \"diện\" is an older synonym for \"miền\" (face). The Vietnamese corpus consistently renders a face boundary as a \"chu trình\" (cycle), which is why the example uses a triangle; the more general notion of a closed walk is captured by the see_also forward reference closed-walk.",
+   "see_also": [
+    "region",
+    "face",
+    "planar-graph",
+    "planar-embedding",
+    "closed-walk"
+   ],
+   "vi_terms": [
+    {
+     "term": "biên của miền",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-nguyenhoangthach-2020",
+     "pdf_page": 79,
+     "page": "tr. 79 (PDF)",
+     "snippet": "là biên của miền nào cả. Xóa cạnh này và x, ta thu được một đồ thị"
+    },
+    {
+     "term": "cạnh biên",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhoangthach-2020",
+     "pdf_page": 80,
+     "page": "tr. 80 (PDF)",
+     "snippet": "đơn, mỗi miền có ít nhất 3 cạnh biên, và mỗi cạnh là biên của đúng hai miền"
+    },
+    {
+     "term": "biên của diện",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 232,
+     "page": "tr. 232 (PDF)",
+     "snippet": "h = 1: chỉ có một chu trình đơn duy nhất, đó chính là biên của diện này. Suy ra chu số"
+    },
+    {
+     "term": "biên của miền",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 231,
+     "page": "tr. 231 (PDF)",
+     "snippet": "thị G. Chu trình giới hạn miền là biên của miền. Mỗi đồ thị phẳng liên thông có một miền vô"
+    },
+    {
+     "term": "biên của miền",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-ngodactan-2004",
+     "pdf_page": 208,
+     "page": "tr. 208 (PDF)",
+     "snippet": "các cạnh ờ trên biên của mỗi miền tạo thành một chu trình trong G."
+    },
+    {
+     "term": "biên",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-ngodactan-2004",
+     "pdf_page": 214,
+     "page": "tr. 214 (PDF)",
+     "snippet": "nhất 3 cạnh và mỗi cạnh là biên của đúng hai miền nên ta có 3 / < 2e."
+    },
+    {
+     "term": "biên",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-hoangchithanh-2007",
+     "pdf_page": 116,
+     "page": "tr. 116 (PDF)",
+     "snippet": "nào đó trên biên của một diện để số diện hữu bạn bớt đi 1. Khi đó, G’"
+    },
+    {
+     "term": "đường biên",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 235,
+     "page": "tr. 235 (PDF)",
+     "snippet": "miền có chung nhau một đường biên là hai miền kề nhau (hai miền chỉ có chung nhau một",
+     "notes": "Disambiguation: this tr. 235 occurrence is the boundary SHARED BY TWO ADJACENT FACES/REGIONS (\"hai miền có chung nhau một đường biên\"), i.e. the graph face-boundary sense, NOT the national-border map-coloring sense that \"đường biên giới\" carries elsewhere in the corpus. Do not cross-link to the four-color map application."
+    }
+   ]
+  },
+  {
+   "id": "breadth-first-search",
+   "letter": "B",
+   "headword_en": "Breadth-first search",
+   "notation": "",
+   "rosen_ref": "Rosen §11.4",
+   "definition_vi": "Duyệt theo chiều rộng là phép duyệt đồ thị xây dựng một cây khung bằng cách bắt đầu từ một đỉnh gốc $$r$$, thăm tất cả các đỉnh ở khoảng cách $$1$$ tới $$r$$, rồi đến tất cả các đỉnh ở khoảng cách $$2$$, và cứ tiếp tục theo từng mức. Phép duyệt dùng một hàng đợi để lưu các đỉnh chờ được mở rộng.",
+   "example_vi": "Trong đồ thị đường đi $$P_4$$ với các đỉnh $$v_1, v_2, v_3, v_4$$ và các cạnh $$v_1v_2$$, $$v_2v_3$$, $$v_3v_4$$, phép duyệt theo chiều rộng bắt đầu từ gốc $$v_1$$ thăm các đỉnh theo thứ tự $$v_1, v_2, v_3, v_4$$, ứng với các mức khoảng cách $$0, 1, 2, 3$$ tới gốc.",
+   "notes": "Two distinct standard Vietnamese terms denote this concept across the corpus: (1) \"duyệt theo chiều rộng\" (used by nguyenhuudien-2019 and hoangchithanh-2007, both with an explicit \"(Breadth-First Search)\" gloss) and (2) \"tìm kiếm theo chiều rộng\" (used by nguyenducnghia-2006 throughout Chapter 3, and by nguyenhoangthach-2020 page 88 alongside DFS). A close variant is \"duyệt đồ thị theo chiều rộng\" (e.g. nguyenhuudien-2019 Listing 7.3, hoangchithanh-2007 p.72 Thuật toán 6.3).\n\nRecommended term: \"duyệt theo chiều rộng\" — attested in the 2019 source nguyenhuudien-2019 (p.178, section heading \"7.1.3. Duyệt theo chiều rộng (Breadth-First Search)\") with an explicit English gloss directly confirming the concept; also attested in hoangchithanh-2007. The alternative \"tìm kiếm theo chiều rộng\" is an equally standard term attested in the newest 2020 source nguyenhoangthach-2020 (p.88) and in nguyenducnghia-2006 (heading p.180).\n\nCandidate \"tìm kiếm theo bề rộng\" was NOT found in any source (0 hits, normal and --loose); \"duyệt theo bề rộng\" also 0 hits. \"bề rộng\" is not used in this corpus for BFS — all sources use \"chiều rộng\".\n\nOCR note: nguyenhoangthach-2020 page 88 splits the phrase across a line break (\"...thuật toán tìm kiếm theo\" | \"chiều rộng, hay BFS\"), so the contiguous span \"tìm kiếm theo chiều rộng\" does not match find-term in that source; the snippet is reconstructed from the two adjacent fragments on the same page (bracketed continuation marked). Verifier confirmed both fragments exist on p.88 via --loose. hoangchithanh-2007 is an OCR source; both normal and --loose searches returned identical clean hits for \"duyệt theo chiều rộng\" (7 hits) and for the heading on p.72. nguyenducnghia-2006 \"tìm kiếm theo chiều rộng\" verified (9 hits, heading p.180). Sources NOT attesting BFS: bib-leanhvinh-2020 and bib-ngodactan-2004 returned no \"chiều rộng\"/\"Breadth\" hits.\n\nDefinition note: definition_vi and example_vi added per book conventions. Example is self-contained on $$P_4$$, using only the distance/level notions introduced in the definition; no derived quantity is referenced. All inline math wrapped in $$...$$.",
+   "see_also": [
+    "depth-first-search",
+    "spanning-tree",
+    "tree-traversal",
+    "rooted-tree"
+   ],
+   "vi_terms": [
+    {
+     "term": "duyệt theo chiều rộng",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 178,
+     "page": "tr. 178 (PDF)",
+     "snippet": "7.1.3. Duyệt theo chiều rộng (Breadth-First Search)"
+    },
+    {
+     "term": "duyệt đồ thị theo chiều rộng",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 178,
+     "page": "tr. 178 (PDF)",
+     "snippet": "Listing 7.3: Duyệt đồ thị theo chiều rộng"
+    },
+    {
+     "term": "tìm kiếm theo chiều rộng",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhoangthach-2020",
+     "pdf_page": 88,
+     "page": "tr. 88 (PDF)",
+     "snippet": "thuật toán tìm kiếm theo chiều sâu, hay DFS, và thuật toán tìm kiếm theo [chiều rộng, hay BFS]"
+    },
+    {
+     "term": "tìm kiếm theo chiều rộng",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenducnghia-2006",
+     "pdf_page": 180,
+     "page": "tr. 180 (PDF)",
+     "snippet": "3.2. Tìm kiếm theo chiều rộng trên đồ thị"
+    },
+    {
+     "term": "duyệt theo chiều rộng",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-hoangchithanh-2007",
+     "pdf_page": 72,
+     "page": "tr. 72 (PDF)",
+     "snippet": "6.1.3. Duyệt đồ thi theo chiều rộng (Breadth-First Search) ... ta có phương pháp duyệt theo chiều rộng."
+    }
+   ]
+  },
+  {
+   "id": "bridge",
+   "letter": "B",
+   "headword_en": "Bridge",
+   "notation": "",
+   "rosen_ref": "Rosen §10.4",
+   "definition_vi": "Cầu của một đồ thị liên thông là một cạnh mà việc xoá nó làm cho đồ thị con thu được không liên thông (có nhiều hơn một thành phần liên thông). Nói cách khác, cầu là cạnh $$e$$ sao cho $$G - e$$ có nhiều thành phần liên thông hơn $$G$$.",
+   "example_vi": "Trong đồ thị đường đi $$P_5$$ với các đỉnh $$v_1, v_2, v_3, v_4, v_5$$, cạnh $$\\{v_3, v_4\\}$$ là một cầu, vì khi xoá cạnh này thì đồ thị còn lại tách thành hai thành phần liên thông.",
+   "notes": "Recommended term: \"cầu\" (standalone), the standard and most widely attested term for this concept. Attested in the newest 2020 source (leanhvinh-2020, tr. 25): \"...của nó được gọi là cầu. Như vậy, các cầu của một đồ thị là các cạnh...\"; also in nguyenhuudien-2019 (tr. 169) \"...được gọi là cạnh cắt hay là cầu\", nguyenducnghia-2006 (tr. 157) \"...gọi là cầu nếu việc loại bỏ nó khỏi đồ thị làm tăng số thành phần liên thông của đồ thị\", and ngodactan-2004 (tr. 266) \"...cạnh e của đồ thị G được gọi là cầu (bridge)\".\n\nVariant \"cạnh cầu\" attested in leanhvinh-2020 (tr. 25, figure caption \"Đỉnh cắt và cạnh cầu của một đồ thị\") and nguyenhoangthach-2020 (tr. 75, 83, 84).\n\nVariant \"cạnh cắt\" (= cut edge, literal translation of Rosen's alternate name) attested in nguyenhoangthach-2020 (tr. 75) and nguyenhuudien-2019 (tr. 169). Both treat \"cạnh cắt\" and \"cầu\" as synonyms denoting this concept. Note: in nguyenhuudien-2019 (tr. 230) the phrase \"cạnh cắt nhau\" denotes crossing edges in a planarity context, a different sense; the bridge sense is at tr. 169, which is the page cited.\n\nThe definition mirrors the parallel cut-vertex entry: it leads with the recommended term \"cầu\", gives the removal-disconnects characterization, then states the formal condition $$G - e$$ has more connected components than $$G$$. The example uses the path graph $$P_5$$ and references only the defined notion (an edge whose removal increases the number of connected components), self-contained per the example rule.\n\nOCR sources: hoangchithanh-2007 uses \"cầu\" only in unrelated senses (bắc cầu = transitive closure; cây cầu = the Königsberg bridges problem; \"cầu nối\" = connector); no standalone bridge-as-cut-edge definition found there even under --loose. nguyenhoangthach-2020 is a text source; in leanhvinh-2020 (OCR) the bridge definition survives at tr. 25 under --loose. The recommended-row snippet preserves OCR noise (\"dé thị\" for \"đồ thị\") per the OCR-honesty policy; a cleaner non-2020 attestation exists (nguyenhuudien-2019 tr. 169 \"được gọi là cạnh cắt hay là cầu\") but the freshness rule anchors the recommended row to the 2020 source.\n\nPossible additional citations for the recommended term \"cầu\" (newest first): leanhvinh-2020 tr. 25; nguyenhuudien-2019 tr. 169; nguyenducnghia-2006 tr. 157, 164, 188, 201, 202; ngodactan-2004 tr. 266, 267.\n\nsee_also: cut-vertex, connected-graph, connected-component are all in chapter C (cross-chapter forward references), matching the convention used by the sibling cut-vertex entry which forward-references bridge and cut-edge.\n\nVerifier note: all three verified=true vi_terms re-confirmed via find-term.py (leanhvinh-2020 with --loose for OCR); source_id/pdf_page/snippet match and each denotes THIS concept. Exactly one recommended=true (\"cầu\", 2020 source). No fabricated citations. Math wrapping and P5 example correctness verified.",
+   "see_also": [
+    "cut-vertex",
+    "connected-graph",
+    "connected-component"
+   ],
+   "vi_terms": [
+    {
+     "term": "cầu",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-leanhvinh-2020",
+     "pdf_page": 25,
+     "page": "tr. 25 (PDF)",
+     "snippet": "của nó được gọi là cầu. Như vậy, các cầu của một dé thị là các cạnh"
+    },
+    {
+     "term": "cạnh cầu",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-leanhvinh-2020",
+     "pdf_page": 25,
+     "page": "tr. 25 (PDF)",
+     "snippet": "Hình 1.20: Dinh cất và cạnh cầu của một đồ thị."
+    },
+    {
+     "term": "cạnh cắt",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhoangthach-2020",
+     "pdf_page": 75,
+     "page": "tr. 75 (PDF)",
+     "snippet": "Một cạnh e được gọi là một cạnh cắt, hay cạnh cầu, của G nếu G − e có nhiều"
+    }
+   ]
+  },
+  {
+   "id": "bound",
+   "letter": "B",
+   "headword_en": "Bound",
+   "notation": "",
+   "rosen_ref": "Rosen §9.6",
+   "definition_vi": "Cho một tập con $$A$$ của một tập sắp thứ tự bộ phận $$(X, \\preceq)$$. Một phần tử $$x \\in X$$ được gọi là một cận trên của $$A$$ nếu $$a \\preceq x$$ với mọi $$a \\in A$$, và được gọi là một cận dưới của $$A$$ nếu $$x \\preceq a$$ với mọi $$a \\in A$$.",
+   "example_vi": "Trong tập sắp thứ tự $$(\\{1, 2, 3, 4, 6, 12\\}, \\mid)$$ với quan hệ chia hết, xét tập con $$A = \\{2, 3\\}$$. Khi đó $$6$$ và $$12$$ là các cận trên của $$A$$, còn $$1$$ là một cận dưới của $$A$$.",
+   "notes": "Rosen §9.6 concept: for a subset $$A$$ of a partially ordered set $$(X,\\preceq)$$, an upper bound is an element $$x \\in X$$ with $$a \\preceq x$$ for every $$a \\in A$$, and a lower bound is an element with $$x \\preceq a$$ for every $$a \\in A$$. The poset-specific definition is attested only in bib-ngodactan-2004 (2004) p.164, which defines \"cận trên cho A trong X\" (upper bound for A in X) and \"cận dưới\" in the same passage — exactly THIS concept (verified at p.164). The general head term for \"bound\" is \"cận\"; \"cận trên\" = upper bound, \"cận dưới\" = lower bound. The recommended \"cận\" row is now anchored to tr. 164, the poset upper/lower-bound definition page (snippet \"được gọi là cận trên cho A trong X\"), so the recommended-term citation matches the headword's poset sense; the earlier tr. 22 generic-counting occurrence (\"cận trên và cận\") is retained as a recommended=false supporting row. The newest source bib-leanhvinh-2020 (2020) uses the variants \"chặn\" / \"chặn trên\" / \"chặn dưới\" for bounds on graph/numerical invariants (chromatic number, Ramsey number), not the poset order-bound, so those are recorded as attested variants of \"bound\" rather than the poset definition. No 2019-2020 source gives the poset-specific definition; the recommended poset term \"cận\" (with \"cận trên\"/\"cận dưới\") is therefore attested in the 2004 source, the only poset-definition source. In nguyenducnghia-2006 \"cận trên\"/\"cận dưới\" denote algorithmic branch-and-bound bounds, a related but distinct use; those pages are not the poset definition but confirm the same Vietnamese terms.",
+   "see_also": [
+    "partial-order",
+    "poset",
+    "least-upper-bound",
+    "greatest-lower-bound",
+    "maximal-element",
+    "greatest-element"
+   ],
+   "vi_terms": [
+    {
+     "term": "chặn",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-leanhvinh-2020",
+     "pdf_page": 135,
+     "page": "tr. 135 (PDF)",
+     "snippet": "Lưu ý rằng chặn này cũng hiển nhiên đúng cho mọi đỏ thị bậc n."
+    },
+    {
+     "term": "chặn trên",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-leanhvinh-2020",
+     "pdf_page": 135,
+     "page": "tr. 135 (PDF)",
+     "snippet": "Đối với chặn trên, ta có đánh giá hiển nhiên sau"
+    },
+    {
+     "term": "chặn dưới",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-leanhvinh-2020",
+     "pdf_page": 95,
+     "page": "tr. 95 (PDF)",
+     "snippet": "Đối với chặn dưới của sắc số, ta có chặn hiển nhiên x(G) > w(G)."
+    },
+    {
+     "term": "cận trên",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenducnghia-2006",
+     "pdf_page": 123,
+     "page": "tr. 123 (PDF)",
+     "snippet": "Vậy ta có thể tính cận trên cho phương án bộ phận (u,, „ ..., ¿) bởi công thức"
+    },
+    {
+     "term": "cận dưới",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenducnghia-2006",
+     "pdf_page": 120,
+     "page": "tr. 120 (PDF)",
+     "snippet": "được gọi là cận dưới của tập Đ(a,, a,, ... a¿). Do có thể đồng nhất tập D(a,, 4;, ..., đ)"
+    },
+    {
+     "term": "cận",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-ngodactan-2004",
+     "pdf_page": 164,
+     "page": "tr. 164 (PDF)",
+     "snippet": "X e X được gọi là cận trên cho A trong X nếu với mọi a € vi ta có"
+    },
+    {
+     "term": "cận",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-ngodactan-2004",
+     "pdf_page": 22,
+     "page": "tr. 22 (PDF)",
+     "snippet": "đánh giá số các cấu hình tổ hợp đó bằng cách xác định cận trên và cận"
+    },
+    {
+     "term": "cận dưới",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-ngodactan-2004",
+     "pdf_page": 164,
+     "page": "tr. 164 (PDF)",
+     "snippet": "Các khái niệm cận dưới, phần tứ nhỏ nhất và phần 'tử cục tiểu"
+    }
+   ]
+  },
+  {
+   "id": "ball",
+   "letter": "B",
+   "headword_en": "Ball",
+   "notation": "B(x, r) = \\{ y : d(x, y) \\le r \\}",
+   "rosen_ref": "Rosen §9.1",
+   "definition_vi": "Cho một không gian mêtric với hàm khoảng cách $$d$$, một điểm tâm cố định $$x$$ và một bán kính $$r \\geq 0$$. *Hình cầu* tâm $$x$$ bán kính $$r$$ là tập hợp tất cả các điểm $$y$$ có khoảng cách từ $$x$$ không vượt quá $$r$$, tức là $$d(x, y) \\leq r$$; ký hiệu $$B(x, r) = \\{ y : d(x, y) \\leq r \\}$$.",
+   "example_vi": "Trên đường thẳng thực với khoảng cách $$d(x, y) = |x - y|$$, hình cầu tâm $$x = 0$$ bán kính $$r = 2$$ là tập $$B(0, 2) = \\{ y : |y| \\leq 2 \\}$$, tức là đoạn $$[-2, 2]$$.",
+   "notes": "Recommended term \"hình cầu\" is attested in the newest source bib-leanhvinh-2020 (2020, \"hình cầu đơn vị\" = unit ball, tr. 190-191) and again in bib-ngodactan-2004 (2004), where it is explicitly paired with radius: a set embeddable \"vào một hình cầu nào đó (với số chiều và bán kính bất kỳ)\" (into a ball of any dimension and radius, tr. 317-318) — confirming the metric/geometric ball concept. Citations are listed newest-first.\n\nCandidate \"quả cầu\" was REJECTED: it appears only in bib-nguyenducnghia-2006 (tr. 51) denoting physical colored balls in a counting problem (\"quả cầu xanh, đỏ, tím\"), not a metric-space ball; no source attests it for THIS concept, so it is dropped (verified=false, empty page).\n\nCandidate \"khối cầu\" was REJECTED: zero genuine hits across all sources. Dropped.\n\nOCR sources bib-leanhvinh-2020 and bib-hoangchithanh-2007 were searched both normally and with --loose. The leanhvinh-2020 hits (\"hình cầu đơn vị\") are stable across both modes. No attestation of any ball term was found in bib-nguyenhoangthach-2020, bib-nguyenhuudien-2019, or bib-hoangchithanh-2007 for this concept.\n\nrosen_ref note (editor flag, NOT changed): the panel flagged that Rosen §9.1 covers relations and may not define a metric-space ball, so §9.1 is a weak anchor. No confirmed correct Rosen section was available to substitute, so rosen_ref is left as §9.1 and recorded here for an editor to verify against the Rosen source. The definition's mathematics (closed ball $$B(x,r)=\\{y:d(x,y)\\leq r\\}$$) is standard and correct regardless of the section anchor.\n\nsee_also is left empty: no Chapter B same-chapter face-/metric-ball ids exist in this batch to link, and the natural forward references (metric-space, distance-function) are not yet planned headwords; an empty list is retained pending confirmation of those targets.",
+   "see_also": [],
+   "vi_terms": [
+    {
+     "term": "hình cầu",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-leanhvinh-2020",
+     "pdf_page": 190,
+     "page": "tr. 190 (PDF)",
+     "snippet": "khi điểm (z,y,z) nằm trên hình cầu đơn vị tam (a,b,c). Khi đó"
+    },
+    {
+     "term": "hình cầu",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-ngodactan-2004",
+     "pdf_page": 317,
+     "page": "tr. 317 (PDF)",
+     "snippet": "vào một hình cầu nào đó (với số chiều và bán kính bất kỳ). Việc chứng"
+    }
+   ]
+  }
+ ]
+}

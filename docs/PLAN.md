@@ -365,6 +365,6 @@ Hội đồng biên tập (`agent-group-discuss`) đã chốt các quy ước sa
 8. **Không chèn nghĩa khác trong định nghĩa:** biến thể đặt ở `vi_terms`/`notes`; ngoặc đơn chỉ để nhắc lại chính đối tượng đang định nghĩa.
 9. **see_also:** chỉ `<xref>` tới id cùng chương; tham chiếu chương khác là forward reference (vd. `coloring`, `graph-coloring` → gộp/khử trùng ở chương G).
 
-**Nguồn đã hoãn (scan, không có OCR tiếng Việt):** Rosen (bản dịch VI), Lê Anh Vinh, Hoàng Chí Thành — **không trích dẫn** cho tới khi có OCR. Kho text-layer đang dùng: Ngô Đắc Tân (2004), Nguyễn Đức Nghĩa & Nguyễn Tô Thành (2006), Nguyễn Hữu Điển (2019).
+**Nguồn scan (không có text layer):** Rosen (bản dịch VI), Lê Anh Vinh, Hoàng Chí Thành. Trước đây hoãn; nay có **fallback OCR tiếng Việt** — `workflow/scripts/ocr-pdf.py`, chuỗi engine: **tesseract `vie`** (model `tessdata_best`, đặt ở `~/.local/share/tessdata`) → **RapidOCR** → **EasyOCR**. OCR tạo cùng định dạng `@@PAGE n@@` nên khai thác y như nguồn text-layer. Nguồn OCR được đánh dấu `origin=ocr` trong `workflow/corpus/manifest.json`; khi tìm/kiểm chứng nên dùng `--loose` để chịu sai số dấu của OCR. Kho text-layer (chất lượng cao nhất): Ngô Đắc Tân (2004), Nguyễn Đức Nghĩa & Nguyễn Tô Thành (2006), Nguyễn Hữu Điển (2019).
 
-**Quy trình tái lập (mỗi chữ cái):** workflow `pilot-chapter-c` (đổi chữ) → `encode-chapter.py <l>` → `validate-entry.py` (build-gate) → `build-search-index.py` → `pretext build web`.
+**Quy trình tái lập (mỗi chữ cái):** [OCR nguồn scan cần dùng: `ocr-pdf.py <biblio_id>`] → workflow `pilot-chapter-c` (đổi chữ) → `encode-chapter.py <l>` → `validate-entry.py` (build-gate) → `build-search-index.py` → `pretext build web`.

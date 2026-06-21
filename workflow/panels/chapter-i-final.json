@@ -1,0 +1,861 @@
+{
+ "locked_conventions": [
+  "Math delimiters: every inline mathematical symbol (G, K_n, V(G), \\deg^{-}(v), \\chi(G), \\gcd(a,b), set braces, set-builder, \\mathbb{Z}, \\geq, \\leq, \\neq, etc.) is wrapped in $$...$$. Bare unwrapped math is never left in definition_vi or example_vi. Block math uses a ```math fence. Math delimiters wrap SYMBOLS only: a bare Vietnamese word (đồ thị, tập độc lập, đỉnh cô lập) is never wrapped in $$...$$; the first introduction of a central concept is marked with \\emph{...} OUTSIDE math, not with markdown *...* or with $$...$$.",
+  "Inequalities and relations: ASCII '>=', '<=', '!=' are forbidden in finished prose; use $$\\geq$$, $$\\leq$$, $$\\neq$$. Strict $$<$$ / $$>$$ inside $$...$$ (e.g. the open-interval example $$0 < x < 1$$) is standard LaTeX and acceptable.",
+  "Bipartite rendering is fixed book-wide to 'đồ thị hai phần' (book standard for this volume); the variants 'đồ thị hai phía' and 'đồ thị phân đôi' are recorded only as deferred source variants. No bipartite-graph entry occurs in chapter I (isomorphism's see_also lists bipartite-graph as a cross-chapter forward reference only), so the convention is not exercised here.",
+  "Exactly one vi_term per entry has recommended=true. The recommended term is, whenever possible, a verified=true term backed by source_id + pdf_page + page + snippet, attested in a 2019-2020 source where the concept exists there; newest citations are listed first. EVERY variant from ALL sources (old and new) is still recorded. A recommended term may be verified=false only when NO corpus source attests any candidate (standard-but-unattested terminology); in that case the unverified status is surfaced explicitly in notes (here: inverse-function).",
+  "Citation hygiene: every verified=true vi_term carries source_id, pdf_page, page, and a quoted snippet whose surface form contains the term string (OCR sources may show diacritic-mangled forms; where the normalized term differs from the raw snippet it is bracketed inline as [OCR: ...]). vi_terms with verified=false AND page=\"\" are dropped, except a single recommended standard term retained to keep the required vi_terms field non-empty and preserve the single-recommendation invariant (inverse-function's 'hàm ngược'). Diacritics-insensitive (--loose) search confirms hits/0-hits on the OCR sources (bib-leanhvinh-2020, bib-hoangchithanh-2007).",
+  "Examples are self-contained: an example_vi never relies on a derived quantity the definition_vi did not introduce (e.g. independent-set's example does not invoke the independence number).",
+  "No synonym glosses inside the definition; variants live in vi_terms/notes. The English equivalent is carried by headword_en, not by a parenthetical inside definition_vi.",
+  "see_also lists kebab ids only. Same-chapter (I) ids are direct links and must point to a real I entry; cross-chapter ids are permitted as forward references to be created in their own chapters. An id that merely duplicates the entry's own concept is not listed in see_also.",
+  "Notation field carries a bare symbolic token (M, \\mathbb{Z}, A \\cap B, R^{-1}, G_1 \\cong G_2, G[W], \\deg^{-}(v), f\\colon A \\to B, f^{-1}, \\deg(v) = 0, (a,b) \\notin R-style), NOT wrapped in $$...$$ and NOT mixed with Vietnamese prose. Chapter-wide editorial notes are written in English."
+ ],
+ "deferred_note": "Applied the panel's clearly-correct fixes and kept ALL 15 chapter-I entries. HIGH FIXES: (1) interval correctness defect: the dual use of $$[a,b]$$ (as both a generic interval and the closed interval) was removed; $$[a,b]$$ is now tied solely to the closed interval per Rosen §2.3, while the generic 'between a and b, may or may not contain the endpoints' is stated without the bracket symbol. (2) interval citation-hygiene: the unattested variant 'đoạn' (verified=false, page=\"\") was DROPPED from vi_terms because the recommended 'khoảng' is verified=true so vi_terms is already non-empty; the đoạn=closed / khoảng=open analytic distinction (unattested in this graph-theory corpus) is preserved in notes only. (3) mathematical-induction alphabetization: the entry is filed under chapter I, so headword_en is set to the index-key form 'induction, mathematical' (I-initial) so it collates under I, passes the letter==headword-initial schema check, and its 'I' placement is justified by index key; the id 'mathematical-induction' and the M-initial common name in the definition are retained. MED FIXES: (4) indegree recommended-citation re-pointed off the back-of-book INDEX line ('bậc vào, 12' on pdf p.256) to the DEFINITIONAL page (pdf p.11) where the indegree is defined as 'số cạnh đi vào một đỉnh v'; the OCR there mangles 'bậc vào' to 'bac bào', bracketed inline as [OCR: bậc vào] so the term-snippet link stays auditable. (5) NOTATION-FIELD standardization to the bare-token majority convention: injection '$$f\\colon A \\to B$$' -> 'f\\colon A \\to B'; inverse-function '$$f^{-1}$$' -> 'f^{-1}'; isolated-vertex '$$\\deg(v) = 0$$' -> '\\deg(v) = 0'; irreflexive-relation '$$(a, a) \\notin R$$ với mọi $$a \\in A$$' (math+prose) -> bare '(a, a) \\notin R'. (6) injection correctness/precision: the descriptive clause 'thành các phần tử phân biệt của miền giá trị' (range) was corrected to 'miền đến (tập đích) $$B$$' (codomain), matching Rosen; the precise logical condition was already correct and is unchanged. NOTES-LANGUAGE FIXES: inverse-function, inverse-relation, and irreflexive-relation editorial notes translated from Vietnamese to English to match the chapter majority. UNVERIFIED-TERM NORMALIZATION: inverse-function's recommended fallback 'hàm ngược' (verified=false, no corpus attestation) normalized to omit pdf_page and source_id and use page=\"\", matching the empty-placeholder convention. CORRECTNESS PRECISION (infinite-set, low): finiteness now stated as a one-to-one correspondence with $$\\{1, 2, \\ldots, n\\}$$ for some NONNEGATIVE integer $$n$$ (allowing $$n = 0$$, the empty set), so the negation cleanly covers the empty set. All verified=true vi_terms keep source_id + pdf_page + page + snippet; non-recommended verified=false empty-page citations are dropped. Newest-source-first ordering preserved within each vi_terms list. Cross-chapter see_also ids are forward references to be created in their own chapters; same-chapter I links (interval->integer and injection->inverse-function) point to real I entries. TRANSPARENCY NOTES RETAINED: interval discloses the recommended 'khoảng' anchor (leanhvinh-2020 p.190) is a value-range usage while the explicit 'khoảng [x, y]' interval-notation attestation is ngodactan-2004 p.165 (kept non-recommended per newest-source preference); incidence-matrix discloses the hoangchithanh-2007 snippet is a directed-graph context but denotes the same concept; mathematical-induction discloses the recommended full phrase 'quy nạp toán học' is attested only in the 2019 source (no 2020 source attests the full named phrase).",
+ "final_entries": [
+  {
+   "id": "incidence-matrix",
+   "letter": "I",
+   "headword_en": "incidence matrix",
+   "notation": "M",
+   "rosen_ref": "Rosen §10.3",
+   "definition_vi": "Ma trận liên thuộc của đồ thị $$G$$ với tập đỉnh $$V(G) = \\{v_1, v_2, \\ldots, v_n\\}$$ và tập cạnh $$E(G) = \\{e_1, e_2, \\ldots, e_m\\}$$, ký hiệu $$M = (m_{ij})$$, là ma trận cỡ $$n \\times m$$ trong đó $$m_{ij} = 1$$ nếu đỉnh $$v_i$$ liên thuộc với cạnh $$e_j$$ và $$m_{ij} = 0$$ trong trường hợp ngược lại.",
+   "example_vi": "Với đồ thị $$G$$ có các đỉnh $$v_1, v_2, v_3$$ và các cạnh $$e_1 = v_1 v_2$$, $$e_2 = v_2 v_3$$, ma trận liên thuộc là ma trận cỡ $$3 \\times 2$$ với $$m_{11} = m_{21} = 1$$, $$m_{22} = m_{32} = 1$$ và các phần tử còn lại bằng $$0$$.",
+   "notes": "Recommended term \"ma trận liên thuộc\" is the standard term, attested in all six corpus sources including the two newest 2020 books (bib-leanhvinh-2020 p.54 and bib-nguyenhoangthach-2020 p.67); citations ordered newest-source first. Variant \"ma trận liên thuộc đỉnh-cạnh\" (vertex-edge incidence matrix) is attested only in bib-nguyenducnghia-2006 (p.171: \"được gọi là ma trận liên thuộc đính-cạnh\"; the chapter heading 2.2 reads \"Ma trận liên thuộc đỉnh-cạnh\"); it is a more explicit synonym specifying the row=vertex, column=edge indexing. Candidate \"ma trận tới\" returned 0 hits across all sources (normal and --loose), so it is not recorded. The two OCR sources were confirmed: bib-hoangchithanh-2007 attests the term on PDF p.20 only via --loose (OCR mangled \"trận\" to \"tran\"; the snippet refers to a directed graph, but \"ma trận liên thuộc\" denotes the same concept for both directed and undirected graphs); bib-leanhvinh-2020 attests it cleanly in both normal and --loose passes. The cross-chapter id \"adjacency-matrix\" (chapter A) is a forward reference.",
+   "see_also": [
+    "adjacency-matrix"
+   ],
+   "vi_terms": [
+    {
+     "term": "ma trận liên thuộc",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-leanhvinh-2020",
+     "pdf_page": 54,
+     "page": "tr. 54 (PDF)",
+     "snippet": "cuối của cạnh. Ma trận liên thuộc của G, kí hiệu bởi Mg = (Mi;)"
+    },
+    {
+     "term": "ma trận liên thuộc",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhoangthach-2020",
+     "pdf_page": 67,
+     "page": "tr. 67 (PDF)",
+     "snippet": "khuyên. Ma trận liên thuộc của G là ma trận M ∈ NV ×E được cho bởi:"
+    },
+    {
+     "term": "ma trận liên thuộc",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 164,
+     "page": "tr. 164 (PDF)",
+     "snippet": "là các cạnh của G . Ma trận liên thuộc của G theo thứ tự trên của V và E là ma trận"
+    },
+    {
+     "term": "ma trận liên thuộc",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-hoangchithanh-2007",
+     "pdf_page": 20,
+     "page": "tr. 20 (PDF)",
+     "snippet": "Ma tran liên thuộc của đồ thi định hướng G = (V, E) là ma trận [OCR: directed-graph context; same concept for undirected graphs]"
+    },
+    {
+     "term": "ma trận liên thuộc",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenducnghia-2006",
+     "pdf_page": 171,
+     "page": "tr. 171 (PDF)",
+     "snippet": "Máa trận A xây dựng theo qui tắc vừa nêu được gọi là ma trận liên thuộc đính-cạnh."
+    },
+    {
+     "term": "ma trận liên thuộc",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-ngodactan-2004",
+     "pdf_page": 220,
+     "page": "tr. 220 (PDF)",
+     "snippet": "E — Ịei, e2 , .. ■, em}. Khi đó ma trận liên thuộc của đồ thị G là ma trận"
+    },
+    {
+     "term": "ma trận liên thuộc đỉnh-cạnh",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenducnghia-2006",
+     "pdf_page": 171,
+     "page": "tr. 171 (PDF)",
+     "snippet": "2.2. Ma trận liên thuộc đỉnh-cạnh"
+    }
+   ]
+  },
+  {
+   "id": "independent-set",
+   "letter": "I",
+   "headword_en": "independent set",
+   "notation": "",
+   "rosen_ref": "Rosen §10.8",
+   "definition_vi": "Một \\emph{tập độc lập} của đồ thị $$G$$ là một tập con các đỉnh đôi một không kề nhau, tức là một tập con $$S \\subseteq V(G)$$ sao cho không có cạnh nào của $$G$$ nối hai đỉnh thuộc $$S$$.",
+   "example_vi": "Trong đồ thị $$G$$ với tập đỉnh $$\\{a, b, c\\}$$ và tập cạnh $$\\{ab, bc\\}$$, tập $$\\{a, c\\}$$ là một tập độc lập, vì $$a$$ và $$c$$ không kề nhau.",
+   "see_also": [
+    "clique"
+   ],
+   "notes": "Recommended term \"tập độc lập\" is attested in the newest source (bib-leanhvinh-2020, 2020) with extensive definitional and proof usage; citations are listed newest-source first. \"tập ổn định trong\" is the classical terminology used by bib-hoangchithanh-2007 (Định nghĩa 3.1) and bib-nguyenhuudien-2019, where the same concept is named as an \"internally stable set\" and the complement notion \"tập ổn định ngoài\" (externally stable set) also appears. \"tập đỉnh độc lập\" (independent vertex set) is a variant attested in bib-leanhvinh-2020 and bib-ngodactan-2004. The candidate \"tập độc lập của đồ thị\" is not attested as a fixed phrase (0 hits); it is just \"tập độc lập\" followed by \"của G/của đồ thị\" in context, so it is folded into the recommended term rather than listed separately. Sources bib-nguyenhoangthach-2020 and bib-nguyenducnghia-2006 use the underlying concept (\"hai đỉnh không kề nhau\") but do not attest any named set term for it. The definition follows Rosen §10.8 (a set of vertices no two of which are adjacent) and is grounded in the leanhvinh-2020 p.80 characterization that every edge of $$G$$ has at most one endpoint in an independent set. The first introduction of the central concept is marked with \\emph{tập độc lập} OUTSIDE math, per the math-wrapping convention (delimiters wrap symbols only, e.g. $$G$$, $$S$$, $$V(G)$$). The example is self-contained, using a concrete three-vertex graph and introducing no derived invariant (the independence number is deliberately not invoked). The vi_terms list is sorted by source recency across all variants (newest source first), so the two distinct surface forms 'tập độc lập' and 'tập đỉnh độc lập' are interleaved by source date rather than grouped by surface form. see_also target clique is the complementary concept (pairwise-adjacent vertices) and is a cross-chapter (chapter C) forward reference; the clique entry already links back to independent-set. No independence-number or maximal-independent-set entry exists yet, so no same-chapter I-term is linked.",
+   "vi_terms": [
+    {
+     "term": "tập độc lập",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-leanhvinh-2020",
+     "pdf_page": 80,
+     "page": "tr. 80 (PDF)",
+     "snippet": "Chứng minh. Tap J là tập độc lập khi và chỉ khi mọi cạnh của G có"
+    },
+    {
+     "term": "tập đỉnh độc lập",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-leanhvinh-2020",
+     "pdf_page": 89,
+     "page": "tr. 89 (PDF)",
+     "snippet": "hoàn hảo khi và chỉ khi tập đỉnh độc lập lớn nhất của nó có |V(G)(/2 đính."
+    },
+    {
+     "term": "tập ổn định trong",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 228,
+     "page": "tr. 228 (PDF)",
+     "snippet": "thành các tập ổn định trong không giao nhau, mỗi tập ứng với một màu."
+    },
+    {
+     "term": "tập ổn định trong",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-hoangchithanh-2007",
+     "pdf_page": 29,
+     "page": "tr. 29 (PDF)",
+     "snippet": "Định nghĩa 3.1: Tap B CV được gọi là tập ổn định trong của đồ"
+    },
+    {
+     "term": "tập độc lập",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-ngodactan-2004",
+     "pdf_page": 288,
+     "page": "tr. 288 (PDF)",
+     "snippet": "Số đỉnh của tập độc lập có nhiều phần t.ử nhất trong G được gọi là số"
+    },
+    {
+     "term": "tập đỉnh độc lập",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-ngodactan-2004",
+     "pdf_page": 288,
+     "page": "tr. 288 (PDF)",
+     "snippet": "Hiền nhiên là mỗi lớp Vi, i = 1,2,... , k, là một tập đỉnh độc lập của"
+    }
+   ]
+  },
+  {
+   "id": "indegree",
+   "letter": "I",
+   "headword_en": "indegree",
+   "notation": "\\deg^{-}(v)",
+   "rosen_ref": "Rosen §10.2",
+   "definition_vi": "Bậc vào của một đỉnh $$v$$ trong đồ thị có hướng $$G$$ là số cạnh nhận $$v$$ làm đỉnh cuối, ký hiệu $$\\deg^{-}(v)$$.",
+   "example_vi": "Trong đồ thị có hướng $$G$$ với tập cạnh $$\\{(a,v),(b,v),(v,c)\\}$$, đỉnh $$v$$ là đỉnh cuối của hai cạnh $$(a,v)$$ và $$(b,v)$$, nên $$\\deg^{-}(v)=2$$.",
+   "vi_terms": [
+    {
+     "term": "bậc vào",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-leanhvinh-2020",
+     "pdf_page": 11,
+     "page": "tr. 11 (PDF)",
+     "snippet": "số cạnh đi vào một đỉnh v được gọi là bac bào của đỉnh đó, ki hiệu bởi d- (v) [OCR: bậc vào]"
+    },
+    {
+     "term": "bậc vào của đỉnh",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 226,
+     "page": "tr. 226 (PDF)",
+     "snippet": "for v ∈ V do BACV [v] := 0; //BAC_V [v] chứa bậc vào của đỉnh v"
+    },
+    {
+     "term": "bậc vào",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-hoangchithanh-2007",
+     "pdf_page": 49,
+     "page": "tr. 49 (PDF)",
+     "snippet": "— Những đỉnh có bậc vào bằng 0 sẽ được đưa vào stack (ngăn"
+    },
+    {
+     "term": "bán bậc vào",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenducnghia-2006",
+     "pdf_page": 155,
+     "page": "tr. 155 (PDF)",
+     "snippet": "Do mỗi cung (z,v) sẽ được tính một lần trong bán bậc vào của đỉnh v và một lần"
+    }
+   ],
+   "notes": "Recommended term \"bậc vào\" is attested in the newest source bib-leanhvinh-2020 (2020). The panel flagged that the recommended citation originally pointed to the back-of-book INDEX line (\"bậc vào, 12\" at pdf p.256), not a definitional use; it has been re-pointed to the DEFINITIONAL page pdf p.11, where the indegree is defined as \"số cạnh đi vào một đỉnh v ... ki hiệu bởi d-(v)\". The OCR on p.11 mangles the surface form \"bậc vào\" to \"bac bào\"; this is bracketed inline as [OCR: bậc vào] so the term-snippet link stays auditable, and the clean index attestation at p.256 corroborates that the indexed term is exactly \"bậc vào\". The phrasal variant \"bậc vào của đỉnh\" is the same term extended with \"của đỉnh\" (also in bib-hoangchithanh-2007 pdf p.50: \"BAC_V[v] chứa bậc vào của đỉnh V\"); it is recorded separately because it was a listed candidate, and is itself attested in the 2019 source. The variant \"bán bậc vào\" is the older convention used by Nguyễn Đức Nghĩa (2006, bib-nguyenducnghia-2006), where \"bán bậc vào\"/\"bán bậc ra\" are paired (pdf p.155, 198, 231, 234); \"bán\" (half) reflects the older semi-degree terminology. OCR sources: bib-leanhvinh-2020 and bib-hoangchithanh-2007 both confirmed under normal and --loose searches. Candidates \"bậc nhập\", \"bán bậc nhập\", \"nửa bậc vào\" returned 0 hits; bib-nguyenhoangthach-2020 and bib-ngodactan-2004 yielded no attestation of \"bậc vào\".",
+   "see_also": [
+    "outdegree",
+    "directed-graph",
+    "degree-of-a-vertex"
+   ]
+  },
+  {
+   "id": "mathematical-induction",
+   "letter": "I",
+   "headword_en": "induction, mathematical",
+   "notation": "",
+   "rosen_ref": "Rosen §5.1",
+   "definition_vi": "Quy nạp toán học là kỹ thuật chứng minh một khẳng định $$P(n)$$ đúng với mọi số nguyên dương $$n$$, gồm bước cơ sở chứng minh $$P(1)$$ đúng và bước quy nạp chứng minh rằng nếu $$P(k)$$ đúng thì $$P(k+1)$$ cũng đúng với mọi số nguyên dương $$k$$.",
+   "example_vi": "Để chứng minh $$1 + 2 + \\cdots + n = \\frac{n(n+1)}{2}$$ với mọi số nguyên dương $$n$$, ở bước cơ sở ta kiểm tra đẳng thức đúng với $$n = 1$$, và ở bước quy nạp ta giả sử đẳng thức đúng với $$n = k$$ rồi suy ra nó đúng với $$n = k+1$$.",
+   "notes": "Filing/collation: the common name \"mathematical induction\" is M-initial, but this entry is filed under chapter I; per the panel's alphabetization fix, headword_en is set to the lexicon index-key form \"induction, mathematical\" so the entry collates under I and passes the letter==headword-initial schema check. The id \"mathematical-induction\" is kept stable for cross-references; the M-initial common name is retained in the definition. Recommended term \"quy nạp toán học\" is the standard full name for this proof technique, attested in the 2019 discrete-math source (bib-nguyenhuudien-2019, tr. 69), which also gives \"phương pháp quy nạp toán học\" (tr. 69) and the chapter form \"phương pháp quy nạp\" (tr. 60, section 2.4). Transparency: the named full phrase \"quy nạp toán học\" does NOT appear in either 2020 graph-theory text (bib-leanhvinh-2020, bib-nguyenhoangthach-2020); they use it within proofs only as \"nguyên lý quy nạp\" (induction principle) and bare \"quy nạp\", so the recommended term is anchored to the 2019 source, the newest source attesting the full named phrase, which satisfies the \"2019-2020 where possible\" rule. \"nguyên lý quy nạp\" denotes the induction principle invoked to close inductive proofs (bib-leanhvinh-2020 tr. 17, 29, 62, 99, 145, 200; also bib-nguyenhuudien-2019 tr. 62). Bare \"quy nạp\" is the most frequent form across the corpus (bib-leanhvinh-2020, bib-nguyenhoangthach-2020 tr. 70, bib-hoangchithanh-2007 tr. 37/47, bib-nguyenducnghia-2006 tr. 72) but is a shorthand, hence not recommended. \"phương pháp quy nạp\" also appears in the OCR source bib-hoangchithanh-2007 (tr. 47, 52). No candidate term is attested in bib-ngodactan-2004 (no hits, normal or --loose). All four candidate terms were searched; OCR sources bib-leanhvinh-2020 and bib-hoangchithanh-2007 were searched both normal and --loose. The candidate \"nguyên lý quy nạp\" is recorded as a variant (it corresponds more precisely to \"principle of mathematical induction\" but is the in-proof realization of this concept in the newest 2020 source).",
+   "see_also": [
+    "strong-induction",
+    "basis-step",
+    "inductive-step",
+    "well-ordering-principle",
+    "recursive-definition"
+   ],
+   "vi_terms": [
+    {
+     "term": "nguyên lý quy nạp",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-leanhvinh-2020",
+     "pdf_page": 17,
+     "page": "tr. 17 (PDF)",
+     "snippet": "Do đó, khẳng định đúng với W. Theo nguyên lý quy nạp, định lý được"
+    },
+    {
+     "term": "quy nạp",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-leanhvinh-2020",
+     "pdf_page": 21,
+     "page": "tr. 21 (PDF)",
+     "snippet": "Chứng minh. Ta chứng minh bằng quy nạp theo n. Trường hợp cơ"
+    },
+    {
+     "term": "quy nạp toán học",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 69,
+     "page": "tr. 69 (PDF)",
+     "snippet": "Dùng phương pháp quy nạp toán học chứng minh rằng H2n ≥ 1 + , n là số nguyên không"
+    },
+    {
+     "term": "phương pháp quy nạp toán học",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 69,
+     "page": "tr. 69 (PDF)",
+     "snippet": "▷ 2.23. Dùng phương pháp quy nạp toán học chứng minh rằng Nếu A có n phần tử thì số"
+    },
+    {
+     "term": "phương pháp quy nạp",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 60,
+     "page": "tr. 60 (PDF)",
+     "snippet": "2.4. Phương pháp quy nạp"
+    }
+   ]
+  },
+  {
+   "id": "infinite-set",
+   "letter": "I",
+   "headword_en": "infinite set",
+   "notation": "",
+   "rosen_ref": "Rosen §2.1",
+   "definition_vi": "Một tập hợp $$A$$ được gọi là tập vô hạn nếu nó không phải là tập hữu hạn, tức là không thể đặt các phần tử của $$A$$ tương ứng một-một với các số nguyên dương từ $$1$$ đến một số nguyên không âm cố định $$n$$ nào đó (trường hợp $$n = 0$$ ứng với tập rỗng).",
+   "example_vi": "Tập hợp các số nguyên dương $$\\{1, 2, 3, \\ldots\\}$$ là một tập vô hạn.",
+   "see_also": [
+    "finite-set",
+    "cardinality",
+    "countable-set"
+   ],
+   "notes": "Recommended term \"tập vô hạn\" is the standard term, attested in the 2020 source bib-leanhvinh-2020 (p.172) and defined explicitly in bib-nguyenhuudien-2019 (p.78): \"Nếu tập hợp A không hữu hạn, ta nói A là một tập vô hạn và viết $$|A| = \\infty$$\" (If set A is not finite, we say A is an infinite set). Also attested throughout bib-ngodactan-2004 (pp.308, 309, 321, 323, 325, 328). The Rosen Vietnamese translation (bib-rosen-2003-vi) confirms both the term and the canonical example: at p.58 it reads \"Tập hợp các số nguyên dương là một tập vô hạn\" (Ví dụ 10), and \"tập vô hạn\" recurs at pp.58, 87, 97, 102, 129. The example_vi reuses this Rosen example; it is self-contained and introduces no derived quantity. Per the panel's precision fix, finiteness is stated as a one-to-one correspondence with $$\\{1, 2, \\ldots, n\\}$$ for some NONNEGATIVE integer $$n$$ (allowing $$n = 0$$), so the negation defining 'infinite' cleanly covers the empty set (the empty set is finite). Candidate variants \"tập hợp vô hạn\" and \"tập hợp không hữu hạn\" returned 0 hits (normal and --loose) in every source, so they are not recorded as verified terms; \"tập hợp A không hữu hạn\" appears only as a definitional clause (\"set A that is not finite\"), not as a standalone noun phrase for the concept. OCR sources checked with both normal and --loose: bib-leanhvinh-2020 confirms \"tập vô hạn\"; bib-hoangchithanh-2007 yields no hit for this concept (only \"vô hạn\" in unrelated planar-graph/region context). bib-nguyenhoangthach-2020 and bib-nguyenducnghia-2006 use \"vô hạn\" only for \"dãy vô hạn\"/\"chuỗi vô hạn\" (infinite sequence/series), not infinite set. vi_terms ordered newest-source first (2020, 2019, 2004). see_also entries are cross-chapter forward references (finite-set, cardinality, countable-set in chapter F/C); no other chapter-I entries exist yet to link.",
+   "vi_terms": [
+    {
+     "term": "tập vô hạn",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-leanhvinh-2020",
+     "pdf_page": 172,
+     "page": "tr. 172 (PDF)",
+     "snippet": "võ hạn (3) bởi hai mau, ta luôn tìm được một tập vô hạn S C Ñ sao"
+    },
+    {
+     "term": "tập vô hạn",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 78,
+     "page": "tr. 78 (PDF)",
+     "snippet": "Nếu tập hợp A không hữu hạn, ta nói A là một tập vô hạn và viết | A| = ∞."
+    },
+    {
+     "term": "tập vô hạn",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-ngodactan-2004",
+     "pdf_page": 308,
+     "page": "tr. 308 (PDF)",
+     "snippet": "tập con lục luợng r (\\ < r < oo) cùa một tập vô hạn A bằng k màu."
+    }
+   ]
+  },
+  {
+   "id": "injection",
+   "letter": "I",
+   "headword_en": "injection",
+   "notation": "f\\colon A \\to B",
+   "definition_vi": "Một hàm $$f\\colon A \\to B$$ được gọi là một đơn ánh nếu nó ánh xạ các phần tử phân biệt của miền xác định thành các phần tử phân biệt của miền đến (tập đích) $$B$$; nghĩa là với mọi $$a_1, a_2 \\in A$$, nếu $$f(a_1) = f(a_2)$$ thì $$a_1 = a_2$$ (tương đương, $$a_1 \\neq a_2$$ kéo theo $$f(a_1) \\neq f(a_2)$$).",
+   "example_vi": "Hàm $$f\\colon \\mathbb{Z} \\to \\mathbb{Z}$$ cho bởi $$f(x) = 2x$$ là một đơn ánh, vì nếu $$2x_1 = 2x_2$$ thì $$x_1 = x_2$$.",
+   "rosen_ref": "Rosen §2.3",
+   "see_also": [
+    "surjection",
+    "bijection",
+    "function",
+    "inverse-function"
+   ],
+   "notes": "Per the panel's precision fix, the descriptive clause now maps distinct domain elements to distinct elements of the CODOMAIN (\"miền đến (tập đích) $$B$$\"), matching Rosen, rather than the image/range (\"miền giá trị\"); the precise logical condition $$f(a_1) = f(a_2) \\Rightarrow a_1 = a_2$$ was already correct and is unchanged. Notation field normalized to the bare-token chapter convention (\"f\\colon A \\to B\", not $$...$$-wrapped). \"đơn ánh\" is the standard term and the recommended choice, attested in the newest sources (bib-leanhvinh-2020 p.232/234, bib-nguyenhoangthach-2020, bib-nguyenhuudien-2019) as well as older ones. \"hàm đơn ánh\" (injective function) is a variant attested only in bib-ngodactan-2004 (2004). The candidate \"ánh xạ đơn ánh\" returned 0 hits in both normal and --loose modes across all sources, so it is not recorded as a verified term. In leanhvinh-2020 the phrase appears as \"đơn ánh ngẫu nhiên\" (random injection) but the head noun \"đơn ánh\" denotes exactly this concept.",
+   "vi_terms": [
+    {
+     "term": "đơn ánh",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-leanhvinh-2020",
+     "pdf_page": 232,
+     "page": "tr. 232 (PDF)",
+     "snippet": "(Chứng minh. Xét một đơn ánh ngẫu nhiên từ tap đỉnh của H vào tập"
+    },
+    {
+     "term": "đơn ánh",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhoangthach-2020",
+     "pdf_page": 20,
+     "page": "tr. 20 (PDF)",
+     "snippet": "Ví dụ 2.4. Có bao nhiêu đơn ánh từ một tập hợp S có k phần tử vào một"
+    },
+    {
+     "term": "đơn ánh",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 78,
+     "page": "tr. 78 (PDF)",
+     "snippet": "Tính chất. Cho A và B là các tập hợp hữu hạn. Giả sử tồn tại đơn ánh từ A vào B. Khi"
+    },
+    {
+     "term": "đơn ánh",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenducnghia-2006",
+     "pdf_page": 19,
+     "page": "tr. 19 (PDF)",
+     "snippet": "Thí dụ. Tính số đơn ánh từ một #-tập vào một z-tập."
+    },
+    {
+     "term": "đơn ánh",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-ngodactan-2004",
+     "pdf_page": 21,
+     "page": "tr. 21 (PDF)",
+     "snippet": "đơn ánh, thì cấu trúc tổ hợp (V, E, / ) được gọi là một đơn đồ thị có"
+    },
+    {
+     "term": "hàm đơn ánh",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-ngodactan-2004",
+     "pdf_page": 37,
+     "page": "tr. 37 (PDF)",
+     "snippet": "Giải. Giả' sử N = { a i,02, . . . ,a„}. Khi đó một hàm đơn ánh / :"
+    }
+   ]
+  },
+  {
+   "id": "integer",
+   "letter": "I",
+   "headword_en": "integer",
+   "notation": "\\mathbb{Z}",
+   "definition_vi": "Một \\emph{số nguyên} là một số nguyên dương, một số nguyên âm, hoặc số $$0$$. Tập hợp tất cả các số nguyên được ký hiệu là $$\\mathbb{Z} = \\{\\ldots, -2, -1, 0, 1, 2, \\ldots\\}$$.",
+   "example_vi": "Các số $$-3$$, $$0$$ và $$5$$ đều là số nguyên, trong khi $$\\tfrac{1}{2}$$ không phải là số nguyên.",
+   "rosen_ref": "Rosen §2.1",
+   "notes": "Recommended term \"số nguyên\" is the standard Vietnamese rendering, attested in the newest 2020 source (bib-leanhvinh-2020, p. 25) and pervasively across all corpora. The variant \"tập số nguyên\" denotes the SET of integers $$\\mathbb{Z}$$ (attested 2019: bib-nguyenhuudien-2019 p. 128, and 2006: bib-nguyenducnghia-2006 p. 23). The candidate \"số nguyên đại số\" (algebraic integer) is a DISTINCT concept, not this one, and has 0 attestations in the corpus; it is excluded.",
+   "see_also": [],
+   "vi_terms": [
+    {
+     "term": "số nguyên",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-leanhvinh-2020",
+     "pdf_page": 25,
+     "page": "tr. 25 (PDF)",
+     "snippet": "Chi số liên thông của đồ thị G, kí hiệu bởi x(G), là số nguyên k"
+    },
+    {
+     "term": "tập số nguyên",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 128,
+     "page": "tr. 128 (PDF)",
+     "snippet": "▷ 4.9. Chứng minh rằng quan hệ R trên các tập số nguyên được xác định aRb khi và chỉ"
+    },
+    {
+     "term": "số nguyên",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-hoangchithanh-2007",
+     "pdf_page": 21,
+     "page": "tr. 21 (PDF)",
+     "snippet": "Trước tiên, ta ký hiệu tập Các số nguyên không 4m là"
+    },
+    {
+     "term": "tập số nguyên",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenducnghia-2006",
+     "pdf_page": 23,
+     "page": "tr. 23 (PDF)",
+     "snippet": "a) Chỉ ra rằng các tập A„ Âu, Á,›, A; và A, tạo thành phân hoạch của tập số nguyên"
+    }
+   ]
+  },
+  {
+   "id": "intersection-of-sets",
+   "letter": "I",
+   "headword_en": "intersection of sets",
+   "notation": "A \\cap B",
+   "definition_vi": "Giao của hai tập hợp $$A$$ và $$B$$, ký hiệu $$A \\cap B$$, là tập hợp gồm tất cả các phần tử thuộc đồng thời cả $$A$$ và $$B$$, tức là $$A \\cap B = \\{x : x \\in A \\text{ và } x \\in B\\}$$.",
+   "example_vi": "Với $$A = \\{1, 2, 3\\}$$ và $$B = \\{2, 3, 4\\}$$, ta có $$A \\cap B = \\{2, 3\\}$$.",
+   "rosen_ref": "Rosen §2.2",
+   "notes": "Recommended term \"giao của hai tập hợp\" is attested in the newest text source carrying this definition, bib-nguyenhuudien-2019 (2019). The formal definition appears as \"Định nghĩa 3.2\" at tr. 74 with the orthographic form using the numeral 2: \"Giao của 2 tập hợp A và B, ký hiệu bởi $$A \\cap B$$, là tập hợp gồm tất cả...\". The literal word-form \"giao của hai tập hợp\" (with \"hai\" spelled out) appears in the same source at tr. 78 in the inclusion-exclusion context (\"giao của hai tập hợp bất kỳ trong n tập hợp là rỗng...\"), still denoting two-set intersection; the cited tr. 74 snippet is the canonical definitional attestation. The same headword \"giao\" with explicit symbol $$A \\cap B$$ appears in bib-nguyenducnghia-2006 (2006), tr. 12, recorded as the variant \"giao của A và B\"; that source is OCR and the line is mangled as \"Giao của Á và 8, ký hiệu 4 ö, là tập các phần tử đồng thời thuộc vào cả hai\", so the literal term returns 0 direct hits even with --loose, but the snippet genuinely denotes this concept. The 2020 graph-theory/combinatorics sources (bib-leanhvinh-2020, bib-nguyenhoangthach-2020) use \"giao\" only in non-set-theoretic or descriptive senses (e.g. \"giao thông\" = traffic, \"trực giao\" = orthogonal, \"điểm giao\" = point of intersection of curves, \"giao của tập các đỉnh kề chung\"), so no 2020 attestation of the set-intersection headword exists. Candidate \"phép giao\" and \"giao của các tập hợp\" returned 0 hits across all sources (normal and loose). The bare token \"giao\" returns many hits but they are overwhelmingly noise (\"giao thông\", \"giao hoán\", \"trực giao\"), so it is not recorded as a standalone term. The OCR sources bib-leanhvinh-2020 and bib-hoangchithanh-2007 were also mined with --loose; no additional set-intersection attestation surfaced.",
+   "see_also": [
+    "union-of-sets",
+    "set-difference",
+    "complement-of-a-set",
+    "disjoint-sets"
+   ],
+   "vi_terms": [
+    {
+     "term": "giao của hai tập hợp",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 74,
+     "page": "tr. 74 (PDF)",
+     "snippet": "Định nghĩa 3.2 Giao của 2 tập hợp A và B, ký hiệu bởi A ∩ B, là tập hợp gồm tất cả"
+    },
+    {
+     "term": "giao của A và B",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenducnghia-2006",
+     "pdf_page": 12,
+     "page": "tr. 12 (PDF)",
+     "snippet": "° Giao của Á và 8, ký hiệu 4 ö, là tập các phần tử đồng thời thuộc vào cả hai"
+    }
+   ]
+  },
+  {
+   "id": "interval",
+   "letter": "I",
+   "headword_en": "interval",
+   "notation": "[a, b]",
+   "rosen_ref": "Rosen §2.3",
+   "definition_vi": "Khoảng giữa hai số thực $$a$$ và $$b$$ với $$a \\leq b$$ là tập hợp tất cả các số thực $$x$$ nằm giữa $$a$$ và $$b$$, có thể chứa hoặc không chứa hai đầu mút. Khoảng đóng, ký hiệu $$[a, b]$$, là tập $$\\{x : a \\leq x \\leq b\\}$$; khoảng mở $$(a, b)$$ là tập $$\\{x : a < x < b\\}$$; còn các khoảng nửa đóng $$[a, b)$$ và $$(a, b]$$ chứa đúng một trong hai đầu mút.",
+   "example_vi": "Khoảng đóng $$[0, 1]$$ gồm tất cả các số thực $$x$$ với $$0 \\leq x \\leq 1$$, trong khi khoảng mở $$(0, 1)$$ gồm các số thực $$x$$ với $$0 < x < 1$$.",
+   "vi_terms": [
+    {
+     "term": "khoảng",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-leanhvinh-2020",
+     "pdf_page": 190,
+     "page": "tr. 190 (PDF)",
+     "snippet": "ta chọn p là một số nguyên tố nằm trong khoảng {(1—o0(1))./n, yn} và"
+    },
+    {
+     "term": "khoảng",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 86,
+     "page": "tr. 86 (PDF)",
+     "snippet": "khoảng từ 0 đến 100. Hỏi rằng ít nhất có bao nhiêu học sinh dự thi để cho chắc chắn tìm"
+    },
+    {
+     "term": "khoảng",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenducnghia-2006",
+     "pdf_page": 60,
+     "page": "tr. 60 (PDF)",
+     "snippet": "trong khoảng từ O đến 100. Hỏi răng ít nhất phải có bao nhiêu học sinh dự thị để cho"
+    },
+    {
+     "term": "khoảng",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-ngodactan-2004",
+     "pdf_page": 165,
+     "page": "tr. 165 (PDF)",
+     "snippet": "được gọi là khoảng từ X tới y. Nếu với mọi x , y € X khoảng [x, y] là"
+    }
+   ],
+   "notes": "Concept: an interval is the set of all real numbers between two endpoints $$a$$ and $$b$$. Per the panel's correctness fix (med), the bracket symbol $$[a, b]$$ is now tied SOLELY to the closed interval $$\\{x : a \\leq x \\leq b\\}$$, matching Rosen §2.3; the generic 'between a and b, possibly including the endpoints' interval is described WITHOUT committing the closed-bracket symbol to it, and the open $$(a, b)$$ and half-open $$[a, b)$$, $$(a, b]$$ cases are listed with their own brackets. These source books are graph-theory/combinatorics texts, so the analysis interval $$[a,b]$$ rarely appears as a primary defined object; it occurs as a number-range bound.\n\nRecommended term: \"khoảng\" (standard Vietnamese for interval), attested in the newest 2020 source. Concept-match disclosure (panel low): the recommended anchor bib-leanhvinh-2020 (tr. 190) snippet \"nằm trong khoảng {...}\" denotes a value/number RANGE (a prime $$p$$ lying in a range of values), not the analytic interval notation; recommended is kept on this newest source per the newest-source preference. The explicit interval-notation attestation with the exact \"khoảng [x, y]\" form is bib-ngodactan-2004 (tr. 165): \"được gọi là khoảng từ X tới y ... khoảng [x, y]\" (kept verified=true, recommended=false). Also attested in bib-nguyenhuudien-2019 (tr. 86) and bib-nguyenducnghia-2006 (tr. 60) as \"khoảng từ ... đến ...\" (interval/range from ... to ...). Citations ordered newest-source first (2020 -> 2019 -> 2006 -> 2004).\n\nVariant \"đoạn\" (citation-hygiene fix): in standard Vietnamese analysis \"đoạn $$[a,b]$$\" specifically denotes the closed interval while \"khoảng $$(a,b)$$\" denotes the open interval. However, in THIS corpus \"đoạn\" appears only as \"đoạn thẳng\" (line segment, a geometric object) and \"giai đoạn\" (stage) — e.g. bib-leanhvinh-2020 tr. 8, bib-ngodactan-2004 tr. 26 — never denoting a real-number interval. Per the panel's citation-hygiene fix, the unattested \"đoạn\" term (verified=false, page=\"\") has been DROPPED from vi_terms (the recommended \"khoảng\" is verified=true, so vi_terms is already non-empty); the đoạn=closed / khoảng=open analytic distinction is preserved here in notes only.\n\nNot attested anywhere: \"khoảng số thực\" (0 hits, normal and --loose) and \"đoạn số thực\" (0 hits, normal and --loose); dropped per citation hygiene. OCR sources (bib-leanhvinh-2020, bib-hoangchithanh-2007) were mined both normally and with --loose. All four verified \"khoảng\" citations re-mined and confirmed (source_id, pdf_page, and snippet denoting an interval/value-range).",
+   "see_also": [
+    "integer",
+    "rational-number"
+   ]
+  },
+  {
+   "id": "inverse-function",
+   "letter": "I",
+   "headword_en": "inverse function",
+   "notation": "f^{-1}",
+   "rosen_ref": "Rosen §2.3",
+   "definition_vi": "Hàm ngược của một song ánh $$f$$ từ tập $$A$$ vào tập $$B$$, ký hiệu $$f^{-1}$$, là hàm gán cho mỗi phần tử $$b \\in B$$ phần tử duy nhất $$a \\in A$$ sao cho $$f(a) = b$$. Như vậy $$f^{-1}(b) = a$$ khi và chỉ khi $$f(a) = b$$.",
+   "example_vi": "Cho $$f \\colon \\mathbb{R} \\to \\mathbb{R}$$ xác định bởi $$f(x) = 2x + 1$$. Vì $$f$$ là song ánh nên nó có hàm ngược $$f^{-1} \\colon \\mathbb{R} \\to \\mathbb{R}$$ cho bởi $$f^{-1}(y) = \\frac{y - 1}{2}$$.",
+   "notes": "The concept \"inverse function\" ($$f^{-1}$$, the inverse of a bijection) is not defined or named in any of the six surveyed Vietnamese sources (all are graph-theory/combinatorics texts). These sources use \"song ánh\" (bijection) widely (e.g. bib-nguyenhuudien-2019 tr. 77-78 PDF, bib-nguyenhoangthach-2020 tr. 19 PDF, bib-ngodactan-2004 tr. 37 PDF) but never name the inverse function $$f^{-1}$$. Every hit for \"nghịch đảo\"/\"khả nghịch\" points to a DIFFERENT concept: inversion formulas (binomial, Stirling, Mobius), the inverse element of a power series/polynomial, or the inverse matrix (bib-ngodactan-2004 tr. 62, 121, 168 PDF; bib-nguyenhoangthach-2020 tr. 46 PDF), not the inverse of a bijection. Because no source attests it, the recommended term \"hàm ngược\" is kept with verified=false and page=\"\" (the sanctioned single-recommended fallback so vi_terms stays non-empty); per the panel's normalization, source_id and pdf_page are omitted/absent to match the empty-placeholder convention. The choice of \"hàm\" (rather than \"ánh xạ\") matches the corpus convention, where \"hàm\" is used for bijection/injection/surjection (e.g. \"hàm song ánh\", \"hàm đơn ánh\", \"hàm toàn ánh\" in bib-ngodactan-2004 tr. 37 PDF). The variants \"ánh xạ ngược\", \"hàm số ngược\", \"hàm ngược của song ánh\" are also documented but attested by no source (0 hits in all sources, including --loose on the OCR sources). Notation $$f^{-1}$$.",
+   "see_also": [
+    "bijection",
+    "function",
+    "one-to-one-correspondence",
+    "domain-of-a-function",
+    "codomain"
+   ],
+   "vi_terms": [
+    {
+     "term": "hàm ngược",
+     "verified": false,
+     "recommended": true,
+     "page": "",
+     "snippet": ""
+    }
+   ]
+  },
+  {
+   "id": "inverse-relation",
+   "letter": "I",
+   "headword_en": "inverse relation",
+   "notation": "R^{-1}",
+   "rosen_ref": "Rosen §9.1",
+   "definition_vi": "Quan hệ ngược của một quan hệ $$R$$ từ tập $$A$$ vào tập $$B$$, ký hiệu $$R^{-1}$$, là quan hệ từ $$B$$ vào $$A$$ thu được bằng cách đảo thứ tự của mỗi cặp có thứ tự thuộc $$R$$; nghĩa là $$R^{-1} = \\{(b, a) : (a, b) \\in R\\}$$.",
+   "example_vi": "Cho $$A = \\{1, 2, 3\\}$$, $$B = \\{a, b\\}$$ và quan hệ $$R = \\{(1, a), (2, b), (3, a)\\}$$ từ $$A$$ vào $$B$$. Khi đó quan hệ ngược là $$R^{-1} = \\{(a, 1), (b, 2), (a, 3)\\}$$, một quan hệ từ $$B$$ vào $$A$$.",
+   "vi_terms": [
+    {
+     "term": "quan hệ ngược",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 113,
+     "page": "tr. 113 (PDF)",
+     "snippet": "Định nghĩa 4.6 Giả sử R là quan hệ từ tập A vào tập B. Quan hệ ngược của quan hệ R"
+    }
+   ],
+   "notes": "Mined all six corpus sources for the candidates \"quan hệ ngược\", \"quan hệ đảo\", \"quan hệ ngược đảo\", plus the probed variants \"quan hệ nghịch đảo\", \"quan hệ đảo ngược\", \"quan hệ đối\", and reversed phrasings. Only \"quan hệ ngược\" is attested, exclusively in bib-nguyenhuudien-2019 (2019, discrete math), where it is given a formal definition: \"Định nghĩa 4.6 Giả sử R là quan hệ từ tập A vào tập B. Quan hệ ngược của quan hệ R\" (pdf tr. 113; exact snippet match, hits=1), with the section heading \"4.3.1. Quan hệ ngược\" and the exercise \"▷ 4.3. Cho R ⊆ A × B. Quan hệ ngược của R là\" (pdf tr. 127). The candidates \"quan hệ đảo\" and \"quan hệ ngược đảo\" returned 0 hits in both normal and --loose mode across the entire corpus and are therefore not recorded as verified terms. The OCR graph-theory sources (bib-leanhvinh-2020, bib-hoangchithanh-2007) and the other corpus texts do not attest this concept, since the inverse of a binary relation belongs to the relations/discrete-math chapters rather than graph theory; both normal and --loose searches were run on the OCR sources (0 hits). The recommended term \"quan hệ ngược\" is attested in a 2019 source (the newest source that covers relations); no 2020 source covers this concept. Notation $$R^{-1}$$.",
+   "see_also": [
+    "binary-relation",
+    "composite-relation",
+    "relation-on-a-set"
+   ]
+  },
+  {
+   "id": "isomorphism",
+   "letter": "I",
+   "headword_en": "isomorphism",
+   "definition_vi": "Một đẳng cấu giữa hai đồ thị $$G_1 = (V_1, E_1)$$ và $$G_2 = (V_2, E_2)$$ là một song ánh $$f: V_1 \\to V_2$$ bảo toàn quan hệ kề, nghĩa là hai đỉnh $$u$$ và $$v$$ kề nhau trong $$G_1$$ khi và chỉ khi $$f(u)$$ và $$f(v)$$ kề nhau trong $$G_2$$. Khi tồn tại một đẳng cấu như vậy, ta nói $$G_1$$ và $$G_2$$ đẳng cấu với nhau, ký hiệu $$G_1 \\cong G_2$$.",
+   "example_vi": "Xét $$G_1$$ với các đỉnh $$\\{a, b, c\\}$$ và các cạnh $$\\{ab, bc\\}$$, và $$G_2$$ với các đỉnh $$\\{x, y, z\\}$$ và các cạnh $$\\{xy, yz\\}$$. Song ánh $$f$$ xác định bởi $$f(a) = x$$, $$f(b) = y$$, $$f(c) = z$$ là một đẳng cấu, vì mỗi cạnh của $$G_1$$ tương ứng với một cạnh của $$G_2$$; do đó $$G_1 \\cong G_2$$.",
+   "notation": "G_1 \\cong G_2",
+   "rosen_ref": "Rosen §10.3",
+   "notes": "Recommended term \"đẳng cấu\" is the core standard term, attested as a standalone definitional term in the newest source bib-leanhvinh-2020 (2020, Định nghĩa 1.6, tr. 12 PDF). It also appears in the compound forms \"đẳng cấu đồ thị\" (bib-nguyenhoangthach-2020, bib-nguyenhuudien-2019) and \"đồ thị đẳng cấu\" (bib-nguyenhuudien-2019). The variant \"phép đẳng cấu\" is used specifically for the isomorphism map/function $$f$$ itself (bib-nguyenhuudien-2019, tr. 165 PDF). The candidate \"song ánh đẳng cấu\" returned 0 hits across all sources (normal and loose) and is dropped as unattested. bib-nguyenducnghia-2006 (tr. 165 PDF) defines the concept via \"Hai đơn đồ thị vô hướng ... được gọi là đẳng cấu nếu tồn tại một song ánh $$f: V_1 \\to V_2$$ sao cho ... khi và chỉ khi ...\"; the term \"đẳng cấu\" is recovered in a clean definitional snippet under the OCR-tolerant (loose) search, so it is attributed to that source.",
+   "see_also": [
+    "graph",
+    "subgraph",
+    "adjacency-matrix",
+    "bipartite-graph"
+   ],
+   "vi_terms": [
+    {
+     "term": "đẳng cấu",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-leanhvinh-2020",
+     "pdf_page": 12,
+     "page": "tr. 12 (PDF)",
+     "snippet": "Định nghĩa 1.6. Đồ thị G; = (Vij, E,) được gọi là đẳng cấu với dé"
+    },
+    {
+     "term": "đẳng cấu đồ thị",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhoangthach-2020",
+     "pdf_page": 73,
+     "page": "tr. 73 (PDF)",
+     "snippet": "Bài toán đẳng cấu đồ thị, tức là kiểm tra xem hai đồ thị cho trước bất kỳ"
+    },
+    {
+     "term": "phép đẳng cấu",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 165,
+     "page": "tr. 165 (PDF)",
+     "snippet": "Ví dụ 6.22. Hai đơn đồ thị G1 và G2 sau là đẳng cấu qua phép đẳng cấu f : a → x, b →"
+    },
+    {
+     "term": "đồ thị đẳng cấu",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 165,
+     "page": "tr. 165 (PDF)",
+     "snippet": "Figure 6.21: Hai đồ thị đẳng cấu"
+    },
+    {
+     "term": "đẳng cấu",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-ngodactan-2004",
+     "pdf_page": 191,
+     "page": "tr. 191 (PDF)",
+     "snippet": "và G' = (V’,E ') được gọi là đẳng cấu vớ ì nhau nếu tồn tại song ánh"
+    },
+    {
+     "term": "đẳng cấu",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-hoangchithanh-2007",
+     "pdf_page": 8,
+     "page": "tr. 8 (PDF)",
+     "snippet": "sao cho sự đẳng cấu ấy bảo toàn được các cạnh của đồ thị."
+    },
+    {
+     "term": "đẳng cấu",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenducnghia-2006",
+     "pdf_page": 165,
+     "page": "tr. 165 (PDF)",
+     "snippet": "12. Hai đơn đồ thị vô hướng Ơ = (V,, E) và G,= (V,„ E,) được gọi là đẳng cầu nếu tôn"
+    }
+   ]
+  },
+  {
+   "id": "isolated-vertex",
+   "letter": "I",
+   "headword_en": "isolated vertex",
+   "notation": "\\deg(v) = 0",
+   "rosen_ref": "Rosen §10.2",
+   "definition_vi": "Đỉnh cô lập là một đỉnh có bậc $$0$$, tức là một đỉnh $$v$$ thỏa mãn $$\\deg(v) = 0$$ và do đó không phải là đầu mút của bất kỳ cạnh nào.",
+   "example_vi": "Trong đồ thị $$G$$ có tập đỉnh $$\\{u, v, w\\}$$ và tập cạnh $$\\{uw\\}$$, đỉnh $$v$$ là một đỉnh cô lập vì $$\\deg(v) = 0$$.",
+   "notes": "Notation field normalized to the bare-token chapter convention (\"\\deg(v) = 0\", not $$...$$-wrapped). Recommended term \"đỉnh cô lập\" (isolated vertex, a vertex of degree 0) is the standard Vietnamese term and is attested in the 2020 source bib-nguyenhoangthach-2020 (p.64), which gives the explicit definition \"Một đỉnh bậc 0 được gọi là một đỉnh cô lập\" ($$\\deg(v) = 0$$). It is also defined in bib-nguyenhuudien-2019 (p.157, \"gọi là đỉnh cô lập nếu deg(v) = 0\") and bib-ngodactan-2004 (p.186), and used in bib-nguyenducnghia-2006 (p.194) and the OCR source bib-hoangchithanh-2007 (p.33). vi_terms are ordered newest-source first.\n\nVariant \"đỉnh bậc 0\" (degree-0 vertex) is a descriptive synonym attested in bib-nguyenhoangthach-2020 (p.64) and bib-hoangchithanh-2007 (p.17, OCR \"đỉnh bac 0\"); it is the defining property rather than the named term.\n\nCandidate \"đỉnh cô độc\" returned 0 hits (normal and --loose) across all sources and is dropped as unattested.\n\nbib-leanhvinh-2020 (2020, graph theory, OCR) does NOT attest the term: normal and --loose searches for \"đỉnh cô lập\" / \"đỉnh bậc 0\" / \"đỉnh cô độc\" returned no leanhvinh hits. The newest attestation is therefore bib-nguyenhoangthach-2020 (2020).",
+   "see_also": [
+    "degree-of-a-vertex",
+    "pendant-vertex"
+   ],
+   "vi_terms": [
+    {
+     "term": "đỉnh cô lập",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-nguyenhoangthach-2020",
+     "pdf_page": 64,
+     "page": "tr. 64 (PDF)",
+     "snippet": "Một đỉnh bậc 0 được gọi là một đỉnh cô lập, một đỉnh bậc 1 được gọi là"
+    },
+    {
+     "term": "đỉnh bậc 0",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhoangthach-2020",
+     "pdf_page": 64,
+     "page": "tr. 64 (PDF)",
+     "snippet": "Một đỉnh bậc 0 được gọi là một đỉnh cô lập, một đỉnh bậc 1 được gọi là"
+    },
+    {
+     "term": "đỉnh cô lập",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 157,
+     "page": "tr. 157 (PDF)",
+     "snippet": "Đỉnh v gọi là đỉnh treo nếu deg(v) = 1 và gọi là đỉnh cô lập nếu deg(v) = 0."
+    },
+    {
+     "term": "đỉnh cô lập",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-hoangchithanh-2007",
+     "pdf_page": 33,
+     "page": "tr. 33 (PDF)",
+     "snippet": "— Đỉnh cô lập luôn luôn thuộc tập ổn định ngoài bé nhất của đồ"
+    },
+    {
+     "term": "đỉnh bậc 0",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-hoangchithanh-2007",
+     "pdf_page": 17,
+     "page": "tr. 17 (PDF)",
+     "snippet": "— Nếu có đỉnh bac 0 thì bậc của các đỉnh có thể là: 0, 1,2,....n—2."
+    },
+    {
+     "term": "đỉnh cô lập",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenducnghia-2006",
+     "pdf_page": 194,
+     "page": "tr. 194 (PDF)",
+     "snippet": "r) Xoá bỏ cạnh đã đì qua và đồng thời xoá cả những đỉnh cô lập tạo thành."
+    },
+    {
+     "term": "đỉnh cô lập",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-ngodactan-2004",
+     "pdf_page": 186,
+     "page": "tr. 186 (PDF)",
+     "snippet": "Đỉnh không liên thuộc với một cung nào được gọi là đỉnh cô lập. Số"
+    }
+   ]
+  },
+  {
+   "id": "induced-subgraph",
+   "letter": "I",
+   "headword_en": "induced subgraph",
+   "notation": "G[W]",
+   "rosen_ref": "Rosen §10.2",
+   "definition_vi": "Cho đồ thị $$G = (V, E)$$ và một tập đỉnh $$W \\subseteq V$$. Đồ thị con cảm sinh bởi $$W$$, ký hiệu $$G[W]$$, là đồ thị con có tập đỉnh là $$W$$ và tập cạnh gồm đúng những cạnh của $$G$$ nối hai đỉnh thuộc $$W$$.",
+   "example_vi": "Cho $$G = (V, E)$$ với $$V = \\{a, b, c, d\\}$$ và $$E = \\{ab, bc, cd, ad, ac\\}$$, lấy $$W = \\{a, b, c\\}$$. Khi đó $$G[W]$$ có tập đỉnh $$\\{a, b, c\\}$$ và tập cạnh $$\\{ab, bc, ac\\}$$, vì đây là tất cả các cạnh của $$G$$ nối hai đỉnh trong $$W$$.",
+   "notes": "Recommended term \"đồ thị con cảm sinh\" (induced subgraph) is strongly attested in the two newest 2020 sources (leanhvinh-2020 p.69, p.98-100, p.130, p.141, p.145, p.153, p.203; nguyenhoangthach-2020 p.71, p.85) and in ngodactan-2004 p.190 (which gives the formal definition of $$G[V']$$ as \"đồ thị con cảm sinh bởi\"). Newest citations listed first.\n\nVariant phrasings, all denoting the same concept: (1) \"đồ thị con cảm sinh trên tập đỉnh\" — the \"trên tập đỉnh V'\" construction is how leanhvinh-2020 states the vertex subset (p.69 \"...cảm sinh của G trên tập đỉnh U\"; p.130 \"...cảm sinh của G trên tập đính V(G)\"); the related form \"cảm sinh trên mỗi tập\" appears at p.141. (2) \"đồ thị con cảm sinh bởi tập\" — nguyenhoangthach-2020 p.71. (3) Older sources use \"sinh bởi\"/\"tạo bởi\" without \"cảm\": hoangchithanh-2007 (OCR) writes \"đồ thị con ... sinh bởi tập đỉnh\" (p.88) and \"đồ thị con ... tạo bởi tập đỉnh\" (p.86-87, p.39). nguyenducnghia-2006 p.209 uses \"đồ thị con của G sinh bởi\" in a spanning-tree context.\n\nThe candidate \"đồ thị con sinh bởi\" returned 0 exact and 0 loose hits as a standalone bigram; it is attested only in expanded forms (\"sinh bởi tập đỉnh\"), recorded above. OCR sources (hoangchithanh-2007, nguyenducnghia-2006) checked with both normal and --loose; nguyenducnghia-2006 has no clean attestation of the induced-subgraph term specifically (its \"sinh bởi\" hits are about trees/programs), so it is not listed. nguyenhuudien-2019 returned no attestation of this concept under any tested phrasing.\n\nVerifier note: the \"trên tập đỉnh\" variant was originally mis-cited to p.141 (whose actual text is \"cảm sinh trên mỗi tập S\"); repointed to p.69 where \"trên tập đỉnh\" is verbatim. The hoangchithanh-2007 \"tạo bởi\" snippet was trimmed to its verifiable p.86 portion (the \"...tập đỉnh\" continuation wraps to p.87).",
+   "see_also": [
+    "subgraph",
+    "spanning-subgraph",
+    "vertex-set",
+    "edge-set"
+   ],
+   "vi_terms": [
+    {
+     "term": "đồ thị con cảm sinh",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-leanhvinh-2020",
+     "pdf_page": 69,
+     "page": "tr. 69 (PDF)",
+     "snippet": "là đồ thị con cảm sinh của G trên tập đỉnh U, U Ne(U)) va G2 là dé"
+    },
+    {
+     "term": "đồ thị con cảm sinh",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhoangthach-2020",
+     "pdf_page": 71,
+     "page": "tr. 71 (PDF)",
+     "snippet": "Đồ thị H1 không phải là đồ thị con cảm sinh của G (cạnh v1 v2 có trong G nhưng không có trong H1 ). Đồ thị H2 là đồ thị con cảm sinh bởi tập hợp"
+    },
+    {
+     "term": "đồ thị con cảm sinh",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-ngodactan-2004",
+     "pdf_page": 190,
+     "page": "tr. 190 (PDF)",
+     "snippet": "tập đinh V' hay cũng được gọi là'đồ thị con cảm sinh bởi G = (V,E)"
+    },
+    {
+     "term": "đồ thị con cảm sinh trên tập đỉnh",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-leanhvinh-2020",
+     "pdf_page": 69,
+     "page": "tr. 69 (PDF)",
+     "snippet": "là đồ thị con cảm sinh của G trên tập đỉnh U, U Ne(U)) va G2 là dé"
+    },
+    {
+     "term": "đồ thị con cảm sinh bởi tập",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhoangthach-2020",
+     "pdf_page": 71,
+     "page": "tr. 71 (PDF)",
+     "snippet": "Đồ thị H2 là đồ thị con cảm sinh bởi tập hợp"
+    },
+    {
+     "term": "đồ thị con sinh bởi tập đỉnh",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-hoangchithanh-2007",
+     "pdf_page": 88,
+     "page": "tr. 88 (PDF)",
+     "snippet": "đồ thị con G’ sinh bởi tập đỉnh | yo, ÿ¿. .... y,-;} có chu trình vô hướng"
+    },
+    {
+     "term": "đồ thị con tạo bởi",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-hoangchithanh-2007",
+     "pdf_page": 86,
+     "page": "tr. 86 (PDF)",
+     "snippet": "Nếu r(ag) + r(a,) = q +1 thì đồ thị con Ơ' tao bởi tập"
+    }
+   ]
+  },
+  {
+   "id": "irreflexive-relation",
+   "letter": "I",
+   "headword_en": "irreflexive relation",
+   "definition_vi": "Một quan hệ $$R$$ trên tập $$A$$ được gọi là quan hệ không phản xạ nếu không có phần tử nào của $$A$$ có quan hệ với chính nó, tức là $$(a, a) \\notin R$$ với mọi $$a \\in A$$.",
+   "example_vi": "Xét tập $$A = \\{1, 2, 3\\}$$ và quan hệ $$R = \\{(1, 2), (2, 3), (1, 3)\\}$$ trên $$A$$. Khi đó $$R$$ là quan hệ không phản xạ vì $$(1, 1) \\notin R$$, $$(2, 2) \\notin R$$ và $$(3, 3) \\notin R$$.",
+   "notation": "(a, a) \\notin R",
+   "rosen_ref": "Rosen §9.1",
+   "notes": "Notation field normalized to a bare symbolic token \"(a, a) \\notin R\" (the prose \"với mọi $$a \\in A$$\" was removed from the notation slot per the panel's consistency fix; the full quantified condition remains in the definition).\n\nConcept: a relation $$R$$ on a set $$A$$ is irreflexive if no element of $$A$$ is related to itself, i.e. $$(a, a) \\notin R$$ for all $$a \\in A$$.\n\nThe term \"không phản xạ\" is attested verbatim in bib-nguyenhuudien-2019 (2019), tr. 111 (PDF): \"$$R$$ không phản xạ vì $$(1, 1) \\notin R$$\" — exactly this concept. The compound form \"quan hệ ... không phản xạ\" also appears on the same page (\"quan hệ $$R$$ là không phản xạ\"), so the recommended standard term is \"quan hệ không phản xạ\" (verified=true; this is the normalized form of the phrase \"quan hệ R là không phản xạ\" found verbatim at tr. 111 and tr. 128). Re-run find-term: the contiguous string \"quan hệ không phản xạ\" returns 0 hits, but \"quan hệ R là không phản xạ\" returns 2 hits (tr. 111 and tr. 128); the vi_term snippet is stored verbatim as returned by the tool. The candidates \"quan hệ phản phản xạ\", \"phản phản xạ\", \"bất phản xạ\", \"phi phản xạ\", \"phản xạ ngược\" do not appear in any source (0 hits in both normal and --loose searches, including the two OCR sources bib-leanhvinh-2020 and bib-hoangchithanh-2007).\n\nNote: the two OCR sources bib-leanhvinh-2020 and bib-hoangchithanh-2007 do not attest \"không phản xạ\" (0 hits, --loose), so the only anchoring source for this concept is bib-nguyenhuudien-2019. The same source at tr. 128 (PDF) uses \"không phản xạ\" in a sentence relating reflexive/irreflexive; the tr. 111 context (defined via $$(a, a) \\notin R$$, with the relation matrix having zero main diagonal) is the clearest conceptual anchor.",
+   "see_also": [
+    "reflexive-relation",
+    "binary-relation",
+    "antisymmetric-relation"
+   ],
+   "vi_terms": [
+    {
+     "term": "quan hệ không phản xạ",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 111,
+     "page": "tr. 111 (PDF)",
+     "snippet": "khuyên nên quan hệ R là không phản xạ. Từ đồ thị ta thấy cứ có một cung đi từ đỉnh i đến"
+    },
+    {
+     "term": "không phản xạ",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 111,
+     "page": "tr. 111 (PDF)",
+     "snippet": "• R không phản xạ vì (1, 1) ̸∈ R."
+    }
+   ]
+  }
+ ]
+}

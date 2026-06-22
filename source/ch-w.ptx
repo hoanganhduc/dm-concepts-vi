@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<chapter xml:id="ch-w" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>W</title>
+
+  <introduction>
+    <p>
+      Chương này tập hợp các thuật ngữ tiếng Anh bắt đầu bằng chữ <q>W</q>, kèm
+      định nghĩa và các thuật ngữ tiếng Việt tương ứng cùng trích dẫn nguồn.
+    </p>
+  </introduction>
+
+  <definition xml:id="def-walk">
+    <title>Walk — hành trình</title>
+    <idx><h>walk</h></idx>
+    <idx><h>dãy các đỉnh</h></idx>
+    <idx><h>hành trình</h></idx>
+    <idx><h>đường đi</h></idx>
+    <notation>
+      <usage><m>v_0, e_1, v_1, e_2, \dots, e_n, v_n</m></usage>
+      <description>hành trình</description>
+    </notation>
+    <statement>
+      <p>Một hành trình độ dài <m>n</m> từ đỉnh <m>u</m> đến đỉnh <m>v</m> trong đồ thị <m>G</m> là một dãy xen kẽ các đỉnh và cạnh, ký hiệu <m>v_0, e_1, v_1, e_2, \dots, e_n, v_n</m>, với <m>v_0 = u</m> và <m>v_n = v</m>, trong đó mỗi cạnh <m>e_i</m> nối hai đỉnh <m>v_{i-1}</m> và <m>v_i</m>. Trong một hành trình, các đỉnh và các cạnh có thể được lặp lại (theo <xref ref="bib-rosen-2019" />, Rosen §10.4).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>hành trình</term> <xref ref="bib-leanhvinh-2020" /> (tr. 15 (PDF)); <xref ref="bib-ngodactan-2004" /> (tr. 195 (PDF)) — cách dùng phổ biến.</p></li>
+        <li><p><term>dãy các đỉnh</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 73 (PDF)); <xref ref="bib-nguyenhuudien-2019" /> (tr. 112 (PDF)).</p></li>
+        <li><p><term>đường đi</term> <xref ref="bib-hoangchithanh-2007" /> (tr. 7 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Trong đồ thị <m>G</m> có các đỉnh <m>a, b, c</m> và các cạnh <m>e_1 = ab</m>, <m>e_2 = bc</m>, <m>e_3 = ca</m>, dãy <m>a, e_1, b, e_2, c, e_3, a, e_1, b</m> là một hành trình độ dài <m>4</m> từ <m>a</m> đến <m>b</m>, trong đó cạnh <m>e_1</m> và đỉnh <m>a</m>, <m>b</m> đều được lặp lại.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-weighted-graph">
+    <title>Weighted graph — đồ thị có trọng số</title>
+    <idx><h>weighted graph</h></idx>
+    <idx><h>mạng lưới</h></idx>
+    <idx><h>đồ thị có trọng số</h></idx>
+    <idx><h>đồ thị trọng số</h></idx>
+    <notation>
+      <usage><m>(G, w),\ w : E(G) \to \mathbb{R}</m></usage>
+      <description>đồ thị có trọng số</description>
+    </notation>
+    <statement>
+      <p>Một đồ thị có trọng số là một cặp <m>(G, w)</m> gồm một đồ thị <m>G</m> và một hàm trọng số <m>w</m> gán cho mỗi cạnh <m>e \in E(G)</m> một số thực <m>w(e)</m>, gọi là trọng số của cạnh đó (theo <xref ref="bib-rosen-2019" />, Rosen §10.6).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>đồ thị có trọng số</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 91 (PDF)); <xref ref="bib-leanhvinh-2020" /> (tr. 33 (PDF)); <xref ref="bib-nguyenhuudien-2019" /> (tr. 202 (PDF)); <xref ref="bib-hoangchithanh-2007" /> (tr. 93 (PDF)); <xref ref="bib-nguyenducnghia-2006" /> (tr. 170 (PDF)) — cách dùng phổ biến.</p></li>
+        <li><p><term>mạng lưới</term> <xref ref="bib-leanhvinh-2020" /> (tr. 33 (PDF)).</p></li>
+        <li><p><term>đồ thị trọng số</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 250 (PDF)); <xref ref="bib-hoangchithanh-2007" /> (tr. 135 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Cho đồ thị <m>G</m> với tập đỉnh <m>V(G) = \{a, b, c\}</m> và tập cạnh <m>E(G) = \{ab, bc, ac\}</m>. Hàm <m>w</m> xác định bởi <m>w(ab) = 2</m>, <m>w(bc) = 5</m>, <m>w(ac) = 3</m> biến <m>G</m> thành một đồ thị có trọng số <m>(G, w)</m>.</p>
+      <p>Xem thêm <xref ref="def-weight-of-an-edge" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-weight-of-an-edge">
+    <title>Weight of an edge — trọng số của cạnh</title>
+    <idx><h>weight of an edge</h></idx>
+    <idx><h>trọng số của cạnh</h></idx>
+    <idx><h>trọng số của mỗi cạnh</h></idx>
+    <idx><h>trọng số trên cạnh</h></idx>
+    <notation>
+      <usage><m>w(e),\ e \in E(G)</m></usage>
+      <description>trọng số của cạnh</description>
+    </notation>
+    <statement>
+      <p>Trọng số của một cạnh <m>e</m> trong đồ thị có trọng số là số thực <m>w(e)</m> mà hàm trọng số gán cho cạnh <m>e</m>. Giá trị này thường biểu diễn chi phí, độ dài hoặc khả năng thông qua dọc theo cạnh đó (theo <xref ref="bib-rosen-2019" />, Rosen §10.6).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>trọng số của cạnh</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 91 (PDF)) — cách dùng phổ biến.</p></li>
+        <li><p><term>trọng số của mỗi cạnh</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 202 (PDF)).</p></li>
+        <li><p><term>trọng số trên cạnh</term> <xref ref="bib-nguyenducnghia-2006" /> (tr. 207 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Trong đồ thị có trọng số với cạnh <m>e = uv</m>, nếu hàm trọng số gán <m>w(e) = 5</m> thì trọng số của cạnh <m>e</m> là <m>5</m>.</p>
+      <p>Xem thêm <xref ref="def-weighted-graph" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-wheel-graph">
+    <title>Wheel graph — đồ thị bánh xe</title>
+    <idx><h>wheel graph</h></idx>
+    <idx><h>đồ thị bánh xe</h></idx>
+    <notation>
+      <usage><m>W_n,\ n \geq 3</m></usage>
+      <description>đồ thị bánh xe</description>
+    </notation>
+    <statement>
+      <p>Đồ thị bánh xe <m>W_n</m>, với <m>n \geq 3</m>, là đồ thị thu được từ chu trình <m>C_n</m> bằng cách bổ sung một đỉnh mới và nối đỉnh này với mỗi đỉnh trong <m>n</m> đỉnh của <m>C_n</m> bởi một cạnh. Do đó <m>W_n</m> có <m>n+1</m> đỉnh và <m>2n</m> cạnh (theo <xref ref="bib-rosen-2019" />, Rosen §10.2).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>đồ thị bánh xe</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 67 (PDF)); <xref ref="bib-nguyenhuudien-2019" /> (tr. 159 (PDF)); <xref ref="bib-nguyenducnghia-2006" /> (tr. 159 (PDF)) — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Đồ thị bánh xe <m>W_4</m> thu được từ chu trình <m>C_4</m> bằng cách thêm một đỉnh mới nối với cả <m>4</m> đỉnh của <m>C_4</m>, gồm <m>5</m> đỉnh và <m>8</m> cạnh.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-well-ordering-principle">
+    <title>Well-ordering principle — nguyên lý thứ tự tốt</title>
+    <idx><h>well-ordering principle</h></idx>
+    <idx><h>có thứ tự tốt</h></idx>
+    <idx><h>nguyên lý thứ tự tốt</h></idx>
+    <idx><h>thứ tự tốt</h></idx>
+    <idx><h>được sắp tốt</h></idx>
+    <notation>
+      <usage><m>Tập các số nguyên không âm thường được ký hiệu \{0, 1, 2, \ldots\}; phần tử nhỏ nhất của một tập khác rỗng A được ký hiệu \min A.</m></usage>
+      <description>nguyên lý thứ tự tốt</description>
+    </notation>
+    <statement>
+      <p>Nguyên lý thứ tự tốt khẳng định rằng mọi tập khác rỗng các số nguyên không âm đều có một phần tử nhỏ nhất. Tổng quát hơn, một tập được sắp thứ tự <m>S</m> được gọi là có thứ tự tốt nếu mọi tập con khác rỗng của <m>S</m> đều có một phần tử nhỏ nhất; tập các số nguyên không âm <m>\{0, 1, 2, \ldots\}</m> với thứ tự thông thường là một tập có thứ tự tốt (theo <xref ref="bib-rosen-2019" />, Rosen §5.2).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>nguyên lý thứ tự tốt</term> <em>(thuật ngữ chuẩn; chưa truy được trong kho văn bản)</em> — cách dùng phổ biến.</p></li>
+        <li><p><term>có thứ tự tốt</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 120 (PDF)).</p></li>
+        <li><p><term>thứ tự tốt</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 120 (PDF)).</p></li>
+        <li><p><term>được sắp tốt</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 120 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Xét tập khác rỗng <m>A = \{6, 2, 9, 4\}</m> gồm các số nguyên không âm. Theo nguyên lý thứ tự tốt, <m>A</m> có một phần tử nhỏ nhất, ở đây là <m>2</m>.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-well-formed-formula">
+    <title>Well-formed formula — công thức hợp thức</title>
+    <idx><h>well-formed formula</h></idx>
+    <idx><h>công thức hợp thức</h></idx>
+    <statement>
+      <p>Công thức hợp thức của một ngôn ngữ hình thức là một dãy hữu hạn các ký hiệu được xây dựng theo đúng các quy tắc thành lập cú pháp của ngôn ngữ đó. Các ký hiệu này gồm các biến mệnh đề hoặc biến vị từ, các liên từ logic, các lượng từ và các ký hiệu nhóm như cặp dấu ngoặc. Nhờ tuân theo các quy tắc thành lập này, một công thức hợp thức biểu diễn một biểu thức logic hợp lệ về mặt ngữ pháp và có ý nghĩa xác định (theo <xref ref="bib-rosen-2019" />, Rosen §1.1).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>công thức hợp thức</term> <em>(thuật ngữ chuẩn; chưa truy được trong kho văn bản)</em> — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Với các biến mệnh đề <m>p</m>, <m>q</m>, <m>r</m>, dãy ký hiệu <m>(p \wedge q) \rightarrow r</m> là một công thức hợp thức vì nó được xây dựng đúng theo các quy tắc thành lập: hai công thức được nối bằng liên từ và đặt trong cặp dấu ngoặc. Ngược lại, dãy ký hiệu <m>p \wedge \rightarrow q</m> không phải là công thức hợp thức, vì liên từ <m>\rightarrow</m> không có công thức đứng ngay trước nó.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-word">
+    <title>Word — từ</title>
+    <idx><h>word</h></idx>
+    <idx><h>từ</h></idx>
+    <idx><h>xâu</h></idx>
+    <idx><h>xâu ký tự</h></idx>
+    <notation>
+      <usage><m>w \in \Sigma^*</m></usage>
+      <description>từ</description>
+    </notation>
+    <statement>
+      <p>Một từ trên bảng chữ cái <m>\Sigma</m> là một dãy hữu hạn các ký hiệu lấy từ <m>\Sigma</m>, kể cả từ rỗng (dãy không có ký hiệu nào). Tập tất cả các từ trên <m>\Sigma</m> được ký hiệu là <m>\Sigma^*</m> (theo <xref ref="bib-rosen-2019" />, Rosen §13.1).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>từ</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 14 (PDF)); <xref ref="bib-ngodactan-2004" /> (tr. 19 (PDF)); <xref ref="bib-nguyenducnghia-2006" /> (tr. 11 (PDF)) — cách dùng phổ biến.</p></li>
+        <li><p><term>xâu</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 76 (PDF)); <xref ref="bib-nguyenducnghia-2006" /> (tr. 28 (PDF)); <xref ref="bib-ngodactan-2004" /> (tr. 50 (PDF)).</p></li>
+        <li><p><term>xâu ký tự</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 134 (PDF)); <xref ref="bib-nguyenducnghia-2006" /> (tr. 49 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Trên bảng chữ cái <m>\Sigma = \{0, 1\}</m>, các dãy <m>0</m>, <m>1</m>, <m>01</m>, <m>110</m> đều là những từ, và từ rỗng cũng thuộc <m>\Sigma^*</m>.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-warshalls-algorithm">
+    <title>Warshall's algorithm — thuật toán Warshall</title>
+    <idx><h>warshall's algorithm</h></idx>
+    <idx><h>thuật toán Warshall</h></idx>
+    <notation>
+      <usage><m>W_k</m></usage>
+      <description>thuật toán Warshall</description>
+    </notation>
+    <statement>
+      <p>Thuật toán Warshall là một thủ tục lặp dùng để tính bao đóng bắc cầu của một quan hệ <m>R</m> trên tập hữu hạn <m>A = \{a_1, a_2, \ldots, a_n\}</m>. Bắt đầu từ ma trận không-một <m>W_0</m> của <m>R</m>, thuật toán lần lượt tính các ma trận <m>W_1, W_2, \ldots, W_n</m>, ký hiệu <m>W_k = [w_{ij}^{(k)}]</m>, trong đó <m>w_{ij}^{(k)} = 1</m> khi và chỉ khi tồn tại đường đi từ <m>a_i</m> đến <m>a_j</m> chỉ dùng các đỉnh trung gian trong <m>\{a_1, \ldots, a_k\}</m>; ma trận cuối cùng <m>W_n</m> chính là ma trận của bao đóng bắc cầu <m>R^{*}</m> (theo <xref ref="bib-rosen-2019" />, Rosen §9.4).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>thuật toán Warshall</term> <xref ref="bib-hoangchithanh-2007" /> (tr. 12 (PDF)) — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Với quan hệ <m>R = \{(1,2),(2,3)\}</m> trên tập <m>A = \{1,2,3\}</m>, thuật toán Warshall xuất phát từ ma trận <m>W_0</m> ghi nhận hai cặp này; khi cho phép đỉnh <m>a_2 = 2</m> làm đỉnh trung gian (bước tính <m>W_2</m>), đường đi <m>1 \rightarrow 2 \rightarrow 3</m> làm xuất hiện cặp <m>(1,3)</m>. Vì không có đỉnh trung gian mới nào ở bước cuối nên <m>W_3 = W_2</m> chính là ma trận của quan hệ <m>R^{*} = \{(1,2),(2,3),(1,3)\}</m>.</p>
+    </statement>
+  </definition>
+</chapter>

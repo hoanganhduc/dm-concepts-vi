@@ -1,1003 +1,1237 @@
 {
-  "locked_conventions": [
-    "Math delimiters: every inline mathematical symbol in definition_vi, example_vi, and notes prose is wrapped in $$...$$ ($$G$$, $$K_n$$, $$\\chi(G)$$, set braces $$\\{a_1,\\ldots,a_n\\}$$, $$\\gcd(a,b)$$, $$A \\subseteq B$$, $$S(n,j)$$, $$G \\cong \\overline{G}$$). Block math uses a ```math fence. Bare Vietnamese words (tập hợp, đồ thị đơn, đường đi đơn, liên thông mạnh) are never wrapped in $$...$$, and the $$\\text{...}$$ wrapper is never used around prose words. The Markdown emphasis marker * for first-concept introduction is NOT math.",
-    "Inequalities and relations: ASCII '>=', '<=', '!=' are forbidden in finished prose; use $$\\geq$$, $$\\leq$$, $$\\neq$$. The only ASCII relation operators that appear are inside quoted OCR source snippets (evidence), which are not subject to the wrapping rule. Authored prose uses $$\\subseteq$$, $$\\neq$$, $$\\notin$$, $$\\emptyset$$, $$\\cong$$, $$\\twoheadrightarrow$$.",
-    "Notation field carries a BARE symbolic LaTeX token (e.g. \\{a_1, a_2, \\ldots, a_n\\}; A \\subseteq B; \\{a_n\\}; \\sum_{j=m}^{n} a_j; f: A \\twoheadrightarrow B; G \\cong \\overline{G}), NOT wrapped in $$...$$; encode-chapter.py strips/wraps it into <m>. Empty-string notation is preserved where the source entry had no canonical symbol (shortest-path, strongly-connected-graph).",
-    "First-concept emphasis: chapter-S definitions mark the first introduction of the term with Markdown *...* where the draft used it (*toàn ánh*, *liên thông mạnh*, *đồ thị tự bù*), matching the single chapter-wide emphasis style; no LaTeX \\emph{...} is used.",
-    "Bipartite rendering is fixed book-wide to 'đồ thị hai phần' (book standard); 'đồ thị hai phía' / 'đồ thị phân đôi' are recorded only as deferred source variants. The bipartite convention is not exercised by any chapter-S definition prose; bipartite-graph appears only as a cross-chapter see_also forward reference in simple-graph.",
-    "Exactly one vi_term per entry has recommended=true, backed by source_id + pdf_page + page + snippet, attested in a 2019-2020 source where the concept exists there, with newest citations listed first. EVERY variant from ALL sources (old and new) is recorded. Two entries fall back to older sources because no 2019-2020 source covers the concept: self-complementary-graph ('đồ thị tự bù', only bib-ngodactan-2004 2004) and series ('tổng' is the recommended summation reading attested in bib-nguyenhuudien-2019 2019; no surveyed Vietnamese discrete-math source defines a standalone 'series' headword, so 'chuỗi' is recorded only as a power-series-adjacent variant).",
-    "Citation hygiene: every verified=true vi_term carries source_id + pdf_page + page + snippet; verified=false rows with empty page are dropped EXCEPT one standard recommended term kept so vi_terms stays non-empty. Applied to chapter S: series/'tổng vô hạn' (verified=false, empty source+page, not recommended) and simple-path/'đường đi sơ cấp' (verified=false, empty page, not recommended) were dropped as vi_term objects; their rejected-candidate analysis is preserved in notes. self-complementary-graph/'tự bù' stays because it is verified=true with a real page.",
-    "see_also: kebab-case ids only; same-chapter S ids present in this batch are linked, cross-chapter ids are preserved as forward references. The membership id was normalized to the registered 'element' (set previously pointed at the unregistered 'element-of'); surjection's self-synonym 'surjective-function' was replaced by the distinct real entry 'function'; sequence's unregistered 'geometric-progression' was aligned to the registered 'geometric-series'. All other non-existent see_also ids are genuine forward references to chapters not yet finalized and are preserved."
-  ],
-  "deferred_note": "Kept ALL 15 chapter-S entries; each retains exactly one recommended=true vi_term, every verified=true vi_term keeps source_id + pdf_page + page + snippet, and no fabricated citations were introduced. CORRECTNESS: (MED) subgraph — added the missing endpoint hypothesis so $$H=(W,F)$$ is a valid graph: the definition now states 'mọi cạnh trong $$F$$ đều có hai đầu mút thuộc $$W$$' alongside $$W \\subseteq V$$ and $$F \\subseteq E$$, closing the gap the all-vertices example masked (matches Rosen, where the condition is inherited from $$H$$ being a graph). (LOW) series — definition is mathematically correct for Rosen's finite-sum sense; added a notes clause stating explicitly that no surveyed Vietnamese discrete-math source defines 'series' as a standalone headword, that 'tổng' denotes the summation operation per Rosen §2.4, and that 'chuỗi' is the analysis-standard rendering of general series, so a reader is not misled that 'series' and 'sum' are interchangeable outside this finite-sum context. (LOW) sequence — added a notes clause noting 'dãy số' is the attested Vietnamese standard even though Rosen's sequence maps into a general set $$S$$; the definition body (a function into a set $$S$$) is left general and unchanged. Remaining LOW correctness items (stirling-number range, set, subset, surjection, symmetric-relation, sum-rule, simple-graph, simple-path, spanning-tree, strongly-connected-graph, shortest-path, self-complementary-graph) were confirmed correct (S(3,2)=3, P_4≅P_4bar, C_5≅C_5bar verified) and left unchanged. TERMINOLOGY: (HIGH) series — deleted the 'tổng vô hạn' vi_term row (verified=false, empty source_id+page, not recommended, not needed for non-emptiness); its 0-hit content already lives in notes. (HIGH) simple-path — deleted the 'đường đi sơ cấp' vi_term row (verified=false, empty page, not recommended); the đường đi sơ cấp = no-repeated-vertex vs đường đi đơn = no-repeated-edge distinction is fully retained in notes. (MED) surjection — kept 'toàn ánh' recommended (attested 2020). (LOW) set / symmetric-relation — recommended citations kept; the existing notes already disclose that set's recommended snippet attests 'tập hợp' inside a vertex-set/edge-set compound (the cleaner standalone nguyenhoangthach-2020 p.13 attestation is retained as a recorded variant), and that symmetric-relation's p.17 recommended snippet is an equivalence-property listing while p.109 carries the definitional form. EXPOSITION: (MED) surjection — dropped 'surjective-function' from see_also (a near-synonym of the headword, registered nowhere) and replaced it with the distinct real entry 'function'. (MED) set — normalized see_also 'element-of' to the registered membership id 'element' (the form the subset entry already uses). (LOW) sequence — changed the trailing '$$\\dots$$' in example_vi to '$$\\ldots$$' to match the \\ldots used in the entry's notation and definition; aligned see_also 'geometric-progression' to the registered entry id 'geometric-series'. NOT APPLIED (contradicts established book convention / optional / out of scope): the EXPOSITION (HIGH) request to translate the 9 English notes fields into Vietnamese was NOT applied — sibling finalized chapters N, O, P, and Q deliberately MIX English and Vietnamese notes (verified: chapter-N has 13 English-lead notes, chapter-P has 7, chapter-Q has 3), so forcing chapter-S notes uniformly Vietnamese would make this chapter inconsistent with the rest of the book; this is a stylistic preference, not a defect, and per-entry notes are left in their original drafting language (matching the chapter-R editorial decision). The optional 'swap set recommended citation to nguyenhoangthach-2020 p.13' and 'trim long notes' suggestions were treated as cosmetic 'may' items and not applied: the 2020 recommendation requirement is already satisfied by the leanhvinh-2020 graph-definition attestation, and the standalone p.13 attestation is already recorded as a variant. stirling-number's nonnegative-integer range was kept (mathematically sound; $$S(n,j)$$ is well-defined for all nonnegative $$n,j$$) rather than narrowed to Rosen's $$1 \\le j \\le n$$, since the panel marked it acceptable-as-is. Field-ordering normalization was treated as cosmetic and not applied (it changes no rendered content).",
-  "final_entries": [
+ "locked_conventions": [
+  "Math delimiters: every inline mathematical symbol in definition_vi, example_vi, and notes prose is wrapped in $$...$$ ($$G$$, $$K_n$$, $$\\chi(G)$$, set braces $$\\{a_1,\\ldots,a_n\\}$$, $$\\gcd(a,b)$$, $$A \\subseteq B$$, $$S(n,j)$$, $$G \\cong \\overline{G}$$). Block math uses a ```math fence. Bare Vietnamese words (tập hợp, đồ thị đơn, đường đi đơn, liên thông mạnh) are never wrapped in $$...$$, and the $$\\text{...}$$ wrapper is never used around prose words. The Markdown emphasis marker * for first-concept introduction is NOT math.",
+  "Inequalities and relations: ASCII '>=', '<=', '!=' are forbidden in finished prose; use $$\\geq$$, $$\\leq$$, $$\\neq$$. The only ASCII relation operators that appear are inside quoted OCR source snippets (evidence), which are not subject to the wrapping rule. Authored prose uses $$\\subseteq$$, $$\\neq$$, $$\\notin$$, $$\\emptyset$$, $$\\cong$$, $$\\twoheadrightarrow$$.",
+  "Notation field carries a BARE symbolic LaTeX token (e.g. \\{a_1, a_2, \\ldots, a_n\\}; A \\subseteq B; \\{a_n\\}; \\sum_{j=m}^{n} a_j; f: A \\twoheadrightarrow B; G \\cong \\overline{G}), NOT wrapped in $$...$$; encode-chapter.py strips/wraps it into <m>. Empty-string notation is preserved where the source entry had no canonical symbol (shortest-path, strongly-connected-graph).",
+  "First-concept emphasis: chapter-S definitions mark the first introduction of the term with Markdown *...* where the draft used it (*toàn ánh*, *liên thông mạnh*, *đồ thị tự bù*), matching the single chapter-wide emphasis style; no LaTeX \\emph{...} is used.",
+  "Bipartite rendering is fixed book-wide to 'đồ thị hai phần' (book standard); 'đồ thị hai phía' / 'đồ thị phân đôi' are recorded only as deferred source variants. The bipartite convention is not exercised by any chapter-S definition prose; bipartite-graph appears only as a cross-chapter see_also forward reference in simple-graph.",
+  "Exactly one vi_term per entry has recommended=true, backed by source_id + pdf_page + page + snippet, attested in a 2019-2020 source where the concept exists there, with newest citations listed first. EVERY variant from ALL sources (old and new) is recorded. Two entries fall back to older sources because no 2019-2020 source covers the concept: self-complementary-graph ('đồ thị tự bù', only bib-ngodactan-2004 2004) and series ('tổng' is the recommended summation reading attested in bib-nguyenhuudien-2019 2019; no surveyed Vietnamese discrete-math source defines a standalone 'series' headword, so 'chuỗi' is recorded only as a power-series-adjacent variant).",
+  "Citation hygiene: every verified=true vi_term carries source_id + pdf_page + page + snippet; verified=false rows with empty page are dropped EXCEPT one standard recommended term kept so vi_terms stays non-empty. Applied to chapter S: series/'tổng vô hạn' (verified=false, empty source+page, not recommended) and simple-path/'đường đi sơ cấp' (verified=false, empty page, not recommended) were dropped as vi_term objects; their rejected-candidate analysis is preserved in notes. self-complementary-graph/'tự bù' stays because it is verified=true with a real page.",
+  "see_also: kebab-case ids only; same-chapter S ids present in this batch are linked, cross-chapter ids are preserved as forward references. The membership id was normalized to the registered 'element' (set previously pointed at the unregistered 'element-of'); surjection's self-synonym 'surjective-function' was replaced by the distinct real entry 'function'; sequence's unregistered 'geometric-progression' was aligned to the registered 'geometric-series'. All other non-existent see_also ids are genuine forward references to chapters not yet finalized and are preserved."
+ ],
+ "deferred_note": "Kept ALL 15 chapter-S entries; each retains exactly one recommended=true vi_term, every verified=true vi_term keeps source_id + pdf_page + page + snippet, and no fabricated citations were introduced. CORRECTNESS: (MED) subgraph — added the missing endpoint hypothesis so $$H=(W,F)$$ is a valid graph: the definition now states 'mọi cạnh trong $$F$$ đều có hai đầu mút thuộc $$W$$' alongside $$W \\subseteq V$$ and $$F \\subseteq E$$, closing the gap the all-vertices example masked (matches Rosen, where the condition is inherited from $$H$$ being a graph). (LOW) series — definition is mathematically correct for Rosen's finite-sum sense; added a notes clause stating explicitly that no surveyed Vietnamese discrete-math source defines 'series' as a standalone headword, that 'tổng' denotes the summation operation per Rosen §2.4, and that 'chuỗi' is the analysis-standard rendering of general series, so a reader is not misled that 'series' and 'sum' are interchangeable outside this finite-sum context. (LOW) sequence — added a notes clause noting 'dãy số' is the attested Vietnamese standard even though Rosen's sequence maps into a general set $$S$$; the definition body (a function into a set $$S$$) is left general and unchanged. Remaining LOW correctness items (stirling-number range, set, subset, surjection, symmetric-relation, sum-rule, simple-graph, simple-path, spanning-tree, strongly-connected-graph, shortest-path, self-complementary-graph) were confirmed correct (S(3,2)=3, P_4≅P_4bar, C_5≅C_5bar verified) and left unchanged. TERMINOLOGY: (HIGH) series — deleted the 'tổng vô hạn' vi_term row (verified=false, empty source_id+page, not recommended, not needed for non-emptiness); its 0-hit content already lives in notes. (HIGH) simple-path — deleted the 'đường đi sơ cấp' vi_term row (verified=false, empty page, not recommended); the đường đi sơ cấp = no-repeated-vertex vs đường đi đơn = no-repeated-edge distinction is fully retained in notes. (MED) surjection — kept 'toàn ánh' recommended (attested 2020). (LOW) set / symmetric-relation — recommended citations kept; the existing notes already disclose that set's recommended snippet attests 'tập hợp' inside a vertex-set/edge-set compound (the cleaner standalone nguyenhoangthach-2020 p.13 attestation is retained as a recorded variant), and that symmetric-relation's p.17 recommended snippet is an equivalence-property listing while p.109 carries the definitional form. EXPOSITION: (MED) surjection — dropped 'surjective-function' from see_also (a near-synonym of the headword, registered nowhere) and replaced it with the distinct real entry 'function'. (MED) set — normalized see_also 'element-of' to the registered membership id 'element' (the form the subset entry already uses). (LOW) sequence — changed the trailing '$$\\dots$$' in example_vi to '$$\\ldots$$' to match the \\ldots used in the entry's notation and definition; aligned see_also 'geometric-progression' to the registered entry id 'geometric-series'. NOT APPLIED (contradicts established book convention / optional / out of scope): the EXPOSITION (HIGH) request to translate the 9 English notes fields into Vietnamese was NOT applied — sibling finalized chapters N, O, P, and Q deliberately MIX English and Vietnamese notes (verified: chapter-N has 13 English-lead notes, chapter-P has 7, chapter-Q has 3), so forcing chapter-S notes uniformly Vietnamese would make this chapter inconsistent with the rest of the book; this is a stylistic preference, not a defect, and per-entry notes are left in their original drafting language (matching the chapter-R editorial decision). The optional 'swap set recommended citation to nguyenhoangthach-2020 p.13' and 'trim long notes' suggestions were treated as cosmetic 'may' items and not applied: the 2020 recommendation requirement is already satisfied by the leanhvinh-2020 graph-definition attestation, and the standalone p.13 attestation is already recorded as a variant. stirling-number's nonnegative-integer range was kept (mathematically sound; $$S(n,j)$$ is well-defined for all nonnegative $$n,j$$) rather than narrowed to Rosen's $$1 \\le j \\le n$$, since the panel marked it acceptable-as-is. Field-ordering normalization was treated as cosmetic and not applied (it changes no rendered content).",
+ "final_entries": [
+  {
+   "id": "set",
+   "letter": "S",
+   "headword_en": "Set",
+   "notation": "\\{a_1, a_2, \\ldots, a_n\\}",
+   "rosen_ref": "Rosen §2.1",
+   "definition_vi": "Tập hợp là một bộ sưu tập không có thứ tự gồm các đối tượng phân biệt, mỗi đối tượng được gọi là một phần tử của tập hợp đó. Một tập hợp hữu hạn thường được ký hiệu bằng cách liệt kê các phần tử trong cặp dấu ngoặc nhọn, ký hiệu $$\\{a_1, a_2, \\ldots, a_n\\}$$.",
+   "example_vi": "Tập hợp $$\\{2, 3, 5, 7\\}$$ gồm bốn phần tử phân biệt là các số nguyên tố nhỏ hơn $$10$$. Vì tập hợp không có thứ tự nên $$\\{2, 3, 5, 7\\} = \\{7, 5, 3, 2\\}$$, và vì các phần tử là phân biệt nên việc lặp lại một phần tử không tạo ra tập hợp mới.",
+   "notes": "Hai ứng viên đều được chứng thực trong toàn bộ kho ngữ liệu. \"tập hợp\" là thuật ngữ chuẩn đầy đủ; \"tập\" là dạng viết tắt tương đương, xuất hiện chủ yếu trong các từ ghép như \"tập đỉnh\" (vertex set), \"tập con\" (subset), \"tập đại diện\" (representative set), và trong định nghĩa đồ thị của bib-leanhvinh-2020 (Định nghĩa 1.1, tr. 8 PDF: \"gồm hai tập hữu hạn, tập đỉnh...\"). Khi tìm \"tập\" đơn lẻ, nhiều kết quả là chuỗi con của \"tập hợp\", \"bài tập\" (bài tập về nhà) hoặc \"học tập\" (việc học), nên trích dẫn cho \"tập\" dùng ngữ cảnh từ ghép chỉ tập đỉnh để xác nhận nghĩa. Thuật ngữ khuyến nghị \"tập hợp\" được chứng thực trong nguồn 2020 mới nhất (bib-leanhvinh-2020, bib-nguyenhoangthach-2020); lưu ý trích dẫn khuyến nghị tại bib-leanhvinh-2020 tr. 8 attest \"tập hợp\" trong từ ghép \"tập hợp đỉnh / tập hợp cạnh\", còn attest độc lập rõ hơn nằm ở bib-nguyenhoangthach-2020 tr. 13 (\"các tập hợp hữu hạn\"), được ghi nhận làm biến thể.",
+   "see_also": [
+    "subset",
+    "element",
+    "cardinality",
+    "empty-set",
+    "set-builder-notation"
+   ],
+   "vi_terms": [
     {
-      "id": "set",
-      "letter": "S",
-      "headword_en": "Set",
-      "notation": "\\{a_1, a_2, \\ldots, a_n\\}",
-      "rosen_ref": "Rosen §2.1",
-      "definition_vi": "Tập hợp là một bộ sưu tập không có thứ tự gồm các đối tượng phân biệt, mỗi đối tượng được gọi là một phần tử của tập hợp đó. Một tập hợp hữu hạn thường được ký hiệu bằng cách liệt kê các phần tử trong cặp dấu ngoặc nhọn, ký hiệu $$\\{a_1, a_2, \\ldots, a_n\\}$$.",
-      "example_vi": "Tập hợp $$\\{2, 3, 5, 7\\}$$ gồm bốn phần tử phân biệt là các số nguyên tố nhỏ hơn $$10$$. Vì tập hợp không có thứ tự nên $$\\{2, 3, 5, 7\\} = \\{7, 5, 3, 2\\}$$, và vì các phần tử là phân biệt nên việc lặp lại một phần tử không tạo ra tập hợp mới.",
-      "notes": "Hai ứng viên đều được chứng thực trong toàn bộ kho ngữ liệu. \"tập hợp\" là thuật ngữ chuẩn đầy đủ; \"tập\" là dạng viết tắt tương đương, xuất hiện chủ yếu trong các từ ghép như \"tập đỉnh\" (vertex set), \"tập con\" (subset), \"tập đại diện\" (representative set), và trong định nghĩa đồ thị của bib-leanhvinh-2020 (Định nghĩa 1.1, tr. 8 PDF: \"gồm hai tập hữu hạn, tập đỉnh...\"). Khi tìm \"tập\" đơn lẻ, nhiều kết quả là chuỗi con của \"tập hợp\", \"bài tập\" (bài tập về nhà) hoặc \"học tập\" (việc học), nên trích dẫn cho \"tập\" dùng ngữ cảnh từ ghép chỉ tập đỉnh để xác nhận nghĩa. Thuật ngữ khuyến nghị \"tập hợp\" được chứng thực trong nguồn 2020 mới nhất (bib-leanhvinh-2020, bib-nguyenhoangthach-2020); lưu ý trích dẫn khuyến nghị tại bib-leanhvinh-2020 tr. 8 attest \"tập hợp\" trong từ ghép \"tập hợp đỉnh / tập hợp cạnh\", còn attest độc lập rõ hơn nằm ở bib-nguyenhoangthach-2020 tr. 13 (\"các tập hợp hữu hạn\"), được ghi nhận làm biến thể.",
-      "see_also": [
-        "subset",
-        "element",
-        "cardinality",
-        "empty-set",
-        "set-builder-notation"
-      ],
-      "vi_terms": [
-        {
-          "term": "tập hợp",
-          "verified": true,
-          "recommended": true,
-          "source_id": "bib-leanhvinh-2020",
-          "pdf_page": 8,
-          "page": "tr. 8 (PDF)",
-          "snippet": "Ta bat đầu với định nghĩa của dé thi qua tập hợp đỉnh và tập hợp cạnh."
-        },
-        {
-          "term": "tập hợp",
-          "verified": true,
-          "recommended": false,
-          "source_id": "bib-nguyenhoangthach-2020",
-          "pdf_page": 13,
-          "page": "tr. 13 (PDF)",
-          "snippet": "S1 , S2 , . . . , Sk là các tập hợp hữu hạn thì"
-        },
-        {
-          "term": "tập hợp",
-          "verified": true,
-          "recommended": false,
-          "source_id": "bib-nguyenhuudien-2019",
-          "pdf_page": 78,
-          "page": "tr. 78 (PDF)",
-          "snippet": "giao của hai tập hợp bất kỳ trong n tập hợp là rỗng, thì số phần tử của phần hội của các tập"
-        },
-        {
-          "term": "tập hợp",
-          "verified": true,
-          "recommended": false,
-          "source_id": "bib-hoangchithanh-2007",
-          "pdf_page": 18,
-          "page": "tr. 18 (PDF)",
-          "snippet": "Cho một tập hợp X có n phần tử. Xây dựng đồ thị vô hướng ma"
-        },
-        {
-          "term": "tập hợp",
-          "verified": true,
-          "recommended": false,
-          "source_id": "bib-nguyenducnghia-2006",
-          "pdf_page": 10,
-          "page": "tr. 10 (PDF)",
-          "snippet": "phân bố các phần tử vào các tập hợp. Thông thường, các phần tử này là hữu hạn và việc"
-        },
-        {
-          "term": "tập hợp",
-          "verified": true,
-          "recommended": false,
-          "source_id": "bib-ngodactan-2004",
-          "pdf_page": 21,
-          "page": "tr. 21 (PDF)",
-          "snippet": "V í d ụ 1.2. Giả sử A\\ là tập hợp gồm 12 học sinh nữ và A 2 là tập hợp"
-        },
-        {
-          "term": "tập",
-          "verified": true,
-          "recommended": false,
-          "source_id": "bib-leanhvinh-2020",
-          "pdf_page": 8,
-          "page": "tr. 8 (PDF)",
-          "snippet": "Định nghĩa 1.1. Đồ thị G = (V,E) gồm hai tập hữu hạn, tập đỉnh"
-        }
-      ]
+     "term": "tập hợp",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-leanhvinh-2020",
+     "pdf_page": 8,
+     "page": "tr. 8 (PDF)",
+     "snippet": "Ta bat đầu với định nghĩa của dé thi qua tập hợp đỉnh và tập hợp cạnh."
     },
     {
-      "id": "subset",
-      "letter": "S",
-      "headword_en": "Subset",
-      "notation": "A \\subseteq B",
-      "rosen_ref": "Rosen §2.1",
-      "definition_vi": "Tập hợp $$A$$ được gọi là một tập con của tập hợp $$B$$, ký hiệu $$A \\subseteq B$$, nếu mọi phần tử của $$A$$ đều là phần tử của $$B$$.",
-      "example_vi": "Với $$A = \\{1, 2\\}$$ và $$B = \\{1, 2, 3\\}$$, ta có $$A \\subseteq B$$ vì mỗi phần tử của $$A$$ đều thuộc $$B$$. Ngược lại, $$\\{1, 4\\}$$ không phải là tập con của $$B$$ vì $$4 \\notin B$$.",
-      "notes": "Concept: $$A \\subseteq B$$ iff every element of $$A$$ is also an element of $$B$$. Two Vietnamese terms denote this concept: \"tập con\" (more frequent; the standard short form) and \"tập hợp con\" (the full form). Recommended term is \"tập con\": it is the most widely attested across all six sources (old and new) and carries the explicit subset-relation definition in bib-nguyenducnghia-2006 (p.12: \"ta nói A là tập con của ...\"); it is also attested in the 2020 source bib-leanhvinh-2020, satisfying the 2019-2020 recommendation requirement. The variant \"tập hợp con\" is attested in the newest combinatorics source bib-nguyenhoangthach-2020 (2020) and in bib-nguyenhuudien-2019 (2019, p.74), where the subset relation $$A \\subset B$$ is defined verbatim: \"Khi $$A \\subset B$$ ta nói $$A$$ là một tập hợp con của tập hợp $$B$$.\" Note that bib-nguyenhuudien-2019 uses BOTH forms (\"tập con\" on p.69, \"tập hợp con\" on p.74), so both are recorded for that source. bib-ngodactan-2004 and bib-nguyenducnghia-2006 use only \"tập con\". OCR sources (bib-leanhvinh-2020, bib-hoangchithanh-2007) were mined with both normal and --loose passes; --loose added no new term variants for this concept. Related: \"tập con thực sự\" (proper subset, $$A \\subsetneq B$$) appears in bib-hoangchithanh-2007 p.18 but is a distinct concept and not recorded here.",
-      "see_also": [
-        "set",
-        "element",
-        "empty-set",
-        "power-set",
-        "proper-subset"
-      ],
-      "vi_terms": [
-        {
-          "term": "tập con",
-          "verified": true,
-          "recommended": true,
-          "source_id": "bib-leanhvinh-2020",
-          "pdf_page": 70,
-          "page": "tr. 70 (PDF)",
-          "snippet": "ta xét tập S = V và họ các tập con của S, F = {Xc({u})lue U}."
-        },
-        {
-          "term": "tập hợp con",
-          "verified": true,
-          "recommended": false,
-          "source_id": "bib-nguyenhoangthach-2020",
-          "pdf_page": 16,
-          "page": "tr. 16 (PDF)",
-          "snippet": "Ví dụ 1.9 (Số tập hợp con của một tập hợp). Tìm số tập hợp con của một"
-        },
-        {
-          "term": "tập con",
-          "verified": true,
-          "recommended": false,
-          "source_id": "bib-nguyenhuudien-2019",
-          "pdf_page": 69,
-          "page": "tr. 69 (PDF)",
-          "snippet": "các tập con của A là 2n (n ≥ 0)."
-        },
-        {
-          "term": "tập hợp con",
-          "verified": true,
-          "recommended": false,
-          "source_id": "bib-nguyenhuudien-2019",
-          "pdf_page": 74,
-          "page": "tr. 74 (PDF)",
-          "snippet": "Khi A ⊂ B ta nói A là một tập hợp con của tập hợp B."
-        },
-        {
-          "term": "tập con",
-          "verified": true,
-          "recommended": false,
-          "source_id": "bib-hoangchithanh-2007",
-          "pdf_page": 18,
-          "page": "tr. 18 (PDF)",
-          "snippet": "mỗi định của nó là một tập con của tập X. Hai đỉnh được nối với"
-        },
-        {
-          "term": "tập con",
-          "verified": true,
-          "recommended": false,
-          "source_id": "bib-nguyenducnghia-2006",
-          "pdf_page": 12,
-          "page": "tr. 12 (PDF)",
-          "snippet": "8 thì ta nói A là tập con của Ø và viết A ~ . Nếu Á C ÿ và # C A thì A và 8 là hai tập"
-        },
-        {
-          "term": "tập con",
-          "verified": true,
-          "recommended": false,
-          "source_id": "bib-ngodactan-2004",
-          "pdf_page": 29,
-          "page": "tr. 29 (PDF)",
-          "snippet": "nhữ là một tập con lực lượng k của A. Vì vậy, nếu ta ký hiệu số các"
-        }
-      ]
+     "term": "tập hợp",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhoangthach-2020",
+     "pdf_page": 13,
+     "page": "tr. 13 (PDF)",
+     "snippet": "S1 , S2 , . . . , Sk là các tập hợp hữu hạn thì"
     },
     {
-      "id": "sequence",
-      "letter": "S",
-      "headword_en": "Sequence",
-      "notation": "\\{a_n\\}",
-      "rosen_ref": "Rosen §2.4",
-      "definition_vi": "Một dãy số là một hàm từ một tập con của tập các số nguyên (thường là tập các số nguyên không âm hoặc tập các số nguyên dương) vào một tập $$S$$; giá trị của hàm tại số nguyên $$n$$, ký hiệu $$a_n$$, được gọi là số hạng thứ $$n$$ của dãy, và dãy được ký hiệu là $$\\{a_n\\}$$.",
-      "example_vi": "Xét hàm $$a_n = \\frac{1}{n}$$ xác định trên tập các số nguyên dương; dãy số $$\\{a_n\\}$$ tương ứng có các số hạng là $$a_1 = 1$$, $$a_2 = \\frac{1}{2}$$, $$a_3 = \\frac{1}{3}$$, $$\\ldots$$",
-      "notes": "Recommended term \"dãy số\" (number sequence) is attested in both 2020 sources and the 2019 source. The $$\\{a_n\\}$$ notation appears verbatim with \"dãy số\" in nguyenhuudien-2019 (p. 97, \"đối với dãy số { an }\") and nguyenducnghia-2006 (p. 34, \"dãy số {a„}\"); nguyenhoangthach-2020 (p. 37) uses the equivalent \"(an)\" notation, all denoting THIS concept (a function indexed by integers). The bare variant \"dãy\" (sequence) is used as a short back-reference to \"dãy số\" (e.g. nguyenhoangthach-2020 p. 37 \"một dãy như vậy\") and in compounds (\"dãy các đỉnh\", \"dãy Fibonacci\"); recorded from nguyenducnghia-2006 p. 38 where \"dãy số ... dãy này\" makes the synonymy explicit. OCR sources: leanhvinh-2020 (p. 51 \"Từ dãy số thành cây.\") and hoangchithanh-2007 (p. 141, --loose, Catalan sequence) attest \"dãy số\" but only in applied contexts (degree sequences, Catalan numbers), not as a general definition, so the 2020/2019 text sources are cited first. \"dãy số nguyên\" (integer sequence) and \"dãy số nguyên dương\" (positive integer sequence) appear as domain-restricted instances, not separate terms. Lưu ý thuật ngữ-tiêu đề: tiêu đề tiếng Anh là \"Sequence\" với miền giá trị là một tập $$S$$ tổng quát (Rosen §2.4), trong khi thuật ngữ tiếng Việt được chứng thực là \"dãy số\" (theo nghĩa hẹp dãy các số); định nghĩa giữ nguyên dạng tổng quát \"vào một tập $$S$$\" còn \"dãy số\" là thuật ngữ chuẩn được kho ngữ liệu chứng thực.",
-      "see_also": [
-        "summation",
-        "geometric-series"
-      ],
-      "vi_terms": [
-        {
-          "term": "dãy số",
-          "verified": true,
-          "recommended": true,
-          "source_id": "bib-nguyenhoangthach-2020",
-          "pdf_page": 37,
-          "page": "tr. 37 (PDF)",
-          "snippet": "bài toán đếm có thể được biểu diễn bằng một dãy số (an ). Chẳng hạn, số từ"
-        },
-        {
-          "term": "dãy số",
-          "verified": true,
-          "recommended": false,
-          "source_id": "bib-nguyenhuudien-2019",
-          "pdf_page": 97,
-          "page": "tr. 97 (PDF)",
-          "snippet": "Định nghĩa 3.12 Hệ thức truy hồi (hay công thức truy hồi) đối với dãy số { an } là công"
-        },
-        {
-          "term": "dãy số",
-          "verified": true,
-          "recommended": false,
-          "source_id": "bib-nguyenducnghia-2006",
-          "pdf_page": 34,
-          "page": "tr. 34 (PDF)",
-          "snippet": "Ta cần tìm công thức trực tiếp cho số hạng a„ của dãy số {a„} thoả mãn công thức"
-        },
-        {
-          "term": "dãy số",
-          "verified": true,
-          "recommended": false,
-          "source_id": "bib-ngodactan-2004",
-          "pdf_page": 79,
-          "page": "tr. 79 (PDF)",
-          "snippet": "Ta nói rằng a(x) — Y2 ctjxi s C N hay dãy số ao, ai, 02, . . . thoả mãn"
-        },
-        {
-          "term": "dãy",
-          "verified": true,
-          "recommended": false,
-          "source_id": "bib-nguyenducnghia-2006",
-          "pdf_page": 38,
-          "page": "tr. 38 (PDF)",
-          "snippet": "Giả sử {4,1m = 0, 1,2, ...} là một dãy số. Ta viết dãy này như là dãy vô hạn phần tử,"
-        }
-      ]
+     "term": "tập hợp",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 78,
+     "page": "tr. 78 (PDF)",
+     "snippet": "giao của hai tập hợp bất kỳ trong n tập hợp là rỗng, thì số phần tử của phần hội của các tập"
     },
     {
-      "id": "series",
-      "letter": "S",
-      "headword_en": "Series",
-      "notation": "\\sum_{j=m}^{n} a_j",
-      "rosen_ref": "Rosen §2.4",
-      "definition_vi": "Tổng của một dãy là kết quả của việc cộng các số hạng của dãy đó. Với dãy $$a_m, a_{m+1}, \\ldots, a_n$$, tổng các số hạng từ chỉ số $$m$$ đến chỉ số $$n$$ được ký hiệu bằng ký hiệu sigma là $$\\sum_{j=m}^{n} a_j = a_m + a_{m+1} + \\cdots + a_n$$, trong đó $$j$$ là chỉ số chạy, $$m$$ là cận dưới và $$n$$ là cận trên.",
-      "example_vi": "Tổng của bốn số hạng đầu của dãy $$a_j = j^2$$ với $$j$$ chạy từ $$1$$ đến $$4$$ là $$\\sum_{j=1}^{4} j^2 = 1 + 4 + 9 + 16 = 30$$.",
-      "notes": "Khái niệm \"chuỗi\" theo nghĩa Rosen §2.4 (tổng các số hạng của một dãy, viết bằng ký hiệu sigma $$\\sum_{j=m}^{n} a_j$$) không được định nghĩa thành một mục riêng trong các nguồn rời rạc/đồ thị tiếng Việt được khảo sát; không nguồn nào trong kho ngữ liệu định nghĩa \"series\" như một thuật ngữ-tiêu đề độc lập. Từ chuẩn cho phép lấy tổng các số hạng của một dãy là \"tổng\", được chứng thực trong nguồn mới nhất bib-nguyenhuudien-2019 (tr. 65 PDF): Ví dụ 2.26 \"Tính tổng của n số tự nhiên lẻ đầu tiên $$T(n) = 1 + 3 + 5 + \\cdots + (2n-1)$$\" và Ví dụ 2.27 \"Tính tổng\" — đúng nghĩa tổng các số hạng của một dãy. Vì vậy chọn \"tổng\" làm thuật ngữ khuyến nghị (có chứng thực 2019-2020): ở đây \"tổng\" chỉ phép lấy tổng theo Rosen §2.4, là một biểu diễn thực dụng cho nghĩa tổng-hữu-hạn chứ không phải bản dịch trực tiếp của \"series\". Biến thể \"chuỗi\" là thuật ngữ giải tích chuẩn cho series tổng quát; trong các nguồn này nó chỉ xuất hiện ở nghĩa lân cận \"chuỗi luỹ thừa (hình thức)\" (power series) tại bib-ngodactan-2004 (tr. 59-61 PDF), còn ở các nguồn khác \"chuỗi\" mang nghĩa khác (chuỗi bit, chuỗi ký tự, chuỗi mã) nên không chứng thực trực tiếp nghĩa series tổng quát; do đó \"series\" (chuỗi) và \"sum\" (tổng) KHÔNG đồng nghĩa hoán đổi ngoài ngữ cảnh tổng-hữu-hạn này. Khái niệm liên quan \"khả tổng\" (summable) và $$\\sum a_k$$ xuất hiện tại bib-ngodactan-2004 (tr. 66-70 PDF). Biến thể \"tổng vô hạn\" (infinite series) không có chứng thực trong bất kỳ nguồn nào (0 hits), nên không ghi nhận thành dòng vi_term; chỉ lưu lại ở đây.",
-      "see_also": [
-        "sequence",
-        "summation",
-        "geometric-series",
-        "arithmetic-progression"
-      ],
-      "vi_terms": [
-        {
-          "term": "tổng",
-          "verified": true,
-          "recommended": true,
-          "source_id": "bib-nguyenhuudien-2019",
-          "pdf_page": 65,
-          "page": "tr. 65 (PDF)",
-          "snippet": "Ví dụ 2.26. Tính tổng của n số tự nhiên lẻ đầu tiên T (n) = 1 + 3 + 5 + · · · + (2n − 1)."
-        },
-        {
-          "term": "chuỗi",
-          "verified": true,
-          "recommended": false,
-          "source_id": "bib-ngodactan-2004",
-          "pdf_page": 59,
-          "page": "tr. 59 (PDF)",
-          "snippet": "pháp này là chuỗi luỹ thừa hình thức. Bằng các phép toán được định"
-        }
-      ]
+     "term": "tập hợp",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-hoangchithanh-2007",
+     "pdf_page": 18,
+     "page": "tr. 18 (PDF)",
+     "snippet": "Cho một tập hợp X có n phần tử. Xây dựng đồ thị vô hướng ma"
     },
     {
-      "id": "surjection",
-      "letter": "S",
-      "headword_en": "Surjection",
-      "notation": "f: A \\twoheadrightarrow B",
-      "rosen_ref": "Rosen §2.3",
-      "definition_vi": "Một hàm $$f$$ từ tập $$A$$ đến tập $$B$$ được gọi là một *toàn ánh* nếu với mỗi phần tử $$b \\in B$$ đều tồn tại một phần tử $$a \\in A$$ sao cho $$f(a) = b$$. Khi đó ta ký hiệu $$f: A \\twoheadrightarrow B$$.",
-      "example_vi": "Xét hàm $$f: \\mathbb{Z} \\to \\mathbb{Z}$$ cho bởi $$f(n) = n + 1$$. Với mỗi $$b \\in \\mathbb{Z}$$, chọn $$a = b - 1 \\in \\mathbb{Z}$$ thì $$f(a) = b$$, nên $$f$$ là một toàn ánh.",
-      "notes": "Recommended term \"toàn ánh\" is attested in the newest source (bib-nguyenhoangthach-2020, 2020) on p.33, where the iff definition appears verbatim (\"Ánh xạ f là một toàn ánh nếu và chỉ...\"), matching the Rosen onto-function definition; it is also attested in bib-ngodactan-2004 (2004). Variant \"hàm toàn ánh\" (literally \"surjective function\") is attested only in bib-ngodactan-2004 (2004). Candidate \"ánh xạ lên\" returned 0 hits in every source under both normal and --loose search and is dropped. OCR sources bib-leanhvinh-2020 and bib-hoangchithanh-2007 did not attest the term even with --loose (0 hits); text sources bib-nguyenhuudien-2019 (uses generic \"ánh xạ\" only) and bib-nguyenducnghia-2006 did not attest \"toàn ánh\" either. see_also previously listed \"surjective-function\", which is a near-synonym of this headword and not a registered entry id; it was replaced by the distinct related entry \"function\".",
-      "see_also": [
-        "injection",
-        "bijection",
-        "function"
-      ],
-      "vi_terms": [
-        {
-          "term": "toàn ánh",
-          "verified": true,
-          "recommended": true,
-          "source_id": "bib-nguyenhoangthach-2020",
-          "pdf_page": 33,
-          "page": "tr. 33 (PDF)",
-          "snippet": "con rời nhau của A và có hợp bằng A. Ánh xạ f là một toàn ánh nếu và chỉ"
-        },
-        {
-          "term": "toàn ánh",
-          "verified": true,
-          "recommended": false,
-          "source_id": "bib-ngodactan-2004",
-          "pdf_page": 140,
-          "page": "tr. 140 (PDF)",
-          "snippet": "suy ra 8 g cũng là toàn ánh. Vậy O g là một song ánh."
-        },
-        {
-          "term": "hàm toàn ánh",
-          "verified": true,
-          "recommended": false,
-          "source_id": "bib-ngodactan-2004",
-          "pdf_page": 37,
-          "page": "tr. 37 (PDF)",
-          "snippet": "G iải. Giả sử M = {&1, . .. bm} và / : N -¥ M là một hàm toàn ánh."
-        }
-      ]
+     "term": "tập hợp",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenducnghia-2006",
+     "pdf_page": 10,
+     "page": "tr. 10 (PDF)",
+     "snippet": "phân bố các phần tử vào các tập hợp. Thông thường, các phần tử này là hữu hạn và việc"
     },
     {
-      "id": "symmetric-relation",
-      "letter": "S",
-      "headword_en": "Symmetric relation",
-      "notation": "(a,b)\\in R \\Rightarrow (b,a)\\in R",
-      "rosen_ref": "Rosen §9.1",
-      "definition_vi": "Một quan hệ $$R$$ trên tập $$A$$ được gọi là có tính đối xứng nếu $$(b,a)\\in R$$ với mọi $$(a,b)\\in R$$, tức là với mọi $$a,b\\in A$$, hễ $$(a,b)\\in R$$ thì $$(b,a)\\in R$$ (ký hiệu $$(a,b)\\in R \\Rightarrow (b,a)\\in R$$).",
-      "example_vi": "Xét tập $$A=\\{1,2,3\\}$$ và quan hệ $$R=\\{(1,2),(2,1),(3,3)\\}$$ trên $$A$$. Quan hệ $$R$$ có tính đối xứng vì mỗi khi $$(a,b)\\in R$$ thì cũng có $$(b,a)\\in R$$.",
-      "notes": "Recommended term \"đối xứng\" (often as the property-noun phrase \"tính đối xứng\" / \"có tính đối xứng\") is the standard Vietnamese term for the relation property and is attested in 2020 sources. The recommended attestation leanhvinh-2020 p.17 occurs in an equivalence-relation context (the connectivity relation \"quan hệ liên thông\" is shown to be reflexive, symmetric, transitive), i.e. it lists đối xứng as a property rather than giving the standalone definition. The precise definitional attestation matching Rosen is nguyenhuudien-2019 p.109: \"Ta nói quan hệ R có tính đối xứng (symmetric) nếu và chỉ nếu xRy ⇒ yRx với mọi\". Other 2020 attestations appear as the second of the three equivalence-relation properties (phản xạ, đối xứng, bắc cầu): nguyenhoangthach-2020 p.54 (\"tính đối xứng của quan hệ 'quen nhau'\"). The full noun phrase \"quan hệ đối xứng\" returns 0 hits in every source (normal and --loose); Vietnamese sources express the concept via the property word đối xứng / tính đối xứng applied to a relation, not via a fixed noun phrase. DISTINCT NEARBY TERM, NOT the symmetric relation: \"phản đối xứng\" (antisymmetric) at ngodactan-2004 p.163 defines a partial order and is a different concept; ngodactan-2004 attests no symmetric relation property (its standalone \"đối xứng\" occurrences denote symmetric groups, geometric symmetry, or symmetric matrices), so it contributes no vi_term here. Likewise leanhvinh-2020 p.196 \"tính đối xứng\" is a Ramsey 'by symmetry' extremal argument, not the relation property, and is excluded.",
-      "see_also": [
-        "reflexive-relation",
-        "transitive-relation",
-        "antisymmetric-relation",
-        "equivalence-relation"
-      ],
-      "vi_terms": [
-        {
-          "term": "đối xứng",
-          "source_id": "bib-leanhvinh-2020",
-          "page": "tr. 17 (PDF)",
-          "pdf_page": 17,
-          "snippet": "hệ liên thông có ba tính chất: phản xa, đối xứng và bắc cầu. Do đó,",
-          "verified": true,
-          "recommended": true
-        },
-        {
-          "term": "tính đối xứng",
-          "source_id": "bib-nguyenhoangthach-2020",
-          "page": "tr. 54 (PDF)",
-          "pdf_page": 54,
-          "snippet": "Tuy nhiên, để ý rằng do tính đối xứng của quan hệ “quen nhau”, hai nhóm",
-          "verified": true,
-          "recommended": false
-        },
-        {
-          "term": "có tính đối xứng",
-          "source_id": "bib-nguyenhuudien-2019",
-          "page": "tr. 109 (PDF)",
-          "pdf_page": 109,
-          "snippet": "• Ta nói quan hệ R có tính đối xứng (symmetric) nếu và chỉ nếu xRy ⇒ yRx với mọi",
-          "verified": true,
-          "recommended": false
-        },
-        {
-          "term": "tính chất đối xứng",
-          "source_id": "bib-nguyenhuudien-2019",
-          "page": "tr. 24 (PDF)",
-          "pdf_page": 24,
-          "snippet": "tính truyền (hay bắc cầu), nhưng không có tính chất đối xứng.",
-          "verified": true,
-          "recommended": false
-        },
-        {
-          "term": "đối xứng",
-          "source_id": "bib-nguyenducnghia-2006",
-          "page": "tr. 14 (PDF)",
-          "pdf_page": 14,
-          "snippet": "đương. Một quan hệ được gọi là tương đương nếu nó thoả mãn cả 3 tính chất: đối xứng,",
-          "verified": true,
-          "recommended": false
-        }
-      ]
+     "term": "tập hợp",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-ngodactan-2004",
+     "pdf_page": 21,
+     "page": "tr. 21 (PDF)",
+     "snippet": "V í d ụ 1.2. Giả sử A\\ là tập hợp gồm 12 học sinh nữ và A 2 là tập hợp"
     },
     {
-      "id": "sum-rule",
-      "letter": "S",
-      "headword_en": "Sum rule",
-      "notation": "|A \\cup B| = |A| + |B|",
-      "rosen_ref": "Rosen §6.1",
-      "definition_vi": "Quy tắc cộng phát biểu rằng nếu một công việc có thể được thực hiện bằng một trong $$n_1$$ cách hoặc một trong $$n_2$$ cách, trong đó không cách nào trong $$n_1$$ cách trùng với cách nào trong $$n_2$$ cách, thì có $$n_1 + n_2$$ cách để thực hiện công việc đó. Dưới dạng tập hợp, nếu $$A$$ và $$B$$ là hai tập hợp hữu hạn rời nhau, tức $$A \\cap B = \\emptyset$$, thì $$|A \\cup B| = |A| + |B|$$.",
-      "example_vi": "Giả sử cần chọn một đại diện là một sinh viên năm nhất hoặc một sinh viên năm hai. Nếu có $$n_1 = 50$$ sinh viên năm nhất và $$n_2 = 40$$ sinh viên năm hai, và không sinh viên nào thuộc cả hai khối, thì theo quy tắc cộng có $$n_1 + n_2 = 90$$ cách chọn đại diện.",
-      "notes": "\"quy tắc cộng\" is the recommended standard term, attested in the newest source bib-nguyenhoangthach-2020 (2020) as the formal \"Quy tắc 1.2 (Quy tắc cộng)\". \"qui tắc cộng\" is an older orthographic variant of the same term (pre-reform spelling, in bib-ngodactan-2004 and bib-nguyenhuudien-2019). \"nguyên lý cộng\" is an equally common synonym used in bib-nguyenhuudien-2019, bib-nguyenducnghia-2006 (formal §1.3.1), and bib-ngodactan-2004. The OCR graph-theory sources bib-leanhvinh-2020 and bib-hoangchithanh-2007 do not attest any sum-rule term (concept belongs to combinatorics/counting, not graph theory); both normal and --loose searches returned no hits there.",
-      "see_also": [
-        "product-rule",
-        "subtraction-rule",
-        "division-rule"
-      ],
-      "vi_terms": [
-        {
-          "term": "quy tắc cộng",
-          "verified": true,
-          "recommended": true,
-          "source_id": "bib-nguyenhoangthach-2020",
-          "pdf_page": 15,
-          "page": "tr. 15 (PDF)",
-          "snippet": "Quy tắc 1.2 (Quy tắc cộng). Giả sử một công việc có thể được thực hiện"
-        },
-        {
-          "term": "nguyên lý cộng",
-          "verified": true,
-          "recommended": false,
-          "source_id": "bib-nguyenhuudien-2019",
-          "pdf_page": 79,
-          "page": "tr. 79 (PDF)",
-          "snippet": "Nguyên lý cộng: Giả sử ta phải thực hiện công việc và để thực hiện công việc này ta có thể"
-        },
-        {
-          "term": "qui tắc cộng",
-          "verified": true,
-          "recommended": false,
-          "source_id": "bib-nguyenhuudien-2019",
-          "pdf_page": 83,
-          "page": "tr. 83 (PDF)",
-          "snippet": "một ký tự, và V2 là số biến gồm hai ký tự. Theo qui tắc cộng ta có V = V1 + V2 ."
-        },
-        {
-          "term": "nguyên lý cộng",
-          "verified": true,
-          "recommended": false,
-          "source_id": "bib-nguyenducnghia-2006",
-          "pdf_page": 15,
-          "page": "tr. 15 (PDF)",
-          "snippet": "Nguyên lý cộng được mở rộng cho nhiều tập con rời nhau:"
-        },
-        {
-          "term": "qui tắc cộng",
-          "verified": true,
-          "recommended": false,
-          "source_id": "bib-ngodactan-2004",
-          "pdf_page": 26,
-          "page": "tr. 26 (PDF)",
-          "snippet": "Qui tắc cộng và qui tắc nhân cũng thường được phát biểu dưới"
-        },
-        {
-          "term": "nguyên lý cộng",
-          "verified": true,
-          "recommended": false,
-          "source_id": "bib-ngodactan-2004",
-          "pdf_page": 38,
-          "page": "tr. 38 (PDF)",
-          "snippet": "Theo nguyên lý cộng,"
-        }
-      ]
+     "term": "tập",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-leanhvinh-2020",
+     "pdf_page": 8,
+     "page": "tr. 8 (PDF)",
+     "snippet": "Định nghĩa 1.1. Đồ thị G = (V,E) gồm hai tập hữu hạn, tập đỉnh"
     },
     {
-      "id": "stirling-number",
-      "letter": "S",
-      "headword_en": "Stirling number (of the second kind)",
-      "notation": "S(n, j)",
-      "rosen_ref": "Rosen §8.6",
-      "definition_vi": "Số Stirling loại hai, ký hiệu $$S(n, j)$$, là số cách phân hoạch một tập hợp gồm $$n$$ phần tử thành đúng $$j$$ tập con không rỗng, đôi một rời nhau. Ở đây $$n$$ và $$j$$ là các số nguyên không âm.",
-      "example_vi": "Với tập hợp $$\\{1, 2, 3\\}$$ và $$j = 2$$, ta có $$S(3, 2) = 3$$, ứng với ba cách phân hoạch $$\\{\\{1, 2\\}, \\{3\\}\\}$$, $$\\{\\{1, 3\\}, \\{2\\}\\}$$ và $$\\{\\{2, 3\\}, \\{1\\}\\}$$.",
-      "notes": "Concept: số Stirling loại hai $$S(n, j)$$ là số cách phân hoạch một tập hợp $$n$$ phần tử thành đúng $$j$$ khối (tập con) không rỗng, đôi một rời nhau. Recommended term \"số Stirling loại hai\" is attested in a 2020 source (bib-nguyenhoangthach-2020, Định nghĩa 2.23, tr. 32 PDF: \"Giả sử n là một số nguyên không âm ... thành k khối không rỗng được gọi là số Stirling loại hai\", confirming both the concept and the nonnegative-integer condition) and confirmed in bib-ngodactan-2004 (tr. 35 PDF, with notation S(n, k)); citations ordered newest-source first. The bare variant \"số Stirling\" appears only as a sectional/index shorthand or in the general phrase \"các số Stirling\" that covers both kinds (e.g. bib-ngodactan-2004 tr. 119, tr. 339 index); it is not specific to the second kind, so it is recorded as a non-recommended variant. The contrasting \"số Stirling loại một\" (Stirling number of the first kind, s(n, k)) also occurs in bib-ngodactan-2004 (tr. 57, tr. 123) but denotes a DIFFERENT concept and is intentionally not recorded as a variant of this entry. OCR sources bib-leanhvinh-2020 and bib-hoangchithanh-2007, and text sources bib-nguyenhuudien-2019 and bib-nguyenducnghia-2006, do not treat the Stirling-number concept: the only \"Stirling\" hits are to \"công thức Stirling\" (Stirling's approximation formula for n!, e.g. bib-leanhvinh-2020 tr. 150, bib-nguyenducnghia-2006 tr. 46), which is unrelated. Notation S(n, j) follows Rosen; both Vietnamese sources use S(n, k). The nonnegative-integer range stated in the definition is mathematically sound for all $$n, j \\geq 0$$ (e.g. $$S(n, j) = 0$$ when $$j > n$$); Rosen §8.6 typically restricts to $$1 \\leq j \\leq n$$, but the count is well-defined either way. The example uses $$S(3, 2) = 3$$, computed directly from the partition count the definition introduces, so it is self-contained.",
-      "see_also": [
-        "bell-number",
-        "set-partition"
-      ],
-      "vi_terms": [
-        {
-          "term": "số Stirling loại hai",
-          "verified": true,
-          "recommended": true,
-          "source_id": "bib-nguyenhoangthach-2020",
-          "pdf_page": 32,
-          "page": "tr. 32 (PDF)",
-          "snippet": "Định nghĩa 2.23 (Số Stirling loại hai). Giả sử n là một số nguyên không âm ... thành k khối không rỗng được gọi là số Stirling loại hai thứ (n, k) và được ký"
-        },
-        {
-          "term": "số Stirling loại hai",
-          "verified": true,
-          "recommended": false,
-          "source_id": "bib-ngodactan-2004",
-          "pdf_page": 35,
-          "page": "tr. 35 (PDF)",
-          "snippet": "được gọi là số Stirling loại hai và được ký hiệu là S(n, k). Dễ thấy"
-        },
-        {
-          "term": "số Stirling",
-          "verified": true,
-          "recommended": false,
-          "source_id": "bib-ngodactan-2004",
-          "pdf_page": 119,
-          "page": "tr. 119 (PDF)",
-          "snippet": "biểu thị được các số Stirling qua các luỹ thừa bậc n. Phương pháp đếm"
-        }
-      ]
+     "term": "tập hợp",
+     "source_id": "bib-rosen-2003-vi",
+     "pdf_page": 5,
+     "page": "tr. 5 (PDF, bản dịch Rosen)",
+     "snippet": "TẬP HỢP VÀ HÀM",
+     "verified": true,
+     "recommended": false
     },
     {
-      "id": "simple-graph",
-      "letter": "S",
-      "headword_en": "Simple graph",
-      "notation": "G = (V, E)",
-      "rosen_ref": "Rosen §10.1",
-      "definition_vi": "Đồ thị đơn là một đồ thị vô hướng $$G = (V, E)$$ trong đó mỗi cạnh nối hai đỉnh phân biệt và không có hai cạnh nào cùng nối một cặp đỉnh. Nói cách khác, $$G$$ không chứa khuyên và không chứa cạnh song song; khi đó mỗi cạnh được đồng nhất với một cặp đỉnh $$\\{u, v\\}$$ với $$u \\neq v$$ và $$E \\subseteq \\{\\{u, v\\} : u, v \\in V,\\ u \\neq v\\}$$.",
-      "example_vi": "Xét $$V = \\{a, b, c\\}$$ và $$E = \\{\\{a, b\\}, \\{b, c\\}, \\{a, c\\}\\}$$. Khi đó $$G = (V, E)$$ là một đồ thị đơn vì mỗi cạnh nối hai đỉnh phân biệt và không có cặp đỉnh nào được nối bởi nhiều hơn một cạnh.",
-      "notes": "Two distinct Vietnamese renderings denote this concept. The recommended term \"đồ thị đơn\" is the newer standard word order, attested in BOTH 2020 sources (bib-leanhvinh-2020 p.8 as a formal definition: \"Đồ thị đơn là đồ thị không có khuyên và cũng không chứa các cạnh song song\"; bib-nguyenhoangthach-2020 p.61). The variant \"đơn đồ thị\" is the older noun-order form and is the more widely attested overall: bib-nguyenhuudien-2019 (2019; formal Định nghĩa 6.1 p.154 and explicit gloss p.155: \"đơn đồ thị là loại đồ thị vô hướng không chứa cạnh bội hoặc các khuyên\"), bib-hoangchithanh-2007 (p.7, OCR-mangled to \"don đồ thi\" — confirmed via --loose), bib-nguyenducnghia-2006 (p.153, \"Đơn đồ thị vô hướng G = (V,E)...\"), and bib-ngodactan-2004 (p.22). Both forms are widely attested; ordering within each form is newest-source first. Note: the surface string \"đồ thị đơn giản\" appears once (bib-nguyenhoangthach-2020 p.83) but there it means \"a simple/uncomplicated class of graphs\" (referring to trees), NOT the technical term \"simple graph\", so it is excluded. OCR sources bib-leanhvinh-2020 and bib-hoangchithanh-2007 were checked with both normal and --loose modes.",
-      "see_also": [
-        "multigraph",
-        "pseudograph",
-        "undirected-graph",
-        "complete-graph",
-        "bipartite-graph"
-      ],
-      "vi_terms": [
-        {
-          "term": "đồ thị đơn",
-          "verified": true,
-          "recommended": true,
-          "source_id": "bib-leanhvinh-2020",
-          "pdf_page": 8,
-          "page": "tr. 8 (PDF)",
-          "snippet": "cạnh song song. Đồ thị đơn là đồ thị không có khuyên và cũng không"
-        },
-        {
-          "term": "đồ thị đơn",
-          "verified": true,
-          "recommended": false,
-          "source_id": "bib-nguyenhoangthach-2020",
-          "pdf_page": 61,
-          "page": "tr. 61 (PDF)",
-          "snippet": "cạnh, thì ta nói G là một đồ thị đơn. Khi đó E có thể được đồng nhất với"
-        },
-        {
-          "term": "đơn đồ thị",
-          "verified": true,
-          "recommended": false,
-          "source_id": "bib-nguyenhuudien-2019",
-          "pdf_page": 155,
-          "page": "tr. 155 (PDF)",
-          "snippet": "các khuyên, còn đơn đồ thị là loại đồ thị vô hướng không chứa cạnh bội hoặc các khuyên."
-        },
-        {
-          "term": "đơn đồ thị",
-          "verified": true,
-          "recommended": false,
-          "source_id": "bib-hoangchithanh-2007",
-          "pdf_page": 7,
-          "page": "tr. 7 (PDF)",
-          "snippet": "nhau bởi không quá một cạnh được gọi là don đồ thi (thường gọi tắt là"
-        },
-        {
-          "term": "đơn đồ thị",
-          "verified": true,
-          "recommended": false,
-          "source_id": "bib-nguyenducnghia-2006",
-          "pdf_page": 153,
-          "page": "tr. 153 (PDF)",
-          "snippet": "Định nghĩa 1. Đơn đồ thị vô hướng G = (V,E) bao gồm V là tập các đỉnh, và E là tập"
-        },
-        {
-          "term": "đơn đồ thị",
-          "verified": true,
-          "recommended": false,
-          "source_id": "bib-ngodactan-2004",
-          "pdf_page": 22,
-          "page": "tr. 22 (PDF)",
-          "snippet": "(V, E, / ) được gọi là một đơn đồ thị vô hướng và thường được gọi tắt"
-        }
-      ]
-    },
-    {
-      "id": "subgraph",
-      "letter": "S",
-      "headword_en": "Subgraph",
-      "notation": "H \\subseteq G",
-      "rosen_ref": "Rosen §10.2",
-      "definition_vi": "Một đồ thị con của đồ thị $$G = (V, E)$$ là một đồ thị $$H = (W, F)$$ trong đó $$W \\subseteq V$$, $$F \\subseteq E$$, và mọi cạnh trong $$F$$ đều có hai đầu mút thuộc $$W$$; ký hiệu $$H \\subseteq G$$.",
-      "example_vi": "Cho $$G = (V, E)$$ với $$V = \\{a, b, c\\}$$ và $$E = \\{ab, bc, ca\\}$$. Khi đó đồ thị $$H = (W, F)$$ với $$W = \\{a, b\\}$$ và $$F = \\{ab\\}$$ là một đồ thị con của $$G$$, vì $$W \\subseteq V$$, $$F \\subseteq E$$, và cạnh $$ab$$ có cả hai đầu mút $$a$$ và $$b$$ thuộc $$W$$.",
-      "notes": "The two mined candidates \"đồ thị con\" and \"đồ thị con của\" are the same lexical noun phrase \"đồ thị con\"; \"của\" is the genitive marker introducing the parent graph (\"đồ thị con của $$G$$\" = \"subgraph of $$G$$\"). The bare noun phrase \"đồ thị con\" is recommended as the headword; \"đồ thị con của\" is recorded as its phrasal (genitive) usage. The term is uniformly attested across all six corpus sources (2004-2020), so terminology is stable. nguyenhoangthach-2020 (tr. 70) gives the cleanest match to Rosen's notation: \"Một đồ thị con của $$G$$ là một đồ thị $$H = (W, F)$$ sao cho...\". The variant \"đồ thị bộ phận\" (subgraph) returned 0 hits (normal and loose) and is not attested in this corpus. OCR sources confirmed in both normal and loose modes; loose mode on leanhvinh-2020 additionally surfaced the formal Definition 1.8 at tr. 13 (\"Giả sử $$G_1 = (V_1, E_1)$$ là đồ thị con của $$G = (V, E)$$\"), while the recommended citation at tr. 12 (\"Tiếp theo, ta có định nghĩa về đồ thị con của một đồ thị.\") is the definitional lead-in on the facing page. The definition follows nguyenhoangthach-2020's formulation, which matches Rosen's $$H = (W, F)$$ with $$W \\subseteq V$$ and $$F \\subseteq E$$; the explicit endpoint condition (mọi cạnh trong $$F$$ có hai đầu mút thuộc $$W$$) is added so that $$H$$ is a valid graph, since this requirement is inherited from $$H$$ being a graph and is otherwise left implicit by the bare $$W \\subseteq V$$, $$F \\subseteq E$$ statement.",
-      "see_also": [
-        "induced-subgraph",
-        "spanning-subgraph",
-        "graph"
-      ],
-      "vi_terms": [
-        {
-          "term": "đồ thị con",
-          "verified": true,
-          "recommended": true,
-          "source_id": "bib-leanhvinh-2020",
-          "pdf_page": 12,
-          "page": "tr. 12 (PDF)",
-          "snippet": "Tiếp theo, ta có định nghĩa về đồ thị con của một đồ thị."
-        },
-        {
-          "term": "đồ thị con",
-          "verified": true,
-          "recommended": false,
-          "source_id": "bib-nguyenhoangthach-2020",
-          "pdf_page": 70,
-          "page": "tr. 70 (PDF)",
-          "snippet": "Định nghĩa 5.21. Một đồ thị con của G là một đồ thị H = (W, F ) sao cho"
-        },
-        {
-          "term": "đồ thị con",
-          "verified": true,
-          "recommended": false,
-          "source_id": "bib-nguyenhuudien-2019",
-          "pdf_page": 166,
-          "page": "tr. 166 (PDF)",
-          "snippet": "Ví dụ 6.26. Hình 6.25, G1 , G2 , G3 và G4 là các đồ thị con của G , trong đó G2 và G4 là đồ thị con bao trùm của G"
-        },
-        {
-          "term": "đồ thị con",
-          "verified": true,
-          "recommended": false,
-          "source_id": "bib-hoangchithanh-2007",
-          "pdf_page": 8,
-          "page": "tr. 8 (PDF)",
-          "snippet": "1) Đồ thị Ơ = (V', E) được gọi là đồ thị con của đồ thị G nếu:"
-        },
-        {
-          "term": "đồ thị con",
-          "verified": true,
-          "recommended": false,
-          "source_id": "bib-nguyenducnghia-2006",
-          "pdf_page": 157,
-          "page": "tr. 157 (PDF)",
-          "snippet": "Định nghĩa 4. Ta gọi đồ thị con của đồ thị G = (V,E) là đồ thị H = (W, E), trong đó"
-        },
-        {
-          "term": "đồ thị con",
-          "verified": true,
-          "recommended": false,
-          "source_id": "bib-ngodactan-2004",
-          "pdf_page": 189,
-          "page": "tr. 189 (PDF)",
-          "snippet": "Đồ thị G' — ( V ', E') được gọi là đò thị con của đồ thị G = (V, E)"
-        },
-        {
-          "term": "đồ thị con của",
-          "verified": true,
-          "recommended": false,
-          "source_id": "bib-nguyenhoangthach-2020",
-          "pdf_page": 70,
-          "page": "tr. 70 (PDF)",
-          "snippet": "Một đồ thị con của G là một đồ thị H = (W, F ) sao cho"
-        },
-        {
-          "term": "đồ thị con của",
-          "verified": true,
-          "recommended": false,
-          "source_id": "bib-leanhvinh-2020",
-          "pdf_page": 13,
-          "page": "tr. 13 (PDF)",
-          "snippet": "một đồ thị con của dé thị G cũng được gọi là đồ thị con của Ơ."
-        },
-        {
-          "term": "đồ thị con của",
-          "verified": true,
-          "recommended": false,
-          "source_id": "bib-nguyenhuudien-2019",
-          "pdf_page": 232,
-          "page": "tr. 232 (PDF)",
-          "snippet": "Định lý 9.9 Giả sử G là một đồ thị và G′ là đồ thị con của nó."
-        },
-        {
-          "term": "đồ thị con của",
-          "verified": true,
-          "recommended": false,
-          "source_id": "bib-hoangchithanh-2007",
-          "pdf_page": 117,
-          "page": "tr. 117 (PDF)",
-          "snippet": "Gia sử Ơ là một đồ thi và G’ là đồ thị con của nó."
-        },
-        {
-          "term": "đồ thị con của",
-          "verified": true,
-          "recommended": false,
-          "source_id": "bib-ngodactan-2004",
-          "pdf_page": 189,
-          "page": "tr. 189 (PDF)",
-          "snippet": "V ', thì G' — (V', E') được gọi là đồ thị con của G = cV,, E) cảm sinh bài"
-        }
-      ]
-    },
-    {
-      "id": "simple-path",
-      "letter": "S",
-      "headword_en": "Simple path",
-      "notation": "v_0, v_1, \\ldots, v_n",
-      "rosen_ref": "Rosen §10.4",
-      "definition_vi": "Một đường đi trong đồ thị $$G$$ được gọi là đường đi đơn nếu nó không chứa cùng một cạnh quá một lần. Như vậy, một đường đi $$v_0, v_1, \\ldots, v_n$$ là đơn khi mọi cạnh xuất hiện trên nó đều phân biệt.",
-      "example_vi": "Trong đồ thị có các cạnh $$ab$$, $$bc$$, $$cd$$, đường đi $$a, b, c, d$$ là đường đi đơn vì ba cạnh $$ab$$, $$bc$$, $$cd$$ đều khác nhau; còn đường đi $$a, b, c, b$$ không phải là đường đi đơn vì cạnh $$bc$$ được dùng hai lần.",
-      "notes": "Rosen định nghĩa một đường đi là đơn (simple) nếu nó không chứa cùng một cạnh quá một lần. Thuật ngữ chuẩn tiếng Việt cho khái niệm này là \"đường đi đơn\", được định nghĩa minh thị trong nguồn 2020 mới nhất (bib-nguyenhoangthach-2020, tr. 73: \"Một đường đi đơn ... là một đường đi (chu trình) không đi qua cạnh nào quá một lần\") và trong bib-nguyenhuudien-2019 (tr. 168: \"Đường đi hoặc chu trình gọi là đơn nếu nó không chứa cùng một cạnh (hoặc cung) quá [một lần]\"). bib-nguyenducnghia-2006 (tr. 156) khẳng định cùng điều kiện qua phản ví dụ: đường đi $$a, b, e, d, a, b$$ \"không phải là đường đi đơn, do cạnh $$(a,b)$$ có mặt trong nó hai lần\".\n\nCẢNH BÁO trùng tên khác nghĩa: thuật ngữ \"đường đi đơn\" cũng xuất hiện trong bib-hoangchithanh-2007 (tr. 7: \"Đường đi đơn là đường đi mà các đỉnh trên nó khác nhau từng đôi\") nhưng ở đó nó chỉ khái niệm KHÔNG LẶP ĐỈNH (tương ứng \"path\"/\"đường đi sơ cấp\" của Rosen), KHÔNG phải khái niệm này; do đó không trích dẫn nguồn hoangchithanh-2007 cho mục này.\n\nBiến thể ứng viên \"đường đi sơ cấp\" KHÔNG khớp khái niệm này: trong bib-nguyenhuudien-2019 (tr. 168) nó chỉ đường đi không lặp ĐỈNH và được phân biệt rõ với đường đi đơn (\"là đường đi đơn (không sơ cấp)\"). Vì \"đường đi sơ cấp\" không chứng thực cho khái niệm no-repeated-edge và không có trang chứng thực hợp lệ, dòng vi_term tương ứng (verified=false, page rỗng) bị loại theo quy tắc vệ sinh trích dẫn; phân tích phân biệt được giữ lại tại đây.\n\nbib-leanhvinh-2020 không có kết quả cho riêng thuật ngữ \"đường đi đơn\" / khái niệm no-repeated-edge này (đã chạy cả thường lẫn --loose); nguồn này có dùng các thuật ngữ về đường đi nói chung nhưng không phủ thuật ngữ \"đường đi đơn\" theo nghĩa của mục này.",
-      "see_also": [
-        "path",
-        "simple-circuit",
-        "euler-path"
-      ],
-      "vi_terms": [
-        {
-          "term": "đường đi đơn",
-          "verified": true,
-          "recommended": true,
-          "source_id": "bib-nguyenhoangthach-2020",
-          "pdf_page": 73,
-          "page": "tr. 73 (PDF)",
-          "snippet": "Một đường đi đơn (tương tự, chu trình đơn) là một đường đi (chu trình) không đi qua cạnh nào quá một lần."
-        },
-        {
-          "term": "đường đi đơn",
-          "verified": true,
-          "recommended": false,
-          "source_id": "bib-nguyenhuudien-2019",
-          "pdf_page": 168,
-          "page": "tr. 168 (PDF)",
-          "snippet": "Đường đi hoặc chu trình gọi là đơn nếu nó không chứa cùng một cạnh (hoặc cung) quá [một lần]."
-        },
-        {
-          "term": "đường đi đơn",
-          "verified": true,
-          "recommended": false,
-          "source_id": "bib-nguyenducnghia-2006",
-          "pdf_page": 156,
-          "page": "tr. 156 (PDF)",
-          "snippet": "Đường đi a, b, e, d, a, b có độ dài là 5 không phải là đường đi đơn, do cạnh (a, b) có mặt trong nó hai lần."
-        }
-      ]
-    },
-    {
-      "id": "spanning-tree",
-      "letter": "S",
-      "headword_en": "Spanning tree",
-      "notation": "T \\subseteq G",
-      "rosen_ref": "Rosen §11.4",
-      "definition_vi": "Cây bao trùm của một đồ thị liên thông $$G$$ là một đồ thị con $$T$$ của $$G$$ sao cho $$T$$ là một cây và $$T$$ chứa mọi đỉnh của $$G$$, nghĩa là $$V(T) = V(G)$$ và $$E(T) \\subseteq E(G)$$.",
-      "example_vi": "Với chu trình $$C_4$$ có tập đỉnh $$\\{v_1, v_2, v_3, v_4\\}$$ và các cạnh $$v_1v_2, v_2v_3, v_3v_4, v_4v_1$$, đồ thị con gồm ba cạnh $$v_1v_2, v_2v_3, v_3v_4$$ là một cây bao trùm của $$C_4$$.",
-      "notes": "Recommended term \"cây bao trùm\" is the dominant standard term, attested with an explicit definition matching THIS concept in all three 2019-2020 sources (leanhvinh-2020 tr.46, nguyenhoangthach-2020 tr.86, nguyenhuudien-2019 tr.243), plus hoangchithanh-2007 and ngodactan-2004; citations ordered newest source first. Variant \"cây khung\" is attested as a definitional term in nguyenducnghia-2006 (tr.202, \"được gọi là cây khung của đồ thị G\") and recurs in nguyenhuudien-2019 in the exercises (tr.260-261, e.g. \"cây khung nhỏ nhất\"), so the 2019 source uses both terms. Note nguyenhuudien-2019 uses \"cây bao trùm\" in its main text/definitions and \"cây khung\" only in exercise statements. Candidate \"cây phủ\" returned zero hits across all six sources (both normal and --loose), so it is dropped. OCR sources leanhvinh-2020 and hoangchithanh-2007 were searched with both normal and --loose passes; \"cây bao trùm\" matched, \"cây khung\" did not appear in either OCR source.",
-      "see_also": [
-        "subgraph",
-        "spanning-subgraph"
-      ],
-      "vi_terms": [
-        {
-          "term": "cây bao trùm",
-          "verified": true,
-          "recommended": true,
-          "source_id": "bib-leanhvinh-2020",
-          "pdf_page": 46,
-          "page": "tr. 46 (PDF)",
-          "snippet": "Cho đồ thị G. Ta nói dé thị 7 là cây bao trùm của Ơ khi và chỉ T là"
-        },
-        {
-          "term": "cây bao trùm",
-          "verified": true,
-          "recommended": false,
-          "source_id": "bib-nguyenhoangthach-2020",
-          "pdf_page": 86,
-          "page": "tr. 86 (PDF)",
-          "snippet": "Định nghĩa 6.7. Một đồ thị con T của G là một cây bao trùm của G nếu"
-        },
-        {
-          "term": "cây bao trùm",
-          "verified": true,
-          "recommended": false,
-          "source_id": "bib-nguyenhuudien-2019",
-          "pdf_page": 243,
-          "page": "tr. 243 (PDF)",
-          "snippet": "Định nghĩa 10.2 Cây T được gọi là cây bao trùm của đồ thị G nếu T là một đồ thị riêng"
-        },
-        {
-          "term": "cây bao trùm",
-          "verified": true,
-          "recommended": false,
-          "source_id": "bib-hoangchithanh-2007",
-          "pdf_page": 125,
-          "page": "tr. 125 (PDF)",
-          "snippet": "Dinh nghĩa 11.2: Cây T được gọi là cây bao trùm của đồ thị G"
-        },
-        {
-          "term": "cây bao trùm",
-          "verified": true,
-          "recommended": false,
-          "source_id": "bib-ngodactan-2004",
-          "pdf_page": 223,
-          "page": "tr. 223 (PDF)",
-          "snippet": "con T = (V ',E ') của G được gọi là cây bao trùm của G nếu T là cây"
-        },
-        {
-          "term": "cây khung",
-          "verified": true,
-          "recommended": false,
-          "source_id": "bib-nguyenhuudien-2019",
-          "pdf_page": 260,
-          "page": "tr. 260 (PDF)",
-          "snippet": "▷ 10.13. Tìm cây khung nhỏ nhất bằng thuật toán Prim của đồ thị gồm các đỉnh"
-        },
-        {
-          "term": "cây khung",
-          "verified": true,
-          "recommended": false,
-          "source_id": "bib-nguyenducnghia-2006",
-          "pdf_page": 202,
-          "page": "tr. 202 (PDF)",
-          "snippet": "được gọi là cây khung của đồ thị Ơ."
-        }
-      ]
-    },
-    {
-      "id": "strongly-connected-graph",
-      "letter": "S",
-      "headword_en": "Strongly connected graph",
-      "notation": "",
-      "rosen_ref": "Rosen §10.4",
-      "definition_vi": "Một đồ thị có hướng $$G$$ được gọi là *liên thông mạnh* nếu với mọi cặp đỉnh $$a$$ và $$b$$ của $$G$$, tồn tại một đường đi có hướng từ $$a$$ đến $$b$$ và một đường đi có hướng từ $$b$$ đến $$a$$.",
-      "example_vi": "Đồ thị có hướng trên tập đỉnh $$\\{a, b, c\\}$$ với các cung $$a \\to b$$, $$b \\to c$$ và $$c \\to a$$ là liên thông mạnh, vì từ mỗi đỉnh đều có một đường đi có hướng đến hai đỉnh còn lại.",
-      "notes": "Concept applies to directed graphs (đồ thị có hướng). Recommended term \"liên thông mạnh\" is the standard predicate, attested in the newest 2020 source bib-nguyenhoangthach-2020 (Định nghĩa 5.38, tr. 76 PDF) and consistently across bib-nguyenhuudien-2019 (Định nghĩa 6.21), bib-nguyenducnghia-2006 (Định nghĩa 6), and bib-ngodactan-2004. The noun-phrase variant \"đồ thị liên thông mạnh\" is attested in bib-nguyenhoangthach-2020 (tr. 76) and bib-nguyenducnghia-2006 (tr. 158). The two OCR sources bib-leanhvinh-2020 and bib-hoangchithanh-2007 do NOT attest this term: extensive normal and --loose searches (including OCR-mangled spellings \"liên thông manh\", \"lien thong manh\", \"liên thông mành\") returned zero hits, and scanning all \"liên thông\" hits in those two sources found none paired with \"mạnh\" — these OCR sources appear not to cover the strongly-connected (directed) concept. Related: thành phần liên thông mạnh (strongly connected component) appears in bib-nguyenhoangthach-2020 Định nghĩa 5.39 (tr. 76) but denotes a distinct concept (component, not whole-graph property), so it is not listed as a variant here.",
-      "see_also": [
-        "strongly-connected-component"
-      ],
-      "vi_terms": [
-        {
-          "term": "liên thông mạnh",
-          "verified": true,
-          "recommended": true,
-          "source_id": "bib-nguyenhoangthach-2020",
-          "pdf_page": 76,
-          "page": "tr. 76 (PDF)",
-          "snippet": "Định nghĩa 5.38. Đồ thị G được gọi là liên thông mạnh nếu với mọi cặp"
-        },
-        {
-          "term": "đồ thị liên thông mạnh",
-          "verified": true,
-          "recommended": false,
-          "source_id": "bib-nguyenhoangthach-2020",
-          "pdf_page": 76,
-          "page": "tr. 76 (PDF)",
-          "snippet": "Dễ thấy một đồ thị liên thông mạnh thì liên thông yếu, nhưng điều ngược"
-        },
-        {
-          "term": "liên thông mạnh",
-          "verified": true,
-          "recommended": false,
-          "source_id": "bib-nguyenhuudien-2019",
-          "pdf_page": 171,
-          "page": "tr. 171 (PDF)",
-          "snippet": "Định nghĩa 6.21 Đồ thị có hướng G được gọi là liên thông mạnh nếu với hai đỉnh phân"
-        },
-        {
-          "term": "liên thông mạnh",
-          "verified": true,
-          "recommended": false,
-          "source_id": "bib-nguyenducnghia-2006",
-          "pdf_page": 157,
-          "page": "tr. 157 (PDF)",
-          "snippet": "Định nghĩa 6. Đở thị có hướng G= (V,A) được gọi là liên thông mạnh nếu luôn tìm"
-        },
-        {
-          "term": "đồ thị liên thông mạnh",
-          "verified": true,
-          "recommended": false,
-          "source_id": "bib-nguyenducnghia-2006",
-          "pdf_page": 158,
-          "page": "tr. 158 (PDF)",
-          "snippet": "Hình 3. Đồ thị liên thông mạnh Ơ và đồ thị liên thông yếu #"
-        },
-        {
-          "term": "liên thông mạnh",
-          "verified": true,
-          "recommended": false,
-          "source_id": "bib-ngodactan-2004",
-          "pdf_page": 196,
-          "page": "tr. 196 (PDF)",
-          "snippet": "Đồ thị có hướng G = (V,E) được gọi là liên thông mạnh, nếu với"
-        }
-      ]
-    },
-    {
-      "id": "shortest-path",
-      "letter": "S",
-      "headword_en": "Shortest path",
-      "notation": "",
-      "rosen_ref": "Rosen §10.6",
-      "definition_vi": "Cho đồ thị có trọng số $$G$$ và hai đỉnh $$u, v$$ của $$G$$. Đường đi ngắn nhất từ $$u$$ tới $$v$$ là một đường đi nối $$u$$ với $$v$$ có tổng trọng số các cạnh nhỏ nhất trong số mọi đường đi nối hai đỉnh này.",
-      "example_vi": "Trong $$G$$ với các đỉnh $$a, b, c$$ và các cạnh $$ab, bc, ac$$ có trọng số lần lượt là $$1, 1, 3$$, đường đi $$a, b, c$$ có tổng trọng số $$2$$ nhỏ hơn tổng trọng số $$3$$ của đường đi $$a, c$$, nên $$a, b, c$$ là đường đi ngắn nhất từ $$a$$ tới $$c$$.",
-      "notes": "Concept: a shortest path between two vertices in a weighted graph is a path joining them whose total edge-weight sum is minimum among all such paths (Rosen §10.6). Recommended term \"đường đi ngắn nhất\" is the dominant standard form, attested formally in both 2020 sources (bib-nguyenhoangthach-2020 p.91 gives the formal definition \"một đường đi ngắn nhất từ u tới v là một...\"; bib-leanhvinh-2020 p.33 titles its section \"1.4. Đường đi ngắn nhất\"), and consistently across 2019 (nguyenhuudien), 2007 (hoangchithanh), and 2006 (nguyenducnghia). OCR sources (leanhvinh-2020, hoangchithanh-2007) were re-run with --loose; loose passes confirmed the same spelling with no additional distinct variant. Variant \"đường ngắn nhất\" (path without \"đi\") also occurs: in bib-nguyenhoangthach-2020 (p.91, used for the problem name \"Bài toán tìm đường ngắn nhất\"), bib-nguyenducnghia-2006 (p.251, in a max-flow Edmonds-Karp shortest-augmenting-path context), and bib-ngodactan-2004 (p.216, 285, in the formal definition of distance d(u,v) as the length of a shortest path). Both terms denote this exact concept (verified via snippets showing path of minimum length/weight between two vertices). No OCR-mangled distinct variant found.",
-      "see_also": [
-        "weighted-graph",
-        "distance",
-        "path",
-        "dijkstras-algorithm"
-      ],
-      "vi_terms": [
-        {
-          "term": "đường đi ngắn nhất",
-          "verified": true,
-          "recommended": true,
-          "source_id": "bib-nguyenhoangthach-2020",
-          "pdf_page": 91,
-          "page": "tr. 91 (PDF)",
-          "snippet": "Nếu u và v là hai đỉnh của G, một đường đi ngắn nhất từ u tới v là một"
-        },
-        {
-          "term": "đường đi ngắn nhất",
-          "verified": true,
-          "recommended": false,
-          "source_id": "bib-leanhvinh-2020",
-          "pdf_page": 33,
-          "page": "tr. 33 (PDF)",
-          "snippet": "1.4. Đường đi ngắn nhất"
-        },
-        {
-          "term": "đường đi ngắn nhất",
-          "verified": true,
-          "recommended": false,
-          "source_id": "bib-nguyenhuudien-2019",
-          "pdf_page": 202,
-          "page": "tr. 202 (PDF)",
-          "snippet": "Bài toán: Cho đồ thị G = (V, E) và hai đỉnh a, b. Tìm đường đi ngắn nhất (nếu có) đi từ đỉnh a"
-        },
-        {
-          "term": "đường đi ngắn nhất",
-          "verified": true,
-          "recommended": false,
-          "source_id": "bib-hoangchithanh-2007",
-          "pdf_page": 74,
-          "page": "tr. 74 (PDF)",
-          "snippet": "là đường đi ngắn nhất từ đỉnh a đến đỉnh b."
-        },
-        {
-          "term": "đường đi ngắn nhất",
-          "verified": true,
-          "recommended": false,
-          "source_id": "bib-nguyenducnghia-2006",
-          "pdf_page": 223,
-          "page": "tr. 223 (PDF)",
-          "snippet": "Bài toán tìm đường đi ngắn nhất trên đồ thị dưới dạng tổng quát có thể phát biểu"
-        },
-        {
-          "term": "đường ngắn nhất",
-          "verified": true,
-          "recommended": false,
-          "source_id": "bib-nguyenhoangthach-2020",
-          "pdf_page": 91,
-          "page": "tr. 91 (PDF)",
-          "snippet": "Có nhiều thuật toán tìm đường ngắn nhất giữa hai đỉnh của một đồ thị liên"
-        },
-        {
-          "term": "đường ngắn nhất",
-          "verified": true,
-          "recommended": false,
-          "source_id": "bib-nguyenducnghia-2006",
-          "pdf_page": 251,
-          "page": "tr. 251 (PDF)",
-          "snippet": "Edmonds và Karp chỉ ra rắng nếu đường tăng luồng được chọn là đường ngắn nhất"
-        },
-        {
-          "term": "đường ngắn nhất",
-          "verified": true,
-          "recommended": false,
-          "source_id": "bib-ngodactan-2004",
-          "pdf_page": 216,
-          "page": "tr. 216 (PDF)",
-          "snippet": "là d(u,v), là độ dài của đường ngắn nhất trong G nối u với V ,"
-        }
-      ]
-    },
-    {
-      "id": "self-complementary-graph",
-      "letter": "S",
-      "headword_en": "Self-complementary graph",
-      "notation": "G \\cong \\overline{G}",
-      "rosen_ref": "Rosen §10.2",
-      "definition_vi": "Một đồ thị đơn $$G$$ được gọi là *đồ thị tự bù* nếu nó đẳng cấu với phần bù của chính nó, ký hiệu $$G \\cong \\overline{G}$$, trong đó $$\\overline{G}$$ là đồ thị có cùng tập đỉnh với $$G$$ và hai đỉnh kề nhau trong $$\\overline{G}$$ khi và chỉ khi chúng không kề nhau trong $$G$$.",
-      "example_vi": "Đường đi $$P_4$$ trên bốn đỉnh là một đồ thị tự bù, vì $$P_4 \\cong \\overline{P_4}$$. Tương tự, chu trình $$C_5$$ trên năm đỉnh thỏa mãn $$C_5 \\cong \\overline{C_5}$$, nên $$C_5$$ cũng là đồ thị tự bù.",
-      "notes": "No 2019-2020 source in the corpus attests this concept. The only attestation across all six Vietnamese sources is bib-ngodactan-2004 (2004, p. 215), which defines the concept as \"đồ thị vô hướng $$G = (V,E)$$ được gọi là đồ thị tự bù nếu $$G \\cong \\overline{G}$$\" and notes the order constraint $$|V| \\equiv 0$$ or $$1 \\pmod 4$$. The recommended term \"đồ thị tự bù\" is therefore attested from a 2004 source rather than a 2019-2020 one; it remains the standard term and is kept verified=true. The bare adjectival form \"tự bù\" appears in the same passage and is recorded as a variant. The OCR-detected loose hits on pp. 230/237/251 are false positives from \"từ Bước\" (algorithm-step references) and do not denote this concept.",
-      "see_also": [
-        "complement-of-a-graph",
-        "graph-isomorphism",
-        "simple-graph"
-      ],
-      "vi_terms": [
-        {
-          "term": "đồ thị tự bù",
-          "verified": true,
-          "recommended": true,
-          "source_id": "bib-ngodactan-2004",
-          "pdf_page": 215,
-          "page": "tr. 215 (PDF)",
-          "snippet": "6.7 (*) Đồ thị vô hướng G — (y,E ) được gọi là đồ thị tự bù nếu G"
-        },
-        {
-          "term": "tự bù",
-          "verified": true,
-          "recommended": false,
-          "source_id": "bib-ngodactan-2004",
-          "pdf_page": 215,
-          "page": "tr. 215 (PDF)",
-          "snippet": "thị tự bù, thì ỊVỊ = 0 hoặc |VỊ = 1 (mod 4)."
-        }
-      ]
+     "term": "tập",
+     "source_id": "bib-rosen-2003-vi",
+     "pdf_page": 3,
+     "page": "tr. 3 (PDF, bản dịch Rosen)",
+     "snippet": "ví dụ, câu hỏi, bài tập, đề tài ứng dụng tin học .. giúp cho người",
+     "verified": true,
+     "recommended": false
     }
-  ]
+   ]
+  },
+  {
+   "id": "subset",
+   "letter": "S",
+   "headword_en": "Subset",
+   "notation": "A \\subseteq B",
+   "rosen_ref": "Rosen §2.1",
+   "definition_vi": "Tập hợp $$A$$ được gọi là một tập con của tập hợp $$B$$, ký hiệu $$A \\subseteq B$$, nếu mọi phần tử của $$A$$ đều là phần tử của $$B$$.",
+   "example_vi": "Với $$A = \\{1, 2\\}$$ và $$B = \\{1, 2, 3\\}$$, ta có $$A \\subseteq B$$ vì mỗi phần tử của $$A$$ đều thuộc $$B$$. Ngược lại, $$\\{1, 4\\}$$ không phải là tập con của $$B$$ vì $$4 \\notin B$$.",
+   "notes": "Concept: $$A \\subseteq B$$ iff every element of $$A$$ is also an element of $$B$$. Two Vietnamese terms denote this concept: \"tập con\" (more frequent; the standard short form) and \"tập hợp con\" (the full form). Recommended term is \"tập con\": it is the most widely attested across all six sources (old and new) and carries the explicit subset-relation definition in bib-nguyenducnghia-2006 (p.12: \"ta nói A là tập con của ...\"); it is also attested in the 2020 source bib-leanhvinh-2020, satisfying the 2019-2020 recommendation requirement. The variant \"tập hợp con\" is attested in the newest combinatorics source bib-nguyenhoangthach-2020 (2020) and in bib-nguyenhuudien-2019 (2019, p.74), where the subset relation $$A \\subset B$$ is defined verbatim: \"Khi $$A \\subset B$$ ta nói $$A$$ là một tập hợp con của tập hợp $$B$$.\" Note that bib-nguyenhuudien-2019 uses BOTH forms (\"tập con\" on p.69, \"tập hợp con\" on p.74), so both are recorded for that source. bib-ngodactan-2004 and bib-nguyenducnghia-2006 use only \"tập con\". OCR sources (bib-leanhvinh-2020, bib-hoangchithanh-2007) were mined with both normal and --loose passes; --loose added no new term variants for this concept. Related: \"tập con thực sự\" (proper subset, $$A \\subsetneq B$$) appears in bib-hoangchithanh-2007 p.18 but is a distinct concept and not recorded here.",
+   "see_also": [
+    "set",
+    "element",
+    "empty-set",
+    "power-set",
+    "proper-subset"
+   ],
+   "vi_terms": [
+    {
+     "term": "tập con",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-leanhvinh-2020",
+     "pdf_page": 70,
+     "page": "tr. 70 (PDF)",
+     "snippet": "ta xét tập S = V và họ các tập con của S, F = {Xc({u})lue U}."
+    },
+    {
+     "term": "tập hợp con",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhoangthach-2020",
+     "pdf_page": 16,
+     "page": "tr. 16 (PDF)",
+     "snippet": "Ví dụ 1.9 (Số tập hợp con của một tập hợp). Tìm số tập hợp con của một"
+    },
+    {
+     "term": "tập con",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 69,
+     "page": "tr. 69 (PDF)",
+     "snippet": "các tập con của A là 2n (n ≥ 0)."
+    },
+    {
+     "term": "tập hợp con",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 74,
+     "page": "tr. 74 (PDF)",
+     "snippet": "Khi A ⊂ B ta nói A là một tập hợp con của tập hợp B."
+    },
+    {
+     "term": "tập con",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-hoangchithanh-2007",
+     "pdf_page": 18,
+     "page": "tr. 18 (PDF)",
+     "snippet": "mỗi định của nó là một tập con của tập X. Hai đỉnh được nối với"
+    },
+    {
+     "term": "tập con",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenducnghia-2006",
+     "pdf_page": 12,
+     "page": "tr. 12 (PDF)",
+     "snippet": "8 thì ta nói A là tập con của Ø và viết A ~ . Nếu Á C ÿ và # C A thì A và 8 là hai tập"
+    },
+    {
+     "term": "tập con",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-ngodactan-2004",
+     "pdf_page": 29,
+     "page": "tr. 29 (PDF)",
+     "snippet": "nhữ là một tập con lực lượng k của A. Vì vậy, nếu ta ký hiệu số các"
+    },
+    {
+     "term": "tập con",
+     "source_id": "bib-rosen-2003-vi",
+     "pdf_page": 56,
+     "page": "tr. 56 (PDF, bản dịch Rosen)",
+     "snippet": "A © B để chi A là một tập con của tập B.",
+     "verified": true,
+     "recommended": false
+    }
+   ]
+  },
+  {
+   "id": "sequence",
+   "letter": "S",
+   "headword_en": "Sequence",
+   "notation": "\\{a_n\\}",
+   "rosen_ref": "Rosen §2.4",
+   "definition_vi": "Một dãy số là một hàm từ một tập con của tập các số nguyên (thường là tập các số nguyên không âm hoặc tập các số nguyên dương) vào một tập $$S$$; giá trị của hàm tại số nguyên $$n$$, ký hiệu $$a_n$$, được gọi là số hạng thứ $$n$$ của dãy, và dãy được ký hiệu là $$\\{a_n\\}$$.",
+   "example_vi": "Xét hàm $$a_n = \\frac{1}{n}$$ xác định trên tập các số nguyên dương; dãy số $$\\{a_n\\}$$ tương ứng có các số hạng là $$a_1 = 1$$, $$a_2 = \\frac{1}{2}$$, $$a_3 = \\frac{1}{3}$$, $$\\ldots$$",
+   "notes": "Recommended term \"dãy số\" (number sequence) is attested in both 2020 sources and the 2019 source. The $$\\{a_n\\}$$ notation appears verbatim with \"dãy số\" in nguyenhuudien-2019 (p. 97, \"đối với dãy số { an }\") and nguyenducnghia-2006 (p. 34, \"dãy số {a„}\"); nguyenhoangthach-2020 (p. 37) uses the equivalent \"(an)\" notation, all denoting THIS concept (a function indexed by integers). The bare variant \"dãy\" (sequence) is used as a short back-reference to \"dãy số\" (e.g. nguyenhoangthach-2020 p. 37 \"một dãy như vậy\") and in compounds (\"dãy các đỉnh\", \"dãy Fibonacci\"); recorded from nguyenducnghia-2006 p. 38 where \"dãy số ... dãy này\" makes the synonymy explicit. OCR sources: leanhvinh-2020 (p. 51 \"Từ dãy số thành cây.\") and hoangchithanh-2007 (p. 141, --loose, Catalan sequence) attest \"dãy số\" but only in applied contexts (degree sequences, Catalan numbers), not as a general definition, so the 2020/2019 text sources are cited first. \"dãy số nguyên\" (integer sequence) and \"dãy số nguyên dương\" (positive integer sequence) appear as domain-restricted instances, not separate terms. Lưu ý thuật ngữ-tiêu đề: tiêu đề tiếng Anh là \"Sequence\" với miền giá trị là một tập $$S$$ tổng quát (Rosen §2.4), trong khi thuật ngữ tiếng Việt được chứng thực là \"dãy số\" (theo nghĩa hẹp dãy các số); định nghĩa giữ nguyên dạng tổng quát \"vào một tập $$S$$\" còn \"dãy số\" là thuật ngữ chuẩn được kho ngữ liệu chứng thực.",
+   "see_also": [
+    "summation",
+    "geometric-series"
+   ],
+   "vi_terms": [
+    {
+     "term": "dãy số",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-nguyenhoangthach-2020",
+     "pdf_page": 37,
+     "page": "tr. 37 (PDF)",
+     "snippet": "bài toán đếm có thể được biểu diễn bằng một dãy số (an ). Chẳng hạn, số từ"
+    },
+    {
+     "term": "dãy số",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 97,
+     "page": "tr. 97 (PDF)",
+     "snippet": "Định nghĩa 3.12 Hệ thức truy hồi (hay công thức truy hồi) đối với dãy số { an } là công"
+    },
+    {
+     "term": "dãy số",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenducnghia-2006",
+     "pdf_page": 34,
+     "page": "tr. 34 (PDF)",
+     "snippet": "Ta cần tìm công thức trực tiếp cho số hạng a„ của dãy số {a„} thoả mãn công thức"
+    },
+    {
+     "term": "dãy số",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-ngodactan-2004",
+     "pdf_page": 79,
+     "page": "tr. 79 (PDF)",
+     "snippet": "Ta nói rằng a(x) — Y2 ctjxi s C N hay dãy số ao, ai, 02, . . . thoả mãn"
+    },
+    {
+     "term": "dãy",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenducnghia-2006",
+     "pdf_page": 38,
+     "page": "tr. 38 (PDF)",
+     "snippet": "Giả sử {4,1m = 0, 1,2, ...} là một dãy số. Ta viết dãy này như là dãy vô hạn phần tử,"
+    },
+    {
+     "term": "dãy số",
+     "source_id": "bib-rosen-2003-vi",
+     "pdf_page": 208,
+     "page": "tr. 208 (PDF, bản dịch Rosen)",
+     "snippet": "đã biết đó. Ví đụ, có thể xác định được dãy số {2\"} bằng cách cho",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "dãy",
+     "source_id": "bib-rosen-2003-vi",
+     "pdf_page": 5,
+     "page": "tr. 5 (PDF, bản dịch Rosen)",
+     "snippet": "tập hợp. Các cấu trúc tiện ich như dãy và xâu là những loại hàm đặc",
+     "verified": true,
+     "recommended": false
+    }
+   ]
+  },
+  {
+   "id": "series",
+   "letter": "S",
+   "headword_en": "Series",
+   "notation": "\\sum_{j=m}^{n} a_j",
+   "rosen_ref": "Rosen §2.4",
+   "definition_vi": "Tổng của một dãy là kết quả của việc cộng các số hạng của dãy đó. Với dãy $$a_m, a_{m+1}, \\ldots, a_n$$, tổng các số hạng từ chỉ số $$m$$ đến chỉ số $$n$$ được ký hiệu bằng ký hiệu sigma là $$\\sum_{j=m}^{n} a_j = a_m + a_{m+1} + \\cdots + a_n$$, trong đó $$j$$ là chỉ số chạy, $$m$$ là cận dưới và $$n$$ là cận trên.",
+   "example_vi": "Tổng của bốn số hạng đầu của dãy $$a_j = j^2$$ với $$j$$ chạy từ $$1$$ đến $$4$$ là $$\\sum_{j=1}^{4} j^2 = 1 + 4 + 9 + 16 = 30$$.",
+   "notes": "Khái niệm \"chuỗi\" theo nghĩa Rosen §2.4 (tổng các số hạng của một dãy, viết bằng ký hiệu sigma $$\\sum_{j=m}^{n} a_j$$) không được định nghĩa thành một mục riêng trong các nguồn rời rạc/đồ thị tiếng Việt được khảo sát; không nguồn nào trong kho ngữ liệu định nghĩa \"series\" như một thuật ngữ-tiêu đề độc lập. Từ chuẩn cho phép lấy tổng các số hạng của một dãy là \"tổng\", được chứng thực trong nguồn mới nhất bib-nguyenhuudien-2019 (tr. 65 PDF): Ví dụ 2.26 \"Tính tổng của n số tự nhiên lẻ đầu tiên $$T(n) = 1 + 3 + 5 + \\cdots + (2n-1)$$\" và Ví dụ 2.27 \"Tính tổng\" — đúng nghĩa tổng các số hạng của một dãy. Vì vậy chọn \"tổng\" làm thuật ngữ khuyến nghị (có chứng thực 2019-2020): ở đây \"tổng\" chỉ phép lấy tổng theo Rosen §2.4, là một biểu diễn thực dụng cho nghĩa tổng-hữu-hạn chứ không phải bản dịch trực tiếp của \"series\". Biến thể \"chuỗi\" là thuật ngữ giải tích chuẩn cho series tổng quát; trong các nguồn này nó chỉ xuất hiện ở nghĩa lân cận \"chuỗi luỹ thừa (hình thức)\" (power series) tại bib-ngodactan-2004 (tr. 59-61 PDF), còn ở các nguồn khác \"chuỗi\" mang nghĩa khác (chuỗi bit, chuỗi ký tự, chuỗi mã) nên không chứng thực trực tiếp nghĩa series tổng quát; do đó \"series\" (chuỗi) và \"sum\" (tổng) KHÔNG đồng nghĩa hoán đổi ngoài ngữ cảnh tổng-hữu-hạn này. Khái niệm liên quan \"khả tổng\" (summable) và $$\\sum a_k$$ xuất hiện tại bib-ngodactan-2004 (tr. 66-70 PDF). Biến thể \"tổng vô hạn\" (infinite series) không có chứng thực trong bất kỳ nguồn nào (0 hits), nên không ghi nhận thành dòng vi_term; chỉ lưu lại ở đây.",
+   "see_also": [
+    "sequence",
+    "summation",
+    "geometric-series",
+    "arithmetic-progression"
+   ],
+   "vi_terms": [
+    {
+     "term": "tổng",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 65,
+     "page": "tr. 65 (PDF)",
+     "snippet": "Ví dụ 2.26. Tính tổng của n số tự nhiên lẻ đầu tiên T (n) = 1 + 3 + 5 + · · · + (2n − 1)."
+    },
+    {
+     "term": "chuỗi",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-ngodactan-2004",
+     "pdf_page": 59,
+     "page": "tr. 59 (PDF)",
+     "snippet": "pháp này là chuỗi luỹ thừa hình thức. Bằng các phép toán được định"
+    },
+    {
+     "term": "tổng",
+     "source_id": "bib-rosen-2003-vi",
+     "pdf_page": 5,
+     "page": "tr. 5 (PDF, bản dịch Rosen)",
+     "snippet": "lớn hơn 100 là luỹ thừa của 2\" và \"Đối với moi số nguyên n, tổng các",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "chuỗi",
+     "source_id": "bib-rosen-2003-vi",
+     "pdf_page": 791,
+     "page": "tr. 791 (PDF, bản dịch Rosen)",
+     "snippet": "Moore dược xét trong chuỗi các bài tập ở cuối tiết này.",
+     "verified": true,
+     "recommended": false
+    }
+   ]
+  },
+  {
+   "id": "surjection",
+   "letter": "S",
+   "headword_en": "Surjection",
+   "notation": "f: A \\twoheadrightarrow B",
+   "rosen_ref": "Rosen §2.3",
+   "definition_vi": "Một hàm $$f$$ từ tập $$A$$ đến tập $$B$$ được gọi là một *toàn ánh* nếu với mỗi phần tử $$b \\in B$$ đều tồn tại một phần tử $$a \\in A$$ sao cho $$f(a) = b$$. Khi đó ta ký hiệu $$f: A \\twoheadrightarrow B$$.",
+   "example_vi": "Xét hàm $$f: \\mathbb{Z} \\to \\mathbb{Z}$$ cho bởi $$f(n) = n + 1$$. Với mỗi $$b \\in \\mathbb{Z}$$, chọn $$a = b - 1 \\in \\mathbb{Z}$$ thì $$f(a) = b$$, nên $$f$$ là một toàn ánh.",
+   "notes": "Recommended term \"toàn ánh\" is attested in the newest source (bib-nguyenhoangthach-2020, 2020) on p.33, where the iff definition appears verbatim (\"Ánh xạ f là một toàn ánh nếu và chỉ...\"), matching the Rosen onto-function definition; it is also attested in bib-ngodactan-2004 (2004). Variant \"hàm toàn ánh\" (literally \"surjective function\") is attested only in bib-ngodactan-2004 (2004). Candidate \"ánh xạ lên\" returned 0 hits in every source under both normal and --loose search and is dropped. OCR sources bib-leanhvinh-2020 and bib-hoangchithanh-2007 did not attest the term even with --loose (0 hits); text sources bib-nguyenhuudien-2019 (uses generic \"ánh xạ\" only) and bib-nguyenducnghia-2006 did not attest \"toàn ánh\" either. see_also previously listed \"surjective-function\", which is a near-synonym of this headword and not a registered entry id; it was replaced by the distinct related entry \"function\".",
+   "see_also": [
+    "injection",
+    "bijection",
+    "function"
+   ],
+   "vi_terms": [
+    {
+     "term": "toàn ánh",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-nguyenhoangthach-2020",
+     "pdf_page": 33,
+     "page": "tr. 33 (PDF)",
+     "snippet": "con rời nhau của A và có hợp bằng A. Ánh xạ f là một toàn ánh nếu và chỉ"
+    },
+    {
+     "term": "toàn ánh",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-ngodactan-2004",
+     "pdf_page": 140,
+     "page": "tr. 140 (PDF)",
+     "snippet": "suy ra 8 g cũng là toàn ánh. Vậy O g là một song ánh."
+    },
+    {
+     "term": "hàm toàn ánh",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-ngodactan-2004",
+     "pdf_page": 37,
+     "page": "tr. 37 (PDF)",
+     "snippet": "G iải. Giả sử M = {&1, . .. bm} và / : N -¥ M là một hàm toàn ánh."
+    },
+    {
+     "term": "toàn ánh",
+     "source_id": "bib-rosen-2003-vi",
+     "pdf_page": 85,
+     "page": "tr. 85 (PDF, bản dịch Rosen)",
+     "snippet": "hàm toàn ánh.",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "hàm toàn ánh",
+     "source_id": "bib-rosen-2003-vi",
+     "pdf_page": 85,
+     "page": "tr. 85 (PDF, bản dịch Rosen)",
+     "snippet": "hàm toàn ánh.",
+     "verified": true,
+     "recommended": false
+    }
+   ]
+  },
+  {
+   "id": "symmetric-relation",
+   "letter": "S",
+   "headword_en": "Symmetric relation",
+   "notation": "(a,b)\\in R \\Rightarrow (b,a)\\in R",
+   "rosen_ref": "Rosen §9.1",
+   "definition_vi": "Một quan hệ $$R$$ trên tập $$A$$ được gọi là có tính đối xứng nếu $$(b,a)\\in R$$ với mọi $$(a,b)\\in R$$, tức là với mọi $$a,b\\in A$$, hễ $$(a,b)\\in R$$ thì $$(b,a)\\in R$$ (ký hiệu $$(a,b)\\in R \\Rightarrow (b,a)\\in R$$).",
+   "example_vi": "Xét tập $$A=\\{1,2,3\\}$$ và quan hệ $$R=\\{(1,2),(2,1),(3,3)\\}$$ trên $$A$$. Quan hệ $$R$$ có tính đối xứng vì mỗi khi $$(a,b)\\in R$$ thì cũng có $$(b,a)\\in R$$.",
+   "notes": "Recommended term \"đối xứng\" (often as the property-noun phrase \"tính đối xứng\" / \"có tính đối xứng\") is the standard Vietnamese term for the relation property and is attested in 2020 sources. The recommended attestation leanhvinh-2020 p.17 occurs in an equivalence-relation context (the connectivity relation \"quan hệ liên thông\" is shown to be reflexive, symmetric, transitive), i.e. it lists đối xứng as a property rather than giving the standalone definition. The precise definitional attestation matching Rosen is nguyenhuudien-2019 p.109: \"Ta nói quan hệ R có tính đối xứng (symmetric) nếu và chỉ nếu xRy ⇒ yRx với mọi\". Other 2020 attestations appear as the second of the three equivalence-relation properties (phản xạ, đối xứng, bắc cầu): nguyenhoangthach-2020 p.54 (\"tính đối xứng của quan hệ 'quen nhau'\"). The full noun phrase \"quan hệ đối xứng\" returns 0 hits in every source (normal and --loose); Vietnamese sources express the concept via the property word đối xứng / tính đối xứng applied to a relation, not via a fixed noun phrase. DISTINCT NEARBY TERM, NOT the symmetric relation: \"phản đối xứng\" (antisymmetric) at ngodactan-2004 p.163 defines a partial order and is a different concept; ngodactan-2004 attests no symmetric relation property (its standalone \"đối xứng\" occurrences denote symmetric groups, geometric symmetry, or symmetric matrices), so it contributes no vi_term here. Likewise leanhvinh-2020 p.196 \"tính đối xứng\" is a Ramsey 'by symmetry' extremal argument, not the relation property, and is excluded.",
+   "see_also": [
+    "reflexive-relation",
+    "transitive-relation",
+    "antisymmetric-relation",
+    "equivalence-relation"
+   ],
+   "vi_terms": [
+    {
+     "term": "đối xứng",
+     "source_id": "bib-leanhvinh-2020",
+     "page": "tr. 17 (PDF)",
+     "pdf_page": 17,
+     "snippet": "hệ liên thông có ba tính chất: phản xa, đối xứng và bắc cầu. Do đó,",
+     "verified": true,
+     "recommended": true
+    },
+    {
+     "term": "tính đối xứng",
+     "source_id": "bib-nguyenhoangthach-2020",
+     "page": "tr. 54 (PDF)",
+     "pdf_page": 54,
+     "snippet": "Tuy nhiên, để ý rằng do tính đối xứng của quan hệ “quen nhau”, hai nhóm",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "có tính đối xứng",
+     "source_id": "bib-nguyenhuudien-2019",
+     "page": "tr. 109 (PDF)",
+     "pdf_page": 109,
+     "snippet": "• Ta nói quan hệ R có tính đối xứng (symmetric) nếu và chỉ nếu xRy ⇒ yRx với mọi",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "tính chất đối xứng",
+     "source_id": "bib-nguyenhuudien-2019",
+     "page": "tr. 24 (PDF)",
+     "pdf_page": 24,
+     "snippet": "tính truyền (hay bắc cầu), nhưng không có tính chất đối xứng.",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "đối xứng",
+     "source_id": "bib-nguyenducnghia-2006",
+     "page": "tr. 14 (PDF)",
+     "pdf_page": 14,
+     "snippet": "đương. Một quan hệ được gọi là tương đương nếu nó thoả mãn cả 3 tính chất: đối xứng,",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "đối xứng",
+     "source_id": "bib-rosen-2003-vi",
+     "pdf_page": 76,
+     "page": "tr. 76 (PDF, bản dịch Rosen)",
+     "snippet": "Hiệu đối xứng của A va B, được ký hiệu la A @ B, là tập chứa cóc",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "tính đối xứng",
+     "source_id": "bib-rosen-2003-vi",
+     "pdf_page": 457,
+     "page": "tr. 457 (PDF, bản dịch Rosen)",
+     "snippet": "có một tính chất P nào đó, chảng hạn tính phản xạ, tính đối xứng hoặc",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "có tính đối xứng",
+     "source_id": "bib-rosen-2003-vi",
+     "pdf_page": 459,
+     "page": "tr. 459 (PDF, bản dịch Rosen)",
+     "snippet": "mới có tính đối xứng và chứa R. Đồng thời, quan hệ mới này được chứa",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "tính chất đối xứng",
+     "source_id": "bib-rosen-2003-vi",
+     "pdf_page": 437,
+     "page": "tr. 437 (PDF, bản dịch Rosen)",
+     "snippet": "ĐỊNH LÝ. Cho R là quan hệ trên tập A có tính chất đối xứng và bắc",
+     "verified": true,
+     "recommended": false
+    }
+   ]
+  },
+  {
+   "id": "sum-rule",
+   "letter": "S",
+   "headword_en": "Sum rule",
+   "notation": "|A \\cup B| = |A| + |B|",
+   "rosen_ref": "Rosen §6.1",
+   "definition_vi": "Quy tắc cộng phát biểu rằng nếu một công việc có thể được thực hiện bằng một trong $$n_1$$ cách hoặc một trong $$n_2$$ cách, trong đó không cách nào trong $$n_1$$ cách trùng với cách nào trong $$n_2$$ cách, thì có $$n_1 + n_2$$ cách để thực hiện công việc đó. Dưới dạng tập hợp, nếu $$A$$ và $$B$$ là hai tập hợp hữu hạn rời nhau, tức $$A \\cap B = \\emptyset$$, thì $$|A \\cup B| = |A| + |B|$$.",
+   "example_vi": "Giả sử cần chọn một đại diện là một sinh viên năm nhất hoặc một sinh viên năm hai. Nếu có $$n_1 = 50$$ sinh viên năm nhất và $$n_2 = 40$$ sinh viên năm hai, và không sinh viên nào thuộc cả hai khối, thì theo quy tắc cộng có $$n_1 + n_2 = 90$$ cách chọn đại diện.",
+   "notes": "\"quy tắc cộng\" is the recommended standard term, attested in the newest source bib-nguyenhoangthach-2020 (2020) as the formal \"Quy tắc 1.2 (Quy tắc cộng)\". \"qui tắc cộng\" is an older orthographic variant of the same term (pre-reform spelling, in bib-ngodactan-2004 and bib-nguyenhuudien-2019). \"nguyên lý cộng\" is an equally common synonym used in bib-nguyenhuudien-2019, bib-nguyenducnghia-2006 (formal §1.3.1), and bib-ngodactan-2004. The OCR graph-theory sources bib-leanhvinh-2020 and bib-hoangchithanh-2007 do not attest any sum-rule term (concept belongs to combinatorics/counting, not graph theory); both normal and --loose searches returned no hits there.",
+   "see_also": [
+    "product-rule",
+    "subtraction-rule",
+    "division-rule"
+   ],
+   "vi_terms": [
+    {
+     "term": "quy tắc cộng",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-nguyenhoangthach-2020",
+     "pdf_page": 15,
+     "page": "tr. 15 (PDF)",
+     "snippet": "Quy tắc 1.2 (Quy tắc cộng). Giả sử một công việc có thể được thực hiện"
+    },
+    {
+     "term": "nguyên lý cộng",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 79,
+     "page": "tr. 79 (PDF)",
+     "snippet": "Nguyên lý cộng: Giả sử ta phải thực hiện công việc và để thực hiện công việc này ta có thể"
+    },
+    {
+     "term": "qui tắc cộng",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 83,
+     "page": "tr. 83 (PDF)",
+     "snippet": "một ký tự, và V2 là số biến gồm hai ký tự. Theo qui tắc cộng ta có V = V1 + V2 ."
+    },
+    {
+     "term": "nguyên lý cộng",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenducnghia-2006",
+     "pdf_page": 15,
+     "page": "tr. 15 (PDF)",
+     "snippet": "Nguyên lý cộng được mở rộng cho nhiều tập con rời nhau:"
+    },
+    {
+     "term": "qui tắc cộng",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-ngodactan-2004",
+     "pdf_page": 26,
+     "page": "tr. 26 (PDF)",
+     "snippet": "Qui tắc cộng và qui tắc nhân cũng thường được phát biểu dưới"
+    },
+    {
+     "term": "nguyên lý cộng",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-ngodactan-2004",
+     "pdf_page": 38,
+     "page": "tr. 38 (PDF)",
+     "snippet": "Theo nguyên lý cộng,"
+    },
+    {
+     "term": "quy tắc cộng",
+     "source_id": "bib-rosen-2003-vi",
+     "pdf_page": 292,
+     "page": "tr. 292 (PDF, bản dịch Rosen)",
+     "snippet": "Các ví dụ dưới đây minh họa việc sử dụng quy tắc cộng như thé nào.",
+     "verified": true,
+     "recommended": false
+    }
+   ]
+  },
+  {
+   "id": "stirling-number",
+   "letter": "S",
+   "headword_en": "Stirling number (of the second kind)",
+   "notation": "S(n, j)",
+   "rosen_ref": "Rosen §8.6",
+   "definition_vi": "Số Stirling loại hai, ký hiệu $$S(n, j)$$, là số cách phân hoạch một tập hợp gồm $$n$$ phần tử thành đúng $$j$$ tập con không rỗng, đôi một rời nhau. Ở đây $$n$$ và $$j$$ là các số nguyên không âm.",
+   "example_vi": "Với tập hợp $$\\{1, 2, 3\\}$$ và $$j = 2$$, ta có $$S(3, 2) = 3$$, ứng với ba cách phân hoạch $$\\{\\{1, 2\\}, \\{3\\}\\}$$, $$\\{\\{1, 3\\}, \\{2\\}\\}$$ và $$\\{\\{2, 3\\}, \\{1\\}\\}$$.",
+   "notes": "Concept: số Stirling loại hai $$S(n, j)$$ là số cách phân hoạch một tập hợp $$n$$ phần tử thành đúng $$j$$ khối (tập con) không rỗng, đôi một rời nhau. Recommended term \"số Stirling loại hai\" is attested in a 2020 source (bib-nguyenhoangthach-2020, Định nghĩa 2.23, tr. 32 PDF: \"Giả sử n là một số nguyên không âm ... thành k khối không rỗng được gọi là số Stirling loại hai\", confirming both the concept and the nonnegative-integer condition) and confirmed in bib-ngodactan-2004 (tr. 35 PDF, with notation S(n, k)); citations ordered newest-source first. The bare variant \"số Stirling\" appears only as a sectional/index shorthand or in the general phrase \"các số Stirling\" that covers both kinds (e.g. bib-ngodactan-2004 tr. 119, tr. 339 index); it is not specific to the second kind, so it is recorded as a non-recommended variant. The contrasting \"số Stirling loại một\" (Stirling number of the first kind, s(n, k)) also occurs in bib-ngodactan-2004 (tr. 57, tr. 123) but denotes a DIFFERENT concept and is intentionally not recorded as a variant of this entry. OCR sources bib-leanhvinh-2020 and bib-hoangchithanh-2007, and text sources bib-nguyenhuudien-2019 and bib-nguyenducnghia-2006, do not treat the Stirling-number concept: the only \"Stirling\" hits are to \"công thức Stirling\" (Stirling's approximation formula for n!, e.g. bib-leanhvinh-2020 tr. 150, bib-nguyenducnghia-2006 tr. 46), which is unrelated. Notation S(n, j) follows Rosen; both Vietnamese sources use S(n, k). The nonnegative-integer range stated in the definition is mathematically sound for all $$n, j \\geq 0$$ (e.g. $$S(n, j) = 0$$ when $$j > n$$); Rosen §8.6 typically restricts to $$1 \\leq j \\leq n$$, but the count is well-defined either way. The example uses $$S(3, 2) = 3$$, computed directly from the partition count the definition introduces, so it is self-contained.",
+   "see_also": [
+    "bell-number",
+    "set-partition"
+   ],
+   "vi_terms": [
+    {
+     "term": "số Stirling loại hai",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-nguyenhoangthach-2020",
+     "pdf_page": 32,
+     "page": "tr. 32 (PDF)",
+     "snippet": "Định nghĩa 2.23 (Số Stirling loại hai). Giả sử n là một số nguyên không âm ... thành k khối không rỗng được gọi là số Stirling loại hai thứ (n, k) và được ký"
+    },
+    {
+     "term": "số Stirling loại hai",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-ngodactan-2004",
+     "pdf_page": 35,
+     "page": "tr. 35 (PDF)",
+     "snippet": "được gọi là số Stirling loại hai và được ký hiệu là S(n, k). Dễ thấy"
+    },
+    {
+     "term": "số Stirling",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-ngodactan-2004",
+     "pdf_page": 119,
+     "page": "tr. 119 (PDF)",
+     "snippet": "biểu thị được các số Stirling qua các luỹ thừa bậc n. Phương pháp đếm"
+    },
+    {
+     "term": "số Stirling loại hai",
+     "source_id": "bib-rosen-2003-vi",
+     "pdf_page": 370,
+     "page": "tr. 370 (PDF, bản dịch Rosen)",
+     "snippet": "8. Hãy định nghĩa các số Stirling loại hai và mô tả một vài tính chất",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "số Stirling",
+     "source_id": "bib-rosen-2003-vi",
+     "pdf_page": 370,
+     "page": "tr. 370 (PDF, bản dịch Rosen)",
+     "snippet": "5. Hãy định nghĩa các số Stirling loại một và m6 tả một vài tính chất",
+     "verified": true,
+     "recommended": false
+    }
+   ]
+  },
+  {
+   "id": "simple-graph",
+   "letter": "S",
+   "headword_en": "Simple graph",
+   "notation": "G = (V, E)",
+   "rosen_ref": "Rosen §10.1",
+   "definition_vi": "Đồ thị đơn là một đồ thị vô hướng $$G = (V, E)$$ trong đó mỗi cạnh nối hai đỉnh phân biệt và không có hai cạnh nào cùng nối một cặp đỉnh. Nói cách khác, $$G$$ không chứa khuyên và không chứa cạnh song song; khi đó mỗi cạnh được đồng nhất với một cặp đỉnh $$\\{u, v\\}$$ với $$u \\neq v$$ và $$E \\subseteq \\{\\{u, v\\} : u, v \\in V,\\ u \\neq v\\}$$.",
+   "example_vi": "Xét $$V = \\{a, b, c\\}$$ và $$E = \\{\\{a, b\\}, \\{b, c\\}, \\{a, c\\}\\}$$. Khi đó $$G = (V, E)$$ là một đồ thị đơn vì mỗi cạnh nối hai đỉnh phân biệt và không có cặp đỉnh nào được nối bởi nhiều hơn một cạnh.",
+   "notes": "Two distinct Vietnamese renderings denote this concept. The recommended term \"đồ thị đơn\" is the newer standard word order, attested in BOTH 2020 sources (bib-leanhvinh-2020 p.8 as a formal definition: \"Đồ thị đơn là đồ thị không có khuyên và cũng không chứa các cạnh song song\"; bib-nguyenhoangthach-2020 p.61). The variant \"đơn đồ thị\" is the older noun-order form and is the more widely attested overall: bib-nguyenhuudien-2019 (2019; formal Định nghĩa 6.1 p.154 and explicit gloss p.155: \"đơn đồ thị là loại đồ thị vô hướng không chứa cạnh bội hoặc các khuyên\"), bib-hoangchithanh-2007 (p.7, OCR-mangled to \"don đồ thi\" — confirmed via --loose), bib-nguyenducnghia-2006 (p.153, \"Đơn đồ thị vô hướng G = (V,E)...\"), and bib-ngodactan-2004 (p.22). Both forms are widely attested; ordering within each form is newest-source first. Note: the surface string \"đồ thị đơn giản\" appears once (bib-nguyenhoangthach-2020 p.83) but there it means \"a simple/uncomplicated class of graphs\" (referring to trees), NOT the technical term \"simple graph\", so it is excluded. OCR sources bib-leanhvinh-2020 and bib-hoangchithanh-2007 were checked with both normal and --loose modes.",
+   "see_also": [
+    "multigraph",
+    "pseudograph",
+    "undirected-graph",
+    "complete-graph",
+    "bipartite-graph"
+   ],
+   "vi_terms": [
+    {
+     "term": "đồ thị đơn",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-leanhvinh-2020",
+     "pdf_page": 8,
+     "page": "tr. 8 (PDF)",
+     "snippet": "cạnh song song. Đồ thị đơn là đồ thị không có khuyên và cũng không"
+    },
+    {
+     "term": "đồ thị đơn",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhoangthach-2020",
+     "pdf_page": 61,
+     "page": "tr. 61 (PDF)",
+     "snippet": "cạnh, thì ta nói G là một đồ thị đơn. Khi đó E có thể được đồng nhất với"
+    },
+    {
+     "term": "đơn đồ thị",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 155,
+     "page": "tr. 155 (PDF)",
+     "snippet": "các khuyên, còn đơn đồ thị là loại đồ thị vô hướng không chứa cạnh bội hoặc các khuyên."
+    },
+    {
+     "term": "đơn đồ thị",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-hoangchithanh-2007",
+     "pdf_page": 7,
+     "page": "tr. 7 (PDF)",
+     "snippet": "nhau bởi không quá một cạnh được gọi là don đồ thi (thường gọi tắt là"
+    },
+    {
+     "term": "đơn đồ thị",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenducnghia-2006",
+     "pdf_page": 153,
+     "page": "tr. 153 (PDF)",
+     "snippet": "Định nghĩa 1. Đơn đồ thị vô hướng G = (V,E) bao gồm V là tập các đỉnh, và E là tập"
+    },
+    {
+     "term": "đơn đồ thị",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-ngodactan-2004",
+     "pdf_page": 22,
+     "page": "tr. 22 (PDF)",
+     "snippet": "(V, E, / ) được gọi là một đơn đồ thị vô hướng và thường được gọi tắt"
+    },
+    {
+     "term": "đồ thị đơn",
+     "source_id": "bib-rosen-2003-vi",
+     "pdf_page": 507,
+     "page": "tr. 507 (PDF, bản dịch Rosen)",
+     "snippet": "NHỮNG ĐỒ THỊ ĐƠN ĐẶC BIỆT",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "đơn đồ thị",
+     "source_id": "bib-rosen-2003-vi",
+     "pdf_page": 495,
+     "page": "tr. 495 (PDF, bản dịch Rosen)",
+     "snippet": "ĐỊNH NGHĨA 1. Một đơn đồ thị G = (V, E) gồm một tập không rồng",
+     "verified": true,
+     "recommended": false
+    }
+   ]
+  },
+  {
+   "id": "subgraph",
+   "letter": "S",
+   "headword_en": "Subgraph",
+   "notation": "H \\subseteq G",
+   "rosen_ref": "Rosen §10.2",
+   "definition_vi": "Một đồ thị con của đồ thị $$G = (V, E)$$ là một đồ thị $$H = (W, F)$$ trong đó $$W \\subseteq V$$, $$F \\subseteq E$$, và mọi cạnh trong $$F$$ đều có hai đầu mút thuộc $$W$$; ký hiệu $$H \\subseteq G$$.",
+   "example_vi": "Cho $$G = (V, E)$$ với $$V = \\{a, b, c\\}$$ và $$E = \\{ab, bc, ca\\}$$. Khi đó đồ thị $$H = (W, F)$$ với $$W = \\{a, b\\}$$ và $$F = \\{ab\\}$$ là một đồ thị con của $$G$$, vì $$W \\subseteq V$$, $$F \\subseteq E$$, và cạnh $$ab$$ có cả hai đầu mút $$a$$ và $$b$$ thuộc $$W$$.",
+   "notes": "The two mined candidates \"đồ thị con\" and \"đồ thị con của\" are the same lexical noun phrase \"đồ thị con\"; \"của\" is the genitive marker introducing the parent graph (\"đồ thị con của $$G$$\" = \"subgraph of $$G$$\"). The bare noun phrase \"đồ thị con\" is recommended as the headword; \"đồ thị con của\" is recorded as its phrasal (genitive) usage. The term is uniformly attested across all six corpus sources (2004-2020), so terminology is stable. nguyenhoangthach-2020 (tr. 70) gives the cleanest match to Rosen's notation: \"Một đồ thị con của $$G$$ là một đồ thị $$H = (W, F)$$ sao cho...\". The variant \"đồ thị bộ phận\" (subgraph) returned 0 hits (normal and loose) and is not attested in this corpus. OCR sources confirmed in both normal and loose modes; loose mode on leanhvinh-2020 additionally surfaced the formal Definition 1.8 at tr. 13 (\"Giả sử $$G_1 = (V_1, E_1)$$ là đồ thị con của $$G = (V, E)$$\"), while the recommended citation at tr. 12 (\"Tiếp theo, ta có định nghĩa về đồ thị con của một đồ thị.\") is the definitional lead-in on the facing page. The definition follows nguyenhoangthach-2020's formulation, which matches Rosen's $$H = (W, F)$$ with $$W \\subseteq V$$ and $$F \\subseteq E$$; the explicit endpoint condition (mọi cạnh trong $$F$$ có hai đầu mút thuộc $$W$$) is added so that $$H$$ is a valid graph, since this requirement is inherited from $$H$$ being a graph and is otherwise left implicit by the bare $$W \\subseteq V$$, $$F \\subseteq E$$ statement.",
+   "see_also": [
+    "induced-subgraph",
+    "spanning-subgraph",
+    "graph"
+   ],
+   "vi_terms": [
+    {
+     "term": "đồ thị con",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-leanhvinh-2020",
+     "pdf_page": 12,
+     "page": "tr. 12 (PDF)",
+     "snippet": "Tiếp theo, ta có định nghĩa về đồ thị con của một đồ thị."
+    },
+    {
+     "term": "đồ thị con",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhoangthach-2020",
+     "pdf_page": 70,
+     "page": "tr. 70 (PDF)",
+     "snippet": "Định nghĩa 5.21. Một đồ thị con của G là một đồ thị H = (W, F ) sao cho"
+    },
+    {
+     "term": "đồ thị con",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 166,
+     "page": "tr. 166 (PDF)",
+     "snippet": "Ví dụ 6.26. Hình 6.25, G1 , G2 , G3 và G4 là các đồ thị con của G , trong đó G2 và G4 là đồ thị con bao trùm của G"
+    },
+    {
+     "term": "đồ thị con",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-hoangchithanh-2007",
+     "pdf_page": 8,
+     "page": "tr. 8 (PDF)",
+     "snippet": "1) Đồ thị Ơ = (V', E) được gọi là đồ thị con của đồ thị G nếu:"
+    },
+    {
+     "term": "đồ thị con",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenducnghia-2006",
+     "pdf_page": 157,
+     "page": "tr. 157 (PDF)",
+     "snippet": "Định nghĩa 4. Ta gọi đồ thị con của đồ thị G = (V,E) là đồ thị H = (W, E), trong đó"
+    },
+    {
+     "term": "đồ thị con",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-ngodactan-2004",
+     "pdf_page": 189,
+     "page": "tr. 189 (PDF)",
+     "snippet": "Đồ thị G' — ( V ', E') được gọi là đò thị con của đồ thị G = (V, E)"
+    },
+    {
+     "term": "đồ thị con của",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhoangthach-2020",
+     "pdf_page": 70,
+     "page": "tr. 70 (PDF)",
+     "snippet": "Một đồ thị con của G là một đồ thị H = (W, F ) sao cho"
+    },
+    {
+     "term": "đồ thị con của",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-leanhvinh-2020",
+     "pdf_page": 13,
+     "page": "tr. 13 (PDF)",
+     "snippet": "một đồ thị con của dé thị G cũng được gọi là đồ thị con của Ơ."
+    },
+    {
+     "term": "đồ thị con của",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 232,
+     "page": "tr. 232 (PDF)",
+     "snippet": "Định lý 9.9 Giả sử G là một đồ thị và G′ là đồ thị con của nó."
+    },
+    {
+     "term": "đồ thị con của",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-hoangchithanh-2007",
+     "pdf_page": 117,
+     "page": "tr. 117 (PDF)",
+     "snippet": "Gia sử Ơ là một đồ thi và G’ là đồ thị con của nó."
+    },
+    {
+     "term": "đồ thị con của",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-ngodactan-2004",
+     "pdf_page": 189,
+     "page": "tr. 189 (PDF)",
+     "snippet": "V ', thì G' — (V', E') được gọi là đồ thị con của G = cV,, E) cảm sinh bài"
+    },
+    {
+     "term": "đồ thị con",
+     "source_id": "bib-rosen-2003-vi",
+     "pdf_page": 514,
+     "page": "tr. 514 (PDF, bản dịch Rosen)",
+     "snippet": "Hình 14 đồ thị con của đồ",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "đồ thị con của",
+     "source_id": "bib-rosen-2003-vi",
+     "pdf_page": 514,
+     "page": "tr. 514 (PDF, bản dịch Rosen)",
+     "snippet": "Hình 14 đồ thị con của đồ",
+     "verified": true,
+     "recommended": false
+    }
+   ]
+  },
+  {
+   "id": "simple-path",
+   "letter": "S",
+   "headword_en": "Simple path",
+   "notation": "v_0, v_1, \\ldots, v_n",
+   "rosen_ref": "Rosen §10.4",
+   "definition_vi": "Một đường đi trong đồ thị $$G$$ được gọi là đường đi đơn nếu nó không chứa cùng một cạnh quá một lần. Như vậy, một đường đi $$v_0, v_1, \\ldots, v_n$$ là đơn khi mọi cạnh xuất hiện trên nó đều phân biệt.",
+   "example_vi": "Trong đồ thị có các cạnh $$ab$$, $$bc$$, $$cd$$, đường đi $$a, b, c, d$$ là đường đi đơn vì ba cạnh $$ab$$, $$bc$$, $$cd$$ đều khác nhau; còn đường đi $$a, b, c, b$$ không phải là đường đi đơn vì cạnh $$bc$$ được dùng hai lần.",
+   "notes": "Rosen định nghĩa một đường đi là đơn (simple) nếu nó không chứa cùng một cạnh quá một lần. Thuật ngữ chuẩn tiếng Việt cho khái niệm này là \"đường đi đơn\", được định nghĩa minh thị trong nguồn 2020 mới nhất (bib-nguyenhoangthach-2020, tr. 73: \"Một đường đi đơn ... là một đường đi (chu trình) không đi qua cạnh nào quá một lần\") và trong bib-nguyenhuudien-2019 (tr. 168: \"Đường đi hoặc chu trình gọi là đơn nếu nó không chứa cùng một cạnh (hoặc cung) quá [một lần]\"). bib-nguyenducnghia-2006 (tr. 156) khẳng định cùng điều kiện qua phản ví dụ: đường đi $$a, b, e, d, a, b$$ \"không phải là đường đi đơn, do cạnh $$(a,b)$$ có mặt trong nó hai lần\".\n\nCẢNH BÁO trùng tên khác nghĩa: thuật ngữ \"đường đi đơn\" cũng xuất hiện trong bib-hoangchithanh-2007 (tr. 7: \"Đường đi đơn là đường đi mà các đỉnh trên nó khác nhau từng đôi\") nhưng ở đó nó chỉ khái niệm KHÔNG LẶP ĐỈNH (tương ứng \"path\"/\"đường đi sơ cấp\" của Rosen), KHÔNG phải khái niệm này; do đó không trích dẫn nguồn hoangchithanh-2007 cho mục này.\n\nBiến thể ứng viên \"đường đi sơ cấp\" KHÔNG khớp khái niệm này: trong bib-nguyenhuudien-2019 (tr. 168) nó chỉ đường đi không lặp ĐỈNH và được phân biệt rõ với đường đi đơn (\"là đường đi đơn (không sơ cấp)\"). Vì \"đường đi sơ cấp\" không chứng thực cho khái niệm no-repeated-edge và không có trang chứng thực hợp lệ, dòng vi_term tương ứng (verified=false, page rỗng) bị loại theo quy tắc vệ sinh trích dẫn; phân tích phân biệt được giữ lại tại đây.\n\nbib-leanhvinh-2020 không có kết quả cho riêng thuật ngữ \"đường đi đơn\" / khái niệm no-repeated-edge này (đã chạy cả thường lẫn --loose); nguồn này có dùng các thuật ngữ về đường đi nói chung nhưng không phủ thuật ngữ \"đường đi đơn\" theo nghĩa của mục này.",
+   "see_also": [
+    "path",
+    "simple-circuit",
+    "euler-path"
+   ],
+   "vi_terms": [
+    {
+     "term": "đường đi đơn",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-nguyenhoangthach-2020",
+     "pdf_page": 73,
+     "page": "tr. 73 (PDF)",
+     "snippet": "Một đường đi đơn (tương tự, chu trình đơn) là một đường đi (chu trình) không đi qua cạnh nào quá một lần."
+    },
+    {
+     "term": "đường đi đơn",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 168,
+     "page": "tr. 168 (PDF)",
+     "snippet": "Đường đi hoặc chu trình gọi là đơn nếu nó không chứa cùng một cạnh (hoặc cung) quá [một lần]."
+    },
+    {
+     "term": "đường đi đơn",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenducnghia-2006",
+     "pdf_page": 156,
+     "page": "tr. 156 (PDF)",
+     "snippet": "Đường đi a, b, e, d, a, b có độ dài là 5 không phải là đường đi đơn, do cạnh (a, b) có mặt trong nó hai lần."
+    },
+    {
+     "term": "đường đi đơn",
+     "source_id": "bib-rosen-2003-vi",
+     "pdf_page": 539,
+     "page": "tr. 539 (PDF, bản dịch Rosen)",
+     "snippet": "thông luôn có đường đi đơn.",
+     "verified": true,
+     "recommended": false
+    }
+   ]
+  },
+  {
+   "id": "spanning-tree",
+   "letter": "S",
+   "headword_en": "Spanning tree",
+   "notation": "T \\subseteq G",
+   "rosen_ref": "Rosen §11.4",
+   "definition_vi": "Cây bao trùm của một đồ thị liên thông $$G$$ là một đồ thị con $$T$$ của $$G$$ sao cho $$T$$ là một cây và $$T$$ chứa mọi đỉnh của $$G$$, nghĩa là $$V(T) = V(G)$$ và $$E(T) \\subseteq E(G)$$.",
+   "example_vi": "Với chu trình $$C_4$$ có tập đỉnh $$\\{v_1, v_2, v_3, v_4\\}$$ và các cạnh $$v_1v_2, v_2v_3, v_3v_4, v_4v_1$$, đồ thị con gồm ba cạnh $$v_1v_2, v_2v_3, v_3v_4$$ là một cây bao trùm của $$C_4$$.",
+   "notes": "Recommended term \"cây bao trùm\" is the dominant standard term, attested with an explicit definition matching THIS concept in all three 2019-2020 sources (leanhvinh-2020 tr.46, nguyenhoangthach-2020 tr.86, nguyenhuudien-2019 tr.243), plus hoangchithanh-2007 and ngodactan-2004; citations ordered newest source first. Variant \"cây khung\" is attested as a definitional term in nguyenducnghia-2006 (tr.202, \"được gọi là cây khung của đồ thị G\") and recurs in nguyenhuudien-2019 in the exercises (tr.260-261, e.g. \"cây khung nhỏ nhất\"), so the 2019 source uses both terms. Note nguyenhuudien-2019 uses \"cây bao trùm\" in its main text/definitions and \"cây khung\" only in exercise statements. Candidate \"cây phủ\" returned zero hits across all six sources (both normal and --loose), so it is dropped. OCR sources leanhvinh-2020 and hoangchithanh-2007 were searched with both normal and --loose passes; \"cây bao trùm\" matched, \"cây khung\" did not appear in either OCR source.",
+   "see_also": [
+    "subgraph",
+    "spanning-subgraph"
+   ],
+   "vi_terms": [
+    {
+     "term": "cây bao trùm",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-leanhvinh-2020",
+     "pdf_page": 46,
+     "page": "tr. 46 (PDF)",
+     "snippet": "Cho đồ thị G. Ta nói dé thị 7 là cây bao trùm của Ơ khi và chỉ T là"
+    },
+    {
+     "term": "cây bao trùm",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhoangthach-2020",
+     "pdf_page": 86,
+     "page": "tr. 86 (PDF)",
+     "snippet": "Định nghĩa 6.7. Một đồ thị con T của G là một cây bao trùm của G nếu"
+    },
+    {
+     "term": "cây bao trùm",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 243,
+     "page": "tr. 243 (PDF)",
+     "snippet": "Định nghĩa 10.2 Cây T được gọi là cây bao trùm của đồ thị G nếu T là một đồ thị riêng"
+    },
+    {
+     "term": "cây bao trùm",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-hoangchithanh-2007",
+     "pdf_page": 125,
+     "page": "tr. 125 (PDF)",
+     "snippet": "Dinh nghĩa 11.2: Cây T được gọi là cây bao trùm của đồ thị G"
+    },
+    {
+     "term": "cây bao trùm",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-ngodactan-2004",
+     "pdf_page": 223,
+     "page": "tr. 223 (PDF)",
+     "snippet": "con T = (V ',E ') của G được gọi là cây bao trùm của G nếu T là cây"
+    },
+    {
+     "term": "cây khung",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 260,
+     "page": "tr. 260 (PDF)",
+     "snippet": "▷ 10.13. Tìm cây khung nhỏ nhất bằng thuật toán Prim của đồ thị gồm các đỉnh"
+    },
+    {
+     "term": "cây khung",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenducnghia-2006",
+     "pdf_page": 202,
+     "page": "tr. 202 (PDF)",
+     "snippet": "được gọi là cây khung của đồ thị Ơ."
+    },
+    {
+     "term": "cây khung",
+     "source_id": "bib-rosen-2003-vi",
+     "pdf_page": 678,
+     "page": "tr. 678 (PDF, bản dịch Rosen)",
+     "snippet": "ĐỊNH NGHĨA 1. Cho G là một đơn đồ thi. Một cây được gọi là cây khung",
+     "verified": true,
+     "recommended": false
+    }
+   ]
+  },
+  {
+   "id": "strongly-connected-graph",
+   "letter": "S",
+   "headword_en": "Strongly connected graph",
+   "notation": "",
+   "rosen_ref": "Rosen §10.4",
+   "definition_vi": "Một đồ thị có hướng $$G$$ được gọi là *liên thông mạnh* nếu với mọi cặp đỉnh $$a$$ và $$b$$ của $$G$$, tồn tại một đường đi có hướng từ $$a$$ đến $$b$$ và một đường đi có hướng từ $$b$$ đến $$a$$.",
+   "example_vi": "Đồ thị có hướng trên tập đỉnh $$\\{a, b, c\\}$$ với các cung $$a \\to b$$, $$b \\to c$$ và $$c \\to a$$ là liên thông mạnh, vì từ mỗi đỉnh đều có một đường đi có hướng đến hai đỉnh còn lại.",
+   "notes": "Concept applies to directed graphs (đồ thị có hướng). Recommended term \"liên thông mạnh\" is the standard predicate, attested in the newest 2020 source bib-nguyenhoangthach-2020 (Định nghĩa 5.38, tr. 76 PDF) and consistently across bib-nguyenhuudien-2019 (Định nghĩa 6.21), bib-nguyenducnghia-2006 (Định nghĩa 6), and bib-ngodactan-2004. The noun-phrase variant \"đồ thị liên thông mạnh\" is attested in bib-nguyenhoangthach-2020 (tr. 76) and bib-nguyenducnghia-2006 (tr. 158). The two OCR sources bib-leanhvinh-2020 and bib-hoangchithanh-2007 do NOT attest this term: extensive normal and --loose searches (including OCR-mangled spellings \"liên thông manh\", \"lien thong manh\", \"liên thông mành\") returned zero hits, and scanning all \"liên thông\" hits in those two sources found none paired with \"mạnh\" — these OCR sources appear not to cover the strongly-connected (directed) concept. Related: thành phần liên thông mạnh (strongly connected component) appears in bib-nguyenhoangthach-2020 Định nghĩa 5.39 (tr. 76) but denotes a distinct concept (component, not whole-graph property), so it is not listed as a variant here.",
+   "see_also": [
+    "strongly-connected-component"
+   ],
+   "vi_terms": [
+    {
+     "term": "liên thông mạnh",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-nguyenhoangthach-2020",
+     "pdf_page": 76,
+     "page": "tr. 76 (PDF)",
+     "snippet": "Định nghĩa 5.38. Đồ thị G được gọi là liên thông mạnh nếu với mọi cặp"
+    },
+    {
+     "term": "đồ thị liên thông mạnh",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhoangthach-2020",
+     "pdf_page": 76,
+     "page": "tr. 76 (PDF)",
+     "snippet": "Dễ thấy một đồ thị liên thông mạnh thì liên thông yếu, nhưng điều ngược"
+    },
+    {
+     "term": "liên thông mạnh",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 171,
+     "page": "tr. 171 (PDF)",
+     "snippet": "Định nghĩa 6.21 Đồ thị có hướng G được gọi là liên thông mạnh nếu với hai đỉnh phân"
+    },
+    {
+     "term": "liên thông mạnh",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenducnghia-2006",
+     "pdf_page": 157,
+     "page": "tr. 157 (PDF)",
+     "snippet": "Định nghĩa 6. Đở thị có hướng G= (V,A) được gọi là liên thông mạnh nếu luôn tìm"
+    },
+    {
+     "term": "đồ thị liên thông mạnh",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenducnghia-2006",
+     "pdf_page": 158,
+     "page": "tr. 158 (PDF)",
+     "snippet": "Hình 3. Đồ thị liên thông mạnh Ơ và đồ thị liên thông yếu #"
+    },
+    {
+     "term": "liên thông mạnh",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-ngodactan-2004",
+     "pdf_page": 196,
+     "page": "tr. 196 (PDF)",
+     "snippet": "Đồ thị có hướng G = (V,E) được gọi là liên thông mạnh, nếu với"
+    },
+    {
+     "term": "liên thông mạnh",
+     "source_id": "bib-rosen-2003-vi",
+     "pdf_page": 541,
+     "page": "tr. 541 (PDF, bản dịch Rosen)",
+     "snippet": "Trong đồ thị có hướng liên thông mạnh luôn tổn tại dãy các cạnh có",
+     "verified": true,
+     "recommended": false
+    }
+   ]
+  },
+  {
+   "id": "shortest-path",
+   "letter": "S",
+   "headword_en": "Shortest path",
+   "notation": "",
+   "rosen_ref": "Rosen §10.6",
+   "definition_vi": "Cho đồ thị có trọng số $$G$$ và hai đỉnh $$u, v$$ của $$G$$. Đường đi ngắn nhất từ $$u$$ tới $$v$$ là một đường đi nối $$u$$ với $$v$$ có tổng trọng số các cạnh nhỏ nhất trong số mọi đường đi nối hai đỉnh này.",
+   "example_vi": "Trong $$G$$ với các đỉnh $$a, b, c$$ và các cạnh $$ab, bc, ac$$ có trọng số lần lượt là $$1, 1, 3$$, đường đi $$a, b, c$$ có tổng trọng số $$2$$ nhỏ hơn tổng trọng số $$3$$ của đường đi $$a, c$$, nên $$a, b, c$$ là đường đi ngắn nhất từ $$a$$ tới $$c$$.",
+   "notes": "Concept: a shortest path between two vertices in a weighted graph is a path joining them whose total edge-weight sum is minimum among all such paths (Rosen §10.6). Recommended term \"đường đi ngắn nhất\" is the dominant standard form, attested formally in both 2020 sources (bib-nguyenhoangthach-2020 p.91 gives the formal definition \"một đường đi ngắn nhất từ u tới v là một...\"; bib-leanhvinh-2020 p.33 titles its section \"1.4. Đường đi ngắn nhất\"), and consistently across 2019 (nguyenhuudien), 2007 (hoangchithanh), and 2006 (nguyenducnghia). OCR sources (leanhvinh-2020, hoangchithanh-2007) were re-run with --loose; loose passes confirmed the same spelling with no additional distinct variant. Variant \"đường ngắn nhất\" (path without \"đi\") also occurs: in bib-nguyenhoangthach-2020 (p.91, used for the problem name \"Bài toán tìm đường ngắn nhất\"), bib-nguyenducnghia-2006 (p.251, in a max-flow Edmonds-Karp shortest-augmenting-path context), and bib-ngodactan-2004 (p.216, 285, in the formal definition of distance d(u,v) as the length of a shortest path). Both terms denote this exact concept (verified via snippets showing path of minimum length/weight between two vertices). No OCR-mangled distinct variant found.",
+   "see_also": [
+    "weighted-graph",
+    "distance",
+    "path",
+    "dijkstras-algorithm"
+   ],
+   "vi_terms": [
+    {
+     "term": "đường đi ngắn nhất",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-nguyenhoangthach-2020",
+     "pdf_page": 91,
+     "page": "tr. 91 (PDF)",
+     "snippet": "Nếu u và v là hai đỉnh của G, một đường đi ngắn nhất từ u tới v là một"
+    },
+    {
+     "term": "đường đi ngắn nhất",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-leanhvinh-2020",
+     "pdf_page": 33,
+     "page": "tr. 33 (PDF)",
+     "snippet": "1.4. Đường đi ngắn nhất"
+    },
+    {
+     "term": "đường đi ngắn nhất",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 202,
+     "page": "tr. 202 (PDF)",
+     "snippet": "Bài toán: Cho đồ thị G = (V, E) và hai đỉnh a, b. Tìm đường đi ngắn nhất (nếu có) đi từ đỉnh a"
+    },
+    {
+     "term": "đường đi ngắn nhất",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-hoangchithanh-2007",
+     "pdf_page": 74,
+     "page": "tr. 74 (PDF)",
+     "snippet": "là đường đi ngắn nhất từ đỉnh a đến đỉnh b."
+    },
+    {
+     "term": "đường đi ngắn nhất",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenducnghia-2006",
+     "pdf_page": 223,
+     "page": "tr. 223 (PDF)",
+     "snippet": "Bài toán tìm đường đi ngắn nhất trên đồ thị dưới dạng tổng quát có thể phát biểu"
+    },
+    {
+     "term": "đường ngắn nhất",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhoangthach-2020",
+     "pdf_page": 91,
+     "page": "tr. 91 (PDF)",
+     "snippet": "Có nhiều thuật toán tìm đường ngắn nhất giữa hai đỉnh của một đồ thị liên"
+    },
+    {
+     "term": "đường ngắn nhất",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenducnghia-2006",
+     "pdf_page": 251,
+     "page": "tr. 251 (PDF)",
+     "snippet": "Edmonds và Karp chỉ ra rắng nếu đường tăng luồng được chọn là đường ngắn nhất"
+    },
+    {
+     "term": "đường ngắn nhất",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-ngodactan-2004",
+     "pdf_page": 216,
+     "page": "tr. 216 (PDF)",
+     "snippet": "là d(u,v), là độ dài của đường ngắn nhất trong G nối u với V ,"
+    },
+    {
+     "term": "đường đi ngắn nhất",
+     "source_id": "bib-rosen-2003-vi",
+     "pdf_page": 131,
+     "page": "tr. 131 (PDF, bản dịch Rosen)",
+     "snippet": "dan; cho một mang, tìm đường đi ngắn nhất giữa hai đỉnh của nó. Khí",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "đường ngắn nhất",
+     "source_id": "bib-rosen-2003-vi",
+     "pdf_page": 578,
+     "page": "tr. 578 (PDF, bản dịch Rosen)",
+     "snippet": "11, Tìm đường ngắn nhất (khoảng cách) giữa hai trung tâm máy tính ở",
+     "verified": true,
+     "recommended": false
+    }
+   ]
+  },
+  {
+   "id": "self-complementary-graph",
+   "letter": "S",
+   "headword_en": "Self-complementary graph",
+   "notation": "G \\cong \\overline{G}",
+   "rosen_ref": "Rosen §10.2",
+   "definition_vi": "Một đồ thị đơn $$G$$ được gọi là *đồ thị tự bù* nếu nó đẳng cấu với phần bù của chính nó, ký hiệu $$G \\cong \\overline{G}$$, trong đó $$\\overline{G}$$ là đồ thị có cùng tập đỉnh với $$G$$ và hai đỉnh kề nhau trong $$\\overline{G}$$ khi và chỉ khi chúng không kề nhau trong $$G$$.",
+   "example_vi": "Đường đi $$P_4$$ trên bốn đỉnh là một đồ thị tự bù, vì $$P_4 \\cong \\overline{P_4}$$. Tương tự, chu trình $$C_5$$ trên năm đỉnh thỏa mãn $$C_5 \\cong \\overline{C_5}$$, nên $$C_5$$ cũng là đồ thị tự bù.",
+   "notes": "No 2019-2020 source in the corpus attests this concept. The only attestation across all six Vietnamese sources is bib-ngodactan-2004 (2004, p. 215), which defines the concept as \"đồ thị vô hướng $$G = (V,E)$$ được gọi là đồ thị tự bù nếu $$G \\cong \\overline{G}$$\" and notes the order constraint $$|V| \\equiv 0$$ or $$1 \\pmod 4$$. The recommended term \"đồ thị tự bù\" is therefore attested from a 2004 source rather than a 2019-2020 one; it remains the standard term and is kept verified=true. The bare adjectival form \"tự bù\" appears in the same passage and is recorded as a variant. The OCR-detected loose hits on pp. 230/237/251 are false positives from \"từ Bước\" (algorithm-step references) and do not denote this concept.",
+   "see_also": [
+    "complement-of-a-graph",
+    "graph-isomorphism",
+    "simple-graph"
+   ],
+   "vi_terms": [
+    {
+     "term": "đồ thị tự bù",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-ngodactan-2004",
+     "pdf_page": 215,
+     "page": "tr. 215 (PDF)",
+     "snippet": "6.7 (*) Đồ thị vô hướng G — (y,E ) được gọi là đồ thị tự bù nếu G"
+    },
+    {
+     "term": "tự bù",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-ngodactan-2004",
+     "pdf_page": 215,
+     "page": "tr. 215 (PDF)",
+     "snippet": "thị tự bù, thì ỊVỊ = 0 hoặc |VỊ = 1 (mod 4)."
+    },
+    {
+     "term": "tự bù",
+     "source_id": "bib-rosen-2003-vi",
+     "pdf_page": 535,
+     "page": "tr. 535 (PDF, bản dịch Rosen)",
+     "snippet": "53. Với số nguyên z nào thì C, là tự bù?",
+     "verified": true,
+     "recommended": false
+    }
+   ]
+  }
+ ]
 }

@@ -1,145 +1,172 @@
 {
-  "locked_conventions": [
-    "Math: every inline math symbol wrapped in $$...$$ (e.g. $$p \\oplus q$$, $$\\overline{p \\oplus q}$$, $$p \\leftrightarrow q$$, bit literals); block math uses a ```math fence; no bare unwrapped book-prose math; use $$\\geq$$ $$\\leq$$ $$\\neq$$, never ASCII >= <= !=. Verbatim OCR snippets inside notes/snippets are left as quoted source text (not wrapped).",
-    "Bipartite is rendered \"đồ thị hai phần\" (book standard); \"đồ thị hai phía\"/\"đồ thị phân đôi\" are listed variants only. Not triggered in chapter X (propositional-logic / bitwise chapter, no graph-class terms).",
-    "Exactly ONE vi_term per entry has recommended=true; attested in a 2019-2020 source where possible; citations ordered newest-first. EVERY variant from ALL sources (old+new) is recorded. A recommended term may be verified=false only if NO source attests it (then explained in notes).",
-    "Citation hygiene: every verified=true vi_term carries source_id + pdf_page + page + snippet; verified=false non-recommended terms with empty page are dropped, except one standard recommended term kept so vi_terms stays non-empty.",
-    "Examples are self-contained: they instantiate only the quantities the definition introduces; no derived quantity the definition did not introduce.",
-    "No synonym glosses inside the definition prose; variants live in vi_terms/notes; the English headword lives in headword_en.",
-    "see_also: kebab-case ids; only same-chapter ids {xor, xnor, xor-bit-operation} are linked, cross-chapter ids are forward references.",
-    "Registry constraint (data/sources/registry.yaml lines 16-23, 40-45): bib-rosen-2003-vi is role:reference - mined as an extra comparison source to capture variants, but reference-only and may NEVER be the recommended/lead term. Its attestations are recorded as verified=true, recommended=false variants only. This matches existing chapter F/G/R handling."
-  ],
-  "deferred_note": "All three terminology high-severity findings were independently verified against the primary corpus (workflow/corpus/bib-rosen-2003-vi.txt) before being applied: XOR \"tuyển loại\" at PDF p.10 (ĐỊNH NGHĨA 4, corpus line 335, @@PAGE 10@@), biconditional/XNOR-equivalent \"mệnh đề tương đương p<->q\" at PDF p.13 (ĐỊNH NGHĨA 6, corpus line 484, @@PAGE 13@@), and \"XOR bit\" on bit strings at PDF p.15 (corpus line 591, between @@PAGE 15@@ and @@PAGE 16@@). The earlier mine excluded bib-rosen-2003-vi (confirmed by the entries-w.yaml \"excluded by find-term.py\" note), which produced the false \"only bib-nguyenhuudien-2019\"/\"0 hits\"/\"no corpus attestation\" claims now corrected. Applied: (1) xnor see_also exclusive-or -> xor (med correctness, dead in-chapter link). (2) Added rosen-2003-vi verified non-recommended variants to all three entries and rewrote the false no-attestation sentences. (3) Dropped the bare {term:XOR} programming-keyword vi_term from xor-bit-operation and the unverifiable empty-page non-recommended variants (phép tuyển loại trừ, phép XOR) from xor per \"drop unverifiable non-recommended citations.\" Recommended terms remain on the newest non-reference attestation per registry: \"hay loại trừ\" (nguyenhuudien-2019) for xor, \"phép tương đương\" (nguyenhuudien-2019) for xnor. For xor-bit-operation the recommended \"phép XOR theo bit\" stays verified=false: this exact modern spelling is genuinely unattested verbatim (the attested forms are \"XOR bit\" in rosen-2003-vi and \"phép ⊕-tổng\" in hoangchithanh-2007), so the verified=false-recommended clause is satisfied, and the notes now explicitly state that the operation IS attested rather than claiming zero attestation. Reciprocal same-chapter see_also links added (xor <-> xnor <-> xor-bit-operation). Low-severity polish fixes (definition wording, one-idea-per-sentence split, dropped (XNOR) parenthetical gloss, aligned XOR head-noun naming between xor and xnor) applied where clearly correct.",
-  "final_entries": [
+ "locked_conventions": [
+  "Math: every inline math symbol wrapped in $$...$$ (e.g. $$p \\oplus q$$, $$\\overline{p \\oplus q}$$, $$p \\leftrightarrow q$$, bit literals); block math uses a ```math fence; no bare unwrapped book-prose math; use $$\\geq$$ $$\\leq$$ $$\\neq$$, never ASCII >= <= !=. Verbatim OCR snippets inside notes/snippets are left as quoted source text (not wrapped).",
+  "Bipartite is rendered \"đồ thị hai phần\" (book standard); \"đồ thị hai phía\"/\"đồ thị phân đôi\" are listed variants only. Not triggered in chapter X (propositional-logic / bitwise chapter, no graph-class terms).",
+  "Exactly ONE vi_term per entry has recommended=true; attested in a 2019-2020 source where possible; citations ordered newest-first. EVERY variant from ALL sources (old+new) is recorded. A recommended term may be verified=false only if NO source attests it (then explained in notes).",
+  "Citation hygiene: every verified=true vi_term carries source_id + pdf_page + page + snippet; verified=false non-recommended terms with empty page are dropped, except one standard recommended term kept so vi_terms stays non-empty.",
+  "Examples are self-contained: they instantiate only the quantities the definition introduces; no derived quantity the definition did not introduce.",
+  "No synonym glosses inside the definition prose; variants live in vi_terms/notes; the English headword lives in headword_en.",
+  "see_also: kebab-case ids; only same-chapter ids {xor, xnor, xor-bit-operation} are linked, cross-chapter ids are forward references.",
+  "Registry constraint (data/sources/registry.yaml lines 16-23, 40-45): bib-rosen-2003-vi is role:reference - mined as an extra comparison source to capture variants, but reference-only and may NEVER be the recommended/lead term. Its attestations are recorded as verified=true, recommended=false variants only. This matches existing chapter F/G/R handling."
+ ],
+ "deferred_note": "All three terminology high-severity findings were independently verified against the primary corpus (workflow/corpus/bib-rosen-2003-vi.txt) before being applied: XOR \"tuyển loại\" at PDF p.10 (ĐỊNH NGHĨA 4, corpus line 335, @@PAGE 10@@), biconditional/XNOR-equivalent \"mệnh đề tương đương p<->q\" at PDF p.13 (ĐỊNH NGHĨA 6, corpus line 484, @@PAGE 13@@), and \"XOR bit\" on bit strings at PDF p.15 (corpus line 591, between @@PAGE 15@@ and @@PAGE 16@@). The earlier mine excluded bib-rosen-2003-vi (confirmed by the entries-w.yaml \"excluded by find-term.py\" note), which produced the false \"only bib-nguyenhuudien-2019\"/\"0 hits\"/\"no corpus attestation\" claims now corrected. Applied: (1) xnor see_also exclusive-or -> xor (med correctness, dead in-chapter link). (2) Added rosen-2003-vi verified non-recommended variants to all three entries and rewrote the false no-attestation sentences. (3) Dropped the bare {term:XOR} programming-keyword vi_term from xor-bit-operation and the unverifiable empty-page non-recommended variants (phép tuyển loại trừ, phép XOR) from xor per \"drop unverifiable non-recommended citations.\" Recommended terms remain on the newest non-reference attestation per registry: \"hay loại trừ\" (nguyenhuudien-2019) for xor, \"phép tương đương\" (nguyenhuudien-2019) for xnor. For xor-bit-operation the recommended \"phép XOR theo bit\" stays verified=false: this exact modern spelling is genuinely unattested verbatim (the attested forms are \"XOR bit\" in rosen-2003-vi and \"phép ⊕-tổng\" in hoangchithanh-2007), so the verified=false-recommended clause is satisfied, and the notes now explicitly state that the operation IS attested rather than claiming zero attestation. Reciprocal same-chapter see_also links added (xor <-> xnor <-> xor-bit-operation). Low-severity polish fixes (definition wording, one-idea-per-sentence split, dropped (XNOR) parenthetical gloss, aligned XOR head-noun naming between xor and xnor) applied where clearly correct.",
+ "final_entries": [
+  {
+   "id": "xor",
+   "letter": "X",
+   "headword_en": "XOR (exclusive or)",
+   "notation": "p \\oplus q",
+   "rosen_ref": "Rosen §1.1",
+   "definition_vi": "Phép hay loại trừ của hai mệnh đề $$p$$ và $$q$$, ký hiệu $$p \\oplus q$$, là mệnh đề phức hợp đúng khi đúng một trong hai mệnh đề $$p$$, $$q$$ nhận giá trị đúng, và sai trong các trường hợp còn lại.",
+   "example_vi": "Cho $$p$$ là mệnh đề \"Hôm nay là thứ Hai\" và $$q$$ là mệnh đề \"Trời đang mưa\". Khi đó $$p \\oplus q$$ đúng khi và chỉ khi đúng một trong hai mệnh đề trên nhận giá trị đúng; nếu cả hai cùng đúng hoặc cả hai cùng sai thì $$p \\oplus q$$ sai.",
+   "notes": "Hai nguồn định nghĩa khái niệm này. bib-nguyenhuudien-2019 (2019, tr. 18 PDF), trong phần \"Nhận xét\" sau Phép tuyển, giới thiệu phép \"hoặc\" với bảng chân trị có dòng cuối $$1,1 \\mapsto 0$$ và nêu nó \"đúng khi đúng một trong hai mệnh đề $$p$$, $$q$$ đúng\" — đúng là định nghĩa XOR; nguồn này cũng gọi thẳng phép đó là hay loại trừ (\"exclusive or\"). Bản dịch tham khảo bib-rosen-2003-vi (2003, tr. 10 PDF), ĐỊNH NGHĨA 4, gọi nó là mệnh đề tuyển loại $$p \\oplus q$$. Trong bib-nguyenhuudien-2019, tuyển bao hàm $$p \\vee q$$ được gọi là phép \"hay\"/phép tuyển (định nghĩa ở tr. 17 với ký hiệu $$\\vee$$), còn phép loại trừ được gọi là phép \"hoặc\" (tr. 18) — một quy ước đặt tên riêng của sách này (phần lớn sách Việt dùng phép tuyển/hoặc cho OR bao hàm). OCR ở bib-nguyenhuudien-2019 hiển thị ký hiệu $$\\oplus$$ thành $$\\vee$$ (find-term trả về \"p∨q đúng khi trong 2 mệnh đề p và q có một mệnh đề đúng, một mệnh đề sai\"); dòng bảng chân trị $$1,1 \\mapsto 0$$ và phần lời phân biệt nó với OR bao hàm. Cách diễn đạt bằng prose, ví dụ \"dòng mà $$p$$ và $$q$$ cùng đúng cho $$p \\oplus q = 0$$\", rõ hơn ký hiệu rút gọn. Cụm hit \"XOR\" trong bib-hoangchithanh-2007 (tr. 25 PDF, \"w := u XOR v trong ngôn ngữ lập trình Pascal\") là XOR theo bit/Pascal dùng trong lý thuyết trò chơi kiểu Nim, KHÔNG phải XOR mệnh đề của hai mệnh đề, nên không tính vào mục này (xem mục xor-bit-operation). Đính chính so với bản nháp khai thác trước: KHÔNG đúng khi nói \"chỉ bib-nguyenhuudien-2019 định nghĩa khái niệm này\" và \"phép tuyển loại trừ trả về 0 hit kể cả --loose\"; bản dịch tham khảo bib-rosen-2003-vi dùng dạng họ thuật ngữ tuyển loại / mệnh đề tuyển loại và là một biến thể đã xác minh. Lần khai thác tự động đã bỏ sót bib-rosen-2003-vi (bị loại bởi find-term.py), nhưng quy ước sách yêu cầu ghi MỌI biến thể từ MỌI nguồn (cũ + mới), và việc đọc trang đã xác nhận hit. Thuật ngữ chuẩn discrete-math \"phép tuyển loại trừ\" là một biến thể không xác minh được verbatim trong kho ngữ liệu và không còn được giữ làm trích dẫn rỗng-trang. Các hit \"loại trừ\" còn lại phần lớn là \"nguyên lý bao hàm và loại trừ\" (inclusion-exclusion), một khái niệm khác. Thuật ngữ khuyến nghị là \"hay loại trừ\" (nguồn mới nhất, không phải nguồn tham khảo); ví dụ tự chứa, chỉ dùng $$p$$, $$q$$, $$p \\oplus q$$ mà định nghĩa giới thiệu.",
+   "see_also": [
+    "xnor",
+    "xor-bit-operation"
+   ],
+   "vi_terms": [
     {
-      "id": "xor",
-      "letter": "X",
-      "headword_en": "XOR (exclusive or)",
-      "notation": "p \\oplus q",
-      "rosen_ref": "Rosen §1.1",
-      "definition_vi": "Phép hay loại trừ của hai mệnh đề $$p$$ và $$q$$, ký hiệu $$p \\oplus q$$, là mệnh đề phức hợp đúng khi đúng một trong hai mệnh đề $$p$$, $$q$$ nhận giá trị đúng, và sai trong các trường hợp còn lại.",
-      "example_vi": "Cho $$p$$ là mệnh đề \"Hôm nay là thứ Hai\" và $$q$$ là mệnh đề \"Trời đang mưa\". Khi đó $$p \\oplus q$$ đúng khi và chỉ khi đúng một trong hai mệnh đề trên nhận giá trị đúng; nếu cả hai cùng đúng hoặc cả hai cùng sai thì $$p \\oplus q$$ sai.",
-      "notes": "Hai nguồn định nghĩa khái niệm này. bib-nguyenhuudien-2019 (2019, tr. 18 PDF), trong phần \"Nhận xét\" sau Phép tuyển, giới thiệu phép \"hoặc\" với bảng chân trị có dòng cuối $$1,1 \\mapsto 0$$ và nêu nó \"đúng khi đúng một trong hai mệnh đề $$p$$, $$q$$ đúng\" — đúng là định nghĩa XOR; nguồn này cũng gọi thẳng phép đó là hay loại trừ (\"exclusive or\"). Bản dịch tham khảo bib-rosen-2003-vi (2003, tr. 10 PDF), ĐỊNH NGHĨA 4, gọi nó là mệnh đề tuyển loại $$p \\oplus q$$. Trong bib-nguyenhuudien-2019, tuyển bao hàm $$p \\vee q$$ được gọi là phép \"hay\"/phép tuyển (định nghĩa ở tr. 17 với ký hiệu $$\\vee$$), còn phép loại trừ được gọi là phép \"hoặc\" (tr. 18) — một quy ước đặt tên riêng của sách này (phần lớn sách Việt dùng phép tuyển/hoặc cho OR bao hàm). OCR ở bib-nguyenhuudien-2019 hiển thị ký hiệu $$\\oplus$$ thành $$\\vee$$ (find-term trả về \"p∨q đúng khi trong 2 mệnh đề p và q có một mệnh đề đúng, một mệnh đề sai\"); dòng bảng chân trị $$1,1 \\mapsto 0$$ và phần lời phân biệt nó với OR bao hàm. Cách diễn đạt bằng prose, ví dụ \"dòng mà $$p$$ và $$q$$ cùng đúng cho $$p \\oplus q = 0$$\", rõ hơn ký hiệu rút gọn. Cụm hit \"XOR\" trong bib-hoangchithanh-2007 (tr. 25 PDF, \"w := u XOR v trong ngôn ngữ lập trình Pascal\") là XOR theo bit/Pascal dùng trong lý thuyết trò chơi kiểu Nim, KHÔNG phải XOR mệnh đề của hai mệnh đề, nên không tính vào mục này (xem mục xor-bit-operation). Đính chính so với bản nháp khai thác trước: KHÔNG đúng khi nói \"chỉ bib-nguyenhuudien-2019 định nghĩa khái niệm này\" và \"phép tuyển loại trừ trả về 0 hit kể cả --loose\"; bản dịch tham khảo bib-rosen-2003-vi dùng dạng họ thuật ngữ tuyển loại / mệnh đề tuyển loại và là một biến thể đã xác minh. Lần khai thác tự động đã bỏ sót bib-rosen-2003-vi (bị loại bởi find-term.py), nhưng quy ước sách yêu cầu ghi MỌI biến thể từ MỌI nguồn (cũ + mới), và việc đọc trang đã xác nhận hit. Thuật ngữ chuẩn discrete-math \"phép tuyển loại trừ\" là một biến thể không xác minh được verbatim trong kho ngữ liệu và không còn được giữ làm trích dẫn rỗng-trang. Các hit \"loại trừ\" còn lại phần lớn là \"nguyên lý bao hàm và loại trừ\" (inclusion-exclusion), một khái niệm khác. Thuật ngữ khuyến nghị là \"hay loại trừ\" (nguồn mới nhất, không phải nguồn tham khảo); ví dụ tự chứa, chỉ dùng $$p$$, $$q$$, $$p \\oplus q$$ mà định nghĩa giới thiệu.",
-      "see_also": ["xnor", "xor-bit-operation"],
-      "vi_terms": [
-        {
-          "term": "hay loại trừ",
-          "source_id": "bib-nguyenhuudien-2019",
-          "page": "tr. 18 (PDF)",
-          "pdf_page": 18,
-          "snippet": "Phép \"hoặc\" còn được gọi là \"hay loại trừ\". chân trị của mệnh đề p⊕q phụ thuộc vào các chân trị của 2 mệnh đề p, q : mệnh đề p⊕q đúng khi trong 2 mệnh đề p và q có một mệnh đề đúng, một mệnh đề sai.",
-          "verified": true,
-          "recommended": true
-        },
-        {
-          "term": "phép \"hoặc\"",
-          "source_id": "bib-nguyenhuudien-2019",
-          "page": "tr. 18 (PDF)",
-          "pdf_page": 18,
-          "snippet": "Người ta còn sử dụng phép \"hoặc\" trong việc liên kết các mệnh đề. Cho p và q là hai mệnh đề. Ta ký hiệu mệnh đề \"p hoặc q\" là p⊕q. Phép \"hoặc\", ký hiệu là p⊕q, được định nghĩa bởi bảng chân trị sau đây [... 1,1 ↦ 0 ...]",
-          "verified": true,
-          "recommended": false
-        },
-        {
-          "term": "tuyển loại",
-          "source_id": "bib-rosen-2003-vi",
-          "page": "tr. 10 (PDF)",
-          "pdf_page": 10,
-          "snippet": "ĐỊNH NGHĨA 4. Cho p và q là hai mệnh đề. Mệnh đề tuyển loại của p và q, được ký hiệu là p ⊕ q, là một mệnh đề chỉ đúng khi một trong p và q là đúng và sai trong mọi trường hợp còn lại.",
-          "verified": true,
-          "recommended": false
-        }
-      ]
+     "term": "hay loại trừ",
+     "source_id": "bib-nguyenhuudien-2019",
+     "page": "tr. 18 (PDF)",
+     "pdf_page": 18,
+     "snippet": "Phép \"hoặc\" còn được gọi là \"hay loại trừ\". chân trị của mệnh đề p⊕q phụ thuộc vào các chân trị của 2 mệnh đề p, q : mệnh đề p⊕q đúng khi trong 2 mệnh đề p và q có một mệnh đề đúng, một mệnh đề sai.",
+     "verified": true,
+     "recommended": true
     },
     {
-      "id": "xnor",
-      "letter": "X",
-      "headword_en": "XNOR (exclusive nor)",
-      "notation": "\\overline{p \\oplus q}",
-      "rosen_ref": "Rosen §1.1",
-      "definition_vi": "Phép tương đương của hai mệnh đề $$p$$ và $$q$$, ký hiệu $$\\overline{p \\oplus q}$$, là phủ định của phép hay loại trừ $$p \\oplus q$$ của chúng. Mệnh đề này nhận giá trị đúng khi và chỉ khi $$p$$ và $$q$$ có cùng chân trị, nên tương đương logic với phép kéo theo hai chiều $$p \\leftrightarrow q$$.",
-      "example_vi": "Với $$p$$ là mệnh đề \"trời mưa\" và $$q$$ là mệnh đề \"đường ướt\", mệnh đề $$\\overline{p \\oplus q}$$ đúng khi cả $$p$$ và $$q$$ cùng đúng hoặc cùng sai, và sai khi đúng một trong hai.",
-      "notes": "XNOR/exclusive nor không được gọi tên trực tiếp trong nguồn Việt nào (không nguồn nào dùng \"phép phủ định tuyển loại\"). Theo Rosen, XNOR là phủ định của phép hay loại trừ và tương đương logic với phép kéo theo hai chiều $$p \\leftrightarrow q$$, đúng đúng khi $$p$$ và $$q$$ cùng chân trị. Kho ngữ liệu chứng thực phép tương đương này (liên từ kéo theo hai chiều $$\\leftrightarrow$$) trong bib-nguyenhuudien-2019 (2019), nguồn duy nhất trong nhóm 2019-2020 bao quát logic mệnh đề (bảng chân trị tr. 19 PDF cho $$p \\leftrightarrow q = 1$$ đúng khi $$p$$, $$q$$ trùng chân trị, khớp XNOR), và được CORROBORATE bởi bản dịch tham khảo bib-rosen-2003-vi (2003, tr. 13 PDF, ĐỊNH NGHĨA 6, mệnh đề tương đương $$p \\leftrightarrow q$$). Đính chính so với bản nháp trước: KHÔNG đúng khi nói phép này \"chỉ\" có ở bib-nguyenhuudien-2019; bản dịch tham khảo bib-rosen-2003-vi cũng chứng thực \"phép tương đương\" (lần khai thác tự động trước đã bỏ sót nguồn này vì find-term.py loại nó). Thuật ngữ khuyến nghị \"phép tương đương\" là tên chuẩn của phép này; \"phép kéo theo 2 chiều\" là tên đồng nghĩa trong cùng nguồn nguyenhuudien-2019. Theo registry, bib-rosen-2003-vi là role:reference nên dù chứng thực, nó KHÔNG được làm thuật ngữ khuyến nghị/lead; recommended vẫn đặt ở thể \"phép tương đương\" của bib-nguyenhuudien-2019 (nguồn mới nhất). Không có nguồn 2019-2020 nào bao quát XNOR dưới một mục đồ thị/tổ hợp, nên 2019 là chứng thực mới nhất hiện có. Biến thể \"tương đương logic\" (tr. 21 PDF) chỉ quan hệ tương đương logic giữa các công thức ($$E \\equiv F$$, cùng chân trị trong mọi gán giá trị), một khái niệm meta-level liên quan nhưng khác phép XNOR; ghi lại cho đầy đủ. Các ứng viên bị loại: \"phép đồng giá trị\" và \"phủ định của phép tuyển loại trừ\" trả về 0 hit ở cả chế độ thường và --loose. Các nguồn đồ thị OCR (bib-leanhvinh-2020, bib-hoangchithanh-2007) và bib-ngodactan-2004, bib-nguyenducnghia-2006, bib-nguyenhoangthach-2020 dùng \"tương đương\" chỉ cho quan hệ tương đương và đẳng cấu đồ thị, không cho phép XNOR/kéo theo hai chiều.",
-      "see_also": ["xor", "biconditional", "negation"],
-      "vi_terms": [
-        {
-          "term": "phép tương đương",
-          "source_id": "bib-nguyenhuudien-2019",
-          "page": "tr. 19 (PDF)",
-          "pdf_page": 19,
-          "snippet": "Phép kéo theo 2 chiều hay phép tương đương, ký hiệu bởi ↔, được đưa ra để mô hình",
-          "verified": true,
-          "recommended": true
-        },
-        {
-          "term": "phép kéo theo 2 chiều",
-          "source_id": "bib-nguyenhuudien-2019",
-          "page": "tr. 19 (PDF)",
-          "pdf_page": 19,
-          "snippet": "Phép kéo theo 2 chiều hay phép tương đương, ký hiệu bởi ↔, được đưa ra để mô hình",
-          "verified": true,
-          "recommended": false
-        },
-        {
-          "term": "phép tương đương (mệnh đề tương đương)",
-          "source_id": "bib-rosen-2003-vi",
-          "page": "tr. 13 (PDF)",
-          "pdf_page": 13,
-          "snippet": "ĐỊNH NGHĨA 6. Cho p và q là hai mệnh đề. Mệnh đề tương đương p ↔ q là mệnh đề chỉ đúng khi p và q có cùng giá trị chân lý và sai trong mọi trường hợp còn lại.",
-          "verified": true,
-          "recommended": false
-        },
-        {
-          "term": "tương đương logic",
-          "source_id": "bib-nguyenhuudien-2019",
-          "page": "tr. 21 (PDF)",
-          "pdf_page": 21,
-          "snippet": "tương đương logic (đồng nhất bằng nhau) khi E và F luôn luôn có cùng chân trị trong mọi",
-          "verified": true,
-          "recommended": false
-        }
-      ]
+     "term": "phép \"hoặc\"",
+     "source_id": "bib-nguyenhuudien-2019",
+     "page": "tr. 18 (PDF)",
+     "pdf_page": 18,
+     "snippet": "Người ta còn sử dụng phép \"hoặc\" trong việc liên kết các mệnh đề. Cho p và q là hai mệnh đề. Ta ký hiệu mệnh đề \"p hoặc q\" là p⊕q. Phép \"hoặc\", ký hiệu là p⊕q, được định nghĩa bởi bảng chân trị sau đây [... 1,1 ↦ 0 ...]",
+     "verified": true,
+     "recommended": false
     },
     {
-      "id": "xor-bit-operation",
-      "letter": "X",
-      "headword_en": "XOR bit operation",
-      "notation": "x \\oplus y",
-      "rosen_ref": "Rosen §1.1",
-      "definition_vi": "Phép XOR theo bit của hai bit $$x$$ và $$y$$, ký hiệu $$x \\oplus y$$, nhận giá trị $$1$$ khi và chỉ khi một trong hai bit bằng $$1$$ và nhận giá trị $$0$$ trong các trường hợp còn lại. Phép toán này được mở rộng cho hai xâu bit có cùng độ dài bằng cách lấy XOR theo từng vị trí tương ứng.",
-      "example_vi": "Với hai bit $$x = 1$$ và $$y = 0$$ ta có $$x \\oplus y = 1$$, còn $$1 \\oplus 1 = 0$$ và $$0 \\oplus 0 = 0$$. Áp dụng theo từng vị trí cho hai xâu bit $$1011$$ và $$1100$$ ta được $$1011 \\oplus 1100 = 0111$$.",
-      "notes": "Khái niệm XOR theo bit (exclusive-or trên bit, mở rộng theo từng thành phần cho xâu bit) ĐƯỢC chứng thực trong kho ngữ liệu bởi hai nguồn. Bản dịch tham khảo bib-rosen-2003-vi (2003, tr. 14-15 PDF) định nghĩa thẳng \"XOR bit\" trên hai xâu bit cùng chiều dài, với ví dụ tính theo từng vị trí (\"10101 01011 ⊕ XOR bit\"). bib-hoangchithanh-2007 (tr. 25 PDF) giới thiệu cùng phép này dưới tên \"phép toán $$\\oplus$$-tổng\" với $$w_i = (u_i + v_i) \\bmod 2$$ trên các chữ số nhị phân của $$u, v$$, ký hiệu $$w = u \\oplus v$$, và đồng nhất tường minh với câu lệnh Pascal \"w := u XOR v\". Nguồn hoangchithanh-2007 là OCR; ký hiệu cộng-trong-vòng-tròn $$\\oplus$$ bị OCR làm hỏng thành \"¿—\" / \"d—\" / \"d~\" (snippet \"được gọi là d— tổng của u và v\"), nên tên dự kiến là \"phép (toán) $$\\oplus$$-tổng\" (\"phép cộng theo modulo 2 từng bit\"). Token \"XOR\" sống sót qua OCR ở cả hai nguồn. Đính chính so với bản nháp trước: KHÔNG đúng khi nói \"nguồn duy nhất chứng thực khái niệm này là bib-hoangchithanh-2007\" và \"không cụm ứng viên nào xuất hiện verbatim\" — bib-rosen-2003-vi chứng thực \"XOR bit\" verbatim (tr. 15 PDF), về thực chất chính là thuật ngữ khuyến nghị \"phép XOR theo bit\". Lần khai thác tự động trước đã bỏ sót bib-rosen-2003-vi (bị loại bởi find-term.py). Không nguồn 2019-2020 nào gọi tên phép này: các hit \"loại trừ\"/\"tuyển\" trong bib-ngodactan-2004 và bib-nguyenhuudien-2019 chỉ nguyên lý bao hàm-loại trừ và tuyển logic, KHÔNG phải XOR theo bit; các hit \"modulo 2\" chỉ đồng dư modulo 2; các hit \"xâu bit\"/\"phép toán bit\" trong bib-nguyenhuudien-2019 chỉ biểu diễn tập-dưới-dạng-xâu-bit và độ phức tạp bit, không phải XOR. Thuật ngữ khuyến nghị: thể chuẩn hiện đại \"phép XOR theo bit\" được giữ làm headword khuyến nghị (verified=false), vì ĐÚNG cụm verbatim này không xuất hiện trong kho — các thể được chứng thực là \"XOR bit\" (bib-rosen-2003-vi, tr. 15, role:reference nên không được làm lead) và \"phép $$\\oplus$$-tổng\" (bib-hoangchithanh-2007, tr. 25). Do đó \"phép XOR theo bit\" là chuẩn-hóa chính tả của các thể đã được chứng thực, KHÔNG phải một sáng chế không có nguồn; điều khoản verified=false-recommended được thỏa vì chính cụm này chưa có chứng thực verbatim, và phép toán thì ĐÃ có nguồn. Token Pascal trần \"XOR\" (chỉ là từ khóa ngôn ngữ lập trình trong snippet hoangchithanh-2007, không phải tên thuật ngữ tiếng Việt) đã được bỏ khỏi vi_terms để giữ danh sách mang tính thuật ngữ; snippet Pascal vẫn được lưu trong thể \"phép $$\\oplus$$-tổng\".",
-      "see_also": ["xor"],
-      "vi_terms": [
-        {
-          "term": "phép XOR theo bit",
-          "source_id": "",
-          "page": "",
-          "pdf_page": 0,
-          "snippet": "",
-          "verified": false,
-          "recommended": true,
-          "notes": "Thể chuẩn hiện đại của phép XOR theo bit; cụm chính xác này không xuất hiện verbatim trong kho đã khai thác (xem ghi chú mục). Phép toán thì ĐÃ có nguồn: thể \"XOR bit\" (bib-rosen-2003-vi, tr. 15) và \"phép ⊕-tổng\" (bib-hoangchithanh-2007, tr. 25). Giữ làm headword khuyến nghị (chuẩn-hóa chính tả của các thể đã chứng thực); bib-rosen-2003-vi là role:reference nên không được làm lead."
-        },
-        {
-          "term": "XOR bit",
-          "source_id": "bib-rosen-2003-vi",
-          "page": "tr. 14-15 (PDF)",
-          "pdf_page": 15,
-          "snippet": "Chúng ta định nghĩa các OR bit, AND bit và XOR bit đối với hai xâu bit có cùng chiều dài là các xâu có các bit của chúng là các OR, AND và XOR của các bit tương ứng trong hai xâu tương ứng.",
-          "verified": true,
-          "recommended": false
-        },
-        {
-          "term": "phép $$\\oplus$$-tổng",
-          "source_id": "bib-hoangchithanh-2007",
-          "page": "tr. 25 (PDF)",
-          "pdf_page": 25,
-          "snippet": "được gọi là d— tổng của u và v và ký hiệu là: w=u®v ... Chú ý rằng, phép toán này thực hiện giống như câu lệnh gán w := u XOR v trong ngôn ngữ lập trình Pascal.",
-          "verified": true,
-          "recommended": false
-        }
-      ]
+     "term": "tuyển loại",
+     "source_id": "bib-rosen-2003-vi",
+     "page": "tr. 10 (PDF)",
+     "pdf_page": 10,
+     "snippet": "ĐỊNH NGHĨA 4. Cho p và q là hai mệnh đề. Mệnh đề tuyển loại của p và q, được ký hiệu là p ⊕ q, là một mệnh đề chỉ đúng khi một trong p và q là đúng và sai trong mọi trường hợp còn lại.",
+     "verified": true,
+     "recommended": false
     }
-  ]
+   ]
+  },
+  {
+   "id": "xnor",
+   "letter": "X",
+   "headword_en": "XNOR (exclusive nor)",
+   "notation": "\\overline{p \\oplus q}",
+   "rosen_ref": "Rosen §1.1",
+   "definition_vi": "Phép tương đương của hai mệnh đề $$p$$ và $$q$$, ký hiệu $$\\overline{p \\oplus q}$$, là phủ định của phép hay loại trừ $$p \\oplus q$$ của chúng. Mệnh đề này nhận giá trị đúng khi và chỉ khi $$p$$ và $$q$$ có cùng chân trị, nên tương đương logic với phép kéo theo hai chiều $$p \\leftrightarrow q$$.",
+   "example_vi": "Với $$p$$ là mệnh đề \"trời mưa\" và $$q$$ là mệnh đề \"đường ướt\", mệnh đề $$\\overline{p \\oplus q}$$ đúng khi cả $$p$$ và $$q$$ cùng đúng hoặc cùng sai, và sai khi đúng một trong hai.",
+   "notes": "XNOR/exclusive nor không được gọi tên trực tiếp trong nguồn Việt nào (không nguồn nào dùng \"phép phủ định tuyển loại\"). Theo Rosen, XNOR là phủ định của phép hay loại trừ và tương đương logic với phép kéo theo hai chiều $$p \\leftrightarrow q$$, đúng đúng khi $$p$$ và $$q$$ cùng chân trị. Kho ngữ liệu chứng thực phép tương đương này (liên từ kéo theo hai chiều $$\\leftrightarrow$$) trong bib-nguyenhuudien-2019 (2019), nguồn duy nhất trong nhóm 2019-2020 bao quát logic mệnh đề (bảng chân trị tr. 19 PDF cho $$p \\leftrightarrow q = 1$$ đúng khi $$p$$, $$q$$ trùng chân trị, khớp XNOR), và được CORROBORATE bởi bản dịch tham khảo bib-rosen-2003-vi (2003, tr. 13 PDF, ĐỊNH NGHĨA 6, mệnh đề tương đương $$p \\leftrightarrow q$$). Đính chính so với bản nháp trước: KHÔNG đúng khi nói phép này \"chỉ\" có ở bib-nguyenhuudien-2019; bản dịch tham khảo bib-rosen-2003-vi cũng chứng thực \"phép tương đương\" (lần khai thác tự động trước đã bỏ sót nguồn này vì find-term.py loại nó). Thuật ngữ khuyến nghị \"phép tương đương\" là tên chuẩn của phép này; \"phép kéo theo 2 chiều\" là tên đồng nghĩa trong cùng nguồn nguyenhuudien-2019. Theo registry, bib-rosen-2003-vi là role:reference nên dù chứng thực, nó KHÔNG được làm thuật ngữ khuyến nghị/lead; recommended vẫn đặt ở thể \"phép tương đương\" của bib-nguyenhuudien-2019 (nguồn mới nhất). Không có nguồn 2019-2020 nào bao quát XNOR dưới một mục đồ thị/tổ hợp, nên 2019 là chứng thực mới nhất hiện có. Biến thể \"tương đương logic\" (tr. 21 PDF) chỉ quan hệ tương đương logic giữa các công thức ($$E \\equiv F$$, cùng chân trị trong mọi gán giá trị), một khái niệm meta-level liên quan nhưng khác phép XNOR; ghi lại cho đầy đủ. Các ứng viên bị loại: \"phép đồng giá trị\" và \"phủ định của phép tuyển loại trừ\" trả về 0 hit ở cả chế độ thường và --loose. Các nguồn đồ thị OCR (bib-leanhvinh-2020, bib-hoangchithanh-2007) và bib-ngodactan-2004, bib-nguyenducnghia-2006, bib-nguyenhoangthach-2020 dùng \"tương đương\" chỉ cho quan hệ tương đương và đẳng cấu đồ thị, không cho phép XNOR/kéo theo hai chiều.",
+   "see_also": [
+    "xor",
+    "biconditional",
+    "negation"
+   ],
+   "vi_terms": [
+    {
+     "term": "phép tương đương",
+     "source_id": "bib-nguyenhuudien-2019",
+     "page": "tr. 19 (PDF)",
+     "pdf_page": 19,
+     "snippet": "Phép kéo theo 2 chiều hay phép tương đương, ký hiệu bởi ↔, được đưa ra để mô hình",
+     "verified": true,
+     "recommended": true
+    },
+    {
+     "term": "phép kéo theo 2 chiều",
+     "source_id": "bib-nguyenhuudien-2019",
+     "page": "tr. 19 (PDF)",
+     "pdf_page": 19,
+     "snippet": "Phép kéo theo 2 chiều hay phép tương đương, ký hiệu bởi ↔, được đưa ra để mô hình",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "phép tương đương (mệnh đề tương đương)",
+     "source_id": "bib-rosen-2003-vi",
+     "page": "tr. 13 (PDF)",
+     "pdf_page": 13,
+     "snippet": "ĐỊNH NGHĨA 6. Cho p và q là hai mệnh đề. Mệnh đề tương đương p ↔ q là mệnh đề chỉ đúng khi p và q có cùng giá trị chân lý và sai trong mọi trường hợp còn lại.",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "tương đương logic",
+     "source_id": "bib-nguyenhuudien-2019",
+     "page": "tr. 21 (PDF)",
+     "pdf_page": 21,
+     "snippet": "tương đương logic (đồng nhất bằng nhau) khi E và F luôn luôn có cùng chân trị trong mọi",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "phép tương đương",
+     "source_id": "bib-rosen-2003-vi",
+     "pdf_page": 13,
+     "page": "tr. 13 (PDF, bản dịch Rosen)",
+     "snippet": "là được ding để chỉ phép tương đương này. Một số cách dién đạt thường",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "tương đương logic",
+     "source_id": "bib-rosen-2003-vi",
+     "pdf_page": 23,
+     "page": "tr. 23 (PDF, bản dịch Rosen)",
+     "snippet": "tương đương logic. Ta có thể định nghĩa khái niệm này như sau.",
+     "verified": true,
+     "recommended": false
+    }
+   ]
+  },
+  {
+   "id": "xor-bit-operation",
+   "letter": "X",
+   "headword_en": "XOR bit operation",
+   "notation": "x \\oplus y",
+   "rosen_ref": "Rosen §1.1",
+   "definition_vi": "Phép XOR theo bit của hai bit $$x$$ và $$y$$, ký hiệu $$x \\oplus y$$, nhận giá trị $$1$$ khi và chỉ khi một trong hai bit bằng $$1$$ và nhận giá trị $$0$$ trong các trường hợp còn lại. Phép toán này được mở rộng cho hai xâu bit có cùng độ dài bằng cách lấy XOR theo từng vị trí tương ứng.",
+   "example_vi": "Với hai bit $$x = 1$$ và $$y = 0$$ ta có $$x \\oplus y = 1$$, còn $$1 \\oplus 1 = 0$$ và $$0 \\oplus 0 = 0$$. Áp dụng theo từng vị trí cho hai xâu bit $$1011$$ và $$1100$$ ta được $$1011 \\oplus 1100 = 0111$$.",
+   "notes": "Khái niệm XOR theo bit (exclusive-or trên bit, mở rộng theo từng thành phần cho xâu bit) ĐƯỢC chứng thực trong kho ngữ liệu bởi hai nguồn. Bản dịch tham khảo bib-rosen-2003-vi (2003, tr. 14-15 PDF) định nghĩa thẳng \"XOR bit\" trên hai xâu bit cùng chiều dài, với ví dụ tính theo từng vị trí (\"10101 01011 ⊕ XOR bit\"). bib-hoangchithanh-2007 (tr. 25 PDF) giới thiệu cùng phép này dưới tên \"phép toán $$\\oplus$$-tổng\" với $$w_i = (u_i + v_i) \\bmod 2$$ trên các chữ số nhị phân của $$u, v$$, ký hiệu $$w = u \\oplus v$$, và đồng nhất tường minh với câu lệnh Pascal \"w := u XOR v\". Nguồn hoangchithanh-2007 là OCR; ký hiệu cộng-trong-vòng-tròn $$\\oplus$$ bị OCR làm hỏng thành \"¿—\" / \"d—\" / \"d~\" (snippet \"được gọi là d— tổng của u và v\"), nên tên dự kiến là \"phép (toán) $$\\oplus$$-tổng\" (\"phép cộng theo modulo 2 từng bit\"). Token \"XOR\" sống sót qua OCR ở cả hai nguồn. Đính chính so với bản nháp trước: KHÔNG đúng khi nói \"nguồn duy nhất chứng thực khái niệm này là bib-hoangchithanh-2007\" và \"không cụm ứng viên nào xuất hiện verbatim\" — bib-rosen-2003-vi chứng thực \"XOR bit\" verbatim (tr. 15 PDF), về thực chất chính là thuật ngữ khuyến nghị \"phép XOR theo bit\". Lần khai thác tự động trước đã bỏ sót bib-rosen-2003-vi (bị loại bởi find-term.py). Không nguồn 2019-2020 nào gọi tên phép này: các hit \"loại trừ\"/\"tuyển\" trong bib-ngodactan-2004 và bib-nguyenhuudien-2019 chỉ nguyên lý bao hàm-loại trừ và tuyển logic, KHÔNG phải XOR theo bit; các hit \"modulo 2\" chỉ đồng dư modulo 2; các hit \"xâu bit\"/\"phép toán bit\" trong bib-nguyenhuudien-2019 chỉ biểu diễn tập-dưới-dạng-xâu-bit và độ phức tạp bit, không phải XOR. Thuật ngữ khuyến nghị: thể chuẩn hiện đại \"phép XOR theo bit\" được giữ làm headword khuyến nghị (verified=false), vì ĐÚNG cụm verbatim này không xuất hiện trong kho — các thể được chứng thực là \"XOR bit\" (bib-rosen-2003-vi, tr. 15, role:reference nên không được làm lead) và \"phép $$\\oplus$$-tổng\" (bib-hoangchithanh-2007, tr. 25). Do đó \"phép XOR theo bit\" là chuẩn-hóa chính tả của các thể đã được chứng thực, KHÔNG phải một sáng chế không có nguồn; điều khoản verified=false-recommended được thỏa vì chính cụm này chưa có chứng thực verbatim, và phép toán thì ĐÃ có nguồn. Token Pascal trần \"XOR\" (chỉ là từ khóa ngôn ngữ lập trình trong snippet hoangchithanh-2007, không phải tên thuật ngữ tiếng Việt) đã được bỏ khỏi vi_terms để giữ danh sách mang tính thuật ngữ; snippet Pascal vẫn được lưu trong thể \"phép $$\\oplus$$-tổng\".",
+   "see_also": [
+    "xor"
+   ],
+   "vi_terms": [
+    {
+     "term": "phép XOR theo bit",
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": "",
+     "verified": false,
+     "recommended": true,
+     "notes": "Thể chuẩn hiện đại của phép XOR theo bit; cụm chính xác này không xuất hiện verbatim trong kho đã khai thác (xem ghi chú mục). Phép toán thì ĐÃ có nguồn: thể \"XOR bit\" (bib-rosen-2003-vi, tr. 15) và \"phép ⊕-tổng\" (bib-hoangchithanh-2007, tr. 25). Giữ làm headword khuyến nghị (chuẩn-hóa chính tả của các thể đã chứng thực); bib-rosen-2003-vi là role:reference nên không được làm lead."
+    },
+    {
+     "term": "XOR bit",
+     "source_id": "bib-rosen-2003-vi",
+     "page": "tr. 14-15 (PDF)",
+     "pdf_page": 15,
+     "snippet": "Chúng ta định nghĩa các OR bit, AND bit và XOR bit đối với hai xâu bit có cùng chiều dài là các xâu có các bit của chúng là các OR, AND và XOR của các bit tương ứng trong hai xâu tương ứng.",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "phép $$\\oplus$$-tổng",
+     "source_id": "bib-hoangchithanh-2007",
+     "page": "tr. 25 (PDF)",
+     "pdf_page": 25,
+     "snippet": "được gọi là d— tổng của u và v và ký hiệu là: w=u®v ... Chú ý rằng, phép toán này thực hiện giống như câu lệnh gán w := u XOR v trong ngôn ngữ lập trình Pascal.",
+     "verified": true,
+     "recommended": false
+    }
+   ]
+  }
+ ]
 }

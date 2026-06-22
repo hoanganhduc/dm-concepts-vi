@@ -20,7 +20,7 @@
       <description>kề nhau</description>
     </notation>
     <statement>
-      <p>Hai đỉnh <m>u</m> và <m>v</m> trong một đồ thị vô hướng <m>G</m> được gọi là *kề nhau* nếu chúng là hai đầu mút của một cạnh chung của <m>G</m>, tức là <m>uv \in E(G)</m>; ký hiệu <m>u \sim v</m> (theo <xref ref="bib-rosen-2019" />, Rosen §10.2).</p>
+      <p>Hai đỉnh <m>u</m> và <m>v</m> trong một đồ thị vô hướng <m>G</m> được gọi là <em>kề nhau</em> nếu chúng là hai đầu mút của một cạnh chung của <m>G</m>, tức là <m>uv \in E(G)</m>; ký hiệu <m>u \sim v</m> (theo <xref ref="bib-rosen-2019" />, Rosen §10.2).</p>
       <p>Thuật ngữ tiếng Việt tương ứng:</p>
       <ul>
         <li><p><term>kề nhau</term> <xref ref="bib-leanhvinh-2020" /> (tr. 9 (PDF)); <xref ref="bib-nguyenhoangthach-2020" /> (tr. 63 (PDF)); <xref ref="bib-nguyenhuudien-2019" /> (tr. 160 (PDF)); <xref ref="bib-hoangchithanh-2007" /> (tr. 17 (PDF)); <xref ref="bib-nguyenducnghia-2006" /> (tr. 159 (PDF)); <xref ref="bib-ngodactan-2004" /> (tr. 186 (PDF)) — cách dùng phổ biến.</p></li>
@@ -28,7 +28,7 @@
         <li><p><term>đỉnh kề</term> <xref ref="bib-hoangchithanh-2007" /> (tr. 8 (PDF)).</p></li>
       </ul>
       <p>Ví dụ: Trong đồ thị <m>G</m> với tập đỉnh <m>V(G) = \{a, b, c\}</m> và tập cạnh <m>E(G) = \{ab, bc\}</m>, hai đỉnh <m>a</m> và <m>b</m> kề nhau vì <m>ab \in E(G)</m>, trong khi <m>a</m> và <m>c</m> không kề nhau vì <m>ac \notin E(G)</m>.</p>
-      <p>Xem thêm <xref ref="def-adjacency-matrix" text="title" />.</p>
+      <p>Xem thêm <xref ref="def-edge" text="title" />, <xref ref="def-neighborhood" text="title" />, <xref ref="def-adjacency-matrix" text="title" />, <xref ref="def-complete-graph" text="title" />.</p>
     </statement>
   </definition>
   <definition xml:id="def-adjacency-matrix">
@@ -49,7 +49,7 @@
       </ul>
       <p>Ví dụ: Xét đồ thị có tập đỉnh <m>\{v_1, v_2, v_3\}</m> với các cạnh <m>v_1 v_2</m> và <m>v_2 v_3</m>. Ma trận kề của nó là
 <me>A = \begin{bmatrix} 0  \amp  1  \amp  0 \\ 1  \amp  0  \amp  1 \\ 0  \amp  1  \amp  0 \end{bmatrix}.</me></p>
-      <p>Xem thêm <xref ref="def-adjacent-vertices" text="title" />.</p>
+      <p>Xem thêm <xref ref="def-incidence-matrix" text="title" />, <xref ref="def-adjacent-vertices" text="title" />.</p>
     </statement>
   </definition>
   <definition xml:id="def-acyclic-graph">
@@ -69,7 +69,7 @@
         <li><p><term>đồ thị không có chu trình</term> <xref ref="bib-nguyenducnghia-2006" /> (tr. 230 (PDF)).</p></li>
       </ul>
       <p>Ví dụ: Mọi cây và mọi rừng đều là đồ thị phi chu trình. Đồ thị đầy đủ <m>K_3</m> với các cạnh <m>ab, bc, ca</m> không phải là đồ thị phi chu trình, vì dãy đỉnh <m>a, b, c, a</m> tạo thành một chu trình.</p>
-      <p>Xem thêm <xref ref="def-arborescence" text="title" />.</p>
+      <p>Xem thêm <xref ref="def-cycle" text="title" />, <xref ref="def-tree" text="title" />, <xref ref="def-forest" text="title" />, <xref ref="def-arborescence" text="title" />.</p>
     </statement>
   </definition>
   <definition xml:id="def-algorithm">
@@ -103,6 +103,7 @@
         <li><p><term>phản đối xứng</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 111 (PDF)); <xref ref="bib-ngodactan-2004" /> (tr. 163 (PDF)).</p></li>
       </ul>
       <p>Ví dụ: Xét tập <m>A = \{1, 2, 3\}</m> và quan hệ <m>R = \{(1, 1), (1, 2), (2, 3)\}</m> trên <m>A</m>. Quan hệ này phản xứng vì cặp duy nhất <m>(a, b) \in R</m> mà đồng thời <m>(b, a) \in R</m> là <m>(1, 1)</m>, và khi đó <m>1 = 1</m>. Ngược lại, quan hệ <m>R' = \{(1, 2), (2, 1)\}</m> trên <m>A</m> không phản xứng vì <m>(1, 2) \in R'</m> và <m>(2, 1) \in R'</m> nhưng <m>1 \neq 2</m>.</p>
+      <p>Xem thêm <xref ref="def-reflexive-relation" text="title" />, <xref ref="def-symmetric-relation" text="title" />, <xref ref="def-transitive-relation" text="title" />, <xref ref="def-partial-order" text="title" />, <xref ref="def-equivalence-relation" text="title" />.</p>
     </statement>
   </definition>
   <definition xml:id="def-arborescence">
@@ -116,7 +117,7 @@
         <li><p><term>cây có gốc</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 84 (PDF)); <xref ref="bib-leanhvinh-2020" /> (tr. 50 (PDF)); <xref ref="bib-nguyenhuudien-2019" /> (tr. 259 (PDF)); <xref ref="bib-nguyenducnghia-2006" /> (tr. 211 (PDF)) — cách dùng phổ biến.</p></li>
       </ul>
       <p>Ví dụ: Xét đồ thị có hướng <m>T</m> với tập đỉnh <m>\{r, a, b, c\}</m> và tập cung <m>\{(r,a),(r,b),(b,c)\}</m>. Khi đó <m>T</m> là một cây có gốc với gốc <m>r</m>, vì từ <m>r</m> có duy nhất một đường đi có hướng đến mỗi đỉnh <m>a</m>, <m>b</m>, <m>c</m>.</p>
-      <p>Xem thêm <xref ref="def-acyclic-graph" text="title" />.</p>
+      <p>Xem thêm <xref ref="def-rooted-tree" text="title" />, <xref ref="def-directed-graph" text="title" />, <xref ref="def-tree" text="title" />, <xref ref="def-acyclic-graph" text="title" />.</p>
     </statement>
   </definition>
   <definition xml:id="def-arc">
@@ -138,6 +139,7 @@
         <li><p><term>cạnh có hướng</term> <xref ref="bib-leanhvinh-2020" /> (tr. 11 (PDF)); <xref ref="bib-nguyenhuudien-2019" /> (tr. 209 (PDF)); <xref ref="bib-hoangchithanh-2007" /> (tr. 6 (PDF)); <xref ref="bib-nguyenducnghia-2006" /> (tr. 154 (PDF)).</p></li>
       </ul>
       <p>Ví dụ: Trong đồ thị có hướng <m>G</m> với tập đỉnh <m>V(G) = \{u, v\}</m>, cặp có thứ tự <m>(u, v)</m> là một cung đi từ <m>u</m> tới <m>v</m>, trong khi <m>(v, u)</m> là một cung khác đi từ <m>v</m> tới <m>u</m>.</p>
+      <p>Xem thêm <xref ref="def-directed-graph" text="title" />, <xref ref="def-digraph" text="title" />, <xref ref="def-edge" text="title" />, <xref ref="def-terminal-vertex" text="title" />.</p>
     </statement>
   </definition>
   <definition xml:id="def-arithmetic-progression">
@@ -178,6 +180,7 @@
         <li><p><term>đỉnh rẽ nhánh</term> <xref ref="bib-nguyenducnghia-2006" /> (tr. 157 (PDF)).</p></li>
       </ul>
       <p>Ví dụ: Trong đường đi <m>P_3</m> với các đỉnh <m>a, b, c</m> và các cạnh <m>ab, bc</m>, đỉnh <m>b</m> là một đỉnh cắt vì <m>P_3 - b</m> có hai thành phần liên thông là <m>\{a\}</m> và <m>\{c\}</m>, trong khi <m>a</m> và <m>c</m> không phải là đỉnh cắt.</p>
+      <p>Xem thêm <xref ref="def-bridge" text="title" />.</p>
     </statement>
   </definition>
   <definition xml:id="def-automorphism">
@@ -189,12 +192,13 @@
       <description>tự đẳng cấu</description>
     </notation>
     <statement>
-      <p>Một *tự đẳng cấu* của đồ thị <m>G</m> là một đẳng cấu từ <m>G</m> vào chính nó, tức là một hoán vị <m>\sigma</m> của tập đỉnh <m>V(G)</m> sao cho <m>uv \in E(G)</m> khi và chỉ khi <m>\sigma(u)\sigma(v) \in E(G)</m>. Tập tất cả các tự đẳng cấu của <m>G</m>, ký hiệu <m>\mathrm{Aut}(G)</m>, lập thành một nhóm đối với phép hợp thành ánh xạ (theo <xref ref="bib-rosen-2019" />, Rosen §10.3).</p>
+      <p>Một <em>tự đẳng cấu</em> của đồ thị <m>G</m> là một đẳng cấu từ <m>G</m> vào chính nó, tức là một hoán vị <m>\sigma</m> của tập đỉnh <m>V(G)</m> sao cho <m>uv \in E(G)</m> khi và chỉ khi <m>\sigma(u)\sigma(v) \in E(G)</m>. Tập tất cả các tự đẳng cấu của <m>G</m>, ký hiệu <m>\mathrm{Aut}(G)</m>, lập thành một nhóm đối với phép hợp thành ánh xạ (theo <xref ref="bib-rosen-2019" />, Rosen §10.3).</p>
       <p>Thuật ngữ tiếng Việt tương ứng:</p>
       <ul>
         <li><p><term>tự đẳng cấu</term> <xref ref="bib-leanhvinh-2020" /> (tr. 37 (PDF)); <xref ref="bib-ngodactan-2004" /> (tr. 140 (PDF)) — cách dùng phổ biến.</p></li>
       </ul>
       <p>Ví dụ: Ánh xạ đồng nhất trên <m>V(G)</m> là một tự đẳng cấu của mọi đồ thị <m>G</m>. Đồ thị đầy đủ <m>K_n</m> có <m>n!</m> tự đẳng cấu, vì mọi hoán vị của tập đỉnh đều bảo toàn quan hệ kề.</p>
+      <p>Xem thêm <xref ref="def-isomorphism" text="title" />.</p>
     </statement>
   </definition>
   <definition xml:id="def-addition-rule">

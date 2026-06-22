@@ -72,7 +72,7 @@ def group_terms(vi_terms):
     return groups
 
 
-def render_entry(e, chapter_ids):
+def render_entry(e, allowed_ids):
     eid = e["id"]
     rec = next((t["term"] for t in e.get("vi_terms", []) if t.get("recommended")), "")
     lines = []
@@ -113,7 +113,7 @@ def render_entry(e, chapter_ids):
     lines.append("      </ul>")
     if e.get("example_vi"):
         lines.append(f"      <p>Ví dụ: {to_ptx(e['example_vi'])}</p>")
-    seealso = [s for s in (e.get("see_also") or []) if s in chapter_ids and s != eid]
+    seealso = [s for s in (e.get("see_also") or []) if s in allowed_ids and s != eid]
     if seealso:
         xrefs = ", ".join(f'<xref ref="def-{s}" text="title" />' for s in seealso)
         lines.append(f"      <p>Xem thêm {xrefs}.</p>")
@@ -138,6 +138,19 @@ def update_main_includes():
     return chs
 
 
+def global_entry_ids():
+    """All entry ids already encoded into data/terms/entries-*.yaml (post-guard),
+    so see_also can link across chapters once every chapter exists."""
+    import glob as _glob
+    ids = set()
+    for f in _glob.glob(os.path.join(ROOT, "data", "terms", "entries-*.yaml")):
+        doc = yaml.safe_load(open(f, encoding="utf-8")) or {}
+        for e in doc.get("entries", []):
+            if e.get("id"):
+                ids.add(e["id"])
+    return ids
+
+
 def main():
     letter = (sys.argv[1] if len(sys.argv) > 1 else "c").lower()
     src = os.path.join(ROOT, "workflow", "panels", f"chapter-{letter}-final.json")
@@ -150,7 +163,7 @@ def main():
     dropped = [e.get("id") for e in all_entries if e.get("headword_en", "")[:1].upper() != L]
     if dropped:
         print(f"WARN dropped wrong-initial entries (not '{L}'): {dropped}")
-    chapter_ids = {e["id"] for e in entries}
+    allowed_ids = global_entry_ids() | {e["id"] for e in entries}
 
     # ---- data/terms/entries-<l>.yaml ----
     ydoc = {"letter": L, "entries": []}
@@ -175,7 +188,7 @@ def main():
         yaml.safe_dump(ydoc, fh, allow_unicode=True, sort_keys=False, width=100)
 
     # ---- source/ch-<l>.ptx ----
-    body = [render_entry(e, chapter_ids) for e in entries]
+    body = [render_entry(e, allowed_ids) for e in entries]
     ptx = f'''<?xml version="1.0" encoding="UTF-8"?>
 <chapter xml:id="ch-{letter}" xmlns:xi="http://www.w3.org/2001/XInclude">
   <title>{L}</title>

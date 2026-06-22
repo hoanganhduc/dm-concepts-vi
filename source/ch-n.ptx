@@ -36,50 +36,21 @@
     </statement>
   </definition>
   <definition xml:id="def-network-flow">
-    <title>network flow — luồng vận tải</title>
+    <title>network flow</title>
     <idx><h>network flow</h></idx>
     <idx><h>luồng</h></idx>
     <idx><h>luồng qua mạng</h></idx>
     <idx><h>luồng trong mạng</h></idx>
     <idx><h>luồng trong mạng vận tải</h></idx>
     <idx><h>luồng vận tải</h></idx>
-    <notation>
-      <usage><m>f: E \to \mathbb{R}^{+} \cup \{0\}</m></usage>
-      <description>luồng vận tải</description>
-    </notation>
-    <statement>
-      <p>Một <em>luồng vận tải</em> của một mạng vận tải là một hàm <m>f</m> gán cho mỗi cung có hướng <m>e \in E</m> một giá trị không âm <m>f(e)</m> không vượt quá khả năng thông qua <m>c(e)</m> của cung đó, ký hiệu <m>f: E \to \mathbb{R}^{+} \cup \{0\}</m>. Tại mỗi đỉnh trung gian <m>v</m>, tổng luồng đi vào <m>v</m> bằng tổng luồng đi ra khỏi <m>v</m> (điều kiện bảo toàn luồng) (theo <xref ref="bib-rosen-2019" />, Rosen — network flow not covered; anchored to nguyenhuudien-2019 §6 (luồng vận tải), with codomain $$\mathbb{R}^{+} \cup \{0\}$$ from ngodactan-2004 / nguyenducnghia-2006).</p>
-      <p>Thuật ngữ tiếng Việt tương ứng:</p>
-      <ul>
-        <li><p><term>luồng vận tải</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 210 (PDF)); <xref ref="bib-hoangchithanh-2007" /> (tr. 4 (PDF)) — cách dùng phổ biến.</p></li>
-        <li><p><term>luồng</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 211 (PDF)); <xref ref="bib-nguyenducnghia-2006" /> (tr. 243 (PDF)); <xref ref="bib-ngodactan-2004" /> (tr. 244 (PDF)).</p></li>
-        <li><p><term>luồng qua mạng</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 210 (PDF)); <xref ref="bib-hoangchithanh-2007" /> (tr. 104 (PDF)).</p></li>
-        <li><p><term>luồng trong mạng</term> <xref ref="bib-nguyenducnghia-2006" /> (tr. 242 (PDF)).</p></li>
-        <li><p><term>luồng trong mạng vận tải</term> <xref ref="bib-ngodactan-2004" /> (tr. 255 (PDF)).</p></li>
-      </ul>
-      <p>Ví dụ: Xét mạng vận tải với nguồn <m>s</m>, đích <m>t</m> và một đỉnh trung gian <m>v</m>, trong đó các cung <m>sv</m>, <m>vt</m> đều có khả năng thông qua bằng <m>3</m>. Gán <m>f(sv) = f(vt) = 2</m> thì tổng luồng vào <m>v</m> bằng tổng luồng ra khỏi <m>v</m> và mỗi giá trị không vượt quá khả năng thông qua, nên <m>f</m> là một luồng vận tải của mạng.</p>
-      <p>Xem thêm <xref ref="def-flow" text="title" />, <xref ref="def-directed-graph" text="title" />.</p>
-    </statement>
+    <statement><p><term>network flow</term> (luồng, luồng qua mạng, luồng trong mạng, luồng trong mạng vận tải, luồng vận tải). Xem <xref ref="def-flow" text="title" />.</p></statement>
   </definition>
   <definition xml:id="def-node">
-    <title>node — đỉnh</title>
+    <title>node</title>
     <idx><h>node</h></idx>
     <idx><h>nút</h></idx>
     <idx><h>đỉnh</h></idx>
-    <notation>
-      <usage><m>v \in V(G)</m></usage>
-      <description>đỉnh</description>
-    </notation>
-    <statement>
-      <p>Đỉnh của một đồ thị <m>G = (V, E)</m> là một phần tử của tập đỉnh <m>V</m>, tức một trong những điểm cơ bản của đồ thị. Các cạnh của đồ thị nối các cặp đỉnh, nhưng một đỉnh không nhất thiết phải là mút của một cạnh nào (đỉnh cô lập). Một đỉnh thường được ký hiệu là <m>v \in V(G)</m> (theo <xref ref="bib-rosen-2019" />, Rosen §10.1).</p>
-      <p>Thuật ngữ tiếng Việt tương ứng:</p>
-      <ul>
-        <li><p><term>đỉnh</term> <xref ref="bib-leanhvinh-2020" /> (tr. 8 (PDF)); <xref ref="bib-nguyenhoangthach-2020" /> (tr. 61 (PDF)); <xref ref="bib-nguyenhuudien-2019" /> (tr. 154 (PDF)); <xref ref="bib-hoangchithanh-2007" /> (tr. 6 (PDF)); <xref ref="bib-nguyenducnghia-2006" /> (tr. 66 (PDF)); <xref ref="bib-ngodactan-2004" /> (tr. 21 (PDF)); <xref ref="bib-rosen-2003-vi" /> (tr. 5 (PDF, bản dịch Rosen)) — cách dùng phổ biến.</p></li>
-        <li><p><term>nút</term> <xref ref="bib-nguyenducnghia-2006" /> (tr. 25 (PDF)); <xref ref="bib-rosen-2003-vi" /> (tr. 451 (PDF, bản dịch Rosen)).</p></li>
-      </ul>
-      <p>Ví dụ: Xét đồ thị <m>G = (V, E)</m> với <m>V = \{a, b, c\}</m> và <m>E = \{ab, bc\}</m>. Khi đó <m>a</m>, <m>b</m>, <m>c</m> là ba đỉnh của <m>G</m>, trong đó cạnh <m>ab</m> nối hai đỉnh <m>a</m> và <m>b</m>.</p>
-      <p>Xem thêm <xref ref="def-neighborhood" text="title" />, <xref ref="def-vertex" text="title" />, <xref ref="def-edge" text="title" />.</p>
-    </statement>
+    <statement><p><term>node</term> (nút, đỉnh). Xem <xref ref="def-vertex" text="title" />.</p></statement>
   </definition>
   <definition xml:id="def-nonplanar-graph">
     <title>nonplanar graph — đồ thị không phẳng</title>
@@ -98,50 +69,21 @@
     </statement>
   </definition>
   <definition xml:id="def-null-graph">
-    <title>null graph (empty graph) — đồ thị rỗng</title>
+    <title>null graph (empty graph)</title>
     <idx><h>null graph (empty graph)</h></idx>
     <idx><h>đồ thị hoàn toàn rời rạc</h></idx>
     <idx><h>đồ thị rỗng</h></idx>
-    <notation>
-      <usage><m>N_n</m></usage>
-      <description>đồ thị rỗng</description>
-    </notation>
-    <statement>
-      <p>Đồ thị rỗng trên <m>n</m> đỉnh là đồ thị có <m>n</m> đỉnh và không có cạnh nào, tức là <m>|E(G)| = 0</m>. Đồ thị này được ký hiệu là <m>N_n</m> (theo <xref ref="bib-rosen-2019" />, Rosen §10.2).</p>
-      <p>Thuật ngữ tiếng Việt tương ứng:</p>
-      <ul>
-        <li><p><term>đồ thị rỗng</term> <xref ref="bib-leanhvinh-2020" /> (tr. 106 (PDF)); <xref ref="bib-nguyenhoangthach-2020" /> (tr. 70 (PDF)); <xref ref="bib-ngodactan-2004" /> (tr. 190 (PDF)); <xref ref="bib-rosen-2003-vi" /> (tr. 695 (PDF, bản dịch Rosen)) — cách dùng phổ biến.</p></li>
-        <li><p><term>đồ thị hoàn toàn rời rạc</term> <xref ref="bib-ngodactan-2004" /> (tr. 190 (PDF)).</p></li>
-      </ul>
-      <p>Ví dụ: Đồ thị <m>N_4</m> gồm bốn đỉnh và không có cạnh nào.</p>
-      <p>Xem thêm <xref ref="def-complete-graph" text="title" />, <xref ref="def-bipartite-graph" text="title" />.</p>
-    </statement>
+    <statement><p><term>null graph (empty graph)</term> (đồ thị hoàn toàn rời rạc, đồ thị rỗng). Xem <xref ref="def-empty-graph" text="title" />.</p></statement>
   </definition>
   <definition xml:id="def-n-cube">
-    <title>n-cube — đồ thị lập phương</title>
+    <title>n-cube</title>
     <idx><h>n-cube</h></idx>
     <idx><h>mạng kiểu siêu khối</h></idx>
     <idx><h>siêu khối</h></idx>
     <idx><h>siêu lập phương</h></idx>
     <idx><h>đồ thị lập phương</h></idx>
     <idx><h>đồ thị siêu lập phương</h></idx>
-    <notation>
-      <usage><m>Q_n</m></usage>
-      <description>đồ thị lập phương</description>
-    </notation>
-    <statement>
-      <p>Đồ thị lập phương <m>n</m> chiều, ký hiệu <m>Q_n</m>, là đồ thị có tập đỉnh gồm <m>2^n</m> xâu nhị phân độ dài <m>n</m>, trong đó hai đỉnh kề nhau khi và chỉ khi hai xâu nhị phân tương ứng khác nhau tại đúng một bit (theo <xref ref="bib-rosen-2019" />, Rosen §10.2).</p>
-      <p>Thuật ngữ tiếng Việt tương ứng:</p>
-      <ul>
-        <li><p><term>đồ thị lập phương</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 160 (PDF)); <xref ref="bib-nguyenducnghia-2006" /> (tr. 159 (PDF)) — cách dùng phổ biến.</p></li>
-        <li><p><term>mạng kiểu siêu khối</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 162 (PDF)); <xref ref="bib-rosen-2003-vi" /> (tr. 513 (PDF, bản dịch Rosen)).</p></li>
-        <li><p><term>siêu khối</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 67 (PDF)); <xref ref="bib-rosen-2003-vi" /> (tr. 513 (PDF, bản dịch Rosen)).</p></li>
-        <li><p><term>siêu lập phương</term> <xref ref="bib-leanhvinh-2020" /> (tr. 222 (PDF)).</p></li>
-        <li><p><term>đồ thị siêu lập phương</term> <xref ref="bib-leanhvinh-2020" /> (tr. 58 (PDF)).</p></li>
-      </ul>
-      <p>Ví dụ: Đồ thị <m>Q_3</m> có <m>8</m> đỉnh là các xâu <m>000, 001, 010, 011, 100, 101, 110, 111</m>; chẳng hạn <m>000</m> kề với <m>001</m>, <m>010</m> và <m>100</m> vì mỗi xâu này khác <m>000</m> tại đúng một bit.</p>
-      <p>Xem thêm <xref ref="def-bipartite-graph" text="title" />, <xref ref="def-hamilton-circuit" text="title" />, <xref ref="def-gray-code" text="title" />.</p>
-    </statement>
+    <statement><p><term>n-cube</term> (mạng kiểu siêu khối, siêu khối, siêu lập phương, đồ thị lập phương, đồ thị siêu lập phương). Xem <xref ref="def-hypercube" text="title" />.</p></statement>
   </definition>
   <definition xml:id="def-nearest-neighbor-algorithm">
     <title>nearest-neighbor algorithm — thuật toán láng giềng gần nhất</title>
@@ -240,24 +182,11 @@
     </statement>
   </definition>
   <definition xml:id="def-null-set">
-    <title>null set (empty set) — tập rỗng</title>
+    <title>null set (empty set)</title>
     <idx><h>null set (empty set)</h></idx>
     <idx><h>tập hợp rỗng</h></idx>
     <idx><h>tập rỗng</h></idx>
-    <notation>
-      <usage><m>\emptyset</m></usage>
-      <description>tập rỗng</description>
-    </notation>
-    <statement>
-      <p>Tập rỗng là tập hợp không chứa phần tử nào, ký hiệu <m>\emptyset</m>. Đây là tập hợp duy nhất không có phần tử, và <m>\emptyset</m> là tập con của mọi tập hợp (theo <xref ref="bib-rosen-2019" />, Rosen §2.1).</p>
-      <p>Thuật ngữ tiếng Việt tương ứng:</p>
-      <ul>
-        <li><p><term>tập rỗng</term> <xref ref="bib-leanhvinh-2020" /> (tr. 90 (PDF)); <xref ref="bib-nguyenhuudien-2019" /> (tr. 252 (PDF)); <xref ref="bib-hoangchithanh-2007" /> (tr. 137 (PDF)); <xref ref="bib-nguyenducnghia-2006" /> (tr. 12 (PDF)); <xref ref="bib-ngodactan-2004" /> (tr. 30 (PDF)); <xref ref="bib-rosen-2003-vi" /> (tr. 56 (PDF, bản dịch Rosen)) — cách dùng phổ biến.</p></li>
-        <li><p><term>tập hợp rỗng</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 16 (PDF)); <xref ref="bib-nguyenhuudien-2019" /> (tr. 72 (PDF)).</p></li>
-      </ul>
-      <p>Ví dụ: Tập hợp các số nguyên <m>x</m> thỏa mãn <m>x \neq x</m> là tập rỗng, tức là <m>\{x : x \neq x\} = \emptyset</m>.</p>
-      <p>Xem thêm <xref ref="def-set" text="title" />, <xref ref="def-subset" text="title" />, <xref ref="def-cardinality" text="title" />.</p>
-    </statement>
+    <statement><p><term>null set (empty set)</term> (tập hợp rỗng, tập rỗng). Xem <xref ref="def-empty-set" text="title" />.</p></statement>
   </definition>
   <definition xml:id="def-natural-number">
     <title>natural number — số tự nhiên</title>

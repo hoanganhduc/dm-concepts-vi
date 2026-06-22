@@ -330,6 +330,15 @@
      "snippet": "Hãy chỉ ra rang trong 102 người có chiều cao khác nhau đứng thành",
      "verified": true,
      "recommended": false
+    },
+    {
+     "term": "Độ cao",
+     "source_id": "bib-mat3500",
+     "page": "giáo trình MAT3500",
+     "pdf_page": 0,
+     "snippet": "",
+     "verified": true,
+     "recommended": false
     }
    ],
    "notes": "Recommended term \"chiều cao của cây\" is the full standard form, attested in the 2020 source bib-nguyenhoangthach-2020 (p.85) and consistently in bib-nguyenhuudien-2019 (p.252) and bib-hoangchithanh-2007 (p.137). The short form \"chiều cao\" is widely used once \"của cây\" is clear from context, attested across all three sources. The candidate \"độ cao của cây\" / \"độ cao\" returned zero hits in any source (both normal and --loose) and is dropped. In bib-leanhvinh-2020, \"chiều cao\" appears only in the phrase \"không gian với số chiều cao hơn\" (a higher-dimensional space), which is a false positive denoting dimension, not tree height; that source does not attest this concept and is excluded. OCR sources (bib-hoangchithanh-2007) were run with both normal and --loose modes; results were identical.",
@@ -473,6 +482,24 @@
      "snippet": "Có lẽ mạng kết nối quan trọng nhất là mạng kiểu siêu khối. Với các",
      "verified": true,
      "recommended": false
+    },
+    {
+     "term": "mạng kiểu siêu khối",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 162,
+     "page": "tr. 162 (PDF)",
+     "snippet": "bằng dãy nhị phân khác với dãy nhị phân biểu diễn i tại đúng một bit. Mạng kiểu siêu khối"
+    },
+    {
+     "term": "siêu lập phương",
+     "source_id": "bib-leanhvinh-2020",
+     "page": "tr. 222 (PDF)",
+     "pdf_page": 222,
+     "snippet": "Khi l = 2, ta có đồ thị siêu lập phương Q_2. ... Hình 8.9: Đồ thị siêu lập phương Q_4.",
+     "verified": true,
+     "recommended": false
     }
    ],
    "notes": "Notation wrapped to $$Q_n$$ per the math convention (was bare 'Q_n'). Economy fix: the redundant closing sentence 'Đồ thị này được ký hiệu là $$Q_n$$, với $$n \\geq 1$$.' was dropped and the constraint $$n \\geq 1$$ folded into the first sentence, since the symbol $$Q_n$$ is already introduced there. see_also dedup: the self-duplicating id 'hypercube-graph' was removed (this entry IS the hypercube graph; the term 'đồ thị siêu lập phương' = hypercube graph is recorded as a variant), keeping 'n-cube' as the genuine cross-chapter forward reference. Hypercube $$Q_n$$: graph on $$2^n$$ vertices (binary strings of length $$n$$); two vertices adjacent iff their strings differ in exactly one bit. Three distinct attested Vietnamese terms denote this concept.\n\nRECOMMENDED (deliberate newest-source override, panel-confirmed intentional): \"đồ thị lập phương\" (cube graph). Although two 2020 sources attest the concept under different names, \"đồ thị lập phương\" is kept recommended because it is the standard Vietnamese textbook term carrying the full formal definition AND the $$Q_n$$ notation, attested in the 2019 source nguyenhuudien-2019 (tr. 160: \"đồ thị lập phương, ký hiệu là Qn ... mỗi đỉnh của Qn có bậc là n\") and corroborated in nguyenducnghia-2006 (tr. 159-160, full definition + figure \"Đồ thị lập phương Q_n\"). nguyenhuudien-2019 tr. 162 confirms the equivalence: the network \"mạng kiểu siêu khối\" is represented by \"Đồ thị lập phương Qm\". The two 2020 forms are a literal rendering (\"đồ thị siêu lập phương\") and an informal name (\"siêu khối\"). Both 2019 and 2006 occurrences of the recommended term are listed (newest first).\n\nVARIANTS (also attested):\n- \"đồ thị siêu lập phương\" (hypercube graph) — leanhvinh-2020 (2020, OCR source; diacritics mangled, e.g. \"đỏ thị siêu lập phương Q,\"), tr. 58 (Ví dụ 2.27 defines G as this graph on vertex set $$\\mathbb{Z}_2^n$$), tr. 222 (Hình 8.9), tr. 257. This is the most literal rendering of \"hypercube\" and the newest-source variant; verified via both normal and --loose OCR runs.\n- \"siêu khối\" (hypercube) — nguyenhoangthach-2020 (2020) tr. 67 gives the exact Rosen definition (\"Siêu khối: Qn , n ≥ 1, có 2n đỉnh tương ứng với các từ nhị phân độ dài n\"). Also appears in nguyenhuudien-2019 (tr. 162-163) but only in the networking sense \"mạng kiểu siêu khối\" (hypercube-type network), not as the bare graph name.\n\nNOT ATTESTED: candidate \"khối lập phương n chiều\" returned 0 hits in all sources (normal and --loose); dropped.\n\nOCR sources checked with both normal and --loose: leanhvinh-2020 (attests \"đồ thị siêu lập phương\"); hoangchithanh-2007 — no hypercube term found (all \"khối\" hits are unrelated: \"sơ đồ khối\" = block diagram, \"khôi phục\" = recover, \"khối đa diện\" = polyhedron). ngodactan-2004 \"lập phương\" hits refer to the geometric cube (\"hình lập phương\"), not the graph $$Q_n$$; not counted."
@@ -608,54 +635,29 @@
    "id": "head-of-an-arc",
    "letter": "H",
    "headword_en": "Head of an arc",
-   "notation": "$$v$$",
-   "rosen_ref": "Rosen §10.1",
-   "definition_vi": "Trong một đồ thị có hướng, đỉnh cuối của cung $$(u, v)$$, trong đó $$(u, v)$$ là một cặp đỉnh có thứ tự, là đỉnh $$v$$, tức là đỉnh mà cung có hướng đó trỏ tới. Cung $$(u, v)$$ có hướng đi từ đỉnh đầu $$u$$ đến đỉnh cuối $$v$$.",
-   "example_vi": "Trong một đồ thị có hướng với cung $$(a, b)$$ hướng từ $$a$$ đến $$b$$, đỉnh cuối của cung là $$b$$.",
-   "notes": "Economy fixes (panel): the redundant trailing clause 'ký hiệu đỉnh cuối là $$v$$' was dropped (the first sentence already fixes $$v$$ as the head), and the example was changed from a definition-echoing restatement on $$(u, v)$$ to a concrete arc $$(a, b)$$ with named vertices. The optional correctness note was applied by stating once that $$(u, v)$$ is an ordered pair (cặp đỉnh có thứ tự), making the head/tail orientation explicit. Recommended term \"đỉnh cuối\" (head of an arc = terminal vertex of a directed edge) is attested in the 2020 source bib-nguyenhoangthach-2020 (p63): \"mũi tên hướng từ đỉnh đầu đến đỉnh cuối của cạnh\", i.e. the arrow points from the initial vertex (đỉnh đầu, the tail) to the terminal vertex (đỉnh cuối, the head). The fuller form \"đỉnh cuối của cung\" is attested in bib-nguyenducnghia-2006 (p171) for the incidence-matrix definition of an arc's terminal vertex, and bib-ngodactan-2004 (p185) defines arc (a,b) \"với đỉnh đầu là a, đỉnh cuối là b\". Candidate \"đỉnh ngọn\" has 0 hits in any source. Candidate \"đỉnh đến\" appears only in traversal/predecessor (\"đỉnh đến trước\") and shortest-path (\"từ một đỉnh đến tất cả các đỉnh\") contexts, never denoting the head of an arc, so it is not recorded as an attested variant. Note that \"đỉnh cuối\" is also used in many sources for the terminal vertex of a path/walk; the citations recorded here are restricted to the directed-edge (arc) sense. Pairs with \"tail of an arc\" = đỉnh đầu.",
-   "see_also": [
-    "tail-of-an-arc",
-    "directed-graph",
-    "arc"
-   ],
+   "see_ref": "terminal-vertex",
    "vi_terms": [
     {
      "term": "đỉnh cuối",
-     "verified": true,
-     "recommended": true,
-     "source_id": "bib-nguyenhoangthach-2020",
-     "pdf_page": 63,
-     "page": "tr. 63 (PDF)",
-     "snippet": "mũi tên hướng từ đỉnh đầu đến đỉnh cuối của cạnh."
-    },
-    {
-     "term": "đỉnh cuối",
-     "verified": true,
+     "verified": false,
      "recommended": false,
-     "source_id": "bib-ngodactan-2004",
-     "pdf_page": 185,
-     "page": "tr. 185 (PDF)",
-     "snippet": "thì (a, b) được gọi là cung của G với đỉnh đầu là a, đỉnh cuối là b và có"
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": ""
     },
     {
      "term": "đỉnh cuối của cung",
-     "verified": true,
+     "verified": false,
      "recommended": false,
-     "source_id": "bib-nguyenducnghia-2006",
-     "pdf_page": 171,
-     "page": "tr. 171 (PDF)",
-     "snippet": "a,H =4—], L nếu đỉnh ¡ là đỉnh cuối của cung e,"
-    },
-    {
-     "term": "đỉnh cuối",
-     "source_id": "bib-rosen-2003-vi",
-     "pdf_page": 466,
-     "page": "tr. 466 (PDF, bản dịch Rosen)",
-     "snippet": "đỉnh cuối cùng. Tương tự, đỉnh cuối cùng của một đường di cũng là điểm",
-     "verified": true,
-     "recommended": false
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": ""
     }
-   ]
+   ],
+   "see_also": [],
+   "notes": "Đồng nghĩa với Terminal vertex."
   },
   {
    "id": "homogeneous-recurrence-relation",
@@ -817,78 +819,29 @@
    "id": "height",
    "letter": "H",
    "headword_en": "Height",
-   "notation": "h",
-   "rosen_ref": "Rosen §10.2",
-   "definition_vi": "Độ cao (ký hiệu $$h$$) của một cây có gốc là mức lớn nhất trong số các mức của mọi đỉnh, tức là độ dài của đường đi dài nhất từ gốc đến một lá. Một cây có gốc gồm đúng một đỉnh có độ cao bằng $$0$$.",
-   "example_vi": "Một cây $$m$$-phân có gốc với độ cao $$h$$ có nhiều nhất $$m^h$$ lá.",
+   "see_ref": "height-of-a-tree",
    "vi_terms": [
     {
      "term": "Độ cao",
-     "source_id": "bib-mat3500",
-     "page": "giáo trình MAT3500",
+     "verified": false,
+     "recommended": false,
+     "source_id": "",
+     "page": "",
      "pdf_page": 0,
-     "snippet": "",
-     "verified": true,
-     "recommended": true
-    },
-    {
-     "term": "độ cao",
-     "source_id": "bib-rosen-2003-vi",
-     "pdf_page": 630,
-     "page": "tr. 630 (PDF)",
-     "snippet": "khác độ cao của cây có gốc là chiếu dài",
-     "verified": true,
-     "recommended": false
+     "snippet": ""
     },
     {
      "term": "chiều cao",
-     "source_id": "bib-nguyenhoangthach-2020",
-     "pdf_page": 85,
-     "page": "tr. 85 (PDF)",
-     "snippet": "được gọi là chiều cao của cây.",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "chiều cao",
-     "source_id": "bib-nguyenhuudien-2019",
-     "pdf_page": 252,
-     "page": "tr. 252 (PDF)",
-     "snippet": "- Chiều cao của cây là mức cao nhất của các đỉnh trong cây.",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "chiều cao",
-     "source_id": "bib-hoangchithanh-2007",
-     "pdf_page": 137,
-     "page": "tr. 137 (PDF)",
-     "snippet": "— Chiều cao của cây là mức cao nhất của các đính trong cây.",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "Độ cao",
-     "source_id": "bib-rosen-2003-vi",
-     "pdf_page": 496,
-     "page": "tr. 496 (PDF, bản dịch Rosen)",
-     "snippet": "khi cố sự truyền thông với cường độ cao giữa các máy. tính. Mạng với",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "chiều cao",
-     "source_id": "bib-rosen-2003-vi",
-     "pdf_page": 312,
-     "page": "tr. 312 (PDF, bản dịch Rosen)",
-     "snippet": "Hãy chỉ ra rang trong 102 người có chiều cao khác nhau đứng thành",
-     "verified": true,
-     "recommended": false
+     "verified": false,
+     "recommended": false,
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": ""
     }
    ],
    "see_also": [],
-   "notes": "Áp dụng cho cây có gốc. Giáo trình MAT3500 dùng \"độ cao\" (theo bản dịch Rosen); các tài liệu khác thường dùng biến thể \"chiều cao\" với cùng nghĩa.",
-   "status": "draft"
+   "notes": "Đồng nghĩa với Height of a tree."
   },
   {
    "id": "hexadecimal",
@@ -935,51 +888,29 @@
    "id": "homeomorphic",
    "letter": "H",
    "headword_en": "Homeomorphic",
-   "notation": "",
-   "rosen_ref": "Rosen §10.7",
-   "definition_vi": "Hai đồ thị $$G_1$$ và $$G_2$$ được gọi là đồng phôi nếu chúng có thể nhận được từ cùng một đồ thị bằng một dãy các phép phân chia sơ cấp, trong đó mỗi phép phân chia sơ cấp thay một cạnh $$uv$$ bằng một đỉnh mới $$w$$ cùng hai cạnh $$uw$$ và $$wv$$. Khi đó $$G_1$$ và $$G_2$$ có cùng cấu trúc liên thông sai khác các đỉnh bậc $$2$$ nằm trên cạnh.",
-   "example_vi": "Theo định lý Kuratowski, một đồ thị là phẳng khi và chỉ khi nó không chứa đồ thị con đồng phôi với $$K_5$$ hoặc $$K_{3,3}$$.",
+   "see_ref": "homeomorphic-graphs",
    "vi_terms": [
     {
      "term": "đồng phôi",
-     "source_id": "bib-mat3500",
-     "page": "giáo trình MAT3500",
+     "verified": false,
+     "recommended": false,
+     "source_id": "",
+     "page": "",
      "pdf_page": 0,
-     "snippet": "",
-     "verified": true,
-     "recommended": true
-    },
-    {
-     "term": "đồng phôi",
-     "source_id": "bib-nguyenhoangthach-2020",
-     "pdf_page": 81,
-     "page": "tr. 81 (PDF)",
-     "snippet": "Ta nói hai đồ thị là đồng phôi với nhau nếu chúng có thể được tạo ra từ cùng một đồ thị bằng các phép chia cạnh.",
-     "verified": true,
-     "recommended": false
+     "snippet": ""
     },
     {
      "term": "đồng cấu",
-     "source_id": "bib-nguyenducnghia-2006",
-     "pdf_page": 161,
-     "page": "tr. 161 (PDF)",
-     "snippet": "Hai đồ thị G = (V, E) và H = (W, F) được gọi là đồng cấu nếu chúng có thể thu được từ cùng một đồ thị nào đó nhờ các phép chia canh.",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "đồng phôi",
-     "source_id": "bib-rosen-2003-vi",
-     "pdf_page": 587,
-     "page": "tr. 587 (PDF)",
-     "snippet": "Các đồ thị G1 = (V1, E1) và G2 = (V2, E2) được gọi là đồng phôi nếu chúng có thể nhận được từ cùng một đồ thị bằng một dãy các phép phân chia sơ cấp.",
-     "verified": true,
-     "recommended": false
+     "verified": false,
+     "recommended": false,
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": ""
     }
    ],
    "see_also": [],
-   "notes": "Thuật ngữ chuẩn của giáo trình MAT3500 là \"đồng phôi\". Bản dịch Rosen cũng dùng \"đồng phôi\". Một số tài liệu (Nguyễn Đức Nghĩa, 2006) gọi cùng khái niệm này là \"đồng cấu\". Đây là khái niệm đồng phôi của đồ thị (qua phép phân chia sơ cấp cạnh), khác với đồng phôi tô pô của mặt.",
-   "status": "draft"
+   "notes": "Đồng nghĩa với Homeomorphic graphs."
   },
   {
    "id": "hypothetical-syllogism",

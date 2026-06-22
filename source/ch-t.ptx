@@ -147,22 +147,10 @@
     </statement>
   </definition>
   <definition xml:id="def-trail">
-    <title>Trail — đường đi đơn</title>
+    <title>Trail</title>
     <idx><h>trail</h></idx>
     <idx><h>đường đi đơn</h></idx>
-    <notation>
-      <usage><m>v_0, v_1, \ldots, v_n</m></usage>
-      <description>đường đi đơn</description>
-    </notation>
-    <statement>
-      <p>Đường đi đơn trong đồ thị <m>G</m> là một đường đi không dùng lại cùng một cạnh quá một lần; các đỉnh trên đường đi vẫn có thể lặp lại. Một đường đi đơn từ đỉnh <m>u</m> đến đỉnh <m>v</m> được cho bởi dãy đỉnh nó đi qua, ký hiệu <m>v_0, v_1, \ldots, v_n</m> với <m>v_0 = u</m>, <m>v_n = v</m>, trong đó không có cạnh nào được dùng lại, tức mỗi cạnh của đường đi xuất hiện đúng một lần trong dãy (theo <xref ref="bib-rosen-2019" />, Rosen §10.4).</p>
-      <p>Thuật ngữ tiếng Việt tương ứng:</p>
-      <ul>
-        <li><p><term>đường đi đơn</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 73 (PDF)); <xref ref="bib-nguyenhuudien-2019" /> (tr. 168 (PDF)); <xref ref="bib-nguyenducnghia-2006" /> (tr. 155 (PDF)); <xref ref="bib-rosen-2003-vi" /> (tr. 539 (PDF, bản dịch Rosen)) — cách dùng phổ biến.</p></li>
-      </ul>
-      <p>Ví dụ: Xét đồ thị với tập đỉnh <m>V = \{v_1, v_2, v_3, v_4, v_5\}</m> và tập cạnh <m>\{v_3v_2, v_2v_1, v_1v_4, v_4v_2, v_2v_5\}</m>. Dãy <m>v_3, v_2, v_1, v_4, v_2, v_5</m> là một đường đi đơn từ <m>v_3</m> đến <m>v_5</m>: đỉnh <m>v_2</m> được đi qua hai lần nhưng không có cạnh nào bị dùng lại.</p>
-      <p>Xem thêm <xref ref="def-walk" text="title" />, <xref ref="def-path" text="title" />, <xref ref="def-simple-path" text="title" />, <xref ref="def-circuit" text="title" />, <xref ref="def-euler-path" text="title" />.</p>
-    </statement>
+    <statement><p><term>Trail</term> (đường đi đơn). Xem <xref ref="def-simple-path" text="title" />.</p></statement>
   </definition>
   <definition xml:id="def-theorem">
     <title>Theorem — định lý</title>
@@ -242,6 +230,7 @@ Chẳng hạn, phần tử ở vị trí <m>(3,1)</m> của <m>A^{t}</m> bằng 
     <title>Terminal vertex — đỉnh cuối</title>
     <idx><h>terminal vertex</h></idx>
     <idx><h>đỉnh cuối</h></idx>
+    <idx><h>đỉnh cuối của cung</h></idx>
     <idx><h>đỉnh kết thúc</h></idx>
     <notation>
       <usage><m>(u, v)</m></usage>
@@ -252,6 +241,7 @@ Chẳng hạn, phần tử ở vị trí <m>(3,1)</m> của <m>A^{t}</m> bằng 
       <p>Thuật ngữ tiếng Việt tương ứng:</p>
       <ul>
         <li><p><term>đỉnh cuối</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 63 (PDF)); <xref ref="bib-nguyenhoangthach-2020" /> (tr. 62 (PDF)); <xref ref="bib-leanhvinh-2020" /> (tr. 54 (PDF)); <xref ref="bib-nguyenducnghia-2006" /> (tr. 171 (PDF)); <xref ref="bib-ngodactan-2004" /> (tr. 185 (PDF)); <xref ref="bib-hoangchithanh-2007" /> (tr. 20 (PDF)); <xref ref="bib-rosen-2003-vi" /> (tr. 466 (PDF, bản dịch Rosen)) — cách dùng phổ biến.</p></li>
+        <li><p><term>đỉnh cuối của cung</term> <xref ref="bib-nguyenducnghia-2006" /> (tr. 171 (PDF)).</p></li>
         <li><p><term>đỉnh kết thúc</term> <xref ref="bib-hoangchithanh-2007" /> (tr. 80 (PDF)); <xref ref="bib-rosen-2003-vi" /> (tr. 460 (PDF, bản dịch Rosen)).</p></li>
       </ul>
       <p>Ví dụ: Với cạnh có hướng <m>(u, v)</m>, đỉnh <m>v</m> là đỉnh cuối còn đỉnh <m>u</m> là đỉnh đầu.</p>
@@ -330,21 +320,12 @@ Chẳng hạn, phần tử ở vị trí <m>(3,1)</m> của <m>A^{t}</m> bằng 
     </statement>
   </definition>
   <definition xml:id="def-the-dirichlet-drawer-principle">
-    <title>The Dirichlet Drawer Principle — Nguyên lý Dirichlet</title>
+    <title>The Dirichlet Drawer Principle</title>
     <idx><h>the dirichlet drawer principle</h></idx>
     <idx><h>Nguyên lý Dirichlet</h></idx>
     <idx><h>Nguyên lý chuồng bồ câu</h></idx>
     <idx><h>Nguyên lý lồng chim bồ câu</h></idx>
-    <statement>
-      <p>Nguyên lý Dirichlet (còn gọi là nguyên lý lồng chim bồ câu) khẳng định rằng nếu đem xếp nhiều hơn <m>n</m> đối tượng vào <m>n</m> cái hộp thì luôn tồn tại một hộp chứa ít nhất hai đối tượng. Dạng tổng quát phát biểu rằng nếu xếp <m>N</m> đối tượng vào <m>k</m> cái hộp thì tồn tại ít nhất một hộp chứa không ít hơn <m>\lceil N/k \rceil</m> đối tượng (theo <xref ref="bib-rosen-2019" />, Rosen §4.2).</p>
-      <p>Thuật ngữ tiếng Việt tương ứng:</p>
-      <ul>
-        <li><p><term>Nguyên lý Dirichlet</term> <xref ref="bib-mat3500" /> (giáo trình MAT3500); <xref ref="bib-nguyenducnghia-2006" /> (tr. 59 (PDF)); <xref ref="bib-nguyenhoangthach-2020" /> (tr. 53 (PDF)); <xref ref="bib-rosen-2003-vi" /> (tr. 307 (PDF)) — cách dùng phổ biến.</p></li>
-        <li><p><term>Nguyên lý chuồng bồ câu</term> <xref ref="bib-ngodactan-2004" /> (tr. 48 (PDF)).</p></li>
-        <li><p><term>Nguyên lý lồng chim bồ câu</term> <xref ref="bib-rosen-2003-vi" /> (tr. 306 (PDF)).</p></li>
-      </ul>
-      <p>Ví dụ: Trong một nhóm gồm <m>367</m> người, theo nguyên lý Dirichlet luôn có ít nhất hai người có cùng ngày sinh, vì một năm có nhiều nhất <m>366</m> ngày.</p>
-    </statement>
+    <statement><p><term>The Dirichlet Drawer Principle</term> (Nguyên lý Dirichlet, Nguyên lý chuồng bồ câu, Nguyên lý lồng chim bồ câu). Xem <xref ref="def-the-pigeonhole-principle" text="title" />.</p></statement>
   </definition>
   <definition xml:id="def-the-division-rule">
     <title>The Division Rule — Quy tắc chia</title>
@@ -407,6 +388,7 @@ Chẳng hạn, phần tử ở vị trí <m>(3,1)</m> của <m>A^{t}</m> bằng 
     <idx><h>Nguyên lý Dirichlet</h></idx>
     <idx><h>Nguyên lý chuồng bồ câu</h></idx>
     <idx><h>Nguyên lý lồng chim bồ câu</h></idx>
+    <idx><h>nguyên lý ngăn khéo</h></idx>
     <notation>
       <usage><m>\lceil n/k \rceil</m></usage>
       <description>Nguyên lý chuồng bồ câu</description>
@@ -419,6 +401,7 @@ Chẳng hạn, phần tử ở vị trí <m>(3,1)</m> của <m>A^{t}</m> bằng 
         <li><p><term>Nguyên lý Dirichlet</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 53 (PDF)); <xref ref="bib-nguyenducnghia-2006" /> (tr. 59 (PDF)); <xref ref="bib-rosen-2003-vi" /> (tr. 307 (PDF, bản dịch Rosen)).</p></li>
         <li><p><term>Nguyên lý lồng chim bồ câu</term> <xref ref="bib-rosen-2003-vi" /> (tr. 306 (PDF)).</p></li>
         <li><p><term>nguyên lý chuồng bồ câu</term> <xref ref="bib-ngodactan-2004" /> (tr. 48 (PDF)).</p></li>
+        <li><p><term>nguyên lý ngăn khéo</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 53 (PDF)).</p></li>
       </ul>
       <p>Ví dụ: Trong một nhóm <m>13</m> người luôn có ít nhất hai người sinh cùng một tháng, vì có <m>13</m> người (đồ vật) xếp vào <m>12</m> tháng (hộp) và <m>13 \gt 12</m>.</p>
     </statement>

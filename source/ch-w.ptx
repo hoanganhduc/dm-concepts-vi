@@ -149,6 +149,7 @@
         <li><p><term>xâu ký tự</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 134 (PDF)); <xref ref="bib-nguyenducnghia-2006" /> (tr. 49 (PDF)); <xref ref="bib-rosen-2003-vi" /> (tr. 107 (PDF, bản dịch Rosen)).</p></li>
       </ul>
       <p>Ví dụ: Trên bảng chữ cái <m>\Sigma = \{0, 1\}</m>, các dãy <m>0</m>, <m>1</m>, <m>01</m>, <m>110</m> đều là những từ, và từ rỗng cũng thuộc <m>\Sigma^*</m>.</p>
+      <p>Xem thêm <xref ref="def-string" text="title" />.</p>
     </statement>
   </definition>
   <definition xml:id="def-warshalls-algorithm">
@@ -167,6 +168,115 @@
       </ul>
       <p>Ví dụ: Với quan hệ <m>R = \{(1,2),(2,3)\}</m> trên tập <m>A = \{1,2,3\}</m>, thuật toán Warshall xuất phát từ ma trận <m>W_0</m> ghi nhận hai cặp này; khi cho phép đỉnh <m>a_2 = 2</m> làm đỉnh trung gian (bước tính <m>W_2</m>), đường đi <m>1 \rightarrow 2 \rightarrow 3</m> làm xuất hiện cặp <m>(1,3)</m>. Vì không có đỉnh trung gian mới nào ở bước cuối nên <m>W_3 = W_2</m> chính là ma trận của quan hệ <m>R^{*} = \{(1,2),(2,3),(1,3)\}</m>.</p>
       <p>Xem thêm <xref ref="def-transitive-closure" text="title" />, <xref ref="def-reachability" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-weak-mathematical-induction">
+    <title>Weak Mathematical Induction — Quy nạp toán học yếu</title>
+    <idx><h>weak mathematical induction</h></idx>
+    <idx><h>Quy nạp toán học yếu</h></idx>
+    <idx><h>phương pháp quy nạp toán học</h></idx>
+    <idx><h>quy nạp toán học</h></idx>
+    <statement>
+      <p>Quy nạp toán học yếu (còn gọi là nguyên lý thứ nhất của quy nạp toán học) là kỹ thuật chứng minh một mệnh đề <m>P(n)</m> đúng với mọi số nguyên dương <m>n</m>, gồm hai bước: bước cơ sở chứng minh <m>P(1)</m> đúng, và bước quy nạp chứng minh rằng nếu <m>P(k)</m> đúng thì <m>P(k+1)</m> đúng với mọi <m>k \geq 1</m>. Khác với quy nạp mạnh, giả thiết quy nạp chỉ dùng tính đúng của <m>P(k)</m> tại một giá trị <m>k</m> ngay trước đó (theo <xref ref="bib-rosen-2019" />, Rosen §4.1).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>Quy nạp toán học yếu</term> <xref ref="bib-mat3500" /> (giáo trình MAT3500) — cách dùng phổ biến.</p></li>
+        <li><p><term>phương pháp quy nạp toán học</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 69 (PDF)).</p></li>
+        <li><p><term>quy nạp toán học</term> <xref ref="bib-rosen-2003-vi" /> (tr. 229 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Để chứng minh <m>1 + 2 + \cdots + n = \frac{n(n+1)}{2}</m>, ta kiểm tra bước cơ sở <m>P(1)</m> đúng, rồi giả sử <m>P(k)</m> đúng và suy ra <m>1 + 2 + \cdots + (k+1) = \frac{k(k+1)}{2} + (k+1) = \frac{(k+1)(k+2)}{2}</m>, tức <m>P(k+1)</m> đúng.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-weakly-connected">
+    <title>Weakly Connected — liên thông yếu</title>
+    <idx><h>weakly connected</h></idx>
+    <idx><h>liên thông yếu</h></idx>
+    <statement>
+      <p>Đồ thị có hướng <m>G</m> được gọi là liên thông yếu nếu đồ thị vô hướng nền của nó (thu được bằng cách bỏ hướng của mọi cung) là liên thông, tức là giữa hai đỉnh bất kỳ luôn có đường đi khi không xét đến hướng của các cung (theo <xref ref="bib-rosen-2019" />, Rosen §10.4).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>liên thông yếu</term> <xref ref="bib-mat3500" /> (giáo trình MAT3500); <xref ref="bib-nguyenhuudien-2019" /> (tr. 171 (PDF)); <xref ref="bib-nguyenhoangthach-2020" /> (tr. 76 (PDF)); <xref ref="bib-nguyenducnghia-2006" /> (tr. 157 (PDF)); <xref ref="bib-ngodactan-2004" /> (tr. 338 (PDF)); <xref ref="bib-rosen-2003-vi" /> (tr. 541 (PDF)) — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Một đồ thị có hướng liên thông mạnh thì cũng liên thông yếu, nhưng điều ngược lại không đúng: đồ thị có hướng gồm hai cung <m>a \to b</m> và <m>a \to c</m> là liên thông yếu nhưng không liên thông mạnh vì không có đường đi có hướng từ <m>b</m> tới <m>c</m>.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-weight">
+    <title>Weight — trọng số</title>
+    <idx><h>weight</h></idx>
+    <idx><h>trọng số</h></idx>
+    <notation>
+      <usage><m>w(e)</m></usage>
+      <description>trọng số</description>
+    </notation>
+    <statement>
+      <p>Trọng số của một cạnh <m>e</m> trong một đồ thị có trọng số là giá trị số ( ký hiệu <m>w(e)</m>) gán cho cạnh đó bởi một hàm trọng số <m>w: E(G) \to \mathbb{R}</m>. Tổng trọng số các cạnh của một đường đi hoặc một đồ thị con được gọi là độ dài (hoặc trọng số) của nó (theo <xref ref="bib-rosen-2019" />, Rosen §10.5).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>trọng số</term> <xref ref="bib-mat3500" /> (giáo trình MAT3500); <xref ref="bib-nguyenhoangthach-2020" /> (tr. 91 (PDF)); <xref ref="bib-nguyenhuudien-2019" /> (tr. 202 (PDF)); <xref ref="bib-leanhvinh-2020" /> (tr. 33 (PDF)); <xref ref="bib-nguyenducnghia-2006" /> (tr. 170 (PDF)); <xref ref="bib-hoangchithanh-2007" /> (tr. 93 (PDF)); <xref ref="bib-rosen-2003-vi" /> (tr. 571 (PDF)) — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Trong một mạng đường bay được mô hình bằng đồ thị, trọng số <m>w(e)</m> gán cho cạnh <m>e</m> nối hai thành phố có thể là khoảng cách, giá vé hay thời gian bay giữa chúng.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-well-formed-formulae">
+    <title>Well-Formed Formulae — các công thức được tạo đúng quy tắc</title>
+    <idx><h>well-formed formulae</h></idx>
+    <idx><h>các công thức được tạo đúng quy tắc</h></idx>
+    <statement>
+      <p>Một công thức được tạo đúng quy tắc là một biểu thức logic được xây dựng đúng cú pháp từ các biến mệnh đề, các phép toán logic (<m>\neg</m>, <m>\wedge</m>, <m>\vee</m>, <m>\rightarrow</m>, <m>\leftrightarrow</m>) và các dấu ngoặc theo các quy tắc tạo công thức. Cụ thể, mỗi biến mệnh đề là một công thức được tạo đúng quy tắc, và nếu <m>F</m> và <m>G</m> là các công thức được tạo đúng quy tắc thì <m>(\neg F)</m>, <m>(F \wedge G)</m>, <m>(F \vee G)</m>, <m>(F \rightarrow G)</m> và <m>(F \leftrightarrow G)</m> cũng là các công thức được tạo đúng quy tắc (theo <xref ref="bib-rosen-2019" />, Rosen §1.1).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>các công thức được tạo đúng quy tắc</term> <xref ref="bib-mat3500" /> (giáo trình MAT3500) — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Biểu thức <m>(p \wedge q) \rightarrow (\neg r)</m> là một công thức được tạo đúng quy tắc, trong khi <m>p \wedge \vee q</m> thì không, vì nó vi phạm quy tắc tạo công thức.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-wheel">
+    <title>Wheel — đồ thị bánh xe</title>
+    <idx><h>wheel</h></idx>
+    <idx><h>đồ thị bánh xe</h></idx>
+    <idx><h>đồ thị hình bánh xe</h></idx>
+    <notation>
+      <usage><m>W_n</m></usage>
+      <description>đồ thị bánh xe</description>
+    </notation>
+    <statement>
+      <p>Đồ thị bánh xe <m>W_n</m> (với <m>n \geq 3</m>) là đồ thị thu được từ chu trình <m>C_n</m> bằng cách thêm một đỉnh mới và nối đỉnh này với tất cả <m>n</m> đỉnh của <m>C_n</m>. Như vậy <m>W_n</m> có <m>n + 1</m> đỉnh và <m>2n</m> cạnh (theo <xref ref="bib-rosen-2019" />, Rosen §10.2).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>đồ thị bánh xe</term> <xref ref="bib-mat3500" /> (giáo trình MAT3500); <xref ref="bib-nguyenhoangthach-2020" /> (tr. 67 (PDF)); <xref ref="bib-nguyenhuudien-2019" /> (tr. 159 (PDF)); <xref ref="bib-nguyenducnghia-2006" /> (tr. 159 (PDF)) — cách dùng phổ biến.</p></li>
+        <li><p><term>đồ thị hình bánh xe</term> <xref ref="bib-rosen-2003-vi" /> (tr. 508 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Đồ thị bánh xe <m>W_3</m> là đồ thị đầy đủ <m>K_4</m>, vì khi nối đỉnh trung tâm với cả ba đỉnh của chu trình <m>C_3</m> ta được một đồ thị mà mọi cặp đỉnh đều kề nhau.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-witness">
+    <title>Witness — bằng chứng</title>
+    <idx><h>witness</h></idx>
+    <idx><h>bằng chứng</h></idx>
+    <statement>
+      <p>Một bằng chứng (cho tính hợp số của một số nguyên dương <m>n</m>) là một số nguyên <m>b</m> với <m>1  \lt  b  \lt  n</m> sao cho <m>n</m> không vượt qua một phép kiểm tra tính nguyên tố ứng với cơ sở <m>b</m> (chẳng hạn kiểm tra Miller), qua đó khẳng định chắc chắn rằng <m>n</m> là hợp số. Tổng quát hơn, trong lý thuyết tính toán, bằng chứng cho một mệnh đề là một đối tượng cụ thể cho phép kiểm tra nhanh rằng mệnh đề đó đúng (theo <xref ref="bib-rosen-2019" />, Rosen §4.4).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>bằng chứng</term> <xref ref="bib-mat3500" /> (giáo trình MAT3500) — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Với <m>n = 2047 = 23 \cdot 89</m>, số <m>b = 23</m> là một bằng chứng cho tính hợp số của <m>n</m> vì <m>23 \mid 2047</m>, trong khi <m>2047</m> lại là số giả nguyên tố Fermat cơ sở <m>2</m>.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-worst-case-complexity">
+    <title>Worst-Case Complexity — Độ phức tạp trường hợp xấu nhất</title>
+    <idx><h>worst-case complexity</h></idx>
+    <idx><h>trường hợp xấu nhất</h></idx>
+    <idx><h>Độ phức tạp trường hợp xấu nhất</h></idx>
+    <idx><h>độ phức tạp thời gian trong trường hợp xấu nhất</h></idx>
+    <statement>
+      <p>Độ phức tạp trường hợp xấu nhất của một thuật toán là số phép toán lớn nhất mà thuật toán cần thực hiện trên mọi dữ liệu vào có cùng kích thước <m>n</m>, dùng để cận trên cho thời gian chạy của thuật toán. Khi đo bằng số phép toán cơ bản, đại lượng này thường được biểu diễn theo ký hiệu <m>O</m> lớn như một hàm của <m>n</m> (theo <xref ref="bib-rosen-2019" />, Rosen §3.3).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>Độ phức tạp trường hợp xấu nhất</term> <xref ref="bib-mat3500" /> (giáo trình MAT3500) — cách dùng phổ biến.</p></li>
+        <li><p><term>trường hợp xấu nhất</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 136 (PDF)).</p></li>
+        <li><p><term>độ phức tạp thời gian trong trường hợp xấu nhất</term> <xref ref="bib-rosen-2003-vi" /> (tr. 150 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Thuật toán tìm kiếm tuyến tính trên một danh sách gồm <m>n</m> phần tử có độ phức tạp trường hợp xấu nhất là <m>O(n)</m>, vì khi phần tử cần tìm không có trong danh sách thuật toán phải so sánh với cả <m>n</m> phần tử.</p>
     </statement>
   </definition>
 </chapter>

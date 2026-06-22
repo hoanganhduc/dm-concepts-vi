@@ -280,4 +280,111 @@
       <p>Xem thêm <xref ref="def-walk" text="title" />, <xref ref="def-path" text="title" />, <xref ref="def-circuit" text="title" />.</p>
     </statement>
   </definition>
+  <definition xml:id="def-octal">
+    <title>Octal — Hệ cơ số 8 (hệ bát phân)</title>
+    <idx><h>octal</h></idx>
+    <idx><h>Hệ cơ số 8 (hệ bát phân)</h></idx>
+    <idx><h>cơ số 8</h></idx>
+    <notation>
+      <usage><m>(a_k a_{k-1} \ldots a_1 a_0)_8</m></usage>
+      <description>Hệ cơ số 8 (hệ bát phân)</description>
+    </notation>
+    <statement>
+      <p>Hệ bát phân (hệ cơ số <m>8</m>) là hệ đếm dùng cơ số <m>b = 8</m> với tập chữ số <m>\{0,1,2,3,4,5,6,7\}</m>. Mỗi số nguyên không âm <m>n</m> được biểu diễn duy nhất dưới dạng khai triển cơ số <m>8</m>, ký hiệu <m>(n)_8</m>, theo công thức <m>n = a_k 8^k + a_{k-1} 8^{k-1} + \cdots + a_1 8 + a_0</m>, trong đó <m>0 \leq a_i \leq 7</m> (theo <xref ref="bib-rosen-2019" />, Rosen §4.2).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>Hệ cơ số 8 (hệ bát phân)</term> <xref ref="bib-mat3500" /> (giáo trình MAT3500) — cách dùng phổ biến.</p></li>
+        <li><p><term>cơ số 8</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 143 (PDF)); <xref ref="bib-rosen-2003-vi" /> (tr. 173 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Khai triển cơ số <m>8</m> của <m>(12345)_{10}</m> là <m>(30071)_8</m>, vì <m>12345 = 3 \cdot 8^4 + 0 \cdot 8^3 + 0 \cdot 8^2 + 7 \cdot 8 + 1</m>.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-odd">
+    <title>Odd — lẻ</title>
+    <idx><h>odd</h></idx>
+    <idx><h>lẻ</h></idx>
+    <idx><h>số lẻ</h></idx>
+    <notation>
+      <usage><m>n = 2k+1</m></usage>
+      <description>lẻ</description>
+    </notation>
+    <statement>
+      <p>Số nguyên <m>n</m> được gọi là lẻ nếu tồn tại số nguyên <m>k</m> sao cho <m>n = 2k + 1</m>; nói cách khác, <m>n</m> lẻ khi và chỉ khi <m>n</m> không chia hết cho <m>2</m>. Tập các số nguyên lẻ thường được ký hiệu là <m>O</m> (theo <xref ref="bib-rosen-2019" />, Rosen §4.1).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>lẻ</term> <xref ref="bib-mat3500" /> (giáo trình MAT3500); <xref ref="bib-nguyenhoangthach-2020" /> (tr. 64 (PDF)); <xref ref="bib-leanhvinh-2020" /> (tr. 11 (PDF)) — cách dùng phổ biến.</p></li>
+        <li><p><term>số lẻ</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 40 (PDF)); <xref ref="bib-rosen-2003-vi" /> (tr. 216 (PDF)); <xref ref="bib-nguyenducnghia-2006" /> (tr. 62 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Các số <m>1</m>, <m>3</m>, <m>-5</m> là số lẻ, vì <m>1 = 2\cdot 0 + 1</m>, <m>3 = 2\cdot 1 + 1</m> và <m>-5 = 2\cdot(-3) + 1</m>. Nếu <m>n</m> lẻ thì <m>n^2</m> cũng lẻ.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-ones-complement-notation">
+    <title>One's Complement Notation — ký hiệu phần bù một</title>
+    <idx><h>one's complement notation</h></idx>
+    <idx><h>ký hiệu phần bù một</h></idx>
+    <statement>
+      <p>Ký hiệu phần bù một là một cách biểu diễn các số nguyên (cả âm lẫn dương) bằng một xâu bit có độ dài cố định <m>n</m>. Một số nguyên không âm <m>a</m> với <m>a \leq 2^{n-1} - 1</m> được biểu diễn bằng khai triển nhị phân <m>n</m> bit của nó với bit dấu (bit ngoài cùng bên trái) bằng <m>0</m>; số nguyên âm <m>-a</m> được biểu diễn bằng xâu bit thu được từ biểu diễn của <m>a</m> bằng cách đảo từng bit, tức là đổi mỗi <m>0</m> thành <m>1</m> và mỗi <m>1</m> thành <m>0</m> (theo <xref ref="bib-rosen-2019" />, Rosen §4.2).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>ký hiệu phần bù một</term> <xref ref="bib-mat3500" /> (giáo trình MAT3500) — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Với độ dài <m>n = 8</m> bit, số <m>5</m> được biểu diễn là <m>00000101</m>, còn số <m>-5</m> được biểu diễn bằng phần bù từng bit là <m>11111010</m>.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-or-gate">
+    <title>Or Gate — Cổng OR</title>
+    <idx><h>or gate</h></idx>
+    <idx><h>Cổng OR</h></idx>
+    <notation>
+      <usage><m>x_1 + x_2 + \cdots + x_n</m></usage>
+      <description>Cổng OR</description>
+    </notation>
+    <statement>
+      <p>Cổng OR là phần tử mạch logic nhận một hay nhiều đầu vào Boole và tạo ra đầu ra bằng tổng Boole (phép tuyển) của các đầu vào đó, ký hiệu <m>x_1 + x_2 + \cdots + x_n</m>. Đầu ra của cổng OR bằng <m>1</m> khi và chỉ khi có ít nhất một đầu vào bằng <m>1</m>, và bằng <m>0</m> khi tất cả đầu vào đều bằng <m>0</m> (theo <xref ref="bib-rosen-2019" />, Rosen §12.3).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>Cổng OR</term> <xref ref="bib-mat3500" /> (giáo trình MAT3500) — cách dùng phổ biến.</p></li>
+        <li><p><term>cổng OR</term> <xref ref="bib-rosen-2003-vi" /> (tr. 728 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Với hai đầu vào <m>x_1</m> và <m>x_2</m>, cổng OR cho đầu ra <m>x_1 + x_2</m>: nếu <m>x_1 = 1</m> và <m>x_2 = 0</m> thì đầu ra là <m>1</m>; chỉ khi <m>x_1 = x_2 = 0</m> thì đầu ra mới bằng <m>0</m>.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-ordered-rooted-tree">
+    <title>Ordered Rooted Tree — cây có gốc được sắp thứ tự</title>
+    <idx><h>ordered rooted tree</h></idx>
+    <idx><h>cây có gốc có thứ tự</h></idx>
+    <idx><h>cây có gốc được sắp</h></idx>
+    <idx><h>cây có gốc được sắp thứ tự</h></idx>
+    <statement>
+      <p>Cây có gốc được sắp thứ tự là một cây có gốc trong đó các con của mỗi đỉnh trong được sắp xếp theo một thứ tự nhất định. Theo quy ước, khi vẽ cây thì các con của mỗi đỉnh trong được sắp từ trái sang phải (theo <xref ref="bib-rosen-2019" />, Rosen §10.2).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>cây có gốc được sắp thứ tự</term> <xref ref="bib-mat3500" /> (giáo trình MAT3500) — cách dùng phổ biến.</p></li>
+        <li><p><term>cây có gốc có thứ tự</term> <xref ref="bib-rosen-2003-vi" /> (tr. 625 (PDF)).</p></li>
+        <li><p><term>cây có gốc được sắp</term> <xref ref="bib-rosen-2003-vi" /> (tr. 624 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Trong một cây nhị phân có thứ tự, mỗi đỉnh trong có nhiều nhất hai con: con thứ nhất là con bên trái và con thứ hai là con bên phải; đây là một trường hợp điển hình của cây có gốc được sắp thứ tự.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-out-degree">
+    <title>Out-Degree — Bậc ra</title>
+    <idx><h>out-degree</h></idx>
+    <idx><h>Bậc ra</h></idx>
+    <idx><h>bán bậc ra</h></idx>
+    <notation>
+      <usage><m>\deg^+(v)</m></usage>
+      <description>Bậc ra</description>
+    </notation>
+    <statement>
+      <p>Bậc ra của một đỉnh <m>v</m> trong đồ thị có hướng <m>G</m>, ký hiệu <m>\deg^+(v)</m>, là số cạnh nhận <m>v</m> làm đỉnh đầu, tức số cạnh đi ra khỏi <m>v</m>. Mỗi khuyên tại <m>v</m> được tính một lần vào <m>\deg^+(v)</m> (theo <xref ref="bib-rosen-2019" />, Rosen §10.2).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>Bậc ra</term> <xref ref="bib-mat3500" /> (giáo trình MAT3500) — cách dùng phổ biến.</p></li>
+        <li><p><term>bán bậc ra</term> <xref ref="bib-nguyenducnghia-2006" /> (tr. 163 (PDF)).</p></li>
+        <li><p><term>bậc ra</term> <xref ref="bib-leanhvinh-2020" /> (tr. 11 (PDF)); <xref ref="bib-nguyenhuudien-2019" /> (tr. 158 (PDF)); <xref ref="bib-rosen-2003-vi" /> (tr. 516 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Trong đồ thị có hướng với các cạnh <m>(v, a)</m>, <m>(v, b)</m> và <m>(c, v)</m>, đỉnh <m>v</m> có <m>\deg^+(v) = 2</m> vì có hai cạnh đi ra khỏi <m>v</m>.</p>
+      <p>Xem thêm <xref ref="def-in-degree" text="title" />, <xref ref="def-directed-graph" text="title" />.</p>
+    </statement>
+  </definition>
 </chapter>

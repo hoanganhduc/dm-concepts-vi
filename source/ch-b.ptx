@@ -195,7 +195,7 @@
         <li><p><term>đại số Boole</term> <em>(thuật ngữ chuẩn; chưa truy được trong kho văn bản)</em> — cách dùng phổ biến.</p></li>
       </ul>
       <p>Ví dụ: Tập hợp <m>B = \{0, 1\}</m> với phép tuyển <m>\vee</m>, phép hội <m>\wedge</m>, phép lấy phần bù <m>\overline{\phantom{x}}</m> xác định bởi <m>\overline{0} = 1</m> và <m>\overline{1} = 0</m>, cùng hai phần tử <m>0</m> và <m>1</m>, tạo thành một đại số Boole.</p>
-      <p>Xem thêm <xref ref="def-boolean-function" text="title" />.</p>
+      <p>Xem thêm <xref ref="def-boolean-function" text="title" />, <xref ref="def-boolean-expression" text="title" />.</p>
     </statement>
   </definition>
   <definition xml:id="def-boolean-function">
@@ -215,7 +215,7 @@
         <li><p><term>hàm đại số lôgic</term> <xref ref="bib-nguyenducnghia-2006" /> (tr. 266 (PDF)).</p></li>
       </ul>
       <p>Ví dụ: Với <m>n = 2</m>, hàm <m>f : \{0,1\}^2 \to \{0,1\}</m> xác định bởi <m>f(0,0) = 0</m>, <m>f(0,1) = 1</m>, <m>f(1,0) = 1</m> và <m>f(1,1) = 1</m> là một hàm Boole <m>2</m> biến.</p>
-      <p>Xem thêm <xref ref="def-boolean-algebra" text="title" />.</p>
+      <p>Xem thêm <xref ref="def-boolean-algebra" text="title" />, <xref ref="def-boolean-expression" text="title" />.</p>
     </statement>
   </definition>
   <definition xml:id="def-boundary">
@@ -315,6 +315,218 @@
         <li><p><term>hình cầu</term> <xref ref="bib-leanhvinh-2020" /> (tr. 190 (PDF)); <xref ref="bib-ngodactan-2004" /> (tr. 317 (PDF)) — cách dùng phổ biến.</p></li>
       </ul>
       <p>Ví dụ: Trên đường thẳng thực với khoảng cách <m>d(x, y) = |x - y|</m>, hình cầu tâm <m>x = 0</m> bán kính <m>r = 2</m> là tập <m>B(0, 2) = \{ y : |y| \leq 2 \}</m>, tức là đoạn <m>[-2, 2]</m>.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-backtracking">
+    <title>Backtracking — kỹ thuật quay lui</title>
+    <idx><h>backtracking</h></idx>
+    <idx><h>kỹ thuật quay lui</h></idx>
+    <idx><h>thuật toán quay lui</h></idx>
+    <statement>
+      <p>Kỹ thuật quay lui là một phương pháp tìm lời giải bằng cách xây dựng dần dãy quyết định và duyệt cây tìm kiếm: tại mỗi bước ta mở rộng lời giải bộ phận, và nếu từ trạng thái hiện tại không thể dẫn tới lời giải thì ta quay lui trở lại trạng thái trước đó để thử lựa chọn khác. Quá trình tìm kiếm theo kỹ thuật này thường được mô tả bằng cây tìm kiếm, trong đó mỗi đỉnh ứng với một dãy quyết định bộ phận (theo <xref ref="bib-rosen-2019" />, Rosen §11.2).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>kỹ thuật quay lui</term> <xref ref="bib-mat3500" /> (giáo trình MAT3500); <xref ref="bib-rosen-2003-vi" /> (tr. 683 (PDF)) — cách dùng phổ biến.</p></li>
+        <li><p><term>thuật toán quay lui</term> <xref ref="bib-nguyenducnghia-2006" /> (tr. 100 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Bài toán <m>n</m> quân hậu được giải bằng kỹ thuật quay lui: ta lần lượt đặt quân hậu vào từng cột; khi một cách đặt vi phạm điều kiện không ăn nhau thì quay lui lại để thử vị trí khác.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-base">
+    <title>Base — hệ cơ số</title>
+    <idx><h>base</h></idx>
+    <idx><h>cơ số</h></idx>
+    <idx><h>hệ cơ số</h></idx>
+    <notation>
+      <usage><m>b</m></usage>
+      <description>hệ cơ số</description>
+    </notation>
+    <statement>
+      <p>Cơ số <m>b</m> (hay hệ cơ số <m>b</m>) là một số nguyên <m>b \geq 2</m> được dùng làm nền tảng để biểu diễn các số nguyên: mọi số nguyên dương <m>n</m> đều viết được duy nhất dưới dạng khai triển theo cơ số <m>b</m>, tức là <m>n = a_k b^k + a_{k-1} b^{k-1} + \cdots + a_1 b + a_0</m>, trong đó mỗi chữ số thỏa <m>0 \leq a_i  \lt  b</m> và <m>a_k \neq 0</m>, ký hiệu là <m>(a_k a_{k-1} \ldots a_1 a_0)_b</m> (theo <xref ref="bib-rosen-2019" />, Rosen §4.2).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>hệ cơ số</term> <xref ref="bib-mat3500" /> (giáo trình MAT3500) — cách dùng phổ biến.</p></li>
+        <li><p><term>cơ số</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 143 (PDF)); <xref ref="bib-rosen-2003-vi" /> (tr. 174 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Với cơ số <m>b = 8</m>, khai triển của <m>(12345)_{10}</m> là <m>(30071)_8</m>, vì <m>12345 = 3 \cdot 8^4 + 0 \cdot 8^3 + 0 \cdot 8^2 + 7 \cdot 8 + 1</m>.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-basis-step">
+    <title>Basis Step — Bước cơ sở</title>
+    <idx><h>basis step</h></idx>
+    <idx><h>Bước cơ sở</h></idx>
+    <idx><h>Trường hợp cơ sở</h></idx>
+    <statement>
+      <p>Bước cơ sở là bước đầu tiên của một chứng minh quy nạp, trong đó ta kiểm chứng rằng mệnh đề <m>P(n_0)</m> là đúng tại giá trị xuất phát <m>n_0</m> (thường là <m>n_0 = 0</m> hoặc <m>n_0 = 1</m>). Cùng với bước quy nạp, bước cơ sở bảo đảm rằng <m>P(n)</m> đúng với mọi số nguyên <m>n \geq n_0</m> (theo <xref ref="bib-rosen-2019" />, Rosen §5.1).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>Bước cơ sở</term> <xref ref="bib-mat3500" /> (giáo trình MAT3500); <xref ref="bib-nguyenhuudien-2019" /> (tr. 62 (PDF)); <xref ref="bib-rosen-2003-vi" /> (tr. 230 (PDF)) — cách dùng phổ biến.</p></li>
+        <li><p><term>Trường hợp cơ sở</term> <xref ref="bib-leanhvinh-2020" /> (tr. 16 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Khi chứng minh <m>1 + 2 + \cdots + n = \frac{n(n+1)}{2}</m> bằng quy nạp, bước cơ sở là kiểm tra <m>P(1)</m>, tức là <m>1 = \frac{1 \cdot 2}{2} = 1</m>, đúng.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-best-case-complexity">
+    <title>Best-Case Complexity — Độ phức tạp trường hợp tốt nhất</title>
+    <idx><h>best-case complexity</h></idx>
+    <idx><h>thời gian tính tốt nhất</h></idx>
+    <idx><h>trường hợp tốt nhất</h></idx>
+    <idx><h>Độ phức tạp trường hợp tốt nhất</h></idx>
+    <statement>
+      <p>Độ phức tạp trường hợp tốt nhất của một thuật toán là số phép toán ít nhất mà thuật toán cần thực hiện trên mọi đầu vào có cùng kích thước <m>n</m>. Nếu kích thước đầu vào là <m>n</m> thì độ phức tạp này là hàm theo <m>n</m> cho biết chi phí nhỏ nhất trong tất cả các đầu vào kích thước <m>n</m> (theo <xref ref="bib-rosen-2019" />, Rosen §3.3).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>Độ phức tạp trường hợp tốt nhất</term> <xref ref="bib-mat3500" /> (giáo trình MAT3500) — cách dùng phổ biến.</p></li>
+        <li><p><term>thời gian tính tốt nhất</term> <xref ref="bib-nguyenducnghia-2006" /> (tr. 86 (PDF)).</p></li>
+        <li><p><term>trường hợp tốt nhất</term> <xref ref="bib-rosen-2003-vi" /> (tr. 199 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Khi tìm kiếm tuyến tính một phần tử <m>x</m> trong danh sách <m>a_1, a_2, \ldots, a_n</m>, trường hợp tốt nhất xảy ra khi <m>x = a_1</m>, lúc đó thuật toán chỉ cần một phép so sánh, nên độ phức tạp trường hợp tốt nhất là <m>O(1)</m>.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-bi-implication">
+    <title>Bi-Implication — tương đương</title>
+    <idx><h>bi-implication</h></idx>
+    <idx><h>phép tương đương</h></idx>
+    <idx><h>tương đương</h></idx>
+    <notation>
+      <usage><m>p \leftrightarrow q</m></usage>
+      <description>tương đương</description>
+    </notation>
+    <statement>
+      <p>Phép tương đương (phép kéo theo hai chiều) của hai mệnh đề <m>p</m> và <m>q</m>, ký hiệu <m>p \leftrightarrow q</m>, là mệnh đề nhận giá trị đúng khi <m>p</m> và <m>q</m> có cùng giá trị chân lý, và nhận giá trị sai trong các trường hợp còn lại. Mệnh đề <m>p \leftrightarrow q</m> được đọc là "<m>p</m> nếu và chỉ nếu <m>q</m>" (theo <xref ref="bib-rosen-2019" />, Rosen §1.1).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>tương đương</term> <xref ref="bib-mat3500" /> (giáo trình MAT3500); <xref ref="bib-rosen-2003-vi" /> (tr. 13 (PDF)) — cách dùng phổ biến.</p></li>
+        <li><p><term>phép tương đương</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 19 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Mệnh đề "Một số nguyên <m>n</m> là chẵn nếu và chỉ nếu <m>n^2</m> là chẵn" có dạng <m>p \leftrightarrow q</m> với <m>p</m> là "<m>n</m> chẵn" và <m>q</m> là "<m>n^2</m> chẵn"; mệnh đề này luôn đúng.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-binary-operator">
+    <title>Binary Operator — toán tử hai ngôi</title>
+    <idx><h>binary operator</h></idx>
+    <idx><h>toán tử</h></idx>
+    <idx><h>toán tử hai ngôi</h></idx>
+    <idx><h>toán tử logic</h></idx>
+    <notation>
+      <usage><m>\wedge, \vee, \oplus, \rightarrow, \leftrightarrow</m></usage>
+      <description>toán tử hai ngôi</description>
+    </notation>
+    <statement>
+      <p>Toán tử hai ngôi là một toán tử logic tác động lên hai toán hạng, tức là kết hợp hai mệnh đề <m>p</m> và <m>q</m> để tạo thành một mệnh đề phức hợp mới. Các toán tử hai ngôi cơ bản trong logic mệnh đề gồm hội (ký hiệu <m>\wedge</m>), tuyển (ký hiệu <m>\vee</m>), tuyển loại trừ (ký hiệu <m>\oplus</m>), kéo theo (ký hiệu <m>\rightarrow</m>) và tương đương (ký hiệu <m>\leftrightarrow</m>) (theo <xref ref="bib-rosen-2019" />, Rosen §1.1).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>toán tử hai ngôi</term> <xref ref="bib-mat3500" /> (giáo trình MAT3500) — cách dùng phổ biến.</p></li>
+        <li><p><term>toán tử</term> <xref ref="bib-ngodactan-2004" /> (tr. 224 (PDF)).</p></li>
+        <li><p><term>toán tử logic</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 19 (PDF)); <xref ref="bib-rosen-2003-vi" /> (tr. 7 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Toán tử hội <m>\wedge</m> là một toán tử hai ngôi: từ hai mệnh đề <m>p</m> và <m>q</m> nó tạo ra mệnh đề <m>p \wedge q</m>, đúng khi và chỉ khi cả <m>p</m> và <m>q</m> đều đúng. Trái lại, phủ định <m>\neg</m> chỉ tác động lên một mệnh đề nên là toán tử một ngôi.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-binary">
+    <title>Binary — Hệ cơ số 2 (nhị phân)</title>
+    <idx><h>binary</h></idx>
+    <idx><h>Hệ cơ số 2 (nhị phân)</h></idx>
+    <idx><h>biểu diễn cơ số 2</h></idx>
+    <idx><h>biểu diễn nhị phân</h></idx>
+    <idx><h>khai triển nhị phân</h></idx>
+    <notation>
+      <usage><m>(a_{k-1}\dots a_1 a_0)_2</m></usage>
+      <description>Hệ cơ số 2 (nhị phân)</description>
+    </notation>
+    <statement>
+      <p>Hệ nhị phân (hệ cơ số <m>2</m>) là hệ đếm dùng cơ số <m>b = 2</m> với hai chữ số <m>0</m> và <m>1</m>. Mỗi số nguyên không âm <m>n</m> có duy nhất một khai triển nhị phân <m>n = a_{k-1} 2^{k-1} + \dots + a_1 2^1 + a_0 2^0</m>, trong đó mỗi chữ số <m>a_i \in \{0, 1\}</m>, ký hiệu <m>(a_{k-1} \dots a_1 a_0)_2</m> (theo <xref ref="bib-rosen-2019" />, Rosen §4.2).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>Hệ cơ số 2 (nhị phân)</term> <xref ref="bib-mat3500" /> (giáo trình MAT3500) — cách dùng phổ biến.</p></li>
+        <li><p><term>biểu diễn cơ số 2</term> <xref ref="bib-rosen-2003-vi" /> (tr. 130 (PDF)).</p></li>
+        <li><p><term>biểu diễn nhị phân</term> <xref ref="bib-nguyenducnghia-2006" /> (tr. 93 (PDF)); <xref ref="bib-hoangchithanh-2007" /> (tr. 27 (PDF)).</p></li>
+        <li><p><term>khai triển nhị phân</term> <xref ref="bib-rosen-2003-vi" /> (tr. 130 (PDF)); <xref ref="bib-nguyenhuudien-2019" /> (tr. 144 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Số <m>19</m> có khai triển nhị phân là <m>(10011)_2</m>, vì <m>19 = 1 \cdot 2^4 + 0 \cdot 2^3 + 0 \cdot 2^2 + 1 \cdot 2^1 + 1 \cdot 2^0</m>.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-boolean-expression">
+    <title>Boolean Expression — biểu thức Boole</title>
+    <idx><h>boolean expression</h></idx>
+    <idx><h>biểu thức Boole</h></idx>
+    <statement>
+      <p>Biểu thức Boole theo các biến <m>x_1, x_2, \ldots, x_n</m> được định nghĩa đệ quy như sau: <m>0</m>, <m>1</m>, <m>x_1</m>, <m>x_2</m>, <m>\ldots</m>, <m>x_n</m> là các biểu thức Boole; và nếu <m>E_1</m> và <m>E_2</m> là các biểu thức Boole thì <m>\overline{E_1}</m>, <m>(E_1 E_2)</m> và <m>(E_1 + E_2)</m> cũng là các biểu thức Boole. Mỗi biểu thức Boole theo <m>n</m> biến biểu diễn một hàm Boole <m>F : B^n \to B</m>, trong đó <m>B = \{0, 1\}</m> (theo <xref ref="bib-rosen-2019" />, Rosen §12.1).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>biểu thức Boole</term> <xref ref="bib-mat3500" /> (giáo trình MAT3500); <xref ref="bib-rosen-2003-vi" /> (tr. 713 (PDF)) — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Biểu thức <m>x_1 \overline{x_2} + x_3</m> là một biểu thức Boole theo ba biến <m>x_1</m>, <m>x_2</m>, <m>x_3</m>; nó biểu diễn hàm Boole nhận giá trị <m>1</m> khi <m>x_1 = 1</m> và <m>x_2 = 0</m>, hoặc khi <m>x_3 = 1</m>.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-boolean-product">
+    <title>Boolean Product — Tích Boole</title>
+    <idx><h>boolean product</h></idx>
+    <idx><h>Tích Boole</h></idx>
+    <notation>
+      <usage><m>A \odot B</m></usage>
+      <description>Tích Boole</description>
+    </notation>
+    <statement>
+      <p>Tích Boole của hai ma trận không-một <m>A = [a_{ij}]</m> cỡ <m>m \times k</m> và <m>B = [b_{ij}]</m> cỡ <m>k \times n</m>, ký hiệu là <m>A \odot B</m>, là ma trận không-một <m>C = [c_{ij}]</m> cỡ <m>m \times n</m> với phần tử <m>c_{ij} = (a_{i1} \wedge b_{1j}) \vee (a_{i2} \wedge b_{2j}) \vee \cdots \vee (a_{ik} \wedge b_{kj})</m>, trong đó <m>\vee</m> là tổng Boole và <m>\wedge</m> là tích Boole trên tập <m>\{0, 1\}</m>. Phép tính này tương tự nhân ma trận thông thường nhưng thay phép cộng bằng <m>\vee</m> và phép nhân bằng <m>\wedge</m> (theo <xref ref="bib-rosen-2019" />, Rosen §2.6).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>Tích Boole</term> <xref ref="bib-mat3500" /> (giáo trình MAT3500) — cách dùng phổ biến.</p></li>
+        <li><p><term>tích Boole</term> <xref ref="bib-rosen-2003-vi" /> (tr. 191 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Với <m>A = \begin{bmatrix} 1  \amp  0 \\ 0  \amp  1 \\ 1  \amp  0 \end{bmatrix}</m> và <m>B = \begin{bmatrix} 1  \amp  1  \amp  0 \\ 0  \amp  1  \amp  1 \end{bmatrix}</m>, tích Boole là <m>A \odot B = \begin{bmatrix} 1  \amp  1  \amp  0 \\ 0  \amp  1  \amp  1 \\ 1  \amp  1  \amp  0 \end{bmatrix}</m>.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-boolean-sum">
+    <title>Boolean Sum — Tổng Boole</title>
+    <idx><h>boolean sum</h></idx>
+    <idx><h>Tổng Boole</h></idx>
+    <notation>
+      <usage><m>x + y</m></usage>
+      <description>Tổng Boole</description>
+    </notation>
+    <statement>
+      <p>Tổng Boole của hai phần tử <m>x</m> và <m>y</m> trong đại số Boole <m>\{0,1\}</m>, ký hiệu <m>x + y</m> (hoặc OR), nhận giá trị <m>1</m> nếu ít nhất một trong hai phần tử bằng <m>1</m> và nhận giá trị <m>0</m> trong trường hợp ngược lại. Như vậy <m>1+1=1</m>, <m>1+0=1</m>, <m>0+1=1</m> và <m>0+0=0</m> (theo <xref ref="bib-rosen-2019" />, Rosen §12.1).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>Tổng Boole</term> <xref ref="bib-mat3500" /> (giáo trình MAT3500) — cách dùng phổ biến.</p></li>
+        <li><p><term>tổng Boole</term> <xref ref="bib-rosen-2003-vi" /> (tr. 712 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Tổng Boole <m>F+G</m> của hai hàm Boole bậc <m>n</m> được định nghĩa theo từng điểm bởi <m>(F+G)(x_1,\dots,x_n)=F(x_1,\dots,x_n)+G(x_1,\dots,x_n)</m>.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-boolean-variable">
+    <title>Boolean Variable — biến Boole</title>
+    <idx><h>boolean variable</h></idx>
+    <idx><h>biến Boole</h></idx>
+    <idx><h>biến logic</h></idx>
+    <notation>
+      <usage><m>x \in B = \{0, 1\}</m></usage>
+      <description>biến Boole</description>
+    </notation>
+    <statement>
+      <p>Biến Boole là một biến <m>x</m> chỉ nhận giá trị trong tập <m>B = \{0, 1\}</m> (ký hiệu <m>1</m> cho giá trị đúng và <m>0</m> cho giá trị sai). Các biến Boole kết hợp với các phép toán Boole tạo thành biểu thức Boole (theo <xref ref="bib-rosen-2019" />, Rosen §12.1).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>biến Boole</term> <xref ref="bib-mat3500" /> (giáo trình MAT3500); <xref ref="bib-rosen-2003-vi" /> (tr. 713 (PDF)) — cách dùng phổ biến.</p></li>
+        <li><p><term>biến logic</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 14 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Với <m>B = \{0, 1\}</m>, nếu <m>x</m> là một biến Boole thì <m>x</m> chỉ có thể bằng <m>0</m> hoặc <m>1</m>; chẳng hạn biểu thức <m>x \cdot y + \bar{x}</m> là một hàm theo hai biến Boole <m>x</m> và <m>y</m>.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-bound-variable">
+    <title>Bound Variable — biến ràng buộc</title>
+    <idx><h>bound variable</h></idx>
+    <idx><h>biến bị ràng buộc</h></idx>
+    <idx><h>biến ràng buộc</h></idx>
+    <statement>
+      <p>Biến ràng buộc là một biến trong hàm mệnh đề được gắn (ràng buộc) bởi một lượng từ hoặc được gán một giá trị cụ thể, do đó nằm trong phạm vi tác động của lượng từ đó. Chẳng hạn, trong biểu thức <m>\forall x\, P(x)</m> biến <m>x</m> là biến ràng buộc, trái ngược với biến tự do không bị bất kỳ lượng từ nào ràng buộc (theo <xref ref="bib-rosen-2019" />, Rosen §1.4).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>biến ràng buộc</term> <xref ref="bib-mat3500" /> (giáo trình MAT3500) — cách dùng phổ biến.</p></li>
+        <li><p><term>biến bị ràng buộc</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 50 (PDF)); <xref ref="bib-rosen-2003-vi" /> (tr. 39 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Trong biểu thức <m>\forall x\, (P(x) \wedge Q(x, y))</m> biến <m>x</m> là biến ràng buộc vì nó bị lượng từ <m>\forall</m> ràng buộc, còn biến <m>y</m> là biến tự do.</p>
     </statement>
   </definition>
 </chapter>

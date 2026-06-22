@@ -88,7 +88,7 @@
         <li><p><term>quy nạp</term> <xref ref="bib-leanhvinh-2020" /> (tr. 21 (PDF)); <xref ref="bib-rosen-2003-vi" /> (tr. 208 (PDF, bản dịch Rosen)).</p></li>
       </ul>
       <p>Ví dụ: Để chứng minh <m>1 + 2 + \cdots + n = \frac{n(n+1)}{2}</m> với mọi số nguyên dương <m>n</m>, ở bước cơ sở ta kiểm tra đẳng thức đúng với <m>n = 1</m>, và ở bước quy nạp ta giả sử đẳng thức đúng với <m>n = k</m> rồi suy ra nó đúng với <m>n = k+1</m>.</p>
-      <p>Xem thêm <xref ref="def-well-ordering-principle" text="title" />, <xref ref="def-recursive-definition" text="title" />.</p>
+      <p>Xem thêm <xref ref="def-basis-step" text="title" />, <xref ref="def-inductive-step" text="title" />, <xref ref="def-well-ordering-principle" text="title" />, <xref ref="def-recursive-definition" text="title" />.</p>
     </statement>
   </definition>
   <definition xml:id="def-infinite-set">
@@ -197,7 +197,7 @@
         <li><p><term>hàm ngược</term> <em>(thuật ngữ chuẩn; chưa truy được trong kho văn bản)</em> — cách dùng phổ biến.</p></li>
       </ul>
       <p>Ví dụ: Cho <m>f \colon \mathbb{R} \to \mathbb{R}</m> xác định bởi <m>f(x) = 2x + 1</m>. Vì <m>f</m> là song ánh nên nó có hàm ngược <m>f^{-1} \colon \mathbb{R} \to \mathbb{R}</m> cho bởi <m>f^{-1}(y) = \frac{y - 1}{2}</m>.</p>
-      <p>Xem thêm <xref ref="def-bijection" text="title" />, <xref ref="def-function" text="title" />.</p>
+      <p>Xem thêm <xref ref="def-bijection" text="title" />, <xref ref="def-function" text="title" />, <xref ref="def-codomain" text="title" />.</p>
     </statement>
   </definition>
   <definition xml:id="def-inverse-relation">
@@ -305,6 +305,441 @@
       </ul>
       <p>Ví dụ: Xét tập <m>A = \{1, 2, 3\}</m> và quan hệ <m>R = \{(1, 2), (2, 3), (1, 3)\}</m> trên <m>A</m>. Khi đó <m>R</m> là quan hệ không phản xạ vì <m>(1, 1) \notin R</m>, <m>(2, 2) \notin R</m> và <m>(3, 3) \notin R</m>.</p>
       <p>Xem thêm <xref ref="def-reflexive-relation" text="title" />, <xref ref="def-binary-relation" text="title" />, <xref ref="def-antisymmetric-relation" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-identity-function">
+    <title>Identity Function — Hàm đồng nhất</title>
+    <idx><h>identity function</h></idx>
+    <idx><h>Hàm đồng nhất</h></idx>
+    <notation>
+      <usage><m>\iota_A</m></usage>
+      <description>Hàm đồng nhất</description>
+    </notation>
+    <statement>
+      <p>Hàm đồng nhất trên tập <m>A</m>, ký hiệu <m>\iota_A</m>, là hàm từ <m>A</m> vào chính nó gán mỗi phần tử cho chính nó, nghĩa là <m>\iota_A(x) = x</m> với mọi <m>x \in A</m>. Hàm đồng nhất là một song ánh và là phần tử trung hòa đối với phép hợp thành hàm (theo <xref ref="bib-rosen-2019" />, Rosen §2.3).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>Hàm đồng nhất</term> <xref ref="bib-mat3500" /> (giáo trình MAT3500) — cách dùng phổ biến.</p></li>
+        <li><p><term>hàm đồng nhất</term> <xref ref="bib-rosen-2003-vi" /> (tr. 87 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Chẳng hạn với <m>A = \{1, 2, 3\}</m>, hàm đồng nhất <m>\iota_A</m> thỏa mãn <m>\iota_A(1) = 1</m>, <m>\iota_A(2) = 2</m> và <m>\iota_A(3) = 3</m>.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-image">
+    <title>Image — ảnh</title>
+    <idx><h>image</h></idx>
+    <idx><h>ảnh</h></idx>
+    <notation>
+      <usage><m>f(a)</m></usage>
+      <description>ảnh</description>
+    </notation>
+    <statement>
+      <p>Ảnh của một phần tử <m>a</m> qua hàm <m>f : A \to B</m> là phần tử <m>b \in B</m> được <m>f</m> gán cho <m>a</m>, ký hiệu <m>b = f(a)</m>. Ảnh của một tập con <m>S \subseteq A</m> qua <m>f</m>, ký hiệu <m>f(S)</m>, là tập tất cả các ảnh của các phần tử thuộc <m>S</m>, tức là <m>f(S) = \{\, f(a) : a \in S \,\}</m> (theo <xref ref="bib-rosen-2019" />, Rosen §2.3).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>ảnh</term> <xref ref="bib-mat3500" /> (giáo trình MAT3500); <xref ref="bib-nguyenhoangthach-2020" /> (tr. 21 (PDF)); <xref ref="bib-nguyenhuudien-2019" /> (tr. 82 (PDF)); <xref ref="bib-ngodactan-2004" /> (tr. 41 (PDF)); <xref ref="bib-rosen-2003-vi" /> (tr. 82 (PDF)) — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Xét hàm <m>f : \{a, b, c, d\} \to \{1, 2, 3\}</m> với <m>f(a) = 2</m>, <m>f(b) = 1</m>, <m>f(c) = 2</m>, <m>f(d) = 3</m>. Khi đó ảnh của phần tử <m>a</m> là <m>f(a) = 2</m>, và ảnh của tập con <m>S = \{a, b\}</m> là <m>f(S) = \{1, 2\}</m>.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-implement">
+    <title>Implement — cài đặt</title>
+    <idx><h>implement</h></idx>
+    <idx><h>cài đặt</h></idx>
+    <statement>
+      <p>Cài đặt một thuật toán, ký hiệu chung là biến đổi mô tả của thuật toán thành một chương trình chạy được trên máy tính bằng một ngôn ngữ lập trình cụ thể. Việc cài đặt giữ nguyên các bước và tính đúng đắn của thuật toán, đồng thời quy định chi tiết cách biểu diễn dữ liệu và thực hiện từng câu lệnh trên máy (theo <xref ref="bib-rosen-2019" />, Rosen §3.1).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>cài đặt</term> <xref ref="bib-mat3500" /> (giáo trình MAT3500); <xref ref="bib-nguyenducnghia-2006" /> (tr. 83 (PDF)); <xref ref="bib-nguyenhuudien-2019" /> (tr. 132 (PDF)); <xref ref="bib-hoangchithanh-2007" /> (tr. 4 (PDF)) — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Một thuật toán sắp xếp mô tả ở dạng giả mã có thể được cài đặt thành chương trình bằng ngôn ngữ Pascal hoặc C; chương trình thu được thực hiện đúng các bước của thuật toán trên dữ liệu vào cụ thể.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-implication">
+    <title>Implication — kéo theo</title>
+    <idx><h>implication</h></idx>
+    <idx><h>hàm kéo theo</h></idx>
+    <idx><h>kéo theo</h></idx>
+    <idx><h>mệnh đề kéo theo</h></idx>
+    <idx><h>phép kéo theo</h></idx>
+    <notation>
+      <usage><m>p \rightarrow q</m></usage>
+      <description>kéo theo</description>
+    </notation>
+    <statement>
+      <p>Phép kéo theo của hai mệnh đề <m>p</m> và <m>q</m>, ký hiệu <m>p \rightarrow q</m>, là mệnh đề có giá trị chân lý sai khi <m>p</m> đúng và <m>q</m> sai, và đúng trong mọi trường hợp còn lại. Trong <m>p \rightarrow q</m>, mệnh đề <m>p</m> được gọi là giả thiết và <m>q</m> được gọi là kết luận (theo <xref ref="bib-rosen-2019" />, Rosen §1.1).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>kéo theo</term> <xref ref="bib-mat3500" /> (giáo trình MAT3500) — cách dùng phổ biến.</p></li>
+        <li><p><term>hàm kéo theo</term> <xref ref="bib-nguyenducnghia-2006" /> (tr. 267 (PDF)).</p></li>
+        <li><p><term>mệnh đề kéo theo</term> <xref ref="bib-rosen-2003-vi" /> (tr. 10 (PDF)).</p></li>
+        <li><p><term>phép kéo theo</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 18 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Mệnh đề "Nếu trời mưa thì đường ướt" có dạng <m>p \rightarrow q</m>, trong đó <m>p</m> là "trời mưa" và <m>q</m> là "đường ướt". Mệnh đề này chỉ sai khi trời mưa (<m>p</m> đúng) nhưng đường không ướt (<m>q</m> sai).</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-in-degree">
+    <title>In-Degree — Bậc vào</title>
+    <idx><h>in-degree</h></idx>
+    <idx><h>Bậc vào</h></idx>
+    <idx><h>bán bậc vào</h></idx>
+    <notation>
+      <usage><m>\deg^-(v)</m></usage>
+      <description>Bậc vào</description>
+    </notation>
+    <statement>
+      <p>Bậc vào của một đỉnh <m>v</m> trong đồ thị có hướng <m>G</m>, ký hiệu <m>\deg^-(v)</m>, là số cung có đỉnh cuối là <m>v</m>, tức là số cung đi vào <m>v</m>. Một khuyên tại <m>v</m> đóng góp <m>1</m> vào bậc vào của <m>v</m> (theo <xref ref="bib-rosen-2019" />, Rosen §10.2).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>Bậc vào</term> <xref ref="bib-mat3500" /> (giáo trình MAT3500); <xref ref="bib-nguyenhuudien-2019" /> (tr. 158 (PDF)) — cách dùng phổ biến.</p></li>
+        <li><p><term>bán bậc vào</term> <xref ref="bib-nguyenducnghia-2006" /> (tr. 155 (PDF)).</p></li>
+        <li><p><term>bậc vào</term> <xref ref="bib-leanhvinh-2020" /> (tr. 256 (PDF)); <xref ref="bib-hoangchithanh-2007" /> (tr. 49 (PDF)); <xref ref="bib-rosen-2003-vi" /> (tr. 516 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Trong đồ thị có hướng với các cung <m>(u,v)</m> và <m>(w,v)</m>, đỉnh <m>v</m> có <m>\deg^-(v) = 2</m>.</p>
+      <p>Xem thêm <xref ref="def-directed-graph" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-incident">
+    <title>Incident — liên thuộc</title>
+    <idx><h>incident</h></idx>
+    <idx><h>liên thuộc</h></idx>
+    <statement>
+      <p>Một cạnh <m>e = \{u, v\}</m> được gọi là liên thuộc với hai đỉnh <m>u</m> và <m>v</m>; ngược lại, mỗi đỉnh <m>u</m> và <m>v</m> cũng được gọi là liên thuộc với cạnh <m>e</m>. Hai đỉnh <m>u</m> và <m>v</m> này được gọi là các đầu mút của cạnh <m>e</m> (theo <xref ref="bib-rosen-2019" />, Rosen §10.2).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>liên thuộc</term> <xref ref="bib-mat3500" /> (giáo trình MAT3500); <xref ref="bib-nguyenhuudien-2019" /> (tr. 157 (PDF)); <xref ref="bib-ngodactan-2004" /> (tr. 186 (PDF)); <xref ref="bib-rosen-2003-vi" /> (tr. 505 (PDF)) — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Trong đồ thị có tập đỉnh <m>\{a, b, c\}</m> và cạnh <m>e = \{a, b\}</m>, cạnh <m>e</m> liên thuộc với hai đỉnh <m>a</m> và <m>b</m>, nhưng không liên thuộc với đỉnh <m>c</m>.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-inclusion-exclusion-principle">
+    <title>Inclusion-Exclusion Principle — Nguyên lý bù trừ</title>
+    <idx><h>inclusion-exclusion principle</h></idx>
+    <idx><h>Nguyên lý bù trừ</h></idx>
+    <idx><h>nguyên lý bao hàm và loại trừ</h></idx>
+    <notation>
+      <usage><m>\left| \bigcup_{i=1}^{n} A_i \right|</m></usage>
+      <description>Nguyên lý bù trừ</description>
+    </notation>
+    <statement>
+      <p>Nguyên lý bù trừ là công thức đếm số phần tử của hợp các tập hữu hạn <m>A_1, A_2, \ldots, A_n</m> bằng cách cộng kích thước của từng tập, rồi trừ kích thước của các giao từng cặp, cộng lại các giao bộ ba, và tiếp tục đan dấu cho đến giao của cả <m>n</m> tập, ký hiệu <m>\left| \bigcup_{i=1}^{n} A_i \right|</m>. Với hai tập, công thức là <m>|A_1 \cup A_2| = |A_1| + |A_2| - |A_1 \cap A_2|</m> (theo <xref ref="bib-rosen-2019" />, Rosen §7.5).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>Nguyên lý bù trừ</term> <xref ref="bib-mat3500" /> (giáo trình MAT3500) — cách dùng phổ biến.</p></li>
+        <li><p><term>nguyên lý bao hàm và loại trừ</term> <xref ref="bib-ngodactan-2004" /> (tr. 109 (PDF)).</p></li>
+        <li><p><term>nguyên lý bù trừ</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 84 (PDF)); <xref ref="bib-nguyenhoangthach-2020" /> (tr. 55 (PDF)); <xref ref="bib-nguyenducnghia-2006" /> (tr. 27 (PDF)); <xref ref="bib-rosen-2003-vi" /> (tr. 410 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Số nguyên dương không vượt quá <m>1000</m> chia hết cho <m>3</m>, <m>5</m> hoặc <m>7</m> được tính bằng <m>|A \cup B \cup C|</m> qua nguyên lý bù trừ, trong đó <m>A</m>, <m>B</m>, <m>C</m> lần lượt là các tập số chia hết cho <m>3</m>, <m>5</m>, <m>7</m>.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-increasing">
+    <title>Increasing — tăng</title>
+    <idx><h>increasing</h></idx>
+    <idx><h>dãy tăng</h></idx>
+    <idx><h>hàm tăng</h></idx>
+    <idx><h>thực sự tăng</h></idx>
+    <idx><h>tăng</h></idx>
+    <notation>
+      <usage><m>x  \lt  y \implies f(x) \leq f(y)</m></usage>
+      <description>tăng</description>
+    </notation>
+    <statement>
+      <p>Hàm <m>f</m> từ tập số thực vào tập số thực được gọi là tăng nếu với mọi <m>x</m> và <m>y</m> thuộc miền xác định mà <m>x  \lt  y</m> thì <m>f(x) \leq f(y)</m>. Nếu điều kiện mạnh hơn <m>f(x)  \lt  f(y)</m> luôn đúng khi <m>x  \lt  y</m>, ta nói <m>f</m> tăng thực sự (ký hiệu <m>x  \lt  y \implies f(x)  \lt  f(y)</m>) (theo <xref ref="bib-rosen-2019" />, Rosen §2.3).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>tăng</term> <xref ref="bib-mat3500" /> (giáo trình MAT3500) — cách dùng phổ biến.</p></li>
+        <li><p><term>dãy tăng</term> <xref ref="bib-nguyenducnghia-2006" /> (tr. 62 (PDF)).</p></li>
+        <li><p><term>hàm tăng</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 101 (PDF)); <xref ref="bib-nguyenducnghia-2006" /> (tr. 86 (PDF)).</p></li>
+        <li><p><term>thực sự tăng</term> <xref ref="bib-rosen-2003-vi" /> (tr. 85 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Hàm <m>f(x) = x + 1</m> là tăng (và tăng thực sự), vì nếu <m>x  \lt  y</m> thì <m>x + 1  \lt  y + 1</m>. Tương tự, một dãy <m>\langle a_1, a_2, \ldots \rangle</m> với <m>a_i \leq a_{i+1}</m> là một dãy tăng.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-index-of-summation">
+    <title>Index Of Summation — chỉ số lấy tổng</title>
+    <idx><h>index of summation</h></idx>
+    <idx><h>chỉ số lấy tổng</h></idx>
+    <notation>
+      <usage><m>\sum_{j=m}^{n} a_j</m></usage>
+      <description>chỉ số lấy tổng</description>
+    </notation>
+    <statement>
+      <p>Chỉ số lấy tổng là biến chạy <m>j</m> trong ký hiệu tổng <m>\sum_{j=m}^{n} a_j</m>, lần lượt nhận tất cả các giá trị nguyên từ giới hạn dưới <m>m</m> đến giới hạn trên <m>n</m> để xác định các số hạng được cộng. Việc chọn chữ cái cho chỉ số lấy tổng là tùy ý, nghĩa là <m>\sum_{j=m}^{n} a_j = \sum_{i=m}^{n} a_i</m> (theo <xref ref="bib-rosen-2019" />, Rosen §2.4).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>chỉ số lấy tổng</term> <xref ref="bib-mat3500" /> (giáo trình MAT3500); <xref ref="bib-rosen-2003-vi" /> (tr. 99 (PDF)) — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Trong tổng <m>\sum_{j=1}^{100} j</m>, chỉ số lấy tổng là <m>j</m> với giới hạn dưới là <m>1</m> và giới hạn trên là <m>100</m>, do đó tổng này bằng <m>1 + 2 + \cdots + 100</m>.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-index">
+    <title>Index — chỉ số</title>
+    <idx><h>index</h></idx>
+    <idx><h>chỉ số</h></idx>
+    <idx><h>chỉ số dưới</h></idx>
+    <idx><h>chỉ số lấy tổng</h></idx>
+    <notation>
+      <usage><m>a_i</m></usage>
+      <description>chỉ số</description>
+    </notation>
+    <statement>
+      <p>Chỉ số là biến chạy dùng để đánh số và xác định vị trí của các phần tử trong một bộ được đánh chỉ số, chẳng hạn một dãy <m>a_0, a_1, a_2, \ldots</m> hoặc một họ tập hợp <m>\{A_i\}</m>. Trong tổng <m>\sum_{i=m}^{n} a_i</m>, biến <m>i</m> được gọi là chỉ số lấy tổng, chạy qua mọi số nguyên từ cận dưới <m>m</m> đến cận trên <m>n</m> (theo <xref ref="bib-rosen-2019" />, Rosen §2.4).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>chỉ số</term> <xref ref="bib-mat3500" /> (giáo trình MAT3500); <xref ref="bib-leanhvinh-2020" /> (tr. 23 (PDF)); <xref ref="bib-nguyenducnghia-2006" /> (tr. 97 (PDF)); <xref ref="bib-hoangchithanh-2007" /> (tr. 27 (PDF)) — cách dùng phổ biến.</p></li>
+        <li><p><term>chỉ số dưới</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 134 (PDF)); <xref ref="bib-ngodactan-2004" /> (tr. 230 (PDF)).</p></li>
+        <li><p><term>chỉ số lấy tổng</term> <xref ref="bib-rosen-2003-vi" /> (tr. 99 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Trong dãy <m>a_1, a_2, \ldots, a_n</m>, số hạng <m>a_i</m> có chỉ số <m>i</m>; chẳng hạn <m>a_3</m> có chỉ số <m>3</m>. Trong tổng <m>\sum_{i=1}^{100} i^2</m>, chỉ số lấy tổng <m>i</m> chạy từ <m>1</m> đến <m>100</m>.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-indirect-proof">
+    <title>Indirect Proof — Chứng minh gián tiếp</title>
+    <idx><h>indirect proof</h></idx>
+    <idx><h>Chứng minh gián tiếp</h></idx>
+    <statement>
+      <p>Chứng minh gián tiếp là phương pháp chứng minh mệnh đề kéo theo <m>p \rightarrow q</m> bằng cách chứng minh mệnh đề phản đảo tương đương <m>\neg q \rightarrow \neg p</m>. Vì <m>p \rightarrow q</m> và <m>\neg q \rightarrow \neg p</m> có cùng giá trị chân lý, nên việc giả sử <m>\neg q</m> đúng rồi suy ra <m>\neg p</m> đúng sẽ chứng tỏ <m>p \rightarrow q</m> là đúng (theo <xref ref="bib-rosen-2019" />, Rosen §1.6).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>Chứng minh gián tiếp</term> <xref ref="bib-mat3500" /> (giáo trình MAT3500) — cách dùng phổ biến.</p></li>
+        <li><p><term>chứng minh gián tiếp</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 59 (PDF)); <xref ref="bib-rosen-2003-vi" /> (tr. 216 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Để chứng minh "nếu <m>3n + 2</m> là số lẻ thì <m>n</m> là số lẻ", ta chứng minh gián tiếp: giả sử <m>n</m> chẵn, tức <m>n = 2k</m>, khi đó <m>3n + 2 = 6k + 2 = 2(3k + 1)</m> là số chẵn, nên <m>3n + 2</m> không lẻ; theo mệnh đề phản đảo, kết luận được chứng minh.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-inductive-step">
+    <title>Inductive Step — Bước quy nạp</title>
+    <idx><h>inductive step</h></idx>
+    <idx><h>Bước qui nạp</h></idx>
+    <idx><h>Bước quy nạp</h></idx>
+    <notation>
+      <usage><m>P(k) \rightarrow P(k+1)</m></usage>
+      <description>Bước quy nạp</description>
+    </notation>
+    <statement>
+      <p>Bước quy nạp là bước thứ hai trong chứng minh bằng quy nạp toán học, trong đó ta chứng minh phép kéo theo <m>P(k) \rightarrow P(k+1)</m> đúng với mọi số nguyên dương <m>k</m>; tức là, giả sử <m>P(k)</m> đúng (giả thiết quy nạp), ta suy ra <m>P(k+1)</m> cũng đúng (theo <xref ref="bib-rosen-2019" />, Rosen §5.1).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>Bước quy nạp</term> <xref ref="bib-mat3500" /> (giáo trình MAT3500); <xref ref="bib-rosen-2003-vi" /> (tr. 230 (PDF)) — cách dùng phổ biến.</p></li>
+        <li><p><term>Bước qui nạp</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 62 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Trong chứng minh <m>1 + 2 + \cdots + n = \frac{n(n+1)}{2}</m>, bước quy nạp giả sử công thức đúng với <m>n = k</m> rồi cộng thêm <m>k+1</m> vào cả hai vế để suy ra công thức đúng với <m>n = k+1</m>.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-inequality">
+    <title>Inequality — bất đẳng thức</title>
+    <idx><h>inequality</h></idx>
+    <idx><h>bất đẳng thức</h></idx>
+    <notation>
+      <usage><m>a \leq b,\ a  \lt  b,\ a \geq b,\ a  \gt  b,\ a \neq b</m></usage>
+      <description>bất đẳng thức</description>
+    </notation>
+    <statement>
+      <p>Bất đẳng thức là một khẳng định toán học so sánh hai biểu thức bằng một quan hệ thứ tự, cụ thể là một trong các quan hệ <m> \lt </m>, <m>\leq</m>, <m> \gt </m>, <m>\geq</m> hoặc <m>\neq</m> (ký hiệu lần lượt là nhỏ hơn, nhỏ hơn hoặc bằng, lớn hơn, lớn hơn hoặc bằng, và khác nhau). Khẳng định <m>a \leq b</m> có nghĩa là <m>a</m> nhỏ hơn hoặc bằng <m>b</m> (theo <xref ref="bib-rosen-2019" />, Rosen §App.1).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>bất đẳng thức</term> <xref ref="bib-mat3500" /> (giáo trình MAT3500); <xref ref="bib-leanhvinh-2020" /> (tr. 150 (PDF)); <xref ref="bib-nguyenhuudien-2019" /> (tr. 170 (PDF)); <xref ref="bib-nguyenhoangthach-2020" /> (tr. 80 (PDF)); <xref ref="bib-nguyenducnghia-2006" /> (tr. 64 (PDF)); <xref ref="bib-ngodactan-2004" /> (tr. 214 (PDF)); <xref ref="bib-rosen-2003-vi" /> (tr. 233 (PDF)) — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Với mọi số nguyên dương <m>n</m>, ta có bất đẳng thức <m>n  \lt  2^n</m>, có thể chứng minh bằng quy nạp toán học.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-inference-rule">
+    <title>Inference Rule — quy tắc suy luận</title>
+    <idx><h>inference rule</h></idx>
+    <idx><h>luật suy diễn</h></idx>
+    <idx><h>quy tắc suy diễn</h></idx>
+    <idx><h>quy tắc suy luận</h></idx>
+    <notation>
+      <usage><m>p_1, p_2, \ldots, p_n \vdash q</m></usage>
+      <description>quy tắc suy luận</description>
+    </notation>
+    <statement>
+      <p>Quy tắc suy luận là một quy tắc cho phép suy ra một kết luận từ một tập hợp các tiền đề, dựa trên một hằng đúng có dạng kéo theo. Cụ thể, nếu các giả thiết <m>p_1, p_2, \ldots, p_n</m> đều đúng thì kết luận <m>q</m> cũng đúng, với điều kiện <m>(p_1 \wedge p_2 \wedge \cdots \wedge p_n) \rightarrow q</m> là một hằng đúng (theo <xref ref="bib-rosen-2019" />, Rosen §1.6).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>quy tắc suy luận</term> <xref ref="bib-mat3500" /> (giáo trình MAT3500); <xref ref="bib-rosen-2003-vi" /> (tr. 211 (PDF)) — cách dùng phổ biến.</p></li>
+        <li><p><term>luật suy diễn</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 29 (PDF)).</p></li>
+        <li><p><term>quy tắc suy diễn</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 28 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Quy tắc Modus Ponens (quy tắc khẳng định) dựa trên hằng đúng <m>(p \wedge (p \rightarrow q)) \rightarrow q</m>: từ <m>p</m> và <m>p \rightarrow q</m> ta suy ra <m>q</m>.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-infinite-graph">
+    <title>Infinite Graph — đồ thị vô hạn</title>
+    <idx><h>infinite graph</h></idx>
+    <idx><h>đồ thị vô hạn</h></idx>
+    <statement>
+      <p>Đồ thị vô hạn là một đồ thị <m>G</m> có tập đỉnh <m>V(G)</m> vô hạn, hoặc tập cạnh <m>E(G)</m> vô hạn, tức là <m>G</m> không phải là đồ thị hữu hạn (theo <xref ref="bib-rosen-2019" />, Rosen §10.1).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>đồ thị vô hạn</term> <xref ref="bib-mat3500" /> (giáo trình MAT3500); <xref ref="bib-leanhvinh-2020" /> (tr. 172 (PDF)) — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Đồ thị có tập đỉnh là tập các số nguyên dương <m>\mathbb{Z}^{+}</m>, trong đó hai đỉnh <m>m</m> và <m>n</m> kề nhau khi và chỉ khi <m>|m-n|=1</m>, là một đồ thị vô hạn.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-initial-term">
+    <title>Initial Term — số hạng đầu tiên</title>
+    <idx><h>initial term</h></idx>
+    <idx><h>số hạng đầu</h></idx>
+    <idx><h>số hạng đầu tiên</h></idx>
+    <notation>
+      <usage><m>a_0</m></usage>
+      <description>số hạng đầu tiên</description>
+    </notation>
+    <statement>
+      <p>Số hạng đầu tiên của một dãy <m>\{a_n\}</m>, thường ký hiệu <m>a_0</m> hoặc <m>a_1</m>, là số hạng ứng với chỉ số nhỏ nhất trong miền của dãy. Trong một hệ thức truy hồi, các số hạng đầu tiên được cho trước làm điều kiện ban đầu để xác định toàn bộ dãy; trong một cấp số nhân với công bội <m>r</m>, số hạng đầu là <m>a</m> sao cho <m>a_n = a r^n</m> (theo <xref ref="bib-rosen-2019" />, Rosen §2.4).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>số hạng đầu tiên</term> <xref ref="bib-mat3500" /> (giáo trình MAT3500); <xref ref="bib-nguyenhoangthach-2020" /> (tr. 37 (PDF)); <xref ref="bib-nguyenhuudien-2019" /> (tr. 97 (PDF)); <xref ref="bib-rosen-2003-vi" /> (tr. 372 (PDF)) — cách dùng phổ biến.</p></li>
+        <li><p><term>số hạng đầu</term> <xref ref="bib-rosen-2003-vi" /> (tr. 100 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Với cấp số nhân <m>a_n = a r^n</m> thì số hạng đầu là <m>a = a_0</m>. Với dãy xác định bởi hệ thức truy hồi <m>a_n = a_{n-1} + a_{n-2}</m>, hai số hạng đầu <m>a_0 = 0</m> và <m>a_1 = 1</m> là điều kiện ban đầu cho dãy Fibonacci.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-inorder-traversal">
+    <title>Inorder Traversal — trung thứ tự</title>
+    <idx><h>inorder traversal</h></idx>
+    <idx><h>duyệt theo thứ tự giữa</h></idx>
+    <idx><h>trung thứ tự</h></idx>
+    <statement>
+      <p>Duyệt trung thứ tự là cách duyệt một cây có gốc có thứ tự <m>T</m>, trong đó nếu <m>T</m> chỉ gồm một gốc <m>r</m> thì kết quả là <m>r</m>; ngược lại, nếu <m>r</m> có các cây con <m>T_1, T_2, \ldots, T_k</m> theo thứ tự từ trái sang phải, thì ta lần lượt duyệt trung thứ tự cây con <m>T_1</m>, viếng thăm gốc <m>r</m>, rồi duyệt trung thứ tự các cây con <m>T_2, \ldots, T_k</m>. Với cây nhị phân, thứ tự duyệt là cây con trái, gốc, rồi cây con phải (theo <xref ref="bib-rosen-2019" />, Rosen §11.3).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>trung thứ tự</term> <xref ref="bib-mat3500" /> (giáo trình MAT3500); <xref ref="bib-rosen-2003-vi" /> (tr. 648 (PDF)); <xref ref="bib-nguyenhuudien-2019" /> (tr. 261 (PDF)) — cách dùng phổ biến.</p></li>
+        <li><p><term>duyệt theo thứ tự giữa</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 253 (PDF)); <xref ref="bib-hoangchithanh-2007" /> (tr. 139 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Duyệt trung thứ tự cây nhị phân tìm kiếm các đỉnh <m>\{1,2,3,4,5,6,7,9,10\}</m> cho ra dãy đỉnh được sắp xếp tăng dần <m>5,2,6,1,3,9,7,10,4</m>.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-input-size">
+    <title>Input Size — kích thước đầu vào</title>
+    <idx><h>input size</h></idx>
+    <idx><h>kích thước đầu vào</h></idx>
+    <statement>
+      <p>Kích thước đầu vào của một bài toán là số đo độ lớn của dữ liệu vào, thường lấy bằng số bit cần để biểu diễn dữ liệu hoặc bằng một tham số tự nhiên như số phần tử <m>n</m> của danh sách hay số đỉnh và số cạnh của đồ thị <m>G</m>. Độ phức tạp thời gian của một thuật toán được biểu diễn như một hàm theo kích thước đầu vào (theo <xref ref="bib-rosen-2019" />, Rosen §3.3).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>kích thước đầu vào</term> <xref ref="bib-mat3500" /> (giáo trình MAT3500); <xref ref="bib-nguyenducnghia-2006" /> (tr. 84 (PDF)); <xref ref="bib-nguyenducnghia-2006" /> (tr. 91 (PDF)); <xref ref="bib-nguyenducnghia-2006" /> (tr. 178 (PDF)) — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Với thuật toán trên đồ thị, kích thước đầu vào thường được lấy là cặp số đỉnh và số cạnh <m>(|V|, |E|)</m> của đồ thị <m>G = (V, E)</m>.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-internal-vertices">
+    <title>Internal Vertices — các đỉnh trong</title>
+    <idx><h>internal vertices</h></idx>
+    <idx><h>các đỉnh trong</h></idx>
+    <idx><h>các đỉnh trong của đường đi</h></idx>
+    <idx><h>đỉnh trong</h></idx>
+    <idx><h>đỉnh trong của cây</h></idx>
+    <statement>
+      <p>Các đỉnh trong của một đường đi từ <m>u</m> đến <m>v</m> trong đồ thị <m>G</m> là các đỉnh nằm trên đường đi đó nhưng khác hai đầu mút <m>u</m> và <m>v</m>. Trong một cây có gốc, các đỉnh trong là các đỉnh có ít nhất một con, tức là các đỉnh không phải là lá (theo <xref ref="bib-rosen-2019" />, Rosen §10.4).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>các đỉnh trong</term> <xref ref="bib-mat3500" /> (giáo trình MAT3500) — cách dùng phổ biến.</p></li>
+        <li><p><term>các đỉnh trong của đường đi</term> <xref ref="bib-rosen-2003-vi" /> (tr. 466 (PDF)).</p></li>
+        <li><p><term>đỉnh trong</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 85 (PDF)).</p></li>
+        <li><p><term>đỉnh trong của cây</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 251 (PDF)); <xref ref="bib-hoangchithanh-2007" /> (tr. 136 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Trong đường đi <m>a, c, d, f, g, h, b</m>, các đỉnh trong là <m>c, d, f, g, h</m>, còn <m>a</m> và <m>b</m> là hai đầu mút.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-intersection">
+    <title>Intersection — Giao</title>
+    <idx><h>intersection</h></idx>
+    <idx><h>Giao</h></idx>
+    <notation>
+      <usage><m>A \cap B</m></usage>
+      <description>Giao</description>
+    </notation>
+    <statement>
+      <p>Giao của hai tập hợp <m>A</m> và <m>B</m>, ký hiệu <m>A \cap B</m>, là tập hợp gồm tất cả các phần tử đồng thời thuộc cả <m>A</m> và <m>B</m>, tức là <m>A \cap B = \{x : x \in A \wedge x \in B\}</m> (theo <xref ref="bib-rosen-2019" />, Rosen §2.2).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>Giao</term> <xref ref="bib-mat3500" /> (giáo trình MAT3500); <xref ref="bib-nguyenhuudien-2019" /> (tr. 74 (PDF)); <xref ref="bib-nguyenducnghia-2006" /> (tr. 12 (PDF)); <xref ref="bib-rosen-2003-vi" /> (tr. 65 (PDF)) — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Với <m>A = \{1, 2, 3, 5\}</m> và <m>B = \{2, 4, 5\}</m> thì <m>A \cap B = \{2, 5\}</m>.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-inverse">
+    <title>Inverse — mệnh đề nghịch đảo, nghịch đảo</title>
+    <idx><h>inverse</h></idx>
+    <idx><h>mệnh đề nghịch đảo, nghịch đảo</h></idx>
+    <notation>
+      <usage><m>\neg p \to \neg q</m></usage>
+      <description>mệnh đề nghịch đảo, nghịch đảo</description>
+    </notation>
+    <statement>
+      <p>Mệnh đề nghịch đảo (phản đề) của mệnh đề kéo theo <m>p \to q</m>, ký hiệu <m>\neg p \to \neg q</m>, là mệnh đề thu được bằng cách phủ định cả giả thiết và kết luận của mệnh đề ban đầu. Một mệnh đề kéo theo và mệnh đề nghịch đảo của nó không nhất thiết tương đương logic, nhưng mệnh đề nghịch đảo luôn tương đương với mệnh đề đảo <m>q \to p</m> (theo <xref ref="bib-rosen-2019" />, Rosen §1.1).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>mệnh đề nghịch đảo, nghịch đảo</term> <xref ref="bib-mat3500" /> (giáo trình MAT3500) — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Mệnh đề nghịch đảo của "Nếu <m>n</m> chia hết cho <m>4</m> thì <m>n</m> chia hết cho <m>2</m>" là "Nếu <m>n</m> không chia hết cho <m>4</m> thì <m>n</m> không chia hết cho <m>2</m>". Ở đây mệnh đề gốc đúng nhưng mệnh đề nghịch đảo lại sai (chẳng hạn với <m>n = 6</m>).</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-inverter">
+    <title>Inverter — Bộ đảo</title>
+    <idx><h>inverter</h></idx>
+    <idx><h>Bộ đảo</h></idx>
+    <statement>
+      <p>Bộ đảo là một phần tử logic nhận một đầu vào Boole duy nhất <m>x</m> và tạo ra đầu ra là phần bù của giá trị đó, tức là <m>\overline{x}</m>. Do đó đầu ra bằng <m>1</m> khi <m>x = 0</m> và bằng <m>0</m> khi <m>x = 1</m> (theo <xref ref="bib-rosen-2019" />, Rosen §12.3).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>Bộ đảo</term> <xref ref="bib-mat3500" /> (giáo trình MAT3500) — cách dùng phổ biến.</p></li>
+        <li><p><term>bộ đảo</term> <xref ref="bib-rosen-2003-vi" /> (tr. 728 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Một bộ đảo với đầu vào <m>x = 1</m> cho đầu ra <m>\overline{x} = 0</m>, còn với đầu vào <m>x = 0</m> cho đầu ra <m>\overline{x} = 1</m>.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-invertible-function">
+    <title>Invertible Function — hàm khả nghịch</title>
+    <idx><h>invertible function</h></idx>
+    <idx><h>hàm khả nghịch</h></idx>
+    <notation>
+      <usage><m>f^{-1}</m></usage>
+      <description>hàm khả nghịch</description>
+    </notation>
+    <statement>
+      <p>Hàm khả nghịch là hàm <m>f: A \to B</m> tồn tại hàm <m>g: B \to A</m> sao cho <m>g \circ f</m> là hàm đồng nhất trên <m>A</m> và <m>f \circ g</m> là hàm đồng nhất trên <m>B</m>; khi đó <m>g</m> gọi là hàm ngược của <m>f</m>, ký hiệu <m>f^{-1}</m>. Một hàm là khả nghịch khi và chỉ khi nó là song ánh (theo <xref ref="bib-rosen-2019" />, Rosen §2.3).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>hàm khả nghịch</term> <xref ref="bib-mat3500" /> (giáo trình MAT3500); <xref ref="bib-rosen-2003-vi" /> (tr. 88 (PDF)) — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Hàm <m>f: \mathbb{R} \to \mathbb{R}</m> cho bởi <m>f(x) = 2x + 3</m> là khả nghịch, với hàm ngược <m>f^{-1}(y) = (y - 3)/2</m>. Hàm <m>f: \mathbb{Z} \to \mathbb{Z}</m> cho bởi <m>f(x) = x^2</m> không khả nghịch vì nó không là song ánh.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-irrational-number">
+    <title>Irrational Number — số vô tỷ</title>
+    <idx><h>irrational number</h></idx>
+    <idx><h>số vô tỷ</h></idx>
+    <notation>
+      <usage><m>\mathbb{R} \setminus \mathbb{Q}</m></usage>
+      <description>số vô tỷ</description>
+    </notation>
+    <statement>
+      <p>Số vô tỷ là số thực <m>x</m> không thể viết được dưới dạng tỷ số <m>p/q</m> của hai số nguyên <m>p</m> và <m>q</m> với <m>q \neq 0</m>; nói cách khác, <m>x</m> là số vô tỷ khi và chỉ khi <m>x</m> không phải là số hữu tỷ, ký hiệu <m>x \in \mathbb{R} \setminus \mathbb{Q}</m> (theo <xref ref="bib-rosen-2019" />, Rosen §1.7).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>số vô tỷ</term> <xref ref="bib-mat3500" /> (giáo trình MAT3500); <xref ref="bib-rosen-2003-vi" /> (tr. 166 (PDF)); <xref ref="bib-ngodactan-2004" /> (tr. 91 (PDF)) — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: <m>\sqrt{2}</m> là một số vô tỷ: nếu giả sử <m>\sqrt{2} = p/q</m> với <m>p, q</m> nguyên và phân số tối giản thì dẫn đến mâu thuẫn, nên <m>\sqrt{2} \notin \mathbb{Q}</m>.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-isomorphic">
+    <title>Isomorphic — đẳng cấu</title>
+    <idx><h>isomorphic</h></idx>
+    <idx><h>đẳng cấu</h></idx>
+    <notation>
+      <usage><m>G_1 \cong G_2</m></usage>
+      <description>đẳng cấu</description>
+    </notation>
+    <statement>
+      <p>Hai đơn đồ thị <m>G_1 = (V_1, E_1)</m> và <m>G_2 = (V_2, E_2)</m> được gọi là đẳng cấu (ký hiệu <m>G_1 \cong G_2</m>) nếu tồn tại một song ánh <m>f : V_1 \to V_2</m> sao cho với mọi cặp đỉnh <m>u, v \in V_1</m> ta có <m>uv \in E_1</m> khi và chỉ khi <m>f(u)f(v) \in E_2</m>. Song ánh <m>f</m> như vậy được gọi là một phép đẳng cấu giữa <m>G_1</m> và <m>G_2</m> (theo <xref ref="bib-rosen-2019" />, Rosen §10.3).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>đẳng cấu</term> <xref ref="bib-mat3500" /> (giáo trình MAT3500); <xref ref="bib-leanhvinh-2020" /> (tr. 12 (PDF)); <xref ref="bib-nguyenhoangthach-2020" /> (tr. 73 (PDF)); <xref ref="bib-nguyenhuudien-2019" /> (tr. 164 (PDF)); <xref ref="bib-nguyenducnghia-2006" /> (tr. 165 (PDF)); <xref ref="bib-ngodactan-2004" /> (tr. 191 (PDF)); <xref ref="bib-hoangchithanh-2007" /> (tr. 8 (PDF)); <xref ref="bib-rosen-2003-vi" /> (tr. 525 (PDF)) — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Hai đồ thị có cùng số đỉnh, cùng số cạnh và cùng dãy bậc nhưng vẫn có thể không đẳng cấu; chẳng hạn, hai đồ thị <m>5</m> đỉnh và <m>6</m> cạnh có thể khác nhau ở số đỉnh bậc <m>2</m> kề nhau, nên không đẳng cấu với nhau.</p>
     </statement>
   </definition>
 </chapter>

@@ -28,7 +28,7 @@
         <li><p><term>bậc của một đỉnh</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 63 (PDF)); <xref ref="bib-hoangchithanh-2007" /> (tr. 14 (PDF)).</p></li>
       </ul>
       <p>Ví dụ: Trong đồ thị <m>G</m> với tập đỉnh <m>\{u, v, w\}</m> và các cạnh <m>uv</m>, <m>uw</m> cùng một khuyên tại <m>v</m>, ta có <m>\deg_G(u) = 2</m>, <m>\deg_G(v) = 3</m> và <m>\deg_G(w) = 1</m>.</p>
-      <p>Xem thêm <xref ref="def-degree-sequence" text="title" />.</p>
+      <p>Xem thêm <xref ref="def-degree-sequence" text="title" />, <xref ref="def-degree-distribution" text="title" />.</p>
     </statement>
   </definition>
   <definition xml:id="def-degree-sequence">
@@ -120,7 +120,7 @@
         <li><p><term>đồ thị định hướng</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 187 (PDF)); <xref ref="bib-rosen-2003-vi" /> (tr. 504 (PDF, bản dịch Rosen)).</p></li>
       </ul>
       <p>Ví dụ: Cho <m>V = \{a, b, c\}</m> và <m>E = \{(a, b), (b, c), (a, c)\}</m>. Khi đó <m>G = (V, E)</m> là một đồ thị có hướng; chẳng hạn cung <m>(a, b)</m> có đỉnh đầu <m>a</m> và đỉnh cuối <m>b</m>.</p>
-      <p>Xem thêm <xref ref="def-directed-graph" text="title" />.</p>
+      <p>Xem thêm <xref ref="def-directed-graph" text="title" />, <xref ref="def-directed-edge" text="title" />.</p>
     </statement>
   </definition>
   <definition xml:id="def-directed-graph">
@@ -140,7 +140,7 @@
         <li><p><term>đồ thị định hướng</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 226 (PDF)); <xref ref="bib-hoangchithanh-2007" /> (tr. 19 (PDF)); <xref ref="bib-rosen-2003-vi" /> (tr. 504 (PDF, bản dịch Rosen)).</p></li>
       </ul>
       <p>Ví dụ: Cho tập đỉnh <m>V = \{a, b, c\}</m> và tập cạnh có hướng <m>E = \{(a, b), (b, c), (a, c)\}</m>. Khi đó <m>G = (V, E)</m> là một đồ thị có hướng, trong đó cạnh <m>(a, b)</m> đi từ đỉnh <m>a</m> đến đỉnh <m>b</m>.</p>
-      <p>Xem thêm <xref ref="def-digraph" text="title" />, <xref ref="def-undirected-graph" text="title" />, <xref ref="def-graph" text="title" />.</p>
+      <p>Xem thêm <xref ref="def-digraph" text="title" />, <xref ref="def-directed-edge" text="title" />, <xref ref="def-undirected-graph" text="title" />, <xref ref="def-graph" text="title" />.</p>
     </statement>
   </definition>
   <definition xml:id="def-dijkstra-algorithm">
@@ -269,7 +269,7 @@
         <li><p><term>tập nguồn</term> <xref ref="bib-nguyenducnghia-2006" /> (tr. 19 (PDF)).</p></li>
       </ul>
       <p>Ví dụ: Với hàm <m>f : \mathbb{Z} \to \mathbb{Z}</m> cho bởi <m>f(n) = n^2</m>, miền xác định là tập <m>\mathbb{Z}</m> các số nguyên.</p>
-      <p>Xem thêm <xref ref="def-function" text="title" />.</p>
+      <p>Xem thêm <xref ref="def-codomain" text="title" />, <xref ref="def-function" text="title" />.</p>
     </statement>
   </definition>
   <definition xml:id="def-dominating-set">
@@ -325,6 +325,472 @@
       </ul>
       <p>Ví dụ: Xét đồ thị <m>G</m> với tập đỉnh <m>V(G)=\{a,b,c,d\}</m> và tập cạnh <m>E(G)=\{ab,bc,bd,cd\}</m>. Bắt đầu duyệt theo chiều sâu tại đỉnh gốc <m>a</m>, ta đi <m>a\to b\to c\to d</m>; tại <m>d</m> mọi đỉnh kề đều đã được thăm nên ta quay lui. Cây khung thu được có tập cạnh <m>\{ab,bc,cd\}</m>.</p>
       <p>Xem thêm <xref ref="def-breadth-first-search" text="title" />, <xref ref="def-spanning-tree" text="title" />, <xref ref="def-tree" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-de-morgans-laws-for-quantifiers">
+    <title>De Morgan's Laws for Quantifiers — Luật De Morgan cho lượng từ</title>
+    <idx><h>de morgan's laws for quantifiers</h></idx>
+    <idx><h>Luật De Morgan cho lượng từ</h></idx>
+    <idx><h>phủ định các lượng từ</h></idx>
+    <idx><h>quy tắc phủ định mệnh đề có lượng từ</h></idx>
+    <notation>
+      <usage><m>\neg \forall x\, P(x) \equiv \exists x\, \neg P(x),\ \neg \exists x\, P(x) \equiv \forall x\, \neg P(x)</m></usage>
+      <description>Luật De Morgan cho lượng từ</description>
+    </notation>
+    <statement>
+      <p>Luật De Morgan cho lượng từ là quy tắc lấy phủ định của một mệnh đề lượng từ hóa, theo đó phủ định của lượng từ với mọi cho ra lượng từ tồn tại và ngược lại, đồng thời biểu thức vị từ được thay bằng phủ định của nó (ký hiệu <m>\neg \forall x\, P(x) \equiv \exists x\, \neg P(x)</m> và <m>\neg \exists x\, P(x) \equiv \forall x\, \neg P(x)</m>) (theo <xref ref="bib-rosen-2019" />, Rosen §1.4).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>Luật De Morgan cho lượng từ</term> <xref ref="bib-mat3500" /> (giáo trình MAT3500) — cách dùng phổ biến.</p></li>
+        <li><p><term>phủ định các lượng từ</term> <xref ref="bib-rosen-2003-vi" /> (tr. 45 (PDF)).</p></li>
+        <li><p><term>quy tắc phủ định mệnh đề có lượng từ</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 49 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Phủ định của mệnh đề <m>\forall x\, P(x)</m>, trong đó <m>P(x)</m> là "<m>x</m> đã học môn giải tích", là <m>\exists x\, \neg P(x)</m>, nghĩa là "tồn tại một <m>x</m> chưa học môn giải tích".</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-decimal-representation">
+    <title>Decimal Representation — biểu diễn thập phân</title>
+    <idx><h>decimal representation</h></idx>
+    <idx><h>biểu diễn thập phân</h></idx>
+    <idx><h>khai triển thập phân</h></idx>
+    <notation>
+      <usage><m>n = a_k 10^k + a_{k-1} 10^{k-1} + \cdots + a_1 10 + a_0</m></usage>
+      <description>biểu diễn thập phân</description>
+    </notation>
+    <statement>
+      <p>Biểu diễn thập phân của một số nguyên <m>n</m> là cách viết <m>n</m> trong hệ cơ số <m>10</m>, tức là dãy các chữ số <m>a_k a_{k-1} \ldots a_1 a_0</m> với mỗi <m>a_i \in \{0,1,\ldots,9\}</m> và <m>a_k \neq 0</m>, ký hiệu <m>n = a_k 10^k + a_{k-1} 10^{k-1} + \cdots + a_1 10 + a_0</m>. Mỗi số nguyên dương có duy nhất một biểu diễn thập phân (theo <xref ref="bib-rosen-2019" />, Rosen §4.2).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>biểu diễn thập phân</term> <xref ref="bib-mat3500" /> (giáo trình MAT3500); <xref ref="bib-rosen-2003-vi" /> (tr. 169 (PDF)) — cách dùng phổ biến.</p></li>
+        <li><p><term>khai triển thập phân</term> <xref ref="bib-rosen-2003-vi" /> (tr. 174 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Số <m>n = 2024</m> có biểu diễn thập phân <m>2024 = 2 \cdot 10^3 + 0 \cdot 10^2 + 2 \cdot 10 + 4</m>.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-decimal">
+    <title>Decimal — Hệ cơ số 10 (hệ thập phân)</title>
+    <idx><h>decimal</h></idx>
+    <idx><h>Hệ cơ số 10 (hệ thập phân)</h></idx>
+    <idx><h>biểu diễn thập phân</h></idx>
+    <idx><h>hệ cơ đếm thập phân</h></idx>
+    <idx><h>ký số thập phân</h></idx>
+    <notation>
+      <usage><m>(a_{k-1}a_{k-2}\dots a_1a_0)_{10}</m></usage>
+      <description>Hệ cơ số 10 (hệ thập phân)</description>
+    </notation>
+    <statement>
+      <p>Hệ thập phân (hệ cơ số 10) là hệ ghi số dùng cơ số <m>10</m>, trong đó mỗi số nguyên không âm <m>n</m> được biểu diễn duy nhất dưới dạng <m>n = a_{k-1}10^{k-1} + a_{k-2}10^{k-2} + \cdots + a_1 \cdot 10 + a_0</m> với các chữ số <m>a_i \in \{0,1,\dots,9\}</m>, ký hiệu <m>(a_{k-1}\dots a_1a_0)_{10}</m>. Mỗi <m>a_i</m> được gọi là một chữ số thập phân (theo <xref ref="bib-rosen-2019" />, Rosen §4.2).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>Hệ cơ số 10 (hệ thập phân)</term> <xref ref="bib-mat3500" /> (giáo trình MAT3500) — cách dùng phổ biến.</p></li>
+        <li><p><term>biểu diễn thập phân</term> <xref ref="bib-rosen-2003-vi" /> (tr. 169 (PDF)).</p></li>
+        <li><p><term>hệ cơ đếm thập phân</term> <xref ref="bib-nguyenducnghia-2006" /> (tr. 77 (PDF)).</p></li>
+        <li><p><term>ký số thập phân</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 81 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Số <m>2025</m> trong hệ thập phân là <m>2025 = 2\cdot 10^3 + 0\cdot 10^2 + 2\cdot 10 + 5</m>, với các chữ số thập phân <m>2, 0, 2, 5</m>.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-decision-tree">
+    <title>Decision Tree — cây quyết định</title>
+    <idx><h>decision tree</h></idx>
+    <idx><h>cây quyết định</h></idx>
+    <idx><h>cây quyết định nhị phân</h></idx>
+    <statement>
+      <p>Cây quyết định là một cây có gốc, trong đó mỗi đỉnh trong biểu diễn một quyết định và mỗi cạnh đi xuống ứng với một kết cục có thể của quyết định đó, còn mỗi lá biểu diễn một kết quả cuối cùng. Với cây quyết định nhị phân giải quyết một bài toán có <m>n</m> kết cục có thể, số phép so sánh tối thiểu trong trường hợp xấu nhất bằng chiều cao của cây, ít nhất là <m>\lceil \log_2 n \rceil</m> (theo <xref ref="bib-rosen-2019" />, Rosen §10.2).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>cây quyết định</term> <xref ref="bib-mat3500" /> (giáo trình MAT3500); <xref ref="bib-rosen-2003-vi" /> (tr. 641 (PDF)) — cách dùng phổ biến.</p></li>
+        <li><p><term>cây quyết định nhị phân</term> <xref ref="bib-rosen-2003-vi" /> (tr. 667 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Bài toán tìm một đồng xu giả nhẹ hơn trong tám đồng xu bằng cách cân được biểu diễn bằng một cây quyết định; vì cây có tám lá nên chiều cao của nó ít nhất là <m>\lceil \log_2 8 \rceil = 3</m>, do đó cần ít nhất ba lần cân khi mỗi lần cân chỉ cho hai kết cục.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-decreasing">
+    <title>Decreasing — giảm</title>
+    <idx><h>decreasing</h></idx>
+    <idx><h>giảm</h></idx>
+    <idx><h>thực sự giảm</h></idx>
+    <statement>
+      <p>Một hàm <m>f</m> từ tập số thực vào tập số thực được gọi là giảm nếu <m>f(x)  \gt  f(y)</m> với mọi <m>x</m> và <m>y</m> thuộc miền xác định thỏa mãn <m>x  \lt  y</m>. Hàm <m>f</m> được gọi là không tăng nếu chỉ đòi hỏi <m>f(x) \geq f(y)</m> khi <m>x  \lt  y</m> (theo <xref ref="bib-rosen-2019" />, Rosen §2.3).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>giảm</term> <xref ref="bib-mat3500" /> (giáo trình MAT3500) — cách dùng phổ biến.</p></li>
+        <li><p><term>thực sự giảm</term> <xref ref="bib-rosen-2003-vi" /> (tr. 85 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Hàm <m>f(x) = -3x + 1</m> trên tập số thực là một hàm giảm, vì nếu <m>x  \lt  y</m> thì <m>-3x  \gt  -3y</m>, suy ra <m>f(x)  \gt  f(y)</m>. Mọi hàm giảm đều là hàm đơn ánh.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-degree-distribution">
+    <title>Degree Distribution — phân phối bậc</title>
+    <idx><h>degree distribution</h></idx>
+    <idx><h>phân phối bậc</h></idx>
+    <notation>
+      <usage><m>P(k)</m></usage>
+      <description>phân phối bậc</description>
+    </notation>
+    <statement>
+      <p>Phân phối bậc của một đồ thị (hay một mạng) <m>G</m> là hàm <m>P(k)</m> (ký hiệu) cho biết tỉ lệ các đỉnh có bậc bằng <m>k</m>, tức là <m>P(k) = \frac{n_k}{n}</m>, trong đó <m>n_k</m> là số đỉnh có bậc <m>k</m> và <m>n = |V(G)|</m> là tổng số đỉnh. Một cách tương đương, <m>P(k)</m> là xác suất để một đỉnh được chọn ngẫu nhiên có bậc đúng bằng <m>k</m> (theo <xref ref="bib-rosen-2019" />, Rosen §10.4).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>phân phối bậc</term> <xref ref="bib-mat3500" /> (giáo trình MAT3500) — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Trong đồ thị đầy đủ <m>K_n</m>, mọi đỉnh đều có bậc <m>n - 1</m>, nên phân phối bậc tập trung tại một giá trị: <m>P(n-1) = 1</m> và <m>P(k) = 0</m> với mọi <m>k \neq n - 1</m>.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-descendants">
+    <title>Descendants — Các đỉnh con cháu</title>
+    <idx><h>descendants</h></idx>
+    <idx><h>Các đỉnh con cháu</h></idx>
+    <idx><h>con cháu</h></idx>
+    <idx><h>hậu duệ</h></idx>
+    <statement>
+      <p>Các đỉnh con cháu của một đỉnh <m>v</m> trong cây có gốc là tất cả các đỉnh nhận <m>v</m> làm tổ tiên, tức là mọi đỉnh <m>u \neq v</m> mà <m>v</m> nằm trên đường đi duy nhất từ gốc đến <m>u</m>. Nói cách khác, một đỉnh <m>u</m> là con cháu của <m>v</m> khi và chỉ khi <m>v</m> là tổ tiên của <m>u</m> (theo <xref ref="bib-rosen-2019" />, Rosen §10.1).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>Các đỉnh con cháu</term> <xref ref="bib-mat3500" /> (giáo trình MAT3500) — cách dùng phổ biến.</p></li>
+        <li><p><term>con cháu</term> <xref ref="bib-hoangchithanh-2007" /> (tr. 138 (PDF)); <xref ref="bib-nguyenhuudien-2019" /> (tr. 252 (PDF)); <xref ref="bib-rosen-2003-vi" /> (tr. 623 (PDF)).</p></li>
+        <li><p><term>hậu duệ</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 84 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Trong cây có gốc, nếu <m>v</m> có các đỉnh con <m>\{a, b\}</m> và <m>a</m> lại có đỉnh con <m>c</m>, thì tập các đỉnh con cháu của <m>v</m> là <m>\{a, b, c\}</m>.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-difference">
+    <title>Difference — Hiệu</title>
+    <idx><h>difference</h></idx>
+    <idx><h>Hiệu</h></idx>
+    <idx><h>hiệu của hai tập hợp</h></idx>
+    <idx><h>hiệu của tập</h></idx>
+    <notation>
+      <usage><m>A - B</m></usage>
+      <description>Hiệu</description>
+    </notation>
+    <statement>
+      <p>Hiệu của hai tập hợp <m>A</m> và <m>B</m>, ký hiệu <m>A - B</m> (hoặc <m>A \setminus B</m>), là tập hợp gồm các phần tử thuộc <m>A</m> nhưng không thuộc <m>B</m>; nghĩa là <m>A - B = \{x : x \in A \wedge x \notin B\}</m> (theo <xref ref="bib-rosen-2019" />, Rosen §2.2).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>Hiệu</term> <xref ref="bib-mat3500" /> (giáo trình MAT3500) — cách dùng phổ biến.</p></li>
+        <li><p><term>hiệu của hai tập hợp</term> <xref ref="bib-rosen-2003-vi" /> (tr. 66 (PDF)).</p></li>
+        <li><p><term>hiệu của tập</term> <xref ref="bib-nguyenducnghia-2006" /> (tr. 12 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Với <m>A = \{1, 2, 3, 5\}</m> và <m>B = \{2, 4, 5\}</m> thì <m>A - B = \{1, 3\}</m> và <m>B - A = \{4\}</m>. Nói chung <m>A - B \neq B - A</m>.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-digit">
+    <title>Digit — chữ số</title>
+    <idx><h>digit</h></idx>
+    <idx><h>chữ số</h></idx>
+    <idx><h>chữ số thập phân</h></idx>
+    <statement>
+      <p>Chữ số là một trong các ký hiệu cơ bản dùng để biểu diễn một số trong một hệ cơ số cho trước. Trong khai triển cơ số <m>b</m>, một số nguyên dương được viết dưới dạng dãy các chữ số lấy giá trị trong tập <m>\{0, 1, \ldots, b-1\}</m>; với hệ thập phân <m>(b = 10)</m> các chữ số là <m>0, 1, \ldots, 9</m> và với hệ nhị phân <m>(b = 2)</m> các chữ số là <m>0</m> và <m>1</m> (theo <xref ref="bib-rosen-2019" />, Rosen §3.6).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>chữ số</term> <xref ref="bib-mat3500" /> (giáo trình MAT3500); <xref ref="bib-rosen-2003-vi" /> (tr. 174 (PDF)); <xref ref="bib-nguyenhoangthach-2020" /> (tr. 15 (PDF)); <xref ref="bib-nguyenhuudien-2019" /> (tr. 87 (PDF)); <xref ref="bib-nguyenducnghia-2006" /> (tr. 25 (PDF)); <xref ref="bib-ngodactan-2004" /> (tr. 29 (PDF)) — cách dùng phổ biến.</p></li>
+        <li><p><term>chữ số thập phân</term> <xref ref="bib-rosen-2003-vi" /> (tr. 128 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Số <m>2025</m> trong hệ thập phân gồm bốn chữ số <m>2</m>, <m>0</m>, <m>2</m>, <m>5</m>. Trong hệ nhị phân, số <m>13</m> được viết là <m>1101</m>, gồm bốn chữ số nhị phân (bit) là <m>1</m>, <m>1</m>, <m>0</m>, <m>1</m>.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-direct-proof">
+    <title>Direct Proof — Chứng minh trực tiếp</title>
+    <idx><h>direct proof</h></idx>
+    <idx><h>Chứng minh trực tiếp</h></idx>
+    <statement>
+      <p>Chứng minh trực tiếp là phương pháp chứng minh mệnh đề kéo theo <m>p \rightarrow q</m> bằng cách giả sử <m>p</m> đúng rồi dùng các bước suy diễn (định nghĩa, tiên đề, định lý đã biết) để dẫn tới kết luận <m>q</m> đúng. Vì trường hợp <m>p</m> sai đã làm cho <m>p \rightarrow q</m> đúng, ta chỉ cần xét trường hợp <m>p</m> đúng (theo <xref ref="bib-rosen-2019" />, Rosen §1.6).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>Chứng minh trực tiếp</term> <xref ref="bib-mat3500" /> (giáo trình MAT3500) — cách dùng phổ biến.</p></li>
+        <li><p><term>chứng minh trực tiếp</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 56 (PDF)); <xref ref="bib-ngodactan-2004" /> (tr. 318 (PDF)); <xref ref="bib-rosen-2003-vi" /> (tr. 278 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Để chứng minh "nếu <m>n</m> là số lẻ thì <m>n^2</m> là số lẻ", ta giả sử <m>n</m> lẻ, viết <m>n = 2k+1</m> với <m>k</m> nguyên, suy ra <m>n^2 = 4k^2 + 4k + 1 = 2(2k^2 + 2k) + 1</m> là số lẻ.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-directed-acyclic-graph">
+    <title>Directed Acyclic Graph — đồ thị có hướng không có chu trình</title>
+    <idx><h>directed acyclic graph</h></idx>
+    <idx><h>đồ thị có hướng không chứa chu trình</h></idx>
+    <idx><h>đồ thị có hướng không có chu trình</h></idx>
+    <idx><h>đồ thị định hướng phi chu trình</h></idx>
+    <notation>
+      <usage><m>G = (V, E)</m></usage>
+      <description>đồ thị có hướng không có chu trình</description>
+    </notation>
+    <statement>
+      <p>Đồ thị có hướng không có chu trình là một đồ thị có hướng <m>G = (V, E)</m> không chứa bất kỳ chu trình có hướng nào, nghĩa là không tồn tại đường đi có hướng nào xuất phát từ một đỉnh và quay trở lại chính đỉnh đó. Một đồ thị có hướng <m>G</m> là không có chu trình khi và chỉ khi có thể đánh số các đỉnh của <m>G</m> sao cho mọi cạnh <m>(u, v) \in E</m> đều thỏa mãn số thứ tự của <m>u</m> nhỏ hơn số thứ tự của <m>v</m> (theo <xref ref="bib-rosen-2019" />, Rosen §10.5).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>đồ thị có hướng không có chu trình</term> <xref ref="bib-mat3500" /> (giáo trình MAT3500) — cách dùng phổ biến.</p></li>
+        <li><p><term>đồ thị có hướng không chứa chu trình</term> <xref ref="bib-nguyenducnghia-2006" /> (tr. 230 (PDF)).</p></li>
+        <li><p><term>đồ thị định hướng phi chu trình</term> <xref ref="bib-hoangchithanh-2007" /> (tr. 49 (PDF)); <xref ref="bib-nguyenhuudien-2019" /> (tr. 226 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Trong đồ thị có hướng với các đỉnh <m>\{1, 2, 3\}</m> và các cạnh <m>(1,2), (2,3), (1,3)</m>, không có chu trình có hướng nào nên đây là một đồ thị có hướng không có chu trình; nếu thêm cạnh <m>(3,1)</m> thì xuất hiện chu trình <m>1 \to 2 \to 3 \to 1</m> và đồ thị không còn là đồ thị có hướng không có chu trình.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-directed-edge">
+    <title>Directed Edge — cạnh có hướng</title>
+    <idx><h>directed edge</h></idx>
+    <idx><h>cung</h></idx>
+    <idx><h>cạnh có hướng</h></idx>
+    <notation>
+      <usage><m>(u, v)</m></usage>
+      <description>cạnh có hướng</description>
+    </notation>
+    <statement>
+      <p>Cạnh có hướng của một đồ thị có hướng <m>G</m> là một cặp có thứ tự <m>(u, v)</m> gồm hai đỉnh, biểu diễn một liên kết đi từ đỉnh đầu <m>u</m> đến đỉnh cuối <m>v</m>. Khác với cạnh vô hướng, hai cạnh có hướng <m>(u, v)</m> và <m>(v, u)</m> được xem là khác nhau khi <m>u \neq v</m> (theo <xref ref="bib-rosen-2019" />, Rosen §10.1).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>cạnh có hướng</term> <xref ref="bib-mat3500" /> (giáo trình MAT3500); <xref ref="bib-leanhvinh-2020" /> (tr. 11 (PDF)); <xref ref="bib-nguyenhoangthach-2020" /> (tr. 62 (PDF)); <xref ref="bib-nguyenhuudien-2019" /> (tr. 209 (PDF)); <xref ref="bib-hoangchithanh-2007" /> (tr. 6 (PDF)); <xref ref="bib-nguyenducnghia-2006" /> (tr. 154 (PDF)); <xref ref="bib-rosen-2003-vi" /> (tr. 622 (PDF)) — cách dùng phổ biến.</p></li>
+        <li><p><term>cung</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 62 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Trong đồ thị có hướng với tập đỉnh <m>\{a, b\}</m> và tập cạnh <m>\{(a, b)\}</m>, cặp <m>(a, b)</m> là một cạnh có hướng đi từ <m>a</m> đến <m>b</m>, nhưng <m>(b, a)</m> không phải là cạnh của đồ thị.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-disconnected">
+    <title>Disconnected — không liên thông</title>
+    <idx><h>disconnected</h></idx>
+    <idx><h>không liên thông</h></idx>
+    <statement>
+      <p>Một đồ thị vô hướng <m>G</m> được gọi là không liên thông nếu nó không liên thông, tức là tồn tại hai đỉnh <m>u, v \in V(G)</m> sao cho không có đường đi nào trong <m>G</m> nối <m>u</m> với <m>v</m>. Khi đó <m>G</m> có thể được tách thành hợp của hai hay nhiều đồ thị con liên thông (các thành phần liên thông) rời nhau (theo <xref ref="bib-rosen-2019" />, Rosen §10.4).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>không liên thông</term> <xref ref="bib-mat3500" /> (giáo trình MAT3500); <xref ref="bib-nguyenhuudien-2019" /> (tr. 168 (PDF)); <xref ref="bib-leanhvinh-2020" /> (tr. 37 (PDF)); <xref ref="bib-nguyenhoangthach-2020" /> (tr. 74 (PDF)); <xref ref="bib-nguyenducnghia-2006" /> (tr. 156 (PDF)); <xref ref="bib-ngodactan-2004" /> (tr. 216 (PDF)); <xref ref="bib-hoangchithanh-2007" /> (tr. 14 (PDF)); <xref ref="bib-rosen-2003-vi" /> (tr. 539 (PDF)) — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Đồ thị gồm hai tam giác rời nhau, chẳng hạn hợp rời của hai bản sao <m>K_3</m>, là một đồ thị không liên thông vì không có đường đi nào nối một đỉnh của tam giác này với một đỉnh của tam giác kia.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-discrete-structure">
+    <title>Discrete Structure — cấu trúc rời rạc</title>
+    <idx><h>discrete structure</h></idx>
+    <idx><h>cấu trúc rời rạc</h></idx>
+    <statement>
+      <p>Cấu trúc rời rạc là một cấu trúc toán học rời rạc, tức là gồm các đối tượng phân biệt và tách biệt nhau, được dùng để biểu diễn quan hệ giữa các đối tượng. Các ví dụ tiêu biểu bao gồm tập hợp, quan hệ, hoán vị và đặc biệt là đồ thị <m>G = (V, E)</m> gồm tập đỉnh <m>V</m> và tập cạnh <m>E</m> (theo <xref ref="bib-rosen-2019" />, Rosen, Preface).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>cấu trúc rời rạc</term> <xref ref="bib-mat3500" /> (giáo trình MAT3500); <xref ref="bib-nguyenhuudien-2019" /> (tr. 154 (PDF)); <xref ref="bib-nguyenducnghia-2006" /> (tr. 3 (PDF)); <xref ref="bib-nguyenhoangthach-2020" /> (tr. 61 (PDF)); <xref ref="bib-rosen-2003-vi" /> (tr. 60 (PDF)) — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Đồ thị <m>K_n</m>, tập hợp hữu hạn, quan hệ trên một tập và cây đều là các cấu trúc rời rạc.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-discrete">
+    <title>Discrete — đối tượng rời rạc</title>
+    <idx><h>discrete</h></idx>
+    <idx><h>đối tượng rời rạc</h></idx>
+    <statement>
+      <p>Một đối tượng được gọi là rời rạc nếu nó tách biệt và phân biệt với các đối tượng khác, tức là có thể đếm được hoặc phân tách hoàn toàn, đối lập với các đối tượng liên tục. Toán rời rạc là lĩnh vực nghiên cứu các đối tượng rời rạc cùng các cấu trúc rời rạc biểu diễn chúng, chẳng hạn các tập hữu hạn, dãy số nguyên, hay đồ thị <m>G = (V, E)</m> (theo <xref ref="bib-rosen-2019" />, Rosen, Chương 1 (mở đầu)).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>đối tượng rời rạc</term> <xref ref="bib-mat3500" /> (giáo trình MAT3500); <xref ref="bib-nguyenhuudien-2019" /> (tr. 3 (PDF)); <xref ref="bib-nguyenducnghia-2006" /> (tr. 3 (PDF)); <xref ref="bib-rosen-2003-vi" /> (tr. 5 (PDF)) — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Tập số nguyên <m>\mathbb{Z}</m> gồm các phần tử rời rạc, vì giữa hai số nguyên liên tiếp <m>n</m> và <m>n + 1</m> không có số nguyên nào khác; trái lại, tập số thực <m>\mathbb{R}</m> là liên tục chứ không rời rạc.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-disjoint">
+    <title>Disjoint — rời nhau</title>
+    <idx><h>disjoint</h></idx>
+    <idx><h>rời nhau</h></idx>
+    <idx><h>đôi một rời nhau</h></idx>
+    <notation>
+      <usage><m>A \cap B = \emptyset</m></usage>
+      <description>rời nhau</description>
+    </notation>
+    <statement>
+      <p>Hai tập hợp <m>A</m> và <m>B</m> được gọi là rời nhau nếu chúng không có phần tử chung, tức là giao của chúng là tập rỗng, ký hiệu <m>A \cap B = \emptyset</m>. Một họ các tập hợp được gọi là đôi một rời nhau nếu giao của hai tập bất kỳ trong họ đều bằng tập rỗng (theo <xref ref="bib-rosen-2019" />, Rosen §2.2).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>rời nhau</term> <xref ref="bib-mat3500" /> (giáo trình MAT3500); <xref ref="bib-rosen-2003-vi" /> (tr. 65 (PDF)); <xref ref="bib-nguyenhuudien-2019" /> (tr. 78 (PDF)); <xref ref="bib-nguyenhoangthach-2020" /> (tr. 24 (PDF)); <xref ref="bib-nguyenducnghia-2006" /> (tr. 15 (PDF)); <xref ref="bib-hoangchithanh-2007" /> (tr. 106 (PDF)) — cách dùng phổ biến.</p></li>
+        <li><p><term>đôi một rời nhau</term> <xref ref="bib-ngodactan-2004" /> (tr. 25 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Hai tập <m>A = \{1, 3, 5\}</m> và <m>B = \{2, 4, 6\}</m> là rời nhau vì <m>A \cap B = \emptyset</m>. Ngược lại, <m>\{1, 2\}</m> và <m>\{2, 3\}</m> không rời nhau vì chúng có chung phần tử <m>2</m>.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-disjunction">
+    <title>Disjunction — Tuyển</title>
+    <idx><h>disjunction</h></idx>
+    <idx><h>Tuyển</h></idx>
+    <idx><h>phép tuyển</h></idx>
+    <notation>
+      <usage><m>p \vee q</m></usage>
+      <description>Tuyển</description>
+    </notation>
+    <statement>
+      <p>Tuyển của hai mệnh đề <m>p</m> và <m>q</m>, ký hiệu <m>p \vee q</m>, là mệnh đề "<m>p</m> hoặc <m>q</m>". Mệnh đề <m>p \vee q</m> sai khi cả <m>p</m> và <m>q</m> đều sai, và đúng trong các trường hợp còn lại (theo <xref ref="bib-rosen-2019" />, Rosen §1.1).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>Tuyển</term> <xref ref="bib-mat3500" /> (giáo trình MAT3500) — cách dùng phổ biến.</p></li>
+        <li><p><term>phép tuyển</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 17 (PDF)).</p></li>
+        <li><p><term>tuyển</term> <xref ref="bib-rosen-2003-vi" /> (tr. 8 (PDF)); <xref ref="bib-nguyenducnghia-2006" /> (tr. 267 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Với <m>p</m> là "Hôm nay trời mưa" và <m>q</m> là "Hôm nay trời nắng", tuyển <m>p \vee q</m> là mệnh đề "Hôm nay trời mưa hoặc trời nắng", đúng khi có ít nhất một trong hai mệnh đề thành phần đúng.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-disjunctive-normal-form">
+    <title>Disjunctive Normal Form — dạng tuyển chuẩn tắc</title>
+    <idx><h>disjunctive normal form</h></idx>
+    <idx><h>dạng chuẩn tắc tuyển</h></idx>
+    <idx><h>dạng tuyển chuẩn tắc</h></idx>
+    <statement>
+      <p>Dạng tuyển chuẩn tắc của một hàm Boole là biểu diễn của hàm đó dưới dạng tuyển (phép OR) của các hội sơ cấp, trong đó mỗi hội sơ cấp là tích (phép AND) của các biến hoặc phần bù của chúng. Khi mỗi hội sơ cấp chứa đầy đủ mọi biến của hàm, ta được dạng tuyển chuẩn tắc hoàn toàn, tức là khai triển tổng các tích biểu diễn hàm <m>f(x_1, x_2, \ldots, x_n)</m> (theo <xref ref="bib-rosen-2019" />, Rosen §12.2).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>dạng tuyển chuẩn tắc</term> <xref ref="bib-mat3500" /> (giáo trình MAT3500); <xref ref="bib-nguyenducnghia-2006" /> (tr. 270 (PDF)); <xref ref="bib-rosen-2003-vi" /> (tr. 30 (PDF)) — cách dùng phổ biến.</p></li>
+        <li><p><term>dạng chuẩn tắc tuyển</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 25 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Hàm <m>f(x, y) = x + y</m> có một dạng tuyển chuẩn tắc là <m>x\bar{y} \vee xy \vee \bar{x}y</m>, là tuyển của các hội sơ cấp ứng với các bộ giá trị làm <m>f</m> nhận giá trị <m>1</m>.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-disjunctive-syllogism">
+    <title>Disjunctive Syllogism — Tam đoạn luận tuyển</title>
+    <idx><h>disjunctive syllogism</h></idx>
+    <idx><h>Tam đoạn luận phân biệt</h></idx>
+    <idx><h>Tam đoạn luận rời</h></idx>
+    <idx><h>Tam đoạn luận tuyển</h></idx>
+    <notation>
+      <usage><m>[(p \lor q) \land \neg p] \rightarrow q</m></usage>
+      <description>Tam đoạn luận tuyển</description>
+    </notation>
+    <statement>
+      <p>Tam đoạn luận tuyển là quy tắc suy diễn cho phép từ một tuyển <m>p \lor q</m> và phủ định <m>\neg p</m> của một thành phần suy ra thành phần còn lại <m>q</m>, ký hiệu <m>[(p \lor q) \land \neg p] \rightarrow q</m>. Quy tắc này đúng vì biểu thức <m>[(p \lor q) \land \neg p] \rightarrow q</m> là một hằng đúng (theo <xref ref="bib-rosen-2019" />, Rosen §1.6).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>Tam đoạn luận tuyển</term> <xref ref="bib-mat3500" /> (giáo trình MAT3500); <xref ref="bib-rosen-2003-vi" /> (tr. 211 (PDF)) — cách dùng phổ biến.</p></li>
+        <li><p><term>Tam đoạn luận phân biệt</term> <xref ref="bib-rosen-2003-vi" /> (tr. 875 (PDF)).</p></li>
+        <li><p><term>Tam đoạn luận rời</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 33 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Từ tiền đề "Hôm nay trời mưa hoặc trời nắng" (<m>p \lor q</m>) và "Hôm nay trời không mưa" (<m>\neg p</m>), theo tam đoạn luận tuyển ta suy ra "Hôm nay trời nắng" (<m>q</m>).</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-distinct">
+    <title>Distinct — phân biệt</title>
+    <idx><h>distinct</h></idx>
+    <idx><h>phân biệt</h></idx>
+    <notation>
+      <usage><m>x \neq y</m></usage>
+      <description>phân biệt</description>
+    </notation>
+    <statement>
+      <p>Hai đối tượng được gọi là <m>phân</m> <m>biệt</m> nếu chúng không bằng nhau, tức là <m>x \neq y</m>. Một họ các phần tử <m>x_1, x_2, \ldots, x_n</m> là phân biệt từng đôi một nếu <m>x_i \neq x_j</m> với mọi <m>i \neq j</m> (theo <xref ref="bib-rosen-2019" />, Rosen §2.1).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>phân biệt</term> <xref ref="bib-mat3500" /> (giáo trình MAT3500); <xref ref="bib-leanhvinh-2020" /> (tr. 16 (PDF)); <xref ref="bib-nguyenhoangthach-2020" /> (tr. 21 (PDF)); <xref ref="bib-nguyenducnghia-2006" /> (tr. 35 (PDF)); <xref ref="bib-ngodactan-2004" /> (tr. 82 (PDF)); <xref ref="bib-rosen-2003-vi" /> (tr. 84 (PDF)) — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Trong một đường đi (path) đơn, tất cả các đỉnh <m>v_0, v_1, \ldots, v_k</m> là phân biệt từng đôi một, nghĩa là <m>v_i \neq v_j</m> khi <m>i \neq j</m>.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-divide-and-conquer">
+    <title>Divide And Conquer — chia để trị</title>
+    <idx><h>divide and conquer</h></idx>
+    <idx><h>chia để trị</h></idx>
+    <notation>
+      <usage><m>f(n) = a\,f(n/b) + g(n)</m></usage>
+      <description>chia để trị</description>
+    </notation>
+    <statement>
+      <p>Chia để trị là kỹ thuật thiết kế thuật toán trong đó một bài toán kích thước <m>n</m> được phân rã thành <m>a</m> bài toán con, mỗi bài toán con có kích thước <m>n/b</m>, rồi giải các bài toán con đó và kết hợp các lời giải lại. Độ phức tạp <m>f(n)</m> của thuật toán thỏa mãn hệ thức truy hồi chia để trị <m>f(n) = a\,f(n/b) + g(n)</m>, trong đó <m>g(n)</m> là chi phí phân chia và kết hợp (theo <xref ref="bib-rosen-2019" />, Rosen §8.3).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>chia để trị</term> <xref ref="bib-mat3500" /> (giáo trình MAT3500); <xref ref="bib-nguyenhuudien-2019" /> (tr. 100 (PDF)); <xref ref="bib-rosen-2003-vi" /> (tr. 397 (PDF)) — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Thuật toán tìm kiếm nhị phân trên dãy đã sắp xếp chia bài toán kích thước <m>n</m> thành một bài toán con kích thước <m>n/2</m>, cho hệ thức <m>f(n) = f(n/2) + 2</m> với <m>n</m> là lũy thừa của <m>2</m>.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-dividend">
+    <title>Dividend — số bị chia</title>
+    <idx><h>dividend</h></idx>
+    <idx><h>số bị chia</h></idx>
+    <statement>
+      <p>Số bị chia là số <m>a</m> được đem chia trong phép chia có dư. Theo thuật toán chia, với số nguyên <m>a</m> và số nguyên dương <m>d</m>, tồn tại duy nhất các số nguyên <m>q</m> và <m>r</m> với <m>0 \leq r \lt d</m> sao cho <m>a = dq + r</m>; khi đó <m>a</m> được gọi là số bị chia, <m>d</m> là số chia, <m>q</m> là thương và <m>r</m> là số dư (theo <xref ref="bib-rosen-2019" />, Rosen §4.1).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>số bị chia</term> <xref ref="bib-mat3500" /> (giáo trình MAT3500); <xref ref="bib-nguyenhuudien-2019" /> (tr. 142 (PDF)); <xref ref="bib-rosen-2003-vi" /> (tr. 897 (PDF)) — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Trong đẳng thức <m>17 = 5 \cdot 3 + 2</m>, số bị chia là <m>17</m>, số chia là <m>5</m>, thương là <m>3</m> và số dư là <m>2</m>.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-divisor">
+    <title>Divisor — số chia</title>
+    <idx><h>divisor</h></idx>
+    <idx><h>số chia</h></idx>
+    <notation>
+      <usage><m>a = bq + r</m></usage>
+      <description>số chia</description>
+    </notation>
+    <statement>
+      <p>Số chia là số nguyên <m>b</m> trong thuật toán chia: cho hai số nguyên <m>a</m> và <m>b</m> với <m>b  \gt  0</m>, tồn tại duy nhất cặp số nguyên <m>q</m> và <m>r</m> thỏa mãn <m>a = bq + r</m> với <m>0 \leq r  \lt  b</m>. Trong đẳng thức này, <m>b</m> được gọi là số chia, <m>a</m> là số bị chia, <m>q</m> là thương và <m>r</m> là số dư (theo <xref ref="bib-rosen-2019" />, Rosen §3.4).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>số chia</term> <xref ref="bib-mat3500" /> (giáo trình MAT3500); <xref ref="bib-nguyenhuudien-2019" /> (tr. 142 (PDF)); <xref ref="bib-rosen-2003-vi" /> (tr. 156 (PDF)) — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Với <m>a = 17</m> và <m>b = 5</m>, ta có <m>17 = 5 \cdot 3 + 2</m>, trong đó số chia là <m>b = 5</m>, thương là <m>q = 3</m> và số dư là <m>r = 2</m>.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-double-counting-proof">
+    <title>Double Counting Proof — phương pháp đếm bằng hai cách</title>
+    <idx><h>double counting proof</h></idx>
+    <idx><h>phương pháp đếm bằng hai cách</h></idx>
+    <idx><h>đếm bằng hai cách</h></idx>
+    <idx><h>đếm số phần tử bằng hai cách</h></idx>
+    <statement>
+      <p>Phương pháp đếm bằng hai cách là kỹ thuật chứng minh một đẳng thức tổ hợp bằng cách đếm số phần tử của cùng một tập hợp hữu hạn <m>S</m> theo hai cách khác nhau. Vì cả hai cách đều cho lực lượng <m>|S|</m>, ta thu được đẳng thức giữa hai biểu thức đếm được.</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>phương pháp đếm bằng hai cách</term> <xref ref="bib-mat3500" /> (giáo trình MAT3500) — cách dùng phổ biến.</p></li>
+        <li><p><term>đếm bằng hai cách</term> <xref ref="bib-leanhvinh-2020" /> (tr. 50 (PDF)); <xref ref="bib-leanhvinh-2020" /> (tr. 218 (PDF)).</p></li>
+        <li><p><term>đếm số phần tử bằng hai cách</term> <xref ref="bib-ngodactan-2004" /> (tr. 49 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Đếm số cạnh có hướng (cặp đỉnh đầu mút) của một đồ thị <m>G</m> bằng hai cách cho công thức bắt tay <m>\sum_{v \in V(G)} \deg_G(v) = 2|E(G)|</m>: mỗi cạnh được tính đúng hai lần, một lần cho mỗi đầu mút.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-double-sum">
+    <title>Double Sum — Tổng đôi</title>
+    <idx><h>double sum</h></idx>
+    <idx><h>Tổng đôi</h></idx>
+    <idx><h>tổng kép</h></idx>
+    <notation>
+      <usage><m>\sum_{i=m}^{n}\sum_{j=p}^{q} a_{ij}</m></usage>
+      <description>Tổng đôi</description>
+    </notation>
+    <statement>
+      <p>Tổng đôi (tổng kép) là tổng lồng nhau của một dãy số được đánh chỉ số bởi hai chỉ số, ký hiệu <m>\sum_{i=m}^{n}\sum_{j=p}^{q} a_{ij}</m>. Giá trị của nó được tính bằng cách trước hết khai triển tổng trong theo chỉ số <m>j</m>, rồi lấy tổng các kết quả nhận được theo chỉ số <m>i</m> (theo <xref ref="bib-rosen-2019" />, Rosen §2.4).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>Tổng đôi</term> <xref ref="bib-mat3500" /> (giáo trình MAT3500) — cách dùng phổ biến.</p></li>
+        <li><p><term>tổng kép</term> <xref ref="bib-rosen-2003-vi" /> (tr. 100 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Với <m>\sum_{i=1}^{2}\sum_{j=1}^{3} ij</m>, khai triển tổng trong cho <m>\sum_{i=1}^{2}(i+2i+3i)=\sum_{i=1}^{2} 6i = 6+12 = 18</m>.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-dual">
+    <title>Dual — Đối ngẫu</title>
+    <idx><h>dual</h></idx>
+    <idx><h>Đối ngẫu</h></idx>
+    <idx><h>đồ thị đối ngẫu</h></idx>
+    <notation>
+      <usage><m>G^*</m></usage>
+      <description>Đối ngẫu</description>
+    </notation>
+    <statement>
+      <p>Đối ngẫu (đồ thị đối ngẫu) của một đồ thị phẳng <m>G</m> đã cho một biểu diễn phẳng, ký hiệu <m>G^*</m>, là đồ thị mà mỗi đỉnh tương ứng với một miền của <m>G</m>, và hai đỉnh của <m>G^*</m> được nối bởi một cạnh ứng với mỗi cạnh chung trên biên của hai miền tương ứng. Mọi đồ thị phẳng đều có đồ thị đối ngẫu cũng là đồ thị phẳng (theo <xref ref="bib-rosen-2019" />, Rosen §10.7).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>Đối ngẫu</term> <xref ref="bib-mat3500" /> (giáo trình MAT3500) — cách dùng phổ biến.</p></li>
+        <li><p><term>đồ thị đối ngẫu</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 235 (PDF)); <xref ref="bib-nguyenhoangthach-2020" /> (tr. 82 (PDF)); <xref ref="bib-ngodactan-2004" /> (tr. 294 (PDF)); <xref ref="bib-rosen-2003-vi" /> (tr. 594 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Bài toán tô màu các miền của một bản đồ sao cho hai miền kề nhau khác màu tương đương với bài toán tô màu các đỉnh của đồ thị đối ngẫu <m>G^*</m> của bản đồ đó.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-duality-principle">
+    <title>Duality Principle — Nguyên lý đối ngẫu</title>
+    <idx><h>duality principle</h></idx>
+    <idx><h>Nguyên lý đối ngẫu</h></idx>
+    <idx><h>luật đối ngẫu</h></idx>
+    <statement>
+      <p>Nguyên lý đối ngẫu khẳng định rằng một hằng đẳng thức giữa các hàm Boole vẫn còn đúng khi ta thay nó bằng hằng đẳng thức đối ngẫu, tức là đổi mỗi phép <m>\cdot</m> thành <m>+</m>, mỗi phép <m>+</m> thành <m>\cdot</m>, đồng thời đổi mỗi hằng <m>0</m> thành <m>1</m> và mỗi hằng <m>1</m> thành <m>0</m> (các biến giữ nguyên). Đối ngẫu của một biểu thức Boole <m>E</m>, ký hiệu <m>E^{d}</m>, nhận được bằng cách thực hiện các phép đổi này (theo <xref ref="bib-rosen-2019" />, Rosen §11.1).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>Nguyên lý đối ngẫu</term> <xref ref="bib-mat3500" /> (giáo trình MAT3500) — cách dùng phổ biến.</p></li>
+        <li><p><term>luật đối ngẫu</term> <xref ref="bib-nguyenducnghia-2006" /> (tr. 270 (PDF)).</p></li>
+        <li><p><term>nguyên lý đối ngẫu</term> <xref ref="bib-rosen-2003-vi" /> (tr. 757 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Đối ngẫu của hằng đẳng thức <m>x \cdot 1 = x</m> là <m>x + 0 = x</m>, và cả hai đều đúng trong mọi đại số Boole. Tương tự, từ luật hấp thụ <m>x \cdot (x + y) = x</m> ta suy ra ngay hằng đẳng thức đối ngẫu <m>x + (x \cdot y) = x</m>.</p>
     </statement>
   </definition>
 </chapter>

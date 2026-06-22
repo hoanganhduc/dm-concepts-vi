@@ -153,7 +153,7 @@
         <li><p><term>đường đi ngắn nhất giữa hai đỉnh</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 92 (PDF)); <xref ref="bib-rosen-2003-vi" /> (tr. 131 (PDF, bản dịch Rosen)).</p></li>
       </ul>
       <p>Ví dụ: Trong đồ thị đường đi <m>P_4</m> với các đỉnh <m>v_1, v_2, v_3, v_4</m> nối tiếp nhau, đường đi <m>v_1 v_2 v_3 v_4</m> là đường đi ngắn nhất giữa <m>v_1</m> và <m>v_4</m>, do đó <m>d(v_1, v_4) = 3</m>.</p>
-      <p>Xem thêm <xref ref="def-distance" text="title" />, <xref ref="def-shortest-path" text="title" />, <xref ref="def-diameter" text="title" />.</p>
+      <p>Xem thêm <xref ref="def-distance" text="title" />, <xref ref="def-shortest-path" text="title" />, <xref ref="def-eccentricity" text="title" />, <xref ref="def-diameter" text="title" />.</p>
     </statement>
   </definition>
   <definition xml:id="def-grid-graph">
@@ -259,6 +259,7 @@
         <li><p><term>cấp số nhân</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 41 (PDF)); <xref ref="bib-rosen-2003-vi" /> (tr. 100 (PDF, bản dịch Rosen)).</p></li>
       </ul>
       <p>Ví dụ: Với <m>a = 3</m>, <m>r = 2</m> và <m>n = 4</m>, tổng cấp số nhân tương ứng là <m>\displaystyle\sum_{j=0}^{4} 3 \cdot 2^j = 3 + 6 + 12 + 24 + 48 = 93</m>.</p>
+      <p>Xem thêm <xref ref="def-geometric-progression" text="title" />.</p>
     </statement>
   </definition>
   <definition xml:id="def-group">
@@ -301,7 +302,7 @@
         <li><p><term>đồ thị của hàm</term> <xref ref="bib-rosen-2003-vi" /> (tr. 90 (PDF)).</p></li>
       </ul>
       <p>Ví dụ: Đồ thị của hàm số <m>f(n) = 2n + 1</m> từ <m>\mathbb{Z}</m> đến <m>\mathbb{Z}</m> là tập các cặp sắp thứ tự <m>\{(n, 2n + 1) : n \in \mathbb{Z}\}</m>.</p>
-      <p>Xem thêm <xref ref="def-function" text="title" />, <xref ref="def-ordered-pair" text="title" />.</p>
+      <p>Xem thêm <xref ref="def-function" text="title" />, <xref ref="def-ordered-pair" text="title" />, <xref ref="def-cartesian-product" text="title" />.</p>
     </statement>
   </definition>
   <definition xml:id="def-euclidean-algorithm">
@@ -324,6 +325,112 @@
       </ul>
       <p>Ví dụ: Để tính <m>\gcd(662, 414)</m>, ta thực hiện liên tiếp: <m>(662, 414) \to (414, 248) \to (248, 166) \to (166, 82) \to (82, 2) \to (2, 0)</m>, vì <m>662 \bmod 414 = 248</m>, <m>414 \bmod 248 = 166</m>, <m>248 \bmod 166 = 82</m>, <m>166 \bmod 82 = 2</m> và <m>82 \bmod 2 = 0</m>. Thành phần thứ nhất khi thành phần thứ hai bằng <m>0</m> là <m>2</m>, do đó <m>\gcd(662, 414) = 2</m>.</p>
       <p>Xem thêm <xref ref="def-greatest-common-divisor" text="title" />, <xref ref="def-division-algorithm" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-gate">
+    <title>Gate — cổng</title>
+    <idx><h>gate</h></idx>
+    <idx><h>cổng</h></idx>
+    <idx><h>cổng logic</h></idx>
+    <statement>
+      <p>Cổng (cổng logic) là phần tử mạch cơ bản nhận một hay nhiều đầu vào nhị phân và cho một đầu ra nhị phân, trong đó đầu ra là giá trị của một phép toán Boole áp dụng cho các giá trị đầu vào. Ba loại cổng cơ bản là cổng đảo (NOT), thực hiện phép <m>\overline{x}</m>, cổng OR, thực hiện phép <m>x + y</m>, và cổng AND, thực hiện phép <m>x \cdot y</m>; bằng cách ghép nối các cổng ta thu được các mạch logic (mạch tổ hợp) (theo <xref ref="bib-rosen-2019" />, Rosen §12.3).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>cổng</term> <xref ref="bib-mat3500" /> (giáo trình MAT3500); <xref ref="bib-rosen-2003-vi" /> (tr. 727 (PDF)) — cách dùng phổ biến.</p></li>
+        <li><p><term>cổng logic</term> <xref ref="bib-rosen-2003-vi" /> (tr. 739 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Cổng AND với hai đầu vào <m>x</m> và <m>y</m> cho đầu ra bằng <m>1</m> khi và chỉ khi <m>x = y = 1</m>, tức là đầu ra bằng <m>x \cdot y</m>; cổng OR cho đầu ra <m>x + y</m>, bằng <m>0</m> khi và chỉ khi <m>x = y = 0</m>.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-generalized-binomial-coefficient">
+    <title>Generalized Binomial Coefficient — hệ số nhị thức tổng quát</title>
+    <idx><h>generalized binomial coefficient</h></idx>
+    <idx><h>hệ số nhị thức mở rộng</h></idx>
+    <idx><h>hệ số nhị thức tổng quát</h></idx>
+    <notation>
+      <usage><m>\binom{u}{k}</m></usage>
+      <description>hệ số nhị thức tổng quát</description>
+    </notation>
+    <statement>
+      <p>Hệ số nhị thức tổng quát, ký hiệu <m>\binom{u}{k}</m>, mở rộng hệ số nhị thức cho số mũ trên là một số thực <m>u</m> tùy ý và <m>k</m> là số nguyên không âm, xác định bởi <m>\binom{u}{k} = \dfrac{u(u-1)\cdots(u-k+1)}{k!}</m> khi <m>k  \gt  0</m> và <m>\binom{u}{0} = 1</m> (theo <xref ref="bib-rosen-2019" />, Rosen §5.4).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>hệ số nhị thức tổng quát</term> <xref ref="bib-mat3500" /> (giáo trình MAT3500) — cách dùng phổ biến.</p></li>
+        <li><p><term>hệ số nhị thức mở rộng</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 47 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Với <m>u = -2</m> và <m>k = 3</m> ta có <m>\binom{-2}{3} = \dfrac{(-2)(-3)(-4)}{3!} = -4</m>.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-geometric-progression">
+    <title>Geometric Progression — cấp số nhân</title>
+    <idx><h>geometric progression</h></idx>
+    <idx><h>cấp số nhân</h></idx>
+    <notation>
+      <usage><m>a, ar, ar^2, \ldots, ar^n, \ldots</m></usage>
+      <description>cấp số nhân</description>
+    </notation>
+    <statement>
+      <p>Cấp số nhân là một dãy số có dạng <m>a, ar, ar^2, \ldots, ar^n, \ldots</m>, trong đó số hạng đầu <m>a</m> và công bội <m>r</m> là các số thực với <m>r \neq 0</m>. Mỗi số hạng nhận được từ số hạng liền trước bằng cách nhân với công bội <m>r</m>, tức là <m>a_n = ar^n</m> (theo <xref ref="bib-rosen-2019" />, Rosen §2.4).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>cấp số nhân</term> <xref ref="bib-mat3500" /> (giáo trình MAT3500); <xref ref="bib-nguyenhoangthach-2020" /> (tr. 41 (PDF)); <xref ref="bib-rosen-2003-vi" /> (tr. 234 (PDF)) — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Dãy <m>3, 15, 75, 375, \ldots</m> là cấp số nhân với số hạng đầu <m>a = 3</m> và công bội <m>r = 5</m>, do <m>a_n = 3 \cdot 5^n</m>.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-graph-invariant">
+    <title>Graph Invariant — bất biến đồ thị</title>
+    <idx><h>graph invariant</h></idx>
+    <idx><h>bất biến đối với phép đẳng cấu</h></idx>
+    <idx><h>bất biến đồ thị</h></idx>
+    <idx><h>tính chất bất biến</h></idx>
+    <statement>
+      <p>Bất biến đồ thị là một tính chất hoặc đại lượng của đồ thị được bảo toàn qua phép đẳng cấu, nghĩa là hai đồ thị đẳng cấu luôn nhận cùng một giá trị của tính chất đó. Do vậy, nếu hai đồ thị <m>G</m> và <m>H</m> có một bất biến nhận giá trị khác nhau thì <m>G</m> và <m>H</m> không đẳng cấu với nhau (theo <xref ref="bib-rosen-2019" />, Rosen §10.3).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>bất biến đồ thị</term> <xref ref="bib-mat3500" /> (giáo trình MAT3500) — cách dùng phổ biến.</p></li>
+        <li><p><term>bất biến đối với phép đẳng cấu</term> <xref ref="bib-rosen-2003-vi" /> (tr. 525 (PDF)); <xref ref="bib-nguyenhuudien-2019" /> (tr. 165 (PDF)).</p></li>
+        <li><p><term>tính chất bất biến</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 73 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Số đỉnh <m>|V(G)|</m>, số cạnh <m>|E(G)|</m> và dãy bậc của các đỉnh đều là các bất biến đồ thị; nếu hai đồ thị có số cạnh khác nhau thì chúng không đẳng cấu.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-greatest-integer-function">
+    <title>Greatest Integer Function — hàm phần nguyên</title>
+    <idx><h>greatest integer function</h></idx>
+    <idx><h>hàm phần nguyên</h></idx>
+    <idx><h>hàm sàn</h></idx>
+    <idx><h>phần nguyên</h></idx>
+    <notation>
+      <usage><m>\lfloor x \rfloor</m></usage>
+      <description>hàm phần nguyên</description>
+    </notation>
+    <statement>
+      <p>Hàm phần nguyên (còn gọi là hàm sàn, ký hiệu <m>\lfloor x \rfloor</m>) là hàm gán cho mỗi số thực <m>x</m> số nguyên lớn nhất không vượt quá <m>x</m>, tức là số nguyên lớn nhất có giá trị <m>\leq x</m> (theo <xref ref="bib-rosen-2019" />, Rosen §2.3).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>hàm phần nguyên</term> <xref ref="bib-mat3500" /> (giáo trình MAT3500); <xref ref="bib-nguyenhuudien-2019" /> (tr. 86 (PDF)) — cách dùng phổ biến.</p></li>
+        <li><p><term>hàm sàn</term> <xref ref="bib-rosen-2003-vi" /> (tr. 91 (PDF)).</p></li>
+        <li><p><term>phần nguyên</term> <xref ref="bib-ngodactan-2004" /> (tr. 111 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Ta có <m>\lfloor 2.7 \rfloor = 2</m>, <m>\lfloor 3 \rfloor = 3</m> và <m>\lfloor -1.5 \rfloor = -2</m>.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-growth-rate">
+    <title>Growth Rate — tốc độ tăng trưởng</title>
+    <idx><h>growth rate</h></idx>
+    <idx><h>tốc độ tăng</h></idx>
+    <idx><h>tốc độ tăng trưởng</h></idx>
+    <idx><h>độ tăng của hàm</h></idx>
+    <statement>
+      <p>Tốc độ tăng trưởng của một hàm <m>f</m> là mức độ tăng của giá trị <m>f(n)</m> khi đối số <m>n</m> tiến ra vô cùng, dùng để so sánh các hàm với nhau, đặc biệt là thời gian tính của thuật toán. Hai hàm <m>f</m> và <m>g</m> được xem là có cùng tốc độ tăng trưởng nếu <m>f(n) = O(g(n))</m> và <m>g(n) = O(f(n))</m> (theo <xref ref="bib-rosen-2019" />, Rosen §3.2).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>tốc độ tăng trưởng</term> <xref ref="bib-mat3500" /> (giáo trình MAT3500) — cách dùng phổ biến.</p></li>
+        <li><p><term>tốc độ tăng</term> <xref ref="bib-nguyenducnghia-2006" /> (tr. 84 (PDF)).</p></li>
+        <li><p><term>độ tăng của hàm</term> <xref ref="bib-rosen-2003-vi" /> (tr. 108 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Hàm <m>f(n) = n^2</m> có tốc độ tăng trưởng lớn hơn hàm <m>g(n) = n</m>, vì <m>g(n) = O(f(n))</m> nhưng <m>f(n) \neq O(g(n))</m>; tương tự, hàm mũ <m>2^n</m> tăng nhanh hơn mọi đa thức.</p>
     </statement>
   </definition>
 </chapter>

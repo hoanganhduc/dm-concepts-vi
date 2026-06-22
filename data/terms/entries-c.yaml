@@ -1006,3 +1006,1664 @@ entries:
     is NOT recorded as a verified hit for this headword. The two non-recommended unverifiable candidates
     were dropped; 'tập đếm được' is retained to keep the required vi_terms field non-empty and preserve
     the single-recommendation invariant.
+- id: cantor-diagonalization-argument
+  letter: C
+  headword_en: Cantor Diagonalization Argument
+  notation: ''
+  rosen_ref: Rosen §2.5
+  definition_vi: 'Lập luận đường chéo của Cantor là kỹ thuật chứng minh một tập hợp là không đếm được
+    bằng phản chứng: giả sử tập đó đếm được nên có thể liệt kê các phần tử thành dãy, rồi xây dựng một
+    phần tử mới khác phần tử thứ $$n$$ trong dãy ở thành phần thứ $$n$$ (chẳng hạn ở chữ số thứ $$n$$
+    của khai triển thập phân), nên phần tử mới này không có mặt trong dãy, dẫn tới mâu thuẫn. Cantor dùng
+    lập luận này để chứng minh tập các số thực $$\mathbb{R}$$ là không đếm được.'
+  example_vi: Để chứng minh tập các số thực trong khoảng $$(0,1)$$ là không đếm được, giả sử liệt kê được
+    chúng thành dãy $$r_1, r_2, r_3, \ldots$$ với khai triển thập phân $$r_i = 0.d_{i1} d_{i2} d_{i3}
+    \ldots$$; chọn số $$r = 0.e_1 e_2 e_3 \ldots$$ với $$e_n \neq d_{nn}$$, thì $$r$$ khác mọi $$r_n$$,
+    mâu thuẫn với giả thiết liệt kê đầy đủ.
+  vi_terms:
+  - term: lập luận đường chéo của Cantor
+    source_id: bib-mat3500
+    page: giáo trình MAT3500
+    recommended: true
+    verified: true
+    pdf_page: 0
+    snippet: ''
+  see_also: []
+  status: panel-approved
+  notes: Giáo trình MAT3500 dùng thuật ngữ "lập luận đường chéo của Cantor". Bản dịch Rosen tiếng Việt
+    trình bày lập luận này ở Ví dụ 12 (tr. 103 PDF) khi chứng minh tập số thực là không đếm được, nhưng
+    không gọi tên kỹ thuật là "đường chéo"; các kết quả tìm được cho "đường chéo" trong kho ngữ liệu đều
+    chỉ đường chéo hình học hoặc đường chéo ma trận, còn "Cantor" trong Rosen chỉ "khai triển Cantor"
+    (một khái niệm khác). Do đó không có nguồn ngữ liệu nào chứng thực đúng thuật ngữ này.
+- id: carry
+  letter: C
+  headword_en: Carry
+  notation: c_j
+  rosen_ref: Rosen §4.2
+  definition_vi: Số nhớ là bit phụ, ký hiệu $$c_j$$, sinh ra khi cộng hai số nguyên trong khai triển nhị
+    phân và được chuyển sang vị trí kế tiếp bên trái. Khi cộng cặp bit thứ $$j$$ là $$a_j$$ và $$b_j$$
+    cùng với số nhớ trước đó $$c_{j-1}$$, tổng $$a_j + b_j + c_{j-1}$$ cho bit tổng $$s_j$$ và số nhớ
+    mới $$c_j$$ thỏa $$a_j + b_j + c_{j-1} = 2 c_j + s_j$$, trong đó $$c_j \in \{0, 1\}$$.
+  example_vi: Khi cộng $$a = (1 1)_2$$ và $$b = (0 1)_2$$, ở vị trí phải nhất ta có $$1 + 1 = (1 0)_2$$,
+    nên bit tổng là $$0$$ và số nhớ là $$c_0 = 1$$. Cộng tiếp $$1 + 0 + 1 = (1 0)_2$$, cho bit tổng $$0$$
+    và số nhớ $$c_1 = 1$$, dẫn đến $$a + b = (1 0 0)_2$$.
+  vi_terms:
+  - term: nhớ
+    source_id: bib-mat3500
+    page: giáo trình MAT3500
+    recommended: true
+    verified: true
+    pdf_page: 0
+    snippet: ''
+  - term: số nhớ
+    source_id: bib-rosen-2003-vi
+    page: tr. 176 (PDF)
+    recommended: false
+    verified: true
+    pdf_page: 176
+    snippet: số nhớ, nó có thể bằng 0 hoặc 1. Sau đó ta cộng hai bit tiếp theo và
+  - term: số nhớ
+    source_id: bib-nguyenhuudien-2019
+    page: tr. 145 (PDF)
+    recommended: false
+    verified: true
+    pdf_page: 145
+    snippet: Ở đây s0 là bit phải cùng trong khai triển nhị phân của a + b, c0 là số nhớ, nó có thể bằng
+      0
+  - term: có nhớ
+    source_id: bib-nguyenducnghia-2006
+    page: tr. 93 (PDF)
+    recommended: false
+    verified: true
+    pdf_page: 93
+    snippet: thúc, trái lại, dãy kế tiếp sẽ nhận được bằng cách cộng thêm 1 (theo modun 2, có nhớ)
+  see_also: []
+  status: panel-approved
+  notes: Thuật ngữ của giáo trình MAT3500 là "nhớ". Bản dịch Rosen và Nguyễn Hữu Điền (2019) gọi đầy đủ
+    là "số nhớ" trong thuật toán cộng nhị phân; Nguyễn Đức Nghĩa (2006) dùng biến thể "có nhớ" cho cùng
+    khái niệm.
+- id: cartesian-product
+  letter: C
+  headword_en: Cartesian Product
+  notation: A \times B
+  rosen_ref: Rosen §2.1
+  definition_vi: 'Tích Đềcác của hai tập hợp $$A$$ và $$B$$, ký hiệu $$A \times B$$, là tập hợp tất cả
+    các cặp có thứ tự $$(a, b)$$ với $$a \in A$$ và $$b \in B$$, tức là $$A \times B = \{(a, b) : a \in
+    A \land b \in B\}$$. Mở rộng cho $$n$$ tập hợp, tích Đềcác $$A_1 \times A_2 \times \cdots \times A_n$$
+    là tập hợp các bộ có thứ tự $$(a_1, a_2, \ldots, a_n)$$ với $$a_i \in A_i$$ với mọi $$i = 1, 2, \ldots,
+    n$$.'
+  example_vi: Với $$A = \{1, 2\}$$ và $$B = \{a, b, c\}$$, ta có $$A \times B = \{(1, a), (1, b), (1,
+    c), (2, a), (2, b), (2, c)\}$$. Nói chung $$A \times B \neq B \times A$$ khi $$A \neq B$$ và cả hai
+    đều khác rỗng.
+  vi_terms:
+  - term: Tích Đềcác
+    source_id: bib-mat3500
+    page: giáo trình MAT3500
+    recommended: true
+    verified: true
+    pdf_page: 0
+    snippet: ''
+  - term: tích Đề các
+    source_id: bib-rosen-2003-vi
+    page: tr. 60 (PDF)
+    recommended: false
+    verified: true
+    pdf_page: 60
+    snippet: ĐỊNH NGHĨA 8. Cho A và B là hai tập hợp. Tich Đề các của A và B,
+  - term: tích Đề các
+    source_id: bib-ngodactan-2004
+    page: tr. 27 (PDF)
+    recommended: false
+    verified: true
+    pdf_page: 27
+    snippet: thể coi là một phần tử của tích Đề các A\ X ... X Ak- Do đó, nếu ta ký
+  - term: tích Đêcac
+    source_id: bib-nguyenducnghia-2006
+    page: tr. 13 (PDF)
+    recommended: false
+    verified: true
+    pdf_page: 13
+    snippet: 1.2.4. Tích Đêcac của các tập hợp
+  - term: tích Descartes
+    source_id: bib-nguyenhuudien-2019
+    page: tr. 76 (PDF)
+    recommended: false
+    verified: true
+    pdf_page: 76
+    snippet: Cho 2 tập hợp A và B. Tích Descartes của tập hợp A và tập hợp B, được ký hiệu bởi
+  - term: tích Descartes
+    source_id: bib-nguyenhoangthach-2020
+    page: tr. 26 (PDF)
+    recommended: false
+    verified: true
+    pdf_page: 26
+    snippet: là một phần tử của tích Descartes S × S × · · · × S (k lần). Từ đó, áp dụng
+  see_also: []
+  status: panel-approved
+  notes: 'Sách Việt dùng nhiều biến thể: "tích Đề các" (Rosen, Ngô Đắc Tấn), "tích Đêcac" (Nguyễn Đức
+    Nghĩa), và "tích Descartes" (Nguyễn Hữu Điển, Nguyễn Hoàng Thạch). Tên gọi theo nhà toán học René
+    Descartes.'
+- id: ceiling-function
+  letter: C
+  headword_en: Ceiling Function
+  notation: \lceil x \rceil
+  rosen_ref: Rosen §2.3
+  definition_vi: Hàm trần là hàm gán cho mỗi số thực $$x$$ số nguyên nhỏ nhất lớn hơn hoặc bằng $$x$$,
+    ký hiệu $$\lceil x \rceil$$. Như vậy $$\lceil x \rceil$$ là số nguyên $$n$$ duy nhất thỏa mãn $$n
+    - 1 < x \leq n$$.
+  example_vi: Chẳng hạn $$\lceil 3.1 \rceil = 4$$, $$\lceil -1.5 \rceil = -1$$ và $$\lceil 5 \rceil =
+    5$$.
+  vi_terms:
+  - term: Hàm trần
+    source_id: bib-mat3500
+    page: giáo trình MAT3500
+    recommended: true
+    verified: true
+    pdf_page: 0
+    snippet: ''
+  - term: hàm trần
+    source_id: bib-nguyenhuudien-2019
+    page: tr. 86 (PDF)
+    recommended: false
+    verified: true
+    pdf_page: 86
+    snippet: Ta dùng ký hiệu ⌈ x ⌉ là giá trị của hàm trần tại số thực x, đó là số nguyên nhỏ nhất có
+  - term: hàm trần
+    source_id: bib-rosen-2003-vi
+    page: tr. 91 (PDF)
+    recommended: false
+    verified: true
+    pdf_page: 91
+    snippet: x. Giá trị của hàm trần được ký hiệu là [x].
+  see_also: []
+  status: panel-approved
+  notes: Hàm trần thường đi kèm hàm sàn $$\lfloor x \rfloor$$ (số nguyên lớn nhất không vượt quá $$x$$).
+    Bản dịch Rosen dùng ký hiệu $$[x]$$ cho hàm trần.
+- id: centre
+  letter: C
+  headword_en: Centre
+  notation: C(G)
+  rosen_ref: Rosen §10.4
+  definition_vi: Tâm của một đồ thị liên thông $$G$$, ký hiệu $$C(G)$$, là tập hợp các đỉnh có độ lệch
+    tâm nhỏ nhất, nghĩa là các đỉnh $$v$$ với $$e(v)$$ bằng bán kính $$r(G) = \min_{u \in V(G)} e(u)$$,
+    trong đó độ lệch tâm $$e(v) = \max_{u \in V(G)} \mathrm{dist}_G(v, u)$$. Mỗi đỉnh như vậy được gọi
+    là đỉnh tâm của $$G$$.
+  example_vi: Với đường đi $$P_n$$ có $$n$$ đỉnh, tâm gồm đúng một đỉnh ở giữa khi $$n$$ lẻ và gồm hai
+    đỉnh ở giữa khi $$n$$ chẵn. Mọi cây đều có tâm gồm một đỉnh hoặc hai đỉnh kề nhau.
+  vi_terms:
+  - term: tâm
+    source_id: bib-mat3500
+    page: giáo trình MAT3500
+    recommended: true
+    verified: true
+    pdf_page: 0
+    snippet: ''
+  - term: tâm của đồ thị
+    source_id: bib-hoangchithanh-2007
+    page: tr. 100 (PDF)
+    recommended: false
+    verified: true
+    pdf_page: 100
+    snippet: 'Tâm của đồ thị G là đỉnh a có độ lệch bé nhất:'
+  - term: trung tâm
+    source_id: bib-leanhvinh-2020
+    page: tr. 43 (PDF)
+    recommended: false
+    verified: true
+    pdf_page: 43
+    snippet: Trung tâm của đồ thị G, kí hiệu bởi Z(G) là đồ thị con cảm sinh của G trên tập các đỉnh trung
+      tâm của G.
+  - term: đỉnh tâm
+    source_id: bib-ngodactan-2004
+    page: tr. 216 (PDF)
+    recommended: false
+    verified: true
+    pdf_page: 216
+    snippet: u e V được gọi là đỉnh tâm của đồ thị G nếu e(u) = min e(v). Tập tất cả các đỉnh tâm của
+      G được gọi là tâm của G.
+  see_also: []
+  status: panel-approved
+  notes: Tâm gắn với khái niệm độ lệch tâm và bán kính. Lê Anh Vịnh (2020) gọi là "trung tâm" và xem nó
+    như đồ thị con cảm sinh; Ngô Đắc Tân (2004) gọi mỗi đỉnh là "đỉnh tâm". Bản dịch Rosen (2003) dùng
+    "trung tâm" cho ngữ cảnh khác (số trung tâm, máy tính trung tâm), không cho khái niệm này.
+- id: characteristic-polynomial
+  letter: C
+  headword_en: Characteristic Polynomial
+  notation: \det(A - \lambda I)
+  rosen_ref: Rosen §8.2
+  definition_vi: Đa thức đặc trưng của một hệ thức truy hồi tuyến tính thuần nhất hệ số hằng bậc $$k$$,
+    $$a_n = c_1 a_{n-1} + c_2 a_{n-2} + \dots + c_k a_{n-k}$$, là đa thức $$r^k - c_1 r^{k-1} - c_2 r^{k-2}
+    - \dots - c_k$$ (ký hiệu các nghiệm của nó là các nghiệm đặc trưng). Tổng quát hơn, đa thức đặc trưng
+    của một ma trận vuông $$A$$ là $$\det(A - \lambda I)$$.
+  example_vi: Đối với hệ thức truy hồi $$a_n = 6a_{n-1} - 11a_{n-2} + 6a_{n-3}$$, đa thức đặc trưng là
+    $$r^3 - 6r^2 + 11r - 6$$, có các nghiệm đặc trưng $$r = 1, 2, 3$$.
+  vi_terms:
+  - term: đa thức đặc trưng
+    source_id: bib-mat3500
+    page: giáo trình MAT3500
+    recommended: true
+    verified: true
+    pdf_page: 0
+    snippet: ''
+  - term: đa thức đặc trưng
+    source_id: bib-nguyenhuudien-2019
+    page: tr. 99 (PDF)
+    recommended: false
+    verified: true
+    pdf_page: 99
+    snippet: Lời giải. Đa thức đặc trưng của hệ thức truy hồi này là r3 − 6r2 + 11r − 6. Các nghiệm đặc
+  - term: đa thức đặc trưng
+    source_id: bib-leanhvinh-2020
+    page: tr. 58 (PDF)
+    recommended: false
+    verified: true
+    pdf_page: 58
+    snippet: đó, hệ số bậc nhất của đa thức đặc trưng det(L - z1) của L bằng
+  - term: đa thức đặc trưng
+    source_id: bib-rosen-2003-vi
+    page: tr. 392 (PDF)
+    recommended: false
+    verified: true
+    pdf_page: 392
+    snippet: 'Giải: Da thức đặc trưng của hệ thức truy hồi này là'
+  see_also: []
+  status: panel-approved
+  notes: Trong giáo trình MAT3500, đa thức đặc trưng dùng để giải hệ thức truy hồi tuyến tính thuần nhất
+    hệ số hằng. Nghiệm của đa thức đặc trưng được gọi là nghiệm đặc trưng, là một khái niệm khác.
+- id: characteristic-root
+  letter: C
+  headword_en: Characteristic Root
+  notation: r
+  rosen_ref: Rosen §8.2
+  definition_vi: Nghiệm đặc trưng của một hệ thức truy hồi tuyến tính thuần nhất hệ số hằng $$a_n = c_1
+    a_{n-1} + c_2 a_{n-2} + \cdots + c_k a_{n-k}$$ là một nghiệm $$r$$ của phương trình đặc trưng $$r^k
+    - c_1 r^{k-1} - c_2 r^{k-2} - \cdots - c_k = 0$$ tương ứng. Các nghiệm đặc trưng được dùng để xây
+    dựng nghiệm tổng quát của hệ thức truy hồi.
+  example_vi: Hệ thức truy hồi $$a_n = a_{n-1} + 2a_{n-2}$$ có phương trình đặc trưng $$r^2 - r - 2 =
+    0$$, với hai nghiệm đặc trưng $$r_1 = 2$$ và $$r_2 = -1$$.
+  vi_terms:
+  - term: nghiệm đặc trưng
+    source_id: bib-mat3500
+    page: giáo trình MAT3500
+    recommended: true
+    verified: true
+    pdf_page: 0
+    snippet: ''
+  - term: nghiệm đặc trưng
+    source_id: bib-nguyenducnghia-2006
+    page: tr. 35 (PDF)
+    recommended: false
+    verified: true
+    pdf_page: 35
+    snippet: nó được gọi là nghiệm đặc trưng. Chúng ta sẽ xét cách sử dụng nghiệm đặc trưng để
+  - term: nghiệm đặc trưng
+    source_id: bib-nguyenhoangthach-2020
+    page: tr. 41 (PDF)
+    recommended: false
+    verified: true
+    pdf_page: 41
+    snippet: Các nghiệm của phương trình đặc trưng được gọi là các nghiệm đặc trưng
+  - term: nghiệm đặc trưng
+    source_id: bib-nguyenhuudien-2019
+    page: tr. 98 (PDF)
+    recommended: false
+    verified: true
+    pdf_page: 98
+    snippet: gọi là nghiệm đặc trưng của hệ thức truy hồi.
+  - term: nghiệm đặc trưng
+    source_id: bib-rosen-2003-vi
+    page: tr. 388 (PDF)
+    recommended: false
+    verified: true
+    pdf_page: 388
+    snippet: của hệ thức truy hồi nghiệm của nó gọi là nghiệm đặc trưng của hệ
+  see_also: []
+  status: panel-approved
+  notes: Thuật ngữ chuẩn của giáo trình MAT3500 là "nghiệm đặc trưng". Cùng thuật ngữ được dùng nhất quán
+    trong bản dịch Rosen và trong các tài liệu Nguyễn Đức Nghĩa, Nguyễn Hoàng Thạch, Nguyễn Hữu Điền.
+    Nghiệm đặc trưng là nghiệm của phương trình đặc trưng của hệ thức truy hồi tuyến tính thuần nhất hệ
+    số hằng.
+- id: child
+  letter: C
+  headword_en: Child
+  notation: ''
+  rosen_ref: Rosen §10.1
+  definition_vi: Trong một cây có gốc, đỉnh con (con) của một đỉnh $$v$$ là đỉnh $$u$$ kề với $$v$$ sao
+    cho $$v$$ là đỉnh nằm trên đường đi duy nhất từ gốc tới $$u$$, tức $$v$$ là cha của $$u$$. Mỗi đỉnh
+    khác gốc đều có đúng một cha và là con của cha đó.
+  example_vi: Trong cây nhị phân, mỗi đỉnh có nhiều nhất hai con, được phân biệt thành con bên trái và
+    con bên phải.
+  vi_terms:
+  - term: đỉnh con
+    source_id: bib-mat3500
+    page: giáo trình MAT3500
+    recommended: true
+    verified: true
+    pdf_page: 0
+    snippet: ''
+  - term: đỉnh con
+    source_id: bib-nguyenhoangthach-2020
+    page: tr. 84 (PDF)
+    recommended: false
+    verified: true
+    pdf_page: 84
+    snippet: đỉnh cha của v, v là một đỉnh con của u. Nếu u nằm trên đường đi từ gốc tới
+  - term: đỉnh con
+    source_id: bib-nguyenhuudien-2019
+    page: tr. 252 (PDF)
+    recommended: false
+    verified: true
+    pdf_page: 252
+    snippet: Nếu mức của đỉnh cha là i thì mức của các đỉnh con là i + 1.
+  - term: đỉnh con
+    source_id: bib-hoangchithanh-2007
+    page: tr. 137 (PDF)
+    recommended: false
+    verified: true
+    pdf_page: 137
+    snippet: Nếu mức của đỉnh cha là i thì mức của các đỉnh con Jai + 1.
+  - term: đỉnh con
+    source_id: bib-rosen-2003-vi
+    page: tr. 646 (PDF)
+    recommended: false
+    verified: true
+    pdf_page: 646
+    snippet: đều đựa trên việc sắp thứ tự các đỉnh con. Trong các cây có gốc và được
+  - term: con
+    source_id: bib-rosen-2003-vi
+    page: tr. 625 (PDF)
+    recommended: false
+    verified: true
+    pdf_page: 625
+    snippet: gọi là con bên trái và con thứ hai là con bên phải. Cây có gốc tại
+  - term: con
+    source_id: bib-nguyenhoangthach-2020
+    page: tr. 85 (PDF)
+    recommended: false
+    verified: true
+    pdf_page: 85
+    snippet: là con của một đỉnh trong, nên số đỉnh của cây bằng tổng số con của các đỉnh
+  see_also: []
+  status: panel-approved
+  notes: Khái niệm của cây có gốc. Đỉnh con đi kèm với cha (cha của $$v$$). Trong cây nhị phân phân biệt
+    con bên trái và con bên phải.
+- id: chinese-postman-problem
+  letter: C
+  headword_en: Chinese Postman Problem
+  notation: ''
+  rosen_ref: Rosen §10.5
+  definition_vi: Bài toán người đưa thư Trung Hoa là bài toán tìm một chu trình khép kín có tổng trọng
+    số nhỏ nhất trong một đồ thị liên thông có trọng số, sao cho chu trình đó đi qua mỗi cạnh ít nhất
+    một lần rồi trở về đỉnh xuất phát. Nếu đồ thị có chu trình Euler thì lời giải tối ưu chính là chu
+    trình Euler đó, vì khi đó mỗi cạnh được đi qua đúng một lần.
+  example_vi: Một người đưa thư cần đi qua tất cả các con phố (cạnh) trong khu vực rồi quay về bưu cục
+    (đỉnh xuất phát) với tổng quãng đường đi ngắn nhất. Khi mọi đỉnh của đồ thị đều có bậc chẵn, đồ thị
+    có chu trình Euler và đây chính là tuyến đường tối ưu cần tìm.
+  vi_terms:
+  - term: Bài toán người đưa thư Trung Hoa
+    source_id: bib-mat3500
+    page: giáo trình MAT3500
+    recommended: true
+    verified: true
+    pdf_page: 0
+    snippet: ''
+  - term: bài toán người phát thư Trung Hoa
+    source_id: bib-nguyenhuudien-2019
+    page: tr. 186 (PDF)
+    recommended: false
+    verified: true
+    pdf_page: 186
+    snippet: được gọi là “bài toán người phát thư Trung Hoa”. Ta xét bài toán ở một dạng đơn giản như
+  - term: bài toán người đưa thư Trung Quốc
+    source_id: bib-rosen-2003-vi
+    page: tr. 618 (PDF)
+    recommended: false
+    verified: true
+    pdf_page: 618
+    snippet: Hãy mô tả Bai toán người dua thư Trung Quốc và cách giải bài toán
+  see_also: []
+  status: panel-approved
+  notes: Bài toán do nhà toán học Trung Hoa Quản Mai Cốc (Guan) nêu ra năm 1960, nên còn gọi là bài toán
+    người phát thư Trung Hoa. Bản dịch Rosen dùng tên "người đưa thư Trung Quốc".
+- id: codomain
+  letter: C
+  headword_en: Codomain
+  notation: 'f : A \to B'
+  rosen_ref: Rosen §2.3
+  definition_vi: 'Miền giá trị (tập đích) của một hàm $$f : A \to B$$ là tập hợp $$B$$ chứa mọi giá trị
+    có thể có của hàm, ký hiệu là $$B$$. Với mỗi $$a \in A$$, ảnh $$f(a)$$ là một phần tử của $$B$$, nhưng
+    không nhất thiết mọi phần tử của $$B$$ đều là ảnh của một phần tử nào đó thuộc miền xác định $$A$$.'
+  example_vi: 'Xét hàm $$f : \mathbb{Z} \to \mathbb{Z}$$ cho bởi $$f(x) = x^2$$. Khi đó miền xác định
+    và miền giá trị (tập đích) đều là $$\mathbb{Z}$$, mặc dù ảnh của $$f$$ chỉ gồm các số chính phương,
+    là tập con thực sự của tập đích $$\mathbb{Z}$$.'
+  vi_terms:
+  - term: miền giá trị, tập đích
+    source_id: bib-mat3500
+    page: giáo trình MAT3500
+    recommended: true
+    verified: true
+    pdf_page: 0
+    snippet: ''
+  - term: miền giá trị
+    source_id: bib-rosen-2003-vi
+    page: tr. 85 (PDF)
+    recommended: false
+    verified: true
+    pdf_page: 85
+    snippet: Đối với một số hàm miền giá trị và ảnh của miền xác định bằng nhau.
+  see_also:
+  - domain
+  - function
+  - image
+  - range
+  status: panel-approved
+  notes: 'Sách Rosen (bản tiếng Việt) dùng "miền giá trị" cho tập đích, phân biệt rõ với "ảnh" (image)
+    của miền xác định: ảnh là tập con của tập đích. Giáo trình MAT3500 dùng cả "miền giá trị" và "tập
+    đích".'
+- id: coefficient
+  letter: C
+  headword_en: Coefficient
+  notation: a_k
+  rosen_ref: Rosen §6.4
+  definition_vi: Hệ số của một số hạng trong một biểu thức đại số là thừa số hằng (thường là số) nhân
+    với phần biến của số hạng đó. Trong một đa thức $$p(x) = a_n x^n + a_{n-1} x^{n-1} + \cdots + a_1
+    x + a_0$$, mỗi số $$a_k$$ được gọi là hệ số của $$x^k$$.
+  example_vi: Trong khai triển nhị thức $$(x + y)^n = \sum_{k=0}^{n} \binom{n}{k} x^{k} y^{n-k}$$, hệ
+    số của số hạng $$x^{k} y^{n-k}$$ là hệ số nhị thức $$\binom{n}{k}$$. Chẳng hạn, hệ số của $$x^2$$
+    trong $$(x + 1)^3$$ là $$\binom{3}{2} = 3$$.
+  vi_terms:
+  - term: hệ số
+    source_id: bib-mat3500
+    page: giáo trình MAT3500
+    recommended: true
+    verified: true
+    pdf_page: 0
+    snippet: ''
+  - term: hệ số
+    source_id: bib-rosen-2003-vi
+    page: tr. 205 (PDF)
+    recommended: false
+    verified: true
+    pdf_page: 205
+    snippet: Một đa thức của n với các hệ số nguyên vả bậc lớn hơn zêrô có
+  - term: hệ số
+    source_id: bib-nguyenhuudien-2019
+    page: tr. 92 (PDF)
+    recommended: false
+    verified: true
+    pdf_page: 92
+    snippet: Ví dụ 3.49. Tìm hệ số x9 trong khai triển (2 − x )19 .
+  - term: hệ số
+    source_id: bib-leanhvinh-2020
+    page: tr. 106 (PDF)
+    recommended: false
+    verified: true
+    pdf_page: 106
+    snippet: số nguyên theo biến k. Hệ số bậc cao nhất của P,(G) là 1 và hằng số
+  - term: hệ số nhị thức
+    source_id: bib-nguyenhoangthach-2020
+    page: tr. 24 (PDF)
+    recommended: false
+    verified: true
+    pdf_page: 24
+    snippet: quan của các hệ số nhị thức, gọi là tam giác
+  - term: hệ số tổ hợp
+    source_id: bib-nguyenducnghia-2006
+    page: tr. 22 (PDF)
+    recommended: false
+    verified: true
+    pdf_page: 22
+    snippet: Công thức (5) còn được gọi là khai triển nhị thức Newton và các hệ số tổ hợp còn được gọi
+      là các hệ số nhị thức.
+  - term: hệ số nhị thức
+    source_id: bib-ngodactan-2004
+    page: tr. 41 (PDF)
+    recommended: false
+    verified: true
+    pdf_page: 41
+    snippet: Ta thấy rằng số tổ hợp xuất hiện với tư cách là hệ số của ... còn được gọi là hệ số nhị thức.
+  see_also:
+  - binomial-coefficient
+  - binomial-theorem
+  - polynomial
+  status: panel-approved
+  notes: Thuật ngữ chuẩn của giáo trình MAT3500 là "hệ số". Bản dịch Rosen và các tài liệu khác đều dùng
+    "hệ số"; trong ngữ cảnh tổ hợp, hệ số trong khai triển nhị thức được gọi là "hệ số nhị thức" (còn
+    gọi là "hệ số tổ hợp").
+- id: combinatorial-circuit
+  letter: C
+  headword_en: Combinatorial Circuit
+  notation: ''
+  rosen_ref: Rosen §10.3
+  definition_vi: Mạch tổ hợp là một mạch logic được tạo thành từ các cổng logic (cổng $$\mathrm{AND}$$,
+    cổng $$\mathrm{OR}$$ và cổng $$\mathrm{NOT}$$), trong đó các giá trị đầu ra chỉ phụ thuộc vào các
+    giá trị đầu vào hiện tại mà không phụ thuộc vào trạng thái trước đó. Mỗi mạch tổ hợp tính một hàm
+    Boolean, tức là một ánh xạ từ $$\{0,1\}^n$$ vào $$\{0,1\}$$.
+  example_vi: Mạch tổ hợp với hai đầu vào $$x$$, $$y$$ gồm một cổng $$\mathrm{AND}$$ nhận $$x$$ và $$y$$
+    rồi đưa qua một cổng $$\mathrm{NOT}$$ sẽ tính hàm Boolean $$\overline{x \cdot y}$$.
+  vi_terms:
+  - term: mạch tổ hợp
+    source_id: bib-mat3500
+    page: giáo trình MAT3500
+    recommended: true
+    verified: true
+    pdf_page: 0
+    snippet: ''
+  - term: mạch tổ hợp
+    source_id: bib-rosen-2003-vi
+    page: tr. 728 (PDF)
+    recommended: false
+    verified: true
+    pdf_page: 728
+    snippet: gọi là mạch tổ hợp.
+  - term: mạch tổ hợp
+    source_id: bib-rosen-2003-vi
+    page: tr. 728 (PDF)
+    recommended: false
+    verified: true
+    pdf_page: 728
+    snippet: Chúng ta sẽ xây dựng các mạch tổ hợp bằng cách dùng ba loại phần tử.
+  see_also: []
+  status: panel-approved
+  notes: Đối lập với mạch tuần tự (sequential circuit), trong đó đầu ra còn phụ thuộc vào trạng thái trước
+    đó. Chỉ giáo trình Rosen tiếng Việt chứng thực thuật ngữ này trong kho ngữ liệu.
+- id: common-difference
+  letter: C
+  headword_en: Common Difference
+  notation: d
+  rosen_ref: Rosen §2.4
+  definition_vi: Công sai là hằng số $$d$$ sao cho mỗi số hạng của một cấp số cộng nhận được từ số hạng
+    liền trước bằng cách cộng thêm $$d$$. Cấp số cộng là dãy có dạng $$a, a + d, a + 2d, \ldots, a + nd,
+    \ldots$$, trong đó $$a$$ là số hạng đầu (ký hiệu $$a$$) và $$d$$ là công sai (ký hiệu $$d$$).
+  example_vi: Dãy $$2, 5, 8, 11, 14, \ldots$$ là một cấp số cộng với số hạng đầu $$a = 2$$ và công sai
+    $$d = 3$$.
+  vi_terms:
+  - term: công sai
+    source_id: bib-mat3500
+    page: giáo trình MAT3500
+    recommended: true
+    verified: true
+    pdf_page: 0
+    snippet: ''
+  see_also: []
+  status: panel-approved
+  notes: Công sai $$d$$ là tham số đặc trưng của cấp số cộng (arithmetic progression). Trong các tài liệu
+    tiếng Việt khảo sát, thuật ngữ "công sai" không xuất hiện riêng như một khái niệm độc lập; cấp số
+    cộng chỉ được nhắc tới trong ngữ cảnh lý thuyết Ramsey (cấp số cộng đơn sắc).
+- id: common-ratio
+  letter: C
+  headword_en: Common Ratio
+  notation: r
+  rosen_ref: Rosen §2.4
+  definition_vi: Công bội của một cấp số nhân là tỷ số không đổi $$r$$ giữa hai số hạng liên tiếp của
+    cấp số đó. Cấp số nhân có số hạng đầu $$a$$ và công bội $$r$$ là dãy có dạng $$a, ar, ar^2, ar^3,
+    \dots$$, trong đó số hạng tổng quát là $$a_n = ar^n$$ với $$a, r$$ là các số thực và $$r \neq 0$$.
+  example_vi: Dãy $$3, 6, 12, 24, \dots$$ là một cấp số nhân với số hạng đầu $$a = 3$$ và công bội $$r
+    = 2$$, vì mỗi số hạng bằng số hạng liền trước nhân với $$2$$.
+  vi_terms:
+  - term: công bội
+    source_id: bib-mat3500
+    page: giáo trình MAT3500
+    recommended: true
+    verified: true
+    pdf_page: 0
+    snippet: ''
+  - term: công bội
+    source_id: bib-rosen-2003-vi
+    page: tr. 100 (PDF)
+    recommended: false
+    verified: true
+    pdf_page: 100
+    snippet: a là số hạng đầu, r được gọi là công bội, cả hai đều là số thực. Bây giờ
+  see_also: []
+  status: panel-approved
+  notes: Công bội là tham số đặc trưng của cấp số nhân (geometric progression). Trong giáo trình MAT3500,
+    thuật ngữ là "công bội"; chỉ bản dịch tiếng Việt của Rosen trong kho ngữ liệu chứng thực thuật ngữ
+    này, các nguồn còn lại là tài liệu lý thuyết đồ thị nên không đề cập.
+- id: complement-graph
+  letter: C
+  headword_en: Complement Graph
+  notation: \overline{G}
+  rosen_ref: Rosen §10.2
+  definition_vi: Đồ thị bù của một đơn đồ thị $$G = (V, E)$$, ký hiệu $$\overline{G}$$, là đồ thị có cùng
+    tập đỉnh $$V$$ với $$G$$, trong đó hai đỉnh phân biệt $$u$$ và $$v$$ kề nhau trong $$\overline{G}$$
+    khi và chỉ khi chúng không kề nhau trong $$G$$. Nói cách khác, $$G$$ và $$\overline{G}$$ không có
+    cạnh chung, và hợp các cạnh của chúng tạo thành đồ thị đầy đủ $$K_n$$ với $$n = |V|$$.
+  example_vi: Đồ thị bù của đồ thị đầy đủ $$K_n$$ là đồ thị rỗng (không có cạnh) trên $$n$$ đỉnh; ngược
+    lại, đồ thị bù của đồ thị rỗng trên $$n$$ đỉnh là $$K_n$$.
+  vi_terms:
+  - term: đồ thị bù
+    source_id: bib-mat3500
+    page: giáo trình MAT3500
+    recommended: true
+    verified: true
+    pdf_page: 0
+    snippet: ''
+  - term: đồ thị bù
+    source_id: bib-nguyenhuudien-2019
+    page: tr. 167 (PDF)
+    recommended: false
+    verified: true
+    pdf_page: 167
+    snippet: Định nghĩa 6.17 Đơn đồ thị G ′ = (V, E′ ) được gọi là đồ thị bù của đơn đồ thị G = (V, E)
+  - term: đồ thị bù
+    source_id: bib-nguyenhoangthach-2020
+    page: tr. 72 (PDF)
+    recommended: false
+    verified: true
+    pdf_page: 72
+    snippet: Đồ thị bù của đồ thị G là đồ thị G = (V, E) sao cho với mọi cặp đỉnh u, v,
+  - term: đồ thị bù
+    source_id: bib-nguyenducnghia-2006
+    page: tr. 164 (PDF)
+    recommended: false
+    verified: true
+    pdf_page: 164
+    snippet: 11. Ta gọi đồ thị Ơ” là đồ thị bù của đơn đồ thị G nếu các đỉnh của nó là đỉnh của đồ
+  - term: đồ thị bù
+    source_id: bib-leanhvinh-2020
+    page: tr. 101 (PDF)
+    recommended: false
+    verified: true
+    pdf_page: 101
+    snippet: Do đó, thay vi làm việc với đồ thị bù của G, ta có thể làm việc với
+  - term: đồ thị bù
+    source_id: bib-ngodactan-2004
+    page: tr. 215 (PDF)
+    recommended: false
+    verified: true
+    pdf_page: 215
+    snippet: đằng cấu với đồ thị bù G của nó. Chứng minh rằng nếu G là đồ
+  - term: đồ thị bù
+    source_id: bib-hoangchithanh-2007
+    page: tr. 58 (PDF)
+    recommended: false
+    verified: true
+    pdf_page: 58
+    snippet: 'được gọi là đồ thi bù của G. Hãy chứng minh rằng:'
+  - term: đồ thị bù
+    source_id: bib-rosen-2003-vi
+    page: tr. 519 (PDF)
+    recommended: false
+    verified: true
+    pdf_page: 519
+    snippet: 32. 33. Đồ thị bù G của đố thị đơn G có
+  see_also: []
+  status: panel-approved
+  notes: Thuật ngữ giáo trình MAT3500 dùng là "đồ thị bù", và đây cũng là thuật ngữ thống nhất trong mọi
+    giáo trình tiếng Việt được khảo sát. Lưu ý phân biệt với "phần bù" của một tập hợp; ở đây phép bù
+    được áp dụng cho tập cạnh của đồ thị.
+- id: complement
+  letter: C
+  headword_en: Complement
+  notation: \overline{A}
+  rosen_ref: Rosen §2.2
+  definition_vi: 'Phần bù của tập $$A$$ (đối với tập vũ trụ $$U$$), ký hiệu $$\overline{A}$$, là tập hợp
+    gồm tất cả các phần tử của $$U$$ không thuộc $$A$$, tức là $$\overline{A} = \{x \in U : x \notin A\}
+    = U \setminus A$$.'
+  example_vi: Nếu $$U = \{1,2,3,4,5\}$$ và $$A = \{1,3,5\}$$ thì phần bù của $$A$$ là $$\overline{A} =
+    \{2,4\}$$.
+  vi_terms:
+  - term: Phần bù
+    source_id: bib-mat3500
+    page: giáo trình MAT3500
+    recommended: true
+    verified: true
+    pdf_page: 0
+    snippet: ''
+  - term: Phần bù
+    source_id: bib-nguyenhuudien-2019
+    page: tr. 75 (PDF)
+    recommended: false
+    verified: true
+    pdf_page: 75
+    snippet: Định nghĩa 3.5 Phần bù của tập A (trong U), ký hiệu bởi A, là tập hợp tất cả các phần
+  - term: Phần bù
+    source_id: bib-nguyenducnghia-2006
+    page: tr. 12 (PDF)
+    recommended: false
+    verified: true
+    pdf_page: 12
+    snippet: 'Phần bù của A trong X. ký hiệu 4 , là tập các phần tử của X không thuộc vào A:'
+  - term: Phần bù
+    source_id: bib-rosen-2003-vi
+    page: tr. 67 (PDF)
+    recommended: false
+    verified: true
+    pdf_page: 67
+    snippet: là phần bù của A đối với tập vũ trụ. Phần bù của
+  see_also: []
+  status: panel-approved
+  notes: Phần bù được lấy đối với một tập vũ trụ $$U$$ đã cho; ký hiệu khác thường gặp là $$A^{c}$$ hay
+    $$U \setminus A$$.
+- id: complete-matching
+  letter: C
+  headword_en: Complete Matching
+  notation: ''
+  rosen_ref: Rosen §10.2
+  definition_vi: Một ghép cặp đầy đủ từ $$V_1$$ tới $$V_2$$ trong một đồ thị hai phần với hai phần $$V_1$$
+    và $$V_2$$ là một ghép cặp $$M$$ sao cho mọi đỉnh của $$V_1$$ đều là đầu mút của một cạnh trong $$M$$;
+    ký hiệu $$|M| = |V_1|$$. Nói cách khác, ghép cặp $$M$$ phủ hết các đỉnh thuộc phần $$V_1$$.
+  example_vi: Trong đồ thị hai phần $$K_{3,4}$$ với $$|V_1| = 3$$ và $$|V_2| = 4$$, một ghép cặp gồm ba
+    cạnh ghép mỗi đỉnh của $$V_1$$ với một đỉnh riêng của $$V_2$$ là một ghép cặp đầy đủ từ $$V_1$$ tới
+    $$V_2$$.
+  vi_terms:
+  - term: ghép cặp đầy đủ
+    source_id: bib-mat3500
+    page: giáo trình MAT3500
+    recommended: true
+    verified: true
+    pdf_page: 0
+    snippet: ''
+  - term: ghép cặp đầy đủ
+    source_id: bib-ngodactan-2004
+    page: tr. 270 (PDF)
+    recommended: false
+    verified: true
+    pdf_page: 270
+    snippet: IVĩ I = 771,'thì ta nói rằng G có một ghép cặp đầy đủ từ Vị tới V2 nếu
+  - term: ghép cặp đầy đủ
+    source_id: bib-nguyenhoangthach-2020
+    page: tr. 70 (PDF)
+    recommended: false
+    verified: true
+    pdf_page: 70
+    snippet: Định lý 5.20 (Định lý Hall). Tồn tại một cách ghép cặp đầy đủ từ V1 tới V2
+  see_also: []
+  status: panel-approved
+  notes: Ghép cặp đầy đủ từ $$V_1$$ tới $$V_2$$ phủ hết phần $$V_1$$; điều kiện tồn tại được cho bởi Định
+    lý Hall (điều kiện Hall).
+- id: complexity
+  letter: C
+  headword_en: Complexity
+  notation: O(f(n))
+  rosen_ref: Rosen §3.3
+  definition_vi: Độ phức tạp của một thuật toán là lượng tài nguyên tính toán mà thuật toán đòi hỏi để
+    giải bài toán theo kích thước đầu vào $$n$$. Độ phức tạp thời gian đo số phép toán thực hiện và độ
+    phức tạp không gian đo lượng bộ nhớ cần dùng, thường được biểu diễn theo ký hiệu $$O(f(n))$$.
+  example_vi: Thuật toán tìm kiếm tuyến tính trên danh sách $$n$$ phần tử có độ phức tạp thời gian $$O(n)$$,
+    còn tìm kiếm nhị phân có độ phức tạp $$O(\log_2 n)$$.
+  vi_terms:
+  - term: Độ phức tạp
+    source_id: bib-mat3500
+    page: giáo trình MAT3500
+    recommended: true
+    verified: true
+    pdf_page: 0
+    snippet: ''
+  - term: Độ phức tạp
+    source_id: bib-nguyenhuudien-2019
+    page: tr. 137 (PDF)
+    recommended: false
+    verified: true
+    pdf_page: 137
+    snippet: 'Ta nói: thuật toán trong Thí dụ 3 có độ phức tạp là n − 1 và là một thuật toán hữu hiệu
+      (hay thuật toán nhanh).'
+  - term: Độ phức tạp
+    source_id: bib-leanhvinh-2020
+    page: tr. 76 (PDF)
+    recommended: false
+    verified: true
+    pdf_page: 76
+    snippet: toán xác định cặp ghép lớn nhất với độ phức tạp là hàm đa thức theo
+  - term: Độ phức tạp
+    source_id: bib-nguyenhoangthach-2020
+    page: tr. 88 (PDF)
+    recommended: false
+    verified: true
+    pdf_page: 88
+    snippet: sâu vào phân tích cấu trúc dữ liệu hay độ phức tạp của các thuật toán.
+  - term: Độ phức tạp
+    source_id: bib-hoangchithanh-2007
+    page: tr. 70 (PDF)
+    recommended: false
+    verified: true
+    pdf_page: 70
+    snippet: 'Độ phức tạp của thuật toán là: O(n +).'
+  - term: Độ phức tạp tính toán
+    source_id: bib-nguyenducnghia-2006
+    page: tr. 90 (PDF)
+    recommended: false
+    verified: true
+    pdf_page: 90
+    snippet: Nói chung, phân tích độ phức tạp tính toán cuả một thuật toán là một vấn để phức
+  - term: Độ phức tạp tính toán
+    source_id: bib-ngodactan-2004
+    page: tr. 251 (PDF)
+    recommended: false
+    verified: true
+    pdf_page: 251
+    snippet: 'Nhận xét: Thuật toán Ford-Fulkerson có độ phức tạp tính toán'
+  - term: Độ phức tạp tính toán
+    source_id: bib-rosen-2003-vi
+    page: tr. 130 (PDF)
+    recommended: false
+    verified: true
+    pdf_page: 130
+    snippet: thuật toán là độ phức tạp tính toán của nó. Tức là, những tài nguyên
+  - term: Độ phức tạp thời gian
+    source_id: bib-rosen-2003-vi
+    page: tr. 142 (PDF)
+    recommended: false
+    verified: true
+    pdf_page: 142
+    snippet: Độ phức tạp thời gian của một thuật toán có thể được biểu diễn qua số
+  see_also: []
+  status: panel-approved
+  notes: Phân biệt độ phức tạp thời gian và độ phức tạp không gian; thường đánh giá theo ký hiệu O lớn.
+    Biến thể "độ phức tạp tính toán" được dùng phổ biến trong các giáo trình tiếng Việt.
+- id: composite-number
+  letter: C
+  headword_en: Composite Number
+  notation: ''
+  rosen_ref: Rosen §3.5
+  definition_vi: Hợp số là một số nguyên dương lớn hơn $$1$$ và không phải là số nguyên tố. Nói cách khác,
+    $$n$$ là hợp số nếu $$n > 1$$ và tồn tại số nguyên $$a$$ với $$1 < a < n$$ sao cho $$a$$ chia hết
+    $$n$$.
+  example_vi: Số $$9$$ là một hợp số vì nó chia hết cho $$3$$, trong khi $$7$$ là số nguyên tố. Tương
+    tự, $$4, 6, 8, 10$$ đều là hợp số.
+  vi_terms:
+  - term: hợp số
+    source_id: bib-mat3500
+    page: giáo trình MAT3500
+    recommended: true
+    verified: true
+    pdf_page: 0
+    snippet: ''
+  - term: hợp số
+    source_id: bib-rosen-2003-vi
+    page: tr. 153 (PDF)
+    recommended: false
+    verified: true
+    pdf_page: 153
+    snippet: hơn 1 và khong phải là số nguyên tố được gọi là hợp số.
+  see_also: []
+  status: panel-approved
+  notes: Thuật ngữ chuẩn của giáo trình MAT3500 là "hợp số". Bản dịch Rosen (2003) dùng đúng thuật ngữ
+    này trong chương Số nguyên, định nghĩa một số nguyên lớn hơn $$1$$ và không phải số nguyên tố. Các
+    tài liệu Việt khác trong kho (chủ yếu về lý thuyết đồ thị và tổ hợp) không đề cập đến khái niệm này
+    nên không có biến thể thuật ngữ kèm theo.
+- id: compound-proposition
+  letter: C
+  headword_en: Compound Proposition
+  notation: ''
+  rosen_ref: Rosen §1.1
+  definition_vi: Mệnh đề phức hợp là mệnh đề được tạo thành từ một hay nhiều mệnh đề đã có bằng các phép
+    toán logic (như $$\neg$$, $$\wedge$$, $$\vee$$, $$\rightarrow$$, $$\leftrightarrow$$). Giá trị chân
+    lý của mệnh đề phức hợp được xác định hoàn toàn từ giá trị chân lý của các mệnh đề thành phần và các
+    phép toán logic dùng để liên kết chúng.
+  example_vi: Cho $$p$$ là "Hôm nay trời mưa" và $$q$$ là "Tôi ở nhà". Khi đó $$p \wedge q$$, $$p \vee
+    q$$ và $$p \rightarrow q$$ đều là các mệnh đề phức hợp.
+  vi_terms:
+  - term: Mệnh đề phức hợp
+    source_id: bib-mat3500
+    page: giáo trình MAT3500
+    recommended: true
+    verified: true
+    pdf_page: 0
+    snippet: ''
+  - term: mệnh đề phức hợp
+    source_id: bib-nguyenhuudien-2019
+    page: tr. 15 (PDF)
+    recommended: false
+    verified: true
+    pdf_page: 15
+    snippet: Định nghĩa 1.2 Mệnh đề phức hợp là mệnh đề được tạo thành từ một hay nhiều mệnh đề
+  - term: mệnh đề phức hợp
+    source_id: bib-rosen-2003-vi
+    page: tr. 7 (PDF)
+    recommended: false
+    verified: true
+    pdf_page: 7
+    snippet: Các mệnh dé mới được gọi là các mệnh dé phức hợp, chúng được
+  see_also: []
+  status: panel-approved
+  notes: Đối lập với mệnh đề sơ cấp (atomic/elementary). Tên gọi "mệnh đề phức hợp" thống nhất giữa giáo
+    trình MAT3500, Nguyễn Hữu Điển (2019) và bản dịch tiếng Việt của Rosen.
+- id: conditional-statement
+  letter: C
+  headword_en: Conditional Statement
+  notation: p \rightarrow q
+  rosen_ref: Rosen §1.1
+  definition_vi: Mệnh đề điều kiện (mệnh đề kéo theo) của hai mệnh đề $$p$$ và $$q$$, ký hiệu $$p \rightarrow
+    q$$ và đọc là "nếu $$p$$ thì $$q$$", là mệnh đề chỉ nhận giá trị sai khi $$p$$ đúng và $$q$$ sai,
+    và nhận giá trị đúng trong mọi trường hợp còn lại. Trong đó $$p$$ được gọi là giả thiết và $$q$$ được
+    gọi là kết luận.
+  example_vi: 'Với $$p$$: "$$n$$ chia hết cho $$4$$" và $$q$$: "$$n$$ chia hết cho $$2$$", mệnh đề $$p
+    \rightarrow q$$ là đúng với mọi số nguyên $$n$$.'
+  vi_terms:
+  - term: Cấu trúc điều kiện
+    source_id: bib-mat3500
+    page: giáo trình MAT3500
+    recommended: true
+    verified: true
+    pdf_page: 0
+    snippet: ''
+  - term: Phép kéo theo
+    source_id: bib-nguyenhuudien-2019
+    page: tr. 18 (PDF)
+    recommended: false
+    verified: true
+    pdf_page: 18
+    snippet: Phép kéo theo, ký hiệu bởi →, được đưa ra để mô hình cho loại phát biểu điều kiện có
+  - term: Mệnh đề kéo theo
+    source_id: bib-rosen-2003-vi
+    page: tr. 10 (PDF)
+    recommended: false
+    verified: true
+    pdf_page: 10
+    snippet: Ménh dé kéo theo p — gq
+  see_also: []
+  status: panel-approved
+  notes: Trong Rosen, "conditional statement" là phép kéo theo logic $$p \rightarrow q$$ ("nếu $$p$$ thì
+    $$q$$"), không phải cấu trúc điều kiện trong lập trình. $$p$$ là giả thiết, $$q$$ là kết luận.
+- id: congruence
+  letter: C
+  headword_en: Congruence
+  notation: a \equiv b \pmod m
+  rosen_ref: Rosen §3.4
+  definition_vi: Cho $$m$$ là một số nguyên dương. Hai số nguyên $$a$$ và $$b$$ được gọi là đồng dư theo
+    modulo $$m$$, ký hiệu $$a \equiv b \pmod m$$, nếu $$m$$ chia hết hiệu $$a - b$$. Khi đó $$a$$ và $$b$$
+    có cùng số dư khi chia cho $$m$$.
+  example_vi: Ta có $$17 \equiv 5 \pmod 6$$ vì $$17 - 5 = 12$$ chia hết cho $$6$$. Trái lại $$24 \not\equiv
+    14 \pmod 6$$ vì $$24 - 14 = 10$$ không chia hết cho $$6$$.
+  vi_terms:
+  - term: phương trình đồng dư
+    source_id: bib-mat3500
+    page: giáo trình MAT3500
+    recommended: true
+    verified: true
+    pdf_page: 0
+    snippet: ''
+  - term: đồng dư
+    source_id: bib-rosen-2003-vi
+    page: tr. 159 (PDF)
+    recommended: false
+    verified: true
+    pdf_page: 159
+    snippet: dương, thi a được gọi là đồng dư với 6 theo modun m nếu a - 6 chia
+  - term: quan hệ đồng dư
+    source_id: bib-nguyenhuudien-2019
+    page: tr. 106 (PDF)
+    recommended: false
+    verified: true
+    pdf_page: 106
+    snippet: 1. Cho n là một số nguyên dương. Nhắc lại rằng quan hệ đồng dư modulo n trên tập
+  - term: phép đồng dư
+    source_id: bib-nguyenhuudien-2019
+    page: tr. 39 (PDF)
+    recommended: false
+    verified: true
+    pdf_page: 39
+    snippet: phép đồng dư modulo 3.
+  see_also: []
+  status: panel-approved
+  notes: Thuật ngữ của giáo trình MAT3500 là "phương trình đồng dư". Bản dịch Rosen định nghĩa quan hệ
+    này bằng "đồng dư" ($$a \equiv b \pmod m$$); tài liệu Nguyễn Hữu Điển dùng các biến thể "quan hệ đồng
+    dư" và "phép đồng dư" cho cùng khái niệm.
+- id: conjecture
+  letter: C
+  headword_en: Conjecture
+  notation: ''
+  rosen_ref: Rosen §1.8
+  definition_vi: Giả thuyết là một mệnh đề toán học được phát biểu và tin là đúng, nhưng chưa được chứng
+    minh cũng chưa bị bác bỏ. Khi một giả thuyết được chứng minh đúng bằng một dãy suy luận hợp lý, nó
+    trở thành định lý.
+  example_vi: Giả thuyết Collatz (giả thuyết $$3x+1$$) phát biểu rằng với mọi số nguyên dương, lặp lại
+    phép biến đổi $$n \mapsto n/2$$ nếu $$n$$ chẵn và $$n \mapsto 3n+1$$ nếu $$n$$ lẻ thì luôn đạt tới
+    $$1$$; giả thuyết này đến nay vẫn chưa được chứng minh.
+  vi_terms:
+  - term: Giả thuyết
+    source_id: bib-mat3500
+    page: giáo trình MAT3500
+    recommended: true
+    verified: true
+    pdf_page: 0
+    snippet: ''
+  - term: giả thuyết
+    source_id: bib-leanhvinh-2020
+    page: tr. 139 (PDF)
+    recommended: false
+    verified: true
+    pdf_page: 139
+    snippet: Erdés đưa ra giả thuyết rằng
+  - term: giả thuyết
+    source_id: bib-nguyenhoangthach-2020
+    page: tr. 81 (PDF)
+    recommended: false
+    verified: true
+    pdf_page: 81
+    snippet: Bài toán bốn màu là một giả thuyết nổi tiếng được đưa ra từ thế kỷ 19.
+  - term: giả thuyết
+    source_id: bib-ngodactan-2004
+    page: tr. 298 (PDF)
+    recommended: false
+    verified: true
+    pdf_page: 298
+    snippet: bằng 4 hoặc 5 và giả thuyết bốn màu khẳng định rằng ỵ(So) = 4.
+  - term: giả thuyết
+    source_id: bib-nguyenducnghia-2006
+    page: tr. 55 (PDF)
+    recommended: false
+    verified: true
+    pdf_page: 55
+    snippet: '=6 còn đề ra một giả thuyết tổng quát hơn là: không tồn tại hình vuông la tình trực'
+  - term: giả thuyết
+    source_id: bib-rosen-2003-vi
+    page: tr. 288 (PDF)
+    recommended: false
+    verified: true
+    pdf_page: 288
+    snippet: '8. Giả thuyết 3x + 1 nổi tiếng (Gid thuyết Collatz) phát biểu như sau :'
+  see_also: []
+  status: panel-approved
+  notes: Giả thuyết khác với định lý ở chỗ chưa được chứng minh. Cần phân biệt với "giả thuyết quy nạp"
+    (induction hypothesis) trong chứng minh quy nạp, dù cùng dùng từ "giả thuyết".
+- id: conjunction
+  letter: C
+  headword_en: Conjunction
+  notation: p \wedge q
+  rosen_ref: Rosen §1.1
+  definition_vi: Hội của hai mệnh đề $$p$$ và $$q$$, ký hiệu $$p \wedge q$$, là mệnh đề "$$p$$ và $$q$$".
+    Mệnh đề $$p \wedge q$$ nhận giá trị đúng khi và chỉ khi cả $$p$$ lẫn $$q$$ đều đúng, và nhận giá trị
+    sai trong các trường hợp còn lại.
+  example_vi: Cho $$p$$ là mệnh đề "Hôm nay là thứ sáu" và $$q$$ là mệnh đề "Hôm nay trời mưa". Khi đó
+    hội $$p \wedge q$$ là mệnh đề "Hôm nay là thứ sáu và hôm nay trời mưa", mệnh đề này chỉ đúng vào những
+    ngày thứ sáu có mưa.
+  vi_terms:
+  - term: Hội
+    source_id: bib-mat3500
+    page: giáo trình MAT3500
+    recommended: true
+    verified: true
+    pdf_page: 0
+    snippet: ''
+  - term: hội
+    source_id: bib-rosen-2003-vi
+    page: tr. 8 (PDF)
+    recommended: false
+    verified: true
+    pdf_page: 8
+    snippet: gọi là hội của p va gq. T F F
+  - term: phép hội
+    source_id: bib-nguyenhuudien-2019
+    page: tr. 46 (PDF)
+    recommended: false
+    verified: true
+    pdf_page: 46
+    snippet: Cho P( x, y, . . .) và Q( x, y, . . .) là các vị từ theo các biến x, y, . . .. Phép hội của
+      P và Q, ký
+  - term: hội
+    source_id: bib-nguyenducnghia-2006
+    page: tr. 13 (PDF)
+    recommended: false
+    verified: true
+    pdf_page: 13
+    snippet: s hội của Á và 8, ký hiệu Á & 8 (hay A and B) tương ứng với 4 8
+  see_also: []
+  status: panel-approved
+  notes: Thuật ngữ chuẩn của giáo trình MAT3500 là "Hội". Bản dịch Rosen cũng dùng "hội"; một số tài liệu
+    dùng biến thể "phép hội" cho cùng phép toán logic này. Ký hiệu chuẩn là $$\wedge$$.
+- id: conjunctive-normal-form
+  letter: C
+  headword_en: Conjunctive Normal Form
+  notation: ''
+  rosen_ref: Rosen §1.3
+  definition_vi: Dạng hội chuẩn tắc của một mệnh đề phức hợp là một biểu thức tương đương logic được viết
+    dưới dạng hội (phép $$\wedge$$) của một hay nhiều mệnh đề, trong đó mỗi mệnh đề thành phần là một
+    tuyển (phép $$\vee$$) của các literal (mỗi biến mệnh đề $$p$$ hoặc phủ định $$\neg p$$ của nó). Mỗi
+    mệnh đề phức hợp đều có thể đưa về một dạng hội chuẩn tắc tương đương logic.
+  example_vi: Biểu thức $$(p \vee \neg q) \wedge (\neg p \vee q \vee r) \wedge (\neg r)$$ có dạng hội
+    chuẩn tắc, vì nó là hội của ba tuyển các literal. Chẳng hạn, mệnh đề $$p \rightarrow q$$ được đưa
+    về dạng hội chuẩn tắc $$\neg p \vee q$$.
+  vi_terms:
+  - term: dạng hội chuẩn tắc
+    source_id: bib-mat3500
+    page: giáo trình MAT3500
+    recommended: true
+    verified: true
+    pdf_page: 0
+    snippet: ''
+  - term: dạng chuẩn tắc hội
+    source_id: bib-nguyenhuudien-2019
+    page: tr. 25 (PDF)
+    recommended: false
+    verified: true
+    pdf_page: 25
+    snippet: 1.5.2. Dạng chuẩn tắc tuyển và dạng chuẩn tắc hội
+  - term: dạng chính tắc hội
+    source_id: bib-nguyenhuudien-2019
+    page: tr. 26 (PDF)
+    recommended: false
+    verified: true
+    pdf_page: 26
+    snippet: Ví dụ 1.24. Các biểu thức sau đây có dạng chuẩn tắc hội (chính tắc hội)
+  - term: dạng hội chuẩn tắc hoàn toàn
+    source_id: bib-nguyenducnghia-2006
+    page: tr. 270 (PDF)
+    recommended: false
+    verified: true
+    pdf_page: 270
+    snippet: Biểu diễn này được gọi là dạng hội chuẩn tắc hoàn toàn của ƒ. Chẳng hạn, trong thí dụ vừa
+      nêu, dạng hội chuẩn tắc hoàn toàn của ƒ là
+  see_also: []
+  status: panel-approved
+  notes: 'Tên gọi không thống nhất giữa các tài liệu: giáo trình MAT3500 dùng "dạng hội chuẩn tắc", trong
+    khi Nguyễn Hữu Điển (2019) dùng "dạng chuẩn tắc hội" (còn gọi "chính tắc hội"). Nguyễn Đức Nghĩa (2006)
+    dùng "dạng hội chuẩn tắc hoàn toàn" cho dạng chuẩn tắc đầy đủ của hàm Boole.'
+- id: connected
+  letter: C
+  headword_en: Connected
+  notation: ''
+  rosen_ref: Rosen §10.4
+  definition_vi: Một đồ thị vô hướng $$G$$ được gọi là liên thông nếu giữa mọi cặp đỉnh phân biệt của
+    $$G$$ đều tồn tại một đường đi nối chúng. Ngược lại, $$G$$ được gọi là không liên thông.
+  example_vi: Đồ thị đầy đủ $$K_n$$ với $$n \geq 1$$ là liên thông, vì giữa hai đỉnh bất kỳ luôn có một
+    cạnh nối trực tiếp. Đồ thị gồm hai đỉnh không kề nhau và không có cạnh nào là không liên thông.
+  vi_terms:
+  - term: liên thông
+    source_id: bib-mat3500
+    page: giáo trình MAT3500
+    recommended: true
+    verified: true
+    pdf_page: 0
+    snippet: ''
+  - term: liên thông
+    source_id: bib-leanhvinh-2020
+    page: tr. 17 (PDF)
+    recommended: false
+    verified: true
+    pdf_page: 17
+    snippet: phan liên thông của G. Rõ ràng, đồ thi G là dé thị liên thông nếu G chỉ có một thành phần
+      liên thông.
+  - term: liên thông
+    source_id: bib-nguyenhoangthach-2020
+    page: tr. 74 (PDF)
+    recommended: false
+    verified: true
+    pdf_page: 74
+    snippet: Định nghĩa 5.27. Đồ thị G là liên thông nếu giữa hai đỉnh bất kỳ có một
+  - term: liên thông
+    source_id: bib-nguyenhuudien-2019
+    page: tr. 168 (PDF)
+    recommended: false
+    verified: true
+    pdf_page: 168
+    snippet: Định nghĩa 6.19 Một đồ thị (vô hướng) được gọi là liên thông nếu có đường đi giữa mọi
+  - term: liên thông
+    source_id: bib-nguyenducnghia-2006
+    page: tr. 156 (PDF)
+    recommended: false
+    verified: true
+    pdf_page: 156
+    snippet: Định nghĩa 3. Đồ thị vô hướng G= (V,E) được gọi là liên thông nếu luôn tìm được
+  - term: liên thông
+    source_id: bib-ngodactan-2004
+    page: tr. 195 (PDF)
+    recommended: false
+    verified: true
+    pdf_page: 195
+    snippet: Một đồ thị (có hướng, vô hướngịì G = (Vi E) được gọi là liên thông
+  - term: liên thông
+    source_id: bib-rosen-2003-vi
+    page: tr. 539 (PDF)
+    recommended: false
+    verified: true
+    pdf_page: 539
+    snippet: Một đồ thị không liên thông là hợp của hai hay nhiều đổ thị con liên thông rời nhau như vậy
+      được gọi là các thành phần liên thông
+  see_also: []
+  status: panel-approved
+  notes: Thuật ngữ chuẩn trong sách là "liên thông". Với đồ thị có hướng, các khái niệm "liên thông mạnh"
+    và "liên thông yếu" được tách thành mục riêng.
+- id: contingency
+  letter: C
+  headword_en: Contingency
+  notation: ''
+  rosen_ref: Rosen §1.2
+  definition_vi: Tiếp liên là một mệnh đề phức hợp không phải là hằng đúng cũng không phải là mâu thuẫn,
+    tức là giá trị chân lý của nó phụ thuộc vào giá trị chân lý của các biến mệnh đề thành phần. Nói cách
+    khác, một mệnh đề $$P$$ là tiếp liên nếu bảng chân trị của nó chứa ít nhất một dòng nhận giá trị đúng
+    và ít nhất một dòng nhận giá trị sai.
+  example_vi: Mệnh đề $$p \vee q$$ là một tiếp liên, vì nó nhận giá trị đúng khi $$p$$ đúng và nhận giá
+    trị sai khi cả $$p$$ và $$q$$ đều sai.
+  vi_terms:
+  - term: tiếp liên
+    source_id: bib-mat3500
+    page: giáo trình MAT3500
+    recommended: true
+    verified: true
+    pdf_page: 0
+    snippet: ''
+  - term: tiếp liên
+    source_id: bib-rosen-2003-vi
+    page: tr. 213 (PDF)
+    recommended: false
+    verified: true
+    pdf_page: 213
+    snippet: _ là các tiếp liên. Bay giờ chúng ta sẽ chi ra sự khác nhau giữa suy luận
+  see_also: []
+  status: panel-approved
+  notes: Tiếp liên là mệnh đề không phải hằng đúng (tautology) cũng không phải mâu thuẫn (contradiction).
+    Bản dịch Rosen tiếng Việt dùng thuật ngữ "tiếp liên".
+- id: contradiction
+  letter: C
+  headword_en: Contradiction
+  notation: ''
+  rosen_ref: Rosen §1.2
+  definition_vi: Mâu thuẫn là một mệnh đề phức hợp luôn nhận giá trị sai với mọi cách gán giá trị chân
+    lý cho các biến mệnh đề thành phần. Một ví dụ điển hình là mệnh đề $$p \wedge \neg p$$, vốn luôn sai
+    vì $$p$$ và $$\neg p$$ không thể cùng đúng.
+  example_vi: Mệnh đề $$p \wedge \neg p$$ là một mâu thuẫn, vì với $$p$$ đúng thì $$\neg p$$ sai và với
+    $$p$$ sai thì $$\neg p$$ đúng, nên tích hội của chúng luôn sai. Đối lập với mâu thuẫn là mệnh đề hằng
+    đúng, chẳng hạn $$p \vee \neg p$$.
+  vi_terms:
+  - term: mâu thuẫn
+    source_id: bib-mat3500
+    page: giáo trình MAT3500
+    recommended: true
+    verified: true
+    pdf_page: 0
+    snippet: ''
+  - term: mệnh đề mâu thuẫn
+    source_id: bib-rosen-2003-vi
+    page: tr. 23 (PDF)
+    recommended: false
+    verified: true
+    pdf_page: 23
+    snippet: Vì p A¬ p là luôn luôn sai, nên ... BANG 1. Ví dụ về mệnh dề hằng đúng và mệnh đề mâu thuẫn
+  - term: hằng sai
+    source_id: bib-nguyenhuudien-2019
+    page: tr. 27 (PDF)
+    recommended: false
+    verified: true
+    pdf_page: 27
+    snippet: '1.5.3. Thuật toán nhận biết hằng đúng, hằng sai ... Đầu ra: ... E là Hằng đúng; Hằng sai.'
+  see_also: []
+  status: panel-approved
+  notes: Trong Rosen §1.2, mâu thuẫn (mệnh đề mâu thuẫn) là mệnh đề luôn sai, đối lập với mệnh đề hằng
+    đúng. Nguyễn Hữu Điển (2019) gọi khái niệm công thức luôn sai này là "hằng sai", song song với "hằng
+    đúng" cho mệnh đề luôn đúng. Cần phân biệt khái niệm logic này với cách dùng "dẫn đến mâu thuẫn" trong
+    kỹ thuật chứng minh phản chứng.
+- id: contrapositive
+  letter: C
+  headword_en: Contrapositive
+  notation: \neg q \rightarrow \neg p
+  rosen_ref: Rosen §1.1
+  definition_vi: Mệnh đề phản đảo của một mệnh đề kéo theo $$p \rightarrow q$$ là mệnh đề $$\neg q \rightarrow
+    \neg p$$. Mệnh đề phản đảo luôn tương đương logic với mệnh đề kéo theo ban đầu, tức là $$p \rightarrow
+    q \equiv \neg q \rightarrow \neg p$$.
+  example_vi: Mệnh đề phản đảo của "Nếu trời mưa thì đường ướt" là "Nếu đường không ướt thì trời không
+    mưa".
+  vi_terms:
+  - term: mệnh đề phản đảo
+    source_id: bib-mat3500
+    page: giáo trình MAT3500
+    recommended: true
+    verified: true
+    pdf_page: 0
+    snippet: ''
+  - term: mệnh đề phản đảo
+    source_id: bib-nguyenhuudien-2019
+    page: tr. 40 (PDF)
+    recommended: false
+    verified: true
+    pdf_page: 40
+    snippet: Mệnh đề trong cặp nháy kép là đúng nên mệnh đề phản đảo của nó cũng đúng. Vậy,
+  - term: mệnh đề phản đảo
+    source_id: bib-rosen-2003-vi
+    page: tr. 12 (PDF)
+    recommended: false
+    verified: true
+    pdf_page: 12
+    snippet: q¬p được gọi là mệnh để đảo của p — g và mệnh dé phản dao
+  see_also: []
+  status: panel-approved
+  notes: Phân biệt với mệnh đề đảo $$q \rightarrow p$$ (không tương đương logic với $$p \rightarrow q$$).
+    Phép chứng minh phản đảo dựa trên tương đương $$p \rightarrow q \equiv \neg q \rightarrow \neg p$$.
+- id: converse
+  letter: C
+  headword_en: Converse
+  notation: q \rightarrow p
+  rosen_ref: Rosen §1.1
+  definition_vi: Mệnh đề đảo của một phép kéo theo $$p \rightarrow q$$ là mệnh đề $$q \rightarrow p$$
+    (ký hiệu $$q \rightarrow p$$), tức là phép kéo theo nhận được bằng cách đổi chỗ giả thiết $$p$$ và
+    kết luận $$q$$. Nói chung, một phép kéo theo và mệnh đề đảo của nó không tương đương logic.
+  example_vi: 'Mệnh đề đảo của phép kéo theo $$p \rightarrow q$$: "Nếu trời mưa thì đường ướt" là mệnh
+    đề $$q \rightarrow p$$: "Nếu đường ướt thì trời mưa". Hai mệnh đề này có giá trị chân lý khác nhau,
+    nên $$p \rightarrow q$$ không tương đương với $$q \rightarrow p$$.'
+  vi_terms:
+  - term: mệnh đề đảo
+    source_id: bib-mat3500
+    page: giáo trình MAT3500
+    recommended: true
+    verified: true
+    pdf_page: 0
+    snippet: ''
+  - term: mệnh đề đảo
+    source_id: bib-rosen-2003-vi
+    page: tr. 12 (PDF)
+    recommended: false
+    verified: true
+    pdf_page: 12
+    snippet: q¬p được gọi là mệnh để đảo của p — g và mệnh dé phản dao
+  - term: mệnh đề ngược lại
+    source_id: bib-hoangchithanh-2007
+    page: tr. 35 (PDF)
+    recommended: false
+    verified: true
+    pdf_page: 35
+    snippet: Nhưng với đồ thị đối xứng, thì mệnh đề ngược lại của Định lý 3.2
+  - term: điều ngược lại
+    source_id: bib-nguyenducnghia-2006
+    page: tr. 277 (PDF)
+    recommended: false
+    verified: true
+    pdf_page: 277
+    snippet: 'Chú ý rằng, điều ngược lại của định lý 4 là không đúng: có những dạng tuyển'
+  see_also: []
+  status: panel-approved
+  notes: Trong Rosen §1.1, mệnh đề đảo của $$p \rightarrow q$$ là $$q \rightarrow p$$. Một số tài liệu
+    trong nước dùng cách diễn đạt "mệnh đề ngược lại" hoặc "điều ngược lại" của một định lý để chỉ cùng
+    khái niệm. Cần phân biệt mệnh đề đảo với mệnh đề phản đảo (contrapositive) $$\neg q \rightarrow \neg
+    p$$, vốn tương đương logic với phép kéo theo ban đầu.
+- id: corollary
+  letter: C
+  headword_en: Corollary
+  notation: ''
+  rosen_ref: Rosen §1.7
+  definition_vi: Hệ quả là một mệnh đề được suy ra trực tiếp từ một định lý vừa được chứng minh, ký hiệu
+    thường gặp ở dạng "Hệ quả $$X$$". Việc chứng minh hệ quả thường rất ngắn vì nó dựa ngay vào định lý
+    gốc.
+  example_vi: 'Từ định lý bắt tay $$\displaystyle\sum_{v \in V(G)} \deg_G(v) = 2|E(G)|$$ ta có hệ quả:
+    số đỉnh bậc lẻ trong một đồ thị luôn là một số chẵn.'
+  vi_terms:
+  - term: Hệ quả
+    source_id: bib-mat3500
+    page: giáo trình MAT3500
+    recommended: true
+    verified: true
+    pdf_page: 0
+    snippet: ''
+  - term: Hệ quả
+    source_id: bib-nguyenhuudien-2019
+    page: tr. 56 (PDF)
+    recommended: false
+    verified: true
+    pdf_page: 56
+    snippet: mệnh đề được chứng minh là đúng. Một số loại định lý được xem là các bổ đề, các hệ quả.
+  - term: Hệ quả
+    source_id: bib-nguyenhoangthach-2020
+    page: tr. 21 (PDF)
+    recommended: false
+    verified: true
+    pdf_page: 21
+    snippet: 'Hệ quả 2.8. Với mọi cặp số nguyên không âm n và k sao cho k ≤ n:'
+  - term: Hệ quả
+    source_id: bib-leanhvinh-2020
+    page: tr. 11 (PDF)
+    recommended: false
+    verified: true
+    pdf_page: 11
+    snippet: Như là một hệ quả của Dinh lý bắt tay, số đỉnh với bac lẻ của một đồ thị luôn là một số chan.
+  - term: Hệ quả
+    source_id: bib-hoangchithanh-2007
+    page: tr. 14 (PDF)
+    recommended: false
+    verified: true
+    pdf_page: 14
+    snippet: 'Hệ quả 1.1: Số đỉnh có bậc lẻ trong một đồ thị phải là một số chan.'
+  - term: Hệ quả
+    source_id: bib-nguyenducnghia-2006
+    page: tr. 16 (PDF)
+    recommended: false
+    verified: true
+    pdf_page: 16
+    snippet: 'Một hệ quả trực tiếp của nguyên lý nhân:'
+  - term: Hệ quả
+    source_id: bib-rosen-2003-vi
+    page: tr. 210 (PDF)
+    recommended: false
+    verified: true
+    pdf_page: 210
+    snippet: Còn hệ quả là các mệnh để được suy ra từ một định lý đã được chứng
+  see_also: []
+  status: panel-approved
+  notes: Hệ quả là một dạng mệnh đề suy ra từ định lý, tương tự bổ đề (lemma) và định lý (theorem); các
+    nguồn đều dùng thống nhất thuật ngữ "hệ quả".
+- id: correctness
+  letter: C
+  headword_en: Correctness
+  notation: ''
+  rosen_ref: Rosen §5.5
+  definition_vi: 'Tính đúng đắn của một thuật toán (hay chương trình, thủ tục) là tính chất khẳng định
+    rằng thuật toán luôn cho đầu ra đúng theo đặc tả với mọi đầu vào hợp lệ và luôn kết thúc. Việc chứng
+    minh tính đúng đắn thường gồm hai phần: tính đúng đắn bộ phận, tức nếu thuật toán dừng thì kết quả
+    thỏa khẳng định đầu $$p$$ và khẳng định cuối $$q$$, và tính dừng, tức thuật toán kết thúc sau hữu
+    hạn bước.'
+  example_vi: Để chứng minh tính đúng đắn của thuật toán $$\mathrm{DFS}$$ trên đồ thị liên thông $$G$$,
+    ta chỉ ra rằng thuật toán thăm mọi đỉnh của $$G$$ đúng một lần và luôn kết thúc.
+  vi_terms:
+  - term: tính đúng đắn
+    source_id: bib-mat3500
+    page: giáo trình MAT3500
+    recommended: true
+    verified: true
+    pdf_page: 0
+    snippet: ''
+  - term: tính đúng đắn
+    source_id: bib-nguyenhoangthach-2020
+    page: tr. 88 (PDF)
+    recommended: false
+    verified: true
+    pdf_page: 88
+    snippet: Định lý 6.12 (Tính đúng đắn của thuật toán DFS). Nếu đồ thị G liên thông
+  - term: tính đúng đắn
+    source_id: bib-nguyenhuudien-2019
+    page: tr. 245 (PDF)
+    recommended: false
+    verified: true
+    pdf_page: 245
+    snippet: Tính đúng đắn của thuật toán được suy từ 3 tính chất sau đây
+  - term: tính đúng đắn
+    source_id: bib-nguyenducnghia-2006
+    page: tr. 194 (PDF)
+    recommended: false
+    verified: true
+    pdf_page: 194
+    snippet: Chứng minh tính đúng đắn của thuật toán. Trước tiên ta chỉ ra rằng thủ tục trên có
+  - term: tính đúng đắn
+    source_id: bib-hoangchithanh-2007
+    page: tr. 127 (PDF)
+    recommended: false
+    verified: true
+    pdf_page: 127
+    snippet: 'Tinh đúng đắn của thuật toán được suy từ ba tính chất sau đây:'
+  - term: tính đúng đắn
+    source_id: bib-ngodactan-2004
+    page: tr. 281 (PDF)
+    recommended: false
+    verified: true
+    pdf_page: 281
+    snippet: 8.14 Hãy kiểm tra tính đúng đắn của Định lý Menger (Định lý 8.1) cho
+  - term: tính đúng đắn
+    source_id: bib-rosen-2003-vi
+    page: tr. 968 (PDF)
+    recommended: false
+    verified: true
+    pdf_page: 968
+    snippet: 3.5. Tính đúng đắn của chương trình
+  see_also: []
+  status: panel-approved
+  notes: Trong giáo trình Rosen, khái niệm này được trình bày trong mục "Tính đúng đắn của chương trình"
+    (kiểm chứng chương trình), gồm tính đúng đắn bộ phận và tính dừng. Trong các tài liệu lý thuyết đồ
+    thị, thuật ngữ thường dùng cho tính đúng đắn của thuật toán như DFS, BFS, hay thuật toán Huffman.
+- id: counterexample
+  letter: C
+  headword_en: Counterexample
+  notation: ''
+  rosen_ref: Rosen §1.7
+  definition_vi: Phản ví dụ của một mệnh đề có lượng từ phổ dụng $$\forall x\, P(x)$$ là một phần tử $$x$$
+    trong miền xác định sao cho $$P(x)$$ sai. Sự tồn tại của một phản ví dụ chứng tỏ rằng mệnh đề $$\forall
+    x\, P(x)$$ là sai.
+  example_vi: 'Mệnh đề "mọi số nguyên dương đều là tổng của ba bình phương" là sai, vì $$7$$ là một phản
+    ví dụ: không thể viết $$7$$ thành tổng của ba bình phương.'
+  vi_terms:
+  - term: phản ví dụ
+    source_id: bib-mat3500
+    page: giáo trình MAT3500
+    recommended: true
+    verified: true
+    pdf_page: 0
+    snippet: ''
+  - term: phản ví dụ
+    source_id: bib-nguyenhuudien-2019
+    page: tr. 59 (PDF)
+    recommended: false
+    verified: true
+    pdf_page: 59
+    snippet: Nói một cách tổng quát, phản ví dụ là việc chỉ ra một tình huống hay trường hợp sai
+  - term: phản ví dụ
+    source_id: bib-nguyenhoangthach-2020
+    page: tr. 82 (PDF)
+    recommended: false
+    verified: true
+    pdf_page: 82
+    snippet: giúp của máy tính để kiểm tra một số lượng lớn các phản ví dụ tiềm năng.
+  - term: phản ví dụ
+    source_id: bib-leanhvinh-2020
+    page: tr. 86 (PDF)
+    recommended: false
+    verified: true
+    pdf_page: 86
+    snippet: Do G là một phản ví dụ cực đại, đỗ thị G+ (u,v) có một cặp ghép
+  - term: đồ thị phản ví dụ
+    source_id: bib-ngodactan-2004
+    page: tr. 268 (PDF)
+    recommended: false
+    verified: true
+    pdf_page: 268
+    snippet: là đồ thị phản ví dụ có số cạnh nhỏ nhất. Khi đó tồn tại nhiều nhất
+  - term: phản ví dụ
+    source_id: bib-rosen-2003-vi
+    page: tr. 227 (PDF)
+    recommended: false
+    verified: true
+    pdf_page: 227
+    snippet: Tìm phản ví dụ cho mệnh dé "với mọi số nguyên tố n, n + 2 cũng
+  see_also: []
+  status: panel-approved
+  notes: Phản ví dụ là công cụ chuẩn để bác bỏ một mệnh đề phổ dụng (Rosen §1.7-1.8). Biến thể "đồ thị
+    phản ví dụ" / "phản ví dụ cực đại" xuất hiện trong các chứng minh dùng phản ví dụ nhỏ nhất hoặc cực
+    đại.
+- id: cover
+  letter: C
+  headword_en: Cover
+  notation: ''
+  rosen_ref: Rosen §10.2
+  definition_vi: Bao phủ của một đồ thị $$G$$ là một tập con các đỉnh hoặc các cạnh sao cho mọi cạnh (tương
+    ứng, mọi đỉnh) của $$G$$ đều có ít nhất một đầu mút (tương ứng, được kề bởi một cạnh) thuộc tập đó.
+    Một tập phủ đỉnh là tập $$C \subseteq V(G)$$ sao cho mỗi cạnh của $$G$$ có ít nhất một đầu mút thuộc
+    $$C$$, còn một tập phủ cạnh là tập $$C \subseteq E(G)$$ sao cho mỗi đỉnh của $$G$$ là đầu mút của
+    một cạnh nào đó trong $$C$$.
+  example_vi: Trong đồ thị đầy đủ $$K_n$$, tập gồm $$n-1$$ đỉnh bất kỳ là một tập phủ đỉnh, vì mọi cạnh
+    đều có đầu mút nằm trong tập này.
+  vi_terms:
+  - term: bao phủ
+    source_id: bib-mat3500
+    page: giáo trình MAT3500
+    recommended: true
+    verified: true
+    pdf_page: 0
+    snippet: ''
+  - term: tập phủ đỉnh
+    source_id: bib-leanhvinh-2020
+    page: tr. 80 (PDF)
+    recommended: false
+    verified: true
+    pdf_page: 80
+    snippet: và chỉ khi V(G)\J là tập phủ đỉnh.
+  - term: tập phủ cạnh
+    source_id: bib-leanhvinh-2020
+    page: tr. 80 (PDF)
+    recommended: false
+    verified: true
+    pdf_page: 80
+    snippet: Tap phủ cạnh là một tập C C E(G) sao cho mỗi đính của G là đầu mút của một cạnh nào đó trong
+      C.
+  - term: phủ đỉnh
+    source_id: bib-nguyenducnghia-2006
+    page: tr. 263 (PDF)
+    recommended: false
+    verified: true
+    pdf_page: 263
+    snippet: Một tập con các đính của đồ thị S được gọi là phủ đỉnh nếu như mỗi cạnh của đồ thị có ít
+      nhất một đầu mút trong S.
+  see_also: []
+  status: panel-approved
+  notes: Trong giáo trình MAT3500 dùng "bao phủ". Các tài liệu khác dùng "tập phủ đỉnh" (vertex cover)
+    và "tập phủ cạnh" (edge cover); cần phân biệt với "phủ định" (negation) trong logic, không liên quan.
+- id: cut-edge
+  letter: C
+  headword_en: Cut Edge
+  notation: ''
+  rosen_ref: Rosen §10.4
+  definition_vi: Cạnh cắt (hay cầu) của một đồ thị $$G$$ là một cạnh $$e$$ mà khi bỏ đi sẽ làm tăng số
+    thành phần liên thông của đồ thị, tức là $$G - e$$ có nhiều thành phần liên thông hơn $$G$$.
+  example_vi: Trong một đường đi $$P_n$$, mọi cạnh đều là cạnh cắt; ngược lại, trong một chu trình $$C_n$$
+    không có cạnh nào là cạnh cắt.
+  vi_terms:
+  - term: cạnh cắt
+    source_id: bib-mat3500
+    page: giáo trình MAT3500
+    recommended: true
+    verified: true
+    pdf_page: 0
+    snippet: ''
+  - term: cạnh cắt
+    source_id: bib-nguyenhoangthach-2020
+    page: tr. 75 (PDF)
+    recommended: false
+    verified: true
+    pdf_page: 75
+    snippet: Một cạnh e được gọi là một cạnh cắt, hay cạnh cầu, của G nếu G − e có nhiều
+  - term: cạnh cầu
+    source_id: bib-nguyenhoangthach-2020
+    page: tr. 75 (PDF)
+    recommended: false
+    verified: true
+    pdf_page: 75
+    snippet: Một cạnh e được gọi là một cạnh cắt, hay cạnh cầu, của G nếu G − e có nhiều
+  - term: cạnh cắt
+    source_id: bib-nguyenhuudien-2019
+    page: tr. 169 (PDF)
+    recommended: false
+    verified: true
+    pdf_page: 169
+    snippet: liên thông hơn so với đồ thị xuất phát được gọi là cạnh cắt hay là cầu.
+  - term: cạnh cầu
+    source_id: bib-leanhvinh-2020
+    page: tr. 25 (PDF)
+    recommended: false
+    verified: true
+    pdf_page: 25
+    snippet: 'Hình 1.20: Đỉnh cắt và cạnh cầu của một đồ thị.'
+  - term: cầu
+    source_id: bib-leanhvinh-2020
+    page: tr. 25 (PDF)
+    recommended: false
+    verified: true
+    pdf_page: 25
+    snippet: của nó được gọi là cầu. Như vậy, các cầu của một đồ thị là các cạnh
+  - term: cạnh cắt
+    source_id: bib-rosen-2003-vi
+    page: tr. 540 (PDF)
+    recommended: false
+    verified: true
+    pdf_page: 540
+    snippet: liên thông hơn so với đồ thị xuất phát được gọi là một cạnh cắt hay [cầu]. Các cạnh cắt (cầu)
+      là {a, b} và ...
+  see_also: []
+  status: panel-approved
+  notes: Cạnh cắt còn được gọi là cạnh cầu hoặc cầu. Một cạnh là cạnh cắt khi và chỉ khi nó không nằm
+    trên một chu trình nào.

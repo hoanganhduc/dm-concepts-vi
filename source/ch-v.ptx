@@ -28,7 +28,7 @@
         <li><p><term>điểm</term> <xref ref="bib-leanhvinh-2020" /> (tr. 8 (PDF)); <xref ref="bib-ngodactan-2004" /> (tr. 17 (PDF)); <xref ref="bib-rosen-2003-vi" /> (tr. 18 (PDF, bản dịch Rosen)).</p></li>
       </ul>
       <p>Ví dụ: Với đồ thị <m>G</m> có tập đỉnh <m>V(G) = \{a, b, c\}</m>, mỗi phần tử <m>a</m>, <m>b</m>, <m>c</m> là một đỉnh của <m>G</m>.</p>
-      <p>Xem thêm <xref ref="def-edge" text="title" />, <xref ref="def-graph" text="title" />.</p>
+      <p>Xem thêm <xref ref="def-edge" text="title" />, <xref ref="def-graph" text="title" />, <xref ref="def-adjacent" text="title" />.</p>
     </statement>
   </definition>
   <definition xml:id="def-vertex-coloring">
@@ -191,6 +191,7 @@
         <li><p><term>chứng minh rỗng</term> <em>(thuật ngữ chuẩn; chưa truy được trong kho văn bản)</em> — cách dùng phổ biến.</p></li>
       </ul>
       <p>Ví dụ: Mệnh đề "nếu <m>0  \gt  1</m> thì <m>2 = 2</m>" đúng theo phép chứng minh rỗng, vì giả thiết <m>0  \gt  1</m> là sai nên <m>p \to q</m> đúng bất kể kết luận.</p>
+      <p>Xem thêm <xref ref="def-trivial-proof" text="title" />, <xref ref="def-direct-proof" text="title" />, <xref ref="def-proof-by-contraposition" text="title" />, <xref ref="def-conditional-statement" text="title" />.</p>
     </statement>
   </definition>
   <definition xml:id="def-value-of-a-flow">
@@ -211,6 +212,86 @@
       </ul>
       <p>Ví dụ: Xét mạng vận tải với đỉnh nguồn <m>s</m> và đỉnh thu <m>t</m>. Nếu luồng <m>f</m> gửi từ <m>s</m> ra ngoài tổng cộng <m>5</m> đơn vị qua các cạnh ra khỏi <m>s</m> và không có cạnh nào đi vào <m>s</m>, thì <m>\mathrm{val}(f) = 5</m>, và đúng <m>5</m> đơn vị này đi vào <m>t</m>.</p>
       <p>Xem thêm <xref ref="def-maximum-flow" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-valid-inference-rule">
+    <title>Valid Inference Rule — quy tắc suy luận lôgic hợp lý</title>
+    <idx><h>valid inference rule</h></idx>
+    <idx><h>luật suy diễn</h></idx>
+    <idx><h>qui tắc suy diễn hợp lý</h></idx>
+    <idx><h>quy tắc suy diễn</h></idx>
+    <idx><h>quy tắc suy luận</h></idx>
+    <idx><h>quy tắc suy luận lôgic hợp lý</h></idx>
+    <notation>
+      <usage><m>\dfrac{P_1, P_2, \ldots, P_n}{\therefore Q}</m></usage>
+      <description>quy tắc suy luận lôgic hợp lý</description>
+    </notation>
+    <statement>
+      <p>Một quy tắc suy luận hợp lý (ký hiệu <m>\frac{P_1, P_2, \ldots, P_n}{\therefore Q}</m>) là một dạng lập luận đi từ các giả thiết <m>P_1, P_2, \ldots, P_n</m> đến kết luận <m>Q</m> sao cho phép kéo theo <m>(P_1 \wedge P_2 \wedge \cdots \wedge P_n) \to Q</m> là một hằng đúng. Khi đó, mỗi khi tất cả các giả thiết đều đúng thì kết luận <m>Q</m> cũng đúng (theo <xref ref="bib-rosen-2019" />, Rosen §1.5).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>quy tắc suy luận lôgic hợp lý</term> <xref ref="bib-mat3500" /> (giáo trình MAT3500) — cách dùng phổ biến.</p></li>
+        <li><p><term>luật suy diễn</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 29 (PDF)).</p></li>
+        <li><p><term>qui tắc suy diễn hợp lý</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 29 (PDF)).</p></li>
+        <li><p><term>quy tắc suy diễn</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 29 (PDF)); <xref ref="bib-rosen-2003-vi" /> (tr. 211 (PDF)).</p></li>
+        <li><p><term>quy tắc suy luận</term> <xref ref="bib-rosen-2003-vi" /> (tr. 210 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Quy tắc Modus Ponens là một quy tắc suy luận hợp lý, dựa trên hằng đúng <m>(p \wedge (p \to q)) \to q</m>: từ <m>p</m> và <m>p \to q</m> ta suy ra <m>q</m>.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-valid">
+    <title>Valid — hợp lý</title>
+    <idx><h>valid</h></idx>
+    <idx><h>hợp lý</h></idx>
+    <idx><h>suy luận đúng</h></idx>
+    <idx><h>đúng đắn</h></idx>
+    <statement>
+      <p>Một lập luận gồm các tiền đề <m>p_1, p_2, \ldots, p_n</m> và kết luận <m>q</m> được gọi là hợp lý nếu kết luận luôn đúng mỗi khi tất cả các tiền đề đều đúng, tức là khi kéo theo <m>(p_1 \wedge p_2 \wedge \cdots \wedge p_n) \to q</m> là một hằng đúng (tautology). Tính hợp lý chỉ phụ thuộc vào dạng lập luận chứ không phụ thuộc vào giá trị chân lý cụ thể của các tiền đề (theo <xref ref="bib-rosen-2019" />, Rosen §1.5).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>hợp lý</term> <xref ref="bib-mat3500" /> (giáo trình MAT3500); <xref ref="bib-nguyenhuudien-2019" /> (tr. 29 (PDF)) — cách dùng phổ biến.</p></li>
+        <li><p><term>suy luận đúng</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 30 (PDF)).</p></li>
+        <li><p><term>đúng đắn</term> <xref ref="bib-rosen-2003-vi" /> (tr. 208 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Luật suy diễn modus ponens cho một lập luận hợp lý: từ <m>p</m> và <m>p \to q</m> suy ra <m>q</m>, vì <m>(p \wedge (p \to q)) \to q</m> là một hằng đúng.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-vandermondes-identity">
+    <title>Vandermonde's Identity — đẳng thức Vandermonde</title>
+    <idx><h>vandermonde's identity</h></idx>
+    <idx><h>hằng đẳng thức Vandermonde</h></idx>
+    <idx><h>đẳng thức Vandermonde</h></idx>
+    <idx><h>đồng nhất thức Vandermonde</h></idx>
+    <notation>
+      <usage><m>\binom{m+n}{r}=\sum_{k=0}^{r}\binom{m}{r-k}\binom{n}{k}</m></usage>
+      <description>đẳng thức Vandermonde</description>
+    </notation>
+    <statement>
+      <p>Đẳng thức Vandermonde là hệ thức tổ hợp khẳng định rằng với các số nguyên không âm <m>m</m>, <m>n</m>, <m>r</m> thỏa <m>r\leq m+n</m>, ta có <m>\binom{m+n}{r}=\sum_{k=0}^{r}\binom{m}{r-k}\binom{n}{k}</m> (theo <xref ref="bib-rosen-2019" />, Rosen §5.4).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>đẳng thức Vandermonde</term> <xref ref="bib-mat3500" /> (giáo trình MAT3500); <xref ref="bib-nguyenhoangthach-2020" /> (tr. 24 (PDF)) — cách dùng phổ biến.</p></li>
+        <li><p><term>hằng đẳng thức Vandermonde</term> <xref ref="bib-rosen-2003-vi" /> (tr. 320 (PDF)).</p></li>
+        <li><p><term>đồng nhất thức Vandermonde</term> <xref ref="bib-ngodactan-2004" /> (tr. 42 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Khi <m>m=n=r</m>, đẳng thức Vandermonde cho <m>\binom{2n}{n}=\sum_{k=0}^{n}\binom{n}{k}^{2}</m>.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-variable">
+    <title>Variable — biến</title>
+    <idx><h>variable</h></idx>
+    <idx><h>biến</h></idx>
+    <notation>
+      <usage><m>x, y, z</m></usage>
+      <description>biến</description>
+    </notation>
+    <statement>
+      <p>Biến là một ký hiệu (thường là một chữ cái như <m>x</m>, <m>y</m>, <m>z</m>) thay cho một phần tử chưa xác định lấy giá trị trong một miền xác định cho trước. Trong hàm mệnh đề <m>P(x)</m>, mệnh đề chỉ nhận giá trị chân lý sau khi biến <m>x</m> được gán một giá trị cụ thể trong miền của nó (theo <xref ref="bib-rosen-2019" />, Rosen §1.3).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>biến</term> <xref ref="bib-mat3500" /> (giáo trình MAT3500); <xref ref="bib-rosen-2003-vi" /> (tr. 32 (PDF)); <xref ref="bib-nguyenhuudien-2019" /> (tr. 19 (PDF)) — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Trong câu "<m>x</m> lớn hơn <m>3</m>", ký hiệu <m>x</m> là biến và phần "lớn hơn <m>3</m>" là vị từ; câu này được viết là <m>P(x)</m>, và chỉ khi gán cho <m>x</m> một giá trị, chẳng hạn <m>x = 4</m>, ta mới thu được một mệnh đề có giá trị chân lý xác định.</p>
     </statement>
   </definition>
 </chapter>

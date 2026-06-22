@@ -129,7 +129,7 @@
         <li><p><term>mệnh đề hằng đúng</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 24 (PDF)).</p></li>
       </ul>
       <p>Ví dụ: Mệnh đề <m>((p \rightarrow q) \wedge p) \rightarrow q</m> là hằng đúng, vì bảng chân trị cho thấy nó nhận giá trị đúng với mọi cách gán giá trị chân lý cho <m>p</m> và <m>q</m>.</p>
-      <p>Xem thêm <xref ref="def-logical-equivalence" text="title" />, <xref ref="def-truth-table" text="title" />.</p>
+      <p>Xem thêm <xref ref="def-contradiction" text="title" />, <xref ref="def-logical-equivalence" text="title" />, <xref ref="def-compound-proposition" text="title" />, <xref ref="def-truth-table" text="title" />.</p>
     </statement>
   </definition>
   <definition xml:id="def-topological-sort">
@@ -177,7 +177,7 @@
         <li><p><term>định lí</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 192 (PDF)).</p></li>
       </ul>
       <p>Ví dụ: Mệnh đề "tổng tất cả các bậc của các đỉnh trong một đồ thị <m>G</m> bằng hai lần số cạnh, tức là <m>\sum_{v \in V(G)} \deg_G(v) = 2|E(G)|</m>" là một định lý, vì nó được chứng minh đúng từ định nghĩa của bậc đỉnh.</p>
-      <p>Xem thêm <xref ref="def-lemma" text="title" />.</p>
+      <p>Xem thêm <xref ref="def-axiom" text="title" />, <xref ref="def-proof" text="title" />, <xref ref="def-lemma" text="title" />, <xref ref="def-corollary" text="title" />, <xref ref="def-conjecture" text="title" />.</p>
     </statement>
   </definition>
   <definition xml:id="def-transpose-of-a-matrix">
@@ -235,7 +235,7 @@ Chẳng hạn, phần tử ở vị trí <m>(3,1)</m> của <m>A^{t}</m> bằng 
         <li><p><term>các cách duyệt cây</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 253 (PDF)); <xref ref="bib-hoangchithanh-2007" /> (tr. 139 (PDF)); <xref ref="bib-rosen-2003-vi" /> (tr. 655 (PDF, bản dịch Rosen)).</p></li>
       </ul>
       <p>Ví dụ: Xét cây có gốc được sắp thứ tự với gốc <m>r</m> có hai cây con, cây con bên trái gồm đỉnh <m>a</m> và cây con bên phải gồm đỉnh <m>b</m>. Duyệt theo thứ tự trước cho danh sách <m>r, a, b</m>, còn duyệt theo thứ tự sau cho danh sách <m>a, b, r</m>.</p>
-      <p>Xem thêm <xref ref="def-rooted-tree" text="title" />.</p>
+      <p>Xem thêm <xref ref="def-ordered-rooted-tree" text="title" />, <xref ref="def-rooted-tree" text="title" />, <xref ref="def-preorder-traversal" text="title" />, <xref ref="def-inorder-traversal" text="title" />, <xref ref="def-postorder-traversal" text="title" />.</p>
     </statement>
   </definition>
   <definition xml:id="def-terminal-vertex">
@@ -255,7 +255,7 @@ Chẳng hạn, phần tử ở vị trí <m>(3,1)</m> của <m>A^{t}</m> bằng 
         <li><p><term>đỉnh kết thúc</term> <xref ref="bib-hoangchithanh-2007" /> (tr. 80 (PDF)); <xref ref="bib-rosen-2003-vi" /> (tr. 460 (PDF, bản dịch Rosen)).</p></li>
       </ul>
       <p>Ví dụ: Với cạnh có hướng <m>(u, v)</m>, đỉnh <m>v</m> là đỉnh cuối còn đỉnh <m>u</m> là đỉnh đầu.</p>
-      <p>Xem thêm <xref ref="def-directed-graph" text="title" />.</p>
+      <p>Xem thêm <xref ref="def-directed-edge" text="title" />, <xref ref="def-directed-graph" text="title" />.</p>
     </statement>
   </definition>
   <definition xml:id="def-tree-diagram">
@@ -270,6 +270,300 @@ Chẳng hạn, phần tử ở vị trí <m>(3,1)</m> của <m>A^{t}</m> bằng 
       </ul>
       <p>Ví dụ: Để đếm số xâu nhị phân độ dài <m>3</m>, ta vẽ cây liệt kê có gốc tương ứng với xâu rỗng; tại mỗi mức ta rẽ thành hai nhánh ứng với việc chọn bit <m>0</m> hoặc bit <m>1</m>, và sau <m>3</m> mức cây có <m>2^3 = 8</m> lá, mỗi lá ứng với một xâu nhị phân khác nhau.</p>
       <p>Xem thêm <xref ref="def-tree" text="title" />, <xref ref="def-rooted-tree" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-term">
+    <title>Term — số hạng</title>
+    <idx><h>term</h></idx>
+    <idx><h>số hạng</h></idx>
+    <notation>
+      <usage><m>a_n</m></usage>
+      <description>số hạng</description>
+    </notation>
+    <statement>
+      <p>Số hạng của một dãy số là mỗi phần tử <m>a_n</m> của dãy đó, tức là giá trị mà hàm xác định dãy gán cho chỉ số <m>n</m>. Với một dãy <m>\{a_n\}</m>, số hạng <m>a_n</m> (ký hiệu chỉ số <m>n</m>) là số hạng thứ <m>n</m> của dãy (theo <xref ref="bib-rosen-2019" />, Rosen §2.4).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>số hạng</term> <xref ref="bib-mat3500" /> (giáo trình MAT3500); <xref ref="bib-rosen-2003-vi" /> (tr. 98 (PDF)); <xref ref="bib-nguyenhoangthach-2020" /> (tr. 41 (PDF)); <xref ref="bib-nguyenhuudien-2019" /> (tr. 97 (PDF)); <xref ref="bib-nguyenducnghia-2006" /> (tr. 34 (PDF)); <xref ref="bib-ngodactan-2004" /> (tr. 128 (PDF)) — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Xét dãy <m>\{a_n\}</m> với <m>a_n = 2^n</m>. Khi đó các số hạng đầu tiên là <m>a_0 = 1</m>, <m>a_1 = 2</m>, <m>a_2 = 4</m>, và số hạng tổng quát của dãy là <m>a_n = 2^n</m> với mọi <m>n \geq 0</m>.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-the-bijection-rule">
+    <title>The Bijection Rule — Quy tắc song ánh</title>
+    <idx><h>the bijection rule</h></idx>
+    <idx><h>Quy tắc song ánh</h></idx>
+    <idx><h>chứng minh bằng song ánh</h></idx>
+    <idx><h>phương pháp song ánh</h></idx>
+    <idx><h>song ánh</h></idx>
+    <notation>
+      <usage><m>|A| = |B|</m></usage>
+      <description>Quy tắc song ánh</description>
+    </notation>
+    <statement>
+      <p>Quy tắc song ánh là một quy tắc đếm cơ bản phát biểu rằng nếu tồn tại một song ánh giữa hai tập hữu hạn <m>A</m> và <m>B</m> thì hai tập đó có cùng số phần tử, tức là <m>|A| = |B|</m>. Do đó, để đếm số phần tử của một tập hữu hạn, ta có thể thiết lập một song ánh từ tập đó tới một tập đã biết số phần tử (theo <xref ref="bib-rosen-2019" />, Rosen §6.1).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>Quy tắc song ánh</term> <xref ref="bib-mat3500" /> (giáo trình MAT3500) — cách dùng phổ biến.</p></li>
+        <li><p><term>chứng minh bằng song ánh</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 22 (PDF)).</p></li>
+        <li><p><term>phương pháp song ánh</term> <xref ref="bib-leanhvinh-2020" /> (tr. 49 (PDF)).</p></li>
+        <li><p><term>song ánh</term> <xref ref="bib-rosen-2003-vi" /> (tr. 86 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Số tập con của một tập <m>n</m> phần tử bằng số xâu nhị phân độ dài <m>n</m>, vì phép gán mỗi tập con với xâu đặc trưng của nó là một song ánh; do đó cả hai đều có <m>2^n</m> phần tử.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-the-chinese-remainder-theorem">
+    <title>The Chinese Remainder Theorem — Định lý phần dư Trung Hoa</title>
+    <idx><h>the chinese remainder theorem</h></idx>
+    <idx><h>Định lý phần dư Trung Hoa</h></idx>
+    <notation>
+      <usage><m>x \equiv a_i \pmod{m_i}</m></usage>
+      <description>Định lý phần dư Trung Hoa</description>
+    </notation>
+    <statement>
+      <p>Định lý phần dư Trung Hoa khẳng định rằng nếu <m>m_1, m_2, \ldots, m_n</m> là các số nguyên dương đôi một nguyên tố cùng nhau, thì hệ phương trình đồng dư <m>x \equiv a_i \pmod{m_i}</m> với <m>1 \leq i \leq n</m> có nghiệm duy nhất theo modun <m>m = m_1 m_2 \cdots m_n</m>. Nghĩa là tồn tại đúng một số nguyên <m>x</m> với <m>0 \leq x  \lt  m</m> thỏa mãn đồng thời tất cả các đồng dư đã cho (theo <xref ref="bib-rosen-2019" />, Rosen §4.3).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>Định lý phần dư Trung Hoa</term> <xref ref="bib-mat3500" /> (giáo trình MAT3500) — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Hệ <m>x \equiv 2 \pmod{3}</m>, <m>x \equiv 3 \pmod{5}</m>, <m>x \equiv 2 \pmod{7}</m> có nghiệm duy nhất <m>x \equiv 23 \pmod{105}</m> vì các modun <m>3</m>, <m>5</m>, <m>7</m> đôi một nguyên tố cùng nhau.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-the-dirichlet-drawer-principle">
+    <title>The Dirichlet Drawer Principle — Nguyên lý Dirichlet</title>
+    <idx><h>the dirichlet drawer principle</h></idx>
+    <idx><h>Nguyên lý Dirichlet</h></idx>
+    <idx><h>Nguyên lý chuồng bồ câu</h></idx>
+    <idx><h>Nguyên lý lồng chim bồ câu</h></idx>
+    <statement>
+      <p>Nguyên lý Dirichlet (còn gọi là nguyên lý lồng chim bồ câu) khẳng định rằng nếu đem xếp nhiều hơn <m>n</m> đối tượng vào <m>n</m> cái hộp thì luôn tồn tại một hộp chứa ít nhất hai đối tượng. Dạng tổng quát phát biểu rằng nếu xếp <m>N</m> đối tượng vào <m>k</m> cái hộp thì tồn tại ít nhất một hộp chứa không ít hơn <m>\lceil N/k \rceil</m> đối tượng (theo <xref ref="bib-rosen-2019" />, Rosen §4.2).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>Nguyên lý Dirichlet</term> <xref ref="bib-mat3500" /> (giáo trình MAT3500); <xref ref="bib-nguyenducnghia-2006" /> (tr. 59 (PDF)); <xref ref="bib-nguyenhoangthach-2020" /> (tr. 53 (PDF)); <xref ref="bib-rosen-2003-vi" /> (tr. 307 (PDF)) — cách dùng phổ biến.</p></li>
+        <li><p><term>Nguyên lý chuồng bồ câu</term> <xref ref="bib-ngodactan-2004" /> (tr. 48 (PDF)).</p></li>
+        <li><p><term>Nguyên lý lồng chim bồ câu</term> <xref ref="bib-rosen-2003-vi" /> (tr. 306 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Trong một nhóm gồm <m>367</m> người, theo nguyên lý Dirichlet luôn có ít nhất hai người có cùng ngày sinh, vì một năm có nhiều nhất <m>366</m> ngày.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-the-division-rule">
+    <title>The Division Rule — Quy tắc chia</title>
+    <idx><h>the division rule</h></idx>
+    <idx><h>Quy tắc chia</h></idx>
+    <statement>
+      <p>Quy tắc chia (ký hiệu trong bài toán đếm) phát biểu rằng nếu một công việc có thể được thực hiện bằng một thủ tục cho ra <m>n</m> cách, và đúng <m>d</m> cách trong số đó tương ứng với cùng một kết quả, thì số kết quả khác nhau là <m>n/d</m>. Tổng quát, nếu một tập hữu hạn <m>A</m> là hợp của <m>n</m> tập con đôi một rời nhau, mỗi tập có đúng <m>d</m> phần tử, thì <m>n = |A|/d</m> (theo <xref ref="bib-rosen-2019" />, Rosen §6.1).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>Quy tắc chia</term> <xref ref="bib-mat3500" /> (giáo trình MAT3500); <xref ref="bib-nguyenhoangthach-2020" /> (tr. 18 (PDF)) — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Có bao nhiêu cách xếp <m>4</m> người vào một bàn tròn, nếu hai cách xếp được coi là như nhau khi mỗi người có cùng người ngồi bên trái và bên phải? Có <m>4! = 24</m> cách xếp theo hàng; mỗi cách xếp vòng tròn ứng với <m>d = 4</m> cách xếp hàng (do xoay vòng), nên theo quy tắc chia có <m>24/4 = 6</m> cách.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-the-first-principle-of-mathematical-induction">
+    <title>The First Principle of Mathematical Induction — Nguyên lý Thứ nhất của Quy nạp toán học</title>
+    <idx><h>the first principle of mathematical induction</h></idx>
+    <idx><h>Nguyên lý Thứ nhất của Quy nạp toán học</h></idx>
+    <idx><h>nguyên lý quy nạp</h></idx>
+    <idx><h>nguyên lý quy nạp toán học</h></idx>
+    <idx><h>phương pháp quy nạp toán học</h></idx>
+    <statement>
+      <p>Nguyên lý thứ nhất của quy nạp toán học khẳng định rằng nếu <m>P(n)</m> là một hàm mệnh đề xác định trên tập các số nguyên dương, <m>P(1)</m> đúng (bước cơ sở), và với mọi số nguyên dương <m>k</m> mệnh đề kéo theo <m>P(k) \rightarrow P(k+1)</m> đúng (bước quy nạp), thì <m>P(n)</m> đúng với mọi số nguyên dương <m>n</m> (theo <xref ref="bib-rosen-2019" />, Rosen §4.1).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>Nguyên lý Thứ nhất của Quy nạp toán học</term> <xref ref="bib-mat3500" /> (giáo trình MAT3500) — cách dùng phổ biến.</p></li>
+        <li><p><term>nguyên lý quy nạp</term> <xref ref="bib-leanhvinh-2020" /> (tr. 17 (PDF)).</p></li>
+        <li><p><term>nguyên lý quy nạp toán học</term> <xref ref="bib-rosen-2003-vi" /> (tr. 233 (PDF)).</p></li>
+        <li><p><term>nguyên lý thứ nhất của quy nạp toán học</term> <xref ref="bib-rosen-2003-vi" /> (tr. 285 (PDF)).</p></li>
+        <li><p><term>phương pháp quy nạp toán học</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 69 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Để chứng minh <m>1 + 2 + \cdots + n = \frac{n(n+1)}{2}</m> với mọi số nguyên dương <m>n</m>, ta kiểm tra <m>P(1)</m> đúng vì <m>1 = \frac{1 \cdot 2}{2}</m>, rồi giả sử <m>P(k)</m> đúng và suy ra <m>P(k+1)</m> bằng cách cộng <m>k+1</m> vào hai vế.</p>
+      <p>Xem thêm <xref ref="def-mathematical-induction" text="title" />, <xref ref="def-the-second-principle-of-mathematical-induction" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-the-generalized-pigeonhole-principle">
+    <title>The Generalized Pigeonhole Principle — Nguyên lý chuồng bồ câu tổng quát</title>
+    <idx><h>the generalized pigeonhole principle</h></idx>
+    <idx><h>Nguyên lý Dirichlet mở rộng</h></idx>
+    <idx><h>Nguyên lý Dirichlet tổng quát</h></idx>
+    <idx><h>Nguyên lý chuồng bồ câu tổng quát</h></idx>
+    <notation>
+      <usage><m>\lceil N/k \rceil</m></usage>
+      <description>Nguyên lý chuồng bồ câu tổng quát</description>
+    </notation>
+    <statement>
+      <p>Nguyên lý chuồng bồ câu tổng quát phát biểu rằng nếu xếp <m>N</m> vật vào <m>k</m> hộp thì luôn tồn tại ít nhất một hộp chứa không ít hơn <m>\lceil N/k \rceil</m> vật. Đây là dạng tổng quát của nguyên lý chuồng bồ câu (còn gọi là nguyên lý Dirichlet), thu được trong trường hợp <m>N \geq k+1</m> (theo <xref ref="bib-rosen-2019" />, Rosen §4.2).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>Nguyên lý chuồng bồ câu tổng quát</term> <xref ref="bib-mat3500" /> (giáo trình MAT3500) — cách dùng phổ biến.</p></li>
+        <li><p><term>Nguyên lý Dirichlet mở rộng</term> <xref ref="bib-ngodactan-2004" /> (tr. 49 (PDF)).</p></li>
+        <li><p><term>Nguyên lý Dirichlet tổng quát</term> <xref ref="bib-rosen-2003-vi" /> (tr. 307 (PDF)); <xref ref="bib-nguyenducnghia-2006" /> (tr. 60 (PDF)); <xref ref="bib-nguyenhuudien-2019" /> (tr. 86 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Trong số <m>100</m> người, theo nguyên lý chuồng bồ câu tổng quát có ít nhất <m>\lceil 100/12 \rceil = 9</m> người sinh cùng một tháng, vì có <m>k = 12</m> tháng.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-the-pigeonhole-principle">
+    <title>The Pigeonhole Principle — Nguyên lý chuồng bồ câu</title>
+    <idx><h>the pigeonhole principle</h></idx>
+    <idx><h>Nguyên lý Dirichlet</h></idx>
+    <idx><h>Nguyên lý chuồng bồ câu</h></idx>
+    <idx><h>Nguyên lý lồng chim bồ câu</h></idx>
+    <notation>
+      <usage><m>\lceil n/k \rceil</m></usage>
+      <description>Nguyên lý chuồng bồ câu</description>
+    </notation>
+    <statement>
+      <p>Nguyên lý chuồng bồ câu (còn gọi là nguyên lý Dirichlet) khẳng định rằng nếu xếp <m>N</m> đồ vật vào <m>k</m> chiếc hộp với <m>N \gt k</m>, thì có ít nhất một hộp chứa từ hai đồ vật trở lên. Dạng tổng quát phát biểu rằng khi xếp <m>N</m> đồ vật vào <m>k</m> hộp thì luôn tồn tại một hộp chứa ít nhất <m>\lceil N/k \rceil</m> đồ vật (theo <xref ref="bib-rosen-2019" />, Rosen §4.2).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>Nguyên lý chuồng bồ câu</term> <xref ref="bib-mat3500" /> (giáo trình MAT3500) — cách dùng phổ biến.</p></li>
+        <li><p><term>Nguyên lý Dirichlet</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 53 (PDF)); <xref ref="bib-nguyenducnghia-2006" /> (tr. 59 (PDF)).</p></li>
+        <li><p><term>Nguyên lý lồng chim bồ câu</term> <xref ref="bib-rosen-2003-vi" /> (tr. 306 (PDF)).</p></li>
+        <li><p><term>nguyên lý chuồng bồ câu</term> <xref ref="bib-ngodactan-2004" /> (tr. 48 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Trong một nhóm <m>13</m> người luôn có ít nhất hai người sinh cùng một tháng, vì có <m>13</m> người (đồ vật) xếp vào <m>12</m> tháng (hộp) và <m>13 \gt 12</m>.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-the-product-rule">
+    <title>The Product Rule — Quy tắc nhân</title>
+    <idx><h>the product rule</h></idx>
+    <idx><h>Quy tắc nhân</h></idx>
+    <idx><h>nguyên lý nhân</h></idx>
+    <statement>
+      <p>Quy tắc nhân là quy tắc đếm phát biểu rằng nếu một công việc được thực hiện qua hai công đoạn kế tiếp, trong đó công đoạn thứ nhất có <m>n_1</m> cách và ứng với mỗi cách đó công đoạn thứ hai có <m>n_2</m> cách, thì có tất cả <m>n_1 \cdot n_2</m> cách để thực hiện công việc. Tổng quát, nếu công việc gồm <m>k</m> công đoạn với số cách lần lượt là <m>n_1, n_2, \ldots, n_k</m> thì số cách thực hiện công việc là <m>n_1 \cdot n_2 \cdots n_k</m> (theo <xref ref="bib-rosen-2019" />, Rosen §6.1).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>Quy tắc nhân</term> <xref ref="bib-mat3500" /> (giáo trình MAT3500) — cách dùng phổ biến.</p></li>
+        <li><p><term>nguyên lý nhân</term> <xref ref="bib-nguyenducnghia-2006" /> (tr. 16 (PDF)); <xref ref="bib-nguyenhuudien-2019" /> (tr. 80 (PDF)); <xref ref="bib-ngodactan-2004" /> (tr. 28 (PDF)).</p></li>
+        <li><p><term>quy tắc nhân</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 13 (PDF)); <xref ref="bib-nguyenhuudien-2019" /> (tr. 94 (PDF)); <xref ref="bib-rosen-2003-vi" /> (tr. 293 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Một bữa ăn được chọn gồm một món đồ uống trong <m>4</m> loại và một món chính trong <m>6</m> loại. Theo quy tắc nhân, có <m>4 \cdot 6 = 24</m> cách chọn bữa ăn.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-the-second-principle-of-mathematical-induction">
+    <title>The Second Principle Of Mathematical Induction — Nguyên lý Thứ hai của Quy nạp toán học</title>
+    <idx><h>the second principle of mathematical induction</h></idx>
+    <idx><h>Nguyên lý Thứ hai của Quy nạp toán học</h></idx>
+    <idx><h>dạng thứ hai của quy nạp</h></idx>
+    <statement>
+      <p>Nguyên lý thứ hai của quy nạp toán học (còn gọi là quy nạp mạnh) là một phương pháp chứng minh khẳng định <m>P(n)</m> đúng với mọi số nguyên dương <m>n</m>, gồm hai bước: bước cơ sở chứng tỏ <m>P(1)</m> đúng, và bước quy nạp chứng tỏ rằng nếu <m>P(1), P(2), \ldots, P(k)</m> đều đúng thì <m>P(k+1)</m> cũng đúng. Điểm khác biệt so với nguyên lý quy nạp thông thường là ở bước quy nạp ta được giả sử <m>P(j)</m> đúng với mọi <m>j</m> thỏa <m>1 \leq j \leq k</m>, chứ không chỉ riêng <m>P(k)</m> (theo <xref ref="bib-rosen-2019" />, Rosen §4.1).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>Nguyên lý Thứ hai của Quy nạp toán học</term> <xref ref="bib-mat3500" /> (giáo trình MAT3500) — cách dùng phổ biến.</p></li>
+        <li><p><term>dạng thứ hai của quy nạp</term> <xref ref="bib-rosen-2003-vi" /> (tr. 240 (PDF)).</p></li>
+        <li><p><term>nguyên lý thứ hai của quy nạp toán học</term> <xref ref="bib-rosen-2003-vi" /> (tr. 240 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Để chứng minh mọi số nguyên <m>n \geq 2</m> đều viết được thành tích các số nguyên tố, ta dùng nguyên lý thứ hai của quy nạp: nếu <m>n</m> là số nguyên tố thì khẳng định hiển nhiên đúng; nếu <m>n = ab</m> với <m>2 \leq a, b  \lt  n</m> thì theo giả thiết quy nạp cả <m>a</m> và <m>b</m> đều viết được thành tích các số nguyên tố, do đó <m>n</m> cũng vậy.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-the-sieve-of-eratosthenes">
+    <title>The Sieve Of Eratosthenes — Sàng Eratosthenes</title>
+    <idx><h>the sieve of eratosthenes</h></idx>
+    <idx><h>Sàng Eratosthenes</h></idx>
+    <statement>
+      <p>Sàng Eratosthenes là một phương pháp tìm tất cả các số nguyên tố không vượt quá một số nguyên dương <m>n</m> cho trước. Bắt đầu từ danh sách các số nguyên từ <m>2</m> đến <m>n</m>, ta lần lượt giữ lại số nguyên tố nhỏ nhất chưa bị loại và gạch bỏ mọi bội của nó; các số còn lại sau khi đã xét mọi số nguyên tố <m>p</m> với <m>p \leq \sqrt{n}</m> chính là tập các số nguyên tố không vượt quá <m>n</m> (theo <xref ref="bib-rosen-2019" />, Rosen §4.3).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>Sàng Eratosthenes</term> <xref ref="bib-mat3500" /> (giáo trình MAT3500) — cách dùng phổ biến.</p></li>
+        <li><p><term>sàng Eratosthenes</term> <xref ref="bib-rosen-2003-vi" /> (tr. 422 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Với <m>n = 30</m>, sau khi gạch bỏ các bội của <m>2</m>, <m>3</m> và <m>5</m> (vì <m>5 \leq \sqrt{30}</m>), các số còn lại là <m>2, 3, 5, 7, 11, 13, 17, 19, 23, 29</m>, đó chính là các số nguyên tố không vượt quá <m>30</m>.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-the-subtraction-rule">
+    <title>The Subtraction Rule — Quy tắc trừ</title>
+    <idx><h>the subtraction rule</h></idx>
+    <idx><h>Quy tắc trừ</h></idx>
+    <notation>
+      <usage><m>|A_1 \cup A_2| = |A_1| + |A_2| - |A_1 \cap A_2|</m></usage>
+      <description>Quy tắc trừ</description>
+    </notation>
+    <statement>
+      <p>Quy tắc trừ (còn gọi là nguyên lý bù trừ cho hai tập hợp) phát biểu rằng nếu một công việc có thể được thực hiện theo cách thứ nhất bằng <m>n_1</m> cách hoặc theo cách thứ hai bằng <m>n_2</m> cách, trong đó một số cách thuộc cả hai loại, thì số cách thực hiện công việc bằng <m>n_1 + n_2</m> trừ đi số cách thuộc cả hai loại. Khi đếm số phần tử của hợp hai tập hữu hạn <m>A_1</m> và <m>A_2</m>, ta có <m>|A_1 \cup A_2| = |A_1| + |A_2| - |A_1 \cap A_2|</m> (theo <xref ref="bib-rosen-2019" />, Rosen §6.1).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>Quy tắc trừ</term> <xref ref="bib-mat3500" /> (giáo trình MAT3500); <xref ref="bib-nguyenhoangthach-2020" /> (tr. 17 (PDF)) — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Số xâu nhị phân độ dài <m>8</m> bắt đầu bằng bit <m>1</m> hoặc kết thúc bằng hai bit <m>00</m> bằng <m>2^7 + 2^6 - 2^5 = 128 + 64 - 32 = 160</m>, vì có <m>2^5</m> xâu thỏa mãn cả hai điều kiện được đếm hai lần.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-the-sum-rule">
+    <title>The Sum Rule — Quy tắc cộng</title>
+    <idx><h>the sum rule</h></idx>
+    <idx><h>Nguyên lý cộng</h></idx>
+    <idx><h>Qui tắc cộng</h></idx>
+    <idx><h>Quy tắc cộng</h></idx>
+    <statement>
+      <p>Quy tắc cộng phát biểu rằng nếu một công việc có thể được thực hiện bằng <m>n_1</m> cách hoặc bằng <m>n_2</m> cách, trong đó hai tập cách làm này không có cách nào trùng nhau, thì có tất cả <m>n_1 + n_2</m> cách thực hiện công việc đó. Phát biểu dưới dạng tập hợp: nếu <m>A_1, A_2, \dots, A_m</m> là các tập hữu hạn đôi một rời nhau thì <m>|A_1 \cup A_2 \cup \dots \cup A_m| = |A_1| + |A_2| + \dots + |A_m|</m> (theo <xref ref="bib-rosen-2019" />, Rosen §6.1).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>Quy tắc cộng</term> <xref ref="bib-mat3500" /> (giáo trình MAT3500); <xref ref="bib-nguyenhoangthach-2020" /> (tr. 15 (PDF)); <xref ref="bib-nguyenhuudien-2019" /> (tr. 83 (PDF)); <xref ref="bib-rosen-2003-vi" /> (tr. 292 (PDF)) — cách dùng phổ biến.</p></li>
+        <li><p><term>Nguyên lý cộng</term> <xref ref="bib-nguyenducnghia-2006" /> (tr. 15 (PDF)); <xref ref="bib-nguyenhuudien-2019" /> (tr. 78 (PDF)).</p></li>
+        <li><p><term>Qui tắc cộng</term> <xref ref="bib-ngodactan-2004" /> (tr. 26 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Một sinh viên chọn một đề tài từ một trong ba danh sách gồm <m>23</m>, <m>15</m> và <m>19</m> đề tài, các danh sách không có đề tài nào chung. Theo quy tắc cộng, số đề tài có thể chọn là <m>23 + 15 + 19 = 57</m>.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-time-complexity">
+    <title>Time Complexity — Độ phức tạp theo thời gian</title>
+    <idx><h>time complexity</h></idx>
+    <idx><h>Độ phức tạp theo thời gian</h></idx>
+    <idx><h>độ phức tạp thời gian</h></idx>
+    <notation>
+      <usage><m>O(f(n))</m></usage>
+      <description>Độ phức tạp theo thời gian</description>
+    </notation>
+    <statement>
+      <p>Độ phức tạp theo thời gian của một thuật toán là lượng thời gian mà thuật toán cần để giải bài toán có dữ liệu vào kích thước <m>n</m>, thường được đo bằng số phép toán cơ bản mà thuật toán thực hiện. Độ phức tạp theo thời gian thường được mô tả bằng ký hiệu tiệm cận, chẳng hạn <m>O(f(n))</m>, để cho biết tốc độ tăng của số phép toán khi <m>n</m> tăng lớn (theo <xref ref="bib-rosen-2019" />, Rosen §3.3).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>Độ phức tạp theo thời gian</term> <xref ref="bib-mat3500" /> (giáo trình MAT3500) — cách dùng phổ biến.</p></li>
+        <li><p><term>độ phức tạp thời gian</term> <xref ref="bib-rosen-2003-vi" /> (tr. 142 (PDF)); <xref ref="bib-nguyenhuudien-2019" /> (tr. 136 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Thuật toán tìm kiếm tuyến tính trên một dãy có <m>n</m> phần tử có độ phức tạp theo thời gian là <m>O(n)</m> trong trường hợp xấu nhất, trong khi thuật toán tìm kiếm nhị phân trên dãy đã sắp xếp chỉ có độ phức tạp theo thời gian là <m>O(\log n)</m>.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-traveling-salesman-problem">
+    <title>Traveling Salesman Problem — Bài toán người giao hàng</title>
+    <idx><h>traveling salesman problem</h></idx>
+    <idx><h>Bài toán người du lịch</h></idx>
+    <idx><h>Bài toán người giao hàng</h></idx>
+    <statement>
+      <p>Bài toán người giao hàng (ký hiệu TSP) là bài toán tìm một chu trình Hamilton có tổng trọng số nhỏ nhất trong một đồ thị có trọng số đầy đủ <m>K_n</m>. Cho <m>n</m> thành phố cùng chi phí di chuyển giữa mỗi cặp thành phố, ta cần tìm hành trình xuất phát từ một thành phố, đi qua mỗi thành phố còn lại đúng một lần rồi quay về thành phố ban đầu sao cho tổng chi phí là nhỏ nhất (theo <xref ref="bib-rosen-2019" />, Rosen §10.5).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>Bài toán người giao hàng</term> <xref ref="bib-mat3500" /> (giáo trình MAT3500) — cách dùng phổ biến.</p></li>
+        <li><p><term>Bài toán người du lịch</term> <xref ref="bib-nguyenducnghia-2006" /> (tr. 115 (PDF)); <xref ref="bib-hoangchithanh-2007" /> (tr. 82 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Với <m>n</m> thành phố, tổng số hành trình khả dĩ là <m>(n-1)!/2</m> nếu không phân biệt chiều đi, nên việc duyệt vét cạn nhanh chóng trở nên bất khả thi khi <m>n</m> lớn; chẳng hạn với <m>n = 6</m> thành phố ta giải bài toán bằng thuật toán nhánh cận thay vì liệt kê toàn bộ.</p>
+      <p>Xem thêm <xref ref="def-weighted-graph" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-trivial-proof">
+    <title>Trivial Proof — Chứng minh hiển nhiên</title>
+    <idx><h>trivial proof</h></idx>
+    <idx><h>Chứng minh hiển nhiên</h></idx>
+    <idx><h>chứng minh tầm thường</h></idx>
+    <statement>
+      <p>Chứng minh hiển nhiên là phương pháp chứng minh một mệnh đề kéo theo <m>p \to q</m> bằng cách chỉ ra rằng kết luận <m>q</m> là đúng; khi đó <m>p \to q</m> đúng mà không cần xét đến giá trị chân lý của giả thiết <m>p</m> (theo <xref ref="bib-rosen-2019" />, Rosen §1.6).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>Chứng minh hiển nhiên</term> <xref ref="bib-mat3500" /> (giáo trình MAT3500) — cách dùng phổ biến.</p></li>
+        <li><p><term>chứng minh tầm thường</term> <xref ref="bib-rosen-2003-vi" /> (tr. 215 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Xét mệnh đề: nếu <m>a \geq b</m> với <m>a, b</m> là các số thực dương thì <m>a^n \geq b^n</m> khi <m>n = 0</m>. Vì <m>a^0 = b^0 = 1</m> nên kết luận <m>a^0 \geq b^0</m> luôn đúng; do đó mệnh đề đúng theo cách chứng minh hiển nhiên, không phụ thuộc giả thiết <m>a \geq b</m>.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-twos-complement-notation">
+    <title>Two's Complement Notation — ký hiệu phần bù hai</title>
+    <idx><h>two's complement notation</h></idx>
+    <idx><h>ký hiệu phần bù hai</h></idx>
+    <statement>
+      <p>Ký hiệu phần bù hai là cách biểu diễn các số nguyên trên máy tính dùng <m>n</m> bit, trong đó một số nguyên <m>a</m> với <m>-2^{n-1} \leq a \leq 2^{n-1}-1</m> được biểu diễn như sau: nếu <m>a \geq 0</m> thì dùng biểu diễn nhị phân <m>n</m> bit của <m>a</m> với bit dấu (bit ngoài cùng bên trái) bằng <m>0</m>; nếu <m>a  \lt  0</m> thì lấy biểu diễn nhị phân <m>n</m> bit của số dương <m>2^{n-1}+a</m> và đặt bit dấu bằng <m>1</m>. Một cách tương đương, biểu diễn phần bù hai của <m>-a</m> nhận được bằng cách lấy phần bù từng bit của biểu diễn của <m>a</m> rồi cộng thêm <m>1</m> (theo <xref ref="bib-rosen-2019" />, Rosen §4.2).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>ký hiệu phần bù hai</term> <xref ref="bib-mat3500" /> (giáo trình MAT3500) — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Với <m>n = 6</m> bit, số <m>13</m> có biểu diễn phần bù hai là <m>001101</m> (bit dấu <m>0</m>). Để biểu diễn <m>-13</m>, ta lấy phần bù từng bit của <m>001101</m> được <m>110010</m> rồi cộng <m>1</m>, thu được <m>110011</m> (bit dấu <m>1</m>).</p>
     </statement>
   </definition>
 </chapter>

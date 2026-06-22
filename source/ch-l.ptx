@@ -84,7 +84,7 @@
         <li><p><term>bổ đề</term> <xref ref="bib-leanhvinh-2020" /> (tr. 98 (PDF)); <xref ref="bib-hoangchithanh-2007" /> (tr. 37 (PDF)); <xref ref="bib-ngodactan-2004" /> (tr. 139 (PDF)); <xref ref="bib-rosen-2003-vi" /> (tr. 463 (PDF, bản dịch Rosen)) — cách dùng phổ biến.</p></li>
       </ul>
       <p>Ví dụ: Để chứng minh định lý <m>\sqrt{2}</m> là số vô tỉ, ta dùng bổ đề: nếu <m>n^2</m> là số chẵn thì <m>n</m> là số chẵn.</p>
-      <p>Xem thêm <xref ref="def-theorem" text="title" />.</p>
+      <p>Xem thêm <xref ref="def-theorem" text="title" />, <xref ref="def-corollary" text="title" />, <xref ref="def-conjecture" text="title" />.</p>
     </statement>
   </definition>
   <definition xml:id="def-length-of-a-path">
@@ -167,7 +167,7 @@
         <li><p><term>tương đương lôgic</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 68 (PDF)).</p></li>
       </ul>
       <p>Ví dụ: Hai mệnh đề <m>\neg(p \wedge q)</m> và <m>\neg p \vee \neg q</m> là tương đương logic, vì chúng nhận cùng chân trị với mọi cách gán chân trị cho <m>p</m> và <m>q</m>.</p>
-      <p>Xem thêm <xref ref="def-tautology" text="title" />, <xref ref="def-truth-table" text="title" />.</p>
+      <p>Xem thêm <xref ref="def-logically-equivalent" text="title" />, <xref ref="def-tautology" text="title" />, <xref ref="def-compound-proposition" text="title" />, <xref ref="def-truth-table" text="title" />.</p>
     </statement>
   </definition>
   <definition xml:id="def-loop">
@@ -233,7 +233,7 @@
         <li><p><term>đồ thị đường</term> <xref ref="bib-leanhvinh-2020" /> (tr. 244 (PDF)); <xref ref="bib-leanhvinh-2020" /> (tr. 245 (PDF)); <xref ref="bib-hoangchithanh-2007" /> (tr. 90 (PDF)) — cách dùng phổ biến.</p></li>
       </ul>
       <p>Ví dụ: Xét đồ thị <m>G</m> với các cạnh <m>e_1 = ab</m> và <m>e_2 = bc</m>. Hai cạnh này có chung đầu mút <m>b</m>, nên trong <m>L(G)</m> hai đỉnh <m>e_1</m> và <m>e_2</m> kề nhau.</p>
-      <p>Xem thêm <xref ref="def-graph" text="title" />, <xref ref="def-edge" text="title" />, <xref ref="def-simple-graph" text="title" />, <xref ref="def-vertex" text="title" />.</p>
+      <p>Xem thêm <xref ref="def-graph" text="title" />, <xref ref="def-edge" text="title" />, <xref ref="def-adjacent" text="title" />, <xref ref="def-simple-graph" text="title" />, <xref ref="def-vertex" text="title" />.</p>
     </statement>
   </definition>
   <definition xml:id="def-latin-square">
@@ -285,6 +285,249 @@
       </ul>
       <p>Ví dụ: Cổng <m>\mathrm{AND}</m> với hai bit đầu vào <m>x</m> và <m>y</m> tạo ra đầu ra <m>x \cdot y</m>, bằng <m>1</m> khi và chỉ khi <m>x = y = 1</m>.</p>
       <p>Xem thêm <xref ref="def-boolean-function" text="title" />, <xref ref="def-boolean-algebra" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-left-child">
+    <title>Left Child — đỉnh con trái</title>
+    <idx><h>left child</h></idx>
+    <idx><h>con trái</h></idx>
+    <idx><h>đỉnh con trái</h></idx>
+    <statement>
+      <p>Đỉnh con trái của một đỉnh <m>v</m> trong cây nhị phân có gốc là đỉnh con nằm ở vị trí bên trái của <m>v</m> (ký hiệu là con trái của <m>v</m>). Mỗi đỉnh trong cây nhị phân có nhiều nhất một đỉnh con trái và một đỉnh con phải (theo <xref ref="bib-rosen-2019" />, Rosen §10.2).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>đỉnh con trái</term> <xref ref="bib-mat3500" /> (giáo trình MAT3500) — cách dùng phổ biến.</p></li>
+        <li><p><term>con trái</term> <xref ref="bib-rosen-2003-vi" /> (tr. 640 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Trong cây nhị phân biểu diễn biểu thức số học, nếu một đỉnh trong tương ứng với phép toán <m>+</m> thì đỉnh con trái của nó là gốc của cây con biểu diễn toán hạng thứ nhất.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-left-subtree">
+    <title>Left Subtree — cây con trái</title>
+    <idx><h>left subtree</h></idx>
+    <idx><h>cây con bên trái</h></idx>
+    <idx><h>cây con trái</h></idx>
+    <statement>
+      <p>Cây con trái của một đỉnh <m>v</m> trong cây nhị phân là cây con có gốc là con bên trái của <m>v</m>, gồm con bên trái này cùng tất cả các đỉnh thuộc dòng dõi của nó. Nếu <m>v</m> không có con bên trái thì cây con trái của <m>v</m> là rỗng (theo <xref ref="bib-rosen-2019" />, Rosen §11.1).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>cây con trái</term> <xref ref="bib-mat3500" /> (giáo trình MAT3500); <xref ref="bib-nguyenhuudien-2019" /> (tr. 254 (PDF)) — cách dùng phổ biến.</p></li>
+        <li><p><term>cây con bên trái</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 259 (PDF)); <xref ref="bib-rosen-2003-vi" /> (tr. 625 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Trong cây nhị phân tìm kiếm, mọi khóa thuộc cây con trái của một đỉnh đều nhỏ hơn khóa của đỉnh đó.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-length">
+    <title>Length — Độ dài</title>
+    <idx><h>length</h></idx>
+    <idx><h>Độ dài</h></idx>
+    <notation>
+      <usage><m>\ell(P)</m></usage>
+      <description>Độ dài</description>
+    </notation>
+    <statement>
+      <p>Độ dài của một đường đi (hoặc chu trình) trong đồ thị là số cạnh xuất hiện trong đường đi (hoặc chu trình) đó. Với đồ thị có trọng số, độ dài của đường đi <m>P</m>, ký hiệu <m>\ell(P)</m>, là tổng trọng số của các cạnh trên <m>P</m> (theo <xref ref="bib-rosen-2019" />, Rosen §10.4).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>Độ dài</term> <xref ref="bib-mat3500" /> (giáo trình MAT3500); <xref ref="bib-nguyenhuudien-2019" /> (tr. 112 (PDF)); <xref ref="bib-leanhvinh-2020" /> (tr. 16 (PDF)); <xref ref="bib-hoangchithanh-2007" /> (tr. 11 (PDF)); <xref ref="bib-nguyenducnghia-2006" /> (tr. 227 (PDF)); <xref ref="bib-ngodactan-2004" /> (tr. 146 (PDF)); <xref ref="bib-rosen-2003-vi" /> (tr. 918 (PDF)) — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Trong đường đi <m>\langle a, b, c, d \rangle</m> gồm ba cạnh <m>ab</m>, <m>bc</m>, <m>cd</m>, độ dài bằng <m>3</m>. Khoảng cách giữa hai đỉnh <m>u</m> và <m>v</m>, ký hiệu <m>d(u,v)</m>, là độ dài của đường đi ngắn nhất nối <m>u</m> và <m>v</m>.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-level">
+    <title>Level — Mức</title>
+    <idx><h>level</h></idx>
+    <idx><h>Mức</h></idx>
+    <statement>
+      <p>Mức của một đỉnh <m>v</m> trong cây có gốc là độ dài của đường đi duy nhất từ gốc tới <m>v</m>. Mức của gốc được định nghĩa bằng <m>0</m>; nếu mức của đỉnh cha bằng <m>i</m> thì mức của các đỉnh con của nó bằng <m>i+1</m> (theo <xref ref="bib-rosen-2019" />, Rosen §10.2).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>Mức</term> <xref ref="bib-mat3500" /> (giáo trình MAT3500); <xref ref="bib-nguyenhuudien-2019" /> (tr. 252 (PDF)); <xref ref="bib-hoangchithanh-2007" /> (tr. 137 (PDF)); <xref ref="bib-rosen-2003-vi" /> (tr. 630 (PDF)) — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Trong cây có gốc với gốc <m>a</m>, đỉnh gốc <m>a</m> có mức <m>0</m>; các đỉnh con trực tiếp <m>b</m>, <m>c</m> của <m>a</m> có mức <m>1</m>; các đỉnh <m>d</m>, <m>e</m>, <m>f</m> có mức <m>2</m>; và các đỉnh <m>g</m>, <m>h</m>, <m>k</m> có mức <m>3</m>. Chiều cao của cây là mức lớn nhất trong số các đỉnh của cây.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-lexicographic-order">
+    <title>Lexicographic Order — thứ tự từ điển</title>
+    <idx><h>lexicographic order</h></idx>
+    <idx><h>thứ tự từ điển</h></idx>
+    <notation>
+      <usage><m>\prec</m></usage>
+      <description>thứ tự từ điển</description>
+    </notation>
+    <statement>
+      <p>Thứ tự từ điển là cách sắp thứ tự các xâu (hoặc các bộ, hoán vị, tổ hợp) dựa trên thứ tự của tập các phần tử cơ sở, mô phỏng cách sắp xếp các từ trong từ điển. Với hai xâu <m>a_1 a_2 \ldots a_n</m> và <m>b_1 b_2 \ldots b_n</m> trên một tập đã được sắp thứ tự, ta nói <m>a_1 a_2 \ldots a_n</m> đi trước <m>b_1 b_2 \ldots b_n</m> theo thứ tự từ điển (ký hiệu <m>a_1 a_2 \ldots a_n \prec b_1 b_2 \ldots b_n</m>) nếu tại vị trí đầu tiên mà hai xâu khác nhau, phần tử của xâu thứ nhất nhỏ hơn phần tử tương ứng của xâu thứ hai (theo <xref ref="bib-rosen-2019" />, Rosen §6.6).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>thứ tự từ điển</term> <xref ref="bib-mat3500" /> (giáo trình MAT3500); <xref ref="bib-nguyenhuudien-2019" /> (tr. 95 (PDF)); <xref ref="bib-nguyenducnghia-2006" /> (tr. 97 (PDF)); <xref ref="bib-rosen-2003-vi" /> (tr. 353 (PDF)) — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Trên tập <m>\{1,2,3\}</m> với thứ tự thông thường, các hoán vị được liệt kê theo thứ tự từ điển là <m>123, 132, 213, 231, 312, 321</m>. Chẳng hạn <m>231 \prec 312</m> vì tại vị trí đầu tiên ta có <m>2 \leq 3</m> và <m>2 \neq 3</m>.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-linear-congruence">
+    <title>Linear Congruence — phương trình đồng dư tuyến tính</title>
+    <idx><h>linear congruence</h></idx>
+    <idx><h>phương trình đồng dư tuyến tính</h></idx>
+    <notation>
+      <usage><m>ax \equiv b \pmod{m}</m></usage>
+      <description>phương trình đồng dư tuyến tính</description>
+    </notation>
+    <statement>
+      <p>Phương trình đồng dư tuyến tính là phương trình có dạng <m>ax \equiv b \pmod{m}</m>, trong đó <m>a</m>, <m>b</m> là các số nguyên, <m>m</m> là số nguyên dương và <m>x</m> là ẩn nguyên cần tìm. Phương trình này có nghiệm khi và chỉ khi <m>\gcd(a, m) \mid b</m>, và khi đó số nghiệm phân biệt theo modulo <m>m</m> bằng <m>\gcd(a, m)</m> (theo <xref ref="bib-rosen-2019" />, Rosen §4.4).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>phương trình đồng dư tuyến tính</term> <xref ref="bib-mat3500" /> (giáo trình MAT3500) — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Phương trình <m>3x \equiv 4 \pmod{7}</m> có nghiệm vì <m>\gcd(3, 7) = 1 \mid 4</m>. Vì nghịch đảo của <m>3</m> theo modulo <m>7</m> là <m>5</m> nên <m>x \equiv 5 \cdot 4 \equiv 20 \equiv 6 \pmod{7}</m>.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-literal">
+    <title>Literal — tục biến</title>
+    <idx><h>literal</h></idx>
+    <idx><h>tục biến</h></idx>
+    <notation>
+      <usage><m>x_i \text{ hoặc } \overline{x_i}</m></usage>
+      <description>tục biến</description>
+    </notation>
+    <statement>
+      <p>Tục biến là một biến Boole hoặc phần bù của biến đó, tức là biểu thức có dạng <m>x_i</m> hoặc <m>\overline{x_i}</m>. Một tích Boole <m>y_1 y_2 \cdots y_n</m> trong đó mỗi <m>y_i</m> bằng <m>x_i</m> hoặc <m>\overline{x_i}</m> chính là tích của <m>n</m> tục biến và được gọi là một tiểu hạng (minterm) (theo <xref ref="bib-rosen-2019" />, Rosen §12.2).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>tục biến</term> <xref ref="bib-mat3500" /> (giáo trình MAT3500); <xref ref="bib-rosen-2003-vi" /> (tr. 722 (PDF)) — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Với hai biến <m>x</m> và <m>y</m>, các tục biến là <m>x</m>, <m>\overline{x}</m>, <m>y</m> và <m>\overline{y}</m>. Tích Boole <m>x\,\overline{y}</m> là tích của hai tục biến.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-logarithm">
+    <title>Logarithm — lôgarit</title>
+    <idx><h>logarithm</h></idx>
+    <idx><h>logarit</h></idx>
+    <idx><h>lôgarit</h></idx>
+    <notation>
+      <usage><m>\log_b x</m></usage>
+      <description>lôgarit</description>
+    </notation>
+    <statement>
+      <p>Lôgarit cơ số <m>b</m> của một số dương <m>x</m>, ký hiệu <m>\log_b x</m>, là số mũ <m>y</m> thỏa mãn <m>b^y = x</m>, trong đó cơ số <m>b</m> là một số thực dương khác <m>1</m>. Nói cách khác, hàm lôgarit là hàm ngược của hàm mũ <m>b^y</m> (theo <xref ref="bib-rosen-2019" />, Rosen §3.2).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>lôgarit</term> <xref ref="bib-mat3500" /> (giáo trình MAT3500); <xref ref="bib-rosen-2003-vi" /> (tr. 92 (PDF)); <xref ref="bib-nguyenhuudien-2019" /> (tr. 141 (PDF)) — cách dùng phổ biến.</p></li>
+        <li><p><term>logarit</term> <xref ref="bib-ngodactan-2004" /> (tr. 73 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Ta có <m>\log_2 8 = 3</m> vì <m>2^3 = 8</m>, và <m>\log_{10} 1000 = 3</m> vì <m>10^3 = 1000</m>. Trong phân tích độ phức tạp thuật toán, tìm kiếm nhị phân trên <m>n</m> phần tử cần <m>O(\log n)</m> phép so sánh, gọi là độ phức tạp lôgarit.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-logical-argument">
+    <title>Logical Argument — Một lập luận lôgic</title>
+    <idx><h>logical argument</h></idx>
+    <idx><h>Một lập luận lôgic</h></idx>
+    <idx><h>lập luận</h></idx>
+    <idx><h>suy luận</h></idx>
+    <notation>
+      <usage><m>p_1, p_2, \ldots, p_n \therefore q</m></usage>
+      <description>Một lập luận lôgic</description>
+    </notation>
+    <statement>
+      <p>Một lập luận lôgic là một dãy các mệnh đề <m>p_1, p_2, \ldots, p_n</m>, gọi là các tiền đề, cùng với một mệnh đề <m>q</m> ở cuối, gọi là kết luận. Lập luận là hợp lệ (đúng đắn) nếu khi tất cả các tiền đề <m>p_1, p_2, \ldots, p_n</m> đều đúng thì kết luận <m>q</m> cũng đúng, tức là <m>(p_1 \wedge p_2 \wedge \cdots \wedge p_n) \to q</m> là một hằng đúng (theo <xref ref="bib-rosen-2019" />, Rosen §1.5).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>Một lập luận lôgic</term> <xref ref="bib-mat3500" /> (giáo trình MAT3500) — cách dùng phổ biến.</p></li>
+        <li><p><term>lập luận</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 28 (PDF)); <xref ref="bib-rosen-2003-vi" /> (tr. 222 (PDF)).</p></li>
+        <li><p><term>suy luận</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 30 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Suy luận <m>p \to q</m>, <m>p</m>, do đó <m>q</m> (quy tắc Modus Ponens) là một lập luận lôgic hợp lệ: nếu cả <m>p \to q</m> và <m>p</m> đều đúng thì <m>q</m> đúng.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-logical-operators">
+    <title>Logical Operators — toán tử lôgic</title>
+    <idx><h>logical operators</h></idx>
+    <idx><h>liên kết logic</h></idx>
+    <idx><h>phép toán logic</h></idx>
+    <idx><h>toán tử logic</h></idx>
+    <idx><h>toán tử lôgic</h></idx>
+    <notation>
+      <usage><m>\neg,\ \wedge,\ \vee,\ \rightarrow,\ \leftrightarrow</m></usage>
+      <description>toán tử lôgic</description>
+    </notation>
+    <statement>
+      <p>Toán tử lôgic (còn gọi là phép toán lôgic hay liên kết lôgic) là các phép toán dùng để tạo ra mệnh đề phức hợp mới từ một hoặc nhiều mệnh đề đã có. Các toán tử lôgic cơ bản gồm phủ định (ký hiệu <m>\neg</m>), hội (ký hiệu <m>\wedge</m>), tuyển (ký hiệu <m>\vee</m>), kéo theo (ký hiệu <m>\rightarrow</m>) và tương đương (ký hiệu <m>\leftrightarrow</m>), với giá trị chân lý được xác định bằng bảng chân trị (theo <xref ref="bib-rosen-2019" />, Rosen §1.1).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>toán tử lôgic</term> <xref ref="bib-mat3500" /> (giáo trình MAT3500) — cách dùng phổ biến.</p></li>
+        <li><p><term>liên kết logic</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 15 (PDF)).</p></li>
+        <li><p><term>phép toán logic</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 15 (PDF)).</p></li>
+        <li><p><term>toán tử logic</term> <xref ref="bib-rosen-2003-vi" /> (tr. 7 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Với hai mệnh đề <m>p</m> và <m>q</m>, các toán tử lôgic tạo ra các mệnh đề phức hợp như <m>\neg p</m>, <m>p \wedge q</m>, <m>p \vee q</m>, <m>p \rightarrow q</m> và <m>p \leftrightarrow q</m>.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-logical-rules-of-inference">
+    <title>Logical Rules Of Inference — Các quy tắc suy luận lôgic</title>
+    <idx><h>logical rules of inference</h></idx>
+    <idx><h>Các quy tắc suy luận lôgic</h></idx>
+    <idx><h>luật suy diễn</h></idx>
+    <idx><h>quy tắc suy diễn</h></idx>
+    <idx><h>quy tắc suy luận</h></idx>
+    <statement>
+      <p>Các quy tắc suy luận lôgic là những mẫu suy luận hợp lệ cho phép từ một tập các giả thiết <m>p_1, p_2, \dots, p_n</m> rút ra một kết luận <m>q</m>, trong đó mỗi quy tắc tương ứng với một hằng đúng có dạng <m>(p_1 \wedge p_2 \wedge \dots \wedge p_n) \to q</m>. Một suy luận dùng các quy tắc này được gọi là suy luận đúng đắn (suy luận có cơ sở) (theo <xref ref="bib-rosen-2019" />, Rosen §1.6).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>Các quy tắc suy luận lôgic</term> <xref ref="bib-mat3500" /> (giáo trình MAT3500) — cách dùng phổ biến.</p></li>
+        <li><p><term>luật suy diễn</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 29 (PDF)).</p></li>
+        <li><p><term>quy tắc suy diễn</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 28 (PDF)).</p></li>
+        <li><p><term>quy tắc suy luận</term> <xref ref="bib-rosen-2003-vi" /> (tr. 211 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Quy tắc khẳng định (modus ponens) có dạng <m>\big(p \wedge (p \to q)\big) \to q</m>: từ <m>p</m> và <m>p \to q</m> ta suy ra <m>q</m>.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-logically-equivalent">
+    <title>Logically Equivalent — tương đương lôgic</title>
+    <idx><h>logically equivalent</h></idx>
+    <idx><h>tương đương logic</h></idx>
+    <idx><h>tương đương lôgic</h></idx>
+    <notation>
+      <usage><m>p \equiv q</m></usage>
+      <description>tương đương lôgic</description>
+    </notation>
+    <statement>
+      <p>Hai mệnh đề (hay biểu thức lôgic) <m>p</m> và <m>q</m> được gọi là tương đương lôgic nếu chúng có cùng chân trị trong mọi cách gán giá trị chân lý cho các biến mệnh đề thành phần, tức là mệnh đề tương đương <m>p \leftrightarrow q</m> là một hằng đúng. Khi đó ta viết <m>p \equiv q</m> (ký hiệu khác là <m>p \Leftrightarrow q</m>) (theo <xref ref="bib-rosen-2019" />, Rosen §1.2).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>tương đương lôgic</term> <xref ref="bib-mat3500" /> (giáo trình MAT3500); <xref ref="bib-nguyenhuudien-2019" /> (tr. 68 (PDF)) — cách dùng phổ biến.</p></li>
+        <li><p><term>tương đương logic</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 21 (PDF)); <xref ref="bib-rosen-2003-vi" /> (tr. 23 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Theo luật De Morgan, hai mệnh đề <m>\neg(p \vee q)</m> và <m>\neg p \wedge \neg q</m> là tương đương lôgic, vì chúng có cùng chân trị với mọi giá trị của <m>p</m> và <m>q</m>, nên <m>\neg(p \vee q) \equiv \neg p \wedge \neg q</m>.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-loop-invariant">
+    <title>Loop Invariant — Bất biến vòng lặp</title>
+    <idx><h>loop invariant</h></idx>
+    <idx><h>Bất biến vòng lặp</h></idx>
+    <statement>
+      <p>Bất biến vòng lặp của một vòng lặp trong chương trình là một điều khẳng định <m>p</m> vẫn còn đúng mỗi khi thân vòng lặp được thực hiện. Nói cách khác, nếu <m>p</m> đúng trước một lần lặp thì <m>p</m> cũng đúng sau lần lặp đó, nhờ vậy <m>p</m> được dùng để chứng minh tính đúng đắn của vòng lặp (theo <xref ref="bib-rosen-2019" />, Rosen §4.5).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>Bất biến vòng lặp</term> <xref ref="bib-mat3500" /> (giáo trình MAT3500) — cách dùng phổ biến.</p></li>
+        <li><p><term>bất biến vòng lặp</term> <xref ref="bib-rosen-2003-vi" /> (tr. 274 (PDF)); <xref ref="bib-rosen-2003-vi" /> (tr. 275 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Xét vòng lặp tính <m>x^n</m> bằng cách nhân dồn, với điều khẳng định <m>p</m> là "<m>\texttt{power} = x^i</m> và <m>i \leq n</m>". Có thể kiểm tra <m>p</m> đúng trước khi vào vòng lặp và vẫn đúng sau mỗi lần lặp, nên <m>p</m> là một bất biến vòng lặp dùng để chứng minh chương trình cho kết quả <m>x^n</m>.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-lower-limit">
+    <title>Lower Limit — giới hạn dưới</title>
+    <idx><h>lower limit</h></idx>
+    <idx><h>giới hạn dưới</h></idx>
+    <notation>
+      <usage><m>\sum_{i=m}^{n} a_i</m></usage>
+      <description>giới hạn dưới</description>
+    </notation>
+    <statement>
+      <p>Giới hạn dưới của một tổng <m>\sum_{i=m}^{n} a_i</m> là giá trị nhỏ nhất <m>m</m> của chỉ số lấy tổng <m>i</m>, tức là cận đầu của khoảng chạy của <m>i</m> trong tổng. Chỉ số <m>i</m> nhận lần lượt các giá trị nguyên từ giới hạn dưới <m>m</m> đến giới hạn trên <m>n</m> (với <m>m \leq n</m>) (theo <xref ref="bib-rosen-2019" />, Rosen §2.4).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>giới hạn dưới</term> <xref ref="bib-mat3500" /> (giáo trình MAT3500); <xref ref="bib-rosen-2003-vi" /> (tr. 99 (PDF)) — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Trong tổng <m>\sum_{i=1}^{100} i^2</m>, giới hạn dưới của chỉ số lấy tổng là <m>1</m> và giới hạn trên là <m>100</m>.</p>
     </statement>
   </definition>
 </chapter>

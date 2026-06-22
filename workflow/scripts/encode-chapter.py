@@ -106,7 +106,9 @@ def render_entry(e, allowed_ids):
             cites = "; ".join(f'<xref ref="{sid}" /> ({esc_text(pg)})' for sid, pg in g["cites"])
             body += " " + cites
         else:
-            body += " <em>(thuật ngữ chuẩn; chưa truy được trong kho văn bản)</em>"
+            note = ("thuật ngữ chuẩn; chưa truy được trong kho văn bản"
+                    if g["recommended"] else "biến thể, chưa có trích dẫn cụ thể")
+            body += f" <em>({note})</em>"
         if g["recommended"]:
             body += " — cách dùng phổ biến"
         lines.append(f"        <li><p>{body}.</p></li>")

@@ -41,6 +41,8 @@ def load_registry_ids() -> set:
 
 def main() -> int:
     source_ids = load_registry_ids()
+    all_ids = {e["id"] for f in glob.glob(os.path.join(ROOT, "data", "terms", "entries-*.yaml"))
+               for e in (yaml.safe_load(open(f, encoding="utf-8")) or {}).get("entries", []) if e.get("id")}
     seen_ids: dict[str, str] = {}
     n_entries = 0
 
@@ -53,9 +55,14 @@ def main() -> int:
             eid = e.get("id", "<missing id>")
             where = f"{rel}:{eid}"
 
-            for field in ("id", "letter", "headword_en", "definition_vi", "vi_terms"):
+            is_stub = bool(e.get("see_ref"))
+            req = (["id", "letter", "headword_en"] if is_stub
+                   else ["id", "letter", "headword_en", "definition_vi", "vi_terms"])
+            for field in req:
                 if not e.get(field):
                     errors.append(f"{where}: missing required field '{field}'")
+            if is_stub and e.get("see_ref") not in all_ids:
+                errors.append(f"{where}: see_ref '{e.get('see_ref')}' not found among entries")
 
             if e.get("id"):
                 if not KEBAB.match(e["id"]):
@@ -71,6 +78,9 @@ def main() -> int:
             status = e.get("status", "draft")
             if status not in VALID_STATUS:
                 errors.append(f"{where}: invalid status '{status}'")
+
+            if is_stub:
+                continue
 
             recommended = 0
             for t in e.get("vi_terms", []) or []:

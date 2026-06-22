@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<chapter xml:id="ch-t" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>T</title>
+
+  <introduction>
+    <p>
+      Chương này tập hợp các thuật ngữ tiếng Anh bắt đầu bằng chữ <q>T</q>, kèm
+      định nghĩa và các thuật ngữ tiếng Việt tương ứng cùng trích dẫn nguồn.
+    </p>
+  </introduction>
+
+  <definition xml:id="def-tree">
+    <title>Tree — cây</title>
+    <idx><h>tree</h></idx>
+    <idx><h>cây</h></idx>
+    <idx><h>đồ thị cây</h></idx>
+    <notation>
+      <usage><m>T = (V, E)</m></usage>
+      <description>cây</description>
+    </notation>
+    <statement>
+      <p>Một cây, ký hiệu <m>T = (V, E)</m>, là một đồ thị vô hướng liên thông không chứa chu trình đơn nào (theo <xref ref="bib-rosen-2019" />, Rosen §11.1).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>cây</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 83 (PDF)); <xref ref="bib-leanhvinh-2020" /> (tr. 38 (PDF)); <xref ref="bib-nguyenhuudien-2019" /> (tr. 242 (PDF)); <xref ref="bib-hoangchithanh-2007" /> (tr. 123 (PDF)); <xref ref="bib-nguyenducnghia-2006" /> (tr. 200 (PDF)); <xref ref="bib-ngodactan-2004" /> (tr. 197 (PDF)) — cách dùng phổ biến.</p></li>
+        <li><p><term>đồ thị cây</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 85 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Đồ thị <m>T = (V, E)</m> với <m>V = \{a, b, c, d\}</m> và <m>E = \{ab, bc, bd\}</m> là một cây, vì nó liên thông và không chứa chu trình đơn nào.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-total-order">
+    <title>Total order — thứ tự toàn phần</title>
+    <idx><h>total order</h></idx>
+    <idx><h>quan hệ thứ tự toàn phần</h></idx>
+    <idx><h>thứ tự toàn phần</h></idx>
+    <idx><h>thứ tự tuyến tính</h></idx>
+    <idx><h>tập được sắp tuyến tính</h></idx>
+    <notation>
+      <usage><m>\preceq</m></usage>
+      <description>thứ tự toàn phần</description>
+    </notation>
+    <statement>
+      <p>Một thứ tự toàn phần (ký hiệu <m>\preceq</m>) trên tập <m>S</m> là một thứ tự bộ phận trong đó hai phần tử bất kỳ đều so sánh được, tức là với mọi <m>a, b \in S</m> ta có <m>a \preceq b</m> hoặc <m>b \preceq a</m> (theo <xref ref="bib-rosen-2019" />, Rosen §9.6).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>thứ tự toàn phần</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 121 (PDF)) — cách dùng phổ biến.</p></li>
+        <li><p><term>quan hệ thứ tự toàn phần</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 118 (PDF)).</p></li>
+        <li><p><term>thứ tự tuyến tính</term> <xref ref="bib-ngodactan-2004" /> (tr. 164 (PDF)).</p></li>
+        <li><p><term>tập được sắp tuyến tính</term> <xref ref="bib-ngodactan-2004" /> (tr. 164 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Quan hệ <m>\leq</m> thông thường trên tập số thực <m>\mathbb{R}</m> là một thứ tự toàn phần, vì với mọi <m>a, b \in \mathbb{R}</m> ta luôn có <m>a \leq b</m> hoặc <m>b \leq a</m>.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-transitive-closure">
+    <title>Transitive closure — bao đóng bắc cầu</title>
+    <idx><h>transitive closure</h></idx>
+    <idx><h>bao đóng bắc cầu</h></idx>
+    <notation>
+      <usage><m>R^{*}</m></usage>
+      <description>bao đóng bắc cầu</description>
+    </notation>
+    <statement>
+      <p>Bao đóng bắc cầu của một quan hệ <m>R</m> trên tập <m>A</m>, ký hiệu <m>R^{*}</m>, là quan hệ bắc cầu nhỏ nhất trên <m>A</m> chứa <m>R</m> (theo <xref ref="bib-rosen-2019" />, Rosen §9.4).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>bao đóng bắc cầu</term> <xref ref="bib-hoangchithanh-2007" /> (tr. 12 (PDF)) — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Với quan hệ <m>R = \{(1,2),(2,3)\}</m> trên tập <m>A = \{1,2,3\}</m>, bao đóng bắc cầu <m>R^{*}</m> thu được bằng cách thêm cặp <m>(1,3)</m>, tức là <m>R^{*} = \{(1,2),(2,3),(1,3)\}</m>.</p>
+      <p>Xem thêm <xref ref="def-transitive-relation" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-transitive-relation">
+    <title>Transitive relation — bắc cầu</title>
+    <idx><h>transitive relation</h></idx>
+    <idx><h>bắc cầu</h></idx>
+    <idx><h>truyền ứng</h></idx>
+    <idx><h>tính bắc cầu</h></idx>
+    <idx><h>tính truyền</h></idx>
+    <notation>
+      <usage><m>(a,b)\in R \wedge (b,c)\in R \Rightarrow (a,c)\in R</m></usage>
+      <description>bắc cầu</description>
+    </notation>
+    <statement>
+      <p>Một quan hệ <m>R</m> trên tập <m>A</m> được gọi là có tính bắc cầu nếu với mọi <m>a, b, c \in A</m>, hễ <m>(a,b) \in R</m> và <m>(b,c) \in R</m> thì <m>(a,c) \in R</m> (theo <xref ref="bib-rosen-2019" />, Rosen §9.1).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>bắc cầu</term> <xref ref="bib-leanhvinh-2020" /> (tr. 17 (PDF)) — cách dùng phổ biến.</p></li>
+        <li><p><term>truyền ứng</term> <xref ref="bib-nguyenducnghia-2006" /> (tr. 14 (PDF)).</p></li>
+        <li><p><term>tính bắc cầu</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 115 (PDF)).</p></li>
+        <li><p><term>tính truyền</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 110 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Trên tập <m>A = \{1, 2, 3\}</m>, quan hệ <m>R = \{(1,2), (2,3), (1,3)\}</m> có tính bắc cầu, vì <m>(1,2) \in R</m> và <m>(2,3) \in R</m> kéo theo <m>(1,3) \in R</m>.</p>
+      <p>Xem thêm <xref ref="def-transitive-closure" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-truth-table">
+    <title>Truth table — bảng chân trị</title>
+    <idx><h>truth table</h></idx>
+    <idx><h>bảng chân trị</h></idx>
+    <idx><h>bảng giá trị</h></idx>
+    <notation>
+      <usage><m>0, 1; 2^{n}</m></usage>
+      <description>bảng chân trị</description>
+    </notation>
+    <statement>
+      <p>Bảng chân trị của một mệnh đề phức hợp là bảng liệt kê chân trị của mệnh đề đó ứng với mỗi tổ hợp chân trị có thể có của các mệnh đề sơ cấp cấu thành nó. Mỗi mệnh đề sơ cấp nhận một trong hai chân trị, đúng (ký hiệu <m>1</m>) hoặc sai (ký hiệu <m>0</m>); với <m>n</m> mệnh đề sơ cấp, bảng có <m>2^{n}</m> dòng (theo <xref ref="bib-rosen-2019" />, Rosen §1.1).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>bảng chân trị</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 15 (PDF)) — cách dùng phổ biến.</p></li>
+        <li><p><term>bảng giá trị</term> <xref ref="bib-nguyenducnghia-2006" /> (tr. 266 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Bảng chân trị của phép phủ định <m>\neg p</m> có hai dòng: khi <m>p</m> nhận chân trị <m>0</m> thì <m>\neg p</m> nhận chân trị <m>1</m>, và khi <m>p</m> nhận chân trị <m>1</m> thì <m>\neg p</m> nhận chân trị <m>0</m>.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-tautology">
+    <title>Tautology — hằng đúng</title>
+    <idx><h>tautology</h></idx>
+    <idx><h>biểu thức hằng đúng</h></idx>
+    <idx><h>hằng đúng</h></idx>
+    <idx><h>mệnh đề hằng đúng</h></idx>
+    <statement>
+      <p>Một mệnh đề phức hợp được gọi là hằng đúng nếu nó nhận giá trị chân lý đúng với mọi cách gán giá trị chân lý cho các biến mệnh đề của nó (theo <xref ref="bib-rosen-2019" />, Rosen §1.3).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>hằng đúng</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 24 (PDF)) — cách dùng phổ biến.</p></li>
+        <li><p><term>biểu thức hằng đúng</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 29 (PDF)).</p></li>
+        <li><p><term>mệnh đề hằng đúng</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 24 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Mệnh đề <m>((p \rightarrow q) \wedge p) \rightarrow q</m> là hằng đúng, vì bảng chân trị cho thấy nó nhận giá trị đúng với mọi cách gán giá trị chân lý cho <m>p</m> và <m>q</m>.</p>
+      <p>Xem thêm <xref ref="def-truth-table" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-topological-sort">
+    <title>Topological sort — sắp xếp topo</title>
+    <idx><h>topological sort</h></idx>
+    <idx><h>sắp xếp topo</h></idx>
+    <statement>
+      <p>Sắp xếp topo của một tập sắp thứ tự bộ phận hữu hạn <m>(S, \preceq)</m> là một thứ tự toàn phần <m>\leq</m> trên <m>S</m> tương thích với <m>\preceq</m>, nghĩa là một cách sắp xếp tuyến tính các phần tử của <m>S</m> sao cho <m>a \leq b</m> mỗi khi <m>a \preceq b</m> (theo <xref ref="bib-rosen-2019" />, Rosen §9.6).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>sắp xếp topo</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 121 (PDF)) — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Với tập <m>S = \{1, 2, 3, 6\}</m> sắp thứ tự bộ phận bởi quan hệ chia hết, trong đó <m>a \preceq b</m> khi <m>a</m> chia hết <m>b</m>, một sắp xếp topo cho ta thứ tự tuyến tính <m>1 \leq 2 \leq 3 \leq 6</m>, vì mỗi phần tử đứng trước mọi phần tử mà nó chia hết.</p>
+      <p>Xem thêm <xref ref="def-total-order" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-trail">
+    <title>Trail — đường đi đơn</title>
+    <idx><h>trail</h></idx>
+    <idx><h>đường đi đơn</h></idx>
+    <notation>
+      <usage><m>v_0, v_1, \ldots, v_n</m></usage>
+      <description>đường đi đơn</description>
+    </notation>
+    <statement>
+      <p>Đường đi đơn trong đồ thị <m>G</m> là một đường đi không dùng lại cùng một cạnh quá một lần; các đỉnh trên đường đi vẫn có thể lặp lại. Một đường đi đơn từ đỉnh <m>u</m> đến đỉnh <m>v</m> được cho bởi dãy đỉnh nó đi qua, ký hiệu <m>v_0, v_1, \ldots, v_n</m> với <m>v_0 = u</m>, <m>v_n = v</m>, trong đó không có cạnh nào được dùng lại, tức mỗi cạnh của đường đi xuất hiện đúng một lần trong dãy (theo <xref ref="bib-rosen-2019" />, Rosen §10.4).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>đường đi đơn</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 73 (PDF)); <xref ref="bib-nguyenhuudien-2019" /> (tr. 168 (PDF)); <xref ref="bib-nguyenducnghia-2006" /> (tr. 155 (PDF)) — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Xét đồ thị với tập đỉnh <m>V = \{v_1, v_2, v_3, v_4, v_5\}</m> và tập cạnh <m>\{v_3v_2, v_2v_1, v_1v_4, v_4v_2, v_2v_5\}</m>. Dãy <m>v_3, v_2, v_1, v_4, v_2, v_5</m> là một đường đi đơn từ <m>v_3</m> đến <m>v_5</m>: đỉnh <m>v_2</m> được đi qua hai lần nhưng không có cạnh nào bị dùng lại.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-theorem">
+    <title>Theorem — định lý</title>
+    <idx><h>theorem</h></idx>
+    <idx><h>định lí</h></idx>
+    <idx><h>định lý</h></idx>
+    <statement>
+      <p>Định lý là một mệnh đề toán học được chứng minh là đúng bằng một chứng minh hợp lệ, xuất phát từ các tiên đề, các định nghĩa và các kết quả đã được thiết lập trước đó (theo <xref ref="bib-rosen-2019" />, Rosen §1.7).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>định lý</term> <xref ref="bib-leanhvinh-2020" /> (tr. 16 (PDF)); <xref ref="bib-nguyenhoangthach-2020" /> (tr. 24 (PDF)); <xref ref="bib-hoangchithanh-2007" /> (tr. 14 (PDF)); <xref ref="bib-nguyenducnghia-2006" /> (tr. 5 (PDF)); <xref ref="bib-ngodactan-2004" /> (tr. 16 (PDF)) — cách dùng phổ biến.</p></li>
+        <li><p><term>định lí</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 192 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Mệnh đề "tổng tất cả các bậc của các đỉnh trong một đồ thị <m>G</m> bằng hai lần số cạnh, tức là <m>\sum_{v \in V(G)} \deg_G(v) = 2|E(G)|</m>" là một định lý, vì nó được chứng minh đúng từ định nghĩa của bậc đỉnh.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-transpose-of-a-matrix">
+    <title>Transpose of a matrix — ma trận chuyển vị</title>
+    <idx><h>transpose of a matrix</h></idx>
+    <idx><h>chuyển vị</h></idx>
+    <idx><h>ma trận chuyển vị</h></idx>
+    <notation>
+      <usage><m>A^{t}</m></usage>
+      <description>ma trận chuyển vị</description>
+    </notation>
+    <statement>
+      <p>Ma trận chuyển vị của một ma trận <m>A</m> cỡ <m>m \times n</m> là ma trận cỡ <m>n \times m</m> thu được bằng cách đổi chỗ các hàng và các cột của <m>A</m>, ký hiệu <m>A^{t}</m>. Nói cách khác, phần tử ở vị trí <m>(i,j)</m> của <m>A^{t}</m> bằng phần tử ở vị trí <m>(j,i)</m> của <m>A</m> với mọi <m>i</m> và <m>j</m> (theo <xref ref="bib-rosen-2019" />, Rosen §2.6).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>ma trận chuyển vị</term> <xref ref="bib-hoangchithanh-2007" /> (tr. 20 (PDF)); <xref ref="bib-ngodactan-2004" /> (tr. 125 (PDF)) — cách dùng phổ biến.</p></li>
+        <li><p><term>chuyển vị</term> <xref ref="bib-hoangchithanh-2007" /> (tr. 20 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Với ma trận <m>A</m> cỡ <m>2 \times 3</m> cho bởi
+<me>A = \begin{pmatrix} 1  \amp  2  \amp  3 \\ 4  \amp  5  \amp  6 \end{pmatrix},</me>
+ma trận chuyển vị <m>A^{t}</m> là ma trận cỡ <m>3 \times 2</m>
+<me>A^{t} = \begin{pmatrix} 1  \amp  4 \\ 2  \amp  5 \\ 3  \amp  6 \end{pmatrix}.</me>
+Chẳng hạn, phần tử ở vị trí <m>(3,1)</m> của <m>A^{t}</m> bằng <m>3</m>, đúng bằng phần tử ở vị trí <m>(1,3)</m> của <m>A</m>.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-tournament">
+    <title>Tournament — đồ thị có hướng đầy đủ</title>
+    <idx><h>tournament</h></idx>
+    <idx><h>đấu loại</h></idx>
+    <idx><h>đồ thị có hướng đầy đủ</h></idx>
+    <idx><h>đồ thị đấu loại</h></idx>
+    <statement>
+      <p>Một đồ thị có hướng đầy đủ là đồ thị có hướng nhận được bằng cách định hướng cho mỗi cạnh của một đồ thị đầy đủ <m>K_n</m>, sao cho mỗi cặp đỉnh <m>u, v</m> được nối với nhau bởi đúng một trong hai cung <m>(u,v)</m> hoặc <m>(v,u)</m> (theo <xref ref="bib-rosen-2019" />, Rosen §10.2).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>đồ thị có hướng đầy đủ</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 189 (PDF)) — cách dùng phổ biến.</p></li>
+        <li><p><term>đấu loại</term> <xref ref="bib-nguyenducnghia-2006" /> (tr. 196 (PDF)).</p></li>
+        <li><p><term>đồ thị đấu loại</term> <xref ref="bib-nguyenducnghia-2006" /> (tr. 196 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Với ba đỉnh <m>a, b, c</m>, định hướng ba cạnh của <m>K_3</m> thành các cung <m>(a,b)</m>, <m>(b,c)</m>, <m>(c,a)</m> cho ta một đồ thị có hướng đầy đủ trên ba đỉnh.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-tree-traversal">
+    <title>Tree traversal — duyệt cây</title>
+    <idx><h>tree traversal</h></idx>
+    <idx><h>các cách duyệt cây</h></idx>
+    <idx><h>duyệt cây</h></idx>
+    <statement>
+      <p>Duyệt cây là một thủ tục lần lượt thăm mọi đỉnh của một cây có gốc được sắp thứ tự <m>T</m>, đưa ra một danh sách tuyến tính liệt kê tất cả các đỉnh của cây, mỗi đỉnh đúng một lần. Ba cách duyệt cây thường gặp là duyệt theo thứ tự trước, duyệt theo thứ tự giữa và duyệt theo thứ tự sau, được định nghĩa đệ quy trên các cây con của gốc (theo <xref ref="bib-rosen-2019" />, Rosen §11.3).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>duyệt cây</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 253 (PDF)); <xref ref="bib-hoangchithanh-2007" /> (tr. 139 (PDF)) — cách dùng phổ biến.</p></li>
+        <li><p><term>các cách duyệt cây</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 253 (PDF)); <xref ref="bib-hoangchithanh-2007" /> (tr. 139 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Xét cây có gốc được sắp thứ tự với gốc <m>r</m> có hai cây con, cây con bên trái gồm đỉnh <m>a</m> và cây con bên phải gồm đỉnh <m>b</m>. Duyệt theo thứ tự trước cho danh sách <m>r, a, b</m>, còn duyệt theo thứ tự sau cho danh sách <m>a, b, r</m>.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-terminal-vertex">
+    <title>Terminal vertex — đỉnh cuối</title>
+    <idx><h>terminal vertex</h></idx>
+    <idx><h>đỉnh cuối</h></idx>
+    <idx><h>đỉnh kết thúc</h></idx>
+    <notation>
+      <usage><m>(u, v)</m></usage>
+      <description>đỉnh cuối</description>
+    </notation>
+    <statement>
+      <p>Đỉnh cuối của một cạnh có hướng <m>(u, v)</m> là đỉnh <m>v</m>, tức là đỉnh mà cạnh kết thúc tại đó. Cạnh có hướng được biểu diễn bằng mũi tên hướng từ đỉnh đầu <m>u</m> đến đỉnh cuối <m>v</m> (theo <xref ref="bib-rosen-2019" />, Rosen §10.1).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>đỉnh cuối</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 63 (PDF)); <xref ref="bib-nguyenhoangthach-2020" /> (tr. 62 (PDF)); <xref ref="bib-leanhvinh-2020" /> (tr. 54 (PDF)); <xref ref="bib-nguyenducnghia-2006" /> (tr. 171 (PDF)); <xref ref="bib-ngodactan-2004" /> (tr. 185 (PDF)); <xref ref="bib-hoangchithanh-2007" /> (tr. 20 (PDF)) — cách dùng phổ biến.</p></li>
+        <li><p><term>đỉnh kết thúc</term> <xref ref="bib-hoangchithanh-2007" /> (tr. 80 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Với cạnh có hướng <m>(u, v)</m>, đỉnh <m>v</m> là đỉnh cuối còn đỉnh <m>u</m> là đỉnh đầu.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-tree-diagram">
+    <title>Tree diagram — cây liệt kê</title>
+    <idx><h>tree diagram</h></idx>
+    <idx><h>cây liệt kê</h></idx>
+    <statement>
+      <p>Cây liệt kê là một cây có gốc dùng trong phép đếm, trong đó mỗi nhánh biểu diễn một lựa chọn có thể có và mỗi lá biểu diễn một kết cục có thể có của một dãy các lựa chọn liên tiếp (theo <xref ref="bib-rosen-2019" />, Rosen §6.1).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>cây liệt kê</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 197 (PDF)); <xref ref="bib-nguyenducnghia-2006" /> (tr. 100 (PDF)) — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Để đếm số xâu nhị phân độ dài <m>3</m>, ta vẽ cây liệt kê có gốc tương ứng với xâu rỗng; tại mỗi mức ta rẽ thành hai nhánh ứng với việc chọn bit <m>0</m> hoặc bit <m>1</m>, và sau <m>3</m> mức cây có <m>2^3 = 8</m> lá, mỗi lá ứng với một xâu nhị phân khác nhau.</p>
+      <p>Xem thêm <xref ref="def-tree" text="title" />.</p>
+    </statement>
+  </definition>
+</chapter>

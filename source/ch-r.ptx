@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<chapter xml:id="ch-r" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>R</title>
+
+  <introduction>
+    <p>
+      Chương này tập hợp các thuật ngữ tiếng Anh bắt đầu bằng chữ <q>R</q>, kèm
+      định nghĩa và các thuật ngữ tiếng Việt tương ứng cùng trích dẫn nguồn.
+    </p>
+  </introduction>
+
+  <definition xml:id="def-recurrence-relation">
+    <title>Recurrence relation — quan hệ truy hồi</title>
+    <idx><h>recurrence relation</h></idx>
+    <idx><h>công thức truy hồi</h></idx>
+    <idx><h>hệ thức truy hồi</h></idx>
+    <idx><h>quan hệ truy hồi</h></idx>
+    <notation>
+      <usage><m>a_n = c_1 a_{n-1} + \cdots + c_k a_{n-k}</m></usage>
+      <description>quan hệ truy hồi</description>
+    </notation>
+    <statement>
+      <p>Một <em>quan hệ truy hồi</em> đối với dãy số <m>\{a_n\}</m> là một phương trình biểu diễn mỗi số hạng <m>a_n</m>, với mọi <m>n</m> lớn hơn hoặc bằng một chỉ số cố định nào đó, qua một hay nhiều số hạng đi trước <m>a_0, a_1, \ldots, a_{n-1}</m> của dãy (theo <xref ref="bib-rosen-2019" />, Rosen §8.1).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>quan hệ truy hồi</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 37 (PDF)) — cách dùng phổ biến.</p></li>
+        <li><p><term>công thức truy hồi</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 97 (PDF)).</p></li>
+        <li><p><term>hệ thức truy hồi</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 97 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Phương trình <m>a_n = 2a_{n-1}</m> với mọi <m>n \geq 1</m> là một quan hệ truy hồi đối với dãy số <m>\{a_n\}</m>, biểu diễn số hạng <m>a_n</m> qua số hạng liền trước <m>a_{n-1}</m>.</p>
+      <p>Xem thêm <xref ref="def-recursive-definition" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-recursion">
+    <title>Recursion — đệ quy</title>
+    <idx><h>recursion</h></idx>
+    <idx><h>đệ qui</h></idx>
+    <idx><h>đệ quy</h></idx>
+    <notation>
+      <usage><m>a_0;\ a_{n+1} = f(a_0,\ldots,a_n)</m></usage>
+      <description>đệ quy</description>
+    </notation>
+    <statement>
+      <p>Đệ quy là kỹ thuật định nghĩa một đối tượng, hàm hay quá trình thông qua chính nó, bằng cách chỉ rõ một hoặc nhiều trường hợp cơ sở và các quy tắc xây dựng những trường hợp sau từ những trường hợp đã có trước đó. Chẳng hạn, một định nghĩa đệ quy của dãy <m>\{a_n\}</m> ấn định giá trị cơ sở <m>a_0</m> và một quy tắc xác định <m>a_{n+1}</m> từ các số hạng <m>a_0, a_1, \ldots, a_n</m> đứng trước (theo <xref ref="bib-rosen-2019" />, Rosen §5.3).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>đệ quy</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 97 (PDF)); <xref ref="bib-hoangchithanh-2007" /> (tr. 137 (PDF)); <xref ref="bib-nguyenducnghia-2006" /> (tr. 140 (PDF)) — cách dùng phổ biến.</p></li>
+        <li><p><term>đệ qui</term> <xref ref="bib-ngodactan-2004" /> (tr. 247 (PDF)); <xref ref="bib-nguyenducnghia-2006" /> (tr. 99 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Định nghĩa đệ quy của lũy thừa <m>a^n</m> với <m>a \neq 0</m> và <m>n \geq 0</m>: trường hợp cơ sở <m>a^0 = 1</m>, và bước đệ quy <m>a^{n+1} = a \cdot a^n</m> với mọi <m>n \geq 0</m>.</p>
+      <p>Xem thêm <xref ref="def-recurrence-relation" text="title" />, <xref ref="def-recursive-definition" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-reflexive-relation">
+    <title>Reflexive relation — tính phản xạ</title>
+    <idx><h>reflexive relation</h></idx>
+    <idx><h>phản xạ</h></idx>
+    <idx><h>tính chất phản xạ</h></idx>
+    <idx><h>tính phản xạ</h></idx>
+    <notation>
+      <usage><m>\forall a \in A,\ (a,a) \in R</m></usage>
+      <description>tính phản xạ</description>
+    </notation>
+    <statement>
+      <p>Một quan hệ hai ngôi <m>R</m> trên tập <m>A</m> có <em>tính phản xạ</em> nếu <m>(a,a) \in R</m> với mọi <m>a \in A</m>. Nói cách khác, mỗi phần tử của <m>A</m> đều có quan hệ với chính nó, tức là <m>a\,R\,a</m> với mọi <m>a \in A</m> (theo <xref ref="bib-rosen-2019" />, Rosen §9.1).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>tính phản xạ</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 109 (PDF)) — cách dùng phổ biến.</p></li>
+        <li><p><term>phản xạ</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 115 (PDF)); <xref ref="bib-nguyenducnghia-2006" /> (tr. 14 (PDF)); <xref ref="bib-ngodactan-2004" /> (tr. 163 (PDF)).</p></li>
+        <li><p><term>tính chất phản xạ</term> <xref ref="bib-leanhvinh-2020" /> (tr. 12 (PDF)); <xref ref="bib-nguyenhuudien-2019" /> (tr. 110 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Trên tập <m>A = \{1, 2, 3\}</m>, quan hệ <m>R = \{(1,1), (2,2), (3,3), (1,2)\}</m> có tính phản xạ vì chứa <m>(1,1)</m>, <m>(2,2)</m> và <m>(3,3)</m>. Quan hệ <m>S = \{(1,1), (2,2), (1,3)\}</m> không có tính phản xạ vì <m>(3,3) \notin S</m>.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-regular-graph">
+    <title>Regular graph — đồ thị đều bậc k</title>
+    <idx><h>regular graph</h></idx>
+    <idx><h>chính qui bậc X</h></idx>
+    <idx><h>k-chính qui</h></idx>
+    <idx><h>đồ thị chính qui bậc k</h></idx>
+    <idx><h>đồ thị k chính quy</h></idx>
+    <idx><h>đồ thị đều bậc k</h></idx>
+    <notation>
+      <usage><m>\deg_G(v) = k\ \forall v \in V(G)</m></usage>
+      <description>đồ thị đều bậc k</description>
+    </notation>
+    <statement>
+      <p>Một đơn đồ thị <m>G</m> được gọi là *đồ thị đều bậc <m>k</m>* nếu mọi đỉnh của nó đều có cùng bậc <m>k</m>, tức là <m>\deg_G(v) = k</m> với mọi <m>v \in V(G)</m>. Số <m>k</m> này được gọi là bậc của đồ thị đều (theo <xref ref="bib-rosen-2019" />, Rosen §10.2).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>đồ thị đều bậc k</term> <xref ref="bib-leanhvinh-2020" /> (tr. 10 (PDF)) — cách dùng phổ biến.</p></li>
+        <li><p><term>chính qui bậc X</term> <xref ref="bib-nguyenducnghia-2006" /> (tr. 164 (PDF)).</p></li>
+        <li><p><term>k-chính qui</term> <xref ref="bib-ngodactan-2004" /> (tr. 191 (PDF)).</p></li>
+        <li><p><term>đồ thị chính qui bậc k</term> <xref ref="bib-ngodactan-2004" /> (tr. 191 (PDF)).</p></li>
+        <li><p><term>đồ thị k chính quy</term> <xref ref="bib-leanhvinh-2020" /> (tr. 214 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Đồ thị đầy đủ <m>K_n</m> là đồ thị đều bậc <m>n-1</m>, vì mỗi đỉnh kề với tất cả <m>n-1</m> đỉnh còn lại, do đó <m>\deg_{K_n}(v) = n-1</m> với mọi <m>v \in V(K_n)</m>.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-relation">
+    <title>Relation — quan hệ hai ngôi</title>
+    <idx><h>relation</h></idx>
+    <idx><h>quan hệ</h></idx>
+    <idx><h>quan hệ hai ngôi</h></idx>
+    <idx><h>quan hệ nhị nguyên</h></idx>
+    <notation>
+      <usage><m>R \subseteq A \times B</m></usage>
+      <description>quan hệ hai ngôi</description>
+    </notation>
+    <statement>
+      <p>Một <em>quan hệ hai ngôi</em> từ tập <m>A</m> đến tập <m>B</m> là một tập con của tích Đề-các <m>A \times B</m>, tức là một tập các cặp có thứ tự <m>(a, b)</m> với <m>a \in A</m> và <m>b \in B</m>; ký hiệu <m>R \subseteq A \times B</m>. Khi <m>A = B</m>, ta gọi <m>R</m> là một quan hệ hai ngôi trên <m>A</m> (theo <xref ref="bib-rosen-2019" />, Rosen §9.1).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>quan hệ hai ngôi</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 74 (PDF)); <xref ref="bib-nguyenhuudien-2019" /> (tr. 106 (PDF)); <xref ref="bib-nguyenducnghia-2006" /> (tr. 14 (PDF)); <xref ref="bib-ngodactan-2004" /> (tr. 185 (PDF)) — cách dùng phổ biến.</p></li>
+        <li><p><term>quan hệ</term> <xref ref="bib-leanhvinh-2020" /> (tr. 17 (PDF)).</p></li>
+        <li><p><term>quan hệ nhị nguyên</term> <xref ref="bib-hoangchithanh-2007" /> (tr. 6 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Trên tập <m>A = \{1, 2, 3\}</m>, quan hệ <m>R = \{(a, b) : a  \lt  b\}</m> là tập con <m>\{(1, 2), (1, 3), (2, 3)\}</m> của <m>A \times A</m>.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-rooted-tree">
+    <title>Rooted tree — cây có gốc</title>
+    <idx><h>rooted tree</h></idx>
+    <idx><h>cây có gốc</h></idx>
+    <notation>
+      <usage><m>(T, r)</m></usage>
+      <description>cây có gốc</description>
+    </notation>
+    <statement>
+      <p>Cây có gốc là một cây <m>T</m> trong đó một đỉnh <m>r</m> được chọn làm gốc và mọi cạnh được định hướng ra xa khỏi <m>r</m>, ký hiệu <m>(T, r)</m>. Khi đó với mỗi đỉnh <m>v \neq r</m> tồn tại duy nhất một đường đi có hướng từ gốc <m>r</m> đến <m>v</m> (theo <xref ref="bib-rosen-2019" />, Rosen §11.1).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>cây có gốc</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 84 (PDF)); <xref ref="bib-leanhvinh-2020" /> (tr. 50 (PDF)); <xref ref="bib-nguyenhuudien-2019" /> (tr. 259 (PDF)); <xref ref="bib-nguyenducnghia-2006" /> (tr. 211 (PDF)) — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Xét cây <m>T</m> với tập đỉnh <m>\{a, b, c, d\}</m> và các cạnh <m>ab</m>, <m>ac</m>, <m>cd</m>. Chọn <m>a</m> làm gốc và định hướng mọi cạnh ra xa khỏi <m>a</m>, ta được cây có gốc <m>(T, a)</m> trong đó có đúng một đường đi có hướng từ <m>a</m> đến mỗi đỉnh <m>b</m>, <m>c</m>, <m>d</m>.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-ring">
+    <title>Ring — vành</title>
+    <idx><h>ring</h></idx>
+    <idx><h>vành</h></idx>
+    <idx><h>vành có đơn vị</h></idx>
+    <idx><h>vành giao hoán</h></idx>
+    <notation>
+      <usage><m>(R, +, \cdot)</m></usage>
+      <description>vành</description>
+    </notation>
+    <statement>
+      <p>Vành là một tập hợp <m>R</m> được trang bị hai phép toán hai ngôi, phép cộng <m>+</m> và phép nhân <m>\cdot</m>, ký hiệu <m>(R, +, \cdot)</m>, sao cho <m>R</m> là một nhóm abel đối với phép cộng, phép nhân có tính kết hợp, và phép nhân phân phối đối với phép cộng. Nghĩa là, với mọi <m>a, b, c \in R</m> ta có <m>a \cdot (b + c) = a \cdot b + a \cdot c</m> và <m>(a + b) \cdot c = a \cdot c + b \cdot c</m>. Nguồn tiếng Việt duy nhất chứng thực khái niệm này (bib-ngodactan-2004) trình bày trường hợp vành giao hoán có đơn vị, đúng với ví dụ <m>\mathbb{Z}</m> bên dưới (theo <xref ref="bib-rosen-2019" />, Rosen §4.6).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>vành</term> <xref ref="bib-ngodactan-2004" /> (tr. 60 (PDF)) — cách dùng phổ biến.</p></li>
+        <li><p><term>vành có đơn vị</term> <xref ref="bib-ngodactan-2004" /> (tr. 61 (PDF)).</p></li>
+        <li><p><term>vành giao hoán</term> <xref ref="bib-ngodactan-2004" /> (tr. 44 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Tập hợp các số nguyên <m>\mathbb{Z}</m> cùng với phép cộng và phép nhân thông thường tạo thành một vành <m>(\mathbb{Z}, +, \cdot)</m>.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-range-of-a-function">
+    <title>Range of a function — tập ảnh</title>
+    <idx><h>range of a function</h></idx>
+    <idx><h>miền giá trị</h></idx>
+    <idx><h>tập giá trị</h></idx>
+    <idx><h>tập ảnh</h></idx>
+    <notation>
+      <usage><m>f(A) = \{ f(a) : a \in A \}</m></usage>
+      <description>tập ảnh</description>
+    </notation>
+    <statement>
+      <p>Tập ảnh của một hàm <m>f</m> từ <m>A</m> đến <m>B</m> là tập hợp tất cả các phần tử của tập đích <m>B</m> là ảnh của ít nhất một phần tử thuộc <m>A</m>, tức là tập <m>f(A) = \{ f(a) : a \in A \}</m>. Theo định nghĩa, tập ảnh <m>f(A)</m> là một tập hợp con của <m>B</m> (theo <xref ref="bib-rosen-2019" />, Rosen §2.3).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>tập ảnh</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 33 (PDF)) — cách dùng phổ biến.</p></li>
+        <li><p><term>miền giá trị</term> <xref ref="bib-ngodactan-2004" /> (tr. 128 (PDF)).</p></li>
+        <li><p><term>tập giá trị</term> <xref ref="bib-hoangchithanh-2007" /> (tr. 21 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Cho hàm <m>f \colon A \to B</m> với <m>A = \{1, 2, 3\}</m>, <m>B = \{a, b, c, d\}</m>, xác định bởi <m>f(1) = a</m>, <m>f(2) = c</m> và <m>f(3) = a</m>. Khi đó tập ảnh là <m>f(A) = \{a, c\}</m>, một tập hợp con thực sự của <m>B</m>.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-recursive-definition">
+    <title>Recursive definition — định nghĩa đệ quy</title>
+    <idx><h>recursive definition</h></idx>
+    <idx><h>định nghĩa bằng đệ quy</h></idx>
+    <idx><h>định nghĩa đệ quy</h></idx>
+    <notation>
+      <usage><m>f(0)=c;\ f(n)=\Phi(f(0),\ldots,f(n-1))</m></usage>
+      <description>định nghĩa đệ quy</description>
+    </notation>
+    <statement>
+      <p>Định nghĩa đệ quy của một dãy số, một tập hợp hoặc một hàm là cách định nghĩa gồm hai phần: một hoặc nhiều bước cơ sở xác định trực tiếp một số giá trị hay phần tử ban đầu, và một bước đệ quy (bước quy nạp) đưa ra quy tắc xác định các giá trị hoặc phần tử tiếp theo qua những giá trị, phần tử đã được định nghĩa trước đó. Chẳng hạn, một hàm <m>f</m> trên tập số nguyên không âm được định nghĩa đệ quy bằng cách cho giá trị <m>f(0)</m> và một quy tắc tính <m>f(n)</m> theo <m>f(0), f(1), \ldots, f(n-1)</m> với mọi <m>n \geq 1</m> (theo <xref ref="bib-rosen-2019" />, Rosen §5.3).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>định nghĩa đệ quy</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 97 (PDF)); <xref ref="bib-hoangchithanh-2007" /> (tr. 137 (PDF)) — cách dùng phổ biến.</p></li>
+        <li><p><term>định nghĩa bằng đệ quy</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 149 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Dãy giai thừa <m>\{n!\}</m> được định nghĩa đệ quy bởi bước cơ sở <m>0! = 1</m> và bước đệ quy <m>n! = n \cdot (n-1)!</m> với mọi số nguyên <m>n \geq 1</m>.</p>
+      <p>Xem thêm <xref ref="def-recurrence-relation" text="title" />, <xref ref="def-recursion" text="title" />, <xref ref="def-recursive-algorithm" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-residue">
+    <title>Residue — số dư</title>
+    <idx><h>residue</h></idx>
+    <idx><h>số dư</h></idx>
+    <notation>
+      <usage><m>a \equiv r \pmod{m}</m></usage>
+      <description>số dư</description>
+    </notation>
+    <statement>
+      <p>Số dư của một số nguyên <m>a</m> theo modulo một số nguyên dương <m>m</m> là số <m>r</m> với <m>0 \leq r \leq m-1</m> nhận được khi chia <m>a</m> cho <m>m</m>, sao cho <m>a \equiv r \pmod{m}</m> (theo <xref ref="bib-rosen-2019" />, Rosen §4.1).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>số dư</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 54 (PDF)); <xref ref="bib-nguyenhuudien-2019" /> (tr. 142 (PDF)); <xref ref="bib-nguyenducnghia-2006" /> (tr. 14 (PDF)) — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Với <m>a = 17</m> và <m>m = 5</m>, số dư là <m>r = 2</m> vì <m>17 = 3 \cdot 5 + 2</m> và <m>0 \leq 2 \leq 4</m>, nên <m>17 \equiv 2 \pmod{5}</m>.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-regular-expression">
+    <title>Regular expression — biểu thức chính quy</title>
+    <idx><h>regular expression</h></idx>
+    <idx><h>biểu thức chính quy</h></idx>
+    <idx><h>biểu thức chính tắc</h></idx>
+    <idx><h>biểu thức đều</h></idx>
+    <notation>
+      <usage><m>(ab)^{*} \cup b</m></usage>
+      <description>biểu thức chính quy</description>
+    </notation>
+    <statement>
+      <p><em>Biểu thức chính quy</em> trên một bảng chữ cái <m>I</m> là một xâu được xây dựng đệ quy từ các ký hiệu của <m>I</m>, các ký hiệu <m>\emptyset</m> (tập rỗng) và <m>\lambda</m> (xâu rỗng), cùng các phép ghép, hợp và bao đóng Kleene. Cụ thể, <m>\emptyset</m> và <m>\lambda</m> là các biểu thức chính quy, ký hiệu <m>x</m> là một biểu thức chính quy với mọi <m>x \in I</m>, và nếu <m>A</m>, <m>B</m> là các biểu thức chính quy thì <m>(AB)</m>, <m>(A \cup B)</m> và <m>A^{*}</m> cũng là các biểu thức chính quy; mỗi biểu thức chính quy mô tả một ngôn ngữ chính quy (theo <xref ref="bib-rosen-2019" />, Rosen §13.4).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>biểu thức chính quy</term> <xref ref="bib-rosen-2003-vi" /> (tr. 809 (PDF)) — cách dùng phổ biến.</p></li>
+        <li><p><term>biểu thức chính tắc</term> <em>(thuật ngữ chuẩn; chưa truy được trong kho văn bản)</em>.</p></li>
+        <li><p><term>biểu thức đều</term> <em>(thuật ngữ chuẩn; chưa truy được trong kho văn bản)</em>.</p></li>
+      </ul>
+      <p>Ví dụ: Trên bảng chữ cái <m>I = \{a, b\}</m>, xâu <m>(ab)^{*} \cup b</m> là một biểu thức chính quy, trong khi xâu ký hiệu <m>\cup a^{*} b</m> không phải là biểu thức chính quy vì không tuân theo quy tắc xây dựng đệ quy.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-ramsey-number">
+    <title>Ramsey number — số Ramsey</title>
+    <idx><h>ramsey number</h></idx>
+    <idx><h>số Ramsey</h></idx>
+    <idx><h>số Ramsey R(s,t)</h></idx>
+    <notation>
+      <usage><m>R(s,t)</m></usage>
+      <description>số Ramsey</description>
+    </notation>
+    <statement>
+      <p>Số Ramsey của hai số nguyên dương <m>s</m> và <m>t</m>, ký hiệu <m>R(s,t)</m>, là số nguyên dương <m>n</m> nhỏ nhất sao cho mọi cách tô màu các cạnh của đồ thị đầy đủ <m>K_n</m> bằng hai màu đỏ và xanh đều chứa một <m>K_s</m> đỏ hoặc một <m>K_t</m> xanh (theo <xref ref="bib-rosen-2019" />, Rosen §6.2).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>số Ramsey</term> <xref ref="bib-leanhvinh-2020" /> (tr. 143 (PDF)); <xref ref="bib-ngodactan-2004" /> (tr. 307 (PDF)); <xref ref="bib-nguyenducnghia-2006" /> (tr. 67 (PDF)) — cách dùng phổ biến.</p></li>
+        <li><p><term>số Ramsey R(s,t)</term> <xref ref="bib-leanhvinh-2020" /> (tr. 143 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Khi <m>s = t = 3</m>, ta có <m>R(3,3) = 6</m>: mọi cách tô các cạnh của <m>K_6</m> bằng hai màu đỏ và xanh đều chứa một <m>K_3</m> đỏ hoặc một <m>K_3</m> xanh, nhưng tồn tại cách tô các cạnh của <m>K_5</m> không chứa <m>K_3</m> cùng màu nào.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-recursive-algorithm">
+    <title>Recursive algorithm — thuật toán đệ quy</title>
+    <idx><h>recursive algorithm</h></idx>
+    <idx><h>thuật toán đệ quy</h></idx>
+    <idx><h>thủ tục đệ qui</h></idx>
+    <idx><h>thủ tục đệ quy</h></idx>
+    <statement>
+      <p>Một thuật toán được gọi là <em>thuật toán đệ quy</em> nếu nó giải một bài toán bằng cách rút gọn liên tiếp bài toán ban đầu về một hoặc nhiều bài toán cùng dạng nhưng có dữ liệu đầu vào nhỏ hơn, cho tới khi đạt tới <em>trường hợp cơ sở</em> được giải trực tiếp. Chẳng hạn, để tính <m>\gcd(a,b)</m> với <m>b  \gt  0</m>, ta rút gọn về <m>\gcd(b, a \bmod b)</m>, lặp lại cho tới khi đối số thứ hai bằng <m>0</m>, khi đó <m>\gcd(a, 0) = a</m> (theo <xref ref="bib-rosen-2019" />, Rosen §5.4).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>thuật toán đệ quy</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 147 (PDF)) — cách dùng phổ biến.</p></li>
+        <li><p><term>thủ tục đệ qui</term> <xref ref="bib-nguyenducnghia-2006" /> (tr. 100 (PDF)).</p></li>
+        <li><p><term>thủ tục đệ quy</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 148 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Thủ tục đệ quy tính giai thừa <m>n!</m> với <m>n</m> là số nguyên dương: nếu <m>n = 0</m> thì trả về <m>1</m> (trường hợp cơ sở), ngược lại trả về <m>n \cdot (n-1)!</m>, rút gọn dần về các giá trị nhỏ hơn cho tới khi gặp <m>n = 0</m>.</p>
+      <p>Xem thêm <xref ref="def-recursion" text="title" />, <xref ref="def-recurrence-relation" text="title" />, <xref ref="def-recursive-definition" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-reachability">
+    <title>Reachability — đến được từ</title>
+    <idx><h>reachability</h></idx>
+    <idx><h>tới được</h></idx>
+    <idx><h>đến được</h></idx>
+    <idx><h>đến được từ</h></idx>
+    <notation>
+      <usage><m>u \rightsquigarrow v</m></usage>
+      <description>đến được từ</description>
+    </notation>
+    <statement>
+      <p>Trong một đồ thị hoặc đồ thị có hướng <m>G</m>, một đỉnh <m>v</m> được gọi là <em>đến được từ</em> một đỉnh <m>u</m> nếu tồn tại một đường đi (đường đi có hướng nếu <m>G</m> là đồ thị có hướng) từ <m>u</m> đến <m>v</m>, ký hiệu <m>u \rightsquigarrow v</m>. Theo quy ước, mỗi đỉnh luôn đến được từ chính nó qua đường đi tầm thường độ dài <m>0</m>; do đó tính đến được là một tiền thứ tự trên tập đỉnh, có tính phản xạ và bắc cầu (theo <xref ref="bib-rosen-2019" />, Rosen §10.4).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>đến được từ</term> <xref ref="bib-leanhvinh-2020" /> (tr. 75 (PDF)); <xref ref="bib-nguyenducnghia-2006" /> (tr. 246 (PDF)) — cách dùng phổ biến.</p></li>
+        <li><p><term>tới được</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 217 (PDF)); <xref ref="bib-hoangchithanh-2007" /> (tr. 110 (PDF)).</p></li>
+        <li><p><term>đến được</term> <xref ref="bib-leanhvinh-2020" /> (tr. 75 (PDF)); <xref ref="bib-nguyenhuudien-2019" /> (tr. 176 (PDF)); <xref ref="bib-nguyenducnghia-2006" /> (tr. 179 (PDF)); <xref ref="bib-hoangchithanh-2007" /> (tr. 70 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Trong đồ thị có hướng với tập đỉnh <m>\{a, b, c\}</m> và tập cung <m>\{(a, b), (b, c)\}</m>, đỉnh <m>c</m> đến được từ đỉnh <m>a</m> vì tồn tại đường đi có hướng <m>a \rightarrow b \rightarrow c</m>; ngược lại, <m>a</m> không đến được từ <m>c</m> vì không có đường đi có hướng nào từ <m>c</m> về <m>a</m>.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-restriction-of-a-function">
+    <title>Restriction of a function — thu hẹp</title>
+    <idx><h>restriction of a function</h></idx>
+    <idx><h>hàm thu hẹp</h></idx>
+    <idx><h>hạn chế của hàm</h></idx>
+    <idx><h>thu hẹp</h></idx>
+    <idx><h>thu hẹp của hàm</h></idx>
+    <notation>
+      <usage><m>f|_S : S \to B</m></usage>
+      <description>thu hẹp</description>
+    </notation>
+    <statement>
+      <p>Thu hẹp của một hàm <m>f</m> từ <m>A</m> đến <m>B</m> trên một tập con <m>S \subseteq A</m>, ký hiệu <m>f|_S</m>, là hàm <m>f|_S : S \to B</m> xác định bởi <m>f|_S(x) = f(x)</m> với mọi <m>x \in S</m> (theo <xref ref="bib-rosen-2019" />, Rosen §2.3).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>thu hẹp</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 119 (PDF)) — cách dùng phổ biến.</p></li>
+        <li><p><term>hàm thu hẹp</term> <em>(thuật ngữ chuẩn; chưa truy được trong kho văn bản)</em>.</p></li>
+        <li><p><term>hạn chế của hàm</term> <em>(thuật ngữ chuẩn; chưa truy được trong kho văn bản)</em>.</p></li>
+        <li><p><term>thu hẹp của hàm</term> <em>(thuật ngữ chuẩn; chưa truy được trong kho văn bản)</em>.</p></li>
+      </ul>
+      <p>Ví dụ: Cho hàm <m>f : \mathbb{Z} \to \mathbb{Z}</m> với <m>f(x) = x^2</m> và tập con <m>S = \{0, 1, 2\}</m>. Khi đó thu hẹp <m>f|_S : S \to \mathbb{Z}</m> thỏa mãn <m>f|_S(0) = 0</m>, <m>f|_S(1) = 1</m> và <m>f|_S(2) = 4</m>.</p>
+    </statement>
+  </definition>
+</chapter>

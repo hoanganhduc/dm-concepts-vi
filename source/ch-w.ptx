@@ -50,7 +50,7 @@
         <li><p><term>đồ thị trọng số</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 250 (PDF)); <xref ref="bib-hoangchithanh-2007" /> (tr. 135 (PDF)).</p></li>
       </ul>
       <p>Ví dụ: Cho đồ thị <m>G</m> với tập đỉnh <m>V(G) = \{a, b, c\}</m> và tập cạnh <m>E(G) = \{ab, bc, ac\}</m>. Hàm <m>w</m> xác định bởi <m>w(ab) = 2</m>, <m>w(bc) = 5</m>, <m>w(ac) = 3</m> biến <m>G</m> thành một đồ thị có trọng số <m>(G, w)</m>.</p>
-      <p>Xem thêm <xref ref="def-weight-of-an-edge" text="title" />, <xref ref="def-minimum-spanning-tree" text="title" />.</p>
+      <p>Xem thêm <xref ref="def-weight-of-an-edge" text="title" />, <xref ref="def-shortest-path-problem" text="title" />, <xref ref="def-minimum-spanning-tree" text="title" />.</p>
     </statement>
   </definition>
   <definition xml:id="def-weight-of-an-edge">
@@ -149,7 +149,7 @@
         <li><p><term>xâu ký tự</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 134 (PDF)); <xref ref="bib-nguyenducnghia-2006" /> (tr. 49 (PDF)); <xref ref="bib-rosen-2003-vi" /> (tr. 107 (PDF, bản dịch Rosen)).</p></li>
       </ul>
       <p>Ví dụ: Trên bảng chữ cái <m>\Sigma = \{0, 1\}</m>, các dãy <m>0</m>, <m>1</m>, <m>01</m>, <m>110</m> đều là những từ, và từ rỗng cũng thuộc <m>\Sigma^*</m>.</p>
-      <p>Xem thêm <xref ref="def-string" text="title" />.</p>
+      <p>Xem thêm <xref ref="def-alphabet" text="title" />, <xref ref="def-empty-string" text="title" />, <xref ref="def-string" text="title" />, <xref ref="def-concatenation" text="title" />, <xref ref="def-language" text="title" />.</p>
     </statement>
   </definition>
   <definition xml:id="def-warshalls-algorithm">
@@ -277,6 +277,35 @@
         <li><p><term>độ phức tạp thời gian trong trường hợp xấu nhất</term> <xref ref="bib-rosen-2003-vi" /> (tr. 150 (PDF)).</p></li>
       </ul>
       <p>Ví dụ: Thuật toán tìm kiếm tuyến tính trên một danh sách gồm <m>n</m> phần tử có độ phức tạp trường hợp xấu nhất là <m>O(n)</m>, vì khi phần tử cần tìm không có trong danh sách thuật toán phải so sánh với cả <m>n</m> phần tử.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-well-ordered-set">
+    <title>Well-Ordered Set — tập hợp được sắp tốt</title>
+    <idx><h>well-ordered set</h></idx>
+    <idx><h>thứ tự tốt</h></idx>
+    <idx><h>tập hợp được sắp tốt</h></idx>
+    <statement>
+      <p>Tập sắp thứ tự tốt là một tập hợp được sắp thứ tự toàn phần trong đó mọi tập con khác rỗng đều có phần tử nhỏ nhất (theo <xref ref="bib-rosen-2019" />, Rosen §9.6).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>tập hợp được sắp tốt</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 120 (PDF)) — cách dùng phổ biến.</p></li>
+        <li><p><term>thứ tự tốt</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 120 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Tập số tự nhiên <m>\mathbb{N}</m> với quan hệ <m>\leq</m> thông thường là một tập sắp thứ tự tốt, vì mọi tập con khác rỗng của <m>\mathbb{N}</m> đều có phần tử nhỏ nhất. Ngược lại, tập số nguyên <m>\mathbb{Z}</m> với <m>\leq</m> tuy được sắp thứ tự toàn phần nhưng không sắp thứ tự tốt, vì bản thân <m>\mathbb{Z}</m> không có phần tử nhỏ nhất.</p>
+      <p>Xem thêm <xref ref="def-total-order" text="title" />, <xref ref="def-well-ordering-principle" text="title" />, <xref ref="def-poset" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-without-loss-of-generality">
+    <title>Without Loss Of Generality — không mất tính tổng quát</title>
+    <idx><h>without loss of generality</h></idx>
+    <idx><h>không mất tính tổng quát</h></idx>
+    <statement>
+      <p>Không mất tính tổng quát là một giả thiết được dùng trong chứng minh nhằm giảm số trường hợp cần xét nhờ tính đối xứng. Khi các trường hợp còn lại có thể được suy ra từ trường hợp đang xét bằng một lập luận tương tự, ta chỉ cần chứng minh cho trường hợp đó mà không làm mất đi tính tổng quát của kết quả (theo <xref ref="bib-rosen-2019" />, Rosen §1.7).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>không mất tính tổng quát</term> <xref ref="bib-leanhvinh-2020" /> (tr. 70 (PDF)); <xref ref="bib-nguyenhoangthach-2020" /> (tr. 21 (PDF)); <xref ref="bib-rosen-2003-vi" /> (tr. 926 (PDF)) — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Để chứng minh rằng tích của hai số nguyên khác tính chẵn lẻ là số chẵn, ta có thể giả sử, không mất tính tổng quát, rằng số thứ nhất chẵn và số thứ hai lẻ; trường hợp ngược lại được xử lý hoàn toàn tương tự bằng cách đổi vai trò của hai số.</p>
     </statement>
   </definition>
 </chapter>

@@ -72,7 +72,7 @@
         <li><p><term>số mất thứ tự</term> <xref ref="bib-nguyenducnghia-2006" /> (tr. 29 (PDF)).</p></li>
       </ul>
       <p>Ví dụ: Với tập hợp <m>\{1, 2, 3\}</m>, hoán vị đưa <m>1 \mapsto 2</m>, <m>2 \mapsto 3</m>, <m>3 \mapsto 1</m> là một hoán vị mất thứ tự vì không phần tử nào được giữ cố định, trong khi hoán vị đưa <m>1 \mapsto 1</m>, <m>2 \mapsto 3</m>, <m>3 \mapsto 2</m> thì không phải vì <m>\sigma(1) = 1</m>.</p>
-      <p>Xem thêm <xref ref="def-permutation" text="title" />.</p>
+      <p>Xem thêm <xref ref="def-inclusion-exclusion-principle" text="title" />, <xref ref="def-permutation" text="title" />.</p>
     </statement>
   </definition>
   <definition xml:id="def-diameter">
@@ -96,7 +96,7 @@
         <li><p><term>đường kính của đồ thị</term> <xref ref="bib-hoangchithanh-2007" /> (tr. 100 (PDF)).</p></li>
       </ul>
       <p>Ví dụ: Trong đồ thị đường đi <m>P_n</m> với <m>n</m> đỉnh, hai đỉnh đầu mút có khoảng cách lớn nhất, nên <m>\operatorname{diam}(P_n) = n - 1</m>. Trong đồ thị đầy đủ <m>K_n</m> với <m>n \geq 2</m>, mọi cặp đỉnh đều kề nhau, do đó <m>\operatorname{diam}(K_n) = 1</m>.</p>
-      <p>Xem thêm <xref ref="def-distance" text="title" />, <xref ref="def-connected-graph" text="title" />.</p>
+      <p>Xem thêm <xref ref="def-distance" text="title" />, <xref ref="def-eccentricity" text="title" />, <xref ref="def-connected-graph" text="title" />.</p>
     </statement>
   </definition>
   <definition xml:id="def-digraph">
@@ -120,7 +120,7 @@
         <li><p><term>đồ thị định hướng</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 187 (PDF)); <xref ref="bib-rosen-2003-vi" /> (tr. 504 (PDF, bản dịch Rosen)).</p></li>
       </ul>
       <p>Ví dụ: Cho <m>V = \{a, b, c\}</m> và <m>E = \{(a, b), (b, c), (a, c)\}</m>. Khi đó <m>G = (V, E)</m> là một đồ thị có hướng; chẳng hạn cung <m>(a, b)</m> có đỉnh đầu <m>a</m> và đỉnh cuối <m>b</m>.</p>
-      <p>Xem thêm <xref ref="def-directed-graph" text="title" />, <xref ref="def-directed-edge" text="title" />.</p>
+      <p>Xem thêm <xref ref="def-directed-graph" text="title" />, <xref ref="def-directed-edge" text="title" />, <xref ref="def-directed-multigraph" text="title" />, <xref ref="def-simple-directed-graph" text="title" />, <xref ref="def-in-degree" text="title" />, <xref ref="def-out-degree" text="title" />.</p>
     </statement>
   </definition>
   <definition xml:id="def-directed-graph">
@@ -140,7 +140,7 @@
         <li><p><term>đồ thị định hướng</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 226 (PDF)); <xref ref="bib-hoangchithanh-2007" /> (tr. 19 (PDF)); <xref ref="bib-rosen-2003-vi" /> (tr. 504 (PDF, bản dịch Rosen)).</p></li>
       </ul>
       <p>Ví dụ: Cho tập đỉnh <m>V = \{a, b, c\}</m> và tập cạnh có hướng <m>E = \{(a, b), (b, c), (a, c)\}</m>. Khi đó <m>G = (V, E)</m> là một đồ thị có hướng, trong đó cạnh <m>(a, b)</m> đi từ đỉnh <m>a</m> đến đỉnh <m>b</m>.</p>
-      <p>Xem thêm <xref ref="def-digraph" text="title" />, <xref ref="def-directed-edge" text="title" />, <xref ref="def-undirected-graph" text="title" />, <xref ref="def-graph" text="title" />.</p>
+      <p>Xem thêm <xref ref="def-digraph" text="title" />, <xref ref="def-directed-edge" text="title" />, <xref ref="def-directed-multigraph" text="title" />, <xref ref="def-simple-directed-graph" text="title" />, <xref ref="def-undirected-graph" text="title" />, <xref ref="def-graph" text="title" />.</p>
     </statement>
   </definition>
   <definition xml:id="def-dijkstra-algorithm">
@@ -156,7 +156,7 @@
         <li><p><term>thuật toán Dijkstra tìm đường đi ngắn nhất</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 92 (PDF)); <xref ref="bib-nguyenhuudien-2019" /> (tr. 207 (PDF)); <xref ref="bib-hoangchithanh-2007" /> (tr. 93 (PDF)); <xref ref="bib-rosen-2003-vi" /> (tr. 575 (PDF, bản dịch Rosen)).</p></li>
       </ul>
       <p>Ví dụ: Trong đồ thị có trọng số với các đỉnh <m>a, b, c</m>, các cạnh <m>ab</m> trọng số <m>4</m>, <m>bc</m> trọng số <m>1</m>, và <m>ac</m> trọng số <m>6</m>, thuật toán Dijkstra xuất phát từ <m>a</m> chọn lần lượt <m>b</m> (khoảng cách <m>4</m>) rồi <m>c</m> (khoảng cách <m>5</m>), cho đường đi ngắn nhất từ <m>a</m> đến <m>c</m> có độ dài <m>5</m>.</p>
-      <p>Xem thêm <xref ref="def-weighted-graph" text="title" />.</p>
+      <p>Xem thêm <xref ref="def-shortest-path-problem" text="title" />, <xref ref="def-weighted-graph" text="title" />.</p>
     </statement>
   </definition>
   <definition xml:id="def-disjoint-sets">
@@ -182,7 +182,7 @@
         <li><p><term>tập rời nhau</term> <xref ref="bib-leanhvinh-2020" /> (tr. 37 (PDF)); <xref ref="bib-leanhvinh-2020" /> (tr. 202 (PDF)); <xref ref="bib-ngodactan-2004" /> (tr. 21 (PDF)); <xref ref="bib-rosen-2003-vi" /> (tr. 65 (PDF, bản dịch Rosen)).</p></li>
       </ul>
       <p>Ví dụ: Hai tập hợp <m>A = \{1, 3, 5\}</m> và <m>B = \{2, 4, 6\}</m> là hai tập hợp rời nhau vì <m>A \cap B = \emptyset</m>.</p>
-      <p>Xem thêm <xref ref="def-set" text="title" />.</p>
+      <p>Xem thêm <xref ref="def-empty-set" text="title" />, <xref ref="def-intersection" text="title" />, <xref ref="def-union" text="title" />, <xref ref="def-set" text="title" />.</p>
     </statement>
   </definition>
   <definition xml:id="def-distance">
@@ -210,7 +210,7 @@
         <li><p><term>khoảng cách giữa đỉnh x và đỉnh y</term> <xref ref="bib-hoangchithanh-2007" /> (tr. 99 (PDF)).</p></li>
       </ul>
       <p>Ví dụ: Trong đồ thị chu trình <m>C_5</m> với các đỉnh <m>v_1, v_2, v_3, v_4, v_5</m> nối tiếp nhau thành vòng, ta có <m>d(v_1, v_3) = 2</m> vì đường đi ngắn nhất là <m>v_1, v_2, v_3</m>.</p>
-      <p>Xem thêm <xref ref="def-diameter" text="title" />.</p>
+      <p>Xem thêm <xref ref="def-diameter" text="title" />, <xref ref="def-shortest-path-problem" text="title" />, <xref ref="def-eccentricity" text="title" />.</p>
     </statement>
   </definition>
   <definition xml:id="def-divisibility">
@@ -230,6 +230,7 @@
         <li><p><term>quan hệ chia hết</term> <xref ref="bib-ngodactan-2004" /> (tr. 173 (PDF)).</p></li>
       </ul>
       <p>Ví dụ: Ta có <m>3 \mid 12</m> vì <m>12 = 3 \cdot 4</m> với <m>4</m> là số nguyên, nhưng <m>3 \nmid 7</m> vì không tồn tại số nguyên <m>c</m> nào sao cho <m>7 = 3c</m>.</p>
+      <p>Xem thêm <xref ref="def-prime" text="title" />.</p>
     </statement>
   </definition>
   <definition xml:id="def-division-algorithm">
@@ -249,7 +250,7 @@
         <li><p><term>thuật chia (Euclide)</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 65 (PDF)).</p></li>
       </ul>
       <p>Ví dụ: Với <m>a = 17</m> và <m>b = 5</m>, ta có <m>q = 3</m> và <m>r = 2</m> vì <m>17 = 5 \cdot 3 + 2</m> và <m>0 \leq 2  \lt  5</m>.</p>
-      <p>Xem thêm <xref ref="def-divisibility" text="title" />.</p>
+      <p>Xem thêm <xref ref="def-divisibility" text="title" />, <xref ref="def-prime" text="title" />.</p>
     </statement>
   </definition>
   <definition xml:id="def-domain">
@@ -269,7 +270,7 @@
         <li><p><term>tập nguồn</term> <xref ref="bib-nguyenducnghia-2006" /> (tr. 19 (PDF)).</p></li>
       </ul>
       <p>Ví dụ: Với hàm <m>f : \mathbb{Z} \to \mathbb{Z}</m> cho bởi <m>f(n) = n^2</m>, miền xác định là tập <m>\mathbb{Z}</m> các số nguyên.</p>
-      <p>Xem thêm <xref ref="def-codomain" text="title" />, <xref ref="def-function" text="title" />.</p>
+      <p>Xem thêm <xref ref="def-codomain" text="title" />, <xref ref="def-function" text="title" />, <xref ref="def-range" text="title" />.</p>
     </statement>
   </definition>
   <definition xml:id="def-dominating-set">
@@ -791,6 +792,165 @@
         <li><p><term>nguyên lý đối ngẫu</term> <xref ref="bib-rosen-2003-vi" /> (tr. 757 (PDF)).</p></li>
       </ul>
       <p>Ví dụ: Đối ngẫu của hằng đẳng thức <m>x \cdot 1 = x</m> là <m>x + 0 = x</m>, và cả hai đều đúng trong mọi đại số Boole. Tương tự, từ luật hấp thụ <m>x \cdot (x + y) = x</m> ta suy ra ngay hằng đẳng thức đối ngẫu <m>x + (x \cdot y) = x</m>.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-decision-problem">
+    <title>Decision Problem — bài toán quyết định</title>
+    <idx><h>decision problem</h></idx>
+    <idx><h>bài toán quyết định</h></idx>
+    <statement>
+      <p>Bài toán quyết định là một bài toán hỏi xem các phát biểu thuộc một dạng cho trước có đúng hay không. Nói cách khác, mỗi dữ liệu vào của bài toán ứng với một câu trả lời là <m>\text{đúng}</m> hoặc <m>\text{sai}</m> (theo <xref ref="bib-rosen-2019" />, Rosen §3.3).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>bài toán quyết định</term> <em>(thuật ngữ chuẩn; chưa truy được trong kho văn bản)</em> — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Câu hỏi "Cho đồ thị <m>G</m>, <m>G</m> có chứa một chu trình Hamilton hay không?" là một bài toán quyết định: với mỗi đồ thị <m>G</m>, câu trả lời chỉ có thể là <m>\text{đúng}</m> hoặc <m>\text{sai}</m>.</p>
+      <p>Xem thêm <xref ref="def-np-complete-problem" text="title" />, <xref ref="def-algorithm" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-decryption">
+    <title>Decryption — giải mã</title>
+    <idx><h>decryption</h></idx>
+    <idx><h>giải mã</h></idx>
+    <statement>
+      <p>Giải mã là quá trình đưa một bức thư bí mật trở về dạng ban đầu của nó. Nói cách khác, giải mã là phép biến đổi ngược của mã hóa: từ bức thư đã được mã hóa, ta khôi phục lại bức thư gốc (theo <xref ref="bib-rosen-2019" />, Rosen §3.6).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>giải mã</term> <xref ref="bib-rosen-2003-vi" /> (tr. 169 (PDF)); <xref ref="bib-rosen-2003-vi" /> (tr. 164 (PDF)); <xref ref="bib-nguyenducnghia-2006" /> (tr. 12 (PDF)) — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Trong mật mã Caesar, mỗi chữ cái được dịch đi <m>3</m> vị trí trong bảng chữ cái khi mã hóa, tức là chữ ở vị trí <m>p</m> được thay bởi chữ ở vị trí <m>(p + 3) \bmod 26</m>. Để giải mã, ta thực hiện phép dịch ngược lại: chữ ở vị trí <m>p</m> được thay bởi chữ ở vị trí <m>(p - 3) \bmod 26</m>. Chẳng hạn, bức thư đã mã hóa "PHHW" được giải mã thành "MEET".</p>
+      <p>Xem thêm <xref ref="def-private-key-cryptography" text="title" />, <xref ref="def-public-key-cryptography" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-derivation-tree">
+    <title>Derivation Tree — cây dẫn xuất</title>
+    <idx><h>derivation tree</h></idx>
+    <idx><h>cây dẫn xuất</h></idx>
+    <statement>
+      <p>Cây dẫn xuất là một cây có gốc được sắp thứ tự biểu diễn cách một xâu được dẫn xuất trong một văn phạm. Gốc của cây biểu diễn ký hiệu xuất phát, mỗi đỉnh trong biểu diễn một ký hiệu không kết thúc, mỗi lá biểu diễn một ký hiệu kết thúc, và các con của một đỉnh tương ứng với vế phải của luật sản xuất được áp dụng (theo <xref ref="bib-rosen-2019" />, Rosen §13.1).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>cây dẫn xuất</term> <xref ref="bib-rosen-2003-vi" /> (tr. 775 (PDF)); <xref ref="bib-rosen-2003-vi" /> (tr. 845 (PDF)) — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Trong văn phạm sinh ra câu "the hungry rabbit eats quickly", cây dẫn xuất có gốc là ký hiệu xuất phát của câu, các đỉnh trong là các thành phần ngữ pháp như cụm danh từ và cụm động từ, còn các lá lần lượt là các từ <m>\textit{the}</m>, <m>\textit{hungry}</m>, <m>\textit{rabbit}</m>, <m>\textit{eats}</m>, <m>\textit{quickly}</m>.</p>
+      <p>Xem thêm <xref ref="def-ordered-rooted-tree" text="title" />, <xref ref="def-rooted-tree" text="title" />, <xref ref="def-string" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-digital-signature">
+    <title>Digital Signature — chữ ký số</title>
+    <idx><h>digital signature</h></idx>
+    <idx><h>chữ ký số</h></idx>
+    <statement>
+      <p>Chữ ký số là một phương pháp mà người nhận có thể dùng để xác định người gửi của một thông điệp. Bằng cách áp dụng một phép biến đổi mật mã mà chỉ riêng người gửi mới thực hiện được lên thông điệp, người nhận có thể kiểm tra và xác nhận rằng thông điệp đúng là do người gửi đó tạo ra (theo <xref ref="bib-rosen-2019" />, Rosen §4.6).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>chữ ký số</term> <em>(thuật ngữ chuẩn; chưa truy được trong kho văn bản)</em> — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Trong hệ mật mã khóa công khai <m>RSA</m>, người gửi ký một thông điệp <m>M</m> bằng cách áp dụng hàm giải mã với khóa bí mật của mình để tạo ra <m>S = M^{d} \bmod n</m>; người nhận dùng khóa công khai <m>(e, n)</m> của người gửi để khôi phục <m>M = S^{e} \bmod n</m>, nhờ đó xác nhận chính người gửi đã tạo ra thông điệp.</p>
+      <p>Xem thêm <xref ref="def-public-key-cryptography" text="title" />, <xref ref="def-private-key-cryptography" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-directed-multigraph">
+    <title>Directed Multigraph — đa đồ thị có hướng</title>
+    <idx><h>directed multigraph</h></idx>
+    <idx><h>đa đồ thị có hướng</h></idx>
+    <notation>
+      <usage><m>G = (V, E)</m></usage>
+      <description>đa đồ thị có hướng</description>
+    </notation>
+    <statement>
+      <p>Một đa đồ thị có hướng là một đồ thị có hướng có thể chứa nhiều cạnh có hướng giữa cùng một cặp đỉnh (theo <xref ref="bib-rosen-2019" />, Rosen §10.1).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>đa đồ thị có hướng</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 62 (PDF)); <xref ref="bib-nguyenhuudien-2019" /> (tr. 156 (PDF)); <xref ref="bib-rosen-2003-vi" /> (tr. 605 (PDF)) — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Nếu <m>G = (V, E)</m> với <m>V = \{a, b\}</m> có hai cạnh có hướng từ <m>a</m> đến <m>b</m> và một cạnh có hướng từ <m>b</m> đến <m>a</m>, thì <m>G</m> là một đa đồ thị có hướng vì nó cho phép nhiều cạnh có hướng giữa hai đỉnh.</p>
+      <p>Xem thêm <xref ref="def-directed-graph" text="title" />, <xref ref="def-digraph" text="title" />, <xref ref="def-multigraph" text="title" />, <xref ref="def-directed-edge" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-discrete-logarithm">
+    <title>Discrete Logarithm — lôgarit rời rạc</title>
+    <idx><h>discrete logarithm</h></idx>
+    <idx><h>lôgarit rời rạc</h></idx>
+    <notation>
+      <usage><m>\log_r a \pmod p</m></usage>
+      <description>lôgarit rời rạc</description>
+    </notation>
+    <statement>
+      <p>Cho <m>p</m> là một số nguyên tố và <m>r</m> là một căn nguyên thủy modulo <m>p</m>. Lôgarit rời rạc của một số nguyên <m>a</m> theo cơ số <m>r</m> modulo <m>p</m> là số nguyên <m>e</m> thỏa mãn <m>r^e \equiv a \pmod p</m> (theo <xref ref="bib-rosen-2019" />, Rosen §4.6).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>lôgarit rời rạc</term> <em>(thuật ngữ chuẩn; chưa truy được trong kho văn bản)</em> — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Lấy <m>p = 11</m> và căn nguyên thủy <m>r = 2</m> modulo <m>11</m>. Vì <m>2^4 = 16 \equiv 5 \pmod{11}</m>, nên lôgarit rời rạc của <m>5</m> theo cơ số <m>2</m> modulo <m>11</m> là <m>4</m>.</p>
+      <p>Xem thêm <xref ref="def-logarithm" text="title" />, <xref ref="def-congruence" text="title" />, <xref ref="def-modular-arithmetic" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-distribution-of-a-random-variable">
+    <title>Distribution of a Random Variable — phân phối của biến ngẫu nhiên</title>
+    <idx><h>distribution of a random variable</h></idx>
+    <idx><h>biến ngẫu nhiên</h></idx>
+    <idx><h>phân phối của biến ngẫu nhiên</h></idx>
+    <statement>
+      <p>Phân phối của một biến ngẫu nhiên <m>X</m> trên một không gian mẫu là tập hợp các cặp <m>(r, p(X = r))</m> ứng với mọi giá trị <m>r</m> mà biến ngẫu nhiên <m>X</m> có thể nhận. Nói cách khác, phân phối cho biết với mỗi giá trị <m>r</m> của <m>X</m>, xác suất để <m>X</m> nhận giá trị đó là <m>p(X = r)</m> (theo <xref ref="bib-rosen-2019" />, Rosen §7.2).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>phân phối của biến ngẫu nhiên</term> <em>(thuật ngữ chuẩn; chưa truy được trong kho văn bản)</em> — cách dùng phổ biến.</p></li>
+        <li><p><term>biến ngẫu nhiên</term> <xref ref="bib-leanhvinh-2020" /> (tr. 155 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Giả sử tung một đồng xu cân đối hai lần và <m>X</m> là biến ngẫu nhiên đếm số lần xuất hiện mặt ngửa. Khi đó phân phối của <m>X</m> gồm các cặp <m>(0, 1/4)</m>, <m>(1, 1/2)</m> và <m>(2, 1/4)</m>, vì <m>p(X = 0) = 1/4</m>, <m>p(X = 1) = 1/2</m> và <m>p(X = 2) = 1/4</m>.</p>
+      <p>Xem thêm <xref ref="def-expected-value" text="title" />, <xref ref="def-bernoulli-trial" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-divide-and-conquer-algorithm">
+    <title>Divide-And-Conquer Algorithm</title>
+    <idx><h>divide-and-conquer algorithm</h></idx>
+    <statement><p><term>Divide-And-Conquer Algorithm</term>. Xem <xref ref="def-divide-and-conquer" text="title" />.</p></statement>
+  </definition>
+  <definition xml:id="def-division-rule-for-counting">
+    <title>Division Rule For Counting</title>
+    <idx><h>division rule for counting</h></idx>
+    <statement><p><term>Division Rule For Counting</term>. Xem <xref ref="def-the-division-rule" text="title" />.</p></statement>
+  </definition>
+  <definition xml:id="def-division-rule-for-sets">
+    <title>Division Rule For Sets</title>
+    <idx><h>division rule for sets</h></idx>
+    <statement><p><term>Division Rule For Sets</term>. Xem <xref ref="def-the-division-rule" text="title" />.</p></statement>
+  </definition>
+  <definition xml:id="def-domain-of-discourse">
+    <title>Domain Of Discourse — miền xác định</title>
+    <idx><h>domain of discourse</h></idx>
+    <idx><h>miền xác định</h></idx>
+    <idx><h>vũ trụ biện luận</h></idx>
+    <statement>
+      <p>Miền xác định (hay vũ trụ biện luận) là tập hợp các giá trị mà một biến trong hàm mệnh đề <m>P(x)</m> có thể nhận. Khi xét lượng từ trên hàm mệnh đề, mỗi biến chỉ lấy giá trị trong miền xác định của nó (theo <xref ref="bib-rosen-2019" />, Rosen §1.4).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>miền xác định</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 46 (PDF)) — cách dùng phổ biến.</p></li>
+        <li><p><term>vũ trụ biện luận</term> <xref ref="bib-rosen-2003-vi" /> (tr. 34 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Với hàm mệnh đề <m>P(x): x  \gt  0</m> trên miền xác định là tập các số nguyên <m>\mathbb{Z}</m>, biến <m>x</m> chỉ nhận các giá trị nguyên; mệnh đề <m>\forall x\, P(x)</m> là sai vì <m>P(-1)</m> sai, còn <m>\exists x\, P(x)</m> là đúng vì <m>P(1)</m> đúng.</p>
+      <p>Xem thêm <xref ref="def-propositional-function" text="title" />, <xref ref="def-predicate" text="title" />, <xref ref="def-quantifier" text="title" />, <xref ref="def-universal-quantifier" text="title" />, <xref ref="def-domain" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-dual-of-a-boolean-expression">
+    <title>Dual Of A Boolean Expression</title>
+    <idx><h>dual of a boolean expression</h></idx>
+    <idx><h>đối ngẫu của biểu thức Boole</h></idx>
+    <statement><p><term>Dual Of A Boolean Expression</term> (đối ngẫu của biểu thức Boole). Xem <xref ref="def-duality-principle" text="title" />.</p></statement>
+  </definition>
+  <definition xml:id="def-dynamic-programming">
+    <title>Dynamic Programming — quy hoạch động</title>
+    <idx><h>dynamic programming</h></idx>
+    <idx><h>quy hoạch động</h></idx>
+    <statement>
+      <p>Quy hoạch động là một mô hình thuật toán tìm lời giải tối ưu bằng cách kết hợp các lời giải của những bài toán con gối nhau. Mỗi bài toán con chỉ được giải một lần, sau đó lời giải của nó được lưu lại và dùng lại để tạo nên lời giải tối ưu cho bài toán ban đầu.</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>quy hoạch động</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 91 (PDF)) — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Các thuật toán tìm đường đi ngắn nhất như thuật toán Dijkstra và thuật toán Bellman–Ford là những ví dụ về quy hoạch động: chúng xây dựng đường đi ngắn nhất từ <m>s</m> tới <m>t</m> bằng cách kết hợp các đường đi ngắn nhất tới những đỉnh trung gian, là các bài toán con gối nhau.</p>
+      <p>Xem thêm <xref ref="def-algorithm" text="title" />, <xref ref="def-divide-and-conquer" text="title" />, <xref ref="def-dijkstra-algorithm" text="title" />.</p>
     </statement>
   </definition>
 </chapter>

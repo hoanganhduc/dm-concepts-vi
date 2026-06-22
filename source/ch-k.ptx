@@ -307,4 +307,23 @@
       <p>Ví dụ: Đồ thị Petersen chứa một đồ thị con đồng phôi với <m>K_{3,3}</m>, do đó nó có một đồ thị con Kuratowski và không phẳng. Ngược lại, đồ thị đầy đủ <m>K_4</m> không chứa đồ thị con nào đồng phôi với <m>K_5</m> hay <m>K_{3,3}</m> nên <m>K_4</m> là đồ thị phẳng.</p>
     </statement>
   </definition>
+  <definition xml:id="def-k-map">
+    <title>K-Map</title>
+    <idx><h>k-map</h></idx>
+    <statement><p><term>K-Map</term>. Xem <xref ref="def-karnaugh-map" text="title" />.</p></statement>
+  </definition>
+  <definition xml:id="def-key-exchange-protocol">
+    <title>Key Exchange Protocol — giao thức trao đổi khóa</title>
+    <idx><h>key exchange protocol</h></idx>
+    <idx><h>giao thức trao đổi khóa</h></idx>
+    <statement>
+      <p>Giao thức trao đổi khóa là một giao thức được hai bên sử dụng để cùng thống nhất về một khóa bí mật dùng chung. Khóa bí mật chung này sau đó có thể được dùng để mã hóa và giải mã các thông điệp trao đổi giữa hai bên (theo <xref ref="bib-rosen-2019" />, Rosen §4.6).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>giao thức trao đổi khóa</term> <em>(thuật ngữ chuẩn; chưa truy được trong kho văn bản)</em> — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Trong giao thức trao đổi khóa Diffie–Hellman, hai bên công khai chọn một số nguyên tố <m>p</m> và một số nguyên <m>a</m> với <m>2 \leq a \leq p-1</m>. Mỗi bên chọn riêng một số mũ bí mật, lần lượt là <m>k_1</m> và <m>k_2</m> với <m>1 \leq k_1, k_2 \leq p-1</m>, rồi gửi cho bên kia các giá trị <m>a^{k_1} \bmod p</m> và <m>a^{k_2} \bmod p</m>. Khi đó cả hai bên đều tính được cùng một khóa bí mật chung <m>a^{k_1 k_2} \bmod p</m>, trong khi một bên thứ ba chỉ biết <m>p</m>, <m>a</m>, <m>a^{k_1} \bmod p</m> và <m>a^{k_2} \bmod p</m> vẫn rất khó suy ra khóa này.</p>
+      <p>Xem thêm <xref ref="def-public-key-cryptography" text="title" />, <xref ref="def-private-key-cryptography" text="title" />, <xref ref="def-key" text="title" />.</p>
+    </statement>
+  </definition>
 </chapter>

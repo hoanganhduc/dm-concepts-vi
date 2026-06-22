@@ -202,7 +202,7 @@
         <li><p><term>định nghĩa bằng đệ quy</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 149 (PDF)); <xref ref="bib-rosen-2003-vi" /> (tr. 250 (PDF, bản dịch Rosen)).</p></li>
       </ul>
       <p>Ví dụ: Dãy giai thừa <m>\{n!\}</m> được định nghĩa đệ quy bởi bước cơ sở <m>0! = 1</m> và bước đệ quy <m>n! = n \cdot (n-1)!</m> với mọi số nguyên <m>n \geq 1</m>.</p>
-      <p>Xem thêm <xref ref="def-recurrence-relation" text="title" />, <xref ref="def-recursion" text="title" />, <xref ref="def-recursive-algorithm" text="title" />, <xref ref="def-mathematical-induction" text="title" />.</p>
+      <p>Xem thêm <xref ref="def-recurrence-relation" text="title" />, <xref ref="def-recursion" text="title" />, <xref ref="def-recursive-algorithm" text="title" />, <xref ref="def-mathematical-induction" text="title" />, <xref ref="def-structural-induction" text="title" />.</p>
     </statement>
   </definition>
   <definition xml:id="def-residue">
@@ -242,6 +242,7 @@
         <li><p><term>biểu thức đều</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
       </ul>
       <p>Ví dụ: Trên bảng chữ cái <m>I = \{a, b\}</m>, xâu <m>(ab)^{*} \cup b</m> là một biểu thức chính quy, trong khi xâu ký hiệu <m>\cup a^{*} b</m> không phải là biểu thức chính quy vì không tuân theo quy tắc xây dựng đệ quy.</p>
+      <p>Xem thêm <xref ref="def-regular-set" text="title" />.</p>
     </statement>
   </definition>
   <definition xml:id="def-ramsey-number">
@@ -301,7 +302,7 @@
         <li><p><term>đến được</term> <xref ref="bib-leanhvinh-2020" /> (tr. 75 (PDF)); <xref ref="bib-nguyenhuudien-2019" /> (tr. 176 (PDF)); <xref ref="bib-nguyenducnghia-2006" /> (tr. 179 (PDF)); <xref ref="bib-hoangchithanh-2007" /> (tr. 70 (PDF)).</p></li>
       </ul>
       <p>Ví dụ: Trong đồ thị có hướng với tập đỉnh <m>\{a, b, c\}</m> và tập cung <m>\{(a, b), (b, c)\}</m>, đỉnh <m>c</m> đến được từ đỉnh <m>a</m> vì tồn tại đường đi có hướng <m>a \rightarrow b \rightarrow c</m>; ngược lại, <m>a</m> không đến được từ <m>c</m> vì không có đường đi có hướng nào từ <m>c</m> về <m>a</m>.</p>
-      <p>Xem thêm <xref ref="def-directed-graph" text="title" />, <xref ref="def-path" text="title" />, <xref ref="def-connected-graph" text="title" />.</p>
+      <p>Xem thêm <xref ref="def-directed-graph" text="title" />, <xref ref="def-path" text="title" />, <xref ref="def-strongly-connected" text="title" />, <xref ref="def-connected-graph" text="title" />.</p>
     </statement>
   </definition>
   <definition xml:id="def-restriction-of-a-function">
@@ -623,5 +624,146 @@
       </ul>
       <p>Ví dụ: Trong cây <m>T</m> có gốc <m>a</m> với các đỉnh lá <m>b, g, e, h, k</m>, đỉnh <m>a</m> có mức <m>0</m>, còn các đỉnh con <m>b, c</m> của nó có mức <m>1</m>.</p>
     </statement>
+  </definition>
+  <definition xml:id="def-r-combination">
+    <title>R-Combination</title>
+    <idx><h>r-combination</h></idx>
+    <idx><h>tổ hợp chập r</h></idx>
+    <statement><p><term>R-Combination</term> (tổ hợp chập r). Xem <xref ref="def-combination" text="title" />.</p></statement>
+  </definition>
+  <definition xml:id="def-r-permutation">
+    <title>R-Permutation</title>
+    <idx><h>r-permutation</h></idx>
+    <idx><h>r-hoán vị</h></idx>
+    <statement><p><term>R-Permutation</term> (r-hoán vị). Xem <xref ref="def-permutation" text="title" />.</p></statement>
+  </definition>
+  <definition xml:id="def-random-variable">
+    <title>Random Variable — biến ngẫu nhiên</title>
+    <idx><h>random variable</h></idx>
+    <idx><h>biến ngẫu nhiên</h></idx>
+    <notation>
+      <usage><m>X</m></usage>
+      <description>biến ngẫu nhiên</description>
+    </notation>
+    <statement>
+      <p>Biến ngẫu nhiên là một hàm gán một số thực cho mỗi kết cục của một không gian mẫu. Nói cách khác, nếu <m>S</m> là không gian mẫu của một phép thử thì biến ngẫu nhiên là một hàm <m>X : S \to \mathbb{R}</m> (theo <xref ref="bib-rosen-2019" />, Rosen §7.4).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>biến ngẫu nhiên</term> <xref ref="bib-leanhvinh-2020" /> (tr. 155 (PDF)) — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Khi tung một đồng xu hai lần, gọi <m>X</m> là biến ngẫu nhiên đếm số lần xuất hiện mặt ngửa; khi đó <m>X</m> gán giá trị <m>2</m> cho kết cục <m>\mathrm{NN}</m>, giá trị <m>1</m> cho các kết cục <m>\mathrm{NS}</m> và <m>\mathrm{SN}</m>, và giá trị <m>0</m> cho kết cục <m>\mathrm{SS}</m>.</p>
+      <p>Xem thêm <xref ref="def-expected-value" text="title" />, <xref ref="def-function" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-regions-of-a-planar-graph">
+    <title>Regions Of A Planar Graph</title>
+    <idx><h>regions of a planar graph</h></idx>
+    <statement><p><term>Regions Of A Planar Graph</term>. Xem <xref ref="def-region" text="title" />.</p></statement>
+  </definition>
+  <definition xml:id="def-regular-set">
+    <title>Regular Set — tập chính quy</title>
+    <idx><h>regular set</h></idx>
+    <idx><h>ngôn ngữ chính quy</h></idx>
+    <idx><h>tập chính quy</h></idx>
+    <statement>
+      <p>Một <em>tập chính quy</em> là một tập các xâu ký tự được mô tả bởi một biểu thức chính quy. Cụ thể, mỗi biểu thức chính quy trên một bảng chữ cái <m>I</m> biểu diễn một tập chính quy: <m>\emptyset</m> biểu diễn tập rỗng, <m>\lambda</m> biểu diễn tập <m>\{\lambda\}</m> gồm xâu rỗng, ký hiệu <m>x</m> biểu diễn tập <m>\{x\}</m>, và các phép ghép, hợp cùng bao đóng Kleene của các biểu thức chính quy biểu diễn các tập tương ứng được tạo từ các tập chính quy thành phần (theo <xref ref="bib-rosen-2019" />, Rosen §13.4).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>tập chính quy</term> <xref ref="bib-rosen-2003-vi" /> (tr. 810 (PDF)); <xref ref="bib-rosen-2003-vi" /> (tr. 809 (PDF)) — cách dùng phổ biến.</p></li>
+        <li><p><term>ngôn ngữ chính quy</term> <xref ref="bib-rosen-2003-vi" /> (tr. 774 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Trên bảng chữ cái <m>I = \{0, 1\}</m>, biểu thức chính quy <m>0^{*}1</m> mô tả tập chính quy gồm các xâu kết thúc bằng đúng một ký hiệu <m>1</m> và đứng trước là một số (có thể bằng <m>0</m>) ký hiệu <m>0</m>, tức là tập <m>\{1, 01, 001, 0001, \ldots\}</m>.</p>
+      <p>Xem thêm <xref ref="def-regular-expression" text="title" />, <xref ref="def-string" text="title" />, <xref ref="def-alphabet" text="title" />, <xref ref="def-language" text="title" />, <xref ref="def-nondeterministic-finite-automaton" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-relation-on-a-set">
+    <title>Relation On A Set</title>
+    <idx><h>relation on a set</h></idx>
+    <idx><h>quan hệ trên một tập hợp</h></idx>
+    <statement><p><term>Relation On A Set</term> (quan hệ trên một tập hợp). Xem <xref ref="def-binary-relation" text="title" />.</p></statement>
+  </definition>
+  <definition xml:id="def-relational-data-model">
+    <title>Relational Data Model — mô hình quan hệ</title>
+    <idx><h>relational data model</h></idx>
+    <idx><h>cơ sở dữ liệu theo mô hình quan hệ</h></idx>
+    <idx><h>mô hình dữ liệu quan hệ</h></idx>
+    <idx><h>mô hình quan hệ</h></idx>
+    <idx><h>mô hình quan hệ của dữ liệu</h></idx>
+    <statement>
+      <p>Mô hình quan hệ của dữ liệu là một mô hình để biểu diễn các cơ sở dữ liệu bằng các quan hệ <m>n</m> ngôi. Mỗi cơ sở dữ liệu được biểu diễn bởi một quan hệ <m>n</m> ngôi, trong đó mỗi bộ <m>n</m> phần tử là một bản ghi gồm các giá trị của <m>n</m> thuộc tính (theo <xref ref="bib-rosen-2019" />, Rosen §9.2).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>mô hình quan hệ</term> <xref ref="bib-rosen-2003-vi" /> (tr. 440 (PDF)) — cách dùng phổ biến.</p></li>
+        <li><p><term>cơ sở dữ liệu theo mô hình quan hệ</term> <xref ref="bib-rosen-2003-vi" /> (tr. 493 (PDF)).</p></li>
+        <li><p><term>mô hình dữ liệu quan hệ</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
+        <li><p><term>mô hình quan hệ của dữ liệu</term> <xref ref="bib-rosen-2003-vi" /> (tr. 440 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Một cơ sở dữ liệu sinh viên có thể được biểu diễn bằng quan hệ <m>4</m> ngôi gồm các bộ <m>(\text{Tên}, \text{Mã số}, \text{Ngành}, \text{Điểm})</m>, chẳng hạn <m>(\text{An}, 1010, \text{Toán}, 3.45)</m>; mỗi bộ là một bản ghi của một sinh viên.</p>
+      <p>Xem thêm <xref ref="def-n-ary-relation" text="title" />, <xref ref="def-relation" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-relatively-prime-integers">
+    <title>Relatively Prime Integers — nguyên tố cùng nhau</title>
+    <idx><h>relatively prime integers</h></idx>
+    <idx><h>nguyên tố cùng nhau</h></idx>
+    <notation>
+      <usage><m>\gcd(a,b) = 1</m></usage>
+      <description>nguyên tố cùng nhau</description>
+    </notation>
+    <statement>
+      <p>Hai số nguyên <m>a</m> và <m>b</m> được gọi là nguyên tố cùng nhau nếu ước chung lớn nhất của chúng bằng <m>1</m>, tức là <m>\gcd(a,b) = 1</m> (theo <xref ref="bib-rosen-2019" />, Rosen §3.5).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>nguyên tố cùng nhau</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 58 (PDF)); <xref ref="bib-rosen-2003-vi" /> (tr. 157 (PDF)) — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Hai số <m>17</m> và <m>22</m> là nguyên tố cùng nhau vì <m>\gcd(17, 22) = 1</m>, mặc dù bản thân <m>22</m> không phải là số nguyên tố.</p>
+      <p>Xem thêm <xref ref="def-greatest-common-divisor" text="title" />, <xref ref="def-pairwise-relatively-prime" text="title" />, <xref ref="def-prime-number" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-roster-method">
+    <title>Roster Method — cách liệt kê</title>
+    <idx><h>roster method</h></idx>
+    <idx><h>cách liệt kê</h></idx>
+    <idx><h>liệt kê các phần tử</h></idx>
+    <idx><h>phương pháp liệt kê</h></idx>
+    <notation>
+      <usage><m>\{a_1, a_2, \ldots, a_n\}</m></usage>
+      <description>cách liệt kê</description>
+    </notation>
+    <statement>
+      <p>Phương pháp liệt kê là cách mô tả một tập hợp bằng việc liệt kê tất cả các phần tử của nó. Các phần tử được viết ở giữa cặp ký hiệu ngoặc <m>\{</m> và <m>\}</m>, chẳng hạn <m>\{a_1, a_2, \ldots, a_n\}</m> (theo <xref ref="bib-rosen-2019" />, Rosen §2.1).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>cách liệt kê</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 73 (PDF)) — cách dùng phổ biến.</p></li>
+        <li><p><term>liệt kê các phần tử</term> <xref ref="bib-rosen-2003-vi" /> (tr. 54 (PDF)).</p></li>
+        <li><p><term>phương pháp liệt kê</term> <xref ref="bib-rosen-2003-vi" /> (tr. 353 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Tập hợp các chữ số lẻ nhỏ hơn <m>10</m> được mô tả theo phương pháp liệt kê là <m>\{1, 3, 5, 7, 9\}</m>. Thứ tự liệt kê các phần tử và việc một phần tử được liệt kê nhiều lần đều không quan trọng, nên <m>\{1, 3, 5\}</m>, <m>\{3, 1, 5\}</m> và <m>\{1, 3, 3, 5\}</m> cùng biểu diễn một tập hợp.</p>
+      <p>Xem thêm <xref ref="def-set" text="title" />, <xref ref="def-element" text="title" />, <xref ref="def-set-builder-notation" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-rsa-cryptosystem">
+    <title>RSA Cryptosystem — hệ mật mã RSA</title>
+    <idx><h>rsa cryptosystem</h></idx>
+    <idx><h>hệ mật mã RSA</h></idx>
+    <notation>
+      <usage><m>C \equiv M^{e} \pmod{n}</m></usage>
+      <description>hệ mật mã RSA</description>
+    </notation>
+    <statement>
+      <p>Hệ mật mã RSA là một hệ mật mã khóa công khai dựa trên phép lũy thừa theo môđun, trong đó môđun <m>n</m> là tích của hai số nguyên tố. Bản rõ <m>M</m> được mã hóa thành <m>C \equiv M^{e} \pmod{n}</m> bằng khóa công khai <m>(n, e)</m>, và được giải mã nhờ khóa bí mật <m>d</m> thỏa mãn <m>ed \equiv 1 \pmod{(p-1)(q-1)}</m> (theo <xref ref="bib-rosen-2019" />, Rosen §4.6).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>hệ mật mã RSA</term> <em>(thuật ngữ chuẩn; chưa truy được trong kho văn bản)</em> — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Người nhận chọn hai số nguyên tố lớn <m>p</m> và <m>q</m>, đặt <m>n = pq</m> và chọn số mũ mã hóa <m>e</m> nguyên tố cùng nhau với <m>(p-1)(q-1)</m>. Khi mã hóa bản rõ <m>M = 7</m> với khóa công khai <m>(n, e) = (33, 3)</m> (ở đây <m>p = 3</m>, <m>q = 11</m>), ta được bản mã <m>C \equiv 7^{3} \equiv 343 \equiv 13 \pmod{33}</m>. Với khóa bí mật <m>d = 7</m> (vì <m>ed = 21 \equiv 1 \pmod{20}</m>), người nhận khôi phục bản rõ <m>M \equiv 13^{7} \equiv 7 \pmod{33}</m>.</p>
+      <p>Xem thêm <xref ref="def-public-key-cryptography" text="title" />, <xref ref="def-private-key-cryptography" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-rule-of-inference">
+    <title>Rule Of Inference</title>
+    <idx><h>rule of inference</h></idx>
+    <idx><h>luật suy diễn</h></idx>
+    <statement><p><term>Rule Of Inference</term> (luật suy diễn). Xem <xref ref="def-inference-rule" text="title" />.</p></statement>
   </definition>
 </chapter>

@@ -1570,6 +1570,292 @@
    "see_also": [],
    "notes": "Thuật ngữ chuẩn của giáo trình MAT3500 là \"biến ràng buộc\". Cả tài liệu Nguyễn Hữu Điển (2019) và bản dịch Rosen đều dùng biến thể \"biến bị ràng buộc\" cho cùng khái niệm, đặt đối lập với biến tự do (free variable).",
    "status": "draft"
+  },
+  {
+   "id": "balanced-tree",
+   "letter": "B",
+   "headword_en": "Balanced Tree",
+   "notation": "",
+   "rosen_ref": "Rosen §11.1",
+   "definition_vi": "Một cây có chiều cao $$h$$ được gọi là cân bằng nếu mọi lá của nó đều nằm ở mức $$h$$ hoặc mức $$h - 1$$, trong đó $$h$$ là chiều cao của cây.",
+   "example_vi": "Một cây nhị phân đầy đủ với mọi lá nằm ở mức $$h$$ là cân bằng; nếu một số lá nằm ở mức $$h$$ và các lá còn lại nằm ở mức $$h - 1$$ thì cây vẫn cân bằng, nhưng nếu có một lá nằm ở mức $$h - 2$$ thì cây không cân bằng.",
+   "vi_terms": [
+    {
+     "term": "cây cân bằng",
+     "source_id": "bib-nguyenhoangthach-2020",
+     "page": "tr. 85 (PDF)",
+     "pdf_page": 85,
+     "snippet": "con. Một cây m-phân có chiều cao h là cân bằng nếu mọi lá của nó nằm ở",
+     "verified": true,
+     "recommended": true
+    }
+   ],
+   "see_also": [
+    "height-of-a-tree",
+    "m-ary-tree",
+    "full-binary-tree",
+    "level-of-a-tree"
+   ],
+   "notes": "Tính cân bằng của một cây phụ thuộc vào chiều cao $$h$$ và mức của các lá: cây cân bằng khi mọi lá nằm ở mức $$h$$ hoặc $$h - 1$$. Khái niệm này được dùng để cận chiều cao của cây $$m$$-phân theo số lá; một cây $$m$$-phân cân bằng có chiều cao nhỏ nhất có thể với số lá cho trước. Dẫn chứng tiếng Việt lấy từ bib-nguyenhoangthach-2020, định nghĩa cây $$m$$-phân cân bằng theo mức của các lá.",
+   "status": "draft"
+  },
+  {
+   "id": "bernoulli-trial",
+   "letter": "B",
+   "headword_en": "Bernoulli Trial",
+   "notation": "",
+   "rosen_ref": "Rosen §7.2",
+   "definition_vi": "Phép thử Bernoulli là một phép thử chỉ có hai kết cục có thể xảy ra. Hai kết cục này thường được gọi là \"thành công\" và \"thất bại\".",
+   "example_vi": "Tung một đồng xu một lần là một phép thử Bernoulli với hai kết cục \"mặt ngửa\" và \"mặt sấp\"; nếu xác suất thành công là $$p$$ thì xác suất thất bại là $$q = 1 - p$$.",
+   "vi_terms": [
+    {
+     "term": "phép thử Bernoulli",
+     "verified": false,
+     "recommended": true,
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": ""
+    }
+   ],
+   "see_also": [],
+   "notes": "Phép thử Bernoulli là phép thử chỉ có hai kết cục, quy ước gọi là \"thành công\" và \"thất bại\". Đây là nền tảng của phân phối nhị thức: khi thực hiện $$n$$ phép thử Bernoulli độc lập với cùng xác suất thành công $$p$$, xác suất có đúng $$k$$ lần thành công là $$\\binom{n}{k} p^{k} (1-p)^{n-k}$$. Thuật ngữ \"phép thử Bernoulli\" là cách dịch chuẩn; ngữ liệu hiện có không có dẫn chứng trực tiếp cho khái niệm này (các kết quả tìm thấy với \"Bernoulli\" trong ngữ liệu đều chỉ số Bernoulli, bất đẳng thức Bernoulli hoặc dòng họ Bernoulli, không phải phép thử Bernoulli).",
+   "status": "draft"
+  },
+  {
+   "id": "binary-representation",
+   "letter": "B",
+   "headword_en": "Binary Representation",
+   "see_ref": "binary",
+   "vi_terms": [
+    {
+     "term": "biểu diễn nhị phân",
+     "verified": false,
+     "recommended": false,
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": ""
+    }
+   ],
+   "status": "draft"
+  },
+  {
+   "id": "binary-search-algorithm",
+   "letter": "B",
+   "headword_en": "Binary Search Algorithm",
+   "notation": "",
+   "rosen_ref": "Rosen §3.1",
+   "definition_vi": "Thuật toán tìm kiếm nhị phân là một thủ tục để tìm kiếm một phần tử trong một bảng kê đã được sắp thứ tự bằng cách liên tiếp chia đôi khoảng tìm kiếm. Tại mỗi bước, thuật toán so sánh phần tử cần tìm với phần tử ở giữa khoảng còn lại để loại bỏ một nửa số phần tử, cho tới khi khoảng tìm kiếm chỉ còn một phần tử.",
+   "example_vi": "Để tìm $$x = 19$$ trong bảng kê đã sắp thứ tự $$1, 3, 5, 7, 9, 11, 13, 15, 17, 19$$ gồm $$10$$ phần tử, ta so sánh $$x$$ với phần tử giữa rồi loại bỏ nửa bảng kê không chứa $$x$$ ở mỗi bước; sau khoảng $$\\log_2 n$$ bước, khoảng tìm kiếm thu về một phần tử và ta xác định được vị trí của $$19$$.",
+   "vi_terms": [
+    {
+     "term": "thuật toán tìm kiếm nhị phân",
+     "source_id": "bib-nguyenhuudien-2019",
+     "page": "tr. 134 (PDF)",
+     "pdf_page": 134,
+     "snippet": "Thuật toán thứ hai này gọi là thuật toán tìm kiếm nhị phân. Nó được tiến hành bằng cách",
+     "verified": true,
+     "recommended": true
+    },
+    {
+     "term": "thuật toán tìm kiếm nhị phân",
+     "source_id": "bib-rosen-2003-vi",
+     "page": "tr. 139 (PDF)",
+     "pdf_page": 139,
+     "snippet": "bì thuật toán tìm kiếm nhị phân.",
+     "verified": true,
+     "recommended": false
+    }
+   ],
+   "see_also": [
+    "algorithm",
+    "binary-search-tree",
+    "divide-and-conquer"
+   ],
+   "notes": "Thuật toán tìm kiếm nhị phân yêu cầu bảng kê đầu vào đã được sắp thứ tự; nó hiệu quả hơn tìm kiếm tuyến tính vì mỗi bước loại bỏ một nửa số phần tử, cho độ phức tạp $$O(\\log_2 n)$$ phép so sánh trong trường hợp xấu nhất. Dẫn chứng tiếng Việt lấy từ bib-nguyenhuudien-2019, mục 5.2.3 đặt tên cho thuật toán; bản dịch Rosen tiếng Việt corroborate cùng thuật ngữ.",
+   "status": "draft"
+  },
+  {
+   "id": "bit-operation",
+   "letter": "B",
+   "headword_en": "Bit Operation",
+   "notation": "",
+   "rosen_ref": "Rosen §1.1",
+   "definition_vi": "Phép toán bit là một phép toán thực hiện trên một bit hoặc trên nhiều bit. Các phép toán bit trong máy tính tương ứng với các liên từ logic: thay các giá trị chân lý đúng và sai bằng các bit $$1$$ và $$0$$, ta nhận được các phép toán bit tương ứng với các toán tử $$\\wedge$$, $$\\vee$$ và $$\\oplus$$.",
+   "example_vi": "Các phép toán bit OR, AND và XOR, ký hiệu lần lượt là $$\\vee$$, $$\\wedge$$ và $$\\oplus$$, được định nghĩa trên từng cặp bit theo bảng giá trị của các liên từ logic tương ứng. Chẳng hạn, $$1 \\vee 0 = 1$$, $$1 \\wedge 0 = 0$$ và $$1 \\oplus 0 = 1$$. Các phép toán này được mở rộng cho các xâu bit cùng chiều dài bằng cách thực hiện trên từng vị trí: $$01101 \\oplus 11001 = 10100$$.",
+   "vi_terms": [
+    {
+     "term": "phép toán bit",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 144,
+     "page": "tr. 144 (PDF)",
+     "snippet": "phức tạp tính toán của các thuật toán này thông qua số các phép toán bit thực sự được"
+    },
+    {
+     "term": "phép toán bit",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-rosen-2003-vi",
+     "pdf_page": 14,
+     "page": "tr. 14 (PDF)",
+     "snippet": "Các phép toán bit trong máy tính tương ứng với các liên từ logic. Bằng"
+    }
+   ],
+   "see_also": [
+    "bit",
+    "xor-bit-operation",
+    "boolean-variable",
+    "logical-operators"
+   ],
+   "notes": "Phép toán bit là một phép toán tác động lên một hoặc nhiều bit. Mỗi giá trị chân lý (sai/đúng) ứng với một bit ($$0$$/$$1$$), nên mỗi liên từ logic cho một phép toán bit tương ứng: AND ($$\\wedge$$), OR ($$\\vee$$) và XOR ($$\\oplus$$). Các phép toán bit được mở rộng cho xâu bit bằng cách áp dụng theo từng vị trí. Cần phân biệt \"phép toán bit\" (khái niệm chung) với \"phép XOR theo bit\" (xor-bit-operation, một phép toán bit cụ thể). Số phép toán bit cũng thường được dùng làm thước đo độ phức tạp của thuật toán.",
+   "status": "draft"
+  },
+  {
+   "id": "bit-string",
+   "letter": "B",
+   "headword_en": "Bit String",
+   "notation": "b_1 b_2 \\ldots b_n",
+   "rosen_ref": "Rosen §1.1",
+   "definition_vi": "Một xâu bit là một dãy các bit, tức là một dãy hữu hạn các chữ số $$0$$ và $$1$$. Số bit trong dãy được gọi là chiều dài (độ dài) của xâu bit.",
+   "example_vi": "Dãy $$101010011$$ là một xâu bit có chiều dài $$9$$. Các phép toán bit như OR, AND và XOR có thể được mở rộng cho hai xâu bit có cùng chiều dài bằng cách thực hiện phép toán trên từng cặp bit tương ứng.",
+   "vi_terms": [
+    {
+     "term": "xâu bit",
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 76,
+     "page": "tr. 76 (PDF)",
+     "snippet": "A trên máy tính bằng một xâu bit có chiều dài n, trong đó bit thứ i là 1 nếu ai ∈ A, còn bit",
+     "verified": true,
+     "recommended": true
+    },
+    {
+     "term": "xâu bit",
+     "source_id": "bib-rosen-2003-vi",
+     "pdf_page": 15,
+     "page": "tr. 15 (PDF)",
+     "snippet": "Thông tin thường được biểu .iễn bằng cách dùng các xâu bit, đó là dãy các số 0 và 1.",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "xâu bit",
+     "source_id": "bib-rosen-2003-vi",
+     "pdf_page": 15,
+     "page": "tr. 15 (PDF)",
+     "snippet": "Ví dụ 9. 101010011 là một xâu bit có chiều dài là 9.",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "chuỗi bit",
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 81,
+     "page": "tr. 81 (PDF)",
+     "snippet": "Ví dụ 3.16. Hỏi có bao nhiêu chuỗi bit khác nhau có độ dài 8 (tức là gồm 8 bits) ?",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "xâu nhị phân",
+     "source_id": "bib-nguyenducnghia-2006",
+     "pdf_page": 28,
+     "page": "tr. 28 (PDF)",
+     "snippet": "Thí dụ 2. Có bao nhiêu xâu nhị phân độ dài 10 hoặc là bắt đầu bởi 00 hoặc là kết thúc",
+     "verified": true,
+     "recommended": false
+    }
+   ],
+   "see_also": [
+    "string",
+    "binary"
+   ],
+   "notes": "Xâu bit là trường hợp đặc biệt của xâu (string) trên bảng chữ cái $$\\{0,1\\}$$. Thuật ngữ \"xâu bit\" được dùng trong Rosen (bản dịch) và Nguyễn Hữu Điển (2019); một số tài liệu dùng \"chuỗi bit\" hoặc \"xâu nhị phân\".",
+   "status": "draft"
+  },
+  {
+   "id": "bit",
+   "letter": "B",
+   "headword_en": "Bit",
+   "notation": "",
+   "rosen_ref": "Rosen §1.1",
+   "definition_vi": "Một bit là một chữ số nhị phân, nghĩa là nó có giá trị $$0$$ hoặc $$1$$. Bit được dùng để biểu diễn thông tin trong máy tính; chẳng hạn, có thể dùng bit $$1$$ để biểu diễn giá trị chân lý đúng và bit $$0$$ để biểu diễn giá trị chân lý sai.",
+   "example_vi": "Một biến Boole nhận một trong hai giá trị đúng hoặc sai, nên có thể được biểu diễn bằng một bit: dùng $$1$$ cho đúng và $$0$$ cho sai. Một dãy gồm $$n$$ bit, gọi là một xâu bit có chiều dài $$n$$, có thể biểu diễn một tập con của một tập gồm $$n$$ phần tử, trong đó bit thứ $$i$$ bằng $$1$$ khi và chỉ khi phần tử thứ $$i$$ thuộc tập con đó.",
+   "vi_terms": [
+    {
+     "term": "bit",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-rosen-2003-vi",
+     "pdf_page": 14,
+     "page": "tr. 14 (PDF)",
+     "snippet": "Các máy tính dùng các bit để biểu diễn thông tin. Một bit có hai giá"
+    },
+    {
+     "term": "bit",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 76,
+     "page": "tr. 76 (PDF)",
+     "snippet": "A trên máy tính bằng một xâu bit có chiều dài n, trong đó bit thứ i là 1 nếu ai ∈ A, còn bit"
+    }
+   ],
+   "see_also": [
+    "boolean-variable",
+    "binary-representation",
+    "binary",
+    "xor-bit-operation"
+   ],
+   "notes": "Thuật ngữ \"bit\" do nhà thống kê John Tukey đề xuất năm 1946, là dạng rút gọn của \"binary digit\" (chữ số nhị phân). Trong tiếng Việt thuật ngữ này thường được giữ nguyên dạng \"bit\". Một bit chỉ nhận một trong hai giá trị $$0$$ và $$1$$, nên nó tương ứng tự nhiên với một giá trị chân lý (sai/đúng) hay một biến Boole. Cần phân biệt bit (một chữ số nhị phân riêng lẻ) với xâu bit (một dãy gồm nhiều bit) và với biểu diễn nhị phân của một số (binary representation).",
+   "status": "draft"
+  },
+  {
+   "id": "bitwise-operation",
+   "letter": "B",
+   "headword_en": "Bitwise Operation",
+   "see_ref": "bit-operation",
+   "vi_terms": [
+    {
+     "term": "phép toán theo từng bit",
+     "verified": false,
+     "recommended": false,
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": ""
+    }
+   ],
+   "status": "draft"
+  },
+  {
+   "id": "block-cipher",
+   "letter": "B",
+   "headword_en": "Block Cipher",
+   "notation": "",
+   "rosen_ref": "Rosen §4.6",
+   "definition_vi": "Mật mã khối là một hệ mật mã mã hóa các khối ký tự có độ dài cố định. Thay vì mã hóa từng ký tự một, mỗi khối gồm một số ký tự được mã hóa cùng nhau thành một khối bản mã có độ dài tương ứng.",
+   "example_vi": "Mật mã chuyển vị theo khối là một ví dụ của mật mã khối: bản rõ được chia thành các khối có cùng độ dài cố định $$m$$, và trong mỗi khối các ký tự được hoán vị theo cùng một quy tắc, chẳng hạn theo một hoán vị $$\\sigma$$ của các vị trí $$\\{1, 2, \\ldots, m\\}$$.",
+   "vi_terms": [
+    {
+     "term": "mật mã khối",
+     "verified": false,
+     "recommended": true,
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": ""
+    }
+   ],
+   "see_also": [
+    "private-key-cryptography",
+    "public-key-cryptography",
+    "block"
+   ],
+   "notes": "Còn gọi là mã khối. Mật mã khối mã hóa từng khối ký tự có độ dài cố định, đối lập với mật mã dòng (stream cipher) vốn mã hóa từng ký tự liên tiếp. Corpus và bản dịch Rosen (2003) có trình bày các hệ mật mã (mật mã Caesar, mật mã dịch, mật mã chuyển vị) nhưng không dùng thuật ngữ \"mật mã khối\" như một khái niệm riêng, nên không bổ sung được biến thể nào có dẫn chứng từ corpus; cụm \"mật mã khối\" là bản dịch chuẩn được khuyến nghị cho thuật ngữ này.",
+   "status": "draft"
   }
  ]
 }

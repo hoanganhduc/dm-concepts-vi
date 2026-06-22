@@ -3006,6 +3006,620 @@
    "see_also": [],
    "notes": "Cạnh cắt còn được gọi là cạnh cầu hoặc cầu. Một cạnh là cạnh cắt khi và chỉ khi nó không nằm trên một chu trình nào.",
    "status": "draft"
+  },
+  {
+   "id": "carmichael-number",
+   "letter": "C",
+   "headword_en": "Carmichael Number",
+   "notation": "",
+   "rosen_ref": "Rosen §3.5",
+   "definition_vi": "Số Carmichael là một hợp số $$n$$ sao cho $$n$$ là số giả nguyên tố theo mọi cơ sở nguyên tố cùng nhau với $$n$$.",
+   "example_vi": "Số $$561 = 3 \\cdot 11 \\cdot 17$$ là số Carmichael nhỏ nhất: nó là hợp số, nhưng với mọi số nguyên $$b$$ thỏa mãn $$\\gcd(b, 561) = 1$$ ta đều có $$b^{560} \\equiv 1 \\pmod{561}$$, nên $$561$$ là số giả nguyên tố theo mọi cơ sở như vậy.",
+   "vi_terms": [
+    {
+     "term": "số Carmichael",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-rosen-2003-vi",
+     "page": "tr. 206 (PDF)",
+     "pdf_page": 206,
+     "snippet": "6. Số Carmichael là một số nguyên, nó cũng là một số giả nguyên tố"
+    }
+   ],
+   "see_also": [
+    "composite-number",
+    "prime-number"
+   ],
+   "notes": "Số Carmichael là hợp số $$n$$ \"giả nguyên tố\" theo mọi cơ sở $$b$$ với $$\\gcd(b, n) = 1$$, tức là $$b^{n-1} \\equiv 1 \\pmod{n}$$ với mọi cơ sở như vậy, dù $$n$$ không phải số nguyên tố. Do đó số Carmichael vượt qua được phép kiểm tra Fermat theo mọi cơ sở nguyên tố cùng nhau với nó. Ba số Carmichael nhỏ nhất là $$561$$, $$1105$$ và $$1729$$. Thuật ngữ \"số Carmichael\" được dùng trong bản dịch tiếng Việt của Rosen (bib-rosen-2003-vi, tr. 206).",
+   "status": "draft"
+  },
+  {
+   "id": "character-cipher",
+   "letter": "C",
+   "headword_en": "Character Cipher",
+   "notation": "",
+   "rosen_ref": "Rosen §4.6",
+   "definition_vi": "Mật mã ký tự là một loại mật mã mã hóa thông điệp bằng cách mã hóa từng ký tự một. Mỗi ký tự của bản rõ được thay thế riêng lẻ bởi một ký tự khác theo một quy tắc cố định, độc lập với các ký tự còn lại.",
+   "example_vi": "Mật mã Caesar là một ví dụ của mật mã ký tự. Mỗi chữ cái được biểu diễn bởi một số $$p$$ với $$0 \\leq p \\leq 25$$ và được mã hóa từng chữ một theo hàm $$f(p) = (p + 3) \\bmod 26$$; chẳng hạn chữ B (ứng với $$p = 1$$) được chuyển thành chữ E (ứng với $$4$$).",
+   "vi_terms": [
+    {
+     "term": "mật mã ký tự",
+     "verified": false,
+     "recommended": true,
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": ""
+    },
+    {
+     "term": "mật mã",
+     "source_id": "bib-rosen-2003-vi",
+     "pdf_page": 163,
+     "page": "tr. 163 (PDF)",
+     "snippet": "dụng của phép đồng đư liên quan đến mật mã học, một lĩnh vực nghiên",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "mật mã của Caesar",
+     "source_id": "bib-rosen-2003-vi",
+     "pdf_page": 164,
+     "page": "tr. 164 (PDF)",
+     "snippet": "Ví dụ 20. Dùng mật mã của Caesar chuyển bức thư \"Meet You in the",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "mật mã học",
+     "source_id": "bib-hoangchithanh-2007",
+     "pdf_page": 146,
+     "page": "tr. 146 (PDF)",
+     "snippet": "rai trong mật mã học.",
+     "verified": true,
+     "recommended": false
+    }
+   ],
+   "see_also": [
+    "private-key-cryptography",
+    "public-key-cryptography"
+   ],
+   "notes": "Trong Rosen, mật mã ký tự (character cipher) là mật mã mã hóa từng ký tự một; mật mã Caesar và mật mã dịch (shift cipher) là các ví dụ tiêu biểu. Bản dịch Rosen (2003) dùng \"mật mã\" và \"mật mã của Caesar\" (tr. 163-164) nhưng không tách riêng cụm \"mật mã ký tự\" như một thuật ngữ; cụm \"mật mã ký tự\" được dùng làm bản dịch chuẩn được khuyến nghị, với \"mật mã\" và \"mật mã học\" là các dẫn chứng corpus bổ trợ.",
+   "status": "draft"
+  },
+  {
+   "id": "circular-reasoning",
+   "letter": "C",
+   "headword_en": "Circular Reasoning",
+   "notation": "",
+   "rosen_ref": "Rosen §1.7",
+   "definition_vi": "Suy luận quẩn là kiểu suy luận trong đó một phát biểu được chứng minh bằng cách dùng chính nó. Nói cách khác, một hay nhiều bước trong lập luận dựa trên chính mệnh đề cần chứng minh, nên không cho ta một chứng minh hợp lệ.",
+   "example_vi": "Giả sử ta muốn chứng minh mệnh đề \"nếu $$n^2$$ là số chẵn thì $$n$$ là số chẵn\" bằng cách giả thiết \"$$n$$ là số chẵn\" rồi suy ra $$n^2$$ chẵn; khi đó ta đã dùng ngay điều cần chứng minh làm giả thiết, nên đây là một suy luận quẩn.",
+   "vi_terms": [
+    {
+     "term": "lý luận quẩn",
+     "source_id": "bib-rosen-2003-vi",
+     "page": "tr. 214 (PDF)",
+     "pdf_page": 214,
+     "snippet": "chứng tỏ nó là đúng. Đây là lý luận quẩn vì phát biểu này cũng tương",
+     "verified": true,
+     "recommended": true
+    },
+    {
+     "term": "nguỵ biện dùng ngay câu hỏi",
+     "source_id": "bib-rosen-2003-vi",
+     "page": "tr. 214 (PDF)",
+     "pdf_page": 214,
+     "snippet": "Nhiều chứng minh sai vì đã dựa trên nguy biện dùng ngay câu hỏi",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "suy luận quẩn",
+     "source_id": "bib-rosen-2003-vi",
+     "page": "tr. 224 (PDF)",
+     "pdf_page": 224,
+     "snippet": "là do đùng suy luận quẩn. Sai lầm ở đâu ?",
+     "verified": true,
+     "recommended": false
+    }
+   ],
+   "see_also": [
+    "fallacy",
+    "valid-argument",
+    "proof"
+   ],
+   "notes": "Suy luận quẩn còn gọi là nguỵ biện \"dùng ngay câu hỏi\" (begging the question): lập luận lấy chính điều cần chứng minh làm giả thiết. Đây là một nguỵ biện, khác với một suy luận đúng (valid argument). Nguồn duy nhất có thuật ngữ cho khái niệm này là bản dịch Rosen-VI; các giáo trình tiếng Việt mới hơn trong kho ngữ liệu không đề cập trực tiếp.",
+   "status": "draft"
+  },
+  {
+   "id": "class-p",
+   "letter": "C",
+   "headword_en": "Class P",
+   "notation": "\\mathsf{P}",
+   "rosen_ref": "Rosen §3.3",
+   "definition_vi": "Lớp $$\\mathsf{P}$$ là lớp các bài toán giải được trong thời gian đa thức, tức là các bài toán mà tồn tại một thuật toán giải chúng với độ phức tạp thời gian là một hàm đa thức theo kích thước đầu vào.",
+   "example_vi": "Bài toán sắp xếp một bảng kê gồm $$n$$ phần tử thuộc lớp $$\\mathsf{P}$$ vì có thể giải được bằng thuật toán với độ phức tạp $$O(n^2)$$, là một hàm đa thức theo $$n$$; tương tự, bài toán tìm kiếm tuyến tính có độ phức tạp $$O(n)$$ nên cũng thuộc lớp $$\\mathsf{P}$$.",
+   "vi_terms": [
+    {
+     "term": "lớp P",
+     "verified": false,
+     "recommended": true,
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": ""
+    }
+   ],
+   "see_also": [
+    "time-complexity",
+    "complexity",
+    "algorithm-analysis",
+    "polynomial"
+   ],
+   "notes": "Lớp $$\\mathsf{P}$$ gồm các bài toán được xem là dễ xử lý (tractable) vì giải được trong thời gian đa thức, đối lập với các bài toán mà mọi thuật toán đã biết đều có độ phức tạp lớn hơn đa thức. Bản dịch Rosen tiếng Việt thảo luận khái niệm này trong mục về độ phức tạp tính toán, với cụm \"độ phức tạp đa thức\" (bib-rosen-2003-vi, tr. 146 (PDF)). Thuật ngữ \"lớp P\" là bản dịch chuẩn của \"class P\"; chưa tìm thấy dẫn chứng trực tiếp cho cụm \"lớp P\" trong kho ngữ liệu tiếng Việt hiện có.",
+   "status": "draft"
+  },
+  {
+   "id": "combinatorial-proof",
+   "letter": "C",
+   "headword_en": "Combinatorial Proof",
+   "notation": "",
+   "rosen_ref": "Rosen §6.4",
+   "definition_vi": "Chứng minh tổ hợp là một chứng minh sử dụng các lập luận đếm thay vì biến đổi đại số. Thông thường, một đẳng thức được chứng minh bằng cách đếm số phần tử của cùng một tập hợp hữu hạn theo hai cách khác nhau, hoặc bằng cách thiết lập một song ánh giữa hai tập hợp hữu hạn.",
+   "example_vi": "Để chứng minh đẳng thức $$\\binom{n}{k} = \\binom{n}{n-k}$$, ta dùng một chứng minh tổ hợp: việc chọn ra $$k$$ phần tử từ một tập $$n$$ phần tử tương ứng một-một với việc chọn ra $$n-k$$ phần tử bị loại, nên hai vế đếm cùng một số đối tượng.",
+   "vi_terms": [
+    {
+     "term": "chứng minh tổ hợp",
+     "source_id": "bib-nguyenhoangthach-2020",
+     "pdf_page": 85,
+     "page": "tr. 85 (PDF)",
+     "snippet": "Chứng minh. Ta sử dụng một chứng minh tổ hợp. Vì mỗi đỉnh khác gốc đều",
+     "verified": true,
+     "recommended": true
+    },
+    {
+     "term": "chứng minh tổ hợp",
+     "source_id": "bib-nguyenhoangthach-2020",
+     "pdf_page": 23,
+     "page": "tr. 23 (PDF)",
+     "snippet": "thức nk và cách chứng minh tổ hợp của chúng. Đẳng thức đầu tiên là một",
+     "verified": true,
+     "recommended": false
+    }
+   ],
+   "see_also": [
+    "double-counting-proof",
+    "bijection"
+   ],
+   "notes": "Chứng minh tổ hợp là thuật ngữ bao trùm cho các chứng minh dựa trên lập luận đếm; theo Rosen, hai dạng tiêu biểu là phương pháp đếm bằng hai cách (xem double-counting-proof) và chứng minh bằng song ánh (xem bijection). Thuật ngữ \"chứng minh tổ hợp\" có dẫn chứng trực tiếp trong nguồn mới nhất bib-nguyenhoangthach-2020 (tr. 23 và tr. 85 bản PDF).",
+   "status": "draft"
+  },
+  {
+   "id": "combinatorics",
+   "letter": "C",
+   "headword_en": "Combinatorics",
+   "notation": "",
+   "rosen_ref": "Rosen §4.1",
+   "definition_vi": "Lý thuyết tổ hợp là ngành nghiên cứu về cách sắp xếp các đối tượng. Nó gắn liền với việc đếm và nghiên cứu các cách bố trí những đối tượng của một tập hợp, có kể tới thứ tự hoặc không.",
+   "example_vi": "Nhiều bài toán có thể diễn đạt dưới dạng sắp xếp các đối tượng của một tập hợp. Chẳng hạn, số cách sắp xếp có thứ tự $$k$$ trong $$n$$ đối tượng khác nhau là $$\\displaystyle\\frac{n!}{(n-k)!}$$, còn số cách chọn không kể thứ tự $$k$$ trong $$n$$ đối tượng là $$\\displaystyle\\binom{n}{k}$$. Việc đếm các sắp xếp như vậy là một bài toán cơ bản của lý thuyết tổ hợp.",
+   "vi_terms": [
+    {
+     "term": "lý thuyết tổ hợp",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-nguyenducnghia-2006",
+     "pdf_page": 10,
+     "page": "tr. 10 (PDF)",
+     "snippet": "nghĩa nó một cách hình thức. Nói chung, lý thuyết tổ hợp gắn liền với việc nghiên cứu"
+    },
+    {
+     "term": "lý thuyết tổ hợp",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-ngodactan-2004",
+     "pdf_page": 20,
+     "page": "tr. 20 (PDF)",
+     "snippet": "cách hình thức chặt chẽ. Nói chung, lý thuyết tổ hợp gắn liền với việc"
+    },
+    {
+     "term": "sắp xếp các đối tượng",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-rosen-2003-vi",
+     "pdf_page": 290,
+     "page": "tr. 290 (PDF)",
+     "snippet": "Chúng ta có thể diễn đạt nhiều bài toán dưới dạng sắp xếp, có kể tới `"
+    }
+   ],
+   "see_also": [
+    "combination",
+    "permutation",
+    "counting",
+    "addition-rule"
+   ],
+   "notes": "Rosen định nghĩa combinatorics là \"the study of arrangements of objects\" (ngành nghiên cứu cách sắp xếp các đối tượng). Trong tài liệu tiếng Việt, thuật ngữ chuẩn cho lĩnh vực này là \"lý thuyết tổ hợp\" (cũng gặp dưới dạng \"toán học tổ hợp\"), được dùng nhất quán trong bib-nguyenducnghia-2006 và bib-ngodactan-2004 để chỉ chính ngành toán này. Cần phân biệt \"lý thuyết tổ hợp\" (cả ngành) với \"tổ hợp\" (combination) — một cách chọn không kể thứ tự $$k$$ phần tử trong $$n$$ phần tử.",
+   "status": "draft"
+  },
+  {
+   "id": "comparable",
+   "letter": "C",
+   "headword_en": "Comparable",
+   "notation": "a \\preceq b \\text{ or } b \\preceq a",
+   "rosen_ref": "",
+   "definition_vi": "Hai phần tử $$a$$ và $$b$$ của một tập sắp thứ tự bộ phận được gọi là so sánh được nếu $$a \\preceq b$$ hoặc $$b \\preceq a$$.",
+   "example_vi": "Trong tập sắp thứ tự bộ phận $$(\\mathbb{Z}^{+}, \\mid)$$ với quan hệ chia hết, hai số $$3$$ và $$9$$ là so sánh được vì $$3 \\mid 9$$, trong khi $$2$$ và $$3$$ không so sánh được vì không số nào chia hết số kia.",
+   "vi_terms": [
+    {
+     "term": "so sánh được",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-ngodactan-2004",
+     "page": "tr. 164 (PDF)",
+     "pdf_page": 164,
+     "snippet": "được gọi là so sánh được với nhau đối với thứ tự bộ phận < nếu hoặc"
+    }
+   ],
+   "see_also": [
+    "partial-order",
+    "poset",
+    "total-order"
+   ],
+   "notes": "Nếu $$a$$ và $$b$$ không thỏa mãn $$a \\preceq b$$ và cũng không thỏa mãn $$b \\preceq a$$ thì chúng được gọi là không so sánh được (incomparable). Trong một thứ tự toàn phần, mọi cặp phần tử đều so sánh được.",
+   "status": "draft"
+  },
+  {
+   "id": "compatible-total-ordering",
+   "letter": "C",
+   "headword_en": "Compatible Total Ordering",
+   "see_ref": "topological-sort",
+   "vi_terms": [
+    {
+     "term": "thứ tự toàn phần tương thích",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhuudien-2019",
+     "page": "121",
+     "pdf_page": 121,
+     "snippet": "Việc xây dựng thứ tự toàn phần tương thích với một thứ tự cho trước được gọi là sắp xếp topo."
+    }
+   ],
+   "status": "draft"
+  },
+  {
+   "id": "composite-key",
+   "letter": "C",
+   "headword_en": "Composite Key",
+   "see_ref": "key",
+   "vi_terms": [
+    {
+     "term": "khóa phức hợp",
+     "verified": false,
+     "recommended": false,
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": ""
+    }
+   ],
+   "status": "draft"
+  },
+  {
+   "id": "composite",
+   "letter": "C",
+   "headword_en": "Composite",
+   "see_ref": "composite-number",
+   "vi_terms": [],
+   "status": "draft"
+  },
+  {
+   "id": "computable-function",
+   "letter": "C",
+   "headword_en": "Computable Function",
+   "notation": "",
+   "rosen_ref": "Rosen §3.1",
+   "definition_vi": "Hàm tính được là một hàm mà tồn tại một chương trình máy tính tìm được các giá trị của nó. Nói cách khác, một hàm $$f$$ là tính được nếu có một chương trình máy tính, với mỗi đầu vào thuộc miền xác định, trả về giá trị tương ứng của $$f$$.",
+   "example_vi": "Hàm $$f(n) = n!$$ trên tập số nguyên dương là tính được, vì có một chương trình tính giai thừa trả về giá trị $$f(n)$$ với mọi $$n$$. Ngược lại, có những hàm không tính được, tức là không một chương trình máy tính nào tìm được mọi giá trị của chúng.",
+   "vi_terms": [
+    {
+     "term": "hàm tính được",
+     "source_id": "bib-rosen-2003-vi",
+     "page": "tr. 833 (PDF)",
+     "pdf_page": 833,
+     "snippet": "nhanh hơn một hàm tính được bất kỳ (xem Bài tập 24).",
+     "verified": true,
+     "recommended": true
+    },
+    {
+     "term": "hàm tính được",
+     "source_id": "bib-rosen-2003-vi",
+     "page": "tr. 862 (PDF)",
+     "pdf_page": 862,
+     "snippet": "chỉ có một số đếm dude các hàm tính được. VÌ như Bài tập 30 cho thấy có một số",
+     "verified": true,
+     "recommended": false
+    }
+   ],
+   "see_also": [
+    "function",
+    "algorithm",
+    "recursive-function"
+   ],
+   "notes": "Khái niệm hàm tính được khác với hàm định nghĩa bằng đệ quy (recursive function): hàm tính được nói về sự tồn tại của một chương trình máy tính tìm các giá trị của hàm, còn hàm đệ quy nói về cách định nghĩa hàm thông qua chính nó. Thuật ngữ \"hàm tính được\" chỉ có dẫn chứng trực tiếp trong bản dịch Rosen-VI (tr. 833 và tr. 862 bản PDF); bản dịch này còn nêu định nghĩa tương ứng ở tr. 107 (\"một hàm là tính được nếu có một chương trình máy\"). Các giáo trình tiếng Việt mới hơn trong kho ngữ liệu không đề cập trực tiếp khái niệm này.",
+   "status": "draft"
+  },
+  {
+   "id": "concatenation",
+   "letter": "C",
+   "headword_en": "Concatenation",
+   "notation": "xy",
+   "rosen_ref": "Rosen §5.3",
+   "definition_vi": "Phép ghép của hai xâu là xâu được tạo nên bằng cách viết các ký hiệu của xâu này nối tiếp vào sau xâu kia. Cụ thể, phép ghép của hai xâu $$x$$ và $$y$$, ký hiệu $$xy$$, là xâu thu được bằng cách thêm các ký hiệu của $$y$$ vào cuối xâu $$x$$.",
+   "example_vi": "Nếu $$x = abra$$ và $$y = cadabra$$ thì phép ghép của chúng là $$xy = abracadabra$$. Ghép một xâu bất kỳ với xâu rỗng $$\\lambda$$ giữ nguyên xâu đó, tức là $$\\lambda x = x \\lambda = x$$.",
+   "vi_terms": [
+    {
+     "term": "phép ghép",
+     "source_id": "bib-rosen-2003-vi",
+     "pdf_page": 256,
+     "page": "tr. 256 (PDF)",
+     "snippet": "có thể kết hợp với nhau theo phép ghép. Ghép các xâu x và y cho xy",
+     "verified": true,
+     "recommended": true
+    },
+    {
+     "term": "ghép các xâu",
+     "source_id": "bib-rosen-2003-vi",
+     "pdf_page": 796,
+     "page": "tr. 796 (PDF)",
+     "snippet": "Phép ghép của A và B, được ký hiệu bởi AB, là tập tất cả các xâu có",
+     "verified": true,
+     "recommended": false
+    }
+   ],
+   "see_also": [
+    "string"
+   ],
+   "notes": "Khái niệm phép ghép gắn với khái niệm xâu (string). Bản dịch Rosen (2003) dùng \"phép ghép\" cho thao tác nối hai xâu và động từ \"ghép\" cho hành động ghép các xâu; ký hiệu $$xy$$ chỉ kết quả ghép $$x$$ với $$y$$. Phép ghép cũng được mở rộng cho các tập xâu (ngôn ngữ), với $$AB$$ là tập các xâu tạo bởi phép ghép một xâu của $$A$$ với một xâu của $$B$$ (tr. 796).",
+   "status": "draft"
+  },
+  {
+   "id": "conclusion",
+   "letter": "C",
+   "headword_en": "Conclusion",
+   "notation": "",
+   "rosen_ref": "Rosen §1.6",
+   "definition_vi": "Kết luận là phát biểu cuối cùng trong một suy luận hoặc một dạng suy luận.",
+   "example_vi": "Trong suy luận \"Nếu trời mưa thì đường ướt; trời mưa; do đó đường ướt\", các phát biểu $$p \\rightarrow q$$ và $$p$$ là các giả thiết, còn phát biểu $$q$$ (\"đường ướt\") là kết luận, tức là phát biểu cuối cùng được rút ra.",
+   "vi_terms": [
+    {
+     "term": "kết luận",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-nguyenhuudien-2019",
+     "page": "tr. 29 (PDF)",
+     "pdf_page": 29,
+     "snippet": "đề), và biểu thức Q được gọi là kết luận. Ở đây chúng ta cũng cần lưu ý rằng lý luận trên"
+    },
+    {
+     "term": "kết luận",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-rosen-2003-vi",
+     "page": "tr. 210 (PDF)",
+     "pdf_page": 210,
+     "snippet": "Khi dùng ky hiệu nay, các giả thiết được viết trên các hàng còn kết luận"
+    }
+   ],
+   "see_also": [
+    "argument",
+    "argument-form",
+    "valid-argument",
+    "inference-rule"
+   ],
+   "notes": "Kết luận là phát biểu cuối cùng của một suy luận (argument), được rút ra từ các giả thiết (premises). Thuật ngữ \"kết luận\" được dùng nhất quán trong cả giáo trình tiếng Việt mới (Nguyễn Hữu Điển, 2019) và bản dịch Rosen-VI.",
+   "status": "draft"
+  },
+  {
+   "id": "consistent-compound-propositions",
+   "letter": "C",
+   "headword_en": "Consistent Compound Propositions",
+   "notation": "",
+   "rosen_ref": "Rosen §1.1",
+   "definition_vi": "Một tập các mệnh đề phức hợp được gọi là nhất quán nếu tồn tại một phép gán các giá trị chân lý cho các biến mệnh đề làm cho tất cả các mệnh đề trong tập đó cùng nhận giá trị đúng.",
+   "example_vi": "Hai mệnh đề $$p \\rightarrow q$$ và $$p \\wedge \\neg q$$ là không nhất quán, vì không có phép gán giá trị chân lý nào làm cho cả hai cùng đúng: nếu $$p \\wedge \\neg q$$ đúng thì $$p$$ đúng và $$q$$ sai, khi đó $$p \\rightarrow q$$ sai. Ngược lại, hai mệnh đề $$p \\vee q$$ và $$p \\rightarrow q$$ là nhất quán, vì phép gán $$p$$ đúng và $$q$$ đúng làm cho cả hai cùng đúng.",
+   "vi_terms": [
+    {
+     "term": "nhất quán",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-rosen-2003-vi",
+     "pdf_page": 22,
+     "page": "tr. 22 (PDF)",
+     "snippet": "nhất quan) nếu có mội sự gón cúc gió trị chân ly cho các biến trong"
+    }
+   ],
+   "see_also": [
+    "compound-proposition",
+    "proposition",
+    "tautology",
+    "contradiction",
+    "truth-table"
+   ],
+   "notes": "Tính nhất quán của một tập mệnh đề phức hợp khác với tính hằng đúng (tautology) của một mệnh đề đơn lẻ: nhất quán chỉ đòi hỏi tồn tại một phép gán giá trị chân lý làm cho tất cả các mệnh đề trong tập cùng đúng, chứ không đòi hỏi chúng đúng với mọi phép gán. Một tập gồm các mệnh đề tự mâu thuẫn không thể nhất quán. Khái niệm này thường được dùng để kiểm tra tính tương thích của các đặc tả hệ thống (system specifications) trong Rosen §1.1. Thuật ngữ \"nhất quán\" chỉ có dẫn chứng trực tiếp trong bản dịch Rosen-VI (tr. 22 bản PDF), tại đúng đoạn nêu định nghĩa; các giáo trình tiếng Việt mới hơn trong kho ngữ liệu không đề cập trực tiếp khái niệm nhất quán của mệnh đề phức hợp.",
+   "status": "draft"
+  },
+  {
+   "id": "constructive-existence-proof",
+   "letter": "C",
+   "headword_en": "Constructive Existence Proof",
+   "notation": "",
+   "rosen_ref": "Rosen §1.7",
+   "definition_vi": "Chứng minh tồn tại kiến thiết là một chứng minh khẳng định rằng tồn tại một phần tử có tính chất mong muốn bằng cách chỉ ra một cách tường minh một phần tử như vậy. Nói cách khác, để chứng minh mệnh đề $$\\exists x P(x)$$, ta tìm được một phần tử $$a$$ và chỉ ra rằng $$P(a)$$ đúng.",
+   "example_vi": "Để chứng minh tồn tại một số nguyên dương biểu diễn được thành tổng các lập phương của các số nguyên dương theo hai cách khác nhau, ta chỉ ra tường minh số $$1729 = 10^3 + 9^3 = 12^3 + 1^3$$; việc trưng ra phần tử cụ thể này là một chứng minh tồn tại kiến thiết.",
+   "vi_terms": [
+    {
+     "term": "chứng minh tồn tại kiến thiết",
+     "source_id": "bib-rosen-2003-vi",
+     "page": "tr. 220 (PDF)",
+     "pdf_page": 220,
+     "snippet": "Ví dụ 20. Chứng minh tồn tại kiến thiết.",
+     "verified": true,
+     "recommended": true
+    },
+    {
+     "term": "chứng minh tồn tại kiến thiết",
+     "source_id": "bib-rosen-2003-vi",
+     "page": "tr. 220 (PDF)",
+     "pdf_page": 220,
+     "snippet": "tử a sao cho P(z) đúng. Cách chứng minh tồn tại như vậy gọi là chứng minh kiến thiết.",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "chứng minh tồn tại",
+     "source_id": "bib-ngodactan-2004",
+     "page": "tr. 24 (PDF)",
+     "pdf_page": 24,
+     "snippet": "(lý thuyết Ramsey, lý thuyết chứng minh tồn tại bằng phương pháp",
+     "verified": true,
+     "recommended": false
+    }
+   ],
+   "see_also": [
+    "proof",
+    "indirect-proof"
+   ],
+   "notes": "Chứng minh tồn tại mệnh đề $$\\exists x P(x)$$ bằng cách chỉ ra tường minh một phần tử $$a$$ với $$P(a)$$ đúng gọi là chứng minh tồn tại kiến thiết. Cần phân biệt với chứng minh tồn tại không kiến thiết, trong đó ta chứng minh có phần tử thỏa mãn mà không trưng ra một phần tử cụ thể nào.",
+   "status": "draft"
+  },
+  {
+   "id": "continuum-hypothesis",
+   "letter": "C",
+   "headword_en": "Continuum Hypothesis",
+   "notation": "\\aleph_1 = 2^{\\aleph_0}",
+   "rosen_ref": "Rosen §2.5",
+   "definition_vi": "Giả thuyết continuum là phát biểu khẳng định rằng không có tập hợp nào có lực lượng nằm thực sự giữa lực lượng của tập các số nguyên và lực lượng của tập các số thực.",
+   "example_vi": "Tập các số nguyên $$\\mathbb{Z}$$ có lực lượng $$\\aleph_0$$ và tập các số thực $$\\mathbb{R}$$ có lực lượng $$2^{\\aleph_0}$$; giả thuyết continuum khẳng định không tồn tại tập hợp $$S$$ với $$\\aleph_0 < |S| < 2^{\\aleph_0}$$, tức là $$2^{\\aleph_0} = \\aleph_1$$.",
+   "vi_terms": [
+    {
+     "term": "giả thuyết continuum",
+     "verified": false,
+     "recommended": true,
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": ""
+    }
+   ],
+   "see_also": [
+    "cardinality",
+    "countable-set",
+    "uncountable-set"
+   ],
+   "notes": "Giả thuyết continuum khẳng định không có tập hợp nào có lực lượng nằm thực sự giữa lực lượng $$\\aleph_0$$ của tập số nguyên và lực lượng $$2^{\\aleph_0}$$ của tập số thực, tức là $$2^{\\aleph_0} = \\aleph_1$$. Đây là một trong các bài toán nổi tiếng của Hilbert; Gödel và Cohen đã chứng minh giả thuyết này độc lập với hệ tiên đề ZFC, nghĩa là không thể chứng minh cũng không thể bác bỏ trong ZFC. Thuật ngữ \"giả thuyết continuum\" là cách dịch chuẩn; ngữ liệu hiện có không có dẫn chứng trực tiếp cho khái niệm này, nên thuật ngữ khuyến nghị để verified=false với trang để trống.",
+   "status": "draft"
+  },
+  {
+   "id": "count-of-an-itemset",
+   "letter": "C",
+   "headword_en": "Count Of An Itemset",
+   "notation": "",
+   "rosen_ref": "",
+   "definition_vi": "Số đếm của một tập mục là số giao dịch chứa tập mục đó.",
+   "example_vi": "Giả sử ta có các giao dịch $$T_1 = \\{a, b, c\\}$$, $$T_2 = \\{a, c\\}$$, $$T_3 = \\{b, c\\}$$ và $$T_4 = \\{a, b, c\\}$$. Khi đó số đếm của tập mục $$\\{a, c\\}$$ bằng $$3$$, vì có ba giao dịch $$T_1$$, $$T_2$$ và $$T_4$$ chứa cả $$a$$ và $$c$$.",
+   "vi_terms": [
+    {
+     "term": "số đếm của tập mục",
+     "verified": false,
+     "recommended": true,
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": ""
+    }
+   ],
+   "see_also": [],
+   "notes": "Khái niệm thuộc khai phá luật kết hợp (association rule mining): số đếm của tập mục bằng số giao dịch chứa tập mục, còn gọi là số đếm hỗ trợ (support count). Không tìm thấy thuật ngữ tiếng Việt được chứng thực trong kho ngữ liệu; thuật ngữ khuyến nghị dùng bản dịch chuẩn.",
+   "status": "draft"
+  },
+  {
+   "id": "cryptanalysis",
+   "letter": "C",
+   "headword_en": "Cryptanalysis",
+   "notation": "",
+   "rosen_ref": "Rosen §4.6",
+   "definition_vi": "Phân tích mật mã là quá trình khôi phục lại bản rõ từ bản mã mà không có khóa.",
+   "example_vi": "Với mật mã Caesar dịch chuyển mỗi chữ cái đi $$3$$ vị trí, người phân tích mật mã có thể khôi phục bản rõ từ bản mã bằng cách thử tất cả $$26$$ giá trị dịch chuyển có thể, dù không biết trước khóa.",
+   "vi_terms": [
+    {
+     "term": "phân tích mật mã",
+     "source_id": "bib-nguyenhuudien-2019",
+     "page": "tr. 161 (PDF)",
+     "pdf_page": 161,
+     "snippet": "toán rất lớn như bài toán mô phỏng thời tiết, tạo hình trong y học hay phân tích mật mã",
+     "verified": true,
+     "recommended": true
+    },
+    {
+     "term": "phân tích mật mã",
+     "source_id": "bib-rosen-2003-vi",
+     "page": "tr. 512 (PDF)",
+     "pdf_page": 512,
+     "snippet": "hay phân tích mật mã không thể giải được trong một khoảng thời gian",
+     "verified": true,
+     "recommended": false
+    }
+   ],
+   "see_also": [
+    "private-key-cryptography",
+    "public-key-cryptography"
+   ],
+   "notes": "Phân tích mật mã là việc tìm lại bản rõ từ bản mã khi không có khóa, ngược với quá trình mã hóa của mật mã học. Cần phân biệt \"phân tích mật mã\" (phá mã, khôi phục bản rõ không cần khóa) với \"giải mã\" thông thường (khôi phục bản rõ bằng khóa đã biết).",
+   "status": "draft"
+  },
+  {
+   "id": "cryptosystem",
+   "letter": "C",
+   "headword_en": "Cryptosystem",
+   "notation": "(\\mathcal{P}, \\mathcal{C}, \\mathcal{K}, \\mathcal{E}, \\mathcal{D})",
+   "rosen_ref": "Rosen §4.6",
+   "definition_vi": "Một hệ thống mật mã là một bộ năm $$(\\mathcal{P}, \\mathcal{C}, \\mathcal{K}, \\mathcal{E}, \\mathcal{D})$$ gồm tập các bản rõ $$\\mathcal{P}$$, tập các bản mã $$\\mathcal{C}$$, tập các khóa $$\\mathcal{K}$$, tập các hàm mã hóa $$\\mathcal{E}$$ và tập các hàm giải mã $$\\mathcal{D}$$. Với mỗi khóa $$k \\in \\mathcal{K}$$ có một hàm mã hóa $$E_k \\in \\mathcal{E}$$ và một hàm giải mã $$D_k \\in \\mathcal{D}$$ tương ứng sao cho $$D_k(E_k(p)) = p$$ với mọi bản rõ $$p \\in \\mathcal{P}$$.",
+   "example_vi": "Mật mã Caesar là một hệ thống mật mã trong đó tập các bản rõ và bản mã đều là các chữ cái, tập khóa là $$\\mathcal{K} = \\{0, 1, \\ldots, 25\\}$$, và với khóa $$k$$ thì hàm mã hóa dịch mỗi chữ cái đi $$k$$ vị trí theo $$E_k(p) = (p + k) \\bmod 26$$, còn hàm giải mã là $$D_k(c) = (c - k) \\bmod 26$$.",
+   "vi_terms": [
+    {
+     "term": "hệ thống mật mã",
+     "source_id": "bib-rosen-2003-vi",
+     "page": "tr. 165 (PDF)",
+     "pdf_page": 165,
+     "snippet": "này sẽ cung cấp cho ta một số các hệ thống mật mã khả dĩ. Ví dụ sau",
+     "verified": true,
+     "recommended": true
+    },
+    {
+     "term": "hệ thống mật mã",
+     "source_id": "bib-rosen-2003-vi",
+     "page": "tr. 161 (PDF)",
+     "pdf_page": 161,
+     "snippet": "và hệ thống mật mã dựa trên số học đồng dư.",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "hệ mật mã",
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": "",
+     "verified": false,
+     "recommended": false
+    }
+   ],
+   "see_also": [
+    "key",
+    "public-key-cryptography",
+    "private-key-cryptography"
+   ],
+   "notes": "Một hệ thống mật mã được mô tả như một bộ năm $$(\\mathcal{P}, \\mathcal{C}, \\mathcal{K}, \\mathcal{E}, \\mathcal{D})$$: bản rõ, bản mã, khóa, hàm mã hóa và hàm giải mã. Cần phân biệt \"hệ thống mật mã\" (toàn bộ cấu trúc) với \"khóa\" (một thành phần) và với các lược đồ cụ thể như mật mã khóa công khai hay mật mã khóa bí mật. Thuật ngữ \"hệ mật mã\" cũng được dùng tương đương.",
+   "status": "draft"
   }
  ]
 }

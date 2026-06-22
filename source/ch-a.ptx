@@ -69,7 +69,7 @@
         <li><p><term>đồ thị không có chu trình</term> <xref ref="bib-nguyenducnghia-2006" /> (tr. 230 (PDF)); <xref ref="bib-rosen-2003-vi" /> (tr. 621 (PDF, bản dịch Rosen)).</p></li>
       </ul>
       <p>Ví dụ: Mọi cây và mọi rừng đều là đồ thị phi chu trình. Đồ thị đầy đủ <m>K_3</m> với các cạnh <m>ab, bc, ca</m> không phải là đồ thị phi chu trình, vì dãy đỉnh <m>a, b, c, a</m> tạo thành một chu trình.</p>
-      <p>Xem thêm <xref ref="def-cycle" text="title" />, <xref ref="def-tree" text="title" />, <xref ref="def-forest" text="title" />, <xref ref="def-arborescence" text="title" />.</p>
+      <p>Xem thêm <xref ref="def-cycle" text="title" />, <xref ref="def-tree" text="title" />, <xref ref="def-forest" text="title" />, <xref ref="def-directed-acyclic-graph" text="title" />, <xref ref="def-arborescence" text="title" />.</p>
     </statement>
   </definition>
   <definition xml:id="def-algorithm">
@@ -139,7 +139,7 @@
         <li><p><term>cạnh có hướng</term> <xref ref="bib-leanhvinh-2020" /> (tr. 11 (PDF)); <xref ref="bib-nguyenhuudien-2019" /> (tr. 209 (PDF)); <xref ref="bib-hoangchithanh-2007" /> (tr. 6 (PDF)); <xref ref="bib-nguyenducnghia-2006" /> (tr. 154 (PDF)); <xref ref="bib-rosen-2003-vi" /> (tr. 453 (PDF, bản dịch Rosen)).</p></li>
       </ul>
       <p>Ví dụ: Trong đồ thị có hướng <m>G</m> với tập đỉnh <m>V(G) = \{u, v\}</m>, cặp có thứ tự <m>(u, v)</m> là một cung đi từ <m>u</m> tới <m>v</m>, trong khi <m>(v, u)</m> là một cung khác đi từ <m>v</m> tới <m>u</m>.</p>
-      <p>Xem thêm <xref ref="def-directed-graph" text="title" />, <xref ref="def-digraph" text="title" />, <xref ref="def-edge" text="title" />, <xref ref="def-terminal-vertex" text="title" />.</p>
+      <p>Xem thêm <xref ref="def-directed-graph" text="title" />, <xref ref="def-digraph" text="title" />, <xref ref="def-directed-edge" text="title" />, <xref ref="def-edge" text="title" />, <xref ref="def-terminal-vertex" text="title" />.</p>
     </statement>
   </definition>
   <definition xml:id="def-arithmetic-progression">
@@ -252,6 +252,7 @@
         <li><p><term>đỉnh tổ tiên</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
       </ul>
       <p>Ví dụ: Xét cây có gốc với gốc <m>r</m> và đường đi duy nhất từ <m>r</m> đến đỉnh <m>v</m> là <m>r, a, b, v</m>. Khi đó <m>r</m>, <m>a</m> và <m>b</m> đều là tổ tiên của <m>v</m>, còn <m>v</m> không phải là tổ tiên của chính nó.</p>
+      <p>Xem thêm <xref ref="def-root" text="title" />, <xref ref="def-child" text="title" />, <xref ref="def-parent" text="title" />.</p>
     </statement>
   </definition>
   <definition xml:id="def-antichain">
@@ -502,6 +503,75 @@
         <li><p><term>tiên đề</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 28 (PDF)); <xref ref="bib-ngodactan-2004" /> (tr. 166 (PDF)); <xref ref="bib-rosen-2003-vi" /> (tr. 209 (PDF)).</p></li>
       </ul>
       <p>Ví dụ: Trong lý thuyết tập hợp, tiên đề được sắp tốt khẳng định rằng mọi tập con khác rỗng của tập số nguyên dương đều có phần tử nhỏ nhất; đây là tiên đề dùng để chứng minh tính đúng đắn của quy nạp toán học.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-alphabet">
+    <title>Alphabet — bảng chữ cái</title>
+    <idx><h>alphabet</h></idx>
+    <idx><h>bảng chữ cái</h></idx>
+    <notation>
+      <usage><m>\Sigma</m></usage>
+      <description>bảng chữ cái</description>
+    </notation>
+    <statement>
+      <p>Bảng chữ cái là một tập hợp chứa các phần tử được dùng để tạo thành các xâu ký tự. Một bảng chữ cái thường được ký hiệu là <m>\Sigma</m>, và mỗi xâu ký tự là một dãy hữu hạn các phần tử lấy từ <m>\Sigma</m> (theo <xref ref="bib-rosen-2019" />, Rosen §11.4).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>bảng chữ cái</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 91 (PDF)); <xref ref="bib-rosen-2003-vi" /> (tr. 107 (PDF)); <xref ref="bib-nguyenducnghia-2006" /> (tr. 11 (PDF)) — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Tập <m>\Sigma = \{0, 1\}</m> là bảng chữ cái nhị phân, dùng để tạo các xâu bit như <m>0110</m>; bảng chữ cái tiếng Anh gồm <m>26</m> chữ cái được dùng để tạo thành các từ.</p>
+      <p>Xem thêm <xref ref="def-string" text="title" />, <xref ref="def-word" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-antisymmetric">
+    <title>Antisymmetric</title>
+    <idx><h>antisymmetric</h></idx>
+    <idx><h>phản đối xứng</h></idx>
+    <statement><p><term>Antisymmetric</term> (phản đối xứng). Xem <xref ref="def-antisymmetric-relation" text="title" />.</p></statement>
+  </definition>
+  <definition xml:id="def-argument-form">
+    <title>Argument Form — dạng suy luận</title>
+    <idx><h>argument form</h></idx>
+    <idx><h>dạng của suy luận</h></idx>
+    <idx><h>dạng suy luận</h></idx>
+    <idx><h>suy luận</h></idx>
+    <notation>
+      <usage><m>p_1, p_2, \ldots, p_n \therefore q</m></usage>
+      <description>dạng suy luận</description>
+    </notation>
+    <statement>
+      <p>Một dạng suy luận trong logic mệnh đề là một dãy các mệnh đề phức hợp chứa các biến mệnh đề. Một dạng suy luận là hợp lệ (đúng đắn) nếu cứ mỗi lần thay các biến mệnh đề trong dãy bằng những mệnh đề cụ thể mà tất cả các tiền đề trở thành đúng thì kết luận cũng trở thành đúng (theo <xref ref="bib-rosen-2019" />, Rosen §1.6).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>dạng suy luận</term> <em>(thuật ngữ chuẩn; chưa truy được trong kho văn bản)</em> — cách dùng phổ biến.</p></li>
+        <li><p><term>dạng của suy luận</term> <xref ref="bib-rosen-2003-vi" /> (tr. 209 (PDF)).</p></li>
+        <li><p><term>suy luận</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 28 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Dãy <m>p \to q</m>, <m>p</m>, do đó <m>q</m> là một dạng suy luận với các biến mệnh đề <m>p</m> và <m>q</m>. Thay <m>p</m> và <m>q</m> bằng các mệnh đề cụ thể bất kỳ, ta thu được một lập luận cụ thể; vì <m>((p \to q) \wedge p) \to q</m> là một hằng đúng nên đây là một dạng suy luận hợp lệ.</p>
+      <p>Xem thêm <xref ref="def-logical-argument" text="title" />, <xref ref="def-valid-argument" text="title" />, <xref ref="def-inference-rule" text="title" />, <xref ref="def-compound-proposition" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-argument">
+    <title>Argument</title>
+    <idx><h>argument</h></idx>
+    <idx><h>lập luận</h></idx>
+    <statement><p><term>Argument</term> (lập luận). Xem <xref ref="def-logical-argument" text="title" />.</p></statement>
+  </definition>
+  <definition xml:id="def-association-rule">
+    <title>Association Rule — luật kết hợp</title>
+    <idx><h>association rule</h></idx>
+    <idx><h>luật kết hợp</h></idx>
+    <notation>
+      <usage><m>I \to J</m></usage>
+      <description>luật kết hợp</description>
+    </notation>
+    <statement>
+      <p>Một luật kết hợp là một kéo theo có dạng <m>I \to J</m> liên hệ hai tập mục <m>I</m> và <m>J</m>. Ở đây <m>I</m> và <m>J</m> là các tập con của một tập các mục cho trước, và luật biểu thị rằng các giao dịch chứa tập mục <m>I</m> có xu hướng chứa cả tập mục <m>J</m>.</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>luật kết hợp</term> <em>(thuật ngữ chuẩn; chưa truy được trong kho văn bản)</em> — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Trong phân tích giỏ hàng, nếu <m>I = \{\text{bánh mì}, \text{bơ}\}</m> và <m>J = \{\text{sữa}\}</m> thì luật kết hợp <m>I \to J</m> nói rằng các khách hàng mua cả bánh mì và bơ thường mua thêm sữa.</p>
     </statement>
   </definition>
 </chapter>

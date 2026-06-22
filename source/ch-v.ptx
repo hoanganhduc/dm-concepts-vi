@@ -110,7 +110,7 @@
         <li><p><term>suy luận đúng</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 30 (PDF)) — cách dùng phổ biến.</p></li>
       </ul>
       <p>Ví dụ: Suy luận với các tiền đề <m>p \rightarrow q</m> và <m>p</m>, kết luận <m>q</m>, là một suy luận đúng, vì khi cả <m>p \rightarrow q</m> và <m>p</m> đều đúng thì <m>q</m> cũng đúng; do đó <m>((p \rightarrow q) \wedge p) \rightarrow q</m> là một hằng đúng.</p>
-      <p>Xem thêm <xref ref="def-logical-equivalence" text="title" />.</p>
+      <p>Xem thêm <xref ref="def-premise" text="title" />, <xref ref="def-logical-equivalence" text="title" />.</p>
     </statement>
   </definition>
   <definition xml:id="def-venn-diagram">
@@ -292,6 +292,62 @@
         <li><p><term>biến</term> <xref ref="bib-mat3500" /> (giáo trình MAT3500); <xref ref="bib-rosen-2003-vi" /> (tr. 32 (PDF)); <xref ref="bib-nguyenhuudien-2019" /> (tr. 19 (PDF)) — cách dùng phổ biến.</p></li>
       </ul>
       <p>Ví dụ: Trong câu "<m>x</m> lớn hơn <m>3</m>", ký hiệu <m>x</m> là biến và phần "lớn hơn <m>3</m>" là vị từ; câu này được viết là <m>P(x)</m>, và chỉ khi gán cho <m>x</m> một giá trị, chẳng hạn <m>x = 4</m>, ta mới thu được một mệnh đề có giá trị chân lý xác định.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-valid-argument-form">
+    <title>Valid Argument Form</title>
+    <idx><h>valid argument form</h></idx>
+    <idx><h>dạng lập luận hợp lý</h></idx>
+    <statement><p><term>Valid Argument Form</term> (dạng lập luận hợp lý). Xem <xref ref="def-valid" text="title" />.</p></statement>
+  </definition>
+  <definition xml:id="def-value-of-a-vertex-in-a-game-tree">
+    <title>Value of a Vertex in a Game Tree — giá trị của một đỉnh trong cây trò chơi</title>
+    <idx><h>value of a vertex in a game tree</h></idx>
+    <idx><h>giá trị của một đỉnh trong cây trò chơi</h></idx>
+    <idx><h>trò chơi</h></idx>
+    <statement>
+      <p>Giá trị của một đỉnh trong cây trò chơi được định nghĩa như sau: nếu đỉnh đó là một lá thì giá trị của nó là tiền trả cho người chơi thứ nhất khi ván chơi kết thúc tại lá đó; nếu đỉnh đó là một đỉnh trong thì giá trị của nó được xác định bởi giá trị của các đỉnh con qua cách chơi của hai người, tức là người chơi thứ nhất chọn nước đi tới đỉnh con có giá trị lớn nhất còn người chơi thứ hai chọn nước đi tới đỉnh con có giá trị nhỏ nhất (theo <xref ref="bib-rosen-2019" />, Rosen §11.5).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>giá trị của một đỉnh trong cây trò chơi</term> <em>(thuật ngữ chuẩn; chưa truy được trong kho văn bản)</em> — cách dùng phổ biến.</p></li>
+        <li><p><term>trò chơi</term> <xref ref="bib-rosen-2003-vi" /> (tr. 630 (PDF)); <xref ref="bib-rosen-2003-vi" /> (tr. 710 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Xét một cây trò chơi trong đó mỗi lá được gán tiền trả cho người chơi thứ nhất. Tại một đỉnh trong ứng với lượt đi của người chơi thứ nhất, giá trị bằng giá trị lớn nhất trong các đỉnh con; tại một đỉnh trong ứng với lượt đi của người chơi thứ hai, giá trị bằng giá trị nhỏ nhất trong các đỉnh con. Lan truyền quy tắc này từ các lá lên gốc, giá trị của gốc cho biết tiền trả mà người chơi thứ nhất bảo đảm được khi cả hai cùng chơi tối ưu.</p>
+      <p>Xem thêm <xref ref="def-decision-tree" text="title" />, <xref ref="def-rooted-tree" text="title" />, <xref ref="def-leaf" text="title" />, <xref ref="def-internal-vertices" text="title" />, <xref ref="def-tree" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-variance-of-a-random-variable">
+    <title>Variance Of A Random Variable — phương sai</title>
+    <idx><h>variance of a random variable</h></idx>
+    <idx><h>phương sai</h></idx>
+    <notation>
+      <usage><m>V(X)</m></usage>
+      <description>phương sai</description>
+    </notation>
+    <statement>
+      <p>Phương sai của một biến ngẫu nhiên <m>X</m> là trung bình có trọng số của các bình phương độ lệch của <m>X</m> so với giá trị kì vọng <m>E(X)</m> của nó. Cụ thể, <m>V(X) = \sum_{s \in S} (X(s) - E(X))^2\, p(s)</m>, trong đó tổng được lấy theo mọi kết cục <m>s</m> trong không gian mẫu <m>S</m> (theo <xref ref="bib-rosen-2019" />, Rosen §7.4).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>phương sai</term> <em>(thuật ngữ chuẩn; chưa truy được trong kho văn bản)</em> — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Xét phép thử tung một con xúc xắc cân đối và gọi <m>X</m> là số chấm xuất hiện. Khi đó <m>E(X) = 7/2</m> và phương sai là <m>V(X) = \sum_{i=1}^{6} \frac{1}{6}\left(i - \frac{7}{2}\right)^2 = \frac{35}{12}</m>.</p>
+      <p>Xem thêm <xref ref="def-expected-value" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-vertex-cut">
+    <title>Vertex Cut — lát cắt đỉnh</title>
+    <idx><h>vertex cut</h></idx>
+    <idx><h>lát cắt đỉnh</h></idx>
+    <idx><h>tập đỉnh cắt</h></idx>
+    <statement>
+      <p>Một lát cắt đỉnh của một đồ thị <m>G</m> là một tập đỉnh <m>W \subseteq V(G)</m> sao cho việc xóa các đỉnh trong <m>W</m> (cùng với các cạnh kề với chúng) làm cho đồ thị <m>G - W</m> thu được không liên thông. Nói cách khác, <m>W</m> là một lát cắt đỉnh nếu <m>G - W</m> không liên thông (theo <xref ref="bib-rosen-2019" />, Rosen §10.4).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>lát cắt đỉnh</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 75 (PDF)); <xref ref="bib-ngodactan-2004" /> (tr. 256 (PDF)) — cách dùng phổ biến.</p></li>
+        <li><p><term>tập đỉnh cắt</term> <xref ref="bib-leanhvinh-2020" /> (tr. 129 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Mọi đồ thị liên thông không đầy đủ đều có một lát cắt đỉnh. Số đỉnh nhỏ nhất trong một lát cắt đỉnh của <m>G</m> chính là độ liên thông đỉnh <m>\kappa(G) = \min\{|W| : W \text{ là lát cắt đỉnh của } G\}</m>.</p>
+      <p>Xem thêm <xref ref="def-vertex-connectivity" text="title" />, <xref ref="def-connectivity" text="title" />, <xref ref="def-cut-vertex" text="title" />, <xref ref="def-separating-set-of-edges" text="title" />, <xref ref="def-k-connected-graph" text="title" />.</p>
     </statement>
   </definition>
 </chapter>

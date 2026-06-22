@@ -2593,6 +2593,353 @@
    "see_also": [],
    "notes": "Thuật ngữ chuẩn của giáo trình MAT3500 là \"Nguyên lý đối ngẫu\". Bản dịch Rosen cũng dùng \"nguyên lý đối ngẫu\" trong ngữ cảnh đại số Boole; tài liệu Nguyễn Đức Nghĩa gọi cùng khái niệm này là \"luật đối ngẫu\" (đổi vai trò của hai phép toán). Không nên nhầm với \"đồ thị đối ngẫu\" (dual graph), vốn là khái niệm khác.",
    "status": "draft"
+  },
+  {
+   "id": "decision-problem",
+   "letter": "D",
+   "headword_en": "Decision Problem",
+   "notation": "",
+   "rosen_ref": "Rosen §3.3",
+   "definition_vi": "Bài toán quyết định là một bài toán hỏi xem các phát biểu thuộc một dạng cho trước có đúng hay không. Nói cách khác, mỗi dữ liệu vào của bài toán ứng với một câu trả lời là $$\\text{đúng}$$ hoặc $$\\text{sai}$$.",
+   "example_vi": "Câu hỏi \"Cho đồ thị $$G$$, $$G$$ có chứa một chu trình Hamilton hay không?\" là một bài toán quyết định: với mỗi đồ thị $$G$$, câu trả lời chỉ có thể là $$\\text{đúng}$$ hoặc $$\\text{sai}$$.",
+   "vi_terms": [
+    {
+     "term": "bài toán quyết định",
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": "",
+     "verified": false,
+     "recommended": true
+    }
+   ],
+   "see_also": [
+    "np-complete-problem",
+    "algorithm"
+   ],
+   "notes": "Cần phân biệt \"bài toán quyết định\" (câu trả lời chỉ là đúng/sai) với \"bài toán tối ưu\" (tìm phương án tốt nhất). Thuật ngữ \"bài toán quyết định\" là cách dịch chuẩn của \"decision problem\"; chưa tìm thấy trích dẫn xác thực trong kho ngữ liệu hiện có nên để verified=false.",
+   "status": "draft"
+  },
+  {
+   "id": "decryption",
+   "letter": "D",
+   "headword_en": "Decryption",
+   "notation": "",
+   "rosen_ref": "Rosen §3.6",
+   "definition_vi": "Giải mã là quá trình đưa một bức thư bí mật trở về dạng ban đầu của nó. Nói cách khác, giải mã là phép biến đổi ngược của mã hóa: từ bức thư đã được mã hóa, ta khôi phục lại bức thư gốc.",
+   "example_vi": "Trong mật mã Caesar, mỗi chữ cái được dịch đi $$3$$ vị trí trong bảng chữ cái khi mã hóa, tức là chữ ở vị trí $$p$$ được thay bởi chữ ở vị trí $$(p + 3) \\bmod 26$$. Để giải mã, ta thực hiện phép dịch ngược lại: chữ ở vị trí $$p$$ được thay bởi chữ ở vị trí $$(p - 3) \\bmod 26$$. Chẳng hạn, bức thư đã mã hóa \"PHHW\" được giải mã thành \"MEET\".",
+   "vi_terms": [
+    {
+     "term": "giải mã",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-rosen-2003-vi",
+     "pdf_page": 169,
+     "page": "tr. 169 (PDF)",
+     "snippet": "Giải mã các bức thu đã được mã hóa bằng mật ma Caesar sau :"
+    },
+    {
+     "term": "giải mã",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-rosen-2003-vi",
+     "pdf_page": 164,
+     "page": "tr. 164 (PDF)",
+     "snippet": "mật mã nay, sự giải mã được thực hiện bằng cách dùng :"
+    },
+    {
+     "term": "giải mã",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenducnghia-2006",
+     "pdf_page": 12,
+     "page": "tr. 12 (PDF)",
+     "snippet": "vực nghiên cứu các trò chơi tiều khiển, hay phân tích giải mã các bức thư cổ, tổ hợp đã"
+    }
+   ],
+   "see_also": [
+    "private-key-cryptography",
+    "public-key-cryptography"
+   ],
+   "notes": "Giải mã là phép biến đổi ngược của mã hóa, đưa bức thư đã được mã hóa trở về dạng ban đầu. Trong các hệ mật mã khóa bí mật (private-key-cryptography), cùng một khóa được dùng cho cả mã hóa và giải mã; trong các hệ mật mã khóa công khai (public-key-cryptography), việc giải mã dùng khóa riêng khác với khóa công khai dùng để mã hóa. Thuật ngữ tiếng Việt \"giải mã\" được dùng nhất quán trong bản dịch tiếng Việt của Rosen.",
+   "status": "draft"
+  },
+  {
+   "id": "derivation-tree",
+   "letter": "D",
+   "headword_en": "Derivation Tree",
+   "notation": "",
+   "rosen_ref": "Rosen §13.1",
+   "definition_vi": "Cây dẫn xuất là một cây có gốc được sắp thứ tự biểu diễn cách một xâu được dẫn xuất trong một văn phạm. Gốc của cây biểu diễn ký hiệu xuất phát, mỗi đỉnh trong biểu diễn một ký hiệu không kết thúc, mỗi lá biểu diễn một ký hiệu kết thúc, và các con của một đỉnh tương ứng với vế phải của luật sản xuất được áp dụng.",
+   "example_vi": "Trong văn phạm sinh ra câu \"the hungry rabbit eats quickly\", cây dẫn xuất có gốc là ký hiệu xuất phát của câu, các đỉnh trong là các thành phần ngữ pháp như cụm danh từ và cụm động từ, còn các lá lần lượt là các từ $$\\textit{the}$$, $$\\textit{hungry}$$, $$\\textit{rabbit}$$, $$\\textit{eats}$$, $$\\textit{quickly}$$.",
+   "vi_terms": [
+    {
+     "term": "cây dẫn xuất",
+     "source_id": "bib-rosen-2003-vi",
+     "page": "tr. 775 (PDF)",
+     "pdf_page": 775,
+     "snippet": "Hình 2. Cây dẫn xuất",
+     "verified": true,
+     "recommended": true
+    },
+    {
+     "term": "cây dẫn xuất",
+     "source_id": "bib-rosen-2003-vi",
+     "page": "tr. 845 (PDF)",
+     "pdf_page": 845,
+     "snippet": "tạo cây dẫn xuất của xâu đó, nếu nó nằm trong ngôn ngư được sinh",
+     "verified": true,
+     "recommended": false
+    }
+   ],
+   "see_also": [
+    "ordered-rooted-tree",
+    "rooted-tree",
+    "string"
+   ],
+   "notes": "Cây dẫn xuất (còn gọi là cây phân tích) là một cây có gốc được sắp thứ tự dùng để mô tả quá trình dẫn xuất một xâu trong một văn phạm phi ngữ cảnh: gốc ứng với ký hiệu xuất phát, các đỉnh trong ứng với các ký hiệu không kết thúc, các lá ứng với các ký hiệu kết thúc, và mỗi bước phân nhánh ứng với một luật sản xuất. Dẫn chứng tiếng Việt lấy từ bib-rosen-2003-vi (§13.1, phần văn phạm và ngôn ngữ hình thức), nơi thuật ngữ \"cây dẫn xuất\" được dùng nhất quán; thuật ngữ này chưa thấy xuất hiện trong các giáo trình mới hơn của kho ngữ liệu.",
+   "status": "draft"
+  },
+  {
+   "id": "digital-signature",
+   "letter": "D",
+   "headword_en": "Digital Signature",
+   "notation": "",
+   "rosen_ref": "Rosen §4.6",
+   "definition_vi": "Chữ ký số là một phương pháp mà người nhận có thể dùng để xác định người gửi của một thông điệp. Bằng cách áp dụng một phép biến đổi mật mã mà chỉ riêng người gửi mới thực hiện được lên thông điệp, người nhận có thể kiểm tra và xác nhận rằng thông điệp đúng là do người gửi đó tạo ra.",
+   "example_vi": "Trong hệ mật mã khóa công khai $$RSA$$, người gửi ký một thông điệp $$M$$ bằng cách áp dụng hàm giải mã với khóa bí mật của mình để tạo ra $$S = M^{d} \\bmod n$$; người nhận dùng khóa công khai $$(e, n)$$ của người gửi để khôi phục $$M = S^{e} \\bmod n$$, nhờ đó xác nhận chính người gửi đã tạo ra thông điệp.",
+   "vi_terms": [
+    {
+     "term": "chữ ký số",
+     "verified": false,
+     "recommended": true,
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": ""
+    }
+   ],
+   "see_also": [
+    "public-key-cryptography",
+    "private-key-cryptography"
+   ],
+   "notes": "Chữ ký số dựa trên mật mã khóa công khai: người gửi áp dụng phép biến đổi với khóa bí mật mà chỉ mình họ biết, còn người nhận kiểm tra bằng khóa công khai tương ứng. Không tìm thấy thuật ngữ này trong kho ngữ liệu tiếng Việt đã số hóa; \"chữ ký số\" là bản dịch chuẩn (đôi khi gọi là \"chữ ký điện tử\"). Cần phân biệt với \"public-key cryptography\" (cơ chế mật mã nền tảng).",
+   "status": "draft"
+  },
+  {
+   "id": "directed-multigraph",
+   "letter": "D",
+   "headword_en": "Directed Multigraph",
+   "notation": "G = (V, E)",
+   "rosen_ref": "Rosen §10.1",
+   "definition_vi": "Một đa đồ thị có hướng là một đồ thị có hướng có thể chứa nhiều cạnh có hướng giữa cùng một cặp đỉnh.",
+   "example_vi": "Nếu $$G = (V, E)$$ với $$V = \\{a, b\\}$$ có hai cạnh có hướng từ $$a$$ đến $$b$$ và một cạnh có hướng từ $$b$$ đến $$a$$, thì $$G$$ là một đa đồ thị có hướng vì nó cho phép nhiều cạnh có hướng giữa hai đỉnh.",
+   "vi_terms": [
+    {
+     "term": "đa đồ thị có hướng",
+     "source_id": "bib-nguyenhoangthach-2020",
+     "page": "tr. 62 (PDF)",
+     "pdf_page": 62,
+     "snippet": "Các khái niệm đơn đồ thị có hướng, đa đồ thị có hướng và cạnh khuyên",
+     "verified": true,
+     "recommended": true
+    },
+    {
+     "term": "đa đồ thị có hướng",
+     "source_id": "bib-nguyenhuudien-2019",
+     "page": "tr. 156 (PDF)",
+     "pdf_page": 156,
+     "snippet": "Định nghĩa 6.5 Một đa đồ thị có hướng G = (V, E) gồm một tập khác rỗng V mà các",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "đa đồ thị có hướng",
+     "source_id": "bib-rosen-2003-vi",
+     "page": "tr. 605 (PDF)",
+     "pdf_page": 605,
+     "snippet": "và đa đồ thị có hướng.",
+     "verified": true,
+     "recommended": false
+    }
+   ],
+   "see_also": [
+    "directed-graph",
+    "digraph",
+    "multigraph",
+    "directed-edge"
+   ],
+   "notes": "Đa đồ thị có hướng mở rộng đồ thị có hướng bằng cách cho phép nhiều cạnh có hướng (cạnh bội) giữa cùng một cặp đỉnh theo cùng một hướng; số cạnh có hướng từ một đỉnh đến một đỉnh khác gọi là bội của cặp đỉnh đó. Khái niệm này tương phản với đa đồ thị (vô hướng) ở chỗ các cạnh có hướng, và với đồ thị có hướng đơn ở chỗ cho phép cạnh bội. Thuật ngữ tiếng Việt khuyến nghị lấy từ bib-nguyenhoangthach-2020 (nguồn mới nhất có dẫn chứng), được củng cố bởi bib-nguyenhuudien-2019 và bản dịch Rosen tiếng Việt bib-rosen-2003-vi.",
+   "status": "draft"
+  },
+  {
+   "id": "discrete-logarithm",
+   "letter": "D",
+   "headword_en": "Discrete Logarithm",
+   "notation": "\\log_r a \\pmod p",
+   "rosen_ref": "Rosen §4.6",
+   "definition_vi": "Cho $$p$$ là một số nguyên tố và $$r$$ là một căn nguyên thủy modulo $$p$$. Lôgarit rời rạc của một số nguyên $$a$$ theo cơ số $$r$$ modulo $$p$$ là số nguyên $$e$$ thỏa mãn $$r^e \\equiv a \\pmod p$$.",
+   "example_vi": "Lấy $$p = 11$$ và căn nguyên thủy $$r = 2$$ modulo $$11$$. Vì $$2^4 = 16 \\equiv 5 \\pmod{11}$$, nên lôgarit rời rạc của $$5$$ theo cơ số $$2$$ modulo $$11$$ là $$4$$.",
+   "vi_terms": [
+    {
+     "term": "lôgarit rời rạc",
+     "verified": false,
+     "recommended": true,
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": ""
+    }
+   ],
+   "see_also": [
+    "logarithm",
+    "congruence",
+    "modular-arithmetic"
+   ],
+   "notes": "Thuật ngữ chuẩn là \"lôgarit rời rạc\", dịch từ \"discrete logarithm\". Khái niệm này thuộc lý thuyết số (số mũ $$e$$ sao cho $$r^e \\equiv a \\pmod p$$ với $$r$$ là căn nguyên thủy), khác với mục \"logarithm\" là lôgarit thực thông thường. Kho ngữ liệu hiện chưa có chứng thực cho cụm \"lôgarit rời rạc\"; bản dịch Rosen và các tài liệu trong kho chỉ dùng \"lôgarit\"/\"logarit\" cho lôgarit thực.",
+   "status": "draft"
+  },
+  {
+   "id": "distribution-of-a-random-variable",
+   "letter": "D",
+   "headword_en": "Distribution of a Random Variable",
+   "notation": "",
+   "rosen_ref": "Rosen §7.2",
+   "definition_vi": "Phân phối của một biến ngẫu nhiên $$X$$ trên một không gian mẫu là tập hợp các cặp $$(r, p(X = r))$$ ứng với mọi giá trị $$r$$ mà biến ngẫu nhiên $$X$$ có thể nhận. Nói cách khác, phân phối cho biết với mỗi giá trị $$r$$ của $$X$$, xác suất để $$X$$ nhận giá trị đó là $$p(X = r)$$.",
+   "example_vi": "Giả sử tung một đồng xu cân đối hai lần và $$X$$ là biến ngẫu nhiên đếm số lần xuất hiện mặt ngửa. Khi đó phân phối của $$X$$ gồm các cặp $$(0, 1/4)$$, $$(1, 1/2)$$ và $$(2, 1/4)$$, vì $$p(X = 0) = 1/4$$, $$p(X = 1) = 1/2$$ và $$p(X = 2) = 1/4$$.",
+   "vi_terms": [
+    {
+     "term": "phân phối của biến ngẫu nhiên",
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": "",
+     "verified": false,
+     "recommended": true
+    },
+    {
+     "term": "biến ngẫu nhiên",
+     "source_id": "bib-leanhvinh-2020",
+     "page": "tr. 155 (PDF)",
+     "pdf_page": 155,
+     "snippet": "biến ngẫu nhiên đếm số các đồ thị con K, đơn sắc của K,, thi",
+     "verified": true,
+     "recommended": false
+    }
+   ],
+   "see_also": [
+    "expected-value",
+    "bernoulli-trial"
+   ],
+   "notes": "Phân phối của biến ngẫu nhiên $$X$$ liệt kê mọi giá trị $$r$$ của $$X$$ kèm xác suất $$p(X = r)$$, với $$\\sum_r p(X = r) = 1$$. Thuật ngữ \"phân phối của biến ngẫu nhiên\" ở đây chỉ phân phối xác suất của $$X$$, không nên nhầm với \"luật phân phối\" (distributive law) trong logic và lý thuyết tập hợp. Trong kho ngữ liệu hiện có chưa thấy cụm \"phân phối của biến ngẫu nhiên\" được dùng trực tiếp, nên thuật ngữ khuyến nghị là bản dịch chuẩn; cụm \"biến ngẫu nhiên\" được trích dẫn để đối chiếu.",
+   "status": "draft"
+  },
+  {
+   "id": "divide-and-conquer-algorithm",
+   "letter": "D",
+   "headword_en": "Divide-And-Conquer Algorithm",
+   "see_ref": "divide-and-conquer",
+   "vi_terms": [],
+   "status": "draft"
+  },
+  {
+   "id": "division-rule-for-counting",
+   "letter": "D",
+   "headword_en": "Division Rule For Counting",
+   "see_ref": "the-division-rule",
+   "vi_terms": [],
+   "status": "draft"
+  },
+  {
+   "id": "division-rule-for-sets",
+   "letter": "D",
+   "headword_en": "Division Rule For Sets",
+   "see_ref": "the-division-rule",
+   "vi_terms": [],
+   "status": "draft"
+  },
+  {
+   "id": "domain-of-discourse",
+   "letter": "D",
+   "headword_en": "Domain Of Discourse",
+   "notation": "",
+   "rosen_ref": "Rosen §1.4",
+   "definition_vi": "Miền xác định (hay vũ trụ biện luận) là tập hợp các giá trị mà một biến trong hàm mệnh đề $$P(x)$$ có thể nhận. Khi xét lượng từ trên hàm mệnh đề, mỗi biến chỉ lấy giá trị trong miền xác định của nó.",
+   "example_vi": "Với hàm mệnh đề $$P(x): x > 0$$ trên miền xác định là tập các số nguyên $$\\mathbb{Z}$$, biến $$x$$ chỉ nhận các giá trị nguyên; mệnh đề $$\\forall x\\, P(x)$$ là sai vì $$P(-1)$$ sai, còn $$\\exists x\\, P(x)$$ là đúng vì $$P(1)$$ đúng.",
+   "vi_terms": [
+    {
+     "term": "miền xác định",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-nguyenhuudien-2019",
+     "page": "tr. 46 (PDF)",
+     "pdf_page": 46,
+     "snippet": "lấy giá trị trên các miền xác định A, B, . . . nào đó. Khi thay thế các biến trong vị từ bởi các"
+    },
+    {
+     "term": "vũ trụ biện luận",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-rosen-2003-vi",
+     "page": "tr. 34 (PDF)",
+     "pdf_page": 34,
+     "snippet": "gọi là không gian hay vũ trụ biện luận (dưới đây ta sẽ gọi tắt là"
+    }
+   ],
+   "see_also": [
+    "propositional-function",
+    "predicate",
+    "quantifier",
+    "universal-quantifier",
+    "domain"
+   ],
+   "notes": "Miền xác định (domain of discourse), còn gọi là vũ trụ biện luận (universe of discourse), là tập các giá trị mà biến trong hàm mệnh đề có thể nhận; đây là tập mà các lượng từ $$\\forall$$ và $$\\exists$$ chạy qua. Thuật ngữ \"miền xác định\" được dùng trong nghĩa này ở nguồn mới nhất (Nguyễn Hữu Điển 2019, tr. 46: biến của vị từ \"lấy giá trị trên các miền xác định\"); bản dịch Rosen (2003) gọi là \"không gian hay vũ trụ biện luận\" (tr. 34). Cần phân biệt với \"miền xác định\" của một hàm số (tập nguồn của hàm), xem mục Domain.",
+   "status": "draft"
+  },
+  {
+   "id": "dual-of-a-boolean-expression",
+   "letter": "D",
+   "headword_en": "Dual Of A Boolean Expression",
+   "see_ref": "duality-principle",
+   "vi_terms": [
+    {
+     "term": "đối ngẫu của biểu thức Boole",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-rosen-2003-vi",
+     "page": "tr. 757 (PDF)",
+     "pdf_page": 757,
+     "snippet": "a) Đối ngẫu của biểu thức Boole là gì ?"
+    }
+   ],
+   "status": "draft"
+  },
+  {
+   "id": "dynamic-programming",
+   "letter": "D",
+   "headword_en": "Dynamic Programming",
+   "notation": "",
+   "rosen_ref": "",
+   "definition_vi": "Quy hoạch động là một mô hình thuật toán tìm lời giải tối ưu bằng cách kết hợp các lời giải của những bài toán con gối nhau. Mỗi bài toán con chỉ được giải một lần, sau đó lời giải của nó được lưu lại và dùng lại để tạo nên lời giải tối ưu cho bài toán ban đầu.",
+   "example_vi": "Các thuật toán tìm đường đi ngắn nhất như thuật toán Dijkstra và thuật toán Bellman–Ford là những ví dụ về quy hoạch động: chúng xây dựng đường đi ngắn nhất từ $$s$$ tới $$t$$ bằng cách kết hợp các đường đi ngắn nhất tới những đỉnh trung gian, là các bài toán con gối nhau.",
+   "vi_terms": [
+    {
+     "term": "quy hoạch động",
+     "source_id": "bib-nguyenhoangthach-2020",
+     "page": "tr. 91 (PDF)",
+     "pdf_page": 91,
+     "snippet": "Các thuật toán này là các ví dụ về thuật toán quy hoạch động. Chúng sử dụng",
+     "verified": true,
+     "recommended": true
+    }
+   ],
+   "see_also": [
+    "algorithm",
+    "divide-and-conquer",
+    "dijkstra-algorithm"
+   ],
+   "notes": "Quy hoạch động khác với chia để trị (divide-and-conquer) ở chỗ các bài toán con gối nhau (overlapping subproblems): lời giải của mỗi bài toán con được lưu lại và dùng lại nhiều lần thay vì giải lại từ đầu, nhờ đó tránh được khối lượng tính toán lặp. Dẫn chứng tiếng Việt lấy từ bib-nguyenhoangthach-2020 (tr. 91, PDF), nơi thuật toán Dijkstra và Bellman–Ford được nêu làm ví dụ cho thuật toán quy hoạch động.",
+   "status": "draft"
   }
  ]
 }

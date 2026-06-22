@@ -1599,6 +1599,146 @@
    "see_also": [],
    "notes": "Thuật ngữ chuẩn của giáo trình MAT3500 là \"đầy đủ\" (đối với một tập toán tử logic). Bản dịch Rosen dùng \"tập đầy đủ các toán tử logic\"; tài liệu Nguyễn Đức Nghĩa dùng \"hệ (hàm) đầy đủ\" cho hệ các hàm đại số lôgic. Các tập $$\\{\\neg, \\wedge, \\vee\\}$$, $$\\{\\neg, \\wedge\\}$$, $$\\{\\neg, \\vee\\}$$, $$\\{\\mid\\}$$ (NAND) và $$\\{\\downarrow\\}$$ (NOR) đều là tập đầy đủ.",
    "status": "draft"
+  },
+  {
+   "id": "frequent-itemset",
+   "letter": "F",
+   "headword_en": "Frequent Itemset",
+   "notation": "",
+   "rosen_ref": "",
+   "definition_vi": "Một tập mục (itemset) được gọi là tập phổ biến nếu tần suất của nó lớn hơn hoặc bằng một ngưỡng cho trước. Nói cách khác, đó là một tập mục $$I$$ với tần suất thỏa mãn $$\\mathrm{freq}(I) \\geq t$$, trong đó $$t$$ là ngưỡng đã cho.",
+   "example_vi": "Giả sử ngưỡng là $$t = 3$$. Nếu tập mục $$\\{\\text{bánh mì}, \\text{sữa}\\}$$ xuất hiện trong $$5$$ giao dịch, thì vì $$5 \\geq 3$$ nên tập này là một tập phổ biến; ngược lại, một tập mục chỉ xuất hiện trong $$2$$ giao dịch thì không phổ biến vì $$2 < 3$$.",
+   "vi_terms": [
+    {
+     "term": "tập phổ biến",
+     "verified": false,
+     "recommended": true,
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": ""
+    },
+    {
+     "term": "tập mục phổ biến",
+     "verified": false,
+     "recommended": false,
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": ""
+    }
+   ],
+   "see_also": [],
+   "notes": "Khái niệm thuộc khai phá dữ liệu (data mining), dùng trong khai phá luật kết hợp. Không có chứng thực trong kho ngữ liệu tiếng Việt hiện có; thuật ngữ khuyến nghị dùng bản dịch chuẩn. Tần suất (frequency) của một tập mục là số giao dịch chứa tập mục đó.",
+   "status": "draft"
+  },
+  {
+   "id": "full-adder",
+   "letter": "F",
+   "headword_en": "Full Adder",
+   "notation": "$$s = (x \\oplus y) \\oplus c_{\\mathrm{in}}$$, $$c_{\\mathrm{out}} = (x \\wedge y) \\vee (c_{\\mathrm{in}} \\wedge (x \\oplus y))$$",
+   "rosen_ref": "Rosen §12.3",
+   "definition_vi": "Mạch cộng toàn phần là mạch logic tổ hợp cộng hai bit đầu vào cùng với một bit nhớ đầu vào, rồi tạo ra một bit tổng và một bit nhớ đầu ra. Như vậy nó nhận ba bit đầu vào $$x$$, $$y$$ và $$c_{\\mathrm{in}}$$, rồi sinh ra bit tổng $$s$$ và bit nhớ đầu ra $$c_{\\mathrm{out}}$$.",
+   "example_vi": "Với ba bit đầu vào $$x = 1$$, $$y = 1$$ và $$c_{\\mathrm{in}} = 1$$, mạch cộng toàn phần cho bit tổng $$s = 1$$ và bit nhớ đầu ra $$c_{\\mathrm{out}} = 1$$, biểu diễn cho phép cộng $$1 + 1 + 1 = (11)_2$$.",
+   "vi_terms": [
+    {
+     "term": "mạch cộng toàn phần",
+     "source_id": "",
+     "page": "",
+     "recommended": true,
+     "verified": false,
+     "pdf_page": 0,
+     "snippet": ""
+    }
+   ],
+   "see_also": [
+    "half-adder",
+    "combinatorial-circuit"
+   ],
+   "notes": "Full entry (not a stub): the book has a separate \"Half adder\" entry (id half-adder), but a half adder adds two bits with no carry input, while a full adder adds two bits plus a carry-in bit and so is a distinct concept, not a synonym; \"Combinatorial Circuit\" (id combinatorial-circuit) is the broader category, not the same concept. Definition split into two sentences per the readability convention: one for the cumulative carry-adding role, one for the three inputs and two outputs. The notation field gives the standard sum and carry-out Boolean formulas; $$\\oplus$$ denotes the XOR (sum) gates, $$\\wedge$$ the AND gates, and $$\\vee$$ the OR gate combining the carry, consistent with the Boolean-function notation used elsewhere in the book and with the half-adder entry. No Vietnamese source in the mined corpus attests the full-adder concept. The candidate terms \"mạch cộng toàn phần\", \"mạch cộng\", \"bộ cộng\", \"bán phần\", \"bit nhớ\", \"cổng XOR\", and \"mạch tổ hợp\" return 0 relevant hits in both normal and --loose mode across all six sources (bib-leanhvinh-2020, bib-nguyenhoangthach-2020, bib-nguyenhuudien-2019, bib-hoangchithanh-2007, bib-nguyenducnghia-2006, bib-ngodactan-2004) and in the Rosen-VI reference (bib-rosen-2003-vi); \"toàn phần\" hits in Rosen-VI (pp.96,861,862) all denote total functions (\"hàm toàn phần\"), not full adders; \"bộ cộng\" (--loose) yields only the false positive \"toàn bộ công trình\" (\"the entire work\", bib-nguyenducnghia-2006 p.234). Adjacent searches confirm the gap: \"mạch logic\" (bib-nguyenducnghia-2006 p.290) is a generic control-logic-circuit design exercise, and \"phép cộng bit\" (bib-nguyenhuudien-2019 pp.145,147) means \"bit-addition operation\" in an algorithm-complexity context, neither denoting a full adder. The full adder is a combinational/Boolean logic circuit topic (Rosen §12.3); the mined corpus covers graph theory, combinatorics, and discrete mathematics, none of which treat digital logic gates, so the concept is genuinely absent. The recommended term \"mạch cộng toàn phần\" is the standard Vietnamese rendering (literally \"full-portion adder circuit\"), parallel to the half-adder entry's \"mạch cộng bán phần\"; per the sanctioned exception it is kept verified=false/page=\"\" so vi_terms is non-empty and the single-recommendation invariant holds, pending attestation from an electronics or computer-architecture source outside this corpus.",
+   "status": "draft"
+  },
+  {
+   "id": "full-m-ary-tree",
+   "letter": "F",
+   "headword_en": "Full m-Ary Tree",
+   "notation": "",
+   "rosen_ref": "Rosen §11.1",
+   "definition_vi": "Một \\emph{cây $$m$$-phân đầy} là một cây $$m$$-phân mà trong đó mỗi đỉnh trong (mỗi đỉnh không phải là lá) có đúng $$m$$ con.",
+   "example_vi": "Một cây nhị phân đầy đủ là cây $$m$$-phân đầy với $$m = 2$$, vì mỗi đỉnh trong của nó có đúng hai con. Một cây $$m$$-phân đầy với $$i$$ đỉnh trong có tất cả $$n = mi + 1$$ đỉnh.",
+   "vi_terms": [
+    {
+     "term": "cây m-phân đầy",
+     "source_id": "bib-nguyenhoangthach-2020",
+     "page": "tr. 85 (PDF)",
+     "pdf_page": 85,
+     "snippet": "Một cây m-phân đầy là một cây m-phân mà mỗi đỉnh trong có đúng m",
+     "verified": true,
+     "recommended": true
+    },
+    {
+     "term": "cây m-phân đầy đủ",
+     "source_id": "bib-rosen-2003-vi",
+     "page": "tr. 624 (PDF)",
+     "pdf_page": 624,
+     "snippet": "trong của nó không có hơn m con. Cây được gọi là m-phan day đủ nếu",
+     "verified": true,
+     "recommended": false
+    }
+   ],
+   "see_also": [
+    "m-ary-tree",
+    "full-binary-tree",
+    "rooted-tree",
+    "balanced-tree"
+   ],
+   "notes": "Cần phân biệt cây $$m$$-phân đầy với cây $$m$$-phân thông thường: trong cây $$m$$-phân, mỗi đỉnh trong có không quá $$m$$ con, còn trong cây $$m$$-phân đầy thì mỗi đỉnh trong có \\emph{đúng} $$m$$ con. Cây nhị phân đầy đủ là trường hợp $$m = 2$$. Một cây $$m$$-phân đầy với $$i$$ đỉnh trong có $$n = mi + 1$$ đỉnh, $$\\ell = (m - 1)i + 1$$ lá. Dẫn chứng tiếng Việt cho thuật ngữ khuyến nghị lấy từ bib-nguyenhoangthach-2020 (tr. 85); bản dịch Rosen tiếng Việt dùng dạng đầy đủ \"cây $$m$$-phân đầy đủ\".",
+   "status": "draft"
+  },
+  {
+   "id": "fully-homomorphic-cryptosystem",
+   "letter": "F",
+   "headword_en": "Fully Homomorphic Cryptosystem",
+   "notation": "",
+   "rosen_ref": "Rosen §4.6",
+   "definition_vi": "Hệ mật mã đồng cấu hoàn toàn là một hệ mật mã cho phép thực hiện tính toán tùy ý trên dữ liệu đã được mã hóa.",
+   "example_vi": "Một hệ mật mã đồng cấu hoàn toàn cho phép một bên thứ ba (chẳng hạn một dịch vụ điện toán đám mây) thực hiện các phép cộng và phép nhân trực tiếp trên các bản mã của hai số $$a$$ và $$b$$ để thu được bản mã của $$a + b$$ và $$a \\cdot b$$, mà không cần giải mã để biết $$a$$ hay $$b$$. Khi giải mã, chủ sở hữu khóa thu được đúng kết quả tính toán trên dữ liệu gốc.",
+   "vi_terms": [
+    {
+     "term": "hệ mật mã đồng cấu hoàn toàn",
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": "",
+     "verified": false,
+     "recommended": true
+    },
+    {
+     "term": "hệ thống mật mã",
+     "source_id": "bib-rosen-2003-vi",
+     "page": "tr. 161 (PDF)",
+     "pdf_page": 161,
+     "snippet": "và hệ thống mật mã dựa trên số học đồng dư.",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "đồng cấu",
+     "source_id": "bib-nguyenhuudien-2019",
+     "page": "tr. 124 (PDF)",
+     "pdf_page": 124,
+     "snippet": "Sau đây chúng ta sẽ giới thiệu tiếp khái niệm “dàn con\" và \"đồng cấu dàn\".",
+     "verified": true,
+     "recommended": false
+    }
+   ],
+   "see_also": [
+    "public-key-cryptography",
+    "private-key-cryptography",
+    "homomorphism"
+   ],
+   "notes": "Tính chất đồng cấu (homomorphic) nghĩa là các phép toán trên bản mã tương ứng với các phép toán trên bản rõ; từ \"hoàn toàn\" (fully) nhấn mạnh rằng cả phép cộng lẫn phép nhân đều được hỗ trợ, do đó tính được mọi hàm trên dữ liệu đã mã hóa. Cụm từ \"hệ mật mã đồng cấu hoàn toàn\" là bản dịch tiêu chuẩn, chưa có trong các nguồn đối chiếu nên chưa được xác thực; các trích dẫn “hệ thống mật mã” và “đồng cấu” chỉ minh chứng cho từng thành phần thuật ngữ.",
+   "status": "draft"
   }
  ]
 }

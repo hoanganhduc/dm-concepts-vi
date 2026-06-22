@@ -204,8 +204,8 @@ def main():
                 "verified": bool(t.get("verified")), "pdf_page": t.get("pdf_page"),
                 "snippet": t.get("snippet", ""),
             } for t in e.get("vi_terms", [])],
-            "see_also": e.get("see_also", []), "status": "panel-approved",
-            "notes": e.get("notes", ""),
+            "see_also": e.get("see_also", []), "status": e.get("status", "panel-approved"),
+            "see_ref": e.get("see_ref", ""), "notes": e.get("notes", ""),
         })
     ypath = os.path.join(ROOT, "data", "terms", f"entries-{letter}.yaml")
     with open(ypath, "w", encoding="utf-8") as fh:

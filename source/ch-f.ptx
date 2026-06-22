@@ -197,7 +197,7 @@
         <li><p><term>cây nhị phân đầy đủ</term> <xref ref="bib-hoangchithanh-2007" /> (tr. 147 (PDF)); <xref ref="bib-rosen-2003-vi" /> (tr. 624 (PDF, bản dịch Rosen)) — cách dùng phổ biến.</p></li>
       </ul>
       <p>Ví dụ: Cây có gốc <m>r</m> với hai con <m>u</m> và <m>v</m>, trong đó <m>u</m> lại có đúng hai con là lá còn <m>v</m> là lá, là một cây nhị phân đầy đủ vì mỗi đỉnh trong có đúng hai con.</p>
-      <p>Xem thêm <xref ref="def-binary-tree" text="title" />, <xref ref="def-rooted-tree" text="title" />, <xref ref="def-leaf" text="title" />.</p>
+      <p>Xem thêm <xref ref="def-binary-tree" text="title" />, <xref ref="def-rooted-tree" text="title" />, <xref ref="def-internal-vertex" text="title" />, <xref ref="def-leaf" text="title" />.</p>
     </statement>
   </definition>
   <definition xml:id="def-function-composition">
@@ -277,7 +277,7 @@
         <li><p><term>định lý nhỏ Fermat</term> <em>(thuật ngữ chuẩn; chưa truy được trong kho văn bản)</em> — cách dùng phổ biến.</p></li>
       </ul>
       <p>Ví dụ: Với <m>p = 5</m> và <m>a = 2</m>, ta có <m>2^{4} = 16 \equiv 1 \pmod{5}</m>.</p>
-      <p>Xem thêm <xref ref="def-congruence" text="title" />.</p>
+      <p>Xem thêm <xref ref="def-congruence" text="title" />, <xref ref="def-prime" text="title" />.</p>
     </statement>
   </definition>
   <definition xml:id="def-fixed-point">
@@ -313,7 +313,7 @@
         <li><p><term>biểu thức logic</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 20 (PDF)); <xref ref="bib-nguyenducnghia-2006" /> (tr. 99 (PDF)); <xref ref="bib-rosen-2003-vi" /> (tr. 13 (PDF, bản dịch Rosen)) — cách dùng phổ biến.</p></li>
       </ul>
       <p>Ví dụ: Nếu <m>p</m>, <m>q</m> là các biến mệnh đề thì <m>(p \land \neg q) \to (q \lor p)</m> là một biểu thức logic, trong khi chuỗi ký hiệu <m>p \land \to q</m> không phải là biểu thức logic vì không tuân theo quy tắc tạo lập.</p>
-      <p>Xem thêm <xref ref="def-quantifier" text="title" />, <xref ref="def-predicate" text="title" />.</p>
+      <p>Xem thêm <xref ref="def-propositional-variable" text="title" />, <xref ref="def-quantifier" text="title" />, <xref ref="def-predicate" text="title" />.</p>
     </statement>
   </definition>
   <definition xml:id="def-factor">
@@ -538,6 +538,73 @@
         <li><p><term>hệ đầy đủ</term> <xref ref="bib-nguyenducnghia-2006" /> (tr. 271 (PDF)).</p></li>
       </ul>
       <p>Ví dụ: Tập <m>\{\neg, \wedge\}</m> là đầy đủ: phép tuyển biểu diễn được bằng <m>p \vee q \equiv \neg(\neg p \wedge \neg q)</m>, do đó mọi mệnh đề phức hợp đều viết được chỉ với <m>\neg</m> và <m>\wedge</m>. Tương tự, riêng phép NAND <m>\{\mid\}</m> cũng tạo thành một tập đầy đủ.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-frequent-itemset">
+    <title>Frequent Itemset — tập phổ biến</title>
+    <idx><h>frequent itemset</h></idx>
+    <idx><h>tập mục phổ biến</h></idx>
+    <idx><h>tập phổ biến</h></idx>
+    <statement>
+      <p>Một tập mục (itemset) được gọi là tập phổ biến nếu tần suất của nó lớn hơn hoặc bằng một ngưỡng cho trước. Nói cách khác, đó là một tập mục <m>I</m> với tần suất thỏa mãn <m>\mathrm{freq}(I) \geq t</m>, trong đó <m>t</m> là ngưỡng đã cho.</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>tập phổ biến</term> <em>(thuật ngữ chuẩn; chưa truy được trong kho văn bản)</em> — cách dùng phổ biến.</p></li>
+        <li><p><term>tập mục phổ biến</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
+      </ul>
+      <p>Ví dụ: Giả sử ngưỡng là <m>t = 3</m>. Nếu tập mục <m>\{\text{bánh mì}, \text{sữa}\}</m> xuất hiện trong <m>5</m> giao dịch, thì vì <m>5 \geq 3</m> nên tập này là một tập phổ biến; ngược lại, một tập mục chỉ xuất hiện trong <m>2</m> giao dịch thì không phổ biến vì <m>2  \lt  3</m>.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-full-adder">
+    <title>Full Adder — mạch cộng toàn phần</title>
+    <idx><h>full adder</h></idx>
+    <idx><h>mạch cộng toàn phần</h></idx>
+    <notation>
+      <usage><m>s = (x \oplus y) \oplus c_{\mathrm{in}}, c_{\mathrm{out}} = (x \wedge y) \vee (c_{\mathrm{in}} \wedge (x \oplus y))</m></usage>
+      <description>mạch cộng toàn phần</description>
+    </notation>
+    <statement>
+      <p>Mạch cộng toàn phần là mạch logic tổ hợp cộng hai bit đầu vào cùng với một bit nhớ đầu vào, rồi tạo ra một bit tổng và một bit nhớ đầu ra. Như vậy nó nhận ba bit đầu vào <m>x</m>, <m>y</m> và <m>c_{\mathrm{in}}</m>, rồi sinh ra bit tổng <m>s</m> và bit nhớ đầu ra <m>c_{\mathrm{out}}</m> (theo <xref ref="bib-rosen-2019" />, Rosen §12.3).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>mạch cộng toàn phần</term> <em>(thuật ngữ chuẩn; chưa truy được trong kho văn bản)</em> — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Với ba bit đầu vào <m>x = 1</m>, <m>y = 1</m> và <m>c_{\mathrm{in}} = 1</m>, mạch cộng toàn phần cho bit tổng <m>s = 1</m> và bit nhớ đầu ra <m>c_{\mathrm{out}} = 1</m>, biểu diễn cho phép cộng <m>1 + 1 + 1 = (11)_2</m>.</p>
+      <p>Xem thêm <xref ref="def-half-adder" text="title" />, <xref ref="def-combinatorial-circuit" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-full-m-ary-tree">
+    <title>Full m-Ary Tree — cây m-phân đầy</title>
+    <idx><h>full m-ary tree</h></idx>
+    <idx><h>cây m-phân đầy</h></idx>
+    <idx><h>cây m-phân đầy đủ</h></idx>
+    <statement>
+      <p>Một \emph{cây <m>m</m>-phân đầy} là một cây <m>m</m>-phân mà trong đó mỗi đỉnh trong (mỗi đỉnh không phải là lá) có đúng <m>m</m> con (theo <xref ref="bib-rosen-2019" />, Rosen §11.1).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>cây m-phân đầy</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 85 (PDF)) — cách dùng phổ biến.</p></li>
+        <li><p><term>cây m-phân đầy đủ</term> <xref ref="bib-rosen-2003-vi" /> (tr. 624 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Một cây nhị phân đầy đủ là cây <m>m</m>-phân đầy với <m>m = 2</m>, vì mỗi đỉnh trong của nó có đúng hai con. Một cây <m>m</m>-phân đầy với <m>i</m> đỉnh trong có tất cả <m>n = mi + 1</m> đỉnh.</p>
+      <p>Xem thêm <xref ref="def-m-ary-tree" text="title" />, <xref ref="def-full-binary-tree" text="title" />, <xref ref="def-rooted-tree" text="title" />, <xref ref="def-balanced-tree" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-fully-homomorphic-cryptosystem">
+    <title>Fully Homomorphic Cryptosystem — hệ mật mã đồng cấu hoàn toàn</title>
+    <idx><h>fully homomorphic cryptosystem</h></idx>
+    <idx><h>hệ mật mã đồng cấu hoàn toàn</h></idx>
+    <idx><h>hệ thống mật mã</h></idx>
+    <idx><h>đồng cấu</h></idx>
+    <statement>
+      <p>Hệ mật mã đồng cấu hoàn toàn là một hệ mật mã cho phép thực hiện tính toán tùy ý trên dữ liệu đã được mã hóa (theo <xref ref="bib-rosen-2019" />, Rosen §4.6).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>hệ mật mã đồng cấu hoàn toàn</term> <em>(thuật ngữ chuẩn; chưa truy được trong kho văn bản)</em> — cách dùng phổ biến.</p></li>
+        <li><p><term>hệ thống mật mã</term> <xref ref="bib-rosen-2003-vi" /> (tr. 161 (PDF)).</p></li>
+        <li><p><term>đồng cấu</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 124 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Một hệ mật mã đồng cấu hoàn toàn cho phép một bên thứ ba (chẳng hạn một dịch vụ điện toán đám mây) thực hiện các phép cộng và phép nhân trực tiếp trên các bản mã của hai số <m>a</m> và <m>b</m> để thu được bản mã của <m>a + b</m> và <m>a \cdot b</m>, mà không cần giải mã để biết <m>a</m> hay <m>b</m>. Khi giải mã, chủ sở hữu khóa thu được đúng kết quả tính toán trên dữ liệu gốc.</p>
+      <p>Xem thêm <xref ref="def-public-key-cryptography" text="title" />, <xref ref="def-private-key-cryptography" text="title" />, <xref ref="def-homomorphism" text="title" />.</p>
     </statement>
   </definition>
 </chapter>

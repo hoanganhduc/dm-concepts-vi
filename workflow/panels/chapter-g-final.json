@@ -1373,6 +1373,152 @@
    "see_also": [],
    "notes": "Thuật ngữ chuẩn của giáo trình MAT3500 là \"tốc độ tăng trưởng\". Nguyễn Đức Nghĩa (2006) dùng biến thể \"tốc độ tăng\" khi mô tả tốc độ tăng của thời gian tính của thuật toán, còn bản dịch Rosen (2003) dùng \"độ tăng của hàm\" cho cùng khái niệm. Khái niệm này gắn liền với ký hiệu O lớn.",
    "status": "draft"
+  },
+  {
+   "id": "game-tree",
+   "letter": "G",
+   "headword_en": "Game Tree",
+   "notation": "",
+   "rosen_ref": "Rosen §11.2",
+   "definition_vi": "Cây trò chơi là một cây có gốc trong đó các đỉnh biểu diễn các hình trạng của một trò chơi và các cạnh biểu diễn các nước đi.",
+   "example_vi": "Trong trò chơi Nim với một cọc gồm $$n$$ que, mỗi đỉnh của cây trò chơi ứng với số que còn lại và mỗi cạnh ứng với một nước bốc que của một đấu thủ; gốc ứng với hình trạng ban đầu $$n$$ que, còn các lá ứng với các hình trạng kết thúc khi không còn nước đi nào.",
+   "vi_terms": [
+    {
+     "term": "cây trò chơi",
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": "",
+     "verified": false,
+     "recommended": true
+    }
+   ],
+   "see_also": [
+    "rooted-tree",
+    "decision-tree",
+    "tree-diagram"
+   ],
+   "notes": "Cây trò chơi là một mô hình bằng cây có gốc cho các trò chơi tuần tự: mỗi đỉnh là một hình trạng, mỗi cạnh là một nước đi, gốc là hình trạng ban đầu và các lá là các hình trạng kết thúc. Mức của một đỉnh thường cho biết lượt của đấu thủ nào sẽ đi. Khái niệm này gắn với \"value of a vertex in a game tree\" (giá trị của một đỉnh trong cây trò chơi) dùng để phân tích chiến lược tối ưu. Thuật ngữ \"trò chơi\" được dùng nhất quán trong các nguồn tiếng Việt (ví dụ lý thuyết trò chơi Nim trong bib-hoangchithanh-2007), nhưng hợp từ \"cây trò chơi\" không xuất hiện trong kho ngữ liệu nên thuật ngữ khuyến nghị ở dạng dịch chuẩn, chưa được dẫn chứng (verified=false).",
+   "status": "draft"
+  },
+  {
+   "id": "geometric-distribution",
+   "letter": "G",
+   "headword_en": "Geometric Distribution",
+   "notation": "P(X = k) = (1-p)^{k-1} p",
+   "rosen_ref": "Rosen §7.4",
+   "definition_vi": "Phân phối hình học là phân phối của một biến ngẫu nhiên cho số phép thử cần thực hiện cho đến khi đạt được thành công đầu tiên. Nếu mỗi phép thử thành công với xác suất $$p$$ một cách độc lập, thì xác suất để thành công đầu tiên xảy ra ở phép thử thứ $$k$$ là $$P(X = k) = (1-p)^{k-1} p$$ với $$k = 1, 2, 3, \\ldots$$.",
+   "example_vi": "Gieo một con xúc xắc cho đến khi xuất hiện mặt $$6$$ đầu tiên; mỗi lần gieo thành công với xác suất $$p = \\tfrac{1}{6}$$, nên xác suất để mặt $$6$$ xuất hiện lần đầu ở lần gieo thứ ba là $$P(X = 3) = \\left(\\tfrac{5}{6}\\right)^{2} \\cdot \\tfrac{1}{6}$$. Khi đó số phép thử kỳ vọng đến khi thành công đầu tiên là $$\\tfrac{1}{p} = 6$$.",
+   "vi_terms": [
+    {
+     "term": "phân phối hình học",
+     "verified": false,
+     "recommended": true,
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": ""
+    },
+    {
+     "term": "biến ngẫu nhiên",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-leanhvinh-2020",
+     "page": "tr. 155 (PDF)",
+     "pdf_page": 155,
+     "snippet": "biến ngẫu nhiên đếm số các đồ thị con K, đơn sắc của K,, thi"
+    }
+   ],
+   "see_also": [
+    "bernoulli-trial",
+    "expected-value"
+   ],
+   "notes": "Phân phối hình học là phân phối của biến ngẫu nhiên $$X$$ đếm số phép thử Bernoulli độc lập cần thực hiện cho đến khi có thành công đầu tiên, với $$P(X = k) = (1-p)^{k-1} p$$ cho $$k \\geq 1$$. Giá trị kỳ vọng của $$X$$ là $$\\tfrac{1}{p}$$. Thuật ngữ \"phân phối hình học\" là cách dịch chuẩn; ngữ liệu hiện có không có dẫn chứng trực tiếp cho khái niệm này (chỉ \"biến ngẫu nhiên\" được dẫn chứng, dùng để làm rõ định nghĩa). Cần phân biệt \"phân phối hình học\" (probability distribution) với \"cấp số nhân\" (geometric progression) và \"tổng cấp số nhân\" (geometric series).",
+   "status": "draft"
+  },
+  {
+   "id": "greatest-element",
+   "letter": "G",
+   "headword_en": "Greatest Element",
+   "notation": "",
+   "rosen_ref": "Rosen §9.6",
+   "definition_vi": "Phần tử lớn nhất của một tập sắp thứ tự (poset) là một phần tử lớn hơn mọi phần tử khác của tập đó. Nói cách khác, phần tử $$a$$ là phần tử lớn nhất nếu $$b \\preceq a$$ với mọi phần tử $$b$$ của tập, và phần tử lớn nhất, nếu có, là duy nhất.",
+   "example_vi": "Trong tập sắp thứ tự $$(\\mathcal{P}(E), \\subseteq)$$ gồm tất cả các tập con của một tập $$E$$ với quan hệ bao hàm, phần tử lớn nhất là chính tập $$E$$, vì mọi tập con của $$E$$ đều là tập con của $$E$$.",
+   "vi_terms": [
+    {
+     "term": "phần tử lớn nhất",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-nguyenhuudien-2019",
+     "page": "119",
+     "pdf_page": 119,
+     "snippet": "Ta gọi một phần tử a ∈ A là một phần tử lớn nhất của tập hợp A nếu và chỉ nếu với mọi"
+    },
+    {
+     "term": "phần tử lớn nhất",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhuudien-2019",
+     "page": "119",
+     "pdf_page": 119,
+     "snippet": "3. Phần tử lớn nhất (nhỏ nhất) của một tập hợp, nếu có, là phần tử tối đại (tối tiểu) duy"
+    }
+   ],
+   "see_also": [
+    "maximal-element",
+    "minimal-element",
+    "poset",
+    "upper-bound"
+   ],
+   "notes": "Cần phân biệt phần tử lớn nhất (greatest element) với phần tử tối đại (maximal element): phần tử lớn nhất lớn hơn mọi phần tử khác nên là duy nhất nếu tồn tại, trong khi phần tử tối đại chỉ đòi hỏi không có phần tử nào lớn hơn nó và một poset có thể có nhiều phần tử tối đại. Theo nguồn Nguyễn Hữu Điển (2019, tr. 119), phần tử lớn nhất của một tập hợp, nếu có, chính là phần tử tối đại duy nhất.",
+   "status": "draft"
+  },
+  {
+   "id": "greatest-lower-bound",
+   "letter": "G",
+   "headword_en": "Greatest Lower Bound",
+   "notation": "\\inf(S) \\text{ hay } a \\wedge b",
+   "rosen_ref": "Rosen §9.6",
+   "definition_vi": "Cho một tập con $$S$$ của một tập sắp thứ tự bộ phận. Một phần tử $$x$$ được gọi là \\emph{chặn dưới lớn nhất} của $$S$$ nếu $$x$$ là một chặn dưới của $$S$$ và $$x$$ lớn hơn mọi chặn dưới khác của $$S$$, tức là $$y \\preceq x$$ với mọi chặn dưới $$y$$ của $$S$$.",
+   "example_vi": "Trong tập sắp thứ tự bộ phận $$(\\{1, 2, 3, 4, 6, 12\\}, \\mid)$$ với quan hệ chia hết, xét tập con $$S = \\{4, 6\\}$$. Các chặn dưới của $$S$$ là $$1$$ và $$2$$, trong đó $$2$$ là chặn dưới lớn nhất vì $$1 \\mid 2$$. Trong dàn này, $$2$$ chính là ước chung lớn nhất của $$4$$ và $$6$$.",
+   "vi_terms": [
+    {
+     "term": "chặn dưới lớn nhất",
+     "verified": false,
+     "recommended": true,
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": ""
+    },
+    {
+     "term": "chận dưới lớn nhất",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhuudien-2019",
+     "page": "tr. 123 (PDF)",
+     "pdf_page": 123,
+     "snippet": "chỉ nếu với mọi a, b ∈ L, tập hợp { a, b} có chận dưới lớn nhất và có chận trên nhỏ nhất; tức là"
+    },
+    {
+     "term": "chận dưới lớn nhất",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhuudien-2019",
+     "page": "tr. 124 (PDF)",
+     "pdf_page": 124,
+     "snippet": "chận dưới lớn nhất chính là ước số chung lớn nhất của chúng. Vậy ( N, |) là một dàn, và ta"
+    }
+   ],
+   "see_also": [
+    "lower-bound",
+    "join-lattice",
+    "lattice",
+    "partial-order",
+    "poset"
+   ],
+   "notes": "Recommended term \"chặn dưới lớn nhất\" là bản dịch chuẩn của \"greatest lower bound\", song đối với \"chặn trên nhỏ nhất\" (least upper bound) đã dùng trong mục join-lattice. Cách viết hiện đại \"chặn dưới lớn nhất\" không có hit chính xác trong corpus (0 hit thường), nên ghi recommended với verified=false/page rỗng. Đúng khái niệm này được chứng thực trong bib-nguyenhuudien-2019 (pp. 123–124) dưới cách viết OCR \"chận dưới lớn nhất\": tr.123 nêu điều kiện một dàn ($$\\{a,b\\}$$ có chận dưới lớn nhất và chận trên nhỏ nhất), tr.124 nêu rõ chận dưới lớn nhất của hai số chính là ước chung lớn nhất (tức $$\\inf(a,b)=a\\wedge b$$). Đây chính là khái niệm greatest lower bound của Rosen (= meet $$a\\wedge b$$, đối ngẫu của join $$a\\vee b$$). Cách viết chặn/chận là biến thể chính tả của cùng một thuật ngữ. Các hit \"cận dưới\" trong bib-rosen-2003-vi (tr.667, 703, 937) đều chỉ chặn dưới của một đại lượng số (độ phức tạp B-cây, số lá), KHÔNG phải chặn dưới lớn nhất theo nghĩa thứ tự, nên không đưa vào làm chứng thực khái niệm. Mục greatest lower bound (meet $$a\\wedge b$$) là đối ngẫu của mục đã có join-lattice (least upper bound, $$a\\vee b$$); hai khái niệm khác nhau nên đây là một mục đầy đủ riêng, không phải tham chiếu đồng nghĩa.",
+   "status": "draft"
   }
  ]
 }

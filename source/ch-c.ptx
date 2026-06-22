@@ -213,7 +213,7 @@
         <li><p><term>đồ thị chu trình</term> <xref ref="bib-hoangchithanh-2007" /> (tr. 43 (PDF)).</p></li>
       </ul>
       <p>Ví dụ: <m>C_3</m> là tam giác với ba đỉnh <m>v_1, v_2, v_3</m> và ba cạnh <m>\{v_1,v_2\}, \{v_2,v_3\}, \{v_3,v_1\}</m>.</p>
-      <p>Xem thêm <xref ref="def-path" text="title" />.</p>
+      <p>Xem thêm <xref ref="def-path" text="title" />, <xref ref="def-wheel" text="title" />, <xref ref="def-hamilton-circuit" text="title" />.</p>
     </statement>
   </definition>
   <definition xml:id="def-combination">
@@ -465,7 +465,7 @@
         <li><p><term>miền giá trị</term> <xref ref="bib-rosen-2003-vi" /> (tr. 85 (PDF)).</p></li>
       </ul>
       <p>Ví dụ: Xét hàm <m>f : \mathbb{Z} \to \mathbb{Z}</m> cho bởi <m>f(x) = x^2</m>. Khi đó miền xác định và miền giá trị (tập đích) đều là <m>\mathbb{Z}</m>, mặc dù ảnh của <m>f</m> chỉ gồm các số chính phương, là tập con thực sự của tập đích <m>\mathbb{Z}</m>.</p>
-      <p>Xem thêm <xref ref="def-domain" text="title" />, <xref ref="def-function" text="title" />.</p>
+      <p>Xem thêm <xref ref="def-domain" text="title" />, <xref ref="def-function" text="title" />, <xref ref="def-image" text="title" />, <xref ref="def-range" text="title" />.</p>
     </statement>
   </definition>
   <definition xml:id="def-coefficient">
@@ -487,7 +487,7 @@
         <li><p><term>hệ số tổ hợp</term> <xref ref="bib-nguyenducnghia-2006" /> (tr. 22 (PDF)).</p></li>
       </ul>
       <p>Ví dụ: Trong khai triển nhị thức <m>(x + y)^n = \sum_{k=0}^{n} \binom{n}{k} x^{k} y^{n-k}</m>, hệ số của số hạng <m>x^{k} y^{n-k}</m> là hệ số nhị thức <m>\binom{n}{k}</m>. Chẳng hạn, hệ số của <m>x^2</m> trong <m>(x + 1)^3</m> là <m>\binom{3}{2} = 3</m>.</p>
-      <p>Xem thêm <xref ref="def-binomial-coefficient" text="title" />, <xref ref="def-binomial-theorem" text="title" />.</p>
+      <p>Xem thêm <xref ref="def-binomial-coefficient" text="title" />, <xref ref="def-binomial-theorem" text="title" />, <xref ref="def-polynomial" text="title" />.</p>
     </statement>
   </definition>
   <definition xml:id="def-combinatorial-circuit">
@@ -885,6 +885,284 @@
         <li><p><term>cầu</term> <xref ref="bib-leanhvinh-2020" /> (tr. 25 (PDF)).</p></li>
       </ul>
       <p>Ví dụ: Trong một đường đi <m>P_n</m>, mọi cạnh đều là cạnh cắt; ngược lại, trong một chu trình <m>C_n</m> không có cạnh nào là cạnh cắt.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-carmichael-number">
+    <title>Carmichael Number — số Carmichael</title>
+    <idx><h>carmichael number</h></idx>
+    <idx><h>số Carmichael</h></idx>
+    <statement>
+      <p>Số Carmichael là một hợp số <m>n</m> sao cho <m>n</m> là số giả nguyên tố theo mọi cơ sở nguyên tố cùng nhau với <m>n</m> (theo <xref ref="bib-rosen-2019" />, Rosen §3.5).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>số Carmichael</term> <xref ref="bib-rosen-2003-vi" /> (tr. 206 (PDF)) — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Số <m>561 = 3 \cdot 11 \cdot 17</m> là số Carmichael nhỏ nhất: nó là hợp số, nhưng với mọi số nguyên <m>b</m> thỏa mãn <m>\gcd(b, 561) = 1</m> ta đều có <m>b^{560} \equiv 1 \pmod{561}</m>, nên <m>561</m> là số giả nguyên tố theo mọi cơ sở như vậy.</p>
+      <p>Xem thêm <xref ref="def-composite-number" text="title" />, <xref ref="def-prime-number" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-character-cipher">
+    <title>Character Cipher — mật mã ký tự</title>
+    <idx><h>character cipher</h></idx>
+    <idx><h>mật mã</h></idx>
+    <idx><h>mật mã của Caesar</h></idx>
+    <idx><h>mật mã học</h></idx>
+    <idx><h>mật mã ký tự</h></idx>
+    <statement>
+      <p>Mật mã ký tự là một loại mật mã mã hóa thông điệp bằng cách mã hóa từng ký tự một. Mỗi ký tự của bản rõ được thay thế riêng lẻ bởi một ký tự khác theo một quy tắc cố định, độc lập với các ký tự còn lại (theo <xref ref="bib-rosen-2019" />, Rosen §4.6).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>mật mã ký tự</term> <em>(thuật ngữ chuẩn; chưa truy được trong kho văn bản)</em> — cách dùng phổ biến.</p></li>
+        <li><p><term>mật mã</term> <xref ref="bib-rosen-2003-vi" /> (tr. 163 (PDF)).</p></li>
+        <li><p><term>mật mã của Caesar</term> <xref ref="bib-rosen-2003-vi" /> (tr. 164 (PDF)).</p></li>
+        <li><p><term>mật mã học</term> <xref ref="bib-hoangchithanh-2007" /> (tr. 146 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Mật mã Caesar là một ví dụ của mật mã ký tự. Mỗi chữ cái được biểu diễn bởi một số <m>p</m> với <m>0 \leq p \leq 25</m> và được mã hóa từng chữ một theo hàm <m>f(p) = (p + 3) \bmod 26</m>; chẳng hạn chữ B (ứng với <m>p = 1</m>) được chuyển thành chữ E (ứng với <m>4</m>).</p>
+      <p>Xem thêm <xref ref="def-private-key-cryptography" text="title" />, <xref ref="def-public-key-cryptography" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-circular-reasoning">
+    <title>Circular Reasoning — lý luận quẩn</title>
+    <idx><h>circular reasoning</h></idx>
+    <idx><h>lý luận quẩn</h></idx>
+    <idx><h>nguỵ biện dùng ngay câu hỏi</h></idx>
+    <idx><h>suy luận quẩn</h></idx>
+    <statement>
+      <p>Suy luận quẩn là kiểu suy luận trong đó một phát biểu được chứng minh bằng cách dùng chính nó. Nói cách khác, một hay nhiều bước trong lập luận dựa trên chính mệnh đề cần chứng minh, nên không cho ta một chứng minh hợp lệ (theo <xref ref="bib-rosen-2019" />, Rosen §1.7).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>lý luận quẩn</term> <xref ref="bib-rosen-2003-vi" /> (tr. 214 (PDF)) — cách dùng phổ biến.</p></li>
+        <li><p><term>nguỵ biện dùng ngay câu hỏi</term> <xref ref="bib-rosen-2003-vi" /> (tr. 214 (PDF)).</p></li>
+        <li><p><term>suy luận quẩn</term> <xref ref="bib-rosen-2003-vi" /> (tr. 224 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Giả sử ta muốn chứng minh mệnh đề "nếu <m>n^2</m> là số chẵn thì <m>n</m> là số chẵn" bằng cách giả thiết "<m>n</m> là số chẵn" rồi suy ra <m>n^2</m> chẵn; khi đó ta đã dùng ngay điều cần chứng minh làm giả thiết, nên đây là một suy luận quẩn.</p>
+      <p>Xem thêm <xref ref="def-fallacy" text="title" />, <xref ref="def-valid-argument" text="title" />, <xref ref="def-proof" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-class-p">
+    <title>Class P — lớp P</title>
+    <idx><h>class p</h></idx>
+    <idx><h>lớp P</h></idx>
+    <notation>
+      <usage><m>\mathsf{P}</m></usage>
+      <description>lớp P</description>
+    </notation>
+    <statement>
+      <p>Lớp <m>\mathsf{P}</m> là lớp các bài toán giải được trong thời gian đa thức, tức là các bài toán mà tồn tại một thuật toán giải chúng với độ phức tạp thời gian là một hàm đa thức theo kích thước đầu vào (theo <xref ref="bib-rosen-2019" />, Rosen §3.3).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>lớp P</term> <em>(thuật ngữ chuẩn; chưa truy được trong kho văn bản)</em> — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Bài toán sắp xếp một bảng kê gồm <m>n</m> phần tử thuộc lớp <m>\mathsf{P}</m> vì có thể giải được bằng thuật toán với độ phức tạp <m>O(n^2)</m>, là một hàm đa thức theo <m>n</m>; tương tự, bài toán tìm kiếm tuyến tính có độ phức tạp <m>O(n)</m> nên cũng thuộc lớp <m>\mathsf{P}</m>.</p>
+      <p>Xem thêm <xref ref="def-time-complexity" text="title" />, <xref ref="def-complexity" text="title" />, <xref ref="def-algorithm-analysis" text="title" />, <xref ref="def-polynomial" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-combinatorial-proof">
+    <title>Combinatorial Proof — chứng minh tổ hợp</title>
+    <idx><h>combinatorial proof</h></idx>
+    <idx><h>chứng minh tổ hợp</h></idx>
+    <statement>
+      <p>Chứng minh tổ hợp là một chứng minh sử dụng các lập luận đếm thay vì biến đổi đại số. Thông thường, một đẳng thức được chứng minh bằng cách đếm số phần tử của cùng một tập hợp hữu hạn theo hai cách khác nhau, hoặc bằng cách thiết lập một song ánh giữa hai tập hợp hữu hạn (theo <xref ref="bib-rosen-2019" />, Rosen §6.4).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>chứng minh tổ hợp</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 85 (PDF)); <xref ref="bib-nguyenhoangthach-2020" /> (tr. 23 (PDF)) — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Để chứng minh đẳng thức <m>\binom{n}{k} = \binom{n}{n-k}</m>, ta dùng một chứng minh tổ hợp: việc chọn ra <m>k</m> phần tử từ một tập <m>n</m> phần tử tương ứng một-một với việc chọn ra <m>n-k</m> phần tử bị loại, nên hai vế đếm cùng một số đối tượng.</p>
+      <p>Xem thêm <xref ref="def-double-counting-proof" text="title" />, <xref ref="def-bijection" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-combinatorics">
+    <title>Combinatorics — lý thuyết tổ hợp</title>
+    <idx><h>combinatorics</h></idx>
+    <idx><h>lý thuyết tổ hợp</h></idx>
+    <idx><h>sắp xếp các đối tượng</h></idx>
+    <statement>
+      <p>Lý thuyết tổ hợp là ngành nghiên cứu về cách sắp xếp các đối tượng. Nó gắn liền với việc đếm và nghiên cứu các cách bố trí những đối tượng của một tập hợp, có kể tới thứ tự hoặc không (theo <xref ref="bib-rosen-2019" />, Rosen §4.1).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>lý thuyết tổ hợp</term> <xref ref="bib-nguyenducnghia-2006" /> (tr. 10 (PDF)); <xref ref="bib-ngodactan-2004" /> (tr. 20 (PDF)) — cách dùng phổ biến.</p></li>
+        <li><p><term>sắp xếp các đối tượng</term> <xref ref="bib-rosen-2003-vi" /> (tr. 290 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Nhiều bài toán có thể diễn đạt dưới dạng sắp xếp các đối tượng của một tập hợp. Chẳng hạn, số cách sắp xếp có thứ tự <m>k</m> trong <m>n</m> đối tượng khác nhau là <m>\displaystyle\frac{n!}{(n-k)!}</m>, còn số cách chọn không kể thứ tự <m>k</m> trong <m>n</m> đối tượng là <m>\displaystyle\binom{n}{k}</m>. Việc đếm các sắp xếp như vậy là một bài toán cơ bản của lý thuyết tổ hợp.</p>
+      <p>Xem thêm <xref ref="def-combination" text="title" />, <xref ref="def-permutation" text="title" />, <xref ref="def-addition-rule" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-comparable">
+    <title>Comparable — so sánh được</title>
+    <idx><h>comparable</h></idx>
+    <idx><h>so sánh được</h></idx>
+    <notation>
+      <usage><m>a \preceq b \text{ or } b \preceq a</m></usage>
+      <description>so sánh được</description>
+    </notation>
+    <statement>
+      <p>Hai phần tử <m>a</m> và <m>b</m> của một tập sắp thứ tự bộ phận được gọi là so sánh được nếu <m>a \preceq b</m> hoặc <m>b \preceq a</m>.</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>so sánh được</term> <xref ref="bib-ngodactan-2004" /> (tr. 164 (PDF)) — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Trong tập sắp thứ tự bộ phận <m>(\mathbb{Z}^{+}, \mid)</m> với quan hệ chia hết, hai số <m>3</m> và <m>9</m> là so sánh được vì <m>3 \mid 9</m>, trong khi <m>2</m> và <m>3</m> không so sánh được vì không số nào chia hết số kia.</p>
+      <p>Xem thêm <xref ref="def-partial-order" text="title" />, <xref ref="def-poset" text="title" />, <xref ref="def-total-order" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-compatible-total-ordering">
+    <title>Compatible Total Ordering</title>
+    <idx><h>compatible total ordering</h></idx>
+    <idx><h>thứ tự toàn phần tương thích</h></idx>
+    <statement><p><term>Compatible Total Ordering</term> (thứ tự toàn phần tương thích). Xem <xref ref="def-topological-sort" text="title" />.</p></statement>
+  </definition>
+  <definition xml:id="def-composite-key">
+    <title>Composite Key</title>
+    <idx><h>composite key</h></idx>
+    <idx><h>khóa phức hợp</h></idx>
+    <statement><p><term>Composite Key</term> (khóa phức hợp). Xem <xref ref="def-key" text="title" />.</p></statement>
+  </definition>
+  <definition xml:id="def-composite">
+    <title>Composite</title>
+    <idx><h>composite</h></idx>
+    <statement><p><term>Composite</term>. Xem <xref ref="def-composite-number" text="title" />.</p></statement>
+  </definition>
+  <definition xml:id="def-computable-function">
+    <title>Computable Function — hàm tính được</title>
+    <idx><h>computable function</h></idx>
+    <idx><h>hàm tính được</h></idx>
+    <statement>
+      <p>Hàm tính được là một hàm mà tồn tại một chương trình máy tính tìm được các giá trị của nó. Nói cách khác, một hàm <m>f</m> là tính được nếu có một chương trình máy tính, với mỗi đầu vào thuộc miền xác định, trả về giá trị tương ứng của <m>f</m> (theo <xref ref="bib-rosen-2019" />, Rosen §3.1).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>hàm tính được</term> <xref ref="bib-rosen-2003-vi" /> (tr. 833 (PDF)); <xref ref="bib-rosen-2003-vi" /> (tr. 862 (PDF)) — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Hàm <m>f(n) = n!</m> trên tập số nguyên dương là tính được, vì có một chương trình tính giai thừa trả về giá trị <m>f(n)</m> với mọi <m>n</m>. Ngược lại, có những hàm không tính được, tức là không một chương trình máy tính nào tìm được mọi giá trị của chúng.</p>
+      <p>Xem thêm <xref ref="def-function" text="title" />, <xref ref="def-algorithm" text="title" />, <xref ref="def-recursive-function" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-concatenation">
+    <title>Concatenation — phép ghép</title>
+    <idx><h>concatenation</h></idx>
+    <idx><h>ghép các xâu</h></idx>
+    <idx><h>phép ghép</h></idx>
+    <notation>
+      <usage><m>xy</m></usage>
+      <description>phép ghép</description>
+    </notation>
+    <statement>
+      <p>Phép ghép của hai xâu là xâu được tạo nên bằng cách viết các ký hiệu của xâu này nối tiếp vào sau xâu kia. Cụ thể, phép ghép của hai xâu <m>x</m> và <m>y</m>, ký hiệu <m>xy</m>, là xâu thu được bằng cách thêm các ký hiệu của <m>y</m> vào cuối xâu <m>x</m> (theo <xref ref="bib-rosen-2019" />, Rosen §5.3).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>phép ghép</term> <xref ref="bib-rosen-2003-vi" /> (tr. 256 (PDF)) — cách dùng phổ biến.</p></li>
+        <li><p><term>ghép các xâu</term> <xref ref="bib-rosen-2003-vi" /> (tr. 796 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Nếu <m>x = abra</m> và <m>y = cadabra</m> thì phép ghép của chúng là <m>xy = abracadabra</m>. Ghép một xâu bất kỳ với xâu rỗng <m>\lambda</m> giữ nguyên xâu đó, tức là <m>\lambda x = x \lambda = x</m>.</p>
+      <p>Xem thêm <xref ref="def-string" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-conclusion">
+    <title>Conclusion — kết luận</title>
+    <idx><h>conclusion</h></idx>
+    <idx><h>kết luận</h></idx>
+    <statement>
+      <p>Kết luận là phát biểu cuối cùng trong một suy luận hoặc một dạng suy luận (theo <xref ref="bib-rosen-2019" />, Rosen §1.6).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>kết luận</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 29 (PDF)); <xref ref="bib-rosen-2003-vi" /> (tr. 210 (PDF)) — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Trong suy luận "Nếu trời mưa thì đường ướt; trời mưa; do đó đường ướt", các phát biểu <m>p \rightarrow q</m> và <m>p</m> là các giả thiết, còn phát biểu <m>q</m> ("đường ướt") là kết luận, tức là phát biểu cuối cùng được rút ra.</p>
+      <p>Xem thêm <xref ref="def-argument" text="title" />, <xref ref="def-argument-form" text="title" />, <xref ref="def-valid-argument" text="title" />, <xref ref="def-inference-rule" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-consistent-compound-propositions">
+    <title>Consistent Compound Propositions — nhất quán</title>
+    <idx><h>consistent compound propositions</h></idx>
+    <idx><h>nhất quán</h></idx>
+    <statement>
+      <p>Một tập các mệnh đề phức hợp được gọi là nhất quán nếu tồn tại một phép gán các giá trị chân lý cho các biến mệnh đề làm cho tất cả các mệnh đề trong tập đó cùng nhận giá trị đúng (theo <xref ref="bib-rosen-2019" />, Rosen §1.1).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>nhất quán</term> <xref ref="bib-rosen-2003-vi" /> (tr. 22 (PDF)) — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Hai mệnh đề <m>p \rightarrow q</m> và <m>p \wedge \neg q</m> là không nhất quán, vì không có phép gán giá trị chân lý nào làm cho cả hai cùng đúng: nếu <m>p \wedge \neg q</m> đúng thì <m>p</m> đúng và <m>q</m> sai, khi đó <m>p \rightarrow q</m> sai. Ngược lại, hai mệnh đề <m>p \vee q</m> và <m>p \rightarrow q</m> là nhất quán, vì phép gán <m>p</m> đúng và <m>q</m> đúng làm cho cả hai cùng đúng.</p>
+      <p>Xem thêm <xref ref="def-compound-proposition" text="title" />, <xref ref="def-proposition" text="title" />, <xref ref="def-tautology" text="title" />, <xref ref="def-contradiction" text="title" />, <xref ref="def-truth-table" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-constructive-existence-proof">
+    <title>Constructive Existence Proof — chứng minh tồn tại kiến thiết</title>
+    <idx><h>constructive existence proof</h></idx>
+    <idx><h>chứng minh tồn tại</h></idx>
+    <idx><h>chứng minh tồn tại kiến thiết</h></idx>
+    <statement>
+      <p>Chứng minh tồn tại kiến thiết là một chứng minh khẳng định rằng tồn tại một phần tử có tính chất mong muốn bằng cách chỉ ra một cách tường minh một phần tử như vậy. Nói cách khác, để chứng minh mệnh đề <m>\exists x P(x)</m>, ta tìm được một phần tử <m>a</m> và chỉ ra rằng <m>P(a)</m> đúng (theo <xref ref="bib-rosen-2019" />, Rosen §1.7).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>chứng minh tồn tại kiến thiết</term> <xref ref="bib-rosen-2003-vi" /> (tr. 220 (PDF)); <xref ref="bib-rosen-2003-vi" /> (tr. 220 (PDF)) — cách dùng phổ biến.</p></li>
+        <li><p><term>chứng minh tồn tại</term> <xref ref="bib-ngodactan-2004" /> (tr. 24 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Để chứng minh tồn tại một số nguyên dương biểu diễn được thành tổng các lập phương của các số nguyên dương theo hai cách khác nhau, ta chỉ ra tường minh số <m>1729 = 10^3 + 9^3 = 12^3 + 1^3</m>; việc trưng ra phần tử cụ thể này là một chứng minh tồn tại kiến thiết.</p>
+      <p>Xem thêm <xref ref="def-proof" text="title" />, <xref ref="def-indirect-proof" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-continuum-hypothesis">
+    <title>Continuum Hypothesis — giả thuyết continuum</title>
+    <idx><h>continuum hypothesis</h></idx>
+    <idx><h>giả thuyết continuum</h></idx>
+    <notation>
+      <usage><m>\aleph_1 = 2^{\aleph_0}</m></usage>
+      <description>giả thuyết continuum</description>
+    </notation>
+    <statement>
+      <p>Giả thuyết continuum là phát biểu khẳng định rằng không có tập hợp nào có lực lượng nằm thực sự giữa lực lượng của tập các số nguyên và lực lượng của tập các số thực (theo <xref ref="bib-rosen-2019" />, Rosen §2.5).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>giả thuyết continuum</term> <em>(thuật ngữ chuẩn; chưa truy được trong kho văn bản)</em> — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Tập các số nguyên <m>\mathbb{Z}</m> có lực lượng <m>\aleph_0</m> và tập các số thực <m>\mathbb{R}</m> có lực lượng <m>2^{\aleph_0}</m>; giả thuyết continuum khẳng định không tồn tại tập hợp <m>S</m> với <m>\aleph_0  \lt  |S|  \lt  2^{\aleph_0}</m>, tức là <m>2^{\aleph_0} = \aleph_1</m>.</p>
+      <p>Xem thêm <xref ref="def-cardinality" text="title" />, <xref ref="def-countable-set" text="title" />, <xref ref="def-uncountable-set" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-count-of-an-itemset">
+    <title>Count Of An Itemset — số đếm của tập mục</title>
+    <idx><h>count of an itemset</h></idx>
+    <idx><h>số đếm của tập mục</h></idx>
+    <statement>
+      <p>Số đếm của một tập mục là số giao dịch chứa tập mục đó.</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>số đếm của tập mục</term> <em>(thuật ngữ chuẩn; chưa truy được trong kho văn bản)</em> — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Giả sử ta có các giao dịch <m>T_1 = \{a, b, c\}</m>, <m>T_2 = \{a, c\}</m>, <m>T_3 = \{b, c\}</m> và <m>T_4 = \{a, b, c\}</m>. Khi đó số đếm của tập mục <m>\{a, c\}</m> bằng <m>3</m>, vì có ba giao dịch <m>T_1</m>, <m>T_2</m> và <m>T_4</m> chứa cả <m>a</m> và <m>c</m>.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-cryptanalysis">
+    <title>Cryptanalysis — phân tích mật mã</title>
+    <idx><h>cryptanalysis</h></idx>
+    <idx><h>phân tích mật mã</h></idx>
+    <statement>
+      <p>Phân tích mật mã là quá trình khôi phục lại bản rõ từ bản mã mà không có khóa (theo <xref ref="bib-rosen-2019" />, Rosen §4.6).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>phân tích mật mã</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 161 (PDF)); <xref ref="bib-rosen-2003-vi" /> (tr. 512 (PDF)) — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Với mật mã Caesar dịch chuyển mỗi chữ cái đi <m>3</m> vị trí, người phân tích mật mã có thể khôi phục bản rõ từ bản mã bằng cách thử tất cả <m>26</m> giá trị dịch chuyển có thể, dù không biết trước khóa.</p>
+      <p>Xem thêm <xref ref="def-private-key-cryptography" text="title" />, <xref ref="def-public-key-cryptography" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-cryptosystem">
+    <title>Cryptosystem — hệ thống mật mã</title>
+    <idx><h>cryptosystem</h></idx>
+    <idx><h>hệ mật mã</h></idx>
+    <idx><h>hệ thống mật mã</h></idx>
+    <notation>
+      <usage><m>(\mathcal{P}, \mathcal{C}, \mathcal{K}, \mathcal{E}, \mathcal{D})</m></usage>
+      <description>hệ thống mật mã</description>
+    </notation>
+    <statement>
+      <p>Một hệ thống mật mã là một bộ năm <m>(\mathcal{P}, \mathcal{C}, \mathcal{K}, \mathcal{E}, \mathcal{D})</m> gồm tập các bản rõ <m>\mathcal{P}</m>, tập các bản mã <m>\mathcal{C}</m>, tập các khóa <m>\mathcal{K}</m>, tập các hàm mã hóa <m>\mathcal{E}</m> và tập các hàm giải mã <m>\mathcal{D}</m>. Với mỗi khóa <m>k \in \mathcal{K}</m> có một hàm mã hóa <m>E_k \in \mathcal{E}</m> và một hàm giải mã <m>D_k \in \mathcal{D}</m> tương ứng sao cho <m>D_k(E_k(p)) = p</m> với mọi bản rõ <m>p \in \mathcal{P}</m> (theo <xref ref="bib-rosen-2019" />, Rosen §4.6).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>hệ thống mật mã</term> <xref ref="bib-rosen-2003-vi" /> (tr. 165 (PDF)); <xref ref="bib-rosen-2003-vi" /> (tr. 161 (PDF)) — cách dùng phổ biến.</p></li>
+        <li><p><term>hệ mật mã</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
+      </ul>
+      <p>Ví dụ: Mật mã Caesar là một hệ thống mật mã trong đó tập các bản rõ và bản mã đều là các chữ cái, tập khóa là <m>\mathcal{K} = \{0, 1, \ldots, 25\}</m>, và với khóa <m>k</m> thì hàm mã hóa dịch mỗi chữ cái đi <m>k</m> vị trí theo <m>E_k(p) = (p + k) \bmod 26</m>, còn hàm giải mã là <m>D_k(c) = (c - k) \bmod 26</m>.</p>
+      <p>Xem thêm <xref ref="def-key" text="title" />, <xref ref="def-public-key-cryptography" text="title" />, <xref ref="def-private-key-cryptography" text="title" />.</p>
     </statement>
   </definition>
 </chapter>

@@ -2382,6 +2382,549 @@
    "see_also": [],
    "notes": "Thuật ngữ chuẩn của giáo trình MAT3500 là \"mật mã khóa công khai\". Không tìm thấy thuật ngữ này trong kho ngữ liệu tham khảo (các giáo trình toán rời rạc và lý thuyết đồ thị), nên không có nguồn đối chứng bổ sung.",
    "status": "draft"
+  },
+  {
+   "id": "pairwise-independent-events",
+   "letter": "P",
+   "headword_en": "Pairwise Independent Events",
+   "notation": "p(E_i \\cap E_j) = p(E_i)p(E_j)",
+   "rosen_ref": "Rosen §7.2",
+   "definition_vi": "Các biến cố được gọi là độc lập đôi một nếu mọi cặp trong số chúng là độc lập. Nói cách khác, một họ biến cố $$E_1, E_2, \\ldots, E_n$$ là độc lập đôi một nếu với mọi cặp chỉ số $$i \\neq j$$ ta có $$p(E_i \\cap E_j) = p(E_i)p(E_j)$$.",
+   "example_vi": "Khi gieo một đồng xu cân đối hai lần, gọi $$E_1$$ là biến cố \"lần gieo đầu ra mặt ngửa\", $$E_2$$ là biến cố \"lần gieo thứ hai ra mặt ngửa\", và $$E_3$$ là biến cố \"hai lần gieo cho kết quả giống nhau\". Mỗi cặp trong ba biến cố này thỏa $$p(E_i \\cap E_j) = \\frac{1}{4} = \\frac{1}{2} \\cdot \\frac{1}{2} = p(E_i)p(E_j)$$, nên chúng độc lập đôi một (mặc dù không độc lập tương hỗ).",
+   "vi_terms": [
+    {
+     "term": "biến cố độc lập đôi một",
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": "",
+     "verified": false,
+     "recommended": true
+    },
+    {
+     "term": "biến cố độc lập",
+     "source_id": "bib-rosen-2003-vi",
+     "page": "tr. 337 (PDF)",
+     "pdf_page": 337,
+     "snippet": "Hai biến cố E, và E2 được gọi là độc lập nếu p(E, 9 E2) = p(E,)",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "biến cố",
+     "source_id": "bib-leanhvinh-2020",
+     "page": "tr. 157 (PDF)",
+     "pdf_page": 157,
+     "snippet": "Xét các biến cố Ái, Ag,..., A, trong một không gian xác suất bất",
+     "verified": true,
+     "recommended": false
+    }
+   ],
+   "see_also": [
+    "independent-events",
+    "mutually-independent-events",
+    "event"
+   ],
+   "notes": "Độc lập đôi một là điều kiện yếu hơn độc lập tương hỗ (mutually independent). Các biến cố độc lập đôi một chỉ đòi hỏi đẳng thức $$p(E_i \\cap E_j) = p(E_i)p(E_j)$$ đúng cho mọi cặp $$i \\neq j$$, trong khi độc lập tương hỗ đòi hỏi $$p\\!\\left(\\bigcap_{i \\in I} E_i\\right) = \\prod_{i \\in I} p(E_i)$$ đúng cho mọi tập con $$I$$. Do đó độc lập tương hỗ kéo theo độc lập đôi một, nhưng điều ngược lại nói chung không đúng. Cụm \"biến cố độc lập đôi một\" là bản dịch chuẩn được khuyến nghị; bản dịch Rosen tiếng Việt (tr. 337) định nghĩa độc lập cho từng cặp biến cố. Cần phân biệt \"biến cố độc lập\" trong xác suất với \"tập độc lập\" (independent set) trong lý thuyết đồ thị.",
+   "status": "draft"
+  },
+  {
+   "id": "pairwise-relatively-prime-integers",
+   "letter": "P",
+   "headword_en": "Pairwise Relatively Prime Integers",
+   "see_ref": "pairwise-relatively-prime",
+   "vi_terms": [],
+   "status": "draft"
+  },
+  {
+   "id": "partial-function",
+   "letter": "P",
+   "headword_en": "Partial Function",
+   "notation": "f : A \\rightharpoonup B",
+   "rosen_ref": "Rosen §1.8",
+   "definition_vi": "Hàm bộ phận $$f$$ từ tập $$A$$ đến tập $$B$$ là phép gán cho mỗi phần tử $$a$$ thuộc một tập con của $$A$$, gọi là miền xác định của $$f$$, nhiều nhất một phần tử $$b$$ thuộc $$B$$. Nói cách khác, mỗi phần tử của $$A$$ được gán không quá một phần tử của $$B$$, nên $$f$$ có thể không xác định tại một số phần tử của $$A$$.",
+   "example_vi": "Cho $$f : \\mathbb{Z} \\rightharpoonup \\mathbb{R}$$ với $$f(n) = \\sqrt{n}$$. Đây là một hàm bộ phận từ $$\\mathbb{Z}$$ đến $$\\mathbb{R}$$ vì $$f$$ không xác định khi $$n < 0$$; miền xác định của nó là tập các số nguyên không âm. Một hàm bộ phận xác định tại mọi phần tử của $$A$$ được gọi là hàm toàn phần.",
+   "vi_terms": [
+    {
+     "term": "hàm bộ phận",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-rosen-2003-vi",
+     "page": "tr. 96 (PDF)",
+     "pdf_page": 96,
+     "snippet": "bộ phan. Hàm bộ phận f ti tập A dén lập B la sự gan cho mỗi phần"
+    },
+    {
+     "term": "hàm bộ phận",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-rosen-2003-vi",
+     "page": "tr. 96 (PDF)",
+     "pdf_page": 96,
+     "snippet": "để ky hiệu f la ham bộ phận từ A dén B. (Chính ky hiệu nay cũng"
+    }
+   ],
+   "see_also": [
+    "function",
+    "domain",
+    "codomain"
+   ],
+   "notes": "Hàm bộ phận từ $$A$$ đến $$B$$ gán cho mỗi phần tử của $$A$$ nhiều nhất một phần tử của $$B$$, do đó nó có thể không xác định tại một số phần tử của $$A$$. Khái niệm này khác với hàm (hàm số) thông thường trong Rosen, vốn là hàm toàn phần xác định tại mọi phần tử của miền. Thuật ngữ \"hàm bộ phận\" được dẫn chứng trực tiếp trong bản dịch tiếng Việt của Rosen (tr. 96 PDF), nơi định nghĩa và ký hiệu của khái niệm được trình bày; phần đối nghĩa là \"hàm toàn phần\".",
+   "status": "draft"
+  },
+  {
+   "id": "partial-ordering",
+   "letter": "P",
+   "headword_en": "Partial Ordering",
+   "see_ref": "partial-order",
+   "vi_terms": [
+    {
+     "term": "quan hệ thứ tự bộ phận",
+     "verified": false,
+     "recommended": false,
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": ""
+    }
+   ],
+   "status": "draft"
+  },
+  {
+   "id": "phrase-structure-grammar",
+   "letter": "P",
+   "headword_en": "Phrase-Structure Grammar",
+   "notation": "G = (V, T, S, P)",
+   "rosen_ref": "Rosen §11.4",
+   "definition_vi": "Một văn phạm cấu trúc câu mô tả một ngôn ngữ thông qua một bộ từ vựng, các ký hiệu kết thúc, một ký hiệu xuất phát và các quy tắc sản xuất. Cụ thể, một văn phạm cấu trúc câu $$G = (V, T, S, P)$$ gồm một từ vựng $$V$$, một tập con $$T \\subseteq V$$ các ký hiệu kết thúc, một ký hiệu xuất phát $$S \\in V$$ và một tập hợp $$P$$ các quy tắc sản xuất.",
+   "definition_en": "A description of a language by a vocabulary, terminals, a start symbol, and production rules.",
+   "example_vi": "Văn phạm $$G = (V, T, S, P)$$ với từ vựng $$V = \\{S, A, a, b\\}$$, các ký hiệu kết thúc $$T = \\{a, b\\}$$, ký hiệu xuất phát $$S$$ và các quy tắc sản xuất $$P = \\{S \\to aA,\\ A \\to b\\}$$ sinh ra ngôn ngữ $$L(G) = \\{ab\\}$$.",
+   "vi_terms": [
+    {
+     "term": "văn phạm cấu trúc câu",
+     "source_id": "bib-rosen-2003-vi",
+     "page": "tr. 770 (PDF)",
+     "pdf_page": 770,
+     "snippet": "ĐINH NGHĨA 2. Một van phạm cau trúc câu G = (V, T, S, P) gồm một",
+     "verified": true,
+     "recommended": true
+    }
+   ],
+   "see_also": [
+    "alphabet",
+    "string",
+    "empty-string"
+   ],
+   "notes": "Văn phạm cấu trúc câu $$G = (V, T, S, P)$$ gồm từ vựng $$V$$, tập ký hiệu kết thúc $$T$$, ký hiệu xuất phát $$S$$ và tập quy tắc sản xuất $$P$$; các phần tử của $$V$$ không thuộc $$T$$ được gọi là ký hiệu không kết thúc. Quy tắc sản xuất cho phép thay thế một xâu con này bằng một xâu con khác; ngôn ngữ $$L(G)$$ sinh bởi $$G$$ là tập tất cả các xâu chỉ gồm ký hiệu kết thúc dẫn xuất được từ $$S$$. Thuật ngữ \"văn phạm cấu trúc câu\" theo bản dịch Rosen-VI (ĐỊNH NGHĨA 2, tr. 770).",
+   "status": "draft"
+  },
+  {
+   "id": "premise",
+   "letter": "P",
+   "headword_en": "Premise",
+   "notation": "",
+   "rosen_ref": "Rosen §1.6",
+   "definition_vi": "Tiền đề là một mệnh đề trong một lập luận (hoặc một dạng suy luận) khác với kết luận. Một lập luận gồm một dãy các tiền đề $$p_1, p_2, \\ldots, p_n$$ và một kết luận $$q$$ được suy ra từ các tiền đề đó.",
+   "example_vi": "Trong lập luận \"Nếu trời mưa thì đường ướt; trời mưa; do đó đường ướt\", hai câu đầu \"Nếu trời mưa thì đường ướt\" và \"trời mưa\" là các tiền đề, còn \"đường ướt\" là kết luận.",
+   "vi_terms": [
+    {
+     "term": "tiền đề",
+     "source_id": "bib-nguyenhuudien-2019",
+     "page": "tr. 34 (PDF)",
+     "pdf_page": 34,
+     "snippet": "nếu ta thêm giả thiết phụ vào tiền đề P mà chứng minh được có sự mâu thuẫn thì ta",
+     "verified": true,
+     "recommended": true
+    },
+    {
+     "term": "tiền đề",
+     "source_id": "bib-rosen-2003-vi",
+     "page": "tr. 38 (PDF)",
+     "pdf_page": 38,
+     "snippet": "Ví dụ 14. Xét các câu sau. Hai câu đầu được gọi là tiền đề và câu",
+     "verified": true,
+     "recommended": false
+    }
+   ],
+   "see_also": [
+    "logical-argument",
+    "argument-form",
+    "valid-argument"
+   ],
+   "notes": "Tiền đề (premise) là các mệnh đề được giả định trong một lập luận, từ đó kết luận được rút ra; cần phân biệt với kết luận (conclusion) là mệnh đề được suy ra. Trong một dạng suy luận, các tiền đề thường được ký hiệu là $$p_1, p_2, \\ldots, p_n$$. Bản dịch Rosen (2003) và các nguồn tiếng Việt khác đều dùng \"tiền đề\" cho thuật ngữ này.",
+   "status": "draft"
+  },
+  {
+   "id": "primary-key",
+   "letter": "P",
+   "headword_en": "Primary Key",
+   "see_ref": "key",
+   "vi_terms": [
+    {
+     "term": "khóa chính",
+     "verified": false,
+     "recommended": false,
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": ""
+    }
+   ],
+   "status": "draft"
+  },
+  {
+   "id": "prime-implicant",
+   "letter": "P",
+   "headword_en": "Prime Implicant",
+   "notation": "",
+   "rosen_ref": "Rosen §12.4",
+   "definition_vi": "Một nguyên nhân (implicant) của một hàm Boole là một hội sơ cấp (tích các literal) sao cho mỗi khi hội đó nhận giá trị $$1$$ thì hàm cũng nhận giá trị $$1$$. Một nguyên nhân nguyên tố của hàm là một nguyên nhân không bị kéo theo bởi bất kỳ nguyên nhân nào khác của hàm đó; nói cách khác, không thể bỏ đi literal nào của nó mà vẫn còn là một nguyên nhân của hàm.",
+   "example_vi": "Xét hàm Boole $$x + y$$ (tức $$x \\vee y$$). Các hội $$x$$ và $$y$$ đều là nguyên nhân nguyên tố của hàm này, vì mỗi khi $$x = 1$$ hoặc mỗi khi $$y = 1$$ thì $$x + y = 1$$, và không thể bỏ bớt literal nào. Trái lại, hội $$x \\wedge y$$ tuy là một nguyên nhân nhưng không phải nguyên nhân nguyên tố, vì nó bị kéo theo bởi nguyên nhân $$x$$ (và bởi $$y$$).",
+   "vi_terms": [
+    {
+     "term": "nguyên nhân nguyên tố",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-nguyenducnghia-2006",
+     "pdf_page": 274,
+     "page": "tr. 274 (PDF)",
+     "snippet": "một nguyên nhân nguyên tố củaƒ, nếu Á là một nguyên nhân củaƒ, sao cho không thể"
+    },
+    {
+     "term": "nguyên nhân nguyên tố",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenducnghia-2006",
+     "pdf_page": 274,
+     "page": "tr. 274 (PDF)",
+     "snippet": "Xy và x ÿ là các nguyên nhân nguyên tố của hàm x + y."
+    }
+   ],
+   "see_also": [
+    "minterm",
+    "boolean-function",
+    "disjunctive-normal-form",
+    "karnaugh-map",
+    "boolean-expression"
+   ],
+   "notes": "Khái niệm nguyên nhân nguyên tố là cốt lõi của việc tối thiểu hóa biểu thức Boole (bản đồ Karnaugh, phương pháp Quine–McCluskey). Một \"nguyên nhân\" (implicant) là một hội sơ cấp kéo theo hàm; nó là \"nguyên tố\" nếu không thể bỏ literal nào mà vẫn còn là nguyên nhân, tức không bị nguyên nhân nào khác kéo theo. Nguyễn Đức Nghĩa (2006, tr. 274) dùng \"nguyên nhân\" cho implicant và \"nguyên nhân nguyên tố\" cho prime implicant; tuyển của tất cả các nguyên nhân nguyên tố cho dạng tuyển chuẩn tắc thu gọn của hàm.",
+   "status": "draft"
+  },
+  {
+   "id": "prime",
+   "letter": "P",
+   "headword_en": "Prime",
+   "see_ref": "prime-number",
+   "vi_terms": [],
+   "status": "draft"
+  },
+  {
+   "id": "primitive-root",
+   "letter": "P",
+   "headword_en": "Primitive Root",
+   "notation": "",
+   "rosen_ref": "Rosen §3.7",
+   "definition_vi": "Một căn nguyên thủy modulo một số nguyên tố $$p$$ là một số nguyên $$r$$ mà các lũy thừa của nó sinh ra tất cả các thặng dư khác $$0$$ modulo $$p$$.",
+   "example_vi": "Số $$3$$ là một căn nguyên thủy modulo $$7$$, vì các lũy thừa $$3^1 = 3$$, $$3^2 = 2$$, $$3^3 = 6$$, $$3^4 = 4$$, $$3^5 = 5$$, $$3^6 = 1$$ (mọi phép tính lấy modulo $$7$$) sinh ra tất cả các thặng dư khác $$0$$ là $$1, 2, 3, 4, 5, 6$$ modulo $$7$$.",
+   "vi_terms": [
+    {
+     "term": "căn nguyên thủy",
+     "verified": false,
+     "recommended": true,
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": ""
+    }
+   ],
+   "see_also": [
+    "quadratic-residue",
+    "modular-arithmetic",
+    "congruence"
+   ],
+   "notes": "Căn nguyên thủy modulo số nguyên tố $$p$$ là số nguyên $$r$$ sao cho các lũy thừa $$r^1, r^2, \\ldots, r^{p-1}$$ chạy qua tất cả $$p-1$$ thặng dư khác $$0$$ modulo $$p$$; nói cách khác, $$r$$ có bậc bằng $$p-1$$ modulo $$p$$. Mỗi số nguyên tố đều có căn nguyên thủy. Thuật ngữ \"căn nguyên thủy\" là cách dịch chuẩn; tuy nhiên khái niệm này chưa được dẫn chứng trực tiếp trong các nguồn dịch tiếng Việt thuộc ngữ liệu, kể cả bản dịch tiếng Việt của Rosen, nên thuật ngữ khuyến nghị để verified=false.",
+   "status": "draft"
+  },
+  {
+   "id": "private-key-encryption",
+   "letter": "P",
+   "headword_en": "Private Key Encryption",
+   "see_ref": "private-key-cryptography",
+   "vi_terms": [],
+   "status": "draft"
+  },
+  {
+   "id": "probabilistic-algorithm",
+   "letter": "P",
+   "headword_en": "Probabilistic Algorithm",
+   "notation": "",
+   "rosen_ref": "Rosen §3.1",
+   "definition_vi": "Thuật toán xác suất là một thuật toán có thực hiện các lựa chọn ngẫu nhiên trong quá trình thực thi của nó.",
+   "example_vi": "Trắc nghiệm tính nguyên tố theo kiểu xác suất, như trắc nghiệm Miller-Rabin, là một thuật toán xác suất: nó chọn ngẫu nhiên một số nguyên $$a$$ rồi kiểm tra một điều kiện đồng dư để kết luận một số $$n$$ là hợp số hay là số nguyên tố với xác suất sai nhỏ.",
+   "vi_terms": [
+    {
+     "term": "thuật toán xác suất",
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": "",
+     "verified": false,
+     "recommended": true
+    },
+    {
+     "term": "theo kiểu xác suất",
+     "source_id": "bib-rosen-2003-vi",
+     "page": "tr. 206 (PDF)",
+     "pdf_page": 206,
+     "snippet": "Hãy giải thích những trac nghiệm tính nguyên tố theo kiểu xác suất",
+     "verified": true,
+     "recommended": false
+    }
+   ],
+   "see_also": [
+    "algorithm",
+    "expected-value",
+    "prime-number"
+   ],
+   "notes": "Thuật toán xác suất khác với thuật toán tất định ở chỗ nó dùng các lựa chọn ngẫu nhiên trong khi chạy, nên với cùng một đầu vào nó có thể cho các kết quả hoặc thời gian chạy khác nhau ở những lần thực thi khác nhau. Bản dịch tiếng Việt của Rosen dùng cụm \"theo kiểu xác suất\" cho khái niệm probabilistic (ví dụ \"trắc nghiệm tính nguyên tố theo kiểu xác suất\"); cụm \"thuật toán xác suất\" là cách dịch chuẩn cho headword nhưng chưa thấy xuất hiện nguyên văn trong kho ngữ liệu.",
+   "status": "draft"
+  },
+  {
+   "id": "probabilistic-method",
+   "letter": "P",
+   "headword_en": "Probabilistic Method",
+   "notation": "",
+   "rosen_ref": "Rosen §7.2",
+   "definition_vi": "Phương pháp xác suất là một kỹ thuật để chứng minh sự tồn tại của một đối tượng bằng cách chỉ ra rằng xác suất để đối tượng đó xuất hiện là dương. Cụ thể, nếu khi chọn ngẫu nhiên một phần tử từ một tập hợp mà xác suất để phần tử đó có một tính chất nào đó lớn hơn $$0$$, thì tồn tại ít nhất một phần tử có tính chất ấy.",
+   "example_vi": "Để chứng minh tồn tại một đồ thị với số Ramsey lớn, ta tô màu ngẫu nhiên các cạnh của $$K_n$$ và chỉ ra rằng xác suất để không xuất hiện đơn sắc nào là dương; do đó tồn tại một cách tô màu không có tập đơn sắc, khẳng định sự tồn tại của đồ thị mong muốn.",
+   "vi_terms": [
+    {
+     "term": "phương pháp xác suất",
+     "source_id": "bib-leanhvinh-2020",
+     "page": "tr. 172 (PDF)",
+     "pdf_page": 172,
+     "snippet": "Bài tập 6.9. Sử dụng phương pháp xác suất của Erdős, chứng minh",
+     "verified": true,
+     "recommended": true
+    },
+    {
+     "term": "phương pháp xác suất",
+     "source_id": "bib-leanhvinh-2020",
+     "page": "tr. 191 (PDF)",
+     "pdf_page": 191,
+     "snippet": "phương pháp xác suất.",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "phương pháp xác suất",
+     "source_id": "bib-ngodactan-2004",
+     "page": "tr. 24 (PDF)",
+     "pdf_page": 24,
+     "snippet": "không kiến thiết như phương pháp xác suất). Tuy nhiên, chưa có một",
+     "verified": true,
+     "recommended": false
+    }
+   ],
+   "see_also": [
+    "ramsey-number",
+    "expected-value"
+   ],
+   "notes": "Phương pháp xác suất, do Erdős phát triển, là một kỹ thuật chứng minh không kiến thiết: nó khẳng định sự tồn tại của một đối tượng mà không cần xây dựng tường minh đối tượng đó. Ý tưởng chính là nếu xác suất để một đối tượng ngẫu nhiên có tính chất mong muốn là dương, thì phải tồn tại ít nhất một đối tượng có tính chất ấy.",
+   "status": "draft"
+  },
+  {
+   "id": "probability-distribution",
+   "letter": "P",
+   "headword_en": "Probability Distribution",
+   "notation": "p : S \\to [0,1]",
+   "rosen_ref": "Rosen §7.2",
+   "definition_vi": "Phân phối xác suất trên một không gian mẫu $$S$$ là một hàm $$p$$ gán cho mỗi kết cục (phần tử) $$s \\in S$$ một xác suất $$p(s)$$. Hàm này thỏa mãn $$0 \\leq p(s) \\leq 1$$ với mọi $$s \\in S$$ và $$\\sum_{s \\in S} p(s) = 1$$.",
+   "example_vi": "Khi tung một con xúc xắc cân đối, không gian mẫu là $$S = \\{1, 2, 3, 4, 5, 6\\}$$ và phân phối xác suất gán $$p(s) = 1/6$$ cho mỗi kết cục $$s \\in S$$; đây là phân phối đều. Nếu con xúc xắc không cân đối sao cho mặt $$1$$ xuất hiện với xác suất gấp đôi mỗi mặt còn lại, thì $$p(1) = 2/7$$ và $$p(s) = 1/7$$ với mỗi $$s \\in \\{2, 3, 4, 5, 6\\}$$.",
+   "vi_terms": [
+    {
+     "term": "phân phối xác suất",
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": "",
+     "verified": false,
+     "recommended": true
+    }
+   ],
+   "see_also": [
+    "event",
+    "distribution-of-a-random-variable",
+    "expected-value"
+   ],
+   "notes": "Phân phối xác suất là hàm $$p$$ gán xác suất cho từng kết cục của không gian mẫu $$S$$, với điều kiện $$0 \\leq p(s) \\leq 1$$ và $$\\sum_{s \\in S} p(s) = 1$$. Trường hợp $$p(s) = 1/|S|$$ với mọi $$s$$ cho ta phân phối đều (uniform distribution). Cần phân biệt \"phân phối xác suất\" (hàm xác suất trên không gian mẫu $$S$$) với \"phân phối của biến ngẫu nhiên\" (tập các cặp $$(r, p(X = r))$$ ứng với các giá trị của một biến ngẫu nhiên $$X$$). Trong kho ngữ liệu hiện có chưa thấy cụm \"phân phối xác suất\" được dùng trực tiếp, nên thuật ngữ khuyến nghị là bản dịch chuẩn.",
+   "status": "draft"
+  },
+  {
+   "id": "probability-of-an-event",
+   "letter": "P",
+   "headword_en": "Probability Of An Event",
+   "notation": "p(E)",
+   "rosen_ref": "Rosen §7.2",
+   "definition_vi": "Xác suất của một biến cố là tổng các xác suất của các kết cục nằm trong biến cố đó. Nói cách khác, nếu biến cố $$E$$ là một tập con của không gian mẫu thì $$p(E) = \\sum_{s \\in E} p(s)$$, trong đó $$p(s)$$ là xác suất của kết cục $$s$$.",
+   "example_vi": "Khi tung một con súc sắc cân đối, mỗi trong sáu kết cục có xác suất $$\\frac{1}{6}$$; biến cố \"số chấm là số chẵn\" gồm các kết cục $$2$$, $$4$$, $$6$$, nên xác suất của nó là $$\\frac{1}{6} + \\frac{1}{6} + \\frac{1}{6} = \\frac{1}{2}$$.",
+   "vi_terms": [
+    {
+     "term": "xác suất của một biến cố",
+     "source_id": "bib-rosen-2003-vi",
+     "page": "tr. 333 (PDF)",
+     "pdf_page": 333,
+     "snippet": "Nhiều khi việc tính trực tiếp xác suất của một biến cố lại tỏ ra kém",
+     "verified": true,
+     "recommended": true
+    },
+    {
+     "term": "xác suất của một biến cố",
+     "source_id": "bib-rosen-2003-vi",
+     "page": "tr. 361 (PDF)",
+     "pdf_page": 361,
+     "snippet": "13. a) Néu định nghĩa xác suất của một biến cố khỉ tất cả các kết cục",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "biến cố",
+     "source_id": "bib-leanhvinh-2020",
+     "page": "tr. 157 (PDF)",
+     "pdf_page": 157,
+     "snippet": "Xét các biến cố Ái, Ag,..., A, trong một không gian xác suất bất",
+     "verified": true,
+     "recommended": false
+    }
+   ],
+   "see_also": [
+    "sample-space",
+    "bernoulli-trial"
+   ],
+   "notes": "Xác suất của một biến cố $$E$$ trong một không gian mẫu hữu hạn là tổng xác suất của các kết cục thuộc $$E$$, tức $$p(E) = \\sum_{s \\in E} p(s)$$. Khi tất cả các kết cục đồng khả năng trong không gian mẫu gồm $$n$$ kết cục, công thức rút gọn thành $$p(E) = \\frac{|E|}{n}$$, là số kết cục thuận lợi chia cho tổng số kết cục. Thuật ngữ \"xác suất của một biến cố\" có dẫn chứng trực tiếp trong bản dịch Rosen; \"biến cố\" cũng được dùng trong ngữ liệu mới (Lê Anh Vinh, 2020). Cần phân biệt với \"không gian mẫu\" (tập tất cả các kết cục) và \"kết cục\" (một phần tử của không gian mẫu).",
+   "status": "draft"
+  },
+  {
+   "id": "product-rule-for-counting",
+   "letter": "P",
+   "headword_en": "Product Rule For Counting",
+   "see_ref": "the-product-rule",
+   "vi_terms": [],
+   "status": "draft"
+  },
+  {
+   "id": "product-rule-for-sets",
+   "letter": "P",
+   "headword_en": "Product Rule For Sets",
+   "see_ref": "the-product-rule",
+   "vi_terms": [],
+   "status": "draft"
+  },
+  {
+   "id": "projection",
+   "letter": "P",
+   "headword_en": "Projection",
+   "notation": "P_{i_1, i_2, \\ldots, i_m}",
+   "rosen_ref": "Rosen §11.4",
+   "definition_vi": "Phép chiếu là một thao tác tạo ra các quan hệ có bậc nhỏ hơn bằng cách xóa bỏ một số trường của một quan hệ $$n$$ ngôi. Phép chiếu $$P_{i_1, i_2, \\ldots, i_m}$$ ánh xạ mỗi bộ $$n$$ phần tử $$(a_1, a_2, \\ldots, a_n)$$ thành bộ $$m$$ phần tử $$(a_{i_1}, a_{i_2}, \\ldots, a_{i_m})$$, trong đó $$m \\leq n$$.",
+   "example_vi": "Áp dụng phép chiếu $$P_{1,3}$$ cho bộ 4 phần tử $$(2, 3, 4, 5)$$ ta thu được bộ 2 phần tử $$(2, 4)$$, tức là chỉ giữ lại trường thứ nhất và trường thứ ba và xóa bỏ các trường còn lại.",
+   "vi_terms": [
+    {
+     "term": "phép chiếu",
+     "source_id": "bib-rosen-2003-vi",
+     "page": "tr. 442 (PDF)",
+     "pdf_page": 442,
+     "snippet": "chiếu và phép hợp. Phép chiếu được dùng để tạo quan hệ n ngôi mới",
+     "verified": true,
+     "recommended": true
+    }
+   ],
+   "see_also": [
+    "n-ary-relation",
+    "relation"
+   ],
+   "notes": "Phép chiếu $$P_{i_1, \\ldots, i_m}$$ là một phép toán trong đại số quan hệ, dùng để tạo ra quan hệ mới có bậc nhỏ hơn từ một quan hệ $$n$$ ngôi bằng cách giữ lại các trường có chỉ số $$i_1, \\ldots, i_m$$ và xóa bỏ các trường còn lại. Khi áp dụng cho một tập các bộ, các bộ trùng nhau sau khi chiếu được gộp lại thành một bộ duy nhất.",
+   "status": "draft"
+  },
+  {
+   "id": "propositional-variable",
+   "letter": "P",
+   "headword_en": "Propositional Variable",
+   "notation": "p, q, r",
+   "rosen_ref": "Rosen §1.1",
+   "definition_vi": "Biến mệnh đề là một biến dùng để biểu diễn một mệnh đề. Các biến mệnh đề thường được ký hiệu bởi $$p$$, $$q$$, $$r$$, $$\\ldots$$ và mỗi biến nhận một trong hai giá trị chân lý là đúng hoặc sai.",
+   "example_vi": "Ký hiệu $$p$$ dùng để biểu diễn mệnh đề \"Hà Nội là thủ đô của Việt Nam\" là một biến mệnh đề. Từ hai biến mệnh đề $$p$$ và $$q$$ ta xây dựng được biểu thức logic $$p \\wedge q$$.",
+   "vi_terms": [
+    {
+     "term": "biến mệnh đề",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-nguyenhuudien-2019",
+     "page": "tr. 20 (PDF)",
+     "pdf_page": 20,
+     "snippet": "trị của bộ biến mệnh đề. Với một biến mệnh đề, ta có 2 trường hợp là 0 (sai) hoặc 1 (đúng)."
+    },
+    {
+     "term": "biến mệnh đề",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-rosen-2003-vi",
+     "page": "tr. 13 (PDF)",
+     "pdf_page": 13,
+     "snippet": "thức liên quan đến các biến mệnh đề và các liên từ logic. Tiếng Anh"
+    }
+   ],
+   "see_also": [
+    "proposition",
+    "atomic-proposition",
+    "boolean-variable",
+    "variable"
+   ],
+   "notes": "Trong Rosen §1.1, biến mệnh đề là biến biểu diễn một mệnh đề và thường được ký hiệu $$p$$, $$q$$, $$r$$. Cần phân biệt biến mệnh đề (ký hiệu thay cho một mệnh đề) với mệnh đề nguyên tử (bản thân một mệnh đề không phân tích được), và với biến Boole (biến nhận giá trị trong $$\\{0, 1\\}$$ trong đại số Boole).",
+   "status": "draft"
+  },
+  {
+   "id": "pseudoprime",
+   "letter": "P",
+   "headword_en": "Pseudoprime",
+   "notation": "",
+   "rosen_ref": "Rosen §4.4",
+   "definition_vi": "Một số giả nguyên tố cơ sở $$b$$ là một hợp số $$n$$ vượt qua được một phép kiểm tra tính nguyên tố ứng với cơ sở $$b$$ cho trước, tức là $$n$$ thỏa mãn điều kiện mà mọi số nguyên tố đều thỏa mãn (chẳng hạn $$b^{n-1} \\equiv 1 \\pmod{n}$$ theo định lý nhỏ Fermat) nhưng bản thân $$n$$ lại không phải là số nguyên tố.",
+   "example_vi": "Số $$n = 341 = 11 \\cdot 31$$ là một hợp số nhưng thỏa mãn $$2^{340} \\equiv 1 \\pmod{341}$$, nên $$341$$ là một số giả nguyên tố cơ sở $$2$$.",
+   "vi_terms": [
+    {
+     "term": "số giả nguyên tố",
+     "source_id": "bib-rosen-2003-vi",
+     "page": "tr. 205 (PDF)",
+     "pdf_page": 205,
+     "snippet": "7. Tìm tất cả các số giả nguyên tố, tức là các hợp số x sao cho 27! =",
+     "verified": true,
+     "recommended": true
+    },
+    {
+     "term": "số giả nguyên tố",
+     "source_id": "bib-rosen-2003-vi",
+     "page": "tr. 206 (PDF)",
+     "pdf_page": 206,
+     "snippet": "6. Số Carmichael là một số nguyên, nó cũng là một số giả nguyên tố",
+     "verified": true,
+     "recommended": false
+    }
+   ],
+   "see_also": [
+    "prime-number",
+    "fermats-little-theorem"
+   ],
+   "notes": "Số giả nguyên tố là hợp số \"giả dạng\" số nguyên tố vì nó vượt qua một phép kiểm tra tính nguyên tố ứng với một cơ sở $$b$$ cố định; chẳng hạn $$n$$ là số giả nguyên tố cơ sở $$b$$ nếu $$b^{n-1} \\equiv 1 \\pmod{n}$$ nhưng $$n$$ là hợp số. Một hợp số là số giả nguyên tố với mọi cơ sở $$b$$ nguyên tố cùng nhau với nó được gọi là số Carmichael.",
+   "status": "draft"
+  },
+  {
+   "id": "public-key-encryption",
+   "letter": "P",
+   "headword_en": "Public Key Encryption",
+   "see_ref": "public-key-cryptography",
+   "vi_terms": [],
+   "status": "draft"
   }
  ]
 }

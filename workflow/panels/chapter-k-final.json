@@ -947,6 +947,41 @@
    "see_also": [],
    "notes": "Thuật ngữ chuẩn của giáo trình MAT3500 là \"đồ thị con Kuratowski\", tức đồ thị con đồng phôi với $$K_5$$ hoặc $$K_{3,3}$$. Các tài liệu tiếng Việt mô tả cùng khái niệm này qua định lý Kuratowski: Nguyễn Hoàng Thạch gọi là \"đồ thị con đồng phôi với $$K_5$$ hoặc $$K_{3,3}$$\", còn Nguyễn Hữu Điển dùng \"cấu hình $$K_5$$ / $$K_{3,3}$$\".",
    "status": "draft"
+  },
+  {
+   "id": "k-map",
+   "letter": "K",
+   "headword_en": "K-Map",
+   "see_ref": "karnaugh-map",
+   "vi_terms": [],
+   "status": "draft"
+  },
+  {
+   "id": "key-exchange-protocol",
+   "letter": "K",
+   "headword_en": "Key Exchange Protocol",
+   "notation": "",
+   "rosen_ref": "Rosen §4.6",
+   "definition_vi": "Giao thức trao đổi khóa là một giao thức được hai bên sử dụng để cùng thống nhất về một khóa bí mật dùng chung. Khóa bí mật chung này sau đó có thể được dùng để mã hóa và giải mã các thông điệp trao đổi giữa hai bên.",
+   "example_vi": "Trong giao thức trao đổi khóa Diffie–Hellman, hai bên công khai chọn một số nguyên tố $$p$$ và một số nguyên $$a$$ với $$2 \\leq a \\leq p-1$$. Mỗi bên chọn riêng một số mũ bí mật, lần lượt là $$k_1$$ và $$k_2$$ với $$1 \\leq k_1, k_2 \\leq p-1$$, rồi gửi cho bên kia các giá trị $$a^{k_1} \\bmod p$$ và $$a^{k_2} \\bmod p$$. Khi đó cả hai bên đều tính được cùng một khóa bí mật chung $$a^{k_1 k_2} \\bmod p$$, trong khi một bên thứ ba chỉ biết $$p$$, $$a$$, $$a^{k_1} \\bmod p$$ và $$a^{k_2} \\bmod p$$ vẫn rất khó suy ra khóa này.",
+   "vi_terms": [
+    {
+     "term": "giao thức trao đổi khóa",
+     "verified": false,
+     "recommended": true,
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": ""
+    }
+   ],
+   "see_also": [
+    "public-key-cryptography",
+    "private-key-cryptography",
+    "key"
+   ],
+   "notes": "Giao thức trao đổi khóa cho phép hai bên thống nhất một khóa bí mật dùng chung qua một kênh truyền công khai; ví dụ kinh điển là giao thức Diffie–Hellman, có độ an toàn dựa trên bài toán lôgarit rời rạc theo modulo (việc tính $$a^{k_1 k_2} \\bmod p$$ từ $$a^{k_1} \\bmod p$$ và $$a^{k_2} \\bmod p$$ là khó về mặt tính toán). Thuật ngữ \"giao thức trao đổi khóa\" là cách dịch chuẩn; không tìm thấy dẫn chứng trực tiếp cho khái niệm này trong kho ngữ liệu khảo sát (kể cả bản dịch Rosen tiếng Việt 2003), nên thuật ngữ tiếng Việt được đề xuất theo bản dịch chuẩn với verified=false.",
+   "status": "draft"
   }
  ]
 }

@@ -113,7 +113,27 @@
         <li><p><term>thuật toán Johnson</term> <em>(thuật ngữ chuẩn; chưa truy được trong kho văn bản)</em> — cách dùng phổ biến.</p></li>
       </ul>
       <p>Ví dụ: Xét đồ thị có hướng trên ba đỉnh <m>\{1,2,3\}</m> với các cạnh <m>w(1,2)=-2</m>, <m>w(2,3)=3</m>, <m>w(1,3)=4</m>; đồ thị có một cạnh trọng số âm nhưng không có chu trình trọng số âm. Bellman–Ford cho các thế năng <m>h(1)=0</m>, <m>h(2)=-2</m>, <m>h(3)=0</m>. Khi đó trọng số đổi mới là <m>w'(1,2)=-2+0-(-2)=0</m>, <m>w'(2,3)=3+(-2)-0=1</m> và <m>w'(1,3)=4+0-0=4</m>, tất cả đều không âm, nên có thể chạy thuật toán Dijkstra từ mỗi đỉnh trên đồ thị đã đổi trọng số.</p>
-      <p>Xem thêm <xref ref="def-dijkstra-algorithm" text="title" />.</p>
+      <p>Xem thêm <xref ref="def-dijkstra-algorithm" text="title" />, <xref ref="def-shortest-path-problem" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-join">
+    <title>Join — phép kết nối</title>
+    <idx><h>join</h></idx>
+    <idx><h>phép hợp</h></idx>
+    <idx><h>phép kết nối</h></idx>
+    <notation>
+      <usage><m>J_p(R, S)</m></usage>
+      <description>phép kết nối</description>
+    </notation>
+    <statement>
+      <p>Cho <m>R</m> là một quan hệ bậc <m>m</m> và <m>S</m> là một quan hệ bậc <m>n</m>. Phép kết nối <m>J_p(R, S)</m>, với <m>p \leq m</m> và <m>p \leq n</m>, là phép toán tạo một quan hệ bậc <m>m + n - p</m> gồm tất cả các bộ <m>(m + n - p)</m> thành phần thu được bằng cách tổ hợp một bộ <m>m</m> thành phần của <m>R</m> với một bộ <m>n</m> thành phần của <m>S</m>, trong đó <m>p</m> thành phần cuối cùng của bộ thuộc <m>R</m> trùng với <m>p</m> thành phần đầu tiên của bộ thuộc <m>S</m> (theo <xref ref="bib-rosen-2019" />, Rosen, Định nghĩa 3, tr. 444 (bản dịch tiếng Việt)).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>phép kết nối</term> <em>(thuật ngữ chuẩn; chưa truy được trong kho văn bản)</em> — cách dùng phổ biến.</p></li>
+        <li><p><term>phép hợp</term> <xref ref="bib-rosen-2003-vi" /> (tr. 444 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Cho quan hệ <m>R</m> gồm các bộ <m>3</m> thành phần <m>(\text{Giáo viên}, \text{Môn}, \text{Phòng})</m> và quan hệ <m>S</m> gồm các bộ <m>3</m> thành phần <m>(\text{Môn}, \text{Phòng}, \text{Giờ})</m>. Khi đó phép kết nối <m>J_2(R, S)</m> với <m>p = 2</m> ghép các bộ trùng nhau ở hai thành phần <m>(\text{Môn}, \text{Phòng})</m>, tạo ra quan hệ gồm các bộ <m>4</m> thành phần <m>(\text{Giáo viên}, \text{Môn}, \text{Phòng}, \text{Giờ})</m>.</p>
+      <p>Xem thêm <xref ref="def-n-ary-relation" text="title" />, <xref ref="def-projection" text="title" />.</p>
     </statement>
   </definition>
 </chapter>

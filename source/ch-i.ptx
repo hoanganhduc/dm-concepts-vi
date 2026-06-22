@@ -215,7 +215,7 @@
         <li><p><term>quan hệ ngược</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 113 (PDF)); <xref ref="bib-rosen-2003-vi" /> (tr. 436 (PDF, bản dịch Rosen)) — cách dùng phổ biến.</p></li>
       </ul>
       <p>Ví dụ: Cho <m>A = \{1, 2, 3\}</m>, <m>B = \{a, b\}</m> và quan hệ <m>R = \{(1, a), (2, b), (3, a)\}</m> từ <m>A</m> vào <m>B</m>. Khi đó quan hệ ngược là <m>R^{-1} = \{(a, 1), (b, 2), (a, 3)\}</m>, một quan hệ từ <m>B</m> vào <m>A</m>.</p>
-      <p>Xem thêm <xref ref="def-binary-relation" text="title" />.</p>
+      <p>Xem thêm <xref ref="def-binary-relation" text="title" />, <xref ref="def-relation-on-a-set" text="title" />.</p>
     </statement>
   </definition>
   <definition xml:id="def-isomorphism">
@@ -259,6 +259,7 @@
         <li><p><term>đỉnh bậc 0</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 64 (PDF)); <xref ref="bib-hoangchithanh-2007" /> (tr. 17 (PDF)).</p></li>
       </ul>
       <p>Ví dụ: Trong đồ thị <m>G</m> có tập đỉnh <m>\{u, v, w\}</m> và tập cạnh <m>\{uw\}</m>, đỉnh <m>v</m> là một đỉnh cô lập vì <m>\deg(v) = 0</m>.</p>
+      <p>Xem thêm <xref ref="def-pendant-vertex" text="title" />.</p>
     </statement>
   </definition>
   <definition xml:id="def-induced-subgraph">
@@ -284,7 +285,7 @@
         <li><p><term>đồ thị con tạo bởi</term> <xref ref="bib-hoangchithanh-2007" /> (tr. 86 (PDF)).</p></li>
       </ul>
       <p>Ví dụ: Cho <m>G = (V, E)</m> với <m>V = \{a, b, c, d\}</m> và <m>E = \{ab, bc, cd, ad, ac\}</m>, lấy <m>W = \{a, b, c\}</m>. Khi đó <m>G[W]</m> có tập đỉnh <m>\{a, b, c\}</m> và tập cạnh <m>\{ab, bc, ac\}</m>, vì đây là tất cả các cạnh của <m>G</m> nối hai đỉnh trong <m>W</m>.</p>
-      <p>Xem thêm <xref ref="def-subgraph" text="title" />, <xref ref="def-vertex-set" text="title" />.</p>
+      <p>Xem thêm <xref ref="def-subgraph" text="title" />, <xref ref="def-spanning-subgraph" text="title" />, <xref ref="def-vertex-set" text="title" />.</p>
     </statement>
   </definition>
   <definition xml:id="def-irreflexive-relation">
@@ -396,7 +397,7 @@
         <li><p><term>bậc vào</term> <xref ref="bib-leanhvinh-2020" /> (tr. 256 (PDF)); <xref ref="bib-hoangchithanh-2007" /> (tr. 49 (PDF)); <xref ref="bib-rosen-2003-vi" /> (tr. 516 (PDF)).</p></li>
       </ul>
       <p>Ví dụ: Trong đồ thị có hướng với các cung <m>(u,v)</m> và <m>(w,v)</m>, đỉnh <m>v</m> có <m>\deg^-(v) = 2</m>.</p>
-      <p>Xem thêm <xref ref="def-directed-graph" text="title" />.</p>
+      <p>Xem thêm <xref ref="def-out-degree" text="title" />, <xref ref="def-directed-graph" text="title" />.</p>
     </statement>
   </definition>
   <definition xml:id="def-incident">
@@ -740,6 +741,169 @@
         <li><p><term>đẳng cấu</term> <xref ref="bib-mat3500" /> (giáo trình MAT3500); <xref ref="bib-leanhvinh-2020" /> (tr. 12 (PDF)); <xref ref="bib-nguyenhoangthach-2020" /> (tr. 73 (PDF)); <xref ref="bib-nguyenhuudien-2019" /> (tr. 164 (PDF)); <xref ref="bib-nguyenducnghia-2006" /> (tr. 165 (PDF)); <xref ref="bib-ngodactan-2004" /> (tr. 191 (PDF)); <xref ref="bib-hoangchithanh-2007" /> (tr. 8 (PDF)); <xref ref="bib-rosen-2003-vi" /> (tr. 525 (PDF)) — cách dùng phổ biến.</p></li>
       </ul>
       <p>Ví dụ: Hai đồ thị có cùng số đỉnh, cùng số cạnh và cùng dãy bậc nhưng vẫn có thể không đẳng cấu; chẳng hạn, hai đồ thị <m>5</m> đỉnh và <m>6</m> cạnh có thể khác nhau ở số đỉnh bậc <m>2</m> kề nhau, nên không đẳng cấu với nhau.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-identity-matrix">
+    <title>Identity Matrix — ma trận đơn vị</title>
+    <idx><h>identity matrix</h></idx>
+    <idx><h>ma trận đơn vị</h></idx>
+    <idx><h>ma trận đồng nhất</h></idx>
+    <notation>
+      <usage><m>I_n</m></usage>
+      <description>ma trận đơn vị</description>
+    </notation>
+    <statement>
+      <p>Ma trận đơn vị cấp <m>n</m> là ma trận vuông <m>n \times n</m> có các phần tử trên đường chéo chính đều bằng <m>1</m> và mọi phần tử còn lại đều bằng <m>0</m> (theo <xref ref="bib-rosen-2019" />, Rosen §2.6).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>ma trận đơn vị</term> <xref ref="bib-leanhvinh-2020" /> (tr. 207 (PDF)); <xref ref="bib-rosen-2003-vi" /> (tr. 189 (PDF)); <xref ref="bib-rosen-2003-vi" /> (tr. 199 (PDF)) — cách dùng phổ biến.</p></li>
+        <li><p><term>ma trận đồng nhất</term> <xref ref="bib-rosen-2003-vi" /> (tr. 189 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Ma trận đơn vị cấp <m>3</m> là
+<me>I_3 = \begin{bmatrix} 1  \amp  0  \amp  0 \\ 0  \amp  1  \amp  0 \\ 0  \amp  0  \amp  1 \end{bmatrix}.</me>
+Nhân một ma trận <m>A</m> cấp <m>n \times n</m> với ma trận đơn vị <m>I_n</m> không làm thay đổi ma trận đó, tức là <m>A I_n = I_n A = A</m>.</p>
+      <p>Xem thêm <xref ref="def-matrix" text="title" />, <xref ref="def-transpose-of-a-matrix" text="title" />, <xref ref="def-zero-one-matrix" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-implicant">
+    <title>Implicant — nguyên nhân</title>
+    <idx><h>implicant</h></idx>
+    <idx><h>nguyên nhân</h></idx>
+    <statement>
+      <p>Nguyên nhân của một hàm Boole <m>f</m> là một tích các tục biến (một hội sơ cấp) mà từ đó suy ra <m>f</m>, nghĩa là tại mọi bộ giá trị làm cho tích đó bằng <m>1</m> thì <m>f</m> cũng nhận giá trị <m>1</m>. Nói cách khác, nếu ký hiệu tích các tục biến là <m>g</m> thì <m>g</m> là một nguyên nhân của <m>f</m> khi và chỉ khi phép kéo theo <m>g \rightarrow f</m> luôn nhận giá trị <m>1</m> (theo <xref ref="bib-rosen-2019" />, Rosen §12.4).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>nguyên nhân</term> <xref ref="bib-nguyenducnghia-2006" /> (tr. 274 (PDF)) — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Đối với hàm <m>f = x + y</m>, cả <m>x</m> và <m>y</m> đều là nguyên nhân của <m>f</m>, vì khi <m>x = 1</m> (tương ứng <m>y = 1</m>) thì <m>f = 1</m>.</p>
+      <p>Xem thêm <xref ref="def-minterm" text="title" />, <xref ref="def-boolean-function" text="title" />, <xref ref="def-literal" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-incomparable">
+    <title>Incomparable — không so sánh được</title>
+    <idx><h>incomparable</h></idx>
+    <idx><h>không so sánh được</h></idx>
+    <statement>
+      <p>Hai phần tử <m>a</m> và <m>b</m> của một tập có thứ tự bộ phận <m>(S, \preceq)</m> được gọi là không so sánh được nếu cả <m>a \preceq b</m> lẫn <m>b \preceq a</m> đều không xảy ra. Nói cách khác, <m>a</m> và <m>b</m> không so sánh được khi chúng không so sánh được với nhau theo quan hệ thứ tự bộ phận <m>\preceq</m> (theo <xref ref="bib-rosen-2019" />, Rosen §9.6).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>không so sánh được</term> <xref ref="bib-ngodactan-2004" /> (tr. 164 (PDF)); <xref ref="bib-ngodactan-2004" /> (tr. 274 (PDF)) — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Trong tập <m>(\mathbb{Z}^{+}, \mid)</m> với quan hệ chia hết, hai số <m>3</m> và <m>5</m> là không so sánh được vì <m>3 \nmid 5</m> và <m>5 \nmid 3</m>. Ngược lại, <m>3</m> và <m>9</m> là so sánh được vì <m>3 \mid 9</m>.</p>
+      <p>Xem thêm <xref ref="def-partial-order" text="title" />, <xref ref="def-poset" text="title" />, <xref ref="def-antichain" text="title" />, <xref ref="def-total-order" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-independent-events">
+    <title>Independent Events — biến cố độc lập</title>
+    <idx><h>independent events</h></idx>
+    <idx><h>biến cố</h></idx>
+    <idx><h>biến cố độc lập</h></idx>
+    <notation>
+      <usage><m>p(E \cap F) = p(E)p(F)</m></usage>
+      <description>biến cố độc lập</description>
+    </notation>
+    <statement>
+      <p>Hai biến cố <m>E</m> và <m>F</m> được gọi là độc lập nếu <m>p(E \cap F) = p(E)p(F)</m>. Nói cách khác, hai biến cố là độc lập khi xác suất xảy ra đồng thời của chúng bằng tích các xác suất riêng lẻ (theo <xref ref="bib-rosen-2019" />, Rosen §6.2).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>biến cố độc lập</term> <xref ref="bib-rosen-2003-vi" /> (tr. 337 (PDF)) — cách dùng phổ biến.</p></li>
+        <li><p><term>biến cố</term> <xref ref="bib-leanhvinh-2020" /> (tr. 157 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Giả sử ta tung một đồng xu cân đối ba lần, mỗi biến cố là một tập con của tập các kết cục có thể. Xét biến cố <m>E</m> là "lần tung đầu tiên được mặt sấp" và biến cố <m>F</m> là "lần tung thứ hai được mặt sấp"; vì <m>p(E \cap F) = \frac{1}{4} = \frac{1}{2} \cdot \frac{1}{2} = p(E)p(F)</m>, nên <m>E</m> và <m>F</m> là hai biến cố độc lập.</p>
+      <p>Xem thêm <xref ref="def-event" text="title" />, <xref ref="def-bernoulli-trial" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-independent-random-variables">
+    <title>Independent Random Variables — biến ngẫu nhiên độc lập</title>
+    <idx><h>independent random variables</h></idx>
+    <idx><h>biến ngẫu nhiên</h></idx>
+    <idx><h>biến ngẫu nhiên độc lập</h></idx>
+    <notation>
+      <usage><m>p(X = r_1 \text{ và } Y = r_2) = p(X = r_1)\,p(Y = r_2)</m></usage>
+      <description>biến ngẫu nhiên độc lập</description>
+    </notation>
+    <statement>
+      <p>Hai biến ngẫu nhiên <m>X</m> và <m>Y</m> được gọi là độc lập nếu phân phối đồng thời của chúng phân tích thành tích của các phân phối lề. Nói cách khác, <m>X</m> và <m>Y</m> độc lập khi <m>p(X = r_1 \text{ và } Y = r_2) = p(X = r_1) \cdot p(Y = r_2)</m> với mọi giá trị <m>r_1</m> của <m>X</m> và mọi giá trị <m>r_2</m> của <m>Y</m> (theo <xref ref="bib-rosen-2019" />, Rosen §7.4).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>biến ngẫu nhiên độc lập</term> <em>(thuật ngữ chuẩn; chưa truy được trong kho văn bản)</em> — cách dùng phổ biến.</p></li>
+        <li><p><term>biến ngẫu nhiên</term> <xref ref="bib-leanhvinh-2020" /> (tr. 156 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Tung hai đồng xu cân đối một cách riêng rẽ, gọi <m>X</m> là số mặt ngửa của đồng xu thứ nhất và <m>Y</m> là số mặt ngửa của đồng xu thứ hai. Khi đó <m>X</m> và <m>Y</m> là hai biến ngẫu nhiên độc lập, chẳng hạn <m>p(X = 1 \text{ và } Y = 1) = \frac{1}{4} = \frac{1}{2} \cdot \frac{1}{2} = p(X = 1)\,p(Y = 1)</m>.</p>
+      <p>Xem thêm <xref ref="def-bernoulli-trial" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-initial-conditions">
+    <title>Initial Conditions — điều kiện ban đầu</title>
+    <idx><h>initial conditions</h></idx>
+    <idx><h>điều kiện ban đầu</h></idx>
+    <notation>
+      <usage><m>a_0, a_1, \ldots, a_{k-1}</m></usage>
+      <description>điều kiện ban đầu</description>
+    </notation>
+    <statement>
+      <p>Điều kiện ban đầu của một dãy là các giá trị của những số hạng đứng trước các số hạng được xác định bởi một hệ thức truy hồi. Cùng với hệ thức truy hồi, các điều kiện ban đầu này xác định duy nhất toàn bộ dãy; chẳng hạn, một hệ thức truy hồi tuyến tính thuần nhất bậc <m>k</m> được xác định hoàn toàn bởi một bộ <m>k</m> điều kiện ban đầu <m>a_0, a_1, \ldots, a_{k-1}</m> (theo <xref ref="bib-rosen-2019" />, Rosen §8.1).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>điều kiện ban đầu</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 40 (PDF)); <xref ref="bib-nguyenhoangthach-2020" /> (tr. 37 (PDF)); <xref ref="bib-nguyenhuudien-2019" /> (tr. 99 (PDF)); <xref ref="bib-rosen-2003-vi" /> (tr. 395 (PDF)) — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Với dãy Fibonacci <m>f_n = f_{n-1} + f_{n-2}</m> (bậc <m>2</m>), các điều kiện ban đầu là <m>f_0 = 0</m> và <m>f_1 = 1</m>. Cùng với hệ thức truy hồi, hai giá trị này xác định duy nhất mọi số hạng còn lại của dãy.</p>
+      <p>Xem thêm <xref ref="def-recurrence-relation" text="title" />, <xref ref="def-initial-term" text="title" />, <xref ref="def-linear-recurrence-relation" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-internal-vertex">
+    <title>Internal Vertex</title>
+    <idx><h>internal vertex</h></idx>
+    <idx><h>đỉnh trong</h></idx>
+    <statement><p><term>Internal Vertex</term> (đỉnh trong). Xem <xref ref="def-internal-vertices" text="title" />.</p></statement>
+  </definition>
+  <definition xml:id="def-invariant-for-graph-isomorphism">
+    <title>Invariant For Graph Isomorphism</title>
+    <idx><h>invariant for graph isomorphism</h></idx>
+    <idx><h>bất biến đối với phép đẳng cấu</h></idx>
+    <statement><p><term>Invariant For Graph Isomorphism</term> (bất biến đối với phép đẳng cấu). Xem <xref ref="def-graph-invariant" text="title" />.</p></statement>
+  </definition>
+  <definition xml:id="def-inverse-modulo-m">
+    <title>Inverse Modulo M — nghịch đảo của $$a$$ theo môđun $$m$$</title>
+    <idx><h>inverse modulo m</h></idx>
+    <idx><h>nghịch đảo của $$a$$ theo môđun $$m$$</h></idx>
+    <notation>
+      <usage><m>\bar{a}</m></usage>
+      <description>nghịch đảo của $$a$$ theo môđun $$m$$</description>
+    </notation>
+    <statement>
+      <p>Nghịch đảo của <m>a</m> theo môđun <m>m</m> là một số nguyên <m>\bar{a}</m> là nghịch đảo phép nhân của <m>a</m> theo môđun <m>m</m>, tức là <m>\bar{a} a \equiv 1 \pmod{m}</m> (theo <xref ref="bib-rosen-2019" />, Rosen §4.4).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>nghịch đảo của $$a$$ theo môđun $$m$$</term> <xref ref="bib-rosen-2003-vi" /> (tr. 874 (PDF)) — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Số <m>3</m> là nghịch đảo của <m>5</m> theo môđun <m>7</m> vì <m>3 \cdot 5 = 15 \equiv 1 \pmod{7}</m>. Nghịch đảo của <m>a</m> theo môđun <m>m</m> tồn tại và là duy nhất theo môđun <m>m</m> khi và chỉ khi <m>a</m> và <m>m</m> nguyên tố cùng nhau.</p>
+      <p>Xem thêm <xref ref="def-linear-congruence" text="title" />, <xref ref="def-congruence" text="title" />, <xref ref="def-modular-arithmetic" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-inverse-of-a-function">
+    <title>Inverse Of A Function</title>
+    <idx><h>inverse of a function</h></idx>
+    <statement><p><term>Inverse Of A Function</term>. Xem <xref ref="def-inverse-function" text="title" />.</p></statement>
+  </definition>
+  <definition xml:id="def-isomorphic-simple-graphs">
+    <title>Isomorphic Simple Graphs</title>
+    <idx><h>isomorphic simple graphs</h></idx>
+    <idx><h>đơn đồ thị đẳng cấu</h></idx>
+    <statement><p><term>Isomorphic Simple Graphs</term> (đơn đồ thị đẳng cấu). Xem <xref ref="def-isomorphic" text="title" />.</p></statement>
+  </definition>
+  <definition xml:id="def-itemset">
+    <title>Itemset — tập mục</title>
+    <idx><h>itemset</h></idx>
+    <idx><h>tập mục</h></idx>
+    <statement>
+      <p>Một tập mục là một tập hợp gồm các mục (item).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>tập mục</term> <em>(thuật ngữ chuẩn; chưa truy được trong kho văn bản)</em> — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Trong phân tích giỏ hàng, mỗi giao dịch của một khách hàng là một tập mục; chẳng hạn <m>\{\text{bánh mì}, \text{bơ}, \text{sữa}\}</m> là tập mục gồm ba mặt hàng được mua cùng nhau.</p>
+      <p>Xem thêm <xref ref="def-association-rule" text="title" />.</p>
     </statement>
   </definition>
 </chapter>

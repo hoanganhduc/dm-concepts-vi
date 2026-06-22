@@ -30,7 +30,7 @@ def vary(t):
     return {t, t.rstrip("s"), t + "s", (t[:-1] if t.endswith("s") else t)}
 
 
-def validate(e, src_ids):
+def validate(e, src_ids, all_ids):
     errs = []
     hw, L = e.get("headword_en", ""), str(e.get("letter", "")).upper()
     if not KEBAB.match(e.get("id", "") or ""):
@@ -39,6 +39,10 @@ def validate(e, src_ids):
         errs.append("no headword")
     if hw and L and hw[:1].upper() != L:
         errs.append("letter-mismatch")
+    if e.get("see_ref"):  # cross-reference stub: skip definition/vi_terms checks
+        if e["see_ref"] not in all_ids:
+            errs.append(f"see_ref-missing:{e['see_ref']}")
+        return errs
     if not e.get("definition_vi"):
         errs.append("no def")
     vts = e.get("vi_terms") or []
@@ -82,7 +86,7 @@ def main():
         if e.get("id") in eids or (vary(hw) & ehw) or (vary(hw) & batch_hw):
             dup += 1
             continue
-        errs = validate(e, src_ids)
+        errs = validate(e, src_ids, eids)
         if errs or L not in chapters:
             bad += 1
             reasons[e.get("id", os.path.basename(sf))] = errs or ["no-chapter"]

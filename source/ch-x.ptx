@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<chapter xml:id="ch-x" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>X</title>
+
+  <introduction>
+    <p>
+      Chương này tập hợp các thuật ngữ tiếng Anh bắt đầu bằng chữ <q>X</q>, kèm
+      định nghĩa và các thuật ngữ tiếng Việt tương ứng cùng trích dẫn nguồn.
+    </p>
+  </introduction>
+
+  <definition xml:id="def-xor">
+    <title>XOR (exclusive or) — hay loại trừ</title>
+    <idx><h>xor (exclusive or)</h></idx>
+    <idx><h>hay loại trừ</h></idx>
+    <idx><h>phép "hoặc"</h></idx>
+    <idx><h>tuyển loại</h></idx>
+    <notation>
+      <usage><m>p \oplus q</m></usage>
+      <description>hay loại trừ</description>
+    </notation>
+    <statement>
+      <p>Phép hay loại trừ của hai mệnh đề <m>p</m> và <m>q</m>, ký hiệu <m>p \oplus q</m>, là mệnh đề phức hợp đúng khi đúng một trong hai mệnh đề <m>p</m>, <m>q</m> nhận giá trị đúng, và sai trong các trường hợp còn lại (theo <xref ref="bib-rosen-2019" />, Rosen §1.1).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>hay loại trừ</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 18 (PDF)) — cách dùng phổ biến.</p></li>
+        <li><p><term>phép "hoặc"</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 18 (PDF)).</p></li>
+        <li><p><term>tuyển loại</term> <xref ref="bib-rosen-2003-vi" /> (tr. 10 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Cho <m>p</m> là mệnh đề "Hôm nay là thứ Hai" và <m>q</m> là mệnh đề "Trời đang mưa". Khi đó <m>p \oplus q</m> đúng khi và chỉ khi đúng một trong hai mệnh đề trên nhận giá trị đúng; nếu cả hai cùng đúng hoặc cả hai cùng sai thì <m>p \oplus q</m> sai.</p>
+      <p>Xem thêm <xref ref="def-xnor" text="title" />, <xref ref="def-xor-bit-operation" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-xnor">
+    <title>XNOR (exclusive nor) — phép tương đương</title>
+    <idx><h>xnor (exclusive nor)</h></idx>
+    <idx><h>phép kéo theo 2 chiều</h></idx>
+    <idx><h>phép tương đương</h></idx>
+    <idx><h>phép tương đương (mệnh đề tương đương)</h></idx>
+    <idx><h>tương đương logic</h></idx>
+    <notation>
+      <usage><m>\overline{p \oplus q}</m></usage>
+      <description>phép tương đương</description>
+    </notation>
+    <statement>
+      <p>Phép tương đương của hai mệnh đề <m>p</m> và <m>q</m>, ký hiệu <m>\overline{p \oplus q}</m>, là phủ định của phép hay loại trừ <m>p \oplus q</m> của chúng. Mệnh đề này nhận giá trị đúng khi và chỉ khi <m>p</m> và <m>q</m> có cùng chân trị, nên tương đương logic với phép kéo theo hai chiều <m>p \leftrightarrow q</m> (theo <xref ref="bib-rosen-2019" />, Rosen §1.1).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>phép tương đương</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 19 (PDF)) — cách dùng phổ biến.</p></li>
+        <li><p><term>phép kéo theo 2 chiều</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 19 (PDF)).</p></li>
+        <li><p><term>phép tương đương (mệnh đề tương đương)</term> <xref ref="bib-rosen-2003-vi" /> (tr. 13 (PDF)).</p></li>
+        <li><p><term>tương đương logic</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 21 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Với <m>p</m> là mệnh đề "trời mưa" và <m>q</m> là mệnh đề "đường ướt", mệnh đề <m>\overline{p \oplus q}</m> đúng khi cả <m>p</m> và <m>q</m> cùng đúng hoặc cùng sai, và sai khi đúng một trong hai.</p>
+      <p>Xem thêm <xref ref="def-xor" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-xor-bit-operation">
+    <title>XOR bit operation — phép XOR theo bit</title>
+    <idx><h>xor bit operation</h></idx>
+    <idx><h>XOR bit</h></idx>
+    <idx><h>phép $$\oplus$$-tổng</h></idx>
+    <idx><h>phép XOR theo bit</h></idx>
+    <notation>
+      <usage><m>x \oplus y</m></usage>
+      <description>phép XOR theo bit</description>
+    </notation>
+    <statement>
+      <p>Phép XOR theo bit của hai bit <m>x</m> và <m>y</m>, ký hiệu <m>x \oplus y</m>, nhận giá trị <m>1</m> khi và chỉ khi một trong hai bit bằng <m>1</m> và nhận giá trị <m>0</m> trong các trường hợp còn lại. Phép toán này được mở rộng cho hai xâu bit có cùng độ dài bằng cách lấy XOR theo từng vị trí tương ứng (theo <xref ref="bib-rosen-2019" />, Rosen §1.1).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>phép XOR theo bit</term> <em>(thuật ngữ chuẩn; chưa truy được trong kho văn bản)</em> — cách dùng phổ biến.</p></li>
+        <li><p><term>XOR bit</term> <xref ref="bib-rosen-2003-vi" /> (tr. 14-15 (PDF)).</p></li>
+        <li><p><term>phép $$\oplus$$-tổng</term> <xref ref="bib-hoangchithanh-2007" /> (tr. 25 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Với hai bit <m>x = 1</m> và <m>y = 0</m> ta có <m>x \oplus y = 1</m>, còn <m>1 \oplus 1 = 0</m> và <m>0 \oplus 0 = 0</m>. Áp dụng theo từng vị trí cho hai xâu bit <m>1011</m> và <m>1100</m> ta được <m>1011 \oplus 1100 = 0111</m>.</p>
+      <p>Xem thêm <xref ref="def-xor" text="title" />.</p>
+    </statement>
+  </definition>
+</chapter>

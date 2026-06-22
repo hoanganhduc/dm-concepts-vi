@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<chapter xml:id="ch-v" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>V</title>
+
+  <introduction>
+    <p>
+      Chương này tập hợp các thuật ngữ tiếng Anh bắt đầu bằng chữ <q>V</q>, kèm
+      định nghĩa và các thuật ngữ tiếng Việt tương ứng cùng trích dẫn nguồn.
+    </p>
+  </introduction>
+
+  <definition xml:id="def-vertex">
+    <title>Vertex — đỉnh</title>
+    <idx><h>vertex</h></idx>
+    <idx><h>nút</h></idx>
+    <idx><h>điểm</h></idx>
+    <idx><h>đỉnh</h></idx>
+    <notation>
+      <usage><m>v \in V(G)</m></usage>
+      <description>đỉnh</description>
+    </notation>
+    <statement>
+      <p>Đỉnh của một đồ thị <m>G</m> là một phần tử của tập đỉnh <m>V(G)</m>, ký hiệu <m>v \in V(G)</m>; mỗi cạnh của <m>G</m> nối một cặp đỉnh trong tập này (theo <xref ref="bib-rosen-2019" />, Rosen §10.1).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>đỉnh</term> <xref ref="bib-leanhvinh-2020" /> (tr. 8 (PDF)); <xref ref="bib-nguyenhoangthach-2020" /> (tr. 61 (PDF)); <xref ref="bib-nguyenhuudien-2019" /> (tr. 165 (PDF)); <xref ref="bib-hoangchithanh-2007" /> (tr. 6 (PDF)); <xref ref="bib-nguyenducnghia-2006" /> (tr. 7 (PDF)); <xref ref="bib-ngodactan-2004" /> (tr. 10 (PDF)) — cách dùng phổ biến.</p></li>
+        <li><p><term>nút</term> <xref ref="bib-nguyenducnghia-2006" /> (tr. 131 (PDF)); <xref ref="bib-hoangchithanh-2007" /> (tr. 16 (PDF)).</p></li>
+        <li><p><term>điểm</term> <xref ref="bib-leanhvinh-2020" /> (tr. 8 (PDF)); <xref ref="bib-ngodactan-2004" /> (tr. 17 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Với đồ thị <m>G</m> có tập đỉnh <m>V(G) = \{a, b, c\}</m>, mỗi phần tử <m>a</m>, <m>b</m>, <m>c</m> là một đỉnh của <m>G</m>.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-vertex-coloring">
+    <title>Vertex coloring — tô màu các đỉnh</title>
+    <idx><h>vertex coloring</h></idx>
+    <idx><h>tô màu các đỉnh</h></idx>
+    <idx><h>tô màu đỉnh</h></idx>
+    <notation>
+      <usage><m>c : V(G) \to \{1,\dots,k\}</m></usage>
+      <description>tô màu các đỉnh</description>
+    </notation>
+    <statement>
+      <p>Một phép tô màu các đỉnh của đồ thị <m>G</m> bằng <m>k</m> màu là một ánh xạ <m>c : V(G) \to \{1,\dots,k\}</m> gán cho mỗi đỉnh một màu sao cho hai đỉnh kề nhau bất kỳ luôn được gán hai màu khác nhau, tức là <m>c(u) \neq c(v)</m> với mọi cạnh <m>uv \in E(G)</m> (theo <xref ref="bib-rosen-2019" />, Rosen §10.8).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>tô màu các đỉnh</term> <xref ref="bib-leanhvinh-2020" /> (tr. 90 (PDF)); <xref ref="bib-nguyenhuudien-2019" /> (tr. 227 (PDF)); <xref ref="bib-hoangchithanh-2007" /> (tr. 51 (PDF)) — cách dùng phổ biến.</p></li>
+        <li><p><term>tô màu đỉnh</term> <xref ref="bib-leanhvinh-2020" /> (tr. 90 (PDF)); <xref ref="bib-ngodactan-2004" /> (tr. 283 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Với đồ thị đầy đủ <m>K_n</m>, mọi cặp đỉnh đều kề nhau, nên mỗi đỉnh phải nhận một màu riêng; do đó một phép tô màu các đỉnh của <m>K_n</m> cần đúng <m>n</m> màu.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-vertex-connectivity">
+    <title>Vertex connectivity — độ liên thông đỉnh</title>
+    <idx><h>vertex connectivity</h></idx>
+    <idx><h>liên thông đỉnh</h></idx>
+    <idx><h>số liên thông đỉnh</h></idx>
+    <idx><h>độ liên thông đỉnh</h></idx>
+    <notation>
+      <usage><m>\kappa(G)</m></usage>
+      <description>độ liên thông đỉnh</description>
+    </notation>
+    <statement>
+      <p>Độ liên thông đỉnh của một đồ thị <m>G</m>, ký hiệu <m>\kappa(G)</m>, là số đỉnh ít nhất cần xóa (cùng với các cạnh kề) để làm cho <m>G</m> mất liên thông hoặc trở thành đồ thị chỉ có một đỉnh. Với <m>G</m> có ít nhất hai đỉnh, <m>\kappa(G)</m> cũng bằng số nguyên <m>k</m> lớn nhất sao cho <m>G</m> là <m>k</m>-liên thông đỉnh (theo <xref ref="bib-rosen-2019" />, Rosen §10.4).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>độ liên thông đỉnh</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 75 (PDF)) — cách dùng phổ biến.</p></li>
+        <li><p><term>liên thông đỉnh</term> <xref ref="bib-ngodactan-2004" /> (tr. 265 (PDF)).</p></li>
+        <li><p><term>số liên thông đỉnh</term> <xref ref="bib-leanhvinh-2020" /> (tr. 225 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Với đồ thị chu trình <m>C_n</m> (trong đó <m>n \geq 3</m>), ta có <m>\kappa(C_n) = 2</m>, vì cần xóa ít nhất hai đỉnh mới làm cho <m>C_n</m> mất liên thông.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-vertex-cover">
+    <title>Vertex cover — tập phủ đỉnh</title>
+    <idx><h>vertex cover</h></idx>
+    <idx><h>phủ đỉnh</h></idx>
+    <idx><h>phủ đỉnh nhỏ nhất</h></idx>
+    <idx><h>tập phủ đỉnh</h></idx>
+    <notation>
+      <usage><m>S \subseteq V(G)</m></usage>
+      <description>tập phủ đỉnh</description>
+    </notation>
+    <statement>
+      <p>Một tập phủ đỉnh của đồ thị <m>G</m> là một tập con các đỉnh <m>S \subseteq V(G)</m> sao cho mỗi cạnh của <m>G</m> có ít nhất một đầu mút thuộc <m>S</m> (theo <xref ref="bib-rosen-2019" />, Rosen §10.2).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>tập phủ đỉnh</term> <xref ref="bib-leanhvinh-2020" /> (tr. 77 (PDF)) — cách dùng phổ biến.</p></li>
+        <li><p><term>phủ đỉnh</term> <xref ref="bib-nguyenducnghia-2006" /> (tr. 263 (PDF)).</p></li>
+        <li><p><term>phủ đỉnh nhỏ nhất</term> <xref ref="bib-nguyenducnghia-2006" /> (tr. 263 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Xét đồ thị đường đi <m>P_3</m> với các đỉnh <m>a, b, c</m> và các cạnh <m>ab</m>, <m>bc</m>. Tập <m>\{b\}</m> là một tập phủ đỉnh vì cả hai cạnh <m>ab</m> và <m>bc</m> đều có đầu mút <m>b</m>.</p>
+      <p>Xem thêm <xref ref="def-vertex" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-valid-argument">
+    <title>Valid argument — suy luận đúng</title>
+    <idx><h>valid argument</h></idx>
+    <idx><h>suy luận đúng</h></idx>
+    <notation>
+      <usage><m>(p_1 \wedge \cdots \wedge p_n) \rightarrow q</m></usage>
+      <description>suy luận đúng</description>
+    </notation>
+    <statement>
+      <p>Một suy luận trong logic mệnh đề, gồm các tiền đề <m>p_1, p_2, \ldots, p_n</m> và kết luận <m>q</m>, được gọi là một suy luận đúng nếu kết luận <m>q</m> đúng mỗi khi tất cả các tiền đề <m>p_1, p_2, \ldots, p_n</m> đều đúng, tức là phép kéo theo <m>(p_1 \wedge p_2 \wedge \cdots \wedge p_n) \rightarrow q</m> là một hằng đúng (theo <xref ref="bib-rosen-2019" />, Rosen §1.6).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>suy luận đúng</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 30 (PDF)) — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Suy luận với các tiền đề <m>p \rightarrow q</m> và <m>p</m>, kết luận <m>q</m>, là một suy luận đúng, vì khi cả <m>p \rightarrow q</m> và <m>p</m> đều đúng thì <m>q</m> cũng đúng; do đó <m>((p \rightarrow q) \wedge p) \rightarrow q</m> là một hằng đúng.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-venn-diagram">
+    <title>Venn diagram — sơ đồ Venn</title>
+    <idx><h>venn diagram</h></idx>
+    <idx><h>giản đồ Venn</h></idx>
+    <idx><h>sơ đồ Venn</h></idx>
+    <notation>
+      <usage><m>U</m></usage>
+      <description>sơ đồ Venn</description>
+    </notation>
+    <statement>
+      <p>Sơ đồ Venn của một họ các tập hợp là một hình biểu diễn trong đó tập hợp vũ trụ (ký hiệu <m>U</m>) được vẽ thành một hình chữ nhật, còn mỗi tập hợp được vẽ thành một vùng (thường là hình tròn) nằm bên trong hình chữ nhật đó. Sơ đồ Venn được dùng để minh họa quan hệ giữa các tập hợp và các phép toán trên tập hợp (theo <xref ref="bib-rosen-2019" />, Rosen §2.1).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>sơ đồ Venn</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 17 (PDF)); <xref ref="bib-nguyenhuudien-2019" /> (tr. 73 (PDF)); <xref ref="bib-nguyenhuudien-2019" /> (tr. 75 (PDF)) — cách dùng phổ biến.</p></li>
+        <li><p><term>giản đồ Venn</term> <xref ref="bib-rosen-2003-vi" /> (tr. 55 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Với hai tập hợp <m>A</m> và <m>B</m>, vùng nằm trong cả hai hình tròn biểu diễn <m>A</m> và <m>B</m> chính là giao <m>A \cap B</m>, còn toàn bộ vùng được phủ bởi hai hình tròn biểu diễn hợp <m>A \cup B</m>.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-vertex-degree">
+    <title>Vertex degree — bậc của đỉnh</title>
+    <idx><h>vertex degree</h></idx>
+    <idx><h>bậc của một đỉnh</h></idx>
+    <idx><h>bậc của đỉnh</h></idx>
+    <idx><h>bậc đỉnh</h></idx>
+    <notation>
+      <usage><m>\deg_G(v)</m></usage>
+      <description>bậc của đỉnh</description>
+    </notation>
+    <statement>
+      <p>Bậc của đỉnh <m>v</m> trong một đồ thị vô hướng <m>G</m>, ký hiệu <m>\deg_G(v)</m>, là số cạnh kề với <m>v</m>, trong đó mỗi khuyên tại <m>v</m> được tính hai lần (theo <xref ref="bib-rosen-2019" />, Rosen §10.2).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>bậc của đỉnh</term> <xref ref="bib-leanhvinh-2020" /> (tr. 153 (PDF)); <xref ref="bib-nguyenhoangthach-2020" /> (tr. 63 (PDF)); <xref ref="bib-nguyenhuudien-2019" /> (tr. 157 (PDF)); <xref ref="bib-hoangchithanh-2007" /> (tr. 14 (PDF)); <xref ref="bib-nguyenducnghia-2006" /> (tr. 192 (PDF)); <xref ref="bib-ngodactan-2004" /> (tr. 191 (PDF)) — cách dùng phổ biến.</p></li>
+        <li><p><term>bậc của một đỉnh</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 63 (PDF)); <xref ref="bib-hoangchithanh-2007" /> (tr. 14 (PDF)).</p></li>
+        <li><p><term>bậc đỉnh</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 157 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Trong đồ thị <m>G</m> với tập đỉnh <m>\{a, b, c\}</m> và tập cạnh <m>\{ab, ac, bc\}</m>, mỗi đỉnh đều kề với hai cạnh, nên <m>\deg_G(a) = \deg_G(b) = \deg_G(c) = 2</m>.</p>
+      <p>Xem thêm <xref ref="def-vertex" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-vertex-set">
+    <title>Vertex set — tập đỉnh</title>
+    <idx><h>vertex set</h></idx>
+    <idx><h>tập các đỉnh</h></idx>
+    <idx><h>tập hợp đỉnh</h></idx>
+    <idx><h>tập đỉnh</h></idx>
+    <notation>
+      <usage><m>V(G)</m></usage>
+      <description>tập đỉnh</description>
+    </notation>
+    <statement>
+      <p>Tập đỉnh của một đồ thị <m>G</m> là tập hợp tất cả các đỉnh của <m>G</m>, ký hiệu <m>V(G)</m> (theo <xref ref="bib-rosen-2019" />, Rosen §10.1).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>tập đỉnh</term> <xref ref="bib-leanhvinh-2020" /> (tr. 8 (PDF)); <xref ref="bib-hoangchithanh-2007" /> (tr. 7 (PDF)) — cách dùng phổ biến.</p></li>
+        <li><p><term>tập các đỉnh</term> <xref ref="bib-nguyenducnghia-2006" /> (tr. 153 (PDF)); <xref ref="bib-hoangchithanh-2007" /> (tr. 6 (PDF)); <xref ref="bib-ngodactan-2004" /> (tr. 265 (PDF)).</p></li>
+        <li><p><term>tập hợp đỉnh</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 61 (PDF)); <xref ref="bib-leanhvinh-2020" /> (tr. 8 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Với đồ thị <m>G</m> có các đỉnh <m>a</m>, <m>b</m>, <m>c</m>, ta có tập đỉnh <m>V(G) = \{a, b, c\}</m>.</p>
+      <p>Xem thêm <xref ref="def-vertex" text="title" />, <xref ref="def-vertex-degree" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-vacuous-proof">
+    <title>Vacuous proof — chứng minh rỗng</title>
+    <idx><h>vacuous proof</h></idx>
+    <idx><h>chứng minh rỗng</h></idx>
+    <notation>
+      <usage><m>p \to q</m></usage>
+      <description>chứng minh rỗng</description>
+    </notation>
+    <statement>
+      <p>Chứng minh rỗng là phương pháp chứng minh một mệnh đề kéo theo <m>p \to q</m> bằng cách chỉ ra rằng giả thiết <m>p</m> là sai; khi đó <m>p \to q</m> luôn đúng bất kể giá trị chân lý của <m>q</m> (theo <xref ref="bib-rosen-2019" />, Rosen §1.7).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>chứng minh rỗng</term> <em>(thuật ngữ chuẩn; chưa truy được trong kho văn bản)</em> — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Mệnh đề "nếu <m>0  \gt  1</m> thì <m>2 = 2</m>" đúng theo phép chứng minh rỗng, vì giả thiết <m>0  \gt  1</m> là sai nên <m>p \to q</m> đúng bất kể kết luận.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-value-of-a-flow">
+    <title>Value of a flow — giá trị của luồng</title>
+    <idx><h>value of a flow</h></idx>
+    <idx><h>giá trị của luồng</h></idx>
+    <idx><h>giá trị luồng</h></idx>
+    <notation>
+      <usage><m>\mathrm{val}(f)</m></usage>
+      <description>giá trị của luồng</description>
+    </notation>
+    <statement>
+      <p>Giá trị của luồng <m>f</m> trong một mạng vận tải là lượng luồng thực sự đi ra khỏi đỉnh nguồn <m>s</m>, bằng với lượng luồng thực sự đi vào đỉnh thu <m>t</m>, ký hiệu <m>\mathrm{val}(f)</m> (theo <xref ref="bib-rosen-2019" />, Rosen — network flow not covered; anchored to nguyenhuudien-2019 §8 (luồng vận tải / giá trị của luồng)).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>giá trị của luồng</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 210 (PDF)); <xref ref="bib-hoangchithanh-2007" /> (tr. 108 (PDF)); <xref ref="bib-ngodactan-2004" /> (tr. 244 (PDF)) — cách dùng phổ biến.</p></li>
+        <li><p><term>giá trị luồng</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 213 (PDF)); <xref ref="bib-nguyenducnghia-2006" /> (tr. 243 (PDF)).</p></li>
+      </ul>
+      <p>Ví dụ: Xét mạng vận tải với đỉnh nguồn <m>s</m> và đỉnh thu <m>t</m>. Nếu luồng <m>f</m> gửi từ <m>s</m> ra ngoài tổng cộng <m>5</m> đơn vị qua các cạnh ra khỏi <m>s</m> và không có cạnh nào đi vào <m>s</m>, thì <m>\mathrm{val}(f) = 5</m>, và đúng <m>5</m> đơn vị này đi vào <m>t</m>.</p>
+    </statement>
+  </definition>
+</chapter>

@@ -244,8 +244,6 @@
     }
    ],
    "see_also": [
-    "partially-ordered-set",
-    "covering-relation",
     "lattice"
    ],
    "notes": "Definition split into two sentences per the readability fix: the first sentence gives the vertex rule and the upward covering segment, the second states the covering condition ($$a \\prec b$$ with no intermediate $$c$$), and the third notes the omission of reflexive/transitive edges. Two distinct Vietnamese terms denote this concept in the corpus: \"biểu đồ Hasse\" (newest, bib-nguyenhuudien-2019, 2019, tr. 122/124/126 PDF) and \"sơ đồ Hasse\" (bib-ngodactan-2004, 2004, tr. 165/180/274 PDF). Both are confirmed by snippet to denote the drawing of a partially ordered set. Recommended term is \"biểu đồ Hasse\" because it is the newest attestation (2019). The candidate \"giản đồ Hasse\" returned 0 hits across all sources (normal and loose). No 2020 source attests any candidate: bib-leanhvinh-2020 returned 0 hits for both \"biểu đồ Hasse\" and \"sơ đồ Hasse\" in normal and --loose modes; the OCR source bib-hoangchithanh-2007 returned 0 hits (--loose); bib-nguyenhoangthach-2020 and bib-nguyenducnghia-2006 also returned 0. Thus the recommended term is attested only as far back as 2019, the newest available attestation. The definition is grounded on ngodactan-2004 tr. 165 (corpus lines 22053-22062), which describes elements drawn as small circles with a line segment joining $$y$$ to $$x$$ whenever $$y$$ covers $$x$$ and $$x$$ is placed lower — i.e. the covering relation — matching Rosen §9.6; the covering condition is stated explicitly so the example needs no externally derived quantity. The first introduction of the central concept is marked with \\emph{Biểu đồ Hasse} OUTSIDE math (Vietnamese words are never wrapped in $$...$$; only symbols such as $$a$$, $$b$$, $$S$$, $$\\preceq$$ are). The notation field is empty because the Hasse diagram has no standard single symbol. see_also targets (partially-ordered-set, covering-relation, lattice) are cross-chapter forward references; there are no related same-chapter H-terms in the corpus to link."
@@ -358,8 +356,7 @@
    "example_vi": "Ánh xạ $$f\\colon (\\mathbb{Z}, +) \\to (\\mathbb{Z}, +)$$ cho bởi $$f(a) = 2a$$ là một đồng cấu, vì $$f(a + b) = 2(a + b) = 2a + 2b = f(a) + f(b)$$ với mọi $$a, b \\in \\mathbb{Z}$$.",
    "notes": "Economy fix: the redundant trailing parenthetical '(ký hiệu đồng cấu là $$f$$)' was dropped because $$f$$ is already introduced as the map name earlier in the same sentence. Citation-hygiene fix: the two verified=false empty-page candidates \"ánh xạ đồng cấu\" and \"phép đồng cấu\" were removed from vi_terms (the one-kept-for-non-emptiness exception does not apply because the verified=true recommended term \"đồng cấu\" is already present); they are recorded only here as unattested candidates (0 hits in all sources, normal and --loose). Scope note: the definition_vi and example_vi present a GENERAL algebraic homomorphism, but the sole corpus attestation of the recommended bare term \"đồng cấu\" is as the sub-phrase of \"đồng cấu dàn\" (lattice homomorphism, bib-nguyenhuudien-2019 tr. 124-125), which is the structure-preserving-map concept matching Rosen; the recommended bare term \"đồng cấu\" is therefore generalized from its sole corpus attestation \"đồng cấu dàn\" and is the standard base term for the concept. The specifier \"dàn\" (lattice) names the structure. A homograph trap: bib-nguyenducnghia-2006 p.161 uses \"đồng cấu\" for graph HOMEOMORPHISM (graphs obtained from a common graph by edge subdivision, \"phép chia cạnh\"), not algebraic homomorphism; the same edge-subdivision relation is rendered \"đồng phôi\" in bib-nguyenhoangthach-2020 p.81 and bib-ngodactan-2004 pp.212,298. That 2006 hit is excluded from this entry (it is recorded as a variant of homeomorphic-graphs instead). Rosen-ref flag (panel): rosen_ref §9.6 is an approximate attribution — §9.6 in the edition used is not a precise section source for algebraic homomorphism; the definition_vi mathematics is standard and correct and is left intact pending confirmation of the exact section in the edition.",
    "see_also": [
-    "isomorphism",
-    "homeomorphism"
+    "isomorphism"
    ],
    "vi_terms": [
     {
@@ -515,7 +512,6 @@
    "notes": "Emphasis fixed from markdown *siêu đồ thị* to \\emph{siêu đồ thị} to match the chapter's LaTeX emphasis convention. Thuật ngữ chuẩn là \"siêu đồ thị\", được dùng nhất quán trong nguồn 2020 (bib-leanhvinh-2020) cho khái niệm này: ở đó \"đỉnh của siêu đồ thị\" (vertex) và \"siêu cạnh\" (hyperedge) xuất hiện rõ ràng. Ứng viên \"đồ thị siêu\" KHÔNG được chấp nhận: mọi lần xuất hiện đều thuộc cụm \"đồ thị siêu lập phương\" (hypercube graph $$Q_n$$), không phải khái niệm siêu đồ thị. Ứng viên \"hệ siêu đồ thị\" không được nguồn nào chứng thực (0 kết quả ở cả tìm kiếm thường và --loose). Rosen-ref flag (panel): hypergraph is not defined as an object in Rosen §10.1 (which treats simple/multi/pseudographs); §10.1 is cited as the generalization context rather than a precise source for this exact definition. The definition itself is standard and correct (hyperedge = arbitrary nonempty subset of $$V$$) and is left intact.",
    "see_also": [
     "graph",
-    "hyperedge",
     "subset"
    ],
    "vi_terms": [
@@ -548,7 +544,6 @@
    "definition_vi": "Định lý bắt tay khẳng định rằng trong một đồ thị vô hướng $$G = (V, E)$$, tổng bậc của tất cả các đỉnh bằng hai lần số cạnh, ký hiệu $$\\sum_{v \\in V(G)} \\deg_G(v) = 2|E(G)|$$. Hệ quả là số đỉnh có bậc lẻ trong $$G$$ luôn là một số chẵn.",
    "example_vi": "Xét đồ thị vô hướng $$G$$ với tập đỉnh $$V = \\{a, b, c\\}$$ và tập cạnh $$E = \\{ab, bc, ca\\}$$. Khi đó mỗi đỉnh có bậc $$\\deg_G(a) = \\deg_G(b) = \\deg_G(c) = 2$$, nên $$\\sum_{v \\in V(G)} \\deg_G(v) = 2 + 2 + 2 = 6 = 2|E(G)|$$.",
    "see_also": [
-    "degree-of-a-vertex",
     "undirected-graph"
    ],
    "notes": "Notation wrapped in $$...$$ and aligned to the book-standard subscripted degree form $$\\deg_G(v)$$ with $$V(G)$$/$$E(G)$$ (panel fixes: the earlier draft left the notation field bare and used unsubscripted $$\\deg(v)$$ with bare $$V$$/$$E$$). Hai cách gọi cùng chỉ kết quả này: \"định lý bắt tay\" (khung định lý, theo bib-leanhvinh-2020, 2020) và \"bổ đề bắt tay\" (khung bổ đề, theo bib-nguyenhoangthach-2020, 2020 và bib-ngodactan-2004, 2004). Chọn \"định lý bắt tay\" làm thuật ngữ khuyến nghị vì nó khớp trực tiếp với \"handshake theorem\" và được chứng thực trong giáo trình lý thuyết đồ thị mới nhất (bib-leanhvinh-2020). Trong bib-leanhvinh-2020 (nguồn OCR) các trích đoạn lấy được qua chế độ --loose: chữ \"Định lý\" bị OCR thành \"Dinh ly\"/\"Dinh lý\"; tên gọi được xác nhận qua các ngữ cảnh \"tên gọi Dinh ly bat tay\" (tr. 10) và \"Như là một hệ quả của Dinh lý bắt tay, số đỉnh với bac lẻ...\" (tr. 11), tức bản vô hướng. Citation-hygiene (panel): the recommended-term snippet is recorded verbatim from the OCR source with the normalized term bracketed inline as [OCR: Định lý bắt tay] so the term-snippet link is auditable. Cả hai nguồn 2020 đều nêu thêm phiên bản có hướng của định lý.",
@@ -669,9 +664,8 @@
    "example_vi": "Hệ thức Fibonacci $$f_n = f_{n-1} + f_{n-2}$$ là một hệ thức truy hồi tuyến tính thuần nhất bậc $$2$$ với hệ số hằng số, trong đó $$c_1 = c_2 = 1$$.",
    "notes": "Notation wrapped in $$...$$ per the math convention (was bare 'a_n = ...'). Bốn biến thể đều được kiểm chứng, sắp xếp theo nguồn mới nhất trước. Thuật ngữ khuyến nghị \"hệ thức truy hồi tuyến tính thuần nhất\" (bib-nguyenhuudien-2019, Định nghĩa 3.13, tr. 98) theo quy ước dịch \"recurrence relation\" thành \"hệ thức truy hồi\" của bản dịch Rosen và là cách dùng chuẩn nhất trong kho ngữ liệu; định nghĩa nguồn nêu rõ dạng $$a_n = c_1 a_{n-1} + \\dots + c_k a_{n-k}$$ với $$c_1, \\dots, c_k$$ là số thực và $$c_k \\neq 0$$. Biến thể mới nhất \"quan hệ truy hồi tuyến tính thuần nhất\" (bib-nguyenhoangthach-2020, Định nghĩa 3.1, tr. 40, 2020) dùng \"quan hệ\" thay cho \"hệ thức\". Biến thể \"công thức truy hồi tuyến tính thuần nhất\" (bib-nguyenducnghia-2006, tr. 34) dùng \"công thức\". Biến thể cũ \"phép truy toán tuyến tính thuần nhất\" (bib-ngodactan-2004, tr. 79) dùng \"phép truy toán\", một lối diễn đạt cũ không còn thông dụng. Nguồn bib-leanhvinh-2020 (lý thuyết đồ thị) không có thuật ngữ này vì chủ đề hệ thức truy hồi thuộc tổ hợp/toán rời rạc, đã kiểm tra cả chế độ thường và --loose. Mặc dù thuật ngữ khuyến nghị thuộc nguồn 2019, biến thể nguồn 2020 vẫn được liệt kê đầu danh sách theo quy ước mới-nhất-trước; thuật ngữ khuyến nghị là dạng \"hệ thức\" vì khớp với cách dịch Rosen. Các id trong see_also (recurrence-relation, linear-recurrence-relation, characteristic-equation) thuộc các chương khác (R, L, C) theo cách sắp xếp từ điển theo chữ cái đầu, nên là tham chiếu chuyển tiếp liên chương sẽ được tạo trong chương tương ứng.",
    "see_also": [
-    "recurrence-relation",
     "linear-recurrence-relation",
-    "characteristic-equation"
+    "recurrence-relation"
    ],
    "vi_terms": [
     {
@@ -731,8 +725,6 @@
    "example_vi": "Với tập ký hiệu $$A = \\{a, b, c, d, e\\}$$ có tần suất $$\\varphi(a) = 23$$, $$\\varphi(b) = 44$$, $$\\varphi(c) = 17$$, $$\\varphi(d) = 4$$, $$\\varphi(e) = 12$$, thuật toán Huffman gộp trước hai cây có nhãn nhỏ nhất là $$d$$ và $$e$$ thành một cây con mang nhãn $$\\varphi(d) + \\varphi(e) = 16$$.",
    "notes": "Khái niệm \"Huffman coding\" trong Rosen là thuật toán tham lam (greedy) xây dựng mã tiền tố tối ưu bằng cách lặp lại việc gộp hai ký hiệu có tần suất nhỏ nhất thành một cây nhị phân. Các tài liệu tiếng Việt phân biệt ba thuật ngữ liên quan chặt chẽ trong cùng một mục: \"thuật toán Huffman\" (bản thân quy trình thuật toán), \"cây mã Huffman\" (cây nhị phân thu được), và \"bộ mã Huffman\" (bộ mã tối ưu thu được). Vì mục từ chỉ chính thuật toán mã hóa, thuật ngữ khuyến nghị là \"thuật toán Huffman\", được chứng thực trong nguồn mới nhất 2019 (nguyenhuudien-2019) và trong hoangchithanh-2007. Dạng trần \"mã Huffman\" chỉ xuất hiện như một phần của \"cây mã Huffman\" và \"bộ mã Huffman\". Không có nguồn 2020 (leanhvinh-2020, nguyenhoangthach-2020) nào, cũng như các nguồn cũ nguyenducnghia-2006 và ngodactan-2004, đề cập đến Huffman.",
    "see_also": [
-    "huffman-tree",
-    "prefix-code",
     "binary-tree",
     "greedy-algorithm"
    ],
@@ -877,6 +869,15 @@
      "page": "tr. 174 (PDF)",
      "snippet": "Vì một chữ số thập lục phân được biểu diễn bằng cách dùng bốn bit,",
      "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "Hệ cơ số $16$ (hệ thập lục phân",
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": "",
+     "verified": false,
      "recommended": false
     }
    ],

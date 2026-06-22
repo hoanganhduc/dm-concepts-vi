@@ -24,8 +24,7 @@
    "example_vi": "Đồ thị chu trình $$C_4$$ có một cách tô màu bằng $$2$$ màu: tô hai đỉnh đối nhau bằng màu thứ nhất và hai đỉnh còn lại bằng màu thứ hai, khi đó không có hai đỉnh kề nhau nào cùng màu.",
    "see_also": [
     "chromatic-number",
-    "graph-coloring",
-    "proper-coloring"
+    "graph-coloring"
    ],
    "notes": "Recommended term \"tô màu một đồ thị đơn bằng k màu\" is the verbatim 2020 book phrasing, attested as a formal definition in nguyenhoangthach-2020 (tr. 81, Định nghĩa 5.53: \"Một cách tô màu một đồ thị đơn bằng k màu là một cách...\"). The bare string \"tô màu bằng k màu\" (with the object removed) returns 0 exact hits in any source (confirmed normal search), so it is NOT recorded as a vi_term and is dropped per citation hygiene; the head phrase \"tô màu ... bằng k màu\" is attested only with \"một đồ thị đơn\" inserted between \"tô màu\" and \"bằng k màu\".\n\nStrong noun alternative: \"k-tô màu\" (ngodactan-2004, tr. 283: \"gọi là k-tô màu\", 18 hits). This is the cleanest single-token noun for a k-coloring and matches Rosen's \"k-coloring\" as an object; it formally partitions the vertex set into $$k$$ classes (\"một k-tô màu phân hoạch tập đỉnh của đồ thị thành k lớp\"). It is only attested in a 2004 source, hence not recommended under the 2019-2020 preference, but recorded as a verified variant.\n\nNewest 2020 formal definitions both use the \"bằng/bởi k màu\" pattern: nguyenhoangthach-2020 uses \"bằng k màu\"; leanhvinh-2020 (tr. 90, Định nghĩa 4.1) uses \"tô được bởi k màu\" / \"cách tô màu tốt các đỉnh của G bởi k màu\". The 2019 source nguyenhuudien-2019 (tr. 227) uses \"tô được bằng k màu\". Variant \"bởi k màu\" vs \"bằng k màu\" is a preposition difference only.\n\n\"tô màu tốt\" (leanhvinh-2020) = proper coloring (the no-adjacent-same-color condition); related but a separate sub-concept. \"tô màu đồ thị\" / \"tô màu các đỉnh\" denote graph coloring / vertex coloring in general (the broader operation), not specifically a k-coloring; recorded as broader variants.\n\nCandidate \"phép tô màu k màu\" returned 0 hits (normal and --loose) and is dropped.\n\nDefinition follows the book's formal-function form (Định nghĩa 4.1 of leanhvinh-2020 and the hàm $$c$$ formulation of nguyenhuudien-2019, tr. 227): a k-coloring is a vertex assignment $$c: V(G) \\to \\{1, \\ldots, k\\}$$ with $$c(u) \\neq c(v)$$ for every edge $$uv$$. The definition is tightened to a single sentence ending in the function form (economy of expression). The example uses only $$C_4$$ and the two colors the definition introduces; no derived quantity (e.g. chromatic number) is invoked. Per Rosen §10.8 a k-coloring is a (proper) coloring using $$k$$ colors; the no-adjacent-same-color condition is the proper-coloring requirement and is correctly baked in.\n\nEDITOR (chapter K final): per terminology citation hygiene, dropped the verified=false empty-page non-recommended variant \"tô màu bằng k màu\" from vi_terms (its 0-hit rationale is preserved above). Trimmed the duplicated English 'Concept:' gloss that restated the definition. The recommended term remains the verified 2020 form.",
    "vi_terms": [
@@ -176,10 +175,9 @@
    "example_vi": "Đồ thị đầy đủ $$K_n$$ là đồ thị $$(n-1)$$ chính quy, vì mỗi đỉnh kề với tất cả $$n-1$$ đỉnh còn lại; chu trình $$C_n$$ với $$n \\geq 3$$ là đồ thị $$2$$ chính quy.",
    "notes": "Concept attested only in bib-leanhvinh-2020, bib-nguyenducnghia-2006, and bib-ngodactan-2004. In bib-nguyenhoangthach-2020, bib-nguyenhuudien-2019, and bib-hoangchithanh-2007 the string \"đồ thị đều\" appears only as the universal adverb \"đều\" (every/all), e.g. \"mọi đỉnh của đồ thị đều có bậc...\", not as the regular-graph term; those are not citations of this concept. In bib-leanhvinh-2020 the book uses \"đồ thị đều bậc k\" as the primary form (pp. 10, 89, 93, 214) with \"đồ thị k chính quy\" given as the explicit alternate (\"hay còn gọi là\", p. 214); the generalized \"đồ thị đều bậc d\" / \"đồ thị d chính quy\" also appears (p. 10). The recommended term \"đồ thị k chính quy\" is attested in the newest source (bib-leanhvinh-2020, 2020). The variant \"đồ thị đều bậc k\" is equally standard and also from 2020. Older sources use the older orthography \"chính qui\" (modern \"chính quy\"): bib-ngodactan-2004 p. 191 defines \"đồ thị chính qui bậc k\" / short form \"k-chính qui\"; bib-nguyenducnghia-2006 p. 164 uses \"chính qui bậc k\". The synonym \"đồ thị bậc k\" in bib-ngodactan-2004 is attested via the book index (\"đồ thị bậc k, 191\", PDF p. 336), which points to the definition on p. 191; no verbatim definition-line snippet for that exact phrase is recoverable from the OCR text, so the verifiable index snippet is cited. Caution: in bib-leanhvinh-2020 the unrelated phrases \"đồ thị bậc n\" mean \"graph on n vertices\" (order n), not a regular graph, and \"đồ thị chính quy mạnh\" means \"strongly regular graph\" — both excluded. Definition is mathematically correct against Rosen §10.2 (every vertex has degree exactly $$k$$); the nonnegative-integer constraint on $$k$$ is correct (0-regular = empty graph is valid). Snippets from OCR sources (bib-leanhvinh-2020, bib-ngodactan-2004) reproduce OCR artifacts verbatim. EDITOR (chapter K final): the notation field stores the bare token $$\\deg_G(v) = k$$ without $$...$$ wrapping per the book-wide convention (the structured notation field is wrapped by the build layer, as confirmed against output/web/entries.json); no wrapping change applied. Added the $$k \\geq 0$$ lead-in to the definition for parameter scope, consistent with the source convention.",
    "see_also": [
-    "regular-graph",
-    "degree-of-a-vertex",
+    "bipartite-graph",
     "complete-graph",
-    "bipartite-graph"
+    "regular-graph"
    ],
    "vi_terms": [
     {
@@ -250,7 +248,6 @@
    "see_also": [
     "minimum-spanning-tree",
     "spanning-tree",
-    "prims-algorithm",
     "weighted-graph"
    ],
    "vi_terms": [
@@ -427,6 +424,15 @@
      "snippet": "",
      "verified": false,
      "recommended": false
+    },
+    {
+     "term": "Phương pháp sơ đồ Karnaugh",
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": "",
+     "verified": false,
+     "recommended": false
     }
    ],
    "see_also": []
@@ -569,8 +575,7 @@
    "example_vi": "Trên bàn cờ $$8 \\times 8$$, một hành trình của con mã đi qua cả $$64$$ ô, mỗi ô đúng một lần; nếu nước đi cuối cùng đưa con mã trở lại ô xuất phát thì đó là một hành trình khép kín.",
    "notes": "The concept is attested in two corpus sources:\n- bib-nguyenhuudien-2019 (2019, newest text source) names it \"hành trình của con mã\" as the title of §7.13 / Figure 7.13 (pdf p.189) and uses the descriptive phrase \"đường đi của con mã trên bàn cờ\" (pdf p.188), with surrounding text confirming a (closed) knight's tour returning to the start.\n- bib-hoangchithanh-2007 (2007, OCR) names it \"bài toán mã đi tuần\" / \"mã đi tuần\" (pdf p.82): \"Cho quân mã đi trên bàn cờ vua sao cho nó đi qua mỗi ô đúng một lần (bài toán mã đi tuần).\" This is the standard, established Vietnamese name for the knight's-tour problem.\nRecommended term: \"mã đi tuần\" is the canonical/standard Vietnamese term, but it is attested only in 2007. \"hành trình của con mã\" is the newest attestation (2019) and is a legitimate named section/figure title, so it is set as recommended to satisfy the 2019-2020 preference. If the established name should win over recency, \"mã đi tuần\" is the strongest alternative. No attestation found in the 2020 sources; both normal and --loose searches on the OCR sources were run.\n\"con mã\" and \"quân mã\" both appear in the corpus for the chess knight piece (nguyenhuudien-2019 / hoangchithanh-2007), used interchangeably.\nDefinition follows Rosen's general tour (visit every square exactly once) as ground truth, with the closed/open distinction added because the 2019 source describes the re-entrant variant. CAUTION (kept out of the entry): one source snippet (nguyenhuudien-2019 p.188) wrongly describes the knight moving \"theo đường chéo\" (diagonally); the knight moves in an L-shape, so definition_vi deliberately writes only \"nước đi của con mã\" and does not propagate that error. A closed knight's tour corresponds to a Hamiltonian circuit and an open tour to a Hamiltonian path on the knight's-move graph (Rosen §10.5).\n\nEDITOR (chapter K final): applied two terminology fixes. (1) Removed the inline English glosses \"(closed)\" and \"(open)\" from definition_vi, keeping only the Vietnamese \"khép kín\"/\"hở\" per the no-inline-gloss convention; the EN correspondence is documented here in notes. (2) Per the chapter-wide see_also forward-reference policy, added the cross-chapter forward references hamiltonian-path and hamiltonian-circuit (chapter H), which are the graph-theoretic correspondents of the open and closed tours. All four verified terms re-confirmed via find-term.py.",
    "see_also": [
-    "hamiltonian-path",
-    "hamiltonian-circuit"
+    "hamiltonian-path"
    ],
    "vi_terms": [
     {
@@ -852,9 +857,8 @@
     }
    ],
    "see_also": [
-    "complete-bipartite-graph-kmn",
-    "simple-graph",
-    "bipartite-graph"
+    "bipartite-graph",
+    "simple-graph"
    ],
    "notes": "Recommended term \"đồ thị đầy đủ\" is the standard base form, attested in all six sources including both 2020 sources (bib-leanhvinh-2020 p.14 formal definition, base form standalone p.180; bib-nguyenhoangthach-2020 p.69) and 2019 (bib-nguyenhuudien-2019 p.159). Newest formal definition: bib-leanhvinh-2020 p.14 (\"Đồ thị đầy đủ bậc n, kí hiệu bởi $$K_n$$...\"); bib-nguyenhuudien-2019 p.159 gives the per-vertex definition (\"hai đỉnh phân biệt bất kỳ\" are joined). Older sources: bib-nguyenducnghia-2006 p.158 (\"Đồ thị đầy đủ n đỉnh, ký hiệu bởi $$K_n$$, là đơn đồ thị vô hướng mà giữa...\"), bib-hoangchithanh-2007 p.52 (uses \"đồ thị đầy đủ n đỉnh\"), bib-ngodactan-2004 p.190 (variant \"n-đồ thị đầy đủ\"). Variant \"đồ thị đầy đủ bậc n\" (degree/order phrasing) is unique to bib-leanhvinh-2020; \"đồ thị đầy đủ Kn\" and \"đồ thị đầy đủ n đỉnh\" co-occur in the 2019-2020 texts. OCR sources (bib-leanhvinh-2020, bib-hoangchithanh-2007) confirmed via both normal and --loose runs. The standard notation $$K_n$$ is consistent across every source. Definition_vi follows the per-vertex formulation from bib-nguyenhuudien-2019 p.159. Example uses $$K_4$$ with $$\\binom{4}{2}=6$$ edges, self-contained from the definition's edge-per-pair rule; each vertex has degree 3 (correct). Definition matches Rosen §10.2.\n\nEDITOR (chapter K final): the notation field stores the bare token $$K_n$$ per the book-wide convention (wrapped by the build layer). see_also id complete-bipartite-graph-kmn is a same-chapter (K) forward reference that will resolve once that entry is built; simple-graph and bipartite-graph are cross-chapter forward references. All five verified=true vi_terms confirmed (source_id, pdf_page, snippet denote this concept); exactly one recommended=true."
   },

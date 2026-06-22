@@ -132,8 +132,7 @@
    "definition_vi": "Một phép tô màu đồ thị của một đơn đồ thị $$G$$ là một phép gán cho mỗi đỉnh của $$G$$ một màu sao cho không có hai đỉnh kề nhau nào được gán cùng một màu. Nói cách khác, với mọi cạnh $$uv \\in E(G)$$, hai đỉnh $$u$$ và $$v$$ nhận hai màu khác nhau.",
    "example_vi": "Trong chu trình $$C_4$$ với các đỉnh $$v_1, v_2, v_3, v_4$$ và các cạnh $$v_1v_2$$, $$v_2v_3$$, $$v_3v_4$$, $$v_4v_1$$, ta có thể tô $$v_1$$ và $$v_3$$ bằng màu đỏ, $$v_2$$ và $$v_4$$ bằng màu xanh; khi đó hai đỉnh kề nhau bất kỳ đều nhận hai màu khác nhau, nên đây là một phép tô màu đồ thị của $$C_4$$.",
    "see_also": [
-    "chromatic-number",
-    "proper-coloring"
+    "chromatic-number"
    ],
    "vi_terms": [
     {
@@ -490,7 +489,6 @@
    "rosen_ref": "Rosen §10.7",
    "notes": "No 2019-2020 source attests the genus concept. The only Vietnamese source covering it is bib-ngodactan-2004 (2004), Section 6 (pp. 210-214), where the noun \"giống\" denotes the genus of a graph: \"Giống của mỗi đồ thị $$G$$ không vượt quá giao số của nó\" (Định lý 6.14, p.212, verified) and the genus theorem Định lý 6.17 (p.214, verified) is applied to $$K_n$$. The recommended term \"giống\" is therefore verified only against this 2004 source (no newer attestation exists; \"giống\" in the 2020 sources is only \"giống nhau/hệt/như\" = identical/similar, never the topological genus). The source defines a surface of genus $$g$$ as a sphere with $$g$$ handles added (p.212), and a graph has genus $$g$$ if it embeds in some genus-$$g$$ surface but not in a genus-$$(g-1)$$ surface (p.212), matching the English ground truth. The notation $$g(G)$$ is attested at p.214 (\"$$2 - 2g(G) \\leq v - e + \\dots$$\"). NOTATION COLLISION: $$g(G)$$ here means genus; the girth entry also uses $$g(G)$$ (girth also uses $$\\delta$$ in some sources) — readers should note which quantity is meant in each entry. The exact candidate \"giống của đồ thị\" does not appear verbatim in any source (0 hits, including --loose); the book's actual phrasings are \"Giống của mỗi đồ thị $$G$$\" and the construction \"đồ thị giống $$g$$\". The variant \"giống của mặt\" denotes the genus of a SURFACE (p.212), the related topological notion underlying the graph definition. The single \"giống\" hit in bib-leanhvinh-2020 (p.103) is the adverb \"giống như\" (= \"similar to\"). OCR sources searched in both normal and --loose modes: only \"giống như\"/\"giống nhau\" appear, no genus attestation.",
    "see_also": [
-    "genus-of-a-surface",
     "planar-graph"
    ],
    "vi_terms": [
@@ -542,11 +540,10 @@
    "notes": "The Vietnamese rendering of Rosen's geodesic/distance concept splits into two attested strands covered jointly. (1) \"khoảng cách\" denotes the distance $$d(u,v)$$ — the length of a shortest path; (2) \"đường đi ngắn nhất\" denotes the geodesic, i.e. the shortest path realizing that distance. CITATION FIX (panel high): the recommended term surface form was \"khoảng cách giữa hai đỉnh\", but that exact phrase returns 0 hits in bib-leanhvinh-2020 (re-verified strict and --loose; it occurs in leanhvinh-2020 only at tr.222 in the distinct distance-regular-graph context). The recommended term is therefore set to \"khoảng cách\", which IS attested verbatim in the cited tr.17 snippet \"khoảng cách giữa u và v, kí hiệu bởi $$d_G(u,v)$$\", keeping the 2020 source and a definitional sense. The longer phrase \"khoảng cách giữa hai đỉnh\" is attested verbatim only in bib-ngodactan-2004 (tr.216) and (as \"khoảng cách giữa đỉnh\") in bib-hoangchithanh-2007 (tr.99), both older; it is retained as a variant. The same identity (distance = length of shortest path) is stated in bib-nguyenhoangthach-2020 (tr.88), bib-nguyenhuudien-2019 (tr.186, where \"khoảng cách $$d(u,v)$$\" appears), bib-hoangchithanh-2007 (tr.99, OCR), and bib-ngodactan-2004 (tr.216). OCR sources searched normal and --loose; loose returned identical hits for the relevant phrases.",
    "rosen_ref": "Rosen §10.4",
    "see_also": [
-    "distance",
-    "shortest-path",
-    "eccentricity",
     "diameter",
-    "radius"
+    "distance",
+    "eccentricity",
+    "shortest-path"
    ],
    "vi_terms": [
     {
@@ -669,7 +666,6 @@
    "example_vi": "Đồ thị lưới $$2 \\times 2$$ có $$4$$ đỉnh nằm tại bốn điểm lưới và $$4$$ cạnh nối các đỉnh cách nhau một đơn vị theo phương ngang hoặc phương dọc, tạo thành một chu trình bốn cạnh.",
    "notes": "CONCEPT-DIVERGENCE FLAG (panel high). headword_en \"Grid graph\" is Rosen's standard rectangular grid: vertices are the points of an $$m \\times n$$ lattice and two vertices are adjacent iff they differ by exactly one unit horizontally or vertically (the Cartesian product $$P_m \\square P_n$$). The ONLY Vietnamese source attesting both the term \"đồ thị lưới\" and the notation $$L_n$$ is bib-leanhvinh-2020 (2020), tr. 216 (Ví dụ 8.18, Hình 8.7) and tr. 244 (Bài tập 8.11) — but there $$L_n$$ is defined on $$[n]^2$$ with $$(a,b) \\sim (c,d)$$ iff $$a = c$$ HOẶC $$b = d$$ (same row or same column), i.e. the ROOK'S GRAPH / Hamming graph $$K_n \\square K_n$$ (strongly regular), and Hình 8.7 explicitly states $$L_2$$ equals the Paley graph $$P_5$$ — NOT the unit-distance grid (whose $$L_2$$ is a 4-cycle). The source's object is therefore a different graph than the headword. RESOLUTION (panel fix (b)): the standard Rosen grid-graph definition is kept as the headword and generalized to the $$m \\times n$$ grid; the notation field is left empty so $$L_n$$ is NOT presented as if it denoted Rosen's grid; the divergence is stated in definition_vi and here; and the single vi_term \"đồ thị lưới\" stays verified=true (the term IS genuinely attested) but carries a per-term divergence note recording that the source binds it to the rook's graph. No corpus source attests \"đồ thị lưới\" for Rosen's unit-distance rectangular grid; the recommended Vietnamese name is retained because it is the natural rendering and the only attested form, with the divergence disclosed. Candidate \"đồ thị dạng lưới\" returned 0 hits (normal + --loose). The 2004 source (ngodactan) uses \"lưới nguyên\"/\"lưới vuông\"/\"điểm lưới\" for the geometric integer lattice, not as a graph name, so they are not variants here. OCR of bib-leanhvinh-2020 shows \"đỏ thị lưới\"; --loose matched.",
    "see_also": [
-    "paley-graph",
     "regular-graph"
    ],
    "vi_terms": [
@@ -762,10 +758,10 @@
    "example_vi": "Với $$a = 12$$ và $$b = 18$$, các ước chung của chúng là $$1, 2, 3, 6$$, nên $$\\gcd(12,18) = 6$$.",
    "notes": "Recommended term \"ước chung lớn nhất\" is attested in the newest source bib-nguyenhuudien-2019 (2019, discrete math), p.141-147, with an earlier corroboration in bib-nguyenducnghia-2006 p.89; citations listed newest-first. Variant \"ước số chung lớn nhất\" (inserts \"số\") is attested in bib-nguyenhuudien-2019 p.124 and bib-ngodactan-2004 p.156, 176. The abbreviation \"ƯCLN\" appears in the corpus as OCR/typeset form \"UCLN\" (the Ư horn diacritic is dropped in typesetting, so searching \"UCLN\" returns hits while \"ƯCLN\" returns none); bib-nguyenhuudien-2019 p.142 explicitly defines it: \"UCLN(a,b) để chỉ ước chung lớn nhất của a và b\", so the abbreviation is verified for this concept via that source. The graph-theory sources (bib-leanhvinh-2020, bib-nguyenhoangthach-2020, bib-hoangchithanh-2007) return 0 hits since GCD is a number-theory concept absent from those graph-focused texts; thus no 2020 attestation exists, and the recommended term falls back to the 2019 source as permitted.",
    "see_also": [
-    "least-common-multiple",
-    "relatively-prime",
     "division-algorithm",
-    "euclidean-algorithm"
+    "euclidean-algorithm",
+    "least-common-multiple",
+    "pairwise-relatively-prime"
    ],
    "vi_terms": [
     {
@@ -994,12 +990,7 @@
    "definition_vi": "Một \\emph{nhóm} là một tập hợp $$G$$ cùng với một phép toán hai ngôi $$\\ast$$ trên $$G$$, ký hiệu $$(G, \\ast)$$, thỏa mãn ba điều kiện: phép toán $$\\ast$$ có tính kết hợp, tồn tại phần tử đơn vị $$e \\in G$$ sao cho $$e \\ast a = a \\ast e = a$$ với mọi $$a \\in G$$, và mỗi phần tử $$a \\in G$$ đều có phần tử nghịch đảo $$a' \\in G$$ sao cho $$a \\ast a' = a' \\ast a = e$$.",
    "example_vi": "Tập các số nguyên $$\\mathbb{Z}$$ với phép cộng $$+$$ là một nhóm: phép cộng có tính kết hợp, $$0$$ là phần tử đơn vị, và mỗi $$a \\in \\mathbb{Z}$$ có nghịch đảo $$-a$$.",
    "notes": "Standard Vietnamese term for the algebraic group structure $$(G, \\ast)$$ is \"nhóm\", recommended here. The concept (a set with an associative binary operation having an identity and inverses) is NOT attested in any 2019-2020 corpus source: in bib-leanhvinh-2020 (and absent from bib-nguyenhoangthach-2020 / bib-nguyenhuudien-2019) \"nhóm\" appears only in the everyday sense \"nhóm các đỉnh / nhóm người\" (a cluster of vertices/people), not the algebraic structure. The recommended term is therefore attested in the newest available algebraic source, bib-ngodactan-2004 (p.140: \"$$G$$ là một nhóm đối với phép nhân ánh xạ\"; p.139: \"$$e$$ là đơn vị của nhóm $$G$$\"). The candidate \"cấu trúc nhóm\" returned 0 hits in all sources and is dropped. \"nhóm giao hoán\" (abelian/commutative group) is a special case that still denotes a group and is attested in bib-hoangchithanh-2007 p.25 and bib-ngodactan-2004 p.318. Related but distinct concepts (forward references, not this headword): \"nhóm con\" (subgroup), \"nhóm hoán vị\" (permutation group), \"nhóm xyclic\" (cyclic group); \"nửa nhóm\" (semigroup) is explicitly NOT a group.",
-   "see_also": [
-    "semigroup",
-    "subgroup",
-    "binary-operation",
-    "permutation-group"
-   ],
+   "see_also": [],
    "vi_terms": [
     {
      "term": "nhóm",

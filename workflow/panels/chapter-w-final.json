@@ -111,10 +111,9 @@
    "example_vi": "Cho đồ thị $$G$$ với tập đỉnh $$V(G) = \\{a, b, c\\}$$ và tập cạnh $$E(G) = \\{ab, bc, ac\\}$$. Hàm $$w$$ xác định bởi $$w(ab) = 2$$, $$w(bc) = 5$$, $$w(ac) = 3$$ biến $$G$$ thành một đồ thị có trọng số $$(G, w)$$.",
    "notes": "Term mining notes. \"Đồ thị có trọng số\" is the dominant standard term, attested in all six corpus sources including both 2020 books (nguyenhoangthach-2020 tr. 91 with a clean cặp-(đồ thị, hàm trọng số) definition; leanhvinh-2020 tr. 33). It is the recommended term. \"Mạng lưới\" is given by leanhvinh-2020 (Định nghĩa 1.30, tr. 33) explicitly as a synonym: \"Một mạng lưới (hay đồ thị có trọng số) là một đồ thị...\"; it is recorded as a variant. (Caution: \"mạng lưới\" also appears at hoangchithanh-2007 tr. 101 in the informal sense \"mạng lưới giao thông\"/traffic network, not the formal concept, so that hit is not cited.) \"Đồ thị trọng số\" (without \"có\") is a shorter variant attested in figure captions of nguyenhuudien-2019 (tr. 250) and hoangchithanh-2007 (tr. 135). For the hoangchithanh-2007 row the stored snippet is the RAW OCR line of the figure caption (\"Hinh 17.10. Đồ thị trong số và một cây bao trùm nhỏ nhất\"): OCR mangles the figure number and drops the diacritic on \"số\"; the normalized reading is \"Hình 11.10. Đồ thị trọng số và một cây bao trùm nhỏ nhất\" (Figure 11.10 of chapter 11), so the term is genuine and a --loose match confirms it. Correctness caveat (moved out of the formal definition): in many applications edge weights are assumed nonnegative (e.g. shortest-path, minimum-spanning-tree contexts), but the general definition and the headword notation $$w : E(G) \\to \\mathbb{R}$$ admit all real weights, including negative ones; the '(thường không âm)' parenthetical was therefore removed from the definition so it does not conflict with its own notation. Notation conventions vary by source: leanhvinh-2020 writes $$(G, \\omega)$$, while hoangchithanh-2007 and nguyenhuudien-2019 write $$(G, c)$$. The definition uses notation $$(G, w)$$ and $$w : E(G) \\to \\mathbb{R}$$ following the English ground truth (Rosen); \"ký hiệu\" is not used in the definition prose since the headword notation field already carries the symbolic form.",
    "see_also": [
-    "weight-of-an-edge",
-    "shortest-path-problem",
     "minimum-spanning-tree",
-    "dijkstras-algorithm"
+    "shortest-path-problem",
+    "weight-of-an-edge"
    ],
    "vi_terms": [
     {
@@ -270,7 +269,6 @@
    "example_vi": "Đồ thị bánh xe $$W_4$$ thu được từ chu trình $$C_4$$ bằng cách thêm một đỉnh mới nối với cả $$4$$ đỉnh của $$C_4$$, gồm $$5$$ đỉnh và $$8$$ cạnh.",
    "notes": "Recommended term \"đồ thị bánh xe\" is attested in the newest source (bib-nguyenhoangthach-2020, tr. 67) with the exact construction matching this concept, and also in bib-nguyenhuudien-2019 and bib-nguyenducnghia-2006. The reference-only Rosen translation (bib-rosen-2003-vi, excluded by find-term.py default) renders this as \"đồ thị hình bánh xe\" / \"bánh xe\" (with \"hình\"), recorded as a variant only. OCR sources bib-leanhvinh-2020 and bib-hoangchithanh-2007 returned 0 hits in both normal and --loose modes for both candidate terms. The lone \"bánh xe\" hit in bib-ngodactan-2004 (tr. 160) is an unrelated combinatorics exercise about a physical wheel with 15 evenly spaced positions, NOT the wheel graph, so it is not recorded as denoting this concept. Exposition note: the trailing \"ký hiệu là $$W_n$$\" clause was removed from the definition because $$W_n$$ is already named at the start of the sentence and the notation field carries the symbol.",
    "see_also": [
-    "cycle-graph",
     "complete-graph"
    ],
    "vi_terms": [
@@ -322,8 +320,7 @@
    "example_vi": "Xét tập khác rỗng $$A = \\{6, 2, 9, 4\\}$$ gồm các số nguyên không âm. Theo nguyên lý thứ tự tốt, $$A$$ có một phần tử nhỏ nhất, ở đây là $$2$$.",
    "notes": "Concept (Rosen §5.2): the well-ordering principle states that every nonempty set of nonnegative integers has a least element; more generally, every nonempty subset of a well-ordered set has a least element.\n\nAttestation: only bib-nguyenhuudien-2019 (2019 discrete math) treats this concept, on pdf p.120 (\"Định nghĩa 4.17 — Thứ tự tốt\"). That source names the PROPERTY (\"thứ tự tốt\" = well-ordered; \"được sắp tốt\" = well-ordered, alternative phrasing) and gives the defining condition \"mọi tập con khác rỗng đều có phần tử nhỏ nhất\" (every nonempty subset has a least element). It does NOT use the principle-phrase \"nguyên lý thứ tự tốt\".\n\nRecommended term: \"nguyên lý thứ tự tốt\" is the standard Vietnamese name for the PRINCIPLE itself. No corpus source (normal or --loose, including OCR sources bib-leanhvinh-2020 and bib-hoangchithanh-2007) literally attests this principle-phrase, so it is recorded as verified=false / page=\"\" per the citation-hygiene rule that keeps one standard recommended term. It is built directly on the attested property term \"thứ tự tốt\" (verified from the 2019 source). Searches for \"nguyên lý thứ tự tốt\", \"nguyên lý sắp tốt\", \"nguyên lý sắp thứ tự tốt\", \"sắp thứ tự tốt\", \"tập sắp thứ tự tốt\" all returned 0 hits.\n\nExposition note: the second sentence was tightened so the generalization to well-ordered sets $$S$$ states the nonnegative-integer instance as an example of the general property rather than restating the opening principle verbatim; the named principle proper remains exactly the first sentence.\n\nOCR note: the 2020/2007 OCR sources discuss other principles (\"nguyên lý quy nạp\" = induction, \"Nguyên lý Dirichlet\" = pigeonhole), none of which denote well-ordering. The 2020 sources do not attest any candidate for this concept.\n\nNotation/definition: the displayed nonnegative-integer set $$\\{0, 1, 2, \\ldots\\}$$ and $$\\min A$$ are introduced in the definition/notation; the example uses only the concept of least element of a finite nonempty set, introduced by the definition.\n\nVerifier: re-ran find-term.py for all three verified=true terms in bib-nguyenhuudien-2019 — all confirm on pdf p.120 with snippets denoting the well-ordering property (incl. \"Ví dụ 4.21\" giving (N, ≤) well-ordered, (Z, ≤) not). Re-ran principle-phrase searches (normal + OCR --loose): 0 hits, confirming verified=false for the recommended term.",
    "see_also": [
-    "mathematical-induction",
-    "strong-induction"
+    "mathematical-induction"
    ],
    "vi_terms": [
     {
@@ -758,6 +755,15 @@
      "page": "tr. 287 (PDF, bản dịch Rosen)",
      "snippet": "4**. Hay sinh ra tất cả các công thức được tạo đúng quy tắc, chứa các",
      "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "công thức được tạo đúng quy tắc",
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": "",
+     "verified": false,
      "recommended": false
     }
    ],

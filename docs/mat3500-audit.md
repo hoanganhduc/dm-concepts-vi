@@ -4,396 +4,145 @@ Tổng thuật ngữ EN↔VI rút từ bài giảng: **449**.
 
 | Hạng mục | Số lượng |
 |---|---|
-| ✅ Khớp bản dịch (CONSISTENT) | 69 |
-| ⚠️ Sách khuyến nghị khác (VARIANT) | 21 |
-| ❗ Bản dịch khác hẳn (VI_DIFFERS) | 12 |
-| ❌ Thiếu trong sách (MISSING) | 347 |
+| ✅ Khớp bản dịch (CONSISTENT) | 320 |
+| ⚠️ Sách khuyến nghị khác (VARIANT) | 45 |
+| ❗ Bản dịch khác hẳn (VI_DIFFERS) | 14 |
+| ❌ Thiếu trong sách (MISSING) | 70 |
 
 ## ❗ Bản dịch khác (sách nên xem lại / bổ sung biến thể)
 
 - **ancestors** — sách: `tổ tiên` · bài giảng: Các đỉnh tổ tiên
+- **argument** — sách: `` · bài giảng: Một lập luận
+- **binary** — sách: `Hệ cơ số 2 (nhị phân)` · bài giảng: Hệ cơ số $2$ (nhị phân
+- **decimal** — sách: `Hệ cơ số 10 (hệ thập phân)` · bài giảng: Hệ cơ số $10$ (hệ thập phân
+- **discrete structure** — sách: `cấu trúc rời rạc` · bài giảng: biểu diễn một cấu trúc rời rạc
+- **floor** — sách: `` · bài giảng: Tính toán không chính xác các giá trị của hàm sàn
+- **hexadecimal** — sách: `Hệ cơ số 16 (hệ thập lục phân)` · bài giảng: Hệ cơ số $16$ (hệ thập lục phân
+- **inverse** — sách: `mệnh đề nghịch đảo, nghịch đảo` · bài giảng: mệnh đề nghịch đảo, nghịch đảo
 - **karnaugh maps** — sách: `bìa Karnaugh` · bài giảng: Phương pháp sơ đồ Karnaugh
-- **knight's tour** — sách: `hành trình của con mã` · bài giảng: Đường đi tuần của quân mã
-- **least common multiple** — sách: `bội số chung nhỏ nhất` · bài giảng: Bội chung nhỏ nhất
-- **maximum matching** — sách: `cặp ghép lớn nhất` · bài giảng: ghép cặp cực đại
-- **neighborhood** — sách: `lân cận` · bài giảng: tập láng giềng
-- **one-to-one function** — sách: `đơn ánh` · bài giảng: hàm một-một
+- **naive set theory** — sách: `lý thuyết tập hợp ngây thơ` · bài giảng: lý thyết tập hợp ngây thơ
+- **octal** — sách: `Hệ cơ số 8 (hệ bát phân)` · bài giảng: Hệ cơ số $8$ (hệ bát phân
 - **optimization problems** — sách: `bài toán tối ưu` · bài giảng: Các bài toán tối ưu
-- **ordered pair** — sách: `cặp có thứ tự` · bài giảng: cặp sắp thứ tự
-- **perfect matching** — sách: `cặp ghép hoàn hảo` · bài giảng: ghép cặp hoàn hảo
 - **prime numbers** — sách: `số nguyên tố` · bài giảng: các số nguyên tố
-- **regular graph** — sách: `đồ thị đều bậc k` · bài giảng: đồ thị chính quy
+- **small-world property** — sách: `Tính chất thế giới nhỏ` · bài giảng: Tính chất ``thế giới nhỏ'', tính chất ``thế giới nhỏ''
 
 ## ⚠️ Sách khuyến nghị thuật ngữ khác với bài giảng
 
-- **articulation point** — sách khuyến nghị: `đỉnh cắt` · bài giảng dùng: điểm khớp
+- **arc** — sách khuyến nghị: `` · bài giảng dùng: cung
+- **articulation point** — sách khuyến nghị: `` · bài giảng dùng: điểm khớp
 - **circuit** — sách khuyến nghị: `chu trình đơn` · bài giảng dùng: mạch
+- **codomain** — sách khuyến nghị: `miền giá trị, tập đích` · bài giảng dùng: miền giá trị, tập đích
+- **complement graph** — sách khuyến nghị: `` · bài giảng dùng: Đồ thị bù
 - **cycle** — sách khuyến nghị: `đồ thị vòng` · bài giảng dùng: chu trình
 - **edge connectivity** — sách khuyến nghị: `độ liên thông cạnh` · bài giảng dùng: Số liên thông cạnh
+- **equivalent** — sách khuyến nghị: `` · bài giảng dùng: tương đương
 - **function** — sách khuyến nghị: `hàm số` · bài giảng dùng: hàm
+- **height** — sách khuyến nghị: `` · bài giảng dùng: Độ cao
+- **homeomorphic** — sách khuyến nghị: `` · bài giảng dùng: đồng phôi
+- **in-degree** — sách khuyến nghị: `` · bài giảng dùng: Bậc vào
 - **integers** — sách khuyến nghị: `số nguyên` · bài giảng dùng: Tập số nguyên
+- **knight's tour** — sách khuyến nghị: `hành trình của con mã` · bài giảng dùng: Đường đi tuần của quân mã
 - **leaf** — sách khuyến nghị: `lá` · bài giảng dùng: đỉnh lá
+- **least common multiple** — sách khuyến nghị: `bội số chung nhỏ nhất` · bài giảng dùng: Bội chung nhỏ nhất
+- **level** — sách khuyến nghị: `` · bài giảng dùng: Mức
 - **matching** — sách khuyến nghị: `cặp ghép` · bài giảng dùng: ghép cặp
+- **maximum matching** — sách khuyến nghị: `cặp ghép lớn nhất` · bài giảng dùng: ghép cặp cực đại
 - **minimum spanning tree** — sách khuyến nghị: `cây bao trùm nhỏ nhất` · bài giảng dùng: cây khung nhỏ nhất
 - **natural numbers** — sách khuyến nghị: `số tự nhiên` · bài giảng dùng: Tập số tự nhiên
 - **negation** — sách khuyến nghị: `mệnh đề phủ định` · bài giảng dùng: Phủ định
-- **node** — sách khuyến nghị: `đỉnh` · bài giảng dùng: nút
+- **neighborhood** — sách khuyến nghị: `lân cận` · bài giảng dùng: tập láng giềng
+- **node** — sách khuyến nghị: `` · bài giảng dùng: nút
 - **odd cycle** — sách khuyến nghị: `chu trình độ dài lẻ` · bài giảng dùng: chu trình lẻ
+- **one-to-one function** — sách khuyến nghị: `` · bài giảng dùng: hàm một-một
+- **order relation** — sách khuyến nghị: `` · bài giảng dùng: quan hệ thứ tự
+- **ordered pair** — sách khuyến nghị: `cặp có thứ tự` · bài giảng dùng: cặp sắp thứ tự
+- **out-degree** — sách khuyến nghị: `` · bài giảng dùng: Bậc ra
+- **perfect matching** — sách khuyến nghị: `cặp ghép hoàn hảo` · bài giảng dùng: ghép cặp hoàn hảo
 - **permutation** — sách khuyến nghị: `chỉnh hợp` · bài giảng dùng: hoán vị
 - **quotient** — sách khuyến nghị: `thương số` · bài giảng dùng: thương
+- **range** — sách khuyến nghị: `` · bài giảng dùng: tập ảnh
 - **recurrence relation** — sách khuyến nghị: `quan hệ truy hồi` · bài giảng dùng: hệ thức truy hồi
-- **relation** — sách khuyến nghị: `quan hệ hai ngôi` · bài giảng dùng: quan hệ
+- **regular graph** — sách khuyến nghị: `đồ thị đều bậc k` · bài giảng dùng: đồ thị chính quy
+- **relation** — sách khuyến nghị: `` · bài giảng dùng: quan hệ
+- **root** — sách khuyến nghị: `nghiệm, đỉnh gốc` · bài giảng dùng: nghiệm, đỉnh gốc
 - **sequence** — sách khuyến nghị: `dãy số` · bài giảng dùng: dãy
 - **spanning tree** — sách khuyến nghị: `cây bao trùm` · bài giảng dùng: cây khung
+- **strongly connected** — sách khuyến nghị: `` · bài giảng dùng: liên thông mạnh
+- **the dirichlet drawer principle** — sách khuyến nghị: `` · bài giảng dùng: Nguyên lý Dirichlet
+- **unbounded region** — sách khuyến nghị: `` · bài giảng dùng: miền vô hạn
 - **venn diagram** — sách khuyến nghị: `sơ đồ Venn` · bài giảng dùng: giản đồ Venn
 - **vertex connectivity** — sách khuyến nghị: `độ liên thông đỉnh` · bài giảng dùng: Số liên thông đỉnh
+- **wheel** — sách khuyến nghị: `` · bài giảng dùng: đồ thị bánh xe
 
 ## ❌ Thuật ngữ bài giảng chưa có trong sách
 
-- **absolute value** — bài giảng: Giá trị tuyệt đối  _(ở: 0-Preliminaries)_
 - **acquaintance graph** — bài giảng: đồ thị quen biết  _(ở: 8-Graphs_I)_
 - **acquaintance puzzle** — bài giảng: bài toán quen biết  _(ở: 8-Graphs_I)_
 - **addition** — bài giảng: Cộng  _(ở: 1-Logic_and_Proofs)_
-- **adjacency list** — bài giảng: danh sách kề  _(ở: 8-Graphs_I)_
-- **adjacent** — bài giảng: liền kề  _(ở: 8-Graphs_I)_
-- **algorithm analysis** — bài giảng: Phân tích thuật toán  _(ở: 4-Algorithms_I)_
-- **alphabetical order** — bài giảng: thứ tự bảng chữ cái  _(ở: 10-Graphs_III)_
-- **and gate** — bài giảng: Cổng AND  _(ở: 11-Boolean_Algebra)_
-- **argument** — bài giảng: Một lập luận  _(ở: 1-Logic_and_Proofs)_
 - **arithmetic expression** — bài giảng: biểu diễn một biểu thức số học  _(ở: 10-Graphs_III)_
-- **assignment** — bài giảng: Phép gán  _(ở: 4-Algorithms_I)_
-- **associated homogeneous recurrence relation** — bài giảng: hệ thức truy hồi thuần nhất tương ứng  _(ở: 3-Induction_and_Recursion)_
-- **asymptotic estimate** — bài giảng: đánh giá tiệm cận  _(ở: 4-Algorithms_I)_
-- **atomic proposition** — bài giảng: mệnh đề nguyên tử  _(ở: 1-Logic_and_Proofs)_
 - **average distance** — bài giảng: Khoảng cách trung bình  _(ở: 8-Graphs_I)_
-- **average-case complexity** — bài giảng: Độ phức tạp trường hợp trung bình  _(ở: 4-Algorithms_I)_
 - **axiom/postulate** — bài giảng: Tiên đề  _(ở: 1-Logic_and_Proofs)_
-- **backtracking** — bài giảng: kỹ thuật quay lui  _(ở: 10-Graphs_III)_
 - **backtracking technique** — bài giảng: kỹ thuật quay lui  _(ở: 10-Graphs_III)_
 - **balanced** — bài giảng: cân đối  _(ở: 10-Graphs_III)_
-- **base** — bài giảng: hệ cơ số  _(ở: 6-Basic_Number_Theory)_
-- **basis step** — bài giảng: Bước cơ sở  _(ở: 3-Induction_and_Recursion)_
-- **best-case complexity** — bài giảng: Độ phức tạp trường hợp tốt nhất  _(ở: 4-Algorithms_I)_
 - **betweenness centrality** — bài giảng: Độ trung tâm trung gian  _(ở: 8-Graphs_I)_
-- **bi-implication** — bài giảng: tương đương  _(ở: 1-Logic_and_Proofs)_
-- **binary** — bài giảng: Hệ cơ số $2$ (nhị phân  _(ở: 6-Basic_Number_Theory)_
-- **binary operator** — bài giảng: toán tử hai ngôi  _(ở: 1-Logic_and_Proofs)_
 - **biomolecular network** — bài giảng: mạng sinh học phân tử  _(ở: 8-Graphs_I)_
 - **bipartite cores** — bài giảng: lõi hai phần  _(ở: 8-Graphs_I)_
 - **blog graph** — bài giảng: Đồ thị blog  _(ở: 8-Graphs_I)_
-- **boolean expression** — bài giảng: biểu thức Boole  _(ở: 11-Boolean_Algebra)_
-- **boolean product** — bài giảng: Tích Boole  _(ở: 11-Boolean_Algebra)_
-- **boolean sum** — bài giảng: Tổng Boole  _(ở: 11-Boolean_Algebra)_
-- **boolean variable** — bài giảng: biến Boole  _(ở: 11-Boolean_Algebra)_
-- **bound variable** — bài giảng: biến ràng buộc  _(ở: 1-Logic_and_Proofs)_
 - **call graph** — bài giảng: đồ thị cuộc gọi  _(ở: 8-Graphs_I)_
-- **cantor diagonalization argument** — bài giảng: lập luận đường chéo của Cantor  _(ở: 2-Basic_Structures)_
-- **carry** — bài giảng: nhớ  _(ở: 6-Basic_Number_Theory)_
-- **cartesian product** — bài giảng: Tích Đềcác  _(ở: 0-Preliminaries, 2-Basic_Structures)_
-- **ceiling function** — bài giảng: Hàm trần  _(ở: 2-Basic_Structures)_
 - **centrality measures** — bài giảng: các độ đo trung tâm  _(ở: 8-Graphs_I)_
-- **centre** — bài giảng: tâm  _(ở: 8-Graphs_I)_
-- **characteristic polynomial** — bài giảng: đa thức đặc trưng  _(ở: 3-Induction_and_Recursion)_
-- **characteristic root** — bài giảng: nghiệm đặc trưng  _(ở: 3-Induction_and_Recursion)_
-- **child** — bài giảng: đỉnh con  _(ở: 10-Graphs_III)_
 - **chinese postman problem - cpp** — bài giảng: Bài toán người đưa thư Trung Hoa  _(ở: 9-Graphs_II)_
-- **codomain** — bài giảng: miền giá trị, tập đích  _(ở: 0-Preliminaries, 2-Basic_Structures)_
-- **coefficient** — bài giảng: hệ số  _(ở: 0-Preliminaries)_
 - **collaboration distance** — bài giảng: khoảng cách cộng tác  _(ở: 8-Graphs_I)_
 - **collaboration graph** — bài giảng: đồ thị có hướng của các trích dẫn, đồ thị hợp tác  _(ở: 8-Graphs_I)_
 - **color code** — bài giảng: mã màu  _(ở: 6-Basic_Number_Theory)_
-- **combinatorial circuit** — bài giảng: mạch tổ hợp  _(ở: 11-Boolean_Algebra)_
 - **comments** — bài giảng: Nhận xét và chú thích  _(ở: 4-Algorithms_I)_
-- **common difference** — bài giảng: công sai  _(ở: 2-Basic_Structures)_
-- **common ratio** — bài giảng: công bội  _(ở: 2-Basic_Structures)_
 - **community** — bài giảng: cộng đồng  _(ở: 8-Graphs_I)_
-- **complement** — bài giảng: Phần bù, phần bù  _(ở: 11-Boolean_Algebra, 2-Basic_Structures)_
-- **complement graph** — bài giảng: Đồ thị bù  _(ở: 8-Graphs_I)_
-- **complete matching** — bài giảng: ghép cặp đầy đủ  _(ở: 8-Graphs_I)_
-- **complexity** — bài giảng: Độ phức tạp  _(ở: 4-Algorithms_I)_
-- **composite number** — bài giảng: hợp số  _(ở: 0-Preliminaries, 6-Basic_Number_Theory)_
 - **composition** — bài giảng: hợp  _(ở: 2-Basic_Structures)_
-- **compound proposition** — bài giảng: Mệnh đề phức hợp  _(ở: 1-Logic_and_Proofs)_
 - **computer program** — bài giảng: chương trình máy tính  _(ở: 4-Algorithms_I)_
-- **conditional statement** — bài giảng: Cấu trúc điều kiện  _(ở: 4-Algorithms_I)_
-- **congruence** — bài giảng: phương trình đồng dư  _(ở: 6-Basic_Number_Theory)_
-- **conjecture** — bài giảng: Giả thuyết  _(ở: 1-Logic_and_Proofs)_
-- **conjunction** — bài giảng: Hội  _(ở: 1-Logic_and_Proofs)_
 - **conjunctive normal form - cnf** — bài giảng: dạng hội chuẩn tắc  _(ở: 1-Logic_and_Proofs, 11-Boolean_Algebra)_
-- **connected** — bài giảng: liên thông  _(ở: 8-Graphs_I)_
-- **contingency** — bài giảng: tiếp liên  _(ở: 1-Logic_and_Proofs)_
-- **contradiction** — bài giảng: mâu thuẫn  _(ở: 1-Logic_and_Proofs)_
-- **contrapositive** — bài giảng: mệnh đề phản đảo  _(ở: 1-Logic_and_Proofs)_
-- **converse** — bài giảng: mệnh đề đảo  _(ở: 1-Logic_and_Proofs)_
-- **corollary** — bài giảng: Hệ quả  _(ở: 1-Logic_and_Proofs)_
-- **correctness** — bài giảng: tính đúng đắn  _(ở: 4-Algorithms_I)_
 - **cost** — bài giảng: chi phí  _(ở: 5-Algorithms_II)_
-- **counterexample** — bài giảng: phản ví dụ  _(ở: 1-Logic_and_Proofs)_
-- **cover** — bài giảng: bao phủ  _(ở: 8-Graphs_I)_
-- **cut edge** — bài giảng: cạnh cắt  _(ở: 8-Graphs_I)_
 - **database** — bài giảng: cơ sở dữ liệu  _(ở: 1-Logic_and_Proofs)_
 - **database management system** — bài giảng: hệ quản trị cơ sở dữ liệu  _(ở: 1-Logic_and_Proofs)_
 - **database query** — bài giảng: truy vấn cơ sở dữ liệu  _(ở: 1-Logic_and_Proofs)_
-- **de morgan's laws for quantifiers** — bài giảng: Luật De Morgan cho lượng từ  _(ở: 1-Logic_and_Proofs)_
-- **decimal** — bài giảng: Hệ cơ số $10$ (hệ thập phân  _(ở: 6-Basic_Number_Theory)_
-- **decimal representation** — bài giảng: biểu diễn thập phân  _(ở: 0-Preliminaries)_
-- **decision tree** — bài giảng: cây quyết định  _(ở: 10-Graphs_III)_
-- **decreasing** — bài giảng: giảm  _(ở: 2-Basic_Structures)_
 - **degree** — bài giảng: Bậc, bậc  _(ở: 0-Preliminaries, 8-Graphs_I, 9-Graphs_II)_
-- **degree distribution** — bài giảng: phân phối bậc  _(ở: 8-Graphs_I)_
 - **dense directed bipartite subgraphs** — bài giảng: các đồ thị con hai phần có hướng dày đặc  _(ở: 8-Graphs_I)_
-- **descendants** — bài giảng: Các đỉnh con cháu  _(ở: 10-Graphs_III)_
-- **difference** — bài giảng: Hiệu  _(ở: 0-Preliminaries, 2-Basic_Structures)_
-- **digit** — bài giảng: chữ số  _(ở: 6-Basic_Number_Theory)_
-- **direct proof** — bài giảng: Chứng minh trực tiếp  _(ở: 1-Logic_and_Proofs)_
 - **directed acyclic graph -- dag** — bài giảng: đồ thị có hướng không có chu trình  _(ở: 8-Graphs_I)_
-- **directed edge** — bài giảng: cạnh có hướng  _(ở: 8-Graphs_I)_
-- **disconnected** — bài giảng: không liên thông  _(ở: 8-Graphs_I)_
-- **discrete** — bài giảng: đối tượng rời rạc  _(ở: 0-Intro)_
-- **discrete structure** — bài giảng: biểu diễn một cấu trúc rời rạc  _(ở: 2-Basic_Structures)_
-- **disjoint** — bài giảng: rời nhau  _(ở: 2-Basic_Structures)_
 - **disjunction/inclusive or** — bài giảng: Tuyển  _(ở: 1-Logic_and_Proofs)_
 - **disjunctive normal form - dnf** — bài giảng: dạng tuyển chuẩn tắc  _(ở: 1-Logic_and_Proofs, 11-Boolean_Algebra)_
-- **disjunctive syllogism** — bài giảng: Tam đoạn luận tuyển  _(ở: 1-Logic_and_Proofs)_
-- **distinct** — bài giảng: phân biệt  _(ở: 2-Basic_Structures)_
-- **divide and conquer** — bài giảng: chia để trị  _(ở: 4-Algorithms_I)_
 - **divide-and-conquer technique** — bài giảng: Kỹ thuật chia để trị  _(ở: 5-Algorithms_II)_
-- **dividend** — bài giảng: số bị chia  _(ở: 6-Basic_Number_Theory)_
-- **divisor** — bài giảng: số chia  _(ở: 6-Basic_Number_Theory)_
-- **double counting proof** — bài giảng: phương pháp đếm bằng hai cách  _(ở: 7-Counting)_
-- **double sum** — bài giảng: Tổng đôi  _(ở: 2-Basic_Structures)_
-- **dual** — bài giảng: Đối ngẫu  _(ở: 11-Boolean_Algebra)_
-- **duality principle** — bài giảng: Nguyên lý đối ngẫu  _(ở: 11-Boolean_Algebra)_
-- **eccentricity** — bài giảng: độ lệch tâm  _(ở: 8-Graphs_I)_
-- **edge chromatic number** — bài giảng: Sắc số cạnh  _(ở: 9-Graphs_II)_
-- **empty set** — bài giảng: Tập hợp rỗng  _(ở: 0-Preliminaries, 2-Basic_Structures)_
 - **equal** — bài giảng: bằng nhau  _(ở: 11-Boolean_Algebra)_
-- **equivalent** — bài giảng: tương đương  _(ở: 11-Boolean_Algebra)_
 - **eulerian path/circuit** — bài giảng: đường đi/chu trình Euler  _(ở: 9-Graphs_II)_
 - **evaluation** — bài giảng: đánh giá  _(ở: 10-Graphs_III)_
-- **even** — bài giảng: chẵn  _(ở: 1-Logic_and_Proofs)_
 - **exclusion rule** — bài giảng: quy tắc ngoại trừ  _(ở: 3-Induction_and_Recursion)_
-- **exclusive or** — bài giảng: Tuyển loại  _(ở: 1-Logic_and_Proofs)_
-- **existential generalization** — bài giảng: Tổng quát hóa hiện sinh  _(ở: 1-Logic_and_Proofs)_
-- **existential instantiation** — bài giảng: Khởi tạo hiện sinh  _(ở: 1-Logic_and_Proofs)_
-- **exponential** — bài giảng: hàm mũ  _(ở: 0-Preliminaries)_
-- **extremal graph theory** — bài giảng: lý thuyết đồ thị cực hạn  _(ở: 8-Graphs_I)_
-- **factor** — bài giảng: ước  _(ở: 0-Preliminaries, 6-Basic_Number_Theory)_
-- **factorial sequence** — bài giảng: Dãy giai thừa  _(ở: 3-Induction_and_Recursion)_
-- **fallacy** — bài giảng: ngụy biện  _(ở: 1-Logic_and_Proofs)_
-- **fallacy of affirming the conclusion** — bài giảng: Ngụy biện khẳng định hậu kiện  _(ở: 1-Logic_and_Proofs)_
-- **fallacy of denying the hypothesis** — bài giảng: Ngụy biện phủ định giả thiết  _(ở: 1-Logic_and_Proofs)_
-- **field** — bài giảng: trường  _(ở: 1-Logic_and_Proofs)_
-- **finite graph** — bài giảng: đồ thị hữu hạn  _(ở: 8-Graphs_I)_
-- **floor** — bài giảng: Tính toán không chính xác các giá trị của hàm sàn  _(ở: 2-Basic_Structures)_
-- **flowchart** — bài giảng: Sơ đồ khối, sơ đồ khối  _(ở: 4-Algorithms_I)_
-- **formal proof** — bài giảng: chứng minh hình thức  _(ở: 1-Logic_and_Proofs)_
-- **four color theorem** — bài giảng: Định lý bốn màu  _(ở: 9-Graphs_II)_
-- **free variable** — bài giảng: biến tự do  _(ở: 1-Logic_and_Proofs)_
-- **functionally complete** — bài giảng: đầy đủ  _(ở: 1-Logic_and_Proofs, 11-Boolean_Algebra)_
-- **gate** — bài giảng: cổng  _(ở: 11-Boolean_Algebra)_
-- **generalized binomial coefficient** — bài giảng: hệ số nhị thức tổng quát  _(ở: 7-Counting)_
-- **geometric progression** — bài giảng: cấp số nhân  _(ở: 2-Basic_Structures)_
-- **graph invariant** — bài giảng: bất biến đồ thị  _(ở: 8-Graphs_I)_
-- **greatest integer function** — bài giảng: hàm phần nguyên  _(ở: 2-Basic_Structures)_
-- **growth rate** — bài giảng: tốc độ tăng trưởng  _(ở: 4-Algorithms_I)_
 - **guessing and verifying** — bài giảng: Đoán nghiệm  _(ở: 3-Induction_and_Recursion)_
-- **height** — bài giảng: Độ cao  _(ở: 10-Graphs_III)_
-- **hexadecimal** — bài giảng: Hệ cơ số $16$ (hệ thập lục phân  _(ở: 6-Basic_Number_Theory)_
-- **homeomorphic** — bài giảng: đồng phôi  _(ở: 9-Graphs_II)_
 - **hubs** — bài giảng: trung tâm  _(ở: 8-Graphs_I)_
-- **hypothetical syllogism** — bài giảng: Tam đoạn luận giả định  _(ở: 1-Logic_and_Proofs)_
-- **identity function** — bài giảng: Hàm đồng nhất  _(ở: 2-Basic_Structures)_
-- **image** — bài giảng: ảnh  _(ở: 0-Preliminaries, 2-Basic_Structures)_
-- **implement** — bài giảng: cài đặt  _(ở: 4-Algorithms_I)_
-- **implication** — bài giảng: kéo theo  _(ở: 1-Logic_and_Proofs)_
-- **in-degree** — bài giảng: Bậc vào  _(ở: 8-Graphs_I)_
-- **incident** — bài giảng: liên thuộc  _(ở: 8-Graphs_I)_
-- **inclusion-exclusion principle** — bài giảng: Nguyên lý bù trừ, Đếm mỗi phần tử trong tập hợp đang xét nhiều hơn một lần, không nhận ra rằng cần sử dụng nguyên tắc bù-trừ  _(ở: 7-Counting)_
-- **increasing** — bài giảng: tăng  _(ở: 2-Basic_Structures)_
-- **index** — bài giảng: chỉ số  _(ở: 2-Basic_Structures)_
-- **index of summation** — bài giảng: chỉ số lấy tổng  _(ở: 2-Basic_Structures)_
 - **indices** — bài giảng: tập các chỉ số  _(ở: 2-Basic_Structures)_
-- **indirect proof** — bài giảng: Chứng minh gián tiếp  _(ở: 1-Logic_and_Proofs)_
 - **individual entity** — bài giảng: cá thể  _(ở: 1-Logic_and_Proofs)_
 - **induction trap** — bài giảng: Rơi vào ``bẫy quy nạp  _(ở: 3-Induction_and_Recursion)_
-- **inductive step** — bài giảng: Bước quy nạp  _(ở: 3-Induction_and_Recursion)_
-- **inequality** — bài giảng: bất đẳng thức  _(ở: 0-Preliminaries)_
-- **inference rule** — bài giảng: quy tắc suy luận  _(ở: 1-Logic_and_Proofs)_
-- **infinite graph** — bài giảng: đồ thị vô hạn  _(ở: 8-Graphs_I)_
-- **initial term** — bài giảng: số hạng đầu tiên  _(ở: 2-Basic_Structures)_
-- **inorder traversal** — bài giảng: trung thứ tự  _(ở: 10-Graphs_III)_
-- **input size** — bài giảng: kích thước đầu vào  _(ở: 4-Algorithms_I)_
-- **internal vertices** — bài giảng: các đỉnh trong  _(ở: 10-Graphs_III)_
 - **internet graph** — bài giảng: Đồ thị internet  _(ở: 8-Graphs_I)_
-- **intersection** — bài giảng: Giao  _(ở: 0-Preliminaries, 2-Basic_Structures)_
-- **inverse** — bài giảng: mệnh đề nghịch đảo, nghịch đảo  _(ở: 1-Logic_and_Proofs, 6-Basic_Number_Theory)_
-- **inverter** — bài giảng: Bộ đảo, Đặt bộ đảo  _(ở: 11-Boolean_Algebra)_
-- **invertible function** — bài giảng: hàm khả nghịch  _(ở: 2-Basic_Structures)_
-- **irrational number** — bài giảng: số vô tỷ  _(ở: 0-Preliminaries)_
-- **isomorphic** — bài giảng: đẳng cấu  _(ở: 8-Graphs_I)_
 - **iteration** — bài giảng: một phát biểu luôn đúng trước và sau mỗi lần lặp  _(ở: 4-Algorithms_I)_
 - **knight** — bài giảng: Quân mã  _(ở: 9-Graphs_II)_
-- **kuratowski's subgraph** — bài giảng: đồ thị con Kuratowski  _(ở: 9-Graphs_II)_
-- **left child** — bài giảng: đỉnh con trái  _(ở: 10-Graphs_III)_
-- **left subtree** — bài giảng: cây con trái  _(ở: 10-Graphs_III)_
-- **length** — bài giảng: Độ dài, độ dài  _(ở: 8-Graphs_I, 9-Graphs_II)_
-- **level** — bài giảng: Mức  _(ở: 10-Graphs_III)_
-- **lexicographic order** — bài giảng: thứ tự từ điển  _(ở: 10-Graphs_III)_
-- **linear congruence** — bài giảng: phương trình đồng dư tuyến tính  _(ở: 6-Basic_Number_Theory)_
-- **literal** — bài giảng: tục biến  _(ở: 11-Boolean_Algebra)_
-- **logarithm** — bài giảng: lôgarit  _(ở: 0-Preliminaries)_
-- **logical argument** — bài giảng: Một lập luận lôgic  _(ở: 1-Logic_and_Proofs)_
-- **logical operators** — bài giảng: toán tử lôgic  _(ở: 1-Logic_and_Proofs)_
-- **logical rules of inference** — bài giảng: Các quy tắc suy luận lôgic  _(ở: 1-Logic_and_Proofs)_
-- **logically equivalent** — bài giảng: tương đương lôgic  _(ở: 1-Logic_and_Proofs)_
-- **loop invariant** — bài giảng: bất biến vòng lặp  _(ở: 4-Algorithms_I)_
-- **lower limit** — bài giảng: giới hạn dưới  _(ở: 2-Basic_Structures)_
-- **master theorem** — bài giảng: Định lý thợ  _(ở: 5-Algorithms_II)_
 - **mathematical induction** — bài giảng: Quy nạp toán học, phương pháp quy nạp  _(ở: 3-Induction_and_Recursion)_
 - **media access control** — bài giảng: Địa chỉ kiểm soát truy cập phương tiện truyền thông (MAC  _(ở: 7-Counting)_
 - **member** — bài giảng: thành viên  _(ở: 0-Preliminaries, 2-Basic_Structures)_
-- **membership table** — bài giảng: Bảng tính thuộc  _(ở: 2-Basic_Structures)_
-- **minimization** — bài giảng: rút gọn  _(ở: 11-Boolean_Algebra)_
-- **minterm** — bài giảng: tiểu hạng  _(ở: 11-Boolean_Algebra)_
-- **multiple** — bài giảng: bội  _(ở: 0-Preliminaries, 6-Basic_Number_Theory)_
-- **naive set theory** — bài giảng: lý thyết tập hợp ngây thơ  _(ở: 2-Basic_Structures)_
 - **natural language** — bài giảng: ngôn ngữ thông thường  _(ở: 4-Algorithms_I)_
-- **natural logarithm** — bài giảng: Lôgarit tự nhiên  _(ở: 0-Preliminaries)_
-- **nonseparable graph** — bài giảng: đồ thị không thể tách rời  _(ở: 8-Graphs_I)_
 - **null graph** — bài giảng: đồ thị rỗng  _(ở: 8-Graphs_I)_
-- **number theory** — bài giảng: Lý thuyết số  _(ở: 6-Basic_Number_Theory)_
-- **octal** — bài giảng: Hệ cơ số $8$ (hệ bát phân  _(ở: 6-Basic_Number_Theory)_
-- **odd** — bài giảng: lẻ  _(ở: 1-Logic_and_Proofs)_
 - **of vertices** — bài giảng: tập phân tách (separating set  _(ở: 8-Graphs_I)_
-- **one's complement notation** — bài giảng: ký hiệu phần bù một  _(ở: 6-Basic_Number_Theory)_
-- **or gate** — bài giảng: Cổng OR  _(ở: 11-Boolean_Algebra)_
 - **order pair** — bài giảng: cặp sắp thứ tự  _(ở: 2-Basic_Structures)_
-- **ordered rooted tree** — bài giảng: cây có gốc được sắp thứ tự  _(ở: 10-Graphs_III)_
 - **ordinary** — bài giảng: Hàm sinh (  _(ở: 7-Counting)_
-- **out-degree** — bài giảng: Bậc ra  _(ở: 8-Graphs_I)_
-- **pairwise relatively prime** — bài giảng: đôi một nguyên tố cùng nhau  _(ở: 6-Basic_Number_Theory)_
-- **palindrome** — bài giảng: chuỗi đối xứng  _(ở: 4-Algorithms_I, 7-Counting)_
-- **paradox** — bài giảng: nghịch lý  _(ở: 2-Basic_Structures)_
-- **parent** — bài giảng: Đỉnh cha  _(ở: 10-Graphs_III)_
-- **partial fraction decomposition** — bài giảng: Phân tích thành phân số riêng  _(ở: 0-Preliminaries)_
-- **pendant vertex** — bài giảng: đỉnh treo  _(ở: 8-Graphs_I)_
 - **performance** — bài giảng: hiệu năng  _(ở: 4-Algorithms_I)_
 - **personal identification number** — bài giảng: PIN  _(ở: 7-Counting)_
-- **pivot** — bài giảng: chốt  _(ở: 5-Algorithms_II)_
-- **planar representation** — bài giảng: biểu diễn phẳng  _(ở: 9-Graphs_II)_
-- **polish notation** — bài giảng: ký pháp Ba Lan  _(ở: 10-Graphs_III)_
-- **polynomial** — bài giảng: đa thức  _(ở: 0-Preliminaries)_
-- **positive integers** — bài giảng: Tập số nguyên dương, các số nguyên dương  _(ở: 0-Preliminaries, 2-Basic_Structures, 6-Basic_Number_Theory)_
-- **positive real numbers** — bài giảng: Tập số thực dương  _(ở: 2-Basic_Structures)_
-- **postorder traversal** — bài giảng: hậu thứ tự  _(ở: 10-Graphs_III)_
-- **power** — bài giảng: lũy thừa  _(ở: 0-Preliminaries)_
-- **power law** — bài giảng: luật lũy thừa  _(ở: 8-Graphs_I)_
-- **preimage** — bài giảng: nghịch ảnh  _(ở: 2-Basic_Structures)_
-- **preorder traversal** — bài giảng: tiền thứ tự  _(ở: 10-Graphs_III)_
-- **private key cryptography** — bài giảng: mật mã khóa bí mật  _(ở: 6-Basic_Number_Theory)_
-- **product** — bài giảng: Tích, tích  _(ở: 11-Boolean_Algebra, 2-Basic_Structures)_
-- **product-of-sums expansion** — bài giảng: khai triển tích các tổng  _(ở: 11-Boolean_Algebra)_
-- **proof** — bài giảng: Chứng minh  _(ở: 1-Logic_and_Proofs)_
-- **proof by cases** — bài giảng: Chứng minh bằng cách chia trường hợp  _(ở: 1-Logic_and_Proofs)_
-- **proof by contradiction** — bài giảng: Chứng minh phản chứng  _(ở: 1-Logic_and_Proofs)_
-- **proof by contraposition** — bài giảng: Chứng minh phản đảo  _(ở: 1-Logic_and_Proofs)_
-- **proper subgraph** — bài giảng: đồ thị con thực sự  _(ở: 8-Graphs_I)_
-- **proper subset** — bài giảng: tập con thực sự  _(ở: 0-Preliminaries, 2-Basic_Structures)_
-- **propositional function** — bài giảng: hàm mệnh đề  _(ở: 0-Preliminaries, 1-Logic_and_Proofs)_
-- **pseudocode** — bài giảng: Giả mã, giả mã  _(ở: 4-Algorithms_I)_
-- **public key cryptography** — bài giảng: mật mã khóa công khai  _(ở: 6-Basic_Number_Theory)_
 - **quine-mccluskey method** — bài giảng: Phương pháp Quine-McCluskey  _(ở: 11-Boolean_Algebra)_
-- **ramsey's theorem** — bài giảng: Định lý Ramsey  _(ở: 8-Graphs_I)_
-- **range** — bài giảng: tập ảnh  _(ở: 0-Preliminaries)_
-- **rational numbers** — bài giảng: Tập số hữu tỷ  _(ở: 0-Preliminaries, 2-Basic_Structures)_
-- **real numbers** — bài giảng: Tập số thực  _(ở: 0-Preliminaries)_
-- **real-valued function** — bài giảng: hàm thực  _(ở: 2-Basic_Structures)_
-- **recursion tree** — bài giảng: Cây đệ quy  _(ở: 5-Algorithms_II)_
-- **recursive call** — bài giảng: lần gọi đệ quy  _(ở: 5-Algorithms_II)_
-- **recursive function** — bài giảng: Hàm định nghĩa bằng đệ quy  _(ở: 3-Induction_and_Recursion)_
-- **recursive procedure** — bài giảng: thủ tục đệ quy  _(ở: 5-Algorithms_II)_
-- **recursive set** — bài giảng: Tập hợp định nghĩa bằng đệ quy  _(ở: 3-Induction_and_Recursion)_
-- **recursive step** — bài giảng: Bước đệ quy  _(ở: 3-Induction_and_Recursion)_
 - **reentrant** — bài giảng: khép kín  _(ở: 9-Graphs_II)_
-- **region** — bài giảng: miền  _(ở: 9-Graphs_II)_
-- **remainder** — bài giảng: số dư  _(ở: 6-Basic_Number_Theory)_
-- **resolution** — bài giảng: Hợp giải  _(ở: 1-Logic_and_Proofs)_
-- **right child** — bài giảng: đỉnh con phải  _(ở: 10-Graphs_III)_
-- **right subtree** — bài giảng: cây con phải  _(ở: 10-Graphs_III)_
-- **root** — bài giảng: nghiệm, đỉnh gốc  _(ở: 0-Preliminaries, 10-Graphs_III)_
 - **rotary encoder** — bài giảng: Bộ mã hóa vòng quay  _(ở: 9-Graphs_II)_
-- **scale-free network** — bài giảng: mạng lưới không tỷ lệ  _(ở: 8-Graphs_I)_
 - **search engine** — bài giảng: công cụ tìm kiếm  _(ở: 1-Logic_and_Proofs)_
-- **self-complementary** — bài giảng: tự bù  _(ở: 8-Graphs_I)_
-- **separating set of edges** — bài giảng: tập cạnh phân tách  _(ở: 8-Graphs_I)_
-- **siblings** — bài giảng: các đỉnh anh em  _(ở: 10-Graphs_III)_
-- **sign-magnitude format** — bài giảng: định dạng dấu-lượng  _(ở: 6-Basic_Number_Theory)_
-- **simplification** — bài giảng: Rút gọn  _(ở: 1-Logic_and_Proofs)_
-- **small-world property** — bài giảng: Tính chất ``thế giới nhỏ'', tính chất ``thế giới nhỏ''  _(ở: 8-Graphs_I)_
-- **solution** — bài giảng: nghiệm  _(ở: 3-Induction_and_Recursion)_
 - **space** — bài giảng: bộ nhớ  _(ở: 4-Algorithms_I)_
-- **space complexity** — bài giảng: Độ phức tạp theo không gian  _(ở: 4-Algorithms_I)_
-- **spanning subgraph** — bài giảng: đồ thị con bao trùm  _(ở: 8-Graphs_I)_
-- **square root** — bài giảng: Căn bậc hai  _(ở: 0-Preliminaries)_
 - **stable** — bài giảng: ổn định  _(ở: 8-Graphs_I)_
-- **stable matching** — bài giảng: ghép cặp ổn định  _(ở: 8-Graphs_I)_
-- **stable matching algorithm** — bài giảng: thuật toán ghép cặp ổn định  _(ở: 8-Graphs_I)_
 - **steps** — bài giảng: các bước  _(ở: 1-Logic_and_Proofs)_
-- **strictly decreasing** — bài giảng: thực sự giảm  _(ở: 2-Basic_Structures)_
-- **strictly increasing** — bài giảng: thực sự tăng  _(ở: 2-Basic_Structures)_
-- **string** — bài giảng: chuỗi ký tự  _(ở: 2-Basic_Structures)_
-- **strong mathematical induction** — bài giảng: Quy nạp toán học mạnh  _(ở: 3-Induction_and_Recursion)_
-- **strongly connected** — bài giảng: liên thông mạnh  _(ở: 8-Graphs_I)_
-- **strongly connected component** — bài giảng: thành phần liên thông mạnh  _(ở: 8-Graphs_I)_
-- **structural induction** — bài giảng: quy nạp theo cấu trúc  _(ở: 3-Induction_and_Recursion)_
-- **subdivision** — bài giảng: phép phân chia  _(ở: 9-Graphs_II)_
-- **subtree** — bài giảng: Cây con  _(ở: 10-Graphs_III)_
-- **sum** — bài giảng: Tổng  _(ở: 11-Boolean_Algebra)_
-- **sum-of-products expansion** — bài giảng: khai triển tổng các tích  _(ở: 11-Boolean_Algebra)_
-- **summation** — bài giảng: Tổng  _(ở: 2-Basic_Structures)_
-- **summation notation** — bài giảng: ký hiệu tổng  _(ở: 2-Basic_Structures)_
-- **symmetric difference** — bài giảng: Hiệu đối xứng  _(ở: 2-Basic_Structures)_
-- **system of linear equations** — bài giảng: hệ phương trình tuyến tính  _(ở: 0-Preliminaries)_
-- **term** — bài giảng: số hạng  _(ở: 2-Basic_Structures)_
-- **the bijection rule** — bài giảng: Quy tắc song ánh  _(ở: 7-Counting)_
-- **the chinese remainder theorem** — bài giảng: Định lý phần dư Trung Hoa  _(ở: 6-Basic_Number_Theory)_
-- **the dirichlet drawer principle** — bài giảng: Nguyên lý Dirichlet  _(ở: 7-Counting)_
-- **the division rule** — bài giảng: Quy tắc chia  _(ở: 7-Counting)_
-- **the first principle of mathematical induction** — bài giảng: Nguyên lý Thứ nhất của Quy nạp toán học  _(ở: 3-Induction_and_Recursion)_
-- **the generalized pigeonhole principle** — bài giảng: Nguyên lý chuồng bồ câu tổng quát  _(ở: 7-Counting)_
-- **the pigeonhole principle** — bài giảng: Nguyên lý chuồng bồ câu  _(ở: 7-Counting)_
-- **the product rule** — bài giảng: Quy tắc nhân  _(ở: 7-Counting)_
-- **the second principle of mathematical induction** — bài giảng: Nguyên lý Thứ hai của Quy nạp toán học  _(ở: 3-Induction_and_Recursion)_
-- **the sieve of eratosthenes** — bài giảng: Sàng Eratosthenes  _(ở: 6-Basic_Number_Theory)_
-- **the subtraction rule** — bài giảng: Quy tắc trừ  _(ở: 7-Counting)_
-- **the sum rule** — bài giảng: Quy tắc cộng  _(ở: 7-Counting)_
 - **theo** — bài giảng: $a$ đồng dư với $b$  _(ở: 6-Basic_Number_Theory)_
 - **time** — bài giảng: thời gian  _(ở: 4-Algorithms_I)_
-- **time complexity** — bài giảng: Độ phức tạp theo thời gian, độ phức tạp tính toán theo thời gian  _(ở: 4-Algorithms_I)_
 - **traveling salesman problem - tsp** — bài giảng: Bài toán người giao hàng  _(ở: 9-Graphs_II)_
-- **trivial proof** — bài giảng: Chứng minh hiển nhiên  _(ở: 1-Logic_and_Proofs)_
-- **two's complement notation** — bài giảng: ký hiệu phần bù hai  _(ở: 6-Basic_Number_Theory)_
-- **unary operator** — bài giảng: toán tử một ngôi  _(ở: 1-Logic_and_Proofs)_
-- **unbounded region** — bài giảng: miền vô hạn  _(ở: 9-Graphs_II)_
-- **undirected edge** — bài giảng: cạnh vô hướng  _(ở: 8-Graphs_I)_
-- **union** — bài giảng: Hợp  _(ở: 0-Preliminaries, 2-Basic_Structures, 8-Graphs_I)_
-- **universal address system** — bài giảng: Hệ thống địa chỉ phổ quát  _(ở: 10-Graphs_III)_
-- **universal generalization** — bài giảng: Tổng quát hóa phổ quát  _(ở: 1-Logic_and_Proofs)_
-- **universal instantiation** — bài giảng: Khởi tạo phổ quát  _(ở: 1-Logic_and_Proofs)_
 - **unordered** — bài giảng: không sắp thứ tự  _(ở: 2-Basic_Structures)_
 - **unstable** — bài giảng: không ổn định  _(ở: 8-Graphs_I)_
 - **upper limit** — bài giảng: giới hạn trên  _(ở: 2-Basic_Structures)_
 - **url-shortening service** — bài giảng: dịch vụ rút gọn đường dẫn  _(ở: 7-Counting)_
 - **vacuously** — bài giảng: Không nhận ra rằng tính đối xứng hoặc tính bắc cầu thường đúng một cách tầm thường  _(ở: 2-Basic_Structures)_
-- **valid** — bài giảng: hợp lý  _(ở: 1-Logic_and_Proofs)_
-- **valid inference rule** — bài giảng: quy tắc suy luận lôgic hợp lý  _(ở: 1-Logic_and_Proofs)_
-- **vandermonde's identity** — bài giảng: đẳng thức Vandermonde  _(ở: 7-Counting)_
-- **variable** — bài giảng: biến  _(ở: 4-Algorithms_I)_
-- **weak mathematical induction** — bài giảng: Quy nạp toán học yếu  _(ở: 3-Induction_and_Recursion)_
-- **weakly connected** — bài giảng: liên thông yếu  _(ở: 8-Graphs_I)_
-- **weight** — bài giảng: trọng số  _(ở: 9-Graphs_II)_
-- **well-formed formulae** — bài giảng: các công thức được tạo đúng quy tắc  _(ở: 3-Induction_and_Recursion)_
-- **wheel** — bài giảng: đồ thị bánh xe  _(ở: 8-Graphs_I)_
-- **witness** — bài giảng: bằng chứng  _(ở: 4-Algorithms_I)_
-- **worst-case complexity** — bài giảng: Độ phức tạp trường hợp xấu nhất  _(ở: 4-Algorithms_I)_

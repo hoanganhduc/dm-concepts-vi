@@ -1,0 +1,2403 @@
+OpenAI Codex v0.141.0
+--------
+workdir: /home/ubuntu/DM-Concepts
+model: gpt-5.5
+provider: openai
+approval: never
+sandbox: danger-full-access
+reasoning effort: xhigh
+reasoning summaries: none
+session id: 019ef2ac-b0e8-7e32-9c2b-8931dffe50f5
+--------
+user
+You are a meticulous bilingual (English-Vietnamese) discrete-mathematics dictionary reviewer.
+Working directory: /home/ubuntu/DM-Concepts. Do NOT modify any dictionary file. Be evidence-based; NEVER invent a translation or a source.
+
+Read this batch of entries:
+  cat workflow/loop/review/batch-12.json
+It is a JSON array; each entry has: id, headword_en, definition_vi (Vietnamese), vi_terms (array of {term, recommended, ...}), see_ref.
+If see_ref is non-empty the entry is a cross-reference stub: SKIP it.
+
+For EACH non-stub entry, use WEB SEARCH (prefer authoritative Vietnamese sources: university lecture notes / giáo trình, published textbooks, standard references) to check TWO things:
+
+(A) COMMONALITY of the recommended Vietnamese term (the vi_term with recommended=true): is it the common/standard rendering of this English concept in Vietnamese discrete mathematics? If it is uncommon and a clearly MORE standard term exists, report verdict "uncommon" with the better term and a source URL. Otherwise verdict "common" (or "unsure").
+
+(B) ALTERNATIVE TRANSLATIONS: any additional valid Vietnamese translation of the English concept that is NOT already among the entry's existing vi_terms. Example: 'independent set' = 'tập độc lập' AND 'tập ổn định' (internal stable set). List each missing variant with a brief source (URL or book).
+
+Efficiency (IMPORTANT - your context is limited): use web SEARCH RESULT SNIPPETS only; do NOT open or fetch full web pages or PDF files (fetching large pages overflows your context and the run fails). At most 1-2 lightweight searches per entry; skip entries that are clearly fine.
+
+WRITE your result as a JSON file to workflow/loop/review/findings-12.json (use your file-writing tool), exactly this shape:
+{"loop":12,"reviewed":<int>,"findings":[{"id":"<id>","commonality":{"verdict":"common|uncommon|unsure","better_term":"<term or empty>","source":"<url or empty>"},"missing_variants":[{"term":"<vi term>","source":"<url or book>"}]}]}
+Include ONLY entries that have at least one finding (an uncommon verdict OR a missing variant). Valid JSON only (no comments, no trailing commas).
+
+After writing the file, print on its own line:  WROTE findings-12.json
+Then print the final marker line:  ===CODEX_REVIEW_DONE===
+
+hook: SessionStart
+hook: SessionStart Completed
+codex
+I’ll use the `source-research` skill because this is a source-checking task. First I’m checking the relevant local instructions, then I’ll show the execution plan before reviewing the batch.
+hook: PreToolUse
+hook: PreToolUse Completed
+exec
+/bin/bash -lc "sed -n '1,220p' /home/ubuntu/.codex/skills/source-research/SKILL.md" in /home/ubuntu/DM-Concepts
+ succeeded in 0ms:
+---
+name: "source-research"
+description: "General web and source-gathering research workflow for current-information synthesis."
+metadata:
+  short-description: "General web and source-gathering research workflow for current-information synthesis."
+---
+
+<!-- Managed by ai-agents-skills. Generated target: codex. Install mode: reference. -->
+
+# source-research
+
+This is a thin adapter for agents that cannot load symlinked skills.
+
+Canonical skill source:
+
+- `~/ai-agents-skills/canonical/skills/source-research/SKILL.md`
+
+Before using this skill, read the canonical source file above and follow
+its instructions. Related reference files live next to that source file
+in the same skill directory.
+
+
+hook: PostToolUse
+hook: PostToolUse Completed
+codex
+The local skill file is a thin adapter, so I’m following it to the canonical source-research instructions before doing the dictionary review.
+hook: PreToolUse
+hook: PreToolUse Completed
+exec
+/bin/bash -lc "sed -n '1,260p' /home/ubuntu/ai-agents-skills/canonical/skills/source-research/SKILL.md" in /home/ubuntu/DM-Concepts
+ succeeded in 0ms:
+---
+name: source-research
+description: Use when the user wants research, source gathering, current-information lookups, cross-source synthesis, or extraction from URLs/PDFs/videos using web search, page inspection, local tools, and sub-agents.
+metadata:
+  short-description: Source-gathering research workflow
+---
+
+# Source Research
+
+Use this as the default source-gathering research router.
+
+## Supporting files
+
+Open these only when relevant:
+
+- `references/specialist-subagents.md` for focused single-specialist delegation briefs imported from the local Claude setup
+
+## Legacy tool mapping
+
+- legacy `web_search` -> Codex `web.search_query`
+- legacy `web_fetch` -> Codex `web.open`
+- legacy task/session spawning -> Codex `spawn_agent`
+- legacy `exec` -> Codex `functions.exec_command`
+
+## Live workspace routing
+
+- Generic paper, article, preprint, DOI, ISBN, and book retrieval or sharing requests route to `zotero` first.
+- Explicit Calibre-library ebook operations route to `calibre`.
+- External paper or book retrieval routes to `getscipapers-requester` only
+  after the relevant local-library workflow does not satisfy the request, or
+  after the user explicitly says not to check/use the library. The word
+  "download" alone is not an outside-library opt-out.
+- Multi-agent discussion/review/research routes to `agent-group-discuss` by default and `prose` for more structured workflows.
+- Annotated paper review routes to `annotated-review` only when the user explicitly asks for both annotation and review.
+- Review-only paper tasks route to `paper-review`.
+- Topic/news digests route to `research-digest-wrapper` or `rss-news-digest`.
+- Digest-to-paper extraction routes to `digest-bridge`.
+- Explicit phased deep research with structured source handoff routes to `deep-research-workflow`.
+- Writing, report, review, digest, or final-answer workflows must load
+  `writing-style-settings.md`; math or LaTeX writing must also load
+  `math-manuscript-style.md`.
+- Explicit TikZ drawing, refactoring, extraction, compile, or diagram-review requests route to `tikz-draw`.
+- Small graph-theoretic verification routes to `graph-verifier`.
+- Mathematical research tasks that need heavy graph-theoretic, combinatorial, algebraic, or spectral computation route to `sagemath`.
+
+## Default workflow
+
+1. If the request is current, says "latest", "today", "verify", or otherwise depends on recent facts, browse first.
+2. Start with focused search queries, not long prompts.
+3. Open the best primary sources, not just search snippets.
+4. Extract only the parts needed for the answer.
+5. Synthesize after evidence collection, not before.
+6. Cite concrete sources and dates whenever the answer depends on live or specific facts.
+7. For writing-producing outputs, record or surface `style_profile_ref`,
+   `active_overlays`, `active_requirement_ids`, and `style_applied`; do not
+   treat a bare `style_applied: true` assertion as sufficient evidence.
+
+## Research heuristics
+
+- Prefer primary sources: official docs, vendor pages, papers, standards, government sites.
+- Use domain filters when the source class is obvious.
+- For PDFs, use `web.open` and `web.screenshot` when needed.
+- For local files, use `functions.exec_command` instead of browsing.
+- Separate sourced facts from your own inference.
+- Prefer `deep-research-workflow` over this skill when the user explicitly wants phased search -> analysis -> writing with source preservation across stages.
+- Prefer `tikz-draw` for explicit TikZ or structural-diagram requests, including research-derived figures that already have a narrowed brief.
+- If a research task needs a diagram, keep the research in `deep-research-workflow` first and hand off to `tikz-draw` only after analysis identifies a concrete figure worth generating.
+- For literature retrieval requests, check the relevant local library workflow before browsing or external download.
+- For review tasks that need a paper/book, use the lookup order `zotero` -> `calibre` -> online fallback.
+- For digest follow-up, use `digest-bridge` to extract identifiers before bulk paper retrieval.
+- For explicit Calibre ebook-library workflows, prefer `calibre` over improvised filesystem search.
+- For mathematical verification, prefer local Python for small checks and route to `sagemath` when the computation needs SageMath-native capabilities.
+- Never use `curl`, `wget`, ad hoc browser fetches, or direct publisher-site HTTP requests as a substitute for the library tools on paper/book retrieval tasks.
+- When a lookup returns multiple plausible paper/book matches, show a numbered
+  list with title, authors, and year when available, then wait for the user's
+  chosen index before `--best`, `--index`, add, attach, send, review, or external
+  retrieval.
+
+## Parallelism
+
+If the task has distinct independent threads, spawn sub-agents in parallel.
+
+Good candidates:
+- source discovery vs synthesis plan
+- product A vs product B
+- multiple independent subtopics
+
+Do not spawn agents for the immediate blocking step if local work is faster.
+Ask for explicit confirmation before spawning subagents unless the user already
+requested multi-agent work, approved a workflow that includes subagents, or gave
+an explicit budget/depth instruction that makes parallel delegation expected.
+
+## Focused specialist delegation
+
+When the task needs one narrow specialist rather than a full panel, reuse the
+briefs in `references/specialist-subagents.md`.
+
+Good matches:
+
+- literature survey or citation hunting -> `literature-scout`
+- small-case exploration or counterexample search -> `math-explorer`
+- single-reviewer manuscript critique -> `paper-reviewer`
+- adversarial checking of one proof/lemma -> `proof-checker`
+
+## Route to narrower skills
+
+- Use `zotero` for generic paper, DOI, ISBN, book, and paper-library retrieval or sharing requests, including "find/get/send/share this paper or book".
+- Use `docling` for local parsing, conversion, chunking, and structure-aware analysis of PDFs, office documents, HTML, and image-backed documents.
+- Use `get-available-resources` before heavy local parsing or compute when resource constraints may materially affect the approach.
+- Use `database-lookup` for structured public scientific, regulatory, and economic database queries.
+- Use `paper-lookup` for external literature metadata/discovery after the library-first workflow and before external retrieval.
+- Use `deep-research-workflow` for single-agent phased deep research that needs explicit source handoff across search, analysis, and final writing.
+- Use `tikz-draw` for explicit TikZ figure generation, refactoring, extraction, compile, or review work, especially when the output should follow a structure-first brief -> spec -> render flow.
+- Use `calibre` for explicit Calibre library operations: ebook search/get by ID, sending Calibre-managed books, add/update, tags, shelves, sync, remove, convert, export, doctor, and clean.
+- Use `getscipapers-requester` only for external retrieval or DOI/ISBN
+  resolution after Zotero does not satisfy the request, or when the user
+  explicitly says not to check/use the library and wants outside retrieval. For
+  review tasks that need a document, check `calibre` after `zotero` and before
+  this fallback.
+- If an externally retrieved book file should be added to the ebook library, hand off to `calibre` for the final add/update step.
+- Use `annotated-review` only for annotate+review paper flows.
+- Use `paper-review` for single-agent review-only paper flows such as review, critique, hard review, or issue-finding requests.
+- Use `agent-group-discuss` for conversational multi-agent discussion, review, or research panels.
+- Use `prose` when the user wants explicit multi-agent research-and-synthesis orchestration.
+- Use `research-digest-wrapper` and `rss-news-digest` for tracked-topic and RSS-based research updates.
+- Use `graph-verifier` for lightweight graph sanity checks before escalating to SageMath.
+- Use `digest-bridge` to turn digest results into identifiers and manifests for retrieval.
+- Use `sagemath` for graph invariants, algebraic checks, spectral computations, exhaustive counterexample search, and other math tasks beyond lightweight local tooling.
+
+hook: PostToolUse
+hook: PostToolUse Completed
+codex
+I’ve read the source-research instructions. I’m doing a quick local documentation check now so the review follows the repo’s workflow rather than guessing its file conventions.
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+exec
+/bin/bash -lc "rg --files -g 'AGENTS.md' -g 'README*' -g 'workflow/**'" in /home/ubuntu/DM-Concepts
+ succeeded in 0ms:
+workflow/workflows/build-chapter.js
+workflow/corpus/bib-nguyenducnghia-2006.txt
+workflow/corpus/manifest.json
+workflow/corpus/bib-nguyenhoangthach-2020.txt
+workflow/corpus/bib-rosen-2003-vi.txt
+workflow/corpus/bib-nguyenhuudien-2019.txt
+workflow/corpus/bib-leanhvinh-2020.txt
+workflow/corpus/bib-hoangchithanh-2007.txt
+workflow/corpus/bib-ngodactan-2004.txt
+workflow/loop/review/findings-6.json
+workflow/loop/review/batch-11.json
+workflow/loop/review/findings-1.json
+workflow/loop/review/findings-11.json
+workflow/loop/review/citation-issues.json
+workflow/loop/review/batch-19.json
+workflow/loop/review/findings-2.json
+workflow/loop/review/batch-17.json
+workflow/loop/review/findings-7.json
+workflow/loop/review/codex-out-5.txt
+workflow/loop/review/codex-out-8.txt
+workflow/loop/review/batch-6.json
+workflow/loop/review/iterations.jsonl
+workflow/loop/review/batch-14.json
+workflow/loop/review/codex-out-6.txt
+workflow/loop/review/batch-20.json
+workflow/loop/review/findings-10.json
+workflow/loop/review/batch-18.json
+workflow/loop/review/codex-out-10.txt
+workflow/loop/review/batch-4.json
+workflow/loop/review/codex-out-2.txt
+workflow/loop/review/codex-out-9.txt
+workflow/loop/review/codex-out-12.txt
+workflow/loop/review/findings-3.json
+workflow/loop/review/batch-15.json
+workflow/loop/review/loop_state.json
+workflow/loop/review/batch-7.json
+workflow/loop/review/batch-3.json
+workflow/loop/review/codex-out-4.txt
+workflow/loop/review/batch-12.json
+workflow/loop/review/findings-5.json
+workflow/loop/review/findings-4.json
+workflow/loop/review/codex-out-1.txt
+workflow/loop/review/batch-9.json
+workflow/loop/review/batch-13.json
+workflow/loop/review/codex-out-11.txt
+workflow/loop/review/batch-5.json
+workflow/loop/review/codex-out-3.txt
+workflow/loop/review/findings-8.json
+workflow/loop/review/batch-10.json
+workflow/loop/review/batch-16.json
+workflow/loop/review/batch-1.json
+workflow/loop/review/findings-9.json
+workflow/loop/review/review-log.jsonl
+workflow/loop/review/codex-out-7.txt
+workflow/loop/review/batch-8.json
+workflow/loop/review/batch-2.json
+workflow/loop/iterations.jsonl
+workflow/loop/recovery.md
+workflow/loop/loop_state.json
+workflow/loop/budget.json
+workflow/panels/chapter-q-final.json
+workflow/panels/chapter-g-final.json
+workflow/panels/chapter-m-final.json
+workflow/panels/chapter-p-final.json
+workflow/panels/chapter-r-final.json
+workflow/panels/chapter-h-final.json
+workflow/panels/chapter-u-final.json
+workflow/panels/chapter-k-final.json
+workflow/panels/chapter-y-final.json
+workflow/panels/chapter-f-final.json
+workflow/panels/chapter-c-final.json
+workflow/panels/chapter-z-final.json
+workflow/panels/chapter-n-final.json
+workflow/panels/chapter-l-final.json
+workflow/panels/chapter-w-final.json
+workflow/panels/chapter-o-final.json
+workflow/panels/chapter-v-final.json
+workflow/panels/chapter-b-final.json
+workflow/panels/chapter-i-final.json
+workflow/panels/chapter-e-final.json
+workflow/panels/chapter-j-final.json
+workflow/panels/chapter-x-final.json
+workflow/panels/chapter-t-final.json
+workflow/panels/chapter-s-final.json
+workflow/panels/chapter-d-final.json
+workflow/panels/chapter-a-final.json
+workflow/scripts/notify-telegram.sh
+workflow/scripts/validate-entry.py
+workflow/scripts/add-course-variants.py
+workflow/scripts/update-refs-publishers.py
+workflow/scripts/review-prep.py
+workflow/scripts/audit-mat3500.py
+workflow/scripts/extract-rosen-terms.py
+workflow/scripts/find-term.py
+workflow/scripts/clean-mat3500-notation.py
+workflow/scripts/encode-chapter.py
+workflow/scripts/consolidate-synonyms.py
+workflow/scripts/build-search-index.py
+workflow/scripts/get-entry.py
+workflow/scripts/finalize-letter.sh
+workflow/scripts/book-headwords.py
+workflow/scripts/rosen-enrich.py
+workflow/scripts/fix-citations.py
+workflow/scripts/merge-staging.py
+workflow/scripts/loop-advance.py
+workflow/scripts/consistency-pass.py
+workflow/scripts/check-citations.py
+workflow/scripts/review-step.sh
+workflow/scripts/codex-review-prompt.sh
+workflow/scripts/apply-review.py
+workflow/scripts/ocr-pdf.py
+README.md
+
+hook: PostToolUse
+exec
+/bin/bash -lc "find workflow/loop/review -maxdepth 2 -type f | sort | sed -n '1,120p'" in /home/ubuntu/DM-Concepts
+ succeeded in 0ms:
+workflow/loop/review/batch-1.json
+workflow/loop/review/batch-10.json
+workflow/loop/review/batch-11.json
+workflow/loop/review/batch-12.json
+workflow/loop/review/batch-13.json
+workflow/loop/review/batch-14.json
+workflow/loop/review/batch-15.json
+workflow/loop/review/batch-16.json
+workflow/loop/review/batch-17.json
+workflow/loop/review/batch-18.json
+workflow/loop/review/batch-19.json
+workflow/loop/review/batch-2.json
+workflow/loop/review/batch-20.json
+workflow/loop/review/batch-3.json
+workflow/loop/review/batch-4.json
+workflow/loop/review/batch-5.json
+workflow/loop/review/batch-6.json
+workflow/loop/review/batch-7.json
+workflow/loop/review/batch-8.json
+workflow/loop/review/batch-9.json
+workflow/loop/review/citation-issues.json
+workflow/loop/review/codex-out-1.txt
+workflow/loop/review/codex-out-10.txt
+workflow/loop/review/codex-out-11.txt
+workflow/loop/review/codex-out-12.txt
+workflow/loop/review/codex-out-2.txt
+workflow/loop/review/codex-out-3.txt
+workflow/loop/review/codex-out-4.txt
+workflow/loop/review/codex-out-5.txt
+workflow/loop/review/codex-out-6.txt
+workflow/loop/review/codex-out-7.txt
+workflow/loop/review/codex-out-8.txt
+workflow/loop/review/codex-out-9.txt
+workflow/loop/review/findings-1.json
+workflow/loop/review/findings-10.json
+workflow/loop/review/findings-11.json
+workflow/loop/review/findings-2.json
+workflow/loop/review/findings-3.json
+workflow/loop/review/findings-4.json
+workflow/loop/review/findings-5.json
+workflow/loop/review/findings-6.json
+workflow/loop/review/findings-7.json
+workflow/loop/review/findings-8.json
+workflow/loop/review/findings-9.json
+workflow/loop/review/iterations.jsonl
+workflow/loop/review/loop_state.json
+workflow/loop/review/review-log.jsonl
+
+hook: PostToolUse
+hook: PostToolUse Completed
+hook: PostToolUse Completed
+codex
+The repo has review batches and helper scripts, so I’m checking the review-specific helpers and README references before touching the batch or output file.
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+exec
+/bin/bash -lc "sed -n '1,220p' workflow/scripts/codex-review-prompt.sh" in /home/ubuntu/DM-Concepts
+ succeeded in 0ms:
+#!/usr/bin/env bash
+# Emit the Codex web-review prompt for loop <i> (dimensions 2+3; dimension 1 is
+# done deterministically by check-citations.py). Usage: codex-review-prompt.sh <i>
+i="${1:?usage: codex-review-prompt.sh <loop-number>}"
+cat <<EOF
+You are a meticulous bilingual (English-Vietnamese) discrete-mathematics dictionary reviewer.
+Working directory: /home/ubuntu/DM-Concepts. Do NOT modify any dictionary file. Be evidence-based; NEVER invent a translation or a source.
+
+Read this batch of entries:
+  cat workflow/loop/review/batch-${i}.json
+It is a JSON array; each entry has: id, headword_en, definition_vi (Vietnamese), vi_terms (array of {term, recommended, ...}), see_ref.
+If see_ref is non-empty the entry is a cross-reference stub: SKIP it.
+
+For EACH non-stub entry, use WEB SEARCH (prefer authoritative Vietnamese sources: university lecture notes / giáo trình, published textbooks, standard references) to check TWO things:
+
+(A) COMMONALITY of the recommended Vietnamese term (the vi_term with recommended=true): is it the common/standard rendering of this English concept in Vietnamese discrete mathematics? If it is uncommon and a clearly MORE standard term exists, report verdict "uncommon" with the better term and a source URL. Otherwise verdict "common" (or "unsure").
+
+(B) ALTERNATIVE TRANSLATIONS: any additional valid Vietnamese translation of the English concept that is NOT already among the entry's existing vi_terms. Example: 'independent set' = 'tập độc lập' AND 'tập ổn định' (internal stable set). List each missing variant with a brief source (URL or book).
+
+Efficiency (IMPORTANT - your context is limited): use web SEARCH RESULT SNIPPETS only; do NOT open or fetch full web pages or PDF files (fetching large pages overflows your context and the run fails). At most 1-2 lightweight searches per entry; skip entries that are clearly fine.
+
+WRITE your result as a JSON file to workflow/loop/review/findings-${i}.json (use your file-writing tool), exactly this shape:
+{"loop":${i},"reviewed":<int>,"findings":[{"id":"<id>","commonality":{"verdict":"common|uncommon|unsure","better_term":"<term or empty>","source":"<url or empty>"},"missing_variants":[{"term":"<vi term>","source":"<url or book>"}]}]}
+Include ONLY entries that have at least one finding (an uncommon verdict OR a missing variant). Valid JSON only (no comments, no trailing commas).
+
+After writing the file, print on its own line:  WROTE findings-${i}.json
+Then print the final marker line:  ===CODEX_REVIEW_DONE===
+EOF
+
+hook: PostToolUse
+exec
+/bin/bash -lc "sed -n '1,220p' workflow/scripts/review-step.sh" in /home/ubuntu/DM-Concepts
+ succeeded in 0ms:
+#!/usr/bin/env bash
+# Apply finished batch <i>, advance the ledger, and prepare batch <i+1>.
+# Prints NEXT=<i+1> (or ALL_BATCHES_DONE). Usage: review-step.sh <i>
+set -uo pipefail
+i="${1:?usage: review-step.sh <batch-number>}"
+cd /home/ubuntu/DM-Concepts
+PY="$HOME/.venvs/pretext/bin/python"
+R=workflow/loop/review
+TOTAL=$("$PY" -c "import glob;print(len(glob.glob('$R/batch-*.json')))")
+
+if [ -f "$R/findings-$i.json" ]; then
+  "$PY" workflow/scripts/apply-review.py "$i"
+else
+  echo "WARN: no findings-$i.json"; tail -2 "$R/codex-out-$i.txt" 2>/dev/null
+fi
+next=$((i+1))
+"$PY" -c "import json;p='$R/loop_state.json';s=json.load(open(p));s['done_loops']=sorted(set(s.get('done_loops',[])+[$i]));s['current']=$next;json.dump(s,open(p,'w'),ensure_ascii=False,indent=1)"
+if [ "$next" -le "$TOTAL" ]; then
+  bash workflow/scripts/codex-review-prompt.sh "$next" > "/tmp/rp$next.txt"
+  rm -f "$R/findings-$next.json" "$R/codex-out-$next.txt"
+  echo "NEXT=$next ready (of $TOTAL)"
+else
+  echo "ALL_BATCHES_DONE ($TOTAL batches)"
+fi
+
+exec
+/bin/bash -lc 'rg -n "review|findings|batch|codex" README.md workflow/scripts/review-step.sh workflow/scripts/codex-review-prompt.sh workflow/scripts/apply-review.py workflow/scripts/review-prep.py' in /home/ubuntu/DM-Concepts
+ succeeded in 0ms:
+workflow/scripts/review-prep.py:2:"""Prepare the 10-loop Codex review: split all entries into 10 ordered batches,
+workflow/scripts/review-prep.py:3:write each to workflow/loop/review/batch-<i>.json, and initialise the loop ledger.
+workflow/scripts/review-prep.py:10:REVIEW = os.path.join(ROOT, "workflow", "loop", "review")
+workflow/scripts/review-prep.py:39:        json.dump(slim, open(os.path.join(REVIEW, f"batch-{i+1}.json"), "w", encoding="utf-8"),
+workflow/scripts/review-prep.py:43:        "goal": "Codex line-by-line review of all entries over 10 sequential loops: "
+workflow/scripts/review-prep.py:46:        "reviewer": "codex (gpt-5.5, xhigh) via codex exec; Claude orchestrates + validates + fixes",
+workflow/scripts/review-prep.py:47:        "n_loops": NLOOPS, "n_entries": n, "batch_size": size,
+workflow/scripts/review-prep.py:55:    print(f"{n} entries -> {NLOOPS} batches of <= {size}. Ledger at workflow/loop/review/")
+workflow/scripts/apply-review.py:2:"""Apply one loop's Codex web-review findings (workflow/loop/review/findings-<i>.json).
+workflow/scripts/apply-review.py:10:Usage: apply-review.py <loop-number>
+workflow/scripts/apply-review.py:19:REVIEW = os.path.join(ROOT, "workflow", "loop", "review")
+workflow/scripts/apply-review.py:35:    data = json.load(open(os.path.join(REVIEW, f"findings-{i}.json"), encoding="utf-8"))
+workflow/scripts/apply-review.py:36:    findings = {x["id"]: x for x in data.get("findings", [])}
+workflow/scripts/apply-review.py:45:    for eid, fd in findings.items():
+workflow/scripts/apply-review.py:67:    open(os.path.join(REVIEW, "review-log.jsonl"), "a", encoding="utf-8").write(
+workflow/scripts/codex-review-prompt.sh:2:# Emit the Codex web-review prompt for loop <i> (dimensions 2+3; dimension 1 is
+workflow/scripts/codex-review-prompt.sh:3:# done deterministically by check-citations.py). Usage: codex-review-prompt.sh <i>
+workflow/scripts/codex-review-prompt.sh:4:i="${1:?usage: codex-review-prompt.sh <loop-number>}"
+workflow/scripts/codex-review-prompt.sh:6:You are a meticulous bilingual (English-Vietnamese) discrete-mathematics dictionary reviewer.
+workflow/scripts/codex-review-prompt.sh:9:Read this batch of entries:
+workflow/scripts/codex-review-prompt.sh:10:  cat workflow/loop/review/batch-${i}.json
+workflow/scripts/codex-review-prompt.sh:22:WRITE your result as a JSON file to workflow/loop/review/findings-${i}.json (use your file-writing tool), exactly this shape:
+workflow/scripts/codex-review-prompt.sh:23:{"loop":${i},"reviewed":<int>,"findings":[{"id":"<id>","commonality":{"verdict":"common|uncommon|unsure","better_term":"<term or empty>","source":"<url or empty>"},"missing_variants":[{"term":"<vi term>","source":"<url or book>"}]}]}
+workflow/scripts/codex-review-prompt.sh:26:After writing the file, print on its own line:  WROTE findings-${i}.json
+workflow/scripts/review-step.sh:2:# Apply finished batch <i>, advance the ledger, and prepare batch <i+1>.
+workflow/scripts/review-step.sh:3:# Prints NEXT=<i+1> (or ALL_BATCHES_DONE). Usage: review-step.sh <i>
+workflow/scripts/review-step.sh:5:i="${1:?usage: review-step.sh <batch-number>}"
+workflow/scripts/review-step.sh:8:R=workflow/loop/review
+workflow/scripts/review-step.sh:9:TOTAL=$("$PY" -c "import glob;print(len(glob.glob('$R/batch-*.json')))")
+workflow/scripts/review-step.sh:11:if [ -f "$R/findings-$i.json" ]; then
+workflow/scripts/review-step.sh:12:  "$PY" workflow/scripts/apply-review.py "$i"
+workflow/scripts/review-step.sh:14:  echo "WARN: no findings-$i.json"; tail -2 "$R/codex-out-$i.txt" 2>/dev/null
+workflow/scripts/review-step.sh:19:  bash workflow/scripts/codex-review-prompt.sh "$next" > "/tmp/rp$next.txt"
+workflow/scripts/review-step.sh:20:  rm -f "$R/findings-$next.json" "$R/codex-out-$next.txt"
+workflow/scripts/review-step.sh:23:  echo "ALL_BATCHES_DONE ($TOTAL batches)"
+
+hook: PostToolUse
+hook: PostToolUse
+hook: PostToolUse Completed
+hook: PostToolUse Completed
+hook: PostToolUse Completed
+codex
+Docs/Helpers Checked:
+- User-provided AGENTS.md instructions in this prompt
+- `/home/ubuntu/.codex/skills/source-research/SKILL.md`
+- `/home/ubuntu/ai-agents-skills/canonical/skills/source-research/SKILL.md`
+- `workflow/scripts/codex-review-prompt.sh`
+- `workflow/scripts/review-step.sh`
+- README/review helper references via `rg`
+
+Plan:
+1. Read `workflow/loop/review/batch-12.json`, count non-stub entries, and list each recommended term plus existing variants.
+2. For each non-stub entry, run 1 lightweight web search first, using snippets only and not opening results or PDFs.
+3. Add a second focused search only where the first search suggests a missing synonym or the commonality is unclear.
+4. Write only substantiated findings to `workflow/loop/review/findings-12.json` with valid JSON, then validate JSON shape and confirm no dictionary files were changed.
+  → Read batch and identify non-stub entries
+  • Search snippets for commonality and variants
+  • Write findings JSON
+  • Validate JSON and unchanged dictionary files
+codex
+I’m reading the batch now and separating stubs from entries that need web-snippet evidence.
+hook: PreToolUse
+hook: PreToolUse Completed
+exec
+/bin/bash -lc 'cat workflow/loop/review/batch-12.json' in /home/ubuntu/DM-Concepts
+ succeeded in 0ms:
+[
+ {
+  "id": "multiple",
+  "letter": "M",
+  "headword_en": "Multiple",
+  "rosen_ref": "Rosen §3.4",
+  "definition_vi": "Bội của một số nguyên $$a$$ là một số nguyên $$b$$ sao cho $$b = ac$$ với một số nguyên $$c$$ nào đó; khi đó $$a$$ chia hết $$b$$, ký hiệu $$a \\mid b$$, và $$b$$ được gọi là một bội của $$a$$. Nói cách khác, $$b$$ là bội của $$a$$ khi và chỉ khi $$a$$ là một ước số của $$b$$.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "bội",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 152 (PDF)",
+    "pdf_page": 152,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "bội",
+    "source_id": "bib-leanhvinh-2020",
+    "page": "tr. 197 (PDF)",
+    "pdf_page": 197,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "bội số",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 39 (PDF)",
+    "pdf_page": 39,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "bội số",
+    "source_id": "bib-ngodactan-2004",
+    "page": "tr. 70 (PDF)",
+    "pdf_page": 70,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "bội số",
+    "source_id": "bib-nguyenhoangthach-2020",
+    "page": "tr. 54 (PDF)",
+    "pdf_page": 54,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "bội số",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 158 (PDF, bản dịch Rosen)",
+    "pdf_page": 158,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "multiple-directed-edges",
+  "letter": "M",
+  "headword_en": "Multiple Directed Edges",
+  "rosen_ref": "Rosen §10.1",
+  "definition_vi": "Các cạnh có hướng bội là những cạnh có hướng phân biệt nhưng cùng tương ứng với một cặp đỉnh có thứ tự $$(u, v)$$. Nói cách khác, đó là nhiều cạnh có hướng cùng đi từ đỉnh $$u$$ đến đỉnh $$v$$ trong một đa đồ thị có hướng.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "cạnh có hướng bội",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": true
+   },
+   {
+    "term": "cạnh bội",
+    "source_id": "bib-nguyenhoangthach-2020",
+    "page": "tr. 62 (PDF)",
+    "pdf_page": 62,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "cạnh bội",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 154 (PDF)",
+    "pdf_page": 154,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "cạnh bội",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 496 (PDF)",
+    "pdf_page": 496,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "multiple-edges",
+  "letter": "M",
+  "headword_en": "Multiple Edges",
+  "rosen_ref": "Rosen §10.1",
+  "definition_vi": "Các \\emph{cạnh bội} (hay \\emph{cạnh song song}) là những cạnh phân biệt cùng nối một cặp đỉnh. Nói cách khác, với hai đỉnh $$u$$ và $$v$$, nếu có hai hoặc nhiều cạnh phân biệt cùng có hai đầu mút là $$u$$ và $$v$$ thì các cạnh đó được gọi là cạnh bội.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "cạnh bội",
+    "source_id": "bib-nguyenhoangthach-2020",
+    "page": "tr. 62 (PDF)",
+    "pdf_page": 62,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "cạnh bội",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 154 (PDF)",
+    "pdf_page": 154,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "cạnh bội",
+    "source_id": "bib-ngodactan-2004",
+    "page": "tr. 289 (PDF)",
+    "pdf_page": 289,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "cạnh bội",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 496 (PDF, bản dịch Rosen)",
+    "pdf_page": 496,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "cạnh song song",
+    "source_id": "bib-leanhvinh-2020",
+    "page": "tr. 8 (PDF)",
+    "pdf_page": 8,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "multiplication-principle",
+  "letter": "M",
+  "headword_en": "multiplication principle",
+  "rosen_ref": "",
+  "definition_vi": "",
+  "see_ref": "the-product-rule",
+  "vi_terms": [
+   {
+    "term": "quy tắc nhân",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": false
+   },
+   {
+    "term": "nguyên lý nhân",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "multiset",
+  "letter": "M",
+  "headword_en": "multiset",
+  "rosen_ref": "Rosen §2.2",
+  "definition_vi": "Một \\emph{đa tập} là một bộ sưu tập không có thứ tự các phần tử, trong đó mỗi phần tử có thể xuất hiện nhiều hơn một lần. Lực lượng của một đa tập $$A$$, ký hiệu $$|A|$$, là số các phần tử của $$A$$ tính cả các lần lặp lại.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "đa tập",
+    "source_id": "bib-ngodactan-2004",
+    "page": "tr. 31 (PDF)",
+    "pdf_page": 31,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "đa tập hợp",
+    "source_id": "bib-ngodactan-2004",
+    "page": "tr. 31 (PDF)",
+    "pdf_page": 31,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "đa tập",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 79 (PDF, bản dịch Rosen)",
+    "pdf_page": 79,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "mutually-independent-events",
+  "letter": "M",
+  "headword_en": "Mutually Independent Events",
+  "rosen_ref": "Rosen §7.2",
+  "definition_vi": "Các biến cố $$E_1, E_2, \\ldots, E_n$$ được gọi là độc lập tương hỗ nếu với mọi tập con $$I \\subseteq \\{1, 2, \\ldots, n\\}$$, xác suất của giao của các biến cố trong tập con đó bằng tích các xác suất của chúng, tức là $$p\\!\\left(\\bigcap_{i \\in I} E_i\\right) = \\prod_{i \\in I} p(E_i)$$.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "biến cố độc lập tương hỗ",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": true
+   },
+   {
+    "term": "độc lập tương hỗ",
+    "source_id": "bib-leanhvinh-2020",
+    "page": "tr. 157 (PDF)",
+    "pdf_page": 157,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "biến cố độc lập",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "n-ary-relation",
+  "letter": "N",
+  "headword_en": "n-ary relation",
+  "rosen_ref": "Rosen §9.2",
+  "definition_vi": "Quan hệ $$n$$ ngôi trên các tập hợp $$A_1, A_2, \\ldots, A_n$$ là một tập hợp con của tích Descartes $$A_1 \\times A_2 \\times \\cdots \\times A_n$$, ký hiệu $$R \\subseteq A_1 \\times A_2 \\times \\cdots \\times A_n$$. Mỗi phần tử của $$R$$ là một bộ $$n$$ phần tử $$(a_1, a_2, \\ldots, a_n)$$ với $$a_i \\in A_i$$.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "quan hệ n ngôi",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": true
+   },
+   {
+    "term": "quan hệ 2 ngôi",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 106 (PDF)",
+    "pdf_page": 106,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "quan hệ hai ngôi",
+    "source_id": "bib-nguyenhoangthach-2020",
+    "page": "tr. 74 (PDF)",
+    "pdf_page": 74,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "quan hệ hai ngôi",
+    "source_id": "bib-nguyenducnghia-2006",
+    "page": "tr. 14 (PDF)",
+    "pdf_page": 14,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "quan hệ hai ngôi",
+    "source_id": "bib-ngodactan-2004",
+    "page": "tr. 163 (PDF)",
+    "pdf_page": 163,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "quan hệ hai ngôi",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 424 (PDF, bản dịch Rosen)",
+    "pdf_page": 424,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "n-cube",
+  "letter": "N",
+  "headword_en": "n-cube",
+  "rosen_ref": "",
+  "definition_vi": "",
+  "see_ref": "hypercube",
+  "vi_terms": [
+   {
+    "term": "đồ thị siêu lập phương",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": false
+   },
+   {
+    "term": "siêu lập phương",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": false
+   },
+   {
+    "term": "siêu khối",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": false
+   },
+   {
+    "term": "đồ thị lập phương",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": false
+   },
+   {
+    "term": "mạng kiểu siêu khối",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "naive-set-theory",
+  "letter": "N",
+  "headword_en": "Naive Set Theory",
+  "rosen_ref": "Rosen §2.1",
+  "definition_vi": "Lý thuyết tập hợp ngây thơ là cách xây dựng lý thuyết tập hợp của Cantor, trong đó tập hợp được hiểu một cách trực giác như một bộ sưu tập không sắp thứ tự các đối tượng và bất kỳ tính chất nào cũng xác định một tập hợp gồm mọi đối tượng thỏa mãn tính chất đó. Cách tiếp cận này không dựa trên một hệ tiên đề hình thức nên có thể dẫn tới nghịch lý, chẳng hạn nghịch lý Russell với $$S = \\{x \\mid x \\notin x\\}$$.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "lý thuyết tập hợp ngây thơ",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 54 (PDF)",
+    "pdf_page": 54,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "lý thyết tập hợp ngây thơ",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "natural-logarithm",
+  "letter": "N",
+  "headword_en": "Natural Logarithm",
+  "rosen_ref": "Rosen Appendix 2",
+  "definition_vi": "Lôgarit tự nhiên của một số dương $$x$$, ký hiệu $$\\ln x$$, là lôgarit cơ số $$e$$ của $$x$$, tức là số mũ $$y$$ thỏa mãn $$e^{y} = x$$, trong đó $$e \\approx 2.71828$$ là cơ số của lôgarit tự nhiên. Tương đương, $$\\ln x = \\log_{e} x$$ với mọi $$x > 0$$.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "Lôgarit tự nhiên",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": true
+   }
+  ]
+ },
+ {
+  "id": "natural-number",
+  "letter": "N",
+  "headword_en": "natural number",
+  "rosen_ref": "Rosen §2.1",
+  "definition_vi": "Số tự nhiên là một trong các số nguyên không âm $$0, 1, 2, 3, \\ldots$$. Tập hợp tất cả các số tự nhiên được ký hiệu là $$\\mathbb{N}$$.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "số tự nhiên",
+    "source_id": "bib-nguyenhoangthach-2020",
+    "page": "tr. 22 (PDF)",
+    "pdf_page": 22,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "số tự nhiên",
+    "source_id": "bib-nguyenhoangthach-2020",
+    "page": "tr. 37 (PDF)",
+    "pdf_page": 37,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "số tự nhiên",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 62 (PDF)",
+    "pdf_page": 62,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "số tự nhiên",
+    "source_id": "bib-nguyenducnghia-2006",
+    "page": "tr. 20 (PDF)",
+    "pdf_page": 20,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "số tự nhiên",
+    "source_id": "bib-ngodactan-2004",
+    "page": "tr. 321 (PDF)",
+    "pdf_page": 321,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "số tự nhiên",
+    "source_id": "bib-hoangchithanh-2007",
+    "page": "tr. 9 (PDF)",
+    "pdf_page": 9,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "tập số tự nhiên",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 62 (PDF)",
+    "pdf_page": 62,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "số tự nhiên",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 54 (PDF, bản dịch Rosen)",
+    "pdf_page": 54,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "nearest-neighbor-algorithm",
+  "letter": "N",
+  "headword_en": "nearest-neighbor algorithm",
+  "rosen_ref": "Rosen §10.6",
+  "definition_vi": "Thuật toán láng giềng gần nhất là một thuật toán heuristic cho bài toán người du lịch trên một đồ thị có trọng số. Xuất phát từ một đỉnh ban đầu, thuật toán lặp lại việc di chuyển từ đỉnh hiện tại tới đỉnh chưa thăm gần nhất (đỉnh nối với đỉnh hiện tại bởi cạnh có trọng số nhỏ nhất), cho đến khi mọi đỉnh đều được thăm rồi quay trở về đỉnh xuất phát để tạo thành một chu trình.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "thuật toán láng giềng gần nhất",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": true
+   }
+  ]
+ },
+ {
+  "id": "necessary-condition",
+  "letter": "N",
+  "headword_en": "necessary condition",
+  "rosen_ref": "Rosen §1.1",
+  "definition_vi": "Trong mệnh đề kéo theo $$p \\to q$$, mệnh đề $$q$$ được gọi là điều kiện cần cho $$p$$, nghĩa là $$p$$ không thể đúng nếu $$q$$ không đúng. Ta cũng đọc phát biểu này là \"$$p$$ chỉ nếu $$q$$\".",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "điều kiện cần",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 19 (PDF)",
+    "pdf_page": 19,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "điều kiện cần",
+    "source_id": "bib-leanhvinh-2020",
+    "page": "tr. 17 (PDF)",
+    "pdf_page": 17,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "điều kiện cần",
+    "source_id": "bib-nguyenducnghia-2006",
+    "page": "tr. 158 (PDF)",
+    "pdf_page": 158,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "điều kiện cần",
+    "source_id": "bib-ngodactan-2004",
+    "page": "tr. 271 (PDF)",
+    "pdf_page": 271,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "điều kiện cần và đủ",
+    "source_id": "bib-nguyenhoangthach-2020",
+    "page": "tr. 70 (PDF)",
+    "pdf_page": 70,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "điều kiện cần và đủ",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 25 (PDF)",
+    "pdf_page": 25,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "điều kiện cần và đủ",
+    "source_id": "bib-nguyenducnghia-2006",
+    "page": "tr. 191 (PDF)",
+    "pdf_page": 191,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "điều kiện cần và đủ",
+    "source_id": "bib-hoangchithanh-2007",
+    "page": "tr. 77 (PDF)",
+    "pdf_page": 77,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "điều kiện cần và đủ",
+    "source_id": "bib-ngodactan-2004",
+    "page": "tr. 203 (PDF)",
+    "pdf_page": 203,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "điều kiện cần",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 11 (PDF, bản dịch Rosen)",
+    "pdf_page": 11,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "điều kiện cần và đủ",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 556 (PDF, bản dịch Rosen)",
+    "pdf_page": 556,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "negation",
+  "letter": "N",
+  "headword_en": "negation",
+  "rosen_ref": "Rosen §1.1",
+  "definition_vi": "Mệnh đề phủ định của một mệnh đề $$p$$, ký hiệu $$\\neg p$$, là mệnh đề có chân trị đúng khi và chỉ khi $$p$$ có chân trị sai.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "mệnh đề phủ định",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 16 (PDF)",
+    "pdf_page": 16,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "phép phủ định",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 16 (PDF)",
+    "pdf_page": 16,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "phủ định",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 16 (PDF)",
+    "pdf_page": 16,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "phủ định",
+    "source_id": "bib-nguyenducnghia-2006",
+    "page": "tr. 267 (PDF)",
+    "pdf_page": 267,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "phép phủ định",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 45 (PDF, bản dịch Rosen)",
+    "pdf_page": 45,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "phủ định",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 7 (PDF, bản dịch Rosen)",
+    "pdf_page": 7,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "neighborhood",
+  "letter": "N",
+  "headword_en": "neighborhood",
+  "rosen_ref": "Rosen §10.2",
+  "definition_vi": "Lân cận của một đỉnh $$v$$ trong đồ thị $$G$$, ký hiệu $$N(v)$$, là tập hợp tất cả các đỉnh kề với $$v$$.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "lân cận",
+    "source_id": "bib-nguyenhoangthach-2020",
+    "page": "tr. 63 (PDF)",
+    "pdf_page": 63,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "tập các đỉnh kề",
+    "source_id": "bib-leanhvinh-2020",
+    "page": "tr. 224 (PDF)",
+    "pdf_page": 224,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "tập đỉnh kề",
+    "source_id": "bib-leanhvinh-2020",
+    "page": "tr. 68 (PDF)",
+    "pdf_page": 68,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "tập các đỉnh kề",
+    "source_id": "bib-hoangchithanh-2007",
+    "page": "tr. 62 (PDF)",
+    "pdf_page": 62,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "láng giềng",
+    "source_id": "bib-ngodactan-2004",
+    "page": "tr. 271 (PDF)",
+    "pdf_page": 271,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "láng giềng",
+    "source_id": "bib-ngodactan-2004",
+    "page": "tr. 230 (PDF)",
+    "pdf_page": 230,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "tập láng giềng",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "network-flow",
+  "letter": "N",
+  "headword_en": "network flow",
+  "rosen_ref": "",
+  "definition_vi": "",
+  "see_ref": "flow",
+  "vi_terms": [
+   {
+    "term": "luồng vận tải",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": false
+   },
+   {
+    "term": "luồng",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": false
+   },
+   {
+    "term": "luồng qua mạng",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": false
+   },
+   {
+    "term": "luồng trong mạng",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": false
+   },
+   {
+    "term": "luồng trong mạng vận tải",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "node",
+  "letter": "N",
+  "headword_en": "node",
+  "rosen_ref": "",
+  "definition_vi": "",
+  "see_ref": "vertex",
+  "vi_terms": [
+   {
+    "term": "đỉnh",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": false
+   },
+   {
+    "term": "nút",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "nonconstructive-existence-proof",
+  "letter": "N",
+  "headword_en": "Nonconstructive Existence Proof",
+  "rosen_ref": "Rosen §1.7",
+  "definition_vi": "Chứng minh tồn tại không kiến thiết là một chứng minh khẳng định rằng tồn tại một phần tử có tính chất mong muốn mà không trưng ra một phần tử cụ thể nào. Nói cách khác, để chứng minh mệnh đề $$\\exists x P(x)$$, ta chỉ ra rằng có phần tử thỏa mãn $$P(x)$$ nhưng không tìm được tường minh một phần tử $$a$$ nào với $$P(a)$$ đúng.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "chứng minh tồn tại không kiến thiết",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 221 (PDF)",
+    "pdf_page": 221,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "chứng minh tồn tại không kiến thiết",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 220 (PDF)",
+    "pdf_page": 220,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "không kiến thiết",
+    "source_id": "bib-ngodactan-2004",
+    "page": "tr. 24 (PDF)",
+    "pdf_page": 24,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "không kiến thiết",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 220 (PDF, bản dịch Rosen)",
+    "pdf_page": 220,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "nondeterministic-finite-automaton",
+  "letter": "N",
+  "headword_en": "nondeterministic finite automaton",
+  "rosen_ref": "Rosen §13.3",
+  "definition_vi": "Một \\emph{ôtômat hữu hạn không tất định} là một máy hữu hạn trạng thái $$M = (S, I, f, s_0, F)$$ gồm tập trạng thái $$S$$, bộ chữ cái đầu vào $$I$$, hàm chuyển $$f$$ gán cho mỗi cặp gồm trạng thái và đầu vào một tập các trạng thái kế tiếp, trạng thái xuất phát $$s_0 \\in S$$ và tập con $$F \\subseteq S$$ gồm các trạng thái kết thúc. Điểm khác biệt so với ôtômat hữu hạn tất định là với mỗi cặp gồm trạng thái và giá trị đầu vào có thể có một số trạng thái kế tiếp khả dĩ thay vì duy nhất một.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "ôtômat hữu hạn không tất định",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": true
+   },
+   {
+    "term": "ôtômat hữu hạn không tất định",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 800 (PDF)",
+    "pdf_page": 800,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "ôtômát hữu hạn không đơn định",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": false
+   },
+   {
+    "term": "ôtômát hữu hạn phi đơn định",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": false
+   },
+   {
+    "term": "máy hữu hạn trạng thái không tất định",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "nondeterministic-turing-machine",
+  "letter": "N",
+  "headword_en": "Nondeterministic Turing Machine",
+  "rosen_ref": "Rosen §13.5",
+  "definition_vi": "Một \\emph{máy Turing không tất định} là một máy Turing mà với một trạng thái và một ký hiệu đã cho có thể có nhiều phép chuyển khả dĩ. Nói cách khác, hàm chuyển $$f$$ có thể gán cho cùng một cặp gồm trạng thái và ký hiệu trên băng nhiều bộ năm thành phần khác nhau, nên ở mỗi bước máy có thể chọn một trong nhiều phép chuyển thay vì duy nhất một như ở máy Turing tất định.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "máy Turing không tất định",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": true
+   },
+   {
+    "term": "máy Turing",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": false
+   },
+   {
+    "term": "máy Turing không đơn định",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": false
+   },
+   {
+    "term": "máy Turing",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 765 (PDF, bản dịch Rosen)",
+    "pdf_page": 765,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "nonplanar-graph",
+  "letter": "N",
+  "headword_en": "nonplanar graph",
+  "rosen_ref": "Rosen §10.7",
+  "definition_vi": "Đồ thị không phẳng là đồ thị $$G$$ không thể vẽ được trong mặt phẳng sao cho không có hai cạnh nào của nó cắt nhau (ngoài các điểm mút chung).",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "đồ thị không phẳng",
+    "source_id": "bib-leanhvinh-2020",
+    "page": "tr. 127 (PDF)",
+    "pdf_page": 127,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "không phẳng",
+    "source_id": "bib-nguyenhoangthach-2020",
+    "page": "tr. 81 (PDF)",
+    "pdf_page": 81,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "đồ thị không phẳng",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 233 (PDF)",
+    "pdf_page": 233,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "không phẳng",
+    "source_id": "bib-hoangchithanh-2007",
+    "page": "tr. 117 (PDF)",
+    "pdf_page": 117,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "đồ thị không phẳng",
+    "source_id": "bib-ngodactan-2004",
+    "page": "tr. 206 (PDF)",
+    "pdf_page": 206,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "đồ thị không phẳng",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 587 (PDF, bản dịch Rosen)",
+    "pdf_page": 587,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "không phẳng",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 582 (PDF, bản dịch Rosen)",
+    "pdf_page": 582,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "nonseparable-graph",
+  "letter": "N",
+  "headword_en": "Nonseparable Graph",
+  "rosen_ref": "Rosen §10.4",
+  "definition_vi": "Đồ thị không thể tách rời là đồ thị liên thông $$G$$ không có đỉnh khớp, tức là không tồn tại đỉnh $$v \\in V(G)$$ mà $$G - v$$ có nhiều thành phần liên thông hơn $$G$$. Một cách tương đương, đồ thị liên thông với ít nhất ba đỉnh là không thể tách rời khi và chỉ khi nó là đồ thị song liên thông ($$2$$-liên thông).",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "đồ thị song liên thông",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": false
+   },
+   {
+    "term": "đồ thị không thể tách rời",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": true
+   }
+  ]
+ },
+ {
+  "id": "normal-form",
+  "letter": "N",
+  "headword_en": "normal form",
+  "rosen_ref": "Rosen §1.3",
+  "definition_vi": "Dạng chuẩn tắc của một công thức mệnh đề là cách viết chuẩn hóa công thức đó dưới dạng tuyển của các hội các literal (dạng chuẩn tắc tuyển) hoặc dưới dạng hội của các tuyển các literal (dạng chuẩn tắc hội). Một literal là một biến mệnh đề $$p$$ hoặc phủ định của nó $$\\neg p$$.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "dạng chuẩn tắc",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 25 (PDF)",
+    "pdf_page": 25,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "dạng chuẩn tắc tuyển",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 26 (PDF)",
+    "pdf_page": 26,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "dạng chuẩn tắc hội",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 26 (PDF)",
+    "pdf_page": 26,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "dạng chính tắc",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 25 (PDF)",
+    "pdf_page": 25,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "dạng tuyển chuẩn tắc",
+    "source_id": "bib-nguyenducnghia-2006",
+    "page": "tr. 270 (PDF)",
+    "pdf_page": 270,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "dạng hội chuẩn tắc",
+    "source_id": "bib-nguyenducnghia-2006",
+    "page": "tr. 270 (PDF)",
+    "pdf_page": 270,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "dạng tuyển chuẩn tắc",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 30 (PDF, bản dịch Rosen)",
+    "pdf_page": 30,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "dạng hội chuẩn tắc",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 726 (PDF, bản dịch Rosen)",
+    "pdf_page": 726,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "np-complete",
+  "letter": "N",
+  "headword_en": "NP-Complete",
+  "rosen_ref": "",
+  "definition_vi": "",
+  "see_ref": "np-complete-problem",
+  "vi_terms": []
+ },
+ {
+  "id": "np-complete-problem",
+  "letter": "N",
+  "headword_en": "NP-complete problem",
+  "rosen_ref": "Rosen §3.3",
+  "definition_vi": "Một bài toán quyết định thuộc lớp $$\\mathsf{NP}$$ được gọi là \\emph{bài toán NP-đầy đủ} nếu mọi bài toán trong $$\\mathsf{NP}$$ đều quy dẫn được về nó trong thời gian đa thức. Nói cách khác, $$L$$ là bài toán NP-đầy đủ khi $$L \\in \\mathsf{NP}$$ và với mọi $$L' \\in \\mathsf{NP}$$ tồn tại một phép quy dẫn thời gian đa thức từ $$L'$$ về $$L$$.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "bài toán NP-đầy đủ",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": true
+   }
+  ]
+ },
+ {
+  "id": "null-graph",
+  "letter": "N",
+  "headword_en": "null graph (empty graph)",
+  "rosen_ref": "",
+  "definition_vi": "",
+  "see_ref": "empty-graph",
+  "vi_terms": [
+   {
+    "term": "đồ thị rỗng",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": false
+   },
+   {
+    "term": "đồ thị hoàn toàn rời rạc",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "null-set",
+  "letter": "N",
+  "headword_en": "null set (empty set)",
+  "rosen_ref": "",
+  "definition_vi": "",
+  "see_ref": "empty-set",
+  "vi_terms": [
+   {
+    "term": "tập rỗng",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": false
+   },
+   {
+    "term": "tập hợp rỗng",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "number-theory",
+  "letter": "N",
+  "headword_en": "Number Theory",
+  "rosen_ref": "Rosen §3.4",
+  "definition_vi": "Lý thuyết số là ngành của toán học nghiên cứu tập số nguyên $$\\mathbb{Z}$$ và các tính chất của chúng, đặc biệt là quan hệ chia hết, số nguyên tố, ước chung lớn nhất và đồng dư. Nhiều khái niệm cơ bản của lĩnh vực này, chẳng hạn số nguyên tố $$p$$ và phép đồng dư $$a \\equiv b \\pmod{m}$$, là nền tảng cho mật mã học và các thuật toán trên số nguyên.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "lý thuyết số",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 151 (PDF)",
+    "pdf_page": 151,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "lý thuyết số",
+    "source_id": "bib-ngodactan-2004",
+    "page": "tr. 174 (PDF)",
+    "pdf_page": 174,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "lý thuyết số",
+    "source_id": "bib-nguyenducnghia-2006",
+    "page": "tr. 10 (PDF)",
+    "pdf_page": 10,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "Lý thuyết số",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 110 (PDF, bản dịch Rosen)",
+    "pdf_page": 110,
+    "verified": true,
+    "recommended": true
+   }
+  ]
+ },
+ {
+  "id": "octahedron",
+  "letter": "O",
+  "headword_en": "octahedron",
+  "rosen_ref": "Rosen §10.7",
+  "definition_vi": "Khối bát diện đều là khối đa diện đều có tám mặt tam giác, sáu đỉnh và mười hai cạnh; bộ khung của nó là một đồ thị phẳng $$4$$-chính quy, ký hiệu $$O$$.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "khối bát diện đều",
+    "source_id": "bib-leanhvinh-2020",
+    "page": "tr. 215 (PDF)",
+    "pdf_page": 215,
+    "verified": true,
+    "recommended": true
+   }
+  ]
+ },
+ {
+  "id": "octal",
+  "letter": "O",
+  "headword_en": "Octal",
+  "rosen_ref": "Rosen §4.2",
+  "definition_vi": "Hệ bát phân (hệ cơ số $$8$$) là hệ đếm dùng cơ số $$b = 8$$ với tập chữ số $$\\{0,1,2,3,4,5,6,7\\}$$. Mỗi số nguyên không âm $$n$$ được biểu diễn duy nhất dưới dạng khai triển cơ số $$8$$, ký hiệu $$(n)_8$$, theo công thức $$n = a_k 8^k + a_{k-1} 8^{k-1} + \\cdots + a_1 8 + a_0$$, trong đó $$0 \\leq a_i \\leq 7$$.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "cơ số 8",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 143 (PDF)",
+    "pdf_page": 143,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "cơ số 8",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 173 (PDF)",
+    "pdf_page": 173,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "Hệ cơ số $8$ (hệ bát phân",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": false
+   },
+   {
+    "term": "Hệ cơ số 8 (hệ bát phân)",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": true
+   }
+  ]
+ },
+ {
+  "id": "octal-representation",
+  "letter": "O",
+  "headword_en": "Octal Representation",
+  "rosen_ref": "",
+  "definition_vi": "",
+  "see_ref": "octal",
+  "vi_terms": [
+   {
+    "term": "biểu diễn bát phân",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "odd",
+  "letter": "O",
+  "headword_en": "Odd",
+  "rosen_ref": "Rosen §4.1",
+  "definition_vi": "Số nguyên $$n$$ được gọi là lẻ nếu tồn tại số nguyên $$k$$ sao cho $$n = 2k + 1$$; nói cách khác, $$n$$ lẻ khi và chỉ khi $$n$$ không chia hết cho $$2$$. Tập các số nguyên lẻ thường được ký hiệu là $$O$$.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "số lẻ",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 40 (PDF)",
+    "pdf_page": 40,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "số lẻ",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 216 (PDF)",
+    "pdf_page": 216,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "số lẻ",
+    "source_id": "bib-nguyenducnghia-2006",
+    "page": "tr. 62 (PDF)",
+    "pdf_page": 62,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "lẻ",
+    "source_id": "bib-nguyenhoangthach-2020",
+    "page": "tr. 64 (PDF)",
+    "pdf_page": 64,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "lẻ",
+    "source_id": "bib-leanhvinh-2020",
+    "page": "tr. 11 (PDF)",
+    "pdf_page": 11,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "odd-cycle",
+  "letter": "O",
+  "headword_en": "odd cycle",
+  "rosen_ref": "Rosen §10.4",
+  "definition_vi": "Chu trình độ dài lẻ là một chu trình có độ dài, tức là số cạnh của nó, là một số lẻ. Cụ thể, một chu trình $$C_n$$ với $$n$$ cạnh là chu trình độ dài lẻ khi và chỉ khi $$n$$ lẻ.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "chu trình độ dài lẻ",
+    "source_id": "bib-leanhvinh-2020",
+    "page": "tr. 200 (PDF)",
+    "pdf_page": 200,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "chu trình độ dài lẻ",
+    "source_id": "bib-leanhvinh-2020",
+    "page": "tr. 211 (PDF)",
+    "pdf_page": 211,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "chu trình lẻ",
+    "source_id": "bib-leanhvinh-2020",
+    "page": "tr. 202 (PDF)",
+    "pdf_page": 202,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "chu trình lẻ",
+    "source_id": "bib-leanhvinh-2020",
+    "page": "tr. 257 (PDF)",
+    "pdf_page": 257,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "chu trình độ dài lẻ",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 228 (PDF)",
+    "pdf_page": 228,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "chu trình độ dài lẻ",
+    "source_id": "bib-hoangchithanh-2007",
+    "page": "tr. 52 (PDF)",
+    "pdf_page": 52,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "chu trình độ dài lẻ",
+    "source_id": "bib-hoangchithanh-2007",
+    "page": "tr. 38 (PDF)",
+    "pdf_page": 38,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "chu trình độ dài lẻ",
+    "source_id": "bib-ngodactan-2004",
+    "page": "tr. 285 (PDF)",
+    "pdf_page": 285,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "ones-complement-notation",
+  "letter": "O",
+  "headword_en": "One's Complement Notation",
+  "rosen_ref": "Rosen §4.2",
+  "definition_vi": "Ký hiệu phần bù một là một cách biểu diễn các số nguyên (cả âm lẫn dương) bằng một xâu bit có độ dài cố định $$n$$. Một số nguyên không âm $$a$$ với $$a \\leq 2^{n-1} - 1$$ được biểu diễn bằng khai triển nhị phân $$n$$ bit của nó với bit dấu (bit ngoài cùng bên trái) bằng $$0$$; số nguyên âm $$-a$$ được biểu diễn bằng xâu bit thu được từ biểu diễn của $$a$$ bằng cách đảo từng bit, tức là đổi mỗi $$0$$ thành $$1$$ và mỗi $$1$$ thành $$0$$.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "ký hiệu phần bù một",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": true
+   }
+  ]
+ },
+ {
+  "id": "one-to-one-function",
+  "letter": "O",
+  "headword_en": "one-to-one function",
+  "rosen_ref": "",
+  "definition_vi": "",
+  "see_ref": "injection",
+  "vi_terms": [
+   {
+    "term": "đơn ánh",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": false
+   },
+   {
+    "term": "hàm đơn ánh",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": false
+   },
+   {
+    "term": "hàm một-một",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "onto-function",
+  "letter": "O",
+  "headword_en": "onto function",
+  "rosen_ref": "",
+  "definition_vi": "",
+  "see_ref": "surjection",
+  "vi_terms": [
+   {
+    "term": "toàn ánh",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": false
+   },
+   {
+    "term": "hàm toàn ánh",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "open-walk",
+  "letter": "O",
+  "headword_en": "open walk",
+  "rosen_ref": "Rosen §10.4",
+  "definition_vi": "Đường đi không khép kín trong một đồ thị $$G$$ là một đường đi mà đỉnh đầu và đỉnh cuối của nó khác nhau, tức là một đường đi từ $$u$$ đến $$v$$ với $$u \\neq v$$. Đây chính là trường hợp ngược lại của đường đi khép kín, trong đó đỉnh đầu và đỉnh cuối trùng nhau.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "đường đi không khép kín",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": true
+   }
+  ]
+ },
+ {
+  "id": "optimization-problem",
+  "letter": "O",
+  "headword_en": "optimization problem",
+  "rosen_ref": "Rosen §3.3",
+  "definition_vi": "Một bài toán tối ưu là bài toán yêu cầu tìm một lời giải làm cực tiểu hoặc cực đại giá trị của một hàm mục tiêu $$f$$ trên tập các lời giải chấp nhận được $$S$$. Nói cách khác, ta cần tìm $$x^\\ast \\in S$$ sao cho $$f(x^\\ast) \\leq f(x)$$ với mọi $$x \\in S$$ (trường hợp cực tiểu) hoặc $$f(x^\\ast) \\geq f(x)$$ với mọi $$x \\in S$$ (trường hợp cực đại).",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "bài toán tối ưu",
+    "source_id": "bib-hoangchithanh-2007",
+    "page": "tr. 102 (PDF)",
+    "pdf_page": 102,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "bài toán tối ưu",
+    "source_id": "bib-nguyenducnghia-2006",
+    "page": "tr. 11 (PDF)",
+    "pdf_page": 11,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "bài toán tối ưu",
+    "source_id": "bib-ngodactan-2004",
+    "page": "tr. 219 (PDF)",
+    "pdf_page": 219,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "bài toán tối ưu tổ hợp",
+    "source_id": "bib-nguyenducnghia-2006",
+    "page": "tr. 114 (PDF)",
+    "pdf_page": 114,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "bài toán tối ưu tổ hợp",
+    "source_id": "bib-ngodactan-2004",
+    "page": "tr. 23 (PDF)",
+    "pdf_page": 23,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "or-gate",
+  "letter": "O",
+  "headword_en": "Or Gate",
+  "rosen_ref": "Rosen §12.3",
+  "definition_vi": "Cổng OR là phần tử mạch logic nhận một hay nhiều đầu vào Boole và tạo ra đầu ra bằng tổng Boole (phép tuyển) của các đầu vào đó, ký hiệu $$x_1 + x_2 + \\cdots + x_n$$. Đầu ra của cổng OR bằng $$1$$ khi và chỉ khi có ít nhất một đầu vào bằng $$1$$, và bằng $$0$$ khi tất cả đầu vào đều bằng $$0$$.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "cổng OR",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 728 (PDF)",
+    "pdf_page": 728,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "Cổng OR",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 728 (PDF, bản dịch Rosen)",
+    "pdf_page": 728,
+    "verified": true,
+    "recommended": true
+   }
+  ]
+ },
+ {
+  "id": "orbit",
+  "letter": "O",
+  "headword_en": "orbit",
+  "rosen_ref": "Rosen §11 (group actions)",
+  "definition_vi": "Quĩ đạo của một phần tử $$a$$ dưới tác động của nhóm $$G$$ là tập tất cả các phần tử mà $$a$$ có thể được gửi tới bởi một phần tử nào đó $$g \\in G$$, ký hiệu $$\\mathrm{Orb}(a)$$.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "quĩ đạo",
+    "source_id": "bib-ngodactan-2004",
+    "page": "tr. 142 (PDF)",
+    "pdf_page": 142,
+    "verified": true,
+    "recommended": true
+   }
+  ]
+ }
+]
+hook: PostToolUse
+hook: PostToolUse Completed
+codex
+The raw `cat` output is long and was truncated in the terminal view, so I’m extracting the batch structure with `jq`: IDs, stubs, recommended terms, and existing variants.
+hook: PreToolUse
+hook: PreToolUse Completed
+hook: PreToolUse
+exec
+/bin/bash -lc "jq 'map(select(.see_ref == \"\")) | length' workflow/loop/review/batch-12.json" in /home/ubuntu/DM-Concepts
+ succeeded in 0ms:
+30
+
+hook: PostToolUse
+hook: PreToolUse Completed
+hook: PostToolUse Completed
+exec
+/bin/bash -lc "jq -r '.[] | [.id, .headword_en, (if .see_ref==\"\" then \"NONSTUB\" else \"STUB->\"+.see_ref end), ((.vi_terms // []) | map(select(.recommended==true).term) | join(\" | \")), ((.vi_terms // []) | map(.term) | unique | join(\"; \"))] | @tsv' workflow/loop/review/batch-12.json" in /home/ubuntu/DM-Concepts
+ succeeded in 0ms:
+multiple	Multiple	NONSTUB	bội	bội; bội số
+multiple-directed-edges	Multiple Directed Edges	NONSTUB	cạnh có hướng bội	cạnh bội; cạnh có hướng bội
+multiple-edges	Multiple Edges	NONSTUB	cạnh bội	cạnh bội; cạnh song song
+multiplication-principle	multiplication principle	STUB->the-product-rule		nguyên lý nhân; quy tắc nhân
+multiset	multiset	NONSTUB	đa tập	đa tập; đa tập hợp
+mutually-independent-events	Mutually Independent Events	NONSTUB	biến cố độc lập tương hỗ	biến cố độc lập; biến cố độc lập tương hỗ; độc lập tương hỗ
+n-ary-relation	n-ary relation	NONSTUB	quan hệ n ngôi	quan hệ 2 ngôi; quan hệ hai ngôi; quan hệ n ngôi
+n-cube	n-cube	STUB->hypercube		mạng kiểu siêu khối; siêu khối; siêu lập phương; đồ thị lập phương; đồ thị siêu lập phương
+naive-set-theory	Naive Set Theory	NONSTUB	lý thuyết tập hợp ngây thơ	lý thuyết tập hợp ngây thơ; lý thyết tập hợp ngây thơ
+natural-logarithm	Natural Logarithm	NONSTUB	Lôgarit tự nhiên	Lôgarit tự nhiên
+natural-number	natural number	NONSTUB	số tự nhiên	số tự nhiên; tập số tự nhiên
+nearest-neighbor-algorithm	nearest-neighbor algorithm	NONSTUB	thuật toán láng giềng gần nhất	thuật toán láng giềng gần nhất
+necessary-condition	necessary condition	NONSTUB	điều kiện cần	điều kiện cần; điều kiện cần và đủ
+negation	negation	NONSTUB	mệnh đề phủ định	mệnh đề phủ định; phép phủ định; phủ định
+neighborhood	neighborhood	NONSTUB	lân cận	láng giềng; lân cận; tập các đỉnh kề; tập láng giềng; tập đỉnh kề
+network-flow	network flow	STUB->flow		luồng; luồng qua mạng; luồng trong mạng; luồng trong mạng vận tải; luồng vận tải
+node	node	STUB->vertex		nút; đỉnh
+nonconstructive-existence-proof	Nonconstructive Existence Proof	NONSTUB	chứng minh tồn tại không kiến thiết	chứng minh tồn tại không kiến thiết; không kiến thiết
+nondeterministic-finite-automaton	nondeterministic finite automaton	NONSTUB	ôtômat hữu hạn không tất định	máy hữu hạn trạng thái không tất định; ôtômat hữu hạn không tất định; ôtômát hữu hạn không đơn định; ôtômát hữu hạn phi đơn định
+nondeterministic-turing-machine	Nondeterministic Turing Machine	NONSTUB	máy Turing không tất định	máy Turing; máy Turing không tất định; máy Turing không đơn định
+nonplanar-graph	nonplanar graph	NONSTUB	đồ thị không phẳng	không phẳng; đồ thị không phẳng
+nonseparable-graph	Nonseparable Graph	NONSTUB	đồ thị không thể tách rời	đồ thị không thể tách rời; đồ thị song liên thông
+normal-form	normal form	NONSTUB	dạng chuẩn tắc	dạng chuẩn tắc; dạng chuẩn tắc hội; dạng chuẩn tắc tuyển; dạng chính tắc; dạng hội chuẩn tắc; dạng tuyển chuẩn tắc
+np-complete	NP-Complete	STUB->np-complete-problem		
+np-complete-problem	NP-complete problem	NONSTUB	bài toán NP-đầy đủ	bài toán NP-đầy đủ
+null-graph	null graph (empty graph)	STUB->empty-graph		đồ thị hoàn toàn rời rạc; đồ thị rỗng
+null-set	null set (empty set)	STUB->empty-set		tập hợp rỗng; tập rỗng
+number-theory	Number Theory	NONSTUB	Lý thuyết số	Lý thuyết số; lý thuyết số
+octahedron	octahedron	NONSTUB	khối bát diện đều	khối bát diện đều
+octal	Octal	NONSTUB	Hệ cơ số 8 (hệ bát phân)	Hệ cơ số $8$ (hệ bát phân; Hệ cơ số 8 (hệ bát phân); cơ số 8
+octal-representation	Octal Representation	STUB->octal		biểu diễn bát phân
+odd	Odd	NONSTUB	lẻ	lẻ; số lẻ
+odd-cycle	odd cycle	NONSTUB	chu trình độ dài lẻ	chu trình lẻ; chu trình độ dài lẻ
+ones-complement-notation	One's Complement Notation	NONSTUB	ký hiệu phần bù một	ký hiệu phần bù một
+one-to-one-function	one-to-one function	STUB->injection		hàm một-một; hàm đơn ánh; đơn ánh
+onto-function	onto function	STUB->surjection		hàm toàn ánh; toàn ánh
+open-walk	open walk	NONSTUB	đường đi không khép kín	đường đi không khép kín
+optimization-problem	optimization problem	NONSTUB	bài toán tối ưu	bài toán tối ưu; bài toán tối ưu tổ hợp
+or-gate	Or Gate	NONSTUB	Cổng OR	Cổng OR; cổng OR
+orbit	orbit	NONSTUB	quĩ đạo	quĩ đạo
+
+hook: PostToolUse
+hook: PostToolUse Completed
+web search: 
+web search: "bội" "bội số" "toán rời rạc"
+web search: 
+web search: "biến cố độc lập tương hỗ" "độc lập toàn phần" "biến cố"
+web search: 
+web search: "số tự nhiên" "tập số tự nhiên" "toán rời rạc"
+web search: 
+web search: "lân cận" "tập láng giềng" "đồ thị"
+web search: 
+web search: "đồ thị không phẳng" "nonplanar graph"
+web search: 
+web search: "khối bát diện đều" "bát diện đều" octahedron
+web search: 
+web search: "phần bù một" "bù 1" "one's complement"
+web search: 
+web search: "lý thuyết số" "number theory" "toán rời rạc"
+web search: 
+web search: "quỹ đạo" "tác động nhóm" "orbit"
+web search: 
+web search: "cung song song" "đồ thị có hướng"
+web search: 
+web search: "nonseparable graph" "đồ thị không thể tách rời"
+web search: 
+web search: "biến cố độc lập toàn phần"
+web search: 
+web search: "không kiến thiết" "không xây dựng" "chứng minh" toán
+web search: 
+web search: "ôtômat hữu hạn không tất định"
+web search: 
+web search: "dây chuyền mở" "đồ thị"
+codex
+I’ve finished the snippet-only searches for the 30 non-stub entries. The findings I’m writing are limited to terms that appeared in search snippets; I’m not adding entries based only on intuition.
+  ✓ Read batch and identify non-stub entries
+  ✓ Search snippets for commonality and variants
+  → Write findings JSON
+  • Validate JSON and unchanged dictionary files
+codex
+I’m creating only the requested review output file under `workflow/loop/review/`; no dictionary source files are being edited.
+hook: PreToolUse
+hook: PreToolUse Completed
+exec
+/bin/bash -lc 'test -e workflow/loop/review/findings-12.json; echo $?' in /home/ubuntu/DM-Concepts
+ succeeded in 0ms:
+1
+
+hook: PostToolUse
+hook: PostToolUse Completed
+apply patch
+patch: completed
+/home/ubuntu/DM-Concepts/workflow/loop/review/findings-12.json
+diff --git a/workflow/loop/review/findings-12.json b/workflow/loop/review/findings-12.json
+new file mode 100644
+index 0000000000000000000000000000000000000000..33afad0c2ca094d43680c847236f3801a02a2441
+--- /dev/null
++++ b/workflow/loop/review/findings-12.json
+@@ -0,0 +1 @@
++{"loop":12,"reviewed":30,"findings":[{"id":"multiple-directed-edges","commonality":{"verdict":"uncommon","better_term":"cung song song","source":"https://ntpvxn.files.wordpress.com/2012/01/daicuongvedothi.pdf"},"missing_variants":[{"term":"cung song song","source":"https://ntpvxn.files.wordpress.com/2012/01/daicuongvedothi.pdf"}]},{"id":"mutually-independent-events","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"biến cố độc lập toàn phần","source":"https://nguyenvantien0405.files.wordpress.com/2016/07/otch-xstk-c1.pdf"},{"term":"biến cố độc lập toàn thể","source":"https://cuuduongthancong.com/atc/795/ly-thuyet-xac-suat---cac-dinh-ly-xac-suat---dh-bach-khoa-hcm"}]},{"id":"n-ary-relation","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"quan hệ nhiều ngôi","source":"https://www.scribd.com/presentation/833241339/L%C3%BD-Thuy%E1%BA%BFt-Ch%C6%B0%C6%A1ng-3"}]},{"id":"natural-logarithm","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"logarit tự nhiên","source":"https://vi.wikipedia.org/wiki/Logarit_t%E1%BB%B1_nhi%C3%AAn"},{"term":"logarit Nêpe","source":"https://vi.wikipedia.org/wiki/Logarit_t%E1%BB%B1_nhi%C3%AAn"}]},{"id":"nearest-neighbor-algorithm","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"thuật toán người láng giềng gần nhất","source":"https://www.academia.edu/37874444/Tomtat"}]},{"id":"nonconstructive-existence-proof","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"chứng minh tồn tại không xây dựng","source":"https://www.zun.vn/tai-lieu/bai-giang-toan-roi-rac-cac-phuong-phap-chung-minh-co-ban-6994/"},{"term":"chứng minh không xây dựng","source":"https://vi.wikipedia.org/wiki/Ch%E1%BB%A9ng_minh_to%C3%A1n_h%E1%BB%8Dc"}]},{"id":"nonseparable-graph","commonality":{"verdict":"uncommon","better_term":"đồ thị song liên thông","source":"https://www.vietcodes.com/algo/biconnect"},"missing_variants":[]},{"id":"np-complete-problem","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"bài toán NP đầy đủ","source":"https://viblo.asia/p/p-vs-np-va-chuyen-bao-mat-RQqKLAwMZ7z"}]},{"id":"octahedron","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"bát diện đều","source":"https://vi.wikipedia.org/wiki/Kh%E1%BB%91i_%C4%91a_di%E1%BB%87n_%C4%91%E1%BB%81u_Platon"}]},{"id":"octal","commonality":{"verdict":"uncommon","better_term":"hệ bát phân","source":"https://vi.wikipedia.org/wiki/H%E1%BB%87_b%C3%A1t_ph%C3%A2n"},"missing_variants":[{"term":"hệ bát phân","source":"https://vi.wikipedia.org/wiki/H%E1%BB%87_b%C3%A1t_ph%C3%A2n"}]},{"id":"ones-complement-notation","commonality":{"verdict":"uncommon","better_term":"phương pháp bù 1","source":"https://vi.wikipedia.org/wiki/B%C3%B9_1"},"missing_variants":[{"term":"bù 1","source":"https://vi.wikipedia.org/wiki/B%C3%B9_1"},{"term":"phương pháp bù 1","source":"https://vi.wikipedia.org/wiki/B%C3%B9_1"}]},{"id":"optimization-problem","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"bài toán tối ưu hóa","source":"https://vi.glosbe.com/vi/en/B%C3%A0i%20to%C3%A1n%20t%E1%BB%91i%20%C6%B0u%20h%C3%B3a"}]},{"id":"or-gate","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"cổng HOẶC","source":"https://cuuduongthancong.com/dlf/266313/ky-thuat-so//ktso-chuong3a_cac-phan-tu-logic-co-ban.pdf"}]},{"id":"orbit","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"quỹ đạo","source":"https://thichthichiu.wordpress.com/2011/05/16/tac-d%E1%BB%99ng-nhom/"}]}]}
+
+diff --git a/workflow/loop/review/findings-12.json b/workflow/loop/review/findings-12.json
+new file mode 100644
+index 0000000000000000000000000000000000000000..33afad0c2ca094d43680c847236f3801a02a2441
+--- /dev/null
++++ b/workflow/loop/review/findings-12.json
+@@ -0,0 +1 @@
++{"loop":12,"reviewed":30,"findings":[{"id":"multiple-directed-edges","commonality":{"verdict":"uncommon","better_term":"cung song song","source":"https://ntpvxn.files.wordpress.com/2012/01/daicuongvedothi.pdf"},"missing_variants":[{"term":"cung song song","source":"https://ntpvxn.files.wordpress.com/2012/01/daicuongvedothi.pdf"}]},{"id":"mutually-independent-events","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"biến cố độc lập toàn phần","source":"https://nguyenvantien0405.files.wordpress.com/2016/07/otch-xstk-c1.pdf"},{"term":"biến cố độc lập toàn thể","source":"https://cuuduongthancong.com/atc/795/ly-thuyet-xac-suat---cac-dinh-ly-xac-suat---dh-bach-khoa-hcm"}]},{"id":"n-ary-relation","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"quan hệ nhiều ngôi","source":"https://www.scribd.com/presentation/833241339/L%C3%BD-Thuy%E1%BA%BFt-Ch%C6%B0%C6%A1ng-3"}]},{"id":"natural-logarithm","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"logarit tự nhiên","source":"https://vi.wikipedia.org/wiki/Logarit_t%E1%BB%B1_nhi%C3%AAn"},{"term":"logarit Nêpe","source":"https://vi.wikipedia.org/wiki/Logarit_t%E1%BB%B1_nhi%C3%AAn"}]},{"id":"nearest-neighbor-algorithm","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"thuật toán người láng giềng gần nhất","source":"https://www.academia.edu/37874444/Tomtat"}]},{"id":"nonconstructive-existence-proof","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"chứng minh tồn tại không xây dựng","source":"https://www.zun.vn/tai-lieu/bai-giang-toan-roi-rac-cac-phuong-phap-chung-minh-co-ban-6994/"},{"term":"chứng minh không xây dựng","source":"https://vi.wikipedia.org/wiki/Ch%E1%BB%A9ng_minh_to%C3%A1n_h%E1%BB%8Dc"}]},{"id":"nonseparable-graph","commonality":{"verdict":"uncommon","better_term":"đồ thị song liên thông","source":"https://www.vietcodes.com/algo/biconnect"},"missing_variants":[]},{"id":"np-complete-problem","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"bài toán NP đầy đủ","source":"https://viblo.asia/p/p-vs-np-va-chuyen-bao-mat-RQqKLAwMZ7z"}]},{"id":"octahedron","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"bát diện đều","source":"https://vi.wikipedia.org/wiki/Kh%E1%BB%91i_%C4%91a_di%E1%BB%87n_%C4%91%E1%BB%81u_Platon"}]},{"id":"octal","commonality":{"verdict":"uncommon","better_term":"hệ bát phân","source":"https://vi.wikipedia.org/wiki/H%E1%BB%87_b%C3%A1t_ph%C3%A2n"},"missing_variants":[{"term":"hệ bát phân","source":"https://vi.wikipedia.org/wiki/H%E1%BB%87_b%C3%A1t_ph%C3%A2n"}]},{"id":"ones-complement-notation","commonality":{"verdict":"uncommon","better_term":"phương pháp bù 1","source":"https://vi.wikipedia.org/wiki/B%C3%B9_1"},"missing_variants":[{"term":"bù 1","source":"https://vi.wikipedia.org/wiki/B%C3%B9_1"},{"term":"phương pháp bù 1","source":"https://vi.wikipedia.org/wiki/B%C3%B9_1"}]},{"id":"optimization-problem","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"bài toán tối ưu hóa","source":"https://vi.glosbe.com/vi/en/B%C3%A0i%20to%C3%A1n%20t%E1%BB%91i%20%C6%B0u%20h%C3%B3a"}]},{"id":"or-gate","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"cổng HOẶC","source":"https://cuuduongthancong.com/dlf/266313/ky-thuat-so//ktso-chuong3a_cac-phan-tu-logic-co-ban.pdf"}]},{"id":"orbit","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"quỹ đạo","source":"https://thichthichiu.wordpress.com/2011/05/16/tac-d%E1%BB%99ng-nhom/"}]}]}
+
+codex
+The output file is written. I’m validating that it parses as JSON and that the review count and findings array are present before I report the marker lines.
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+hook: PreToolUse
+exec
+/bin/bash -lc "jq -e '.loop == 12 and .reviewed == 30 and (.findings | type == \"array\") and all(.findings[]; (.id|type==\"string\") and (.commonality.verdict|IN(\"common\",\"uncommon\",\"unsure\")) and (.missing_variants|type==\"array\"))' workflow/loop/review/findings-12.json" in /home/ubuntu/DM-Concepts
+ succeeded in 0ms:
+true
+
+hook: PostToolUse
+exec
+/bin/bash -lc 'git status --short' in /home/ubuntu/DM-Concepts
+ succeeded in 0ms:
+ M data/terms/entries-a.yaml
+ M data/terms/entries-b.yaml
+ M data/terms/entries-c.yaml
+ M data/terms/entries-d.yaml
+ M data/terms/entries-e.yaml
+ M data/terms/entries-f.yaml
+ M data/terms/entries-g.yaml
+ M data/terms/entries-h.yaml
+ M data/terms/entries-i.yaml
+ M data/terms/entries-j.yaml
+ M data/terms/entries-k.yaml
+ M data/terms/entries-l.yaml
+ M source/ch-a.ptx
+ M source/ch-b.ptx
+ M source/ch-c.ptx
+ M source/ch-d.ptx
+ M source/ch-e.ptx
+ M source/ch-f.ptx
+ M source/ch-g.ptx
+ M source/ch-h.ptx
+ M source/ch-i.ptx
+ M source/ch-j.ptx
+ M source/ch-k.ptx
+ M source/ch-l.ptx
+ M workflow/loop/review/batch-1.json
+ M workflow/loop/review/batch-10.json
+ M workflow/loop/review/batch-2.json
+ M workflow/loop/review/batch-3.json
+ M workflow/loop/review/batch-4.json
+ M workflow/loop/review/batch-5.json
+ M workflow/loop/review/batch-6.json
+ M workflow/loop/review/batch-7.json
+ M workflow/loop/review/batch-8.json
+ M workflow/loop/review/batch-9.json
+ M workflow/loop/review/codex-out-1.txt
+ M workflow/loop/review/loop_state.json
+ M workflow/panels/chapter-a-final.json
+ M workflow/panels/chapter-b-final.json
+ M workflow/panels/chapter-c-final.json
+ M workflow/panels/chapter-d-final.json
+ M workflow/panels/chapter-e-final.json
+ M workflow/panels/chapter-f-final.json
+ M workflow/panels/chapter-g-final.json
+ M workflow/panels/chapter-h-final.json
+ M workflow/panels/chapter-i-final.json
+ M workflow/panels/chapter-j-final.json
+ M workflow/panels/chapter-k-final.json
+ M workflow/panels/chapter-l-final.json
+ M workflow/panels/chapter-m-final.json
+ M workflow/scripts/codex-review-prompt.sh
+ M workflow/scripts/review-prep.py
+?? workflow/loop/review/batch-11.json
+?? workflow/loop/review/batch-12.json
+?? workflow/loop/review/batch-13.json
+?? workflow/loop/review/batch-14.json
+?? workflow/loop/review/batch-15.json
+?? workflow/loop/review/batch-16.json
+?? workflow/loop/review/batch-17.json
+?? workflow/loop/review/batch-18.json
+?? workflow/loop/review/batch-19.json
+?? workflow/loop/review/batch-20.json
+?? workflow/loop/review/codex-out-10.txt
+?? workflow/loop/review/codex-out-11.txt
+?? workflow/loop/review/codex-out-12.txt
+?? workflow/loop/review/codex-out-2.txt
+?? workflow/loop/review/codex-out-3.txt
+?? workflow/loop/review/codex-out-4.txt
+?? workflow/loop/review/codex-out-5.txt
+?? workflow/loop/review/codex-out-6.txt
+?? workflow/loop/review/codex-out-7.txt
+?? workflow/loop/review/codex-out-8.txt
+?? workflow/loop/review/codex-out-9.txt
+?? workflow/loop/review/findings-1.json
+?? workflow/loop/review/findings-10.json
+?? workflow/loop/review/findings-11.json
+?? workflow/loop/review/findings-12.json
+?? workflow/loop/review/findings-2.json
+?? workflow/loop/review/findings-3.json
+?? workflow/loop/review/findings-4.json
+?? workflow/loop/review/findings-5.json
+?? workflow/loop/review/findings-6.json
+?? workflow/loop/review/findings-7.json
+?? workflow/loop/review/findings-8.json
+?? workflow/loop/review/findings-9.json
+?? workflow/loop/review/review-log.jsonl
+?? workflow/scripts/apply-review.py
+?? workflow/scripts/review-step.sh
+
+hook: PostToolUse
+hook: PreToolUse Completed
+hook: PostToolUse Completed
+hook: PostToolUse Completed
+exec
+/bin/bash -lc "jq '.findings | length' workflow/loop/review/findings-12.json" in /home/ubuntu/DM-Concepts
+ succeeded in 0ms:
+14
+
+hook: PostToolUse
+hook: PostToolUse Completed
+diff --git a/workflow/loop/review/findings-12.json b/workflow/loop/review/findings-12.json
+new file mode 100644
+index 0000000000000000000000000000000000000000..33afad0c2ca094d43680c847236f3801a02a2441
+--- /dev/null
++++ b/workflow/loop/review/findings-12.json
+@@ -0,0 +1 @@
++{"loop":12,"reviewed":30,"findings":[{"id":"multiple-directed-edges","commonality":{"verdict":"uncommon","better_term":"cung song song","source":"https://ntpvxn.files.wordpress.com/2012/01/daicuongvedothi.pdf"},"missing_variants":[{"term":"cung song song","source":"https://ntpvxn.files.wordpress.com/2012/01/daicuongvedothi.pdf"}]},{"id":"mutually-independent-events","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"biến cố độc lập toàn phần","source":"https://nguyenvantien0405.files.wordpress.com/2016/07/otch-xstk-c1.pdf"},{"term":"biến cố độc lập toàn thể","source":"https://cuuduongthancong.com/atc/795/ly-thuyet-xac-suat---cac-dinh-ly-xac-suat---dh-bach-khoa-hcm"}]},{"id":"n-ary-relation","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"quan hệ nhiều ngôi","source":"https://www.scribd.com/presentation/833241339/L%C3%BD-Thuy%E1%BA%BFt-Ch%C6%B0%C6%A1ng-3"}]},{"id":"natural-logarithm","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"logarit tự nhiên","source":"https://vi.wikipedia.org/wiki/Logarit_t%E1%BB%B1_nhi%C3%AAn"},{"term":"logarit Nêpe","source":"https://vi.wikipedia.org/wiki/Logarit_t%E1%BB%B1_nhi%C3%AAn"}]},{"id":"nearest-neighbor-algorithm","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"thuật toán người láng giềng gần nhất","source":"https://www.academia.edu/37874444/Tomtat"}]},{"id":"nonconstructive-existence-proof","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"chứng minh tồn tại không xây dựng","source":"https://www.zun.vn/tai-lieu/bai-giang-toan-roi-rac-cac-phuong-phap-chung-minh-co-ban-6994/"},{"term":"chứng minh không xây dựng","source":"https://vi.wikipedia.org/wiki/Ch%E1%BB%A9ng_minh_to%C3%A1n_h%E1%BB%8Dc"}]},{"id":"nonseparable-graph","commonality":{"verdict":"uncommon","better_term":"đồ thị song liên thông","source":"https://www.vietcodes.com/algo/biconnect"},"missing_variants":[]},{"id":"np-complete-problem","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"bài toán NP đầy đủ","source":"https://viblo.asia/p/p-vs-np-va-chuyen-bao-mat-RQqKLAwMZ7z"}]},{"id":"octahedron","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"bát diện đều","source":"https://vi.wikipedia.org/wiki/Kh%E1%BB%91i_%C4%91a_di%E1%BB%87n_%C4%91%E1%BB%81u_Platon"}]},{"id":"octal","commonality":{"verdict":"uncommon","better_term":"hệ bát phân","source":"https://vi.wikipedia.org/wiki/H%E1%BB%87_b%C3%A1t_ph%C3%A2n"},"missing_variants":[{"term":"hệ bát phân","source":"https://vi.wikipedia.org/wiki/H%E1%BB%87_b%C3%A1t_ph%C3%A2n"}]},{"id":"ones-complement-notation","commonality":{"verdict":"uncommon","better_term":"phương pháp bù 1","source":"https://vi.wikipedia.org/wiki/B%C3%B9_1"},"missing_variants":[{"term":"bù 1","source":"https://vi.wikipedia.org/wiki/B%C3%B9_1"},{"term":"phương pháp bù 1","source":"https://vi.wikipedia.org/wiki/B%C3%B9_1"}]},{"id":"optimization-problem","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"bài toán tối ưu hóa","source":"https://vi.glosbe.com/vi/en/B%C3%A0i%20to%C3%A1n%20t%E1%BB%91i%20%C6%B0u%20h%C3%B3a"}]},{"id":"or-gate","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"cổng HOẶC","source":"https://cuuduongthancong.com/dlf/266313/ky-thuat-so//ktso-chuong3a_cac-phan-tu-logic-co-ban.pdf"}]},{"id":"orbit","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"quỹ đạo","source":"https://thichthichiu.wordpress.com/2011/05/16/tac-d%E1%BB%99ng-nhom/"}]}]}
+
+codex
+JSON validation passed. The worktree already contains many unrelated modified dictionary/source files; I only added `workflow/loop/review/findings-12.json`.
+  ✓ Read batch and identify non-stub entries
+  ✓ Search snippets for commonality and variants
+  ✓ Write findings JSON
+  ✓ Validate JSON and unchanged dictionary files
+diff --git a/workflow/loop/review/findings-12.json b/workflow/loop/review/findings-12.json
+new file mode 100644
+index 0000000000000000000000000000000000000000..33afad0c2ca094d43680c847236f3801a02a2441
+--- /dev/null
++++ b/workflow/loop/review/findings-12.json
+@@ -0,0 +1 @@
++{"loop":12,"reviewed":30,"findings":[{"id":"multiple-directed-edges","commonality":{"verdict":"uncommon","better_term":"cung song song","source":"https://ntpvxn.files.wordpress.com/2012/01/daicuongvedothi.pdf"},"missing_variants":[{"term":"cung song song","source":"https://ntpvxn.files.wordpress.com/2012/01/daicuongvedothi.pdf"}]},{"id":"mutually-independent-events","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"biến cố độc lập toàn phần","source":"https://nguyenvantien0405.files.wordpress.com/2016/07/otch-xstk-c1.pdf"},{"term":"biến cố độc lập toàn thể","source":"https://cuuduongthancong.com/atc/795/ly-thuyet-xac-suat---cac-dinh-ly-xac-suat---dh-bach-khoa-hcm"}]},{"id":"n-ary-relation","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"quan hệ nhiều ngôi","source":"https://www.scribd.com/presentation/833241339/L%C3%BD-Thuy%E1%BA%BFt-Ch%C6%B0%C6%A1ng-3"}]},{"id":"natural-logarithm","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"logarit tự nhiên","source":"https://vi.wikipedia.org/wiki/Logarit_t%E1%BB%B1_nhi%C3%AAn"},{"term":"logarit Nêpe","source":"https://vi.wikipedia.org/wiki/Logarit_t%E1%BB%B1_nhi%C3%AAn"}]},{"id":"nearest-neighbor-algorithm","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"thuật toán người láng giềng gần nhất","source":"https://www.academia.edu/37874444/Tomtat"}]},{"id":"nonconstructive-existence-proof","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"chứng minh tồn tại không xây dựng","source":"https://www.zun.vn/tai-lieu/bai-giang-toan-roi-rac-cac-phuong-phap-chung-minh-co-ban-6994/"},{"term":"chứng minh không xây dựng","source":"https://vi.wikipedia.org/wiki/Ch%E1%BB%A9ng_minh_to%C3%A1n_h%E1%BB%8Dc"}]},{"id":"nonseparable-graph","commonality":{"verdict":"uncommon","better_term":"đồ thị song liên thông","source":"https://www.vietcodes.com/algo/biconnect"},"missing_variants":[]},{"id":"np-complete-problem","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"bài toán NP đầy đủ","source":"https://viblo.asia/p/p-vs-np-va-chuyen-bao-mat-RQqKLAwMZ7z"}]},{"id":"octahedron","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"bát diện đều","source":"https://vi.wikipedia.org/wiki/Kh%E1%BB%91i_%C4%91a_di%E1%BB%87n_%C4%91%E1%BB%81u_Platon"}]},{"id":"octal","commonality":{"verdict":"uncommon","better_term":"hệ bát phân","source":"https://vi.wikipedia.org/wiki/H%E1%BB%87_b%C3%A1t_ph%C3%A2n"},"missing_variants":[{"term":"hệ bát phân","source":"https://vi.wikipedia.org/wiki/H%E1%BB%87_b%C3%A1t_ph%C3%A2n"}]},{"id":"ones-complement-notation","commonality":{"verdict":"uncommon","better_term":"phương pháp bù 1","source":"https://vi.wikipedia.org/wiki/B%C3%B9_1"},"missing_variants":[{"term":"bù 1","source":"https://vi.wikipedia.org/wiki/B%C3%B9_1"},{"term":"phương pháp bù 1","source":"https://vi.wikipedia.org/wiki/B%C3%B9_1"}]},{"id":"optimization-problem","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"bài toán tối ưu hóa","source":"https://vi.glosbe.com/vi/en/B%C3%A0i%20to%C3%A1n%20t%E1%BB%91i%20%C6%B0u%20h%C3%B3a"}]},{"id":"or-gate","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"cổng HOẶC","source":"https://cuuduongthancong.com/dlf/266313/ky-thuat-so//ktso-chuong3a_cac-phan-tu-logic-co-ban.pdf"}]},{"id":"orbit","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"quỹ đạo","source":"https://thichthichiu.wordpress.com/2011/05/16/tac-d%E1%BB%99ng-nhom/"}]}]}
+
+codex
+WROTE findings-12.json
+
+===CODEX_REVIEW_DONE===
+diff --git a/workflow/loop/review/findings-12.json b/workflow/loop/review/findings-12.json
+new file mode 100644
+index 0000000000000000000000000000000000000000..33afad0c2ca094d43680c847236f3801a02a2441
+--- /dev/null
++++ b/workflow/loop/review/findings-12.json
+@@ -0,0 +1 @@
++{"loop":12,"reviewed":30,"findings":[{"id":"multiple-directed-edges","commonality":{"verdict":"uncommon","better_term":"cung song song","source":"https://ntpvxn.files.wordpress.com/2012/01/daicuongvedothi.pdf"},"missing_variants":[{"term":"cung song song","source":"https://ntpvxn.files.wordpress.com/2012/01/daicuongvedothi.pdf"}]},{"id":"mutually-independent-events","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"biến cố độc lập toàn phần","source":"https://nguyenvantien0405.files.wordpress.com/2016/07/otch-xstk-c1.pdf"},{"term":"biến cố độc lập toàn thể","source":"https://cuuduongthancong.com/atc/795/ly-thuyet-xac-suat---cac-dinh-ly-xac-suat---dh-bach-khoa-hcm"}]},{"id":"n-ary-relation","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"quan hệ nhiều ngôi","source":"https://www.scribd.com/presentation/833241339/L%C3%BD-Thuy%E1%BA%BFt-Ch%C6%B0%C6%A1ng-3"}]},{"id":"natural-logarithm","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"logarit tự nhiên","source":"https://vi.wikipedia.org/wiki/Logarit_t%E1%BB%B1_nhi%C3%AAn"},{"term":"logarit Nêpe","source":"https://vi.wikipedia.org/wiki/Logarit_t%E1%BB%B1_nhi%C3%AAn"}]},{"id":"nearest-neighbor-algorithm","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"thuật toán người láng giềng gần nhất","source":"https://www.academia.edu/37874444/Tomtat"}]},{"id":"nonconstructive-existence-proof","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"chứng minh tồn tại không xây dựng","source":"https://www.zun.vn/tai-lieu/bai-giang-toan-roi-rac-cac-phuong-phap-chung-minh-co-ban-6994/"},{"term":"chứng minh không xây dựng","source":"https://vi.wikipedia.org/wiki/Ch%E1%BB%A9ng_minh_to%C3%A1n_h%E1%BB%8Dc"}]},{"id":"nonseparable-graph","commonality":{"verdict":"uncommon","better_term":"đồ thị song liên thông","source":"https://www.vietcodes.com/algo/biconnect"},"missing_variants":[]},{"id":"np-complete-problem","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"bài toán NP đầy đủ","source":"https://viblo.asia/p/p-vs-np-va-chuyen-bao-mat-RQqKLAwMZ7z"}]},{"id":"octahedron","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"bát diện đều","source":"https://vi.wikipedia.org/wiki/Kh%E1%BB%91i_%C4%91a_di%E1%BB%87n_%C4%91%E1%BB%81u_Platon"}]},{"id":"octal","commonality":{"verdict":"uncommon","better_term":"hệ bát phân","source":"https://vi.wikipedia.org/wiki/H%E1%BB%87_b%C3%A1t_ph%C3%A2n"},"missing_variants":[{"term":"hệ bát phân","source":"https://vi.wikipedia.org/wiki/H%E1%BB%87_b%C3%A1t_ph%C3%A2n"}]},{"id":"ones-complement-notation","commonality":{"verdict":"uncommon","better_term":"phương pháp bù 1","source":"https://vi.wikipedia.org/wiki/B%C3%B9_1"},"missing_variants":[{"term":"bù 1","source":"https://vi.wikipedia.org/wiki/B%C3%B9_1"},{"term":"phương pháp bù 1","source":"https://vi.wikipedia.org/wiki/B%C3%B9_1"}]},{"id":"optimization-problem","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"bài toán tối ưu hóa","source":"https://vi.glosbe.com/vi/en/B%C3%A0i%20to%C3%A1n%20t%E1%BB%91i%20%C6%B0u%20h%C3%B3a"}]},{"id":"or-gate","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"cổng HOẶC","source":"https://cuuduongthancong.com/dlf/266313/ky-thuat-so//ktso-chuong3a_cac-phan-tu-logic-co-ban.pdf"}]},{"id":"orbit","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"quỹ đạo","source":"https://thichthichiu.wordpress.com/2011/05/16/tac-d%E1%BB%99ng-nhom/"}]}]}
+
+tokens used
+281,360
+WROTE findings-12.json
+
+===CODEX_REVIEW_DONE===

@@ -1,0 +1,3500 @@
+OpenAI Codex v0.141.0
+--------
+workdir: /home/ubuntu/DM-Concepts
+model: gpt-5.5
+provider: openai
+approval: never
+sandbox: danger-full-access
+reasoning effort: xhigh
+reasoning summaries: none
+session id: 019ef275-166a-7172-b7be-8af30df080fd
+--------
+user
+You are a meticulous bilingual (English-Vietnamese) discrete-mathematics dictionary reviewer.
+Working directory: /home/ubuntu/DM-Concepts. Do NOT modify any dictionary file. Be evidence-based; NEVER invent a translation or a source.
+
+Read this batch of entries:
+  cat workflow/loop/review/batch-4.json
+It is a JSON array; each entry has: id, headword_en, definition_vi (Vietnamese), vi_terms (array of {term, recommended, ...}), see_ref.
+If see_ref is non-empty the entry is a cross-reference stub: SKIP it.
+
+For EACH non-stub entry, use WEB SEARCH (prefer authoritative Vietnamese sources: university lecture notes / giáo trình, published textbooks, standard references) to check TWO things:
+
+(A) COMMONALITY of the recommended Vietnamese term (the vi_term with recommended=true): is it the common/standard rendering of this English concept in Vietnamese discrete mathematics? If it is uncommon and a clearly MORE standard term exists, report verdict "uncommon" with the better term and a source URL. Otherwise verdict "common" (or "unsure").
+
+(B) ALTERNATIVE TRANSLATIONS: any additional valid Vietnamese translation of the English concept that is NOT already among the entry's existing vi_terms. Example: 'independent set' = 'tập độc lập' AND 'tập ổn định' (internal stable set). List each missing variant with a brief source (URL or book).
+
+Efficiency (IMPORTANT - your context is limited): use web SEARCH RESULT SNIPPETS only; do NOT open or fetch full web pages or PDF files (fetching large pages overflows your context and the run fails). At most 1-2 lightweight searches per entry; skip entries that are clearly fine.
+
+WRITE your result as a JSON file to workflow/loop/review/findings-4.json (use your file-writing tool), exactly this shape:
+{"loop":4,"reviewed":<int>,"findings":[{"id":"<id>","commonality":{"verdict":"common|uncommon|unsure","better_term":"<term or empty>","source":"<url or empty>"},"missing_variants":[{"term":"<vi term>","source":"<url or book>"}]}]}
+Include ONLY entries that have at least one finding (an uncommon verdict OR a missing variant). Valid JSON only (no comments, no trailing commas).
+
+After writing the file, print on its own line:  WROTE findings-4.json
+Then print the final marker line:  ===CODEX_REVIEW_DONE===
+
+hook: SessionStart
+hook: SessionStart Completed
+codex
+I’ll first inspect the local project guidance and the requested batch file so the review scope is concrete, then I’ll show the short execution plan before doing the web-based checks.
+hook: PreToolUse
+hook: PreToolUse Completed
+hook: PreToolUse
+hook: PreToolUse Completed
+exec
+/bin/bash -lc "rg --files -g 'AGENTS.md' -g 'README*' -g 'workflow/**'" in /home/ubuntu/DM-Concepts
+ succeeded in 0ms:
+workflow/workflows/build-chapter.js
+workflow/corpus/bib-nguyenducnghia-2006.txt
+workflow/corpus/manifest.json
+workflow/corpus/bib-nguyenhoangthach-2020.txt
+workflow/corpus/bib-rosen-2003-vi.txt
+workflow/corpus/bib-nguyenhuudien-2019.txt
+workflow/corpus/bib-leanhvinh-2020.txt
+workflow/corpus/bib-hoangchithanh-2007.txt
+workflow/corpus/bib-ngodactan-2004.txt
+workflow/loop/review/batch-11.json
+workflow/loop/review/findings-1.json
+workflow/loop/review/citation-issues.json
+workflow/loop/review/batch-19.json
+workflow/loop/review/findings-2.json
+workflow/loop/review/batch-17.json
+workflow/loop/review/batch-6.json
+workflow/loop/review/iterations.jsonl
+workflow/loop/review/batch-14.json
+workflow/loop/review/batch-20.json
+workflow/loop/review/batch-18.json
+workflow/loop/review/batch-4.json
+workflow/loop/review/codex-out-2.txt
+workflow/loop/review/findings-3.json
+workflow/loop/review/batch-15.json
+workflow/loop/review/loop_state.json
+workflow/loop/review/batch-7.json
+workflow/loop/review/batch-3.json
+workflow/loop/review/codex-out-4.txt
+workflow/loop/review/batch-12.json
+workflow/loop/review/codex-out-1.txt
+workflow/loop/review/batch-9.json
+workflow/loop/review/batch-13.json
+workflow/loop/review/batch-5.json
+workflow/loop/review/codex-out-3.txt
+workflow/loop/review/batch-10.json
+workflow/loop/review/batch-16.json
+workflow/loop/review/batch-1.json
+workflow/loop/review/review-log.jsonl
+workflow/loop/review/batch-8.json
+workflow/loop/review/batch-2.json
+workflow/loop/iterations.jsonl
+workflow/loop/recovery.md
+workflow/loop/loop_state.json
+workflow/loop/budget.json
+workflow/panels/chapter-q-final.json
+workflow/panels/chapter-g-final.json
+workflow/panels/chapter-m-final.json
+workflow/panels/chapter-p-final.json
+workflow/panels/chapter-r-final.json
+workflow/panels/chapter-h-final.json
+workflow/panels/chapter-u-final.json
+workflow/panels/chapter-k-final.json
+workflow/panels/chapter-y-final.json
+workflow/panels/chapter-f-final.json
+workflow/panels/chapter-c-final.json
+workflow/panels/chapter-z-final.json
+workflow/panels/chapter-n-final.json
+workflow/panels/chapter-l-final.json
+workflow/panels/chapter-w-final.json
+workflow/panels/chapter-o-final.json
+workflow/panels/chapter-v-final.json
+workflow/panels/chapter-b-final.json
+workflow/panels/chapter-i-final.json
+workflow/panels/chapter-e-final.json
+workflow/panels/chapter-j-final.json
+workflow/panels/chapter-x-final.json
+workflow/panels/chapter-t-final.json
+workflow/panels/chapter-s-final.json
+workflow/panels/chapter-d-final.json
+workflow/panels/chapter-a-final.json
+workflow/scripts/notify-telegram.sh
+workflow/scripts/validate-entry.py
+workflow/scripts/add-course-variants.py
+workflow/scripts/update-refs-publishers.py
+workflow/scripts/review-prep.py
+workflow/scripts/audit-mat3500.py
+workflow/scripts/extract-rosen-terms.py
+workflow/scripts/find-term.py
+workflow/scripts/clean-mat3500-notation.py
+workflow/scripts/encode-chapter.py
+workflow/scripts/consolidate-synonyms.py
+workflow/scripts/build-search-index.py
+workflow/scripts/get-entry.py
+workflow/scripts/finalize-letter.sh
+workflow/scripts/book-headwords.py
+workflow/scripts/rosen-enrich.py
+workflow/scripts/fix-citations.py
+workflow/scripts/merge-staging.py
+workflow/scripts/loop-advance.py
+workflow/scripts/consistency-pass.py
+workflow/scripts/check-citations.py
+workflow/scripts/review-step.sh
+workflow/scripts/codex-review-prompt.sh
+workflow/scripts/apply-review.py
+workflow/scripts/ocr-pdf.py
+README.md
+
+hook: PostToolUse
+exec
+/bin/bash -lc "sed -n '1,220p' workflow/loop/review/batch-4.json" in /home/ubuntu/DM-Concepts
+ succeeded in 0ms:
+[
+ {
+  "id": "contingency",
+  "letter": "C",
+  "headword_en": "Contingency",
+  "rosen_ref": "Rosen §1.2",
+  "definition_vi": "Tiếp liên là một mệnh đề phức hợp không phải là hằng đúng cũng không phải là mâu thuẫn, tức là giá trị chân lý của nó phụ thuộc vào giá trị chân lý của các biến mệnh đề thành phần. Nói cách khác, một mệnh đề $$P$$ là tiếp liên nếu bảng chân trị của nó chứa ít nhất một dòng nhận giá trị đúng và ít nhất một dòng nhận giá trị sai.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "tiếp liên",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 213 (PDF)",
+    "pdf_page": 213,
+    "verified": true,
+    "recommended": true
+   }
+  ]
+ },
+ {
+  "id": "continuum-hypothesis",
+  "letter": "C",
+  "headword_en": "Continuum Hypothesis",
+  "rosen_ref": "Rosen §2.5",
+  "definition_vi": "Giả thuyết continuum là phát biểu khẳng định rằng không có tập hợp nào có lực lượng nằm thực sự giữa lực lượng của tập các số nguyên và lực lượng của tập các số thực.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "giả thuyết continuum",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": true
+   }
+  ]
+ },
+ {
+  "id": "contradiction",
+  "letter": "C",
+  "headword_en": "Contradiction",
+  "rosen_ref": "Rosen §1.2",
+  "definition_vi": "Mâu thuẫn là một mệnh đề phức hợp luôn nhận giá trị sai với mọi cách gán giá trị chân lý cho các biến mệnh đề thành phần. Một ví dụ điển hình là mệnh đề $$p \\wedge \\neg p$$, vốn luôn sai vì $$p$$ và $$\\neg p$$ không thể cùng đúng.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "mệnh đề mâu thuẫn",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 23 (PDF)",
+    "pdf_page": 23,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "hằng sai",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 27 (PDF)",
+    "pdf_page": 27,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "mâu thuẫn",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 22 (PDF, bản dịch Rosen)",
+    "pdf_page": 22,
+    "verified": true,
+    "recommended": true
+   }
+  ]
+ },
+ {
+  "id": "contrapositive",
+  "letter": "C",
+  "headword_en": "Contrapositive",
+  "rosen_ref": "Rosen §1.1",
+  "definition_vi": "Mệnh đề phản đảo của một mệnh đề kéo theo $$p \\rightarrow q$$ là mệnh đề $$\\neg q \\rightarrow \\neg p$$. Mệnh đề phản đảo luôn tương đương logic với mệnh đề kéo theo ban đầu, tức là $$p \\rightarrow q \\equiv \\neg q \\rightarrow \\neg p$$.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "mệnh đề phản đảo",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 40 (PDF)",
+    "pdf_page": 40,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "mệnh đề phản đảo",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 12 (PDF)",
+    "pdf_page": 12,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "converse",
+  "letter": "C",
+  "headword_en": "Converse",
+  "rosen_ref": "Rosen §1.1",
+  "definition_vi": "Mệnh đề đảo của một phép kéo theo $$p \\rightarrow q$$ là mệnh đề $$q \\rightarrow p$$ (ký hiệu $$q \\rightarrow p$$), tức là phép kéo theo nhận được bằng cách đổi chỗ giả thiết $$p$$ và kết luận $$q$$. Nói chung, một phép kéo theo và mệnh đề đảo của nó không tương đương logic.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "mệnh đề đảo",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 12 (PDF)",
+    "pdf_page": 12,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "mệnh đề ngược lại",
+    "source_id": "bib-hoangchithanh-2007",
+    "page": "tr. 35 (PDF)",
+    "pdf_page": 35,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "điều ngược lại",
+    "source_id": "bib-nguyenducnghia-2006",
+    "page": "tr. 277 (PDF)",
+    "pdf_page": 277,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "điều ngược lại",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 678 (PDF, bản dịch Rosen)",
+    "pdf_page": 678,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "corollary",
+  "letter": "C",
+  "headword_en": "Corollary",
+  "rosen_ref": "Rosen §1.7",
+  "definition_vi": "Hệ quả là một mệnh đề được suy ra trực tiếp từ một định lý vừa được chứng minh, ký hiệu thường gặp ở dạng \"Hệ quả $$X$$\". Việc chứng minh hệ quả thường rất ngắn vì nó dựa ngay vào định lý gốc.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "Hệ quả",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 56 (PDF)",
+    "pdf_page": 56,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "Hệ quả",
+    "source_id": "bib-nguyenhoangthach-2020",
+    "page": "tr. 21 (PDF)",
+    "pdf_page": 21,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "Hệ quả",
+    "source_id": "bib-leanhvinh-2020",
+    "page": "tr. 11 (PDF)",
+    "pdf_page": 11,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "Hệ quả",
+    "source_id": "bib-hoangchithanh-2007",
+    "page": "tr. 14 (PDF)",
+    "pdf_page": 14,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "Hệ quả",
+    "source_id": "bib-nguyenducnghia-2006",
+    "page": "tr. 16 (PDF)",
+    "pdf_page": 16,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "Hệ quả",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 210 (PDF)",
+    "pdf_page": 210,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "correctness",
+  "letter": "C",
+  "headword_en": "Correctness",
+  "rosen_ref": "Rosen §5.5",
+  "definition_vi": "Tính đúng đắn của một thuật toán (hay chương trình, thủ tục) là tính chất khẳng định rằng thuật toán luôn cho đầu ra đúng theo đặc tả với mọi đầu vào hợp lệ và luôn kết thúc. Việc chứng minh tính đúng đắn thường gồm hai phần: tính đúng đắn bộ phận, tức nếu thuật toán dừng thì kết quả thỏa khẳng định đầu $$p$$ và khẳng định cuối $$q$$, và tính dừng, tức thuật toán kết thúc sau hữu hạn bước.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "tính đúng đắn",
+    "source_id": "bib-nguyenhoangthach-2020",
+    "page": "tr. 88 (PDF)",
+    "pdf_page": 88,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "tính đúng đắn",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 245 (PDF)",
+    "pdf_page": 245,
+    "verified": true,
+    "recommended": false
+
+hook: PostToolUse
+hook: PostToolUse Completed
+hook: PostToolUse Completed
+codex
+The batch and nearby workflow files are present. I’m going to read the rest of the batch and the project README/workflow hints, then I’ll proceed with a bounded search pass using snippets only as requested.
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+exec
+/bin/bash -lc "sed -n '221,520p' workflow/loop/review/batch-4.json" in /home/ubuntu/DM-Concepts
+ succeeded in 0ms:
+   },
+   {
+    "term": "tính đúng đắn",
+    "source_id": "bib-nguyenducnghia-2006",
+    "page": "tr. 194 (PDF)",
+    "pdf_page": 194,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "tính đúng đắn",
+    "source_id": "bib-hoangchithanh-2007",
+    "page": "tr. 127 (PDF)",
+    "pdf_page": 127,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "tính đúng đắn",
+    "source_id": "bib-ngodactan-2004",
+    "page": "tr. 281 (PDF)",
+    "pdf_page": 281,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "tính đúng đắn",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 968 (PDF)",
+    "pdf_page": 968,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "count-of-an-itemset",
+  "letter": "C",
+  "headword_en": "Count Of An Itemset",
+  "rosen_ref": "",
+  "definition_vi": "Số đếm của một tập mục là số giao dịch chứa tập mục đó.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "số đếm của tập mục",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": true
+   }
+  ]
+ },
+ {
+  "id": "countable-set",
+  "letter": "C",
+  "headword_en": "Countable set",
+  "rosen_ref": "Rosen §2.5",
+  "definition_vi": "Một tập hợp được gọi là tập đếm được nếu nó hữu hạn hoặc có cùng lực lượng với tập các số nguyên dương. Khi một tập vô hạn là đếm được, ta nói nó vô hạn đếm được và lực lượng của nó được ký hiệu là $$\\aleph_0$$ (đọc là \"aleph không\").",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "tập đếm được",
+    "source_id": "",
+    "page": "",
+    "pdf_page": null,
+    "verified": false,
+    "recommended": true
+   }
+  ]
+ },
+ {
+  "id": "counterexample",
+  "letter": "C",
+  "headword_en": "Counterexample",
+  "rosen_ref": "Rosen §1.7",
+  "definition_vi": "Phản ví dụ của một mệnh đề có lượng từ phổ dụng $$\\forall x\\, P(x)$$ là một phần tử $$x$$ trong miền xác định sao cho $$P(x)$$ sai. Sự tồn tại của một phản ví dụ chứng tỏ rằng mệnh đề $$\\forall x\\, P(x)$$ là sai.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "phản ví dụ",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 59 (PDF)",
+    "pdf_page": 59,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "phản ví dụ",
+    "source_id": "bib-nguyenhoangthach-2020",
+    "page": "tr. 82 (PDF)",
+    "pdf_page": 82,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "phản ví dụ",
+    "source_id": "bib-leanhvinh-2020",
+    "page": "tr. 86 (PDF)",
+    "pdf_page": 86,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "đồ thị phản ví dụ",
+    "source_id": "bib-ngodactan-2004",
+    "page": "tr. 268 (PDF)",
+    "pdf_page": 268,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "phản ví dụ",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 227 (PDF)",
+    "pdf_page": 227,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "cover",
+  "letter": "C",
+  "headword_en": "Cover",
+  "rosen_ref": "Rosen §10.2",
+  "definition_vi": "Bao phủ của một đồ thị $$G$$ là một tập con các đỉnh hoặc các cạnh sao cho mọi cạnh (tương ứng, mọi đỉnh) của $$G$$ đều có ít nhất một đầu mút (tương ứng, được kề bởi một cạnh) thuộc tập đó. Một tập phủ đỉnh là tập $$C \\subseteq V(G)$$ sao cho mỗi cạnh của $$G$$ có ít nhất một đầu mút thuộc $$C$$, còn một tập phủ cạnh là tập $$C \\subseteq E(G)$$ sao cho mỗi đỉnh của $$G$$ là đầu mút của một cạnh nào đó trong $$C$$.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "tập phủ đỉnh",
+    "source_id": "bib-leanhvinh-2020",
+    "page": "tr. 80 (PDF)",
+    "pdf_page": 80,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "tập phủ cạnh",
+    "source_id": "bib-leanhvinh-2020",
+    "page": "tr. 80 (PDF)",
+    "pdf_page": 80,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "phủ đỉnh",
+    "source_id": "bib-nguyenducnghia-2006",
+    "page": "tr. 263 (PDF)",
+    "pdf_page": 263,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "bao phủ",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": true
+   }
+  ]
+ },
+ {
+  "id": "cryptanalysis",
+  "letter": "C",
+  "headword_en": "Cryptanalysis",
+  "rosen_ref": "Rosen §4.6",
+  "definition_vi": "Phân tích mật mã là quá trình khôi phục lại bản rõ từ bản mã mà không có khóa.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "phân tích mật mã",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 161 (PDF)",
+    "pdf_page": 161,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "phân tích mật mã",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 512 (PDF)",
+    "pdf_page": 512,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "cryptosystem",
+  "letter": "C",
+  "headword_en": "Cryptosystem",
+  "rosen_ref": "Rosen §4.6",
+  "definition_vi": "Một hệ thống mật mã là một bộ năm $$(\\mathcal{P}, \\mathcal{C}, \\mathcal{K}, \\mathcal{E}, \\mathcal{D})$$ gồm tập các bản rõ $$\\mathcal{P}$$, tập các bản mã $$\\mathcal{C}$$, tập các khóa $$\\mathcal{K}$$, tập các hàm mã hóa $$\\mathcal{E}$$ và tập các hàm giải mã $$\\mathcal{D}$$. Với mỗi khóa $$k \\in \\mathcal{K}$$ có một hàm mã hóa $$E_k \\in \\mathcal{E}$$ và một hàm giải mã $$D_k \\in \\mathcal{D}$$ tương ứng sao cho $$D_k(E_k(p)) = p$$ với mọi bản rõ $$p \\in \\mathcal{P}$$.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "hệ thống mật mã",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 165 (PDF)",
+    "pdf_page": 165,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "hệ thống mật mã",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 161 (PDF)",
+    "pdf_page": 161,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "hệ mật mã",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "cut-edge",
+  "letter": "C",
+  "headword_en": "Cut Edge",
+  "rosen_ref": "Rosen §10.4",
+  "definition_vi": "Cạnh cắt (hay cầu) của một đồ thị $$G$$ là một cạnh $$e$$ mà khi bỏ đi sẽ làm tăng số thành phần liên thông của đồ thị, tức là $$G - e$$ có nhiều thành phần liên thông hơn $$G$$.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "cạnh cắt",
+    "source_id": "bib-nguyenhoangthach-2020",
+    "page": "tr. 75 (PDF)",
+    "pdf_page": 75,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "cạnh cầu",
+    "source_id": "bib-nguyenhoangthach-2020",
+    "page": "tr. 75 (PDF)",
+    "pdf_page": 75,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "cạnh cắt",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 169 (PDF)",
+    "pdf_page": 169,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "cạnh cầu",
+    "source_id": "bib-leanhvinh-2020",
+    "page": "tr. 25 (PDF)",
+    "pdf_page": 25,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "cầu",
+    "source_id": "bib-leanhvinh-2020",
+    "page": "tr. 25 (PDF)",
+    "pdf_page": 25,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "cạnh cắt",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 540 (PDF)",
+    "pdf_page": 540,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "cầu",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 14 (PDF, bản dịch Rosen)",
+    "pdf_page": 14,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "cut-vertex",
+  "letter": "C",
+  "headword_en": "Cut vertex",
+  "rosen_ref": "Rosen §10.4",
+  "definition_vi": "Đỉnh cắt của một đồ thị liên thông là đỉnh mà việc xoá nó cùng tất cả các cạnh kề làm cho đồ thị con thu được không liên thông (có nhiều hơn một thành phần liên thông).",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "đỉnh cắt",
+    "source_id": "bib-leanhvinh-2020",
+
+hook: PostToolUse
+exec
+/bin/bash -lc "sed -n '1,220p' README.md" in /home/ubuntu/DM-Concepts
+ succeeded in 0ms:
+# Một số thuật ngữ trong Toán rời rạc
+
+*Selected Terms in Discrete Mathematics — An English–Vietnamese Annotated Lexicon*
+
+Một cuốn **sách mở** viết bằng [PreTeXt](https://pretextbook.org/) (theo khuôn của
+*[Discrete Mathematics: An Open Introduction](https://github.com/oscarlevin/discrete-book/)*
+— Oscar Levin), tập hợp các định nghĩa và khái niệm quen thuộc trong toán rời rạc
+và lý thuyết đồ thị.
+
+## Ý tưởng
+
+- Tổ chức theo **bảng chữ cái tiếng Anh**: mỗi chương là một chữ cái `A`, `B`, `C`, …
+- Mỗi **mục từ** lấy một khái niệm/ký hiệu tiếng Anh (chủ yếu từ *Rosen — Discrete
+  Mathematics and Its Applications*), nêu **định nghĩa bằng tiếng Việt**, liệt kê
+  **mọi** thuật ngữ tiếng Việt tương ứng đã tìm thấy — mỗi biến thể kèm **trích dẫn**
+  chính xác tới nguồn tiếng Việt.
+- Nguồn thuật ngữ tiếng Việt: tổng hợp từ các sách toán rời rạc & lý thuyết đồ thị
+  trong thư viện Zotero.
+- **Bản HTML tối ưu tra cứu**: tìm kiếm toàn văn, trang lọc-khi-gõ, tìm **không
+  phân biệt dấu** (gõ `so mau` ra `số màu`), tra được từ **cả hai chiều** Anh ↔ Việt.
+
+## Trạng thái
+
+🚧 Giai đoạn lập kế hoạch. Xem **[`docs/PLAN.md`](docs/PLAN.md)** để biết toàn bộ
+thiết kế: mô hình mục từ, ánh xạ PreTeXt, kiến trúc sản xuất nhiều-agent, và lộ trình.
+
+## Giấy phép
+
+CC BY-SA 4.0 — xem [`LICENSE`](LICENSE).
+
+exec
+/bin/bash -lc "sed -n '1,220p' workflow/scripts/review-step.sh" in /home/ubuntu/DM-Concepts
+ succeeded in 0ms:
+#!/usr/bin/env bash
+# Apply finished batch <i>, advance the ledger, and prepare batch <i+1>.
+# Prints NEXT=<i+1> (or ALL_BATCHES_DONE). Usage: review-step.sh <i>
+set -uo pipefail
+i="${1:?usage: review-step.sh <batch-number>}"
+cd /home/ubuntu/DM-Concepts
+PY="$HOME/.venvs/pretext/bin/python"
+R=workflow/loop/review
+TOTAL=$("$PY" -c "import glob;print(len(glob.glob('$R/batch-*.json')))")
+
+if [ -f "$R/findings-$i.json" ]; then
+  "$PY" workflow/scripts/apply-review.py "$i"
+else
+  echo "WARN: no findings-$i.json"; tail -2 "$R/codex-out-$i.txt" 2>/dev/null
+fi
+next=$((i+1))
+"$PY" -c "import json;p='$R/loop_state.json';s=json.load(open(p));s['done_loops']=sorted(set(s.get('done_loops',[])+[$i]));s['current']=$next;json.dump(s,open(p,'w'),ensure_ascii=False,indent=1)"
+if [ "$next" -le "$TOTAL" ]; then
+  bash workflow/scripts/codex-review-prompt.sh "$next" > "/tmp/rp$next.txt"
+  rm -f "$R/findings-$next.json" "$R/codex-out-$next.txt"
+  echo "NEXT=$next ready (of $TOTAL)"
+else
+  echo "ALL_BATCHES_DONE ($TOTAL batches)"
+fi
+
+hook: PostToolUse
+hook: PostToolUse
+exec
+/bin/bash -lc "sed -n '1,220p' workflow/scripts/codex-review-prompt.sh" in /home/ubuntu/DM-Concepts
+ succeeded in 0ms:
+#!/usr/bin/env bash
+# Emit the Codex web-review prompt for loop <i> (dimensions 2+3; dimension 1 is
+# done deterministically by check-citations.py). Usage: codex-review-prompt.sh <i>
+i="${1:?usage: codex-review-prompt.sh <loop-number>}"
+cat <<EOF
+You are a meticulous bilingual (English-Vietnamese) discrete-mathematics dictionary reviewer.
+Working directory: /home/ubuntu/DM-Concepts. Do NOT modify any dictionary file. Be evidence-based; NEVER invent a translation or a source.
+
+Read this batch of entries:
+  cat workflow/loop/review/batch-${i}.json
+It is a JSON array; each entry has: id, headword_en, definition_vi (Vietnamese), vi_terms (array of {term, recommended, ...}), see_ref.
+If see_ref is non-empty the entry is a cross-reference stub: SKIP it.
+
+For EACH non-stub entry, use WEB SEARCH (prefer authoritative Vietnamese sources: university lecture notes / giáo trình, published textbooks, standard references) to check TWO things:
+
+(A) COMMONALITY of the recommended Vietnamese term (the vi_term with recommended=true): is it the common/standard rendering of this English concept in Vietnamese discrete mathematics? If it is uncommon and a clearly MORE standard term exists, report verdict "uncommon" with the better term and a source URL. Otherwise verdict "common" (or "unsure").
+
+(B) ALTERNATIVE TRANSLATIONS: any additional valid Vietnamese translation of the English concept that is NOT already among the entry's existing vi_terms. Example: 'independent set' = 'tập độc lập' AND 'tập ổn định' (internal stable set). List each missing variant with a brief source (URL or book).
+
+Efficiency (IMPORTANT - your context is limited): use web SEARCH RESULT SNIPPETS only; do NOT open or fetch full web pages or PDF files (fetching large pages overflows your context and the run fails). At most 1-2 lightweight searches per entry; skip entries that are clearly fine.
+
+WRITE your result as a JSON file to workflow/loop/review/findings-${i}.json (use your file-writing tool), exactly this shape:
+{"loop":${i},"reviewed":<int>,"findings":[{"id":"<id>","commonality":{"verdict":"common|uncommon|unsure","better_term":"<term or empty>","source":"<url or empty>"},"missing_variants":[{"term":"<vi term>","source":"<url or book>"}]}]}
+Include ONLY entries that have at least one finding (an uncommon verdict OR a missing variant). Valid JSON only (no comments, no trailing commas).
+
+After writing the file, print on its own line:  WROTE findings-${i}.json
+Then print the final marker line:  ===CODEX_REVIEW_DONE===
+EOF
+
+hook: PostToolUse
+hook: PostToolUse Completed
+hook: PostToolUse Completed
+hook: PostToolUse Completed
+hook: PostToolUse Completed
+codex
+Docs/Helpers Checked:
+- `README.md`
+- `workflow/scripts/review-step.sh`
+- `workflow/scripts/codex-review-prompt.sh`
+- `workflow/loop/review/batch-4.json` (partially read; continuing now)
+
+Plan:
+1. Finish reading the JSON batch and count non-stub entries.
+2. Use search-result snippets only, with no page/PDF opens, to check recommended-term commonality and missing Vietnamese variants.
+3. Write only substantive findings to `workflow/loop/review/findings-4.json`.
+4. Validate the JSON shape locally, then print the two required marker lines.
+hook: PreToolUse
+hook: PreToolUse Completed
+hook: PreToolUse
+exec
+/bin/bash -lc "sed -n '521,900p' workflow/loop/review/batch-4.json" in /home/ubuntu/DM-Concepts
+ succeeded in 0ms:
+    "page": "tr. 25 (PDF)",
+    "pdf_page": 25,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "đỉnh cắt",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": false
+   },
+   {
+    "term": "đỉnh khớp",
+    "source_id": "bib-nguyenhoangthach-2020",
+    "page": "tr. 75 (PDF)",
+    "pdf_page": 75,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "đỉnh cắt",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 169 (PDF)",
+    "pdf_page": 169,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "điểm khớp",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 170 (PDF)",
+    "pdf_page": 170,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "đỉnh rẽ nhánh",
+    "source_id": "bib-nguyenducnghia-2006",
+    "page": "tr. 157 (PDF)",
+    "pdf_page": 157,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "đỉnh cắt",
+    "source_id": "bib-ngodactan-2004",
+    "page": "tr. 266 (PDF)",
+    "pdf_page": 266,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "đỉnh cắt",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 546 (PDF, bản dịch Rosen)",
+    "pdf_page": 546,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "cycle",
+  "letter": "C",
+  "headword_en": "Cycle",
+  "rosen_ref": "Rosen §10.2",
+  "definition_vi": "Đồ thị vòng, ký hiệu là $$C_n$$ với $$n \\geq 3$$, là đồ thị gồm $$n$$ đỉnh $$v_1, v_2, \\ldots, v_n$$ và các cạnh $$\\{v_1,v_2\\}, \\{v_2,v_3\\}, \\ldots, \\{v_{n-1},v_n\\}, \\{v_n,v_1\\}$$. Như vậy, mỗi đỉnh của $$C_n$$ có bậc là $$2$$.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "đồ thị vòng",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 159 (PDF)",
+    "pdf_page": 159,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "đồ thị vòng",
+    "source_id": "bib-nguyenducnghia-2006",
+    "page": "tr. 159 (PDF)",
+    "pdf_page": 159,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "chu trình",
+    "source_id": "bib-nguyenhoangthach-2020",
+    "page": "tr. 67 (PDF)",
+    "pdf_page": 67,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "đồ thị chu trình",
+    "source_id": "bib-hoangchithanh-2007",
+    "page": "tr. 43 (PDF)",
+    "pdf_page": 43,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "chu trình",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 460 (PDF, bản dịch Rosen)",
+    "pdf_page": 460,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "de-morgans-laws-for-quantifiers",
+  "letter": "D",
+  "headword_en": "De Morgan's Laws for Quantifiers",
+  "rosen_ref": "Rosen §1.4",
+  "definition_vi": "Luật De Morgan cho lượng từ là quy tắc lấy phủ định của một mệnh đề lượng từ hóa, theo đó phủ định của lượng từ với mọi cho ra lượng từ tồn tại và ngược lại, đồng thời biểu thức vị từ được thay bằng phủ định của nó (ký hiệu $$\\neg \\forall x\\, P(x) \\equiv \\exists x\\, \\neg P(x)$$ và $$\\neg \\exists x\\, P(x) \\equiv \\forall x\\, \\neg P(x)$$).",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "quy tắc phủ định mệnh đề có lượng từ",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 49 (PDF)",
+    "pdf_page": 49,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "phủ định các lượng từ",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 45 (PDF)",
+    "pdf_page": 45,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "Luật De Morgan cho lượng từ",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": true
+   }
+  ]
+ },
+ {
+  "id": "decimal",
+  "letter": "D",
+  "headword_en": "Decimal",
+  "rosen_ref": "Rosen §4.2",
+  "definition_vi": "Hệ thập phân (hệ cơ số 10) là hệ ghi số dùng cơ số $$10$$, trong đó mỗi số nguyên không âm $$n$$ được biểu diễn duy nhất dưới dạng $$n = a_{k-1}10^{k-1} + a_{k-2}10^{k-2} + \\cdots + a_1 \\cdot 10 + a_0$$ với các chữ số $$a_i \\in \\{0,1,\\dots,9\\}$$, ký hiệu $$(a_{k-1}\\dots a_1a_0)_{10}$$. Mỗi $$a_i$$ được gọi là một chữ số thập phân.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "hệ cơ đếm thập phân",
+    "source_id": "bib-nguyenducnghia-2006",
+    "page": "tr. 77 (PDF)",
+    "pdf_page": 77,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "ký số thập phân",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 81 (PDF)",
+    "pdf_page": 81,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "biểu diễn thập phân",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 169 (PDF)",
+    "pdf_page": 169,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "Hệ cơ số $10$ (hệ thập phân",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": false
+   },
+   {
+    "term": "Hệ cơ số 10 (hệ thập phân)",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": true
+   }
+  ]
+ },
+ {
+  "id": "decimal-representation",
+  "letter": "D",
+  "headword_en": "Decimal Representation",
+  "rosen_ref": "Rosen §4.2",
+  "definition_vi": "Biểu diễn thập phân của một số nguyên $$n$$ là cách viết $$n$$ trong hệ cơ số $$10$$, tức là dãy các chữ số $$a_k a_{k-1} \\ldots a_1 a_0$$ với mỗi $$a_i \\in \\{0,1,\\ldots,9\\}$$ và $$a_k \\neq 0$$, ký hiệu $$n = a_k 10^k + a_{k-1} 10^{k-1} + \\cdots + a_1 10 + a_0$$. Mỗi số nguyên dương có duy nhất một biểu diễn thập phân.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "biểu diễn thập phân",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 169 (PDF)",
+    "pdf_page": 169,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "khai triển thập phân",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 174 (PDF)",
+    "pdf_page": 174,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "decision-problem",
+  "letter": "D",
+  "headword_en": "Decision Problem",
+  "rosen_ref": "Rosen §3.3",
+  "definition_vi": "Bài toán quyết định là một bài toán hỏi xem các phát biểu thuộc một dạng cho trước có đúng hay không. Nói cách khác, mỗi dữ liệu vào của bài toán ứng với một câu trả lời là $$\\text{đúng}$$ hoặc $$\\text{sai}$$.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "bài toán quyết định",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": true
+   }
+  ]
+ },
+ {
+  "id": "decision-tree",
+  "letter": "D",
+  "headword_en": "Decision Tree",
+  "rosen_ref": "Rosen §10.2",
+  "definition_vi": "Cây quyết định là một cây có gốc, trong đó mỗi đỉnh trong biểu diễn một quyết định và mỗi cạnh đi xuống ứng với một kết cục có thể của quyết định đó, còn mỗi lá biểu diễn một kết quả cuối cùng. Với cây quyết định nhị phân giải quyết một bài toán có $$n$$ kết cục có thể, số phép so sánh tối thiểu trong trường hợp xấu nhất bằng chiều cao của cây, ít nhất là $$\\lceil \\log_2 n \\rceil$$.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "cây quyết định",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 641 (PDF)",
+    "pdf_page": 641,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "cây quyết định nhị phân",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 667 (PDF)",
+    "pdf_page": 667,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "decreasing",
+  "letter": "D",
+  "headword_en": "Decreasing",
+  "rosen_ref": "Rosen §2.3",
+  "definition_vi": "Một hàm $$f$$ từ tập số thực vào tập số thực được gọi là giảm nếu $$f(x) > f(y)$$ với mọi $$x$$ và $$y$$ thuộc miền xác định thỏa mãn $$x < y$$. Hàm $$f$$ được gọi là không tăng nếu chỉ đòi hỏi $$f(x) \\geq f(y)$$ khi $$x < y$$.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "thực sự giảm",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 85 (PDF)",
+    "pdf_page": 85,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "giảm",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 12 (PDF, bản dịch Rosen)",
+    "pdf_page": 12,
+    "verified": true,
+    "recommended": true
+   }
+  ]
+ },
+ {
+  "id": "decryption",
+  "letter": "D",
+  "headword_en": "Decryption",
+  "rosen_ref": "Rosen §3.6",
+  "definition_vi": "Giải mã là quá trình đưa một bức thư bí mật trở về dạng ban đầu của nó. Nói cách khác, giải mã là phép biến đổi ngược của mã hóa: từ bức thư đã được mã hóa, ta khôi phục lại bức thư gốc.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "giải mã",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 169 (PDF)",
+    "pdf_page": 169,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "giải mã",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 164 (PDF)",
+    "pdf_page": 164,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "giải mã",
+    "source_id": "bib-nguyenducnghia-2006",
+    "page": "tr. 12 (PDF)",
+    "pdf_page": 12,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "degree-distribution",
+  "letter": "D",
+  "headword_en": "Degree Distribution",
+  "rosen_ref": "Rosen §10.4",
+  "definition_vi": "Phân phối bậc của một đồ thị (hay một mạng) $$G$$ là hàm $$P(k)$$ (ký hiệu) cho biết tỉ lệ các đỉnh có bậc bằng $$k$$, tức là $$P(k) = \\frac{n_k}{n}$$, trong đó $$n_k$$ là số đỉnh có bậc $$k$$ và $$n = |V(G)|$$ là tổng số đỉnh. Một cách tương đương, $$P(k)$$ là xác suất để một đỉnh được chọn ngẫu nhiên có bậc đúng bằng $$k$$.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "phân phối bậc",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": true
+   }
+  ]
+ },
+ {
+  "id": "degree",
+  "letter": "D",
+  "headword_en": "Degree of a vertex",
+  "rosen_ref": "Rosen §10.2",
+  "definition_vi": "\\emph{Bậc của đỉnh} $$v$$ trong đồ thị vô hướng $$G$$, ký hiệu $$\\deg_G(v)$$, là số cạnh kề với $$v$$, trong đó mỗi khuyên tại $$v$$ được tính hai lần.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "bậc của đỉnh",
+    "source_id": "bib-nguyenhoangthach-2020",
+    "page": "tr. 63 (PDF)",
+    "pdf_page": 63,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "bậc của đỉnh",
+    "source_id": "bib-leanhvinh-2020",
+    "page": "tr. 153 (PDF)",
+    "pdf_page": 153,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "bậc của đỉnh",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 157 (PDF)",
+    "pdf_page": 157,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "bậc của đỉnh",
+    "source_id": "bib-hoangchithanh-2007",
+
+hook: PostToolUse
+hook: PreToolUse Completed
+hook: PostToolUse Completed
+exec
+/bin/bash -lc 'python3 -m json.tool workflow/loop/review/batch-4.json' in /home/ubuntu/DM-Concepts
+ succeeded in 0ms:
+[
+    {
+        "id": "contingency",
+        "letter": "C",
+        "headword_en": "Contingency",
+        "rosen_ref": "Rosen \u00a71.2",
+        "definition_vi": "Ti\u1ebfp li\u00ean l\u00e0 m\u1ed9t m\u1ec7nh \u0111\u1ec1 ph\u1ee9c h\u1ee3p kh\u00f4ng ph\u1ea3i l\u00e0 h\u1eb1ng \u0111\u00fang c\u0169ng kh\u00f4ng ph\u1ea3i l\u00e0 m\u00e2u thu\u1eabn, t\u1ee9c l\u00e0 gi\u00e1 tr\u1ecb ch\u00e2n l\u00fd c\u1ee7a n\u00f3 ph\u1ee5 thu\u1ed9c v\u00e0o gi\u00e1 tr\u1ecb ch\u00e2n l\u00fd c\u1ee7a c\u00e1c bi\u1ebfn m\u1ec7nh \u0111\u1ec1 th\u00e0nh ph\u1ea7n. N\u00f3i c\u00e1ch kh\u00e1c, m\u1ed9t m\u1ec7nh \u0111\u1ec1 $$P$$ l\u00e0 ti\u1ebfp li\u00ean n\u1ebfu b\u1ea3ng ch\u00e2n tr\u1ecb c\u1ee7a n\u00f3 ch\u1ee9a \u00edt nh\u1ea5t m\u1ed9t d\u00f2ng nh\u1eadn gi\u00e1 tr\u1ecb \u0111\u00fang v\u00e0 \u00edt nh\u1ea5t m\u1ed9t d\u00f2ng nh\u1eadn gi\u00e1 tr\u1ecb sai.",
+        "see_ref": "",
+        "vi_terms": [
+            {
+                "term": "ti\u1ebfp li\u00ean",
+                "source_id": "bib-rosen-2003-vi",
+                "page": "tr. 213 (PDF)",
+                "pdf_page": 213,
+                "verified": true,
+                "recommended": true
+            }
+        ]
+    },
+    {
+        "id": "continuum-hypothesis",
+        "letter": "C",
+        "headword_en": "Continuum Hypothesis",
+        "rosen_ref": "Rosen \u00a72.5",
+        "definition_vi": "Gi\u1ea3 thuy\u1ebft continuum l\u00e0 ph\u00e1t bi\u1ec3u kh\u1eb3ng \u0111\u1ecbnh r\u1eb1ng kh\u00f4ng c\u00f3 t\u1eadp h\u1ee3p n\u00e0o c\u00f3 l\u1ef1c l\u01b0\u1ee3ng n\u1eb1m th\u1ef1c s\u1ef1 gi\u1eefa l\u1ef1c l\u01b0\u1ee3ng c\u1ee7a t\u1eadp c\u00e1c s\u1ed1 nguy\u00ean v\u00e0 l\u1ef1c l\u01b0\u1ee3ng c\u1ee7a t\u1eadp c\u00e1c s\u1ed1 th\u1ef1c.",
+        "see_ref": "",
+        "vi_terms": [
+            {
+                "term": "gi\u1ea3 thuy\u1ebft continuum",
+                "source_id": "",
+                "page": "",
+                "pdf_page": 0,
+                "verified": false,
+                "recommended": true
+            }
+        ]
+    },
+    {
+        "id": "contradiction",
+        "letter": "C",
+        "headword_en": "Contradiction",
+        "rosen_ref": "Rosen \u00a71.2",
+        "definition_vi": "M\u00e2u thu\u1eabn l\u00e0 m\u1ed9t m\u1ec7nh \u0111\u1ec1 ph\u1ee9c h\u1ee3p lu\u00f4n nh\u1eadn gi\u00e1 tr\u1ecb sai v\u1edbi m\u1ecdi c\u00e1ch g\u00e1n gi\u00e1 tr\u1ecb ch\u00e2n l\u00fd cho c\u00e1c bi\u1ebfn m\u1ec7nh \u0111\u1ec1 th\u00e0nh ph\u1ea7n. M\u1ed9t v\u00ed d\u1ee5 \u0111i\u1ec3n h\u00ecnh l\u00e0 m\u1ec7nh \u0111\u1ec1 $$p \\wedge \\neg p$$, v\u1ed1n lu\u00f4n sai v\u00ec $$p$$ v\u00e0 $$\\neg p$$ kh\u00f4ng th\u1ec3 c\u00f9ng \u0111\u00fang.",
+        "see_ref": "",
+        "vi_terms": [
+            {
+                "term": "m\u1ec7nh \u0111\u1ec1 m\u00e2u thu\u1eabn",
+                "source_id": "bib-rosen-2003-vi",
+                "page": "tr. 23 (PDF)",
+                "pdf_page": 23,
+                "verified": true,
+                "recommended": false
+            },
+            {
+                "term": "h\u1eb1ng sai",
+                "source_id": "bib-nguyenhuudien-2019",
+                "page": "tr. 27 (PDF)",
+                "pdf_page": 27,
+                "verified": true,
+                "recommended": false
+            },
+            {
+                "term": "m\u00e2u thu\u1eabn",
+                "source_id": "bib-rosen-2003-vi",
+                "page": "tr. 22 (PDF, b\u1ea3n d\u1ecbch Rosen)",
+                "pdf_page": 22,
+                "verified": true,
+                "recommended": true
+            }
+        ]
+    },
+    {
+        "id": "contrapositive",
+        "letter": "C",
+        "headword_en": "Contrapositive",
+        "rosen_ref": "Rosen \u00a71.1",
+        "definition_vi": "M\u1ec7nh \u0111\u1ec1 ph\u1ea3n \u0111\u1ea3o c\u1ee7a m\u1ed9t m\u1ec7nh \u0111\u1ec1 k\u00e9o theo $$p \\rightarrow q$$ l\u00e0 m\u1ec7nh \u0111\u1ec1 $$\\neg q \\rightarrow \\neg p$$. M\u1ec7nh \u0111\u1ec1 ph\u1ea3n \u0111\u1ea3o lu\u00f4n t\u01b0\u01a1ng \u0111\u01b0\u01a1ng logic v\u1edbi m\u1ec7nh \u0111\u1ec1 k\u00e9o theo ban \u0111\u1ea7u, t\u1ee9c l\u00e0 $$p \\rightarrow q \\equiv \\neg q \\rightarrow \\neg p$$.",
+        "see_ref": "",
+        "vi_terms": [
+            {
+                "term": "m\u1ec7nh \u0111\u1ec1 ph\u1ea3n \u0111\u1ea3o",
+                "source_id": "bib-nguyenhuudien-2019",
+                "page": "tr. 40 (PDF)",
+                "pdf_page": 40,
+                "verified": true,
+                "recommended": true
+            },
+            {
+                "term": "m\u1ec7nh \u0111\u1ec1 ph\u1ea3n \u0111\u1ea3o",
+                "source_id": "bib-rosen-2003-vi",
+                "page": "tr. 12 (PDF)",
+                "pdf_page": 12,
+                "verified": true,
+                "recommended": false
+            }
+        ]
+    },
+    {
+        "id": "converse",
+        "letter": "C",
+        "headword_en": "Converse",
+        "rosen_ref": "Rosen \u00a71.1",
+        "definition_vi": "M\u1ec7nh \u0111\u1ec1 \u0111\u1ea3o c\u1ee7a m\u1ed9t ph\u00e9p k\u00e9o theo $$p \\rightarrow q$$ l\u00e0 m\u1ec7nh \u0111\u1ec1 $$q \\rightarrow p$$ (k\u00fd hi\u1ec7u $$q \\rightarrow p$$), t\u1ee9c l\u00e0 ph\u00e9p k\u00e9o theo nh\u1eadn \u0111\u01b0\u1ee3c b\u1eb1ng c\u00e1ch \u0111\u1ed5i ch\u1ed7 gi\u1ea3 thi\u1ebft $$p$$ v\u00e0 k\u1ebft lu\u1eadn $$q$$. N\u00f3i chung, m\u1ed9t ph\u00e9p k\u00e9o theo v\u00e0 m\u1ec7nh \u0111\u1ec1 \u0111\u1ea3o c\u1ee7a n\u00f3 kh\u00f4ng t\u01b0\u01a1ng \u0111\u01b0\u01a1ng logic.",
+        "see_ref": "",
+        "vi_terms": [
+            {
+                "term": "m\u1ec7nh \u0111\u1ec1 \u0111\u1ea3o",
+                "source_id": "bib-rosen-2003-vi",
+                "page": "tr. 12 (PDF)",
+                "pdf_page": 12,
+                "verified": true,
+                "recommended": true
+            },
+            {
+                "term": "m\u1ec7nh \u0111\u1ec1 ng\u01b0\u1ee3c l\u1ea1i",
+                "source_id": "bib-hoangchithanh-2007",
+                "page": "tr. 35 (PDF)",
+                "pdf_page": 35,
+                "verified": true,
+                "recommended": false
+            },
+            {
+                "term": "\u0111i\u1ec1u ng\u01b0\u1ee3c l\u1ea1i",
+                "source_id": "bib-nguyenducnghia-2006",
+                "page": "tr. 277 (PDF)",
+                "pdf_page": 277,
+                "verified": true,
+                "recommended": false
+            },
+            {
+                "term": "\u0111i\u1ec1u ng\u01b0\u1ee3c l\u1ea1i",
+                "source_id": "bib-rosen-2003-vi",
+                "page": "tr. 678 (PDF, b\u1ea3n d\u1ecbch Rosen)",
+                "pdf_page": 678,
+                "verified": true,
+                "recommended": false
+            }
+        ]
+    },
+    {
+        "id": "corollary",
+        "letter": "C",
+        "headword_en": "Corollary",
+        "rosen_ref": "Rosen \u00a71.7",
+        "definition_vi": "H\u1ec7 qu\u1ea3 l\u00e0 m\u1ed9t m\u1ec7nh \u0111\u1ec1 \u0111\u01b0\u1ee3c suy ra tr\u1ef1c ti\u1ebfp t\u1eeb m\u1ed9t \u0111\u1ecbnh l\u00fd v\u1eeba \u0111\u01b0\u1ee3c ch\u1ee9ng minh, k\u00fd hi\u1ec7u th\u01b0\u1eddng g\u1eb7p \u1edf d\u1ea1ng \"H\u1ec7 qu\u1ea3 $$X$$\". Vi\u1ec7c ch\u1ee9ng minh h\u1ec7 qu\u1ea3 th\u01b0\u1eddng r\u1ea5t ng\u1eafn v\u00ec n\u00f3 d\u1ef1a ngay v\u00e0o \u0111\u1ecbnh l\u00fd g\u1ed1c.",
+        "see_ref": "",
+        "vi_terms": [
+            {
+                "term": "H\u1ec7 qu\u1ea3",
+                "source_id": "bib-nguyenhuudien-2019",
+                "page": "tr. 56 (PDF)",
+                "pdf_page": 56,
+                "verified": true,
+                "recommended": true
+            },
+            {
+                "term": "H\u1ec7 qu\u1ea3",
+                "source_id": "bib-nguyenhoangthach-2020",
+                "page": "tr. 21 (PDF)",
+                "pdf_page": 21,
+                "verified": true,
+                "recommended": false
+            },
+            {
+                "term": "H\u1ec7 qu\u1ea3",
+                "source_id": "bib-leanhvinh-2020",
+                "page": "tr. 11 (PDF)",
+                "pdf_page": 11,
+                "verified": true,
+                "recommended": false
+            },
+            {
+                "term": "H\u1ec7 qu\u1ea3",
+                "source_id": "bib-hoangchithanh-2007",
+                "page": "tr. 14 (PDF)",
+                "pdf_page": 14,
+                "verified": true,
+                "recommended": false
+            },
+            {
+                "term": "H\u1ec7 qu\u1ea3",
+                "source_id": "bib-nguyenducnghia-2006",
+                "page": "tr. 16 (PDF)",
+                "pdf_page": 16,
+                "verified": true,
+                "recommended": false
+            },
+            {
+                "term": "H\u1ec7 qu\u1ea3",
+                "source_id": "bib-rosen-2003-vi",
+                "page": "tr. 210 (PDF)",
+                "pdf_page": 210,
+                "verified": true,
+                "recommended": false
+            }
+        ]
+    },
+    {
+        "id": "correctness",
+        "letter": "C",
+        "headword_en": "Correctness",
+        "rosen_ref": "Rosen \u00a75.5",
+        "definition_vi": "T\u00ednh \u0111\u00fang \u0111\u1eafn c\u1ee7a m\u1ed9t thu\u1eadt to\u00e1n (hay ch\u01b0\u01a1ng tr\u00ecnh, th\u1ee7 t\u1ee5c) l\u00e0 t\u00ednh ch\u1ea5t kh\u1eb3ng \u0111\u1ecbnh r\u1eb1ng thu\u1eadt to\u00e1n lu\u00f4n cho \u0111\u1ea7u ra \u0111\u00fang theo \u0111\u1eb7c t\u1ea3 v\u1edbi m\u1ecdi \u0111\u1ea7u v\u00e0o h\u1ee3p l\u1ec7 v\u00e0 lu\u00f4n k\u1ebft th\u00fac. Vi\u1ec7c ch\u1ee9ng minh t\u00ednh \u0111\u00fang \u0111\u1eafn th\u01b0\u1eddng g\u1ed3m hai ph\u1ea7n: t\u00ednh \u0111\u00fang \u0111\u1eafn b\u1ed9 ph\u1eadn, t\u1ee9c n\u1ebfu thu\u1eadt to\u00e1n d\u1eebng th\u00ec k\u1ebft qu\u1ea3 th\u1ecfa kh\u1eb3ng \u0111\u1ecbnh \u0111\u1ea7u $$p$$ v\u00e0 kh\u1eb3ng \u0111\u1ecbnh cu\u1ed1i $$q$$, v\u00e0 t\u00ednh d\u1eebng, t\u1ee9c thu\u1eadt to\u00e1n k\u1ebft th\u00fac sau h\u1eefu h\u1ea1n b\u01b0\u1edbc.",
+        "see_ref": "",
+        "vi_terms": [
+            {
+                "term": "t\u00ednh \u0111\u00fang \u0111\u1eafn",
+                "source_id": "bib-nguyenhoangthach-2020",
+                "page": "tr. 88 (PDF)",
+                "pdf_page": 88,
+                "verified": true,
+                "recommended": true
+            },
+            {
+                "term": "t\u00ednh \u0111\u00fang \u0111\u1eafn",
+                "source_id": "bib-nguyenhuudien-2019",
+                "page": "tr. 245 (PDF)",
+                "pdf_page": 245,
+                "verified": true,
+                "recommended": false
+            },
+            {
+                "term": "t\u00ednh \u0111\u00fang \u0111\u1eafn",
+                "source_id": "bib-nguyenducnghia-2006",
+                "page": "tr. 194 (PDF)",
+                "pdf_page": 194,
+                "verified": true,
+                "recommended": false
+            },
+            {
+                "term": "t\u00ednh \u0111\u00fang \u0111\u1eafn",
+                "source_id": "bib-hoangchithanh-2007",
+                "page": "tr. 127 (PDF)",
+                "pdf_page": 127,
+                "verified": true,
+                "recommended": false
+            },
+            {
+                "term": "t\u00ednh \u0111\u00fang \u0111\u1eafn",
+                "source_id": "bib-ngodactan-2004",
+                "page": "tr. 281 (PDF)",
+                "pdf_page": 281,
+                "verified": true,
+                "recommended": false
+            },
+            {
+                "term": "t\u00ednh \u0111\u00fang \u0111\u1eafn",
+                "source_id": "bib-rosen-2003-vi",
+                "page": "tr. 968 (PDF)",
+                "pdf_page": 968,
+                "verified": true,
+                "recommended": false
+            }
+        ]
+    },
+    {
+        "id": "count-of-an-itemset",
+        "letter": "C",
+        "headword_en": "Count Of An Itemset",
+        "rosen_ref": "",
+        "definition_vi": "S\u1ed1 \u0111\u1ebfm c\u1ee7a m\u1ed9t t\u1eadp m\u1ee5c l\u00e0 s\u1ed1 giao d\u1ecbch ch\u1ee9a t\u1eadp m\u1ee5c \u0111\u00f3.",
+        "see_ref": "",
+        "vi_terms": [
+            {
+                "term": "s\u1ed1 \u0111\u1ebfm c\u1ee7a t\u1eadp m\u1ee5c",
+                "source_id": "",
+                "page": "",
+                "pdf_page": 0,
+                "verified": false,
+                "recommended": true
+            }
+        ]
+    },
+    {
+        "id": "countable-set",
+        "letter": "C",
+        "headword_en": "Countable set",
+        "rosen_ref": "Rosen \u00a72.5",
+        "definition_vi": "M\u1ed9t t\u1eadp h\u1ee3p \u0111\u01b0\u1ee3c g\u1ecdi l\u00e0 t\u1eadp \u0111\u1ebfm \u0111\u01b0\u1ee3c n\u1ebfu n\u00f3 h\u1eefu h\u1ea1n ho\u1eb7c c\u00f3 c\u00f9ng l\u1ef1c l\u01b0\u1ee3ng v\u1edbi t\u1eadp c\u00e1c s\u1ed1 nguy\u00ean d\u01b0\u01a1ng. Khi m\u1ed9t t\u1eadp v\u00f4 h\u1ea1n l\u00e0 \u0111\u1ebfm \u0111\u01b0\u1ee3c, ta n\u00f3i n\u00f3 v\u00f4 h\u1ea1n \u0111\u1ebfm \u0111\u01b0\u1ee3c v\u00e0 l\u1ef1c l\u01b0\u1ee3ng c\u1ee7a n\u00f3 \u0111\u01b0\u1ee3c k\u00fd hi\u1ec7u l\u00e0 $$\\aleph_0$$ (\u0111\u1ecdc l\u00e0 \"aleph kh\u00f4ng\").",
+        "see_ref": "",
+        "vi_terms": [
+            {
+                "term": "t\u1eadp \u0111\u1ebfm \u0111\u01b0\u1ee3c",
+                "source_id": "",
+                "page": "",
+                "pdf_page": null,
+                "verified": false,
+                "recommended": true
+            }
+        ]
+    },
+    {
+        "id": "counterexample",
+        "letter": "C",
+        "headword_en": "Counterexample",
+        "rosen_ref": "Rosen \u00a71.7",
+        "definition_vi": "Ph\u1ea3n v\u00ed d\u1ee5 c\u1ee7a m\u1ed9t m\u1ec7nh \u0111\u1ec1 c\u00f3 l\u01b0\u1ee3ng t\u1eeb ph\u1ed5 d\u1ee5ng $$\\forall x\\, P(x)$$ l\u00e0 m\u1ed9t ph\u1ea7n t\u1eed $$x$$ trong mi\u1ec1n x\u00e1c \u0111\u1ecbnh sao cho $$P(x)$$ sai. S\u1ef1 t\u1ed3n t\u1ea1i c\u1ee7a m\u1ed9t ph\u1ea3n v\u00ed d\u1ee5 ch\u1ee9ng t\u1ecf r\u1eb1ng m\u1ec7nh \u0111\u1ec1 $$\\forall x\\, P(x)$$ l\u00e0 sai.",
+        "see_ref": "",
+        "vi_terms": [
+            {
+                "term": "ph\u1ea3n v\u00ed d\u1ee5",
+                "source_id": "bib-nguyenhuudien-2019",
+                "page": "tr. 59 (PDF)",
+                "pdf_page": 59,
+                "verified": true,
+                "recommended": true
+            },
+            {
+                "term": "ph\u1ea3n v\u00ed d\u1ee5",
+                "source_id": "bib-nguyenhoangthach-2020",
+                "page": "tr. 82 (PDF)",
+                "pdf_page": 82,
+                "verified": true,
+                "recommended": false
+            },
+            {
+                "term": "ph\u1ea3n v\u00ed d\u1ee5",
+                "source_id": "bib-leanhvinh-2020",
+                "page": "tr. 86 (PDF)",
+                "pdf_page": 86,
+                "verified": true,
+                "recommended": false
+            },
+            {
+                "term": "\u0111\u1ed3 th\u1ecb ph\u1ea3n v\u00ed d\u1ee5",
+                "source_id": "bib-ngodactan-2004",
+                "page": "tr. 268 (PDF)",
+                "pdf_page": 268,
+                "verified": true,
+                "recommended": false
+            },
+            {
+                "term": "ph\u1ea3n v\u00ed d\u1ee5",
+                "source_id": "bib-rosen-2003-vi",
+                "page": "tr. 227 (PDF)",
+                "pdf_page": 227,
+                "verified": true,
+                "recommended": false
+            }
+        ]
+    },
+    {
+        "id": "cover",
+        "letter": "C",
+        "headword_en": "Cover",
+        "rosen_ref": "Rosen \u00a710.2",
+        "definition_vi": "Bao ph\u1ee7 c\u1ee7a m\u1ed9t \u0111\u1ed3 th\u1ecb $$G$$ l\u00e0 m\u1ed9t t\u1eadp con c\u00e1c \u0111\u1ec9nh ho\u1eb7c c\u00e1c c\u1ea1nh sao cho m\u1ecdi c\u1ea1nh (t\u01b0\u01a1ng \u1ee9ng, m\u1ecdi \u0111\u1ec9nh) c\u1ee7a $$G$$ \u0111\u1ec1u c\u00f3 \u00edt nh\u1ea5t m\u1ed9t \u0111\u1ea7u m\u00fat (t\u01b0\u01a1ng \u1ee9ng, \u0111\u01b0\u1ee3c k\u1ec1 b\u1edfi m\u1ed9t c\u1ea1nh) thu\u1ed9c t\u1eadp \u0111\u00f3. M\u1ed9t t\u1eadp ph\u1ee7 \u0111\u1ec9nh l\u00e0 t\u1eadp $$C \\subseteq V(G)$$ sao cho m\u1ed7i c\u1ea1nh c\u1ee7a $$G$$ c\u00f3 \u00edt nh\u1ea5t m\u1ed9t \u0111\u1ea7u m\u00fat thu\u1ed9c $$C$$, c\u00f2n m\u1ed9t t\u1eadp ph\u1ee7 c\u1ea1nh l\u00e0 t\u1eadp $$C \\subseteq E(G)$$ sao cho m\u1ed7i \u0111\u1ec9nh c\u1ee7a $$G$$ l\u00e0 \u0111\u1ea7u m\u00fat c\u1ee7a m\u1ed9t c\u1ea1nh n\u00e0o \u0111\u00f3 trong $$C$$.",
+        "see_ref": "",
+        "vi_terms": [
+            {
+                "term": "t\u1eadp ph\u1ee7 \u0111\u1ec9nh",
+                "source_id": "bib-leanhvinh-2020",
+                "page": "tr. 80 (PDF)",
+                "pdf_page": 80,
+                "verified": true,
+                "recommended": false
+            },
+            {
+                "term": "t\u1eadp ph\u1ee7 c\u1ea1nh",
+                "source_id": "bib-leanhvinh-2020",
+                "page": "tr. 80 (PDF)",
+                "pdf_page": 80,
+                "verified": true,
+                "recommended": false
+            },
+            {
+                "term": "ph\u1ee7 \u0111\u1ec9nh",
+                "source_id": "bib-nguyenducnghia-2006",
+                "page": "tr. 263 (PDF)",
+                "pdf_page": 263,
+                "verified": true,
+                "recommended": false
+            },
+            {
+                "term": "bao ph\u1ee7",
+                "source_id": "",
+                "page": "",
+                "pdf_page": 0,
+                "verified": false,
+                "recommended": true
+            }
+        ]
+    },
+    {
+        "id": "cryptanalysis",
+        "letter": "C",
+        "headword_en": "Cryptanalysis",
+        "rosen_ref": "Rosen \u00a74.6",
+        "definition_vi": "Ph\u00e2n t\u00edch m\u1eadt m\u00e3 l\u00e0 qu\u00e1 tr\u00ecnh kh\u00f4i ph\u1ee5c l\u1ea1i b\u1ea3n r\u00f5 t\u1eeb b\u1ea3n m\u00e3 m\u00e0 kh\u00f4ng c\u00f3 kh\u00f3a.",
+        "see_ref": "",
+        "vi_terms": [
+            {
+                "term": "ph\u00e2n t\u00edch m\u1eadt m\u00e3",
+                "source_id": "bib-nguyenhuudien-2019",
+                "page": "tr. 161 (PDF)",
+                "pdf_page": 161,
+                "verified": true,
+                "recommended": true
+            },
+            {
+                "term": "ph\u00e2n t\u00edch m\u1eadt m\u00e3",
+                "source_id": "bib-rosen-2003-vi",
+                "page": "tr. 512 (PDF)",
+                "pdf_page": 512,
+                "verified": true,
+                "recommended": false
+            }
+        ]
+    },
+    {
+        "id": "cryptosystem",
+        "letter": "C",
+        "headword_en": "Cryptosystem",
+        "rosen_ref": "Rosen \u00a74.6",
+        "definition_vi": "M\u1ed9t h\u1ec7 th\u1ed1ng m\u1eadt m\u00e3 l\u00e0 m\u1ed9t b\u1ed9 n\u0103m $$(\\mathcal{P}, \\mathcal{C}, \\mathcal{K}, \\mathcal{E}, \\mathcal{D})$$ g\u1ed3m t\u1eadp c\u00e1c b\u1ea3n r\u00f5 $$\\mathcal{P}$$, t\u1eadp c\u00e1c b\u1ea3n m\u00e3 $$\\mathcal{C}$$, t\u1eadp c\u00e1c kh\u00f3a $$\\mathcal{K}$$, t\u1eadp c\u00e1c h\u00e0m m\u00e3 h\u00f3a $$\\mathcal{E}$$ v\u00e0 t\u1eadp c\u00e1c h\u00e0m gi\u1ea3i m\u00e3 $$\\mathcal{D}$$. V\u1edbi m\u1ed7i kh\u00f3a $$k \\in \\mathcal{K}$$ c\u00f3 m\u1ed9t h\u00e0m m\u00e3 h\u00f3a $$E_k \\in \\mathcal{E}$$ v\u00e0 m\u1ed9t h\u00e0m gi\u1ea3i m\u00e3 $$D_k \\in \\mathcal{D}$$ t\u01b0\u01a1ng \u1ee9ng sao cho $$D_k(E_k(p)) = p$$ v\u1edbi m\u1ecdi b\u1ea3n r\u00f5 $$p \\in \\mathcal{P}$$.",
+        "see_ref": "",
+        "vi_terms": [
+            {
+                "term": "h\u1ec7 th\u1ed1ng m\u1eadt m\u00e3",
+                "source_id": "bib-rosen-2003-vi",
+                "page": "tr. 165 (PDF)",
+                "pdf_page": 165,
+                "verified": true,
+                "recommended": true
+            },
+            {
+                "term": "h\u1ec7 th\u1ed1ng m\u1eadt m\u00e3",
+                "source_id": "bib-rosen-2003-vi",
+                "page": "tr. 161 (PDF)",
+                "pdf_page": 161,
+                "verified": true,
+                "recommended": false
+            },
+            {
+                "term": "h\u1ec7 m\u1eadt m\u00e3",
+                "source_id": "",
+                "page": "",
+                "pdf_page": 0,
+                "verified": false,
+                "recommended": false
+            }
+        ]
+    },
+    {
+        "id": "cut-edge",
+        "letter": "C",
+        "headword_en": "Cut Edge",
+        "rosen_ref": "Rosen \u00a710.4",
+        "definition_vi": "C\u1ea1nh c\u1eaft (hay c\u1ea7u) c\u1ee7a m\u1ed9t \u0111\u1ed3 th\u1ecb $$G$$ l\u00e0 m\u1ed9t c\u1ea1nh $$e$$ m\u00e0 khi b\u1ecf \u0111i s\u1ebd l\u00e0m t\u0103ng s\u1ed1 th\u00e0nh ph\u1ea7n li\u00ean th\u00f4ng c\u1ee7a \u0111\u1ed3 th\u1ecb, t\u1ee9c l\u00e0 $$G - e$$ c\u00f3 nhi\u1ec1u th\u00e0nh ph\u1ea7n li\u00ean th\u00f4ng h\u01a1n $$G$$.",
+        "see_ref": "",
+        "vi_terms": [
+            {
+                "term": "c\u1ea1nh c\u1eaft",
+                "source_id": "bib-nguyenhoangthach-2020",
+                "page": "tr. 75 (PDF)",
+                "pdf_page": 75,
+                "verified": true,
+                "recommended": true
+            },
+            {
+                "term": "c\u1ea1nh c\u1ea7u",
+                "source_id": "bib-nguyenhoangthach-2020",
+                "page": "tr. 75 (PDF)",
+                "pdf_page": 75,
+                "verified": true,
+                "recommended": false
+            },
+            {
+                "term": "c\u1ea1nh c\u1eaft",
+                "source_id": "bib-nguyenhuudien-2019",
+                "page": "tr. 169 (PDF)",
+                "pdf_page": 169,
+                "verified": true,
+                "recommended": false
+            },
+            {
+                "term": "c\u1ea1nh c\u1ea7u",
+                "source_id": "bib-leanhvinh-2020",
+                "page": "tr. 25 (PDF)",
+                "pdf_page": 25,
+                "verified": true,
+                "recommended": false
+            },
+            {
+                "term": "c\u1ea7u",
+                "source_id": "bib-leanhvinh-2020",
+                "page": "tr. 25 (PDF)",
+                "pdf_page": 25,
+                "verified": true,
+                "recommended": false
+            },
+            {
+                "term": "c\u1ea1nh c\u1eaft",
+                "source_id": "bib-rosen-2003-vi",
+                "page": "tr. 540 (PDF)",
+                "pdf_page": 540,
+                "verified": true,
+                "recommended": false
+            },
+            {
+                "term": "c\u1ea7u",
+                "source_id": "bib-rosen-2003-vi",
+                "page": "tr. 14 (PDF, b\u1ea3n d\u1ecbch Rosen)",
+                "pdf_page": 14,
+                "verified": true,
+                "recommended": false
+            }
+        ]
+    },
+    {
+        "id": "cut-vertex",
+        "letter": "C",
+        "headword_en": "Cut vertex",
+        "rosen_ref": "Rosen \u00a710.4",
+        "definition_vi": "\u0110\u1ec9nh c\u1eaft c\u1ee7a m\u1ed9t \u0111\u1ed3 th\u1ecb li\u00ean th\u00f4ng l\u00e0 \u0111\u1ec9nh m\u00e0 vi\u1ec7c xo\u00e1 n\u00f3 c\u00f9ng t\u1ea5t c\u1ea3 c\u00e1c c\u1ea1nh k\u1ec1 l\u00e0m cho \u0111\u1ed3 th\u1ecb con thu \u0111\u01b0\u1ee3c kh\u00f4ng li\u00ean th\u00f4ng (c\u00f3 nhi\u1ec1u h\u01a1n m\u1ed9t th\u00e0nh ph\u1ea7n li\u00ean th\u00f4ng).",
+        "see_ref": "",
+        "vi_terms": [
+            {
+                "term": "\u0111\u1ec9nh c\u1eaft",
+                "source_id": "bib-leanhvinh-2020",
+                "page": "tr. 25 (PDF)",
+                "pdf_page": 25,
+                "verified": true,
+                "recommended": true
+            },
+            {
+                "term": "\u0111\u1ec9nh c\u1eaft",
+                "source_id": "",
+                "page": "",
+                "pdf_page": 0,
+                "verified": false,
+                "recommended": false
+            },
+            {
+                "term": "\u0111\u1ec9nh kh\u1edbp",
+                "source_id": "bib-nguyenhoangthach-2020",
+                "page": "tr. 75 (PDF)",
+                "pdf_page": 75,
+                "verified": true,
+                "recommended": false
+            },
+            {
+                "term": "\u0111\u1ec9nh c\u1eaft",
+                "source_id": "bib-nguyenhuudien-2019",
+                "page": "tr. 169 (PDF)",
+                "pdf_page": 169,
+                "verified": true,
+                "recommended": false
+            },
+            {
+                "term": "\u0111i\u1ec3m kh\u1edbp",
+                "source_id": "bib-nguyenhuudien-2019",
+                "page": "tr. 170 (PDF)",
+                "pdf_page": 170,
+                "verified": true,
+                "recommended": false
+            },
+            {
+                "term": "\u0111\u1ec9nh r\u1ebd nh\u00e1nh",
+                "source_id": "bib-nguyenducnghia-2006",
+                "page": "tr. 157 (PDF)",
+                "pdf_page": 157,
+                "verified": true,
+                "recommended": false
+            },
+            {
+                "term": "\u0111\u1ec9nh c\u1eaft",
+                "source_id": "bib-ngodactan-2004",
+                "page": "tr. 266 (PDF)",
+                "pdf_page": 266,
+                "verified": true,
+                "recommended": false
+            },
+            {
+                "term": "\u0111\u1ec9nh c\u1eaft",
+                "source_id": "bib-rosen-2003-vi",
+                "page": "tr. 546 (PDF, b\u1ea3n d\u1ecbch Rosen)",
+                "pdf_page": 546,
+                "verified": true,
+                "recommended": false
+            }
+        ]
+    },
+    {
+        "id": "cycle",
+        "letter": "C",
+        "headword_en": "Cycle",
+        "rosen_ref": "Rosen \u00a710.2",
+        "definition_vi": "\u0110\u1ed3 th\u1ecb v\u00f2ng, k\u00fd hi\u1ec7u l\u00e0 $$C_n$$ v\u1edbi $$n \\geq 3$$, l\u00e0 \u0111\u1ed3 th\u1ecb g\u1ed3m $$n$$ \u0111\u1ec9nh $$v_1, v_2, \\ldots, v_n$$ v\u00e0 c\u00e1c c\u1ea1nh $$\\{v_1,v_2\\}, \\{v_2,v_3\\}, \\ldots, \\{v_{n-1},v_n\\}, \\{v_n,v_1\\}$$. Nh\u01b0 v\u1eady, m\u1ed7i \u0111\u1ec9nh c\u1ee7a $$C_n$$ c\u00f3 b\u1eadc l\u00e0 $$2$$.",
+        "see_ref": "",
+        "vi_terms": [
+            {
+                "term": "\u0111\u1ed3 th\u1ecb v\u00f2ng",
+                "source_id": "bib-nguyenhuudien-2019",
+                "page": "tr. 159 (PDF)",
+                "pdf_page": 159,
+                "verified": true,
+                "recommended": true
+            },
+            {
+                "term": "\u0111\u1ed3 th\u1ecb v\u00f2ng",
+                "source_id": "bib-nguyenducnghia-2006",
+                "page": "tr. 159 (PDF)",
+                "pdf_page": 159,
+                "verified": true,
+                "recommended": false
+            },
+            {
+                "term": "chu tr\u00ecnh",
+                "source_id": "bib-nguyenhoangthach-2020",
+                "page": "tr. 67 (PDF)",
+                "pdf_page": 67,
+                "verified": true,
+                "recommended": false
+            },
+            {
+                "term": "\u0111\u1ed3 th\u1ecb chu tr\u00ecnh",
+                "source_id": "bib-hoangchithanh-2007",
+                "page": "tr. 43 (PDF)",
+                "pdf_page": 43,
+                "verified": true,
+                "recommended": false
+            },
+            {
+                "term": "chu tr\u00ecnh",
+                "source_id": "bib-rosen-2003-vi",
+                "page": "tr. 460 (PDF, b\u1ea3n d\u1ecbch Rosen)",
+                "pdf_page": 460,
+                "verified": true,
+                "recommended": false
+            }
+        ]
+    },
+    {
+        "id": "de-morgans-laws-for-quantifiers",
+        "letter": "D",
+        "headword_en": "De Morgan's Laws for Quantifiers",
+        "rosen_ref": "Rosen \u00a71.4",
+        "definition_vi": "Lu\u1eadt De Morgan cho l\u01b0\u1ee3ng t\u1eeb l\u00e0 quy t\u1eafc l\u1ea5y ph\u1ee7 \u0111\u1ecbnh c\u1ee7a m\u1ed9t m\u1ec7nh \u0111\u1ec1 l\u01b0\u1ee3ng t\u1eeb h\u00f3a, theo \u0111\u00f3 ph\u1ee7 \u0111\u1ecbnh c\u1ee7a l\u01b0\u1ee3ng t\u1eeb v\u1edbi m\u1ecdi cho ra l\u01b0\u1ee3ng t\u1eeb t\u1ed3n t\u1ea1i v\u00e0 ng\u01b0\u1ee3c l\u1ea1i, \u0111\u1ed3ng th\u1eddi bi\u1ec3u th\u1ee9c v\u1ecb t\u1eeb \u0111\u01b0\u1ee3c thay b\u1eb1ng ph\u1ee7 \u0111\u1ecbnh c\u1ee7a n\u00f3 (k\u00fd hi\u1ec7u $$\\neg \\forall x\\, P(x) \\equiv \\exists x\\, \\neg P(x)$$ v\u00e0 $$\\neg \\exists x\\, P(x) \\equiv \\forall x\\, \\neg P(x)$$).",
+        "see_ref": "",
+        "vi_terms": [
+            {
+                "term": "quy t\u1eafc ph\u1ee7 \u0111\u1ecbnh m\u1ec7nh \u0111\u1ec1 c\u00f3 l\u01b0\u1ee3ng t\u1eeb",
+                "source_id": "bib-nguyenhuudien-2019",
+                "page": "tr. 49 (PDF)",
+                "pdf_page": 49,
+                "verified": true,
+                "recommended": false
+            },
+            {
+                "term": "ph\u1ee7 \u0111\u1ecbnh c\u00e1c l\u01b0\u1ee3ng t\u1eeb",
+                "source_id": "bib-rosen-2003-vi",
+                "page": "tr. 45 (PDF)",
+                "pdf_page": 45,
+                "verified": true,
+                "recommended": false
+            },
+            {
+                "term": "Lu\u1eadt De Morgan cho l\u01b0\u1ee3ng t\u1eeb",
+                "source_id": "",
+                "page": "",
+                "pdf_page": 0,
+                "verified": false,
+                "recommended": true
+            }
+        ]
+    },
+    {
+        "id": "decimal",
+        "letter": "D",
+        "headword_en": "Decimal",
+        "rosen_ref": "Rosen \u00a74.2",
+        "definition_vi": "H\u1ec7 th\u1eadp ph\u00e2n (h\u1ec7 c\u01a1 s\u1ed1 10) l\u00e0 h\u1ec7 ghi s\u1ed1 d\u00f9ng c\u01a1 s\u1ed1 $$10$$, trong \u0111\u00f3 m\u1ed7i s\u1ed1 nguy\u00ean kh\u00f4ng \u00e2m $$n$$ \u0111\u01b0\u1ee3c bi\u1ec3u di\u1ec5n duy nh\u1ea5t d\u01b0\u1edbi d\u1ea1ng $$n = a_{k-1}10^{k-1} + a_{k-2}10^{k-2} + \\cdots + a_1 \\cdot 10 + a_0$$ v\u1edbi c\u00e1c ch\u1eef s\u1ed1 $$a_i \\in \\{0,1,\\dots,9\\}$$, k\u00fd hi\u1ec7u $$(a_{k-1}\\dots a_1a_0)_{10}$$. M\u1ed7i $$a_i$$ \u0111\u01b0\u1ee3c g\u1ecdi l\u00e0 m\u1ed9t ch\u1eef s\u1ed1 th\u1eadp ph\u00e2n.",
+        "see_ref": "",
+        "vi_terms": [
+            {
+                "term": "h\u1ec7 c\u01a1 \u0111\u1ebfm th\u1eadp ph\u00e2n",
+                "source_id": "bib-nguyenducnghia-2006",
+                "page": "tr. 77 (PDF)",
+                "pdf_page": 77,
+                "verified": true,
+                "recommended": false
+            },
+            {
+                "term": "k\u00fd s\u1ed1 th\u1eadp ph\u00e2n",
+                "source_id": "bib-nguyenhuudien-2019",
+                "page": "tr. 81 (PDF)",
+                "pdf_page": 81,
+                "verified": true,
+                "recommended": false
+            },
+            {
+                "term": "bi\u1ec3u di\u1ec5n th\u1eadp ph\u00e2n",
+                "source_id": "bib-rosen-2003-vi",
+                "page": "tr. 169 (PDF)",
+                "pdf_page": 169,
+                "verified": true,
+                "recommended": false
+            },
+            {
+                "term": "H\u1ec7 c\u01a1 s\u1ed1 $10$ (h\u1ec7 th\u1eadp ph\u00e2n",
+                "source_id": "",
+                "page": "",
+                "pdf_page": 0,
+                "verified": false,
+                "recommended": false
+            },
+            {
+                "term": "H\u1ec7 c\u01a1 s\u1ed1 10 (h\u1ec7 th\u1eadp ph\u00e2n)",
+                "source_id": "",
+                "page": "",
+                "pdf_page": 0,
+                "verified": false,
+                "recommended": true
+            }
+        ]
+    },
+    {
+        "id": "decimal-representation",
+        "letter": "D",
+        "headword_en": "Decimal Representation",
+        "rosen_ref": "Rosen \u00a74.2",
+        "definition_vi": "Bi\u1ec3u di\u1ec5n th\u1eadp ph\u00e2n c\u1ee7a m\u1ed9t s\u1ed1 nguy\u00ean $$n$$ l\u00e0 c\u00e1ch vi\u1ebft $$n$$ trong h\u1ec7 c\u01a1 s\u1ed1 $$10$$, t\u1ee9c l\u00e0 d\u00e3y c\u00e1c ch\u1eef s\u1ed1 $$a_k a_{k-1} \\ldots a_1 a_0$$ v\u1edbi m\u1ed7i $$a_i \\in \\{0,1,\\ldots,9\\}$$ v\u00e0 $$a_k \\neq 0$$, k\u00fd hi\u1ec7u $$n = a_k 10^k + a_{k-1} 10^{k-1} + \\cdots + a_1 10 + a_0$$. M\u1ed7i s\u1ed1 nguy\u00ean d\u01b0\u01a1ng c\u00f3 duy nh\u1ea5t m\u1ed9t bi\u1ec3u di\u1ec5n th\u1eadp ph\u00e2n.",
+        "see_ref": "",
+        "vi_terms": [
+            {
+                "term": "bi\u1ec3u di\u1ec5n th\u1eadp ph\u00e2n",
+                "source_id": "bib-rosen-2003-vi",
+                "page": "tr. 169 (PDF)",
+                "pdf_page": 169,
+                "verified": true,
+                "recommended": true
+            },
+            {
+                "term": "khai tri\u1ec3n th\u1eadp ph\u00e2n",
+                "source_id": "bib-rosen-2003-vi",
+                "page": "tr. 174 (PDF)",
+                "pdf_page": 174,
+                "verified": true,
+                "recommended": false
+            }
+        ]
+    },
+    {
+        "id": "decision-problem",
+        "letter": "D",
+        "headword_en": "Decision Problem",
+        "rosen_ref": "Rosen \u00a73.3",
+        "definition_vi": "B\u00e0i to\u00e1n quy\u1ebft \u0111\u1ecbnh l\u00e0 m\u1ed9t b\u00e0i to\u00e1n h\u1ecfi xem c\u00e1c ph\u00e1t bi\u1ec3u thu\u1ed9c m\u1ed9t d\u1ea1ng cho tr\u01b0\u1edbc c\u00f3 \u0111\u00fang hay kh\u00f4ng. N\u00f3i c\u00e1ch kh\u00e1c, m\u1ed7i d\u1eef li\u1ec7u v\u00e0o c\u1ee7a b\u00e0i to\u00e1n \u1ee9ng v\u1edbi m\u1ed9t c\u00e2u tr\u1ea3 l\u1eddi l\u00e0 $$\\text{\u0111\u00fang}$$ ho\u1eb7c $$\\text{sai}$$.",
+        "see_ref": "",
+        "vi_terms": [
+            {
+                "term": "b\u00e0i to\u00e1n quy\u1ebft \u0111\u1ecbnh",
+                "source_id": "",
+                "page": "",
+                "pdf_page": 0,
+                "verified": false,
+                "recommended": true
+            }
+        ]
+    },
+    {
+        "id": "decision-tree",
+        "letter": "D",
+        "headword_en": "Decision Tree",
+        "rosen_ref": "Rosen \u00a710.2",
+        "definition_vi": "C\u00e2y quy\u1ebft \u0111\u1ecbnh l\u00e0 m\u1ed9t c\u00e2y c\u00f3 g\u1ed1c, trong \u0111\u00f3 m\u1ed7i \u0111\u1ec9nh trong bi\u1ec3u di\u1ec5n m\u1ed9t quy\u1ebft \u0111\u1ecbnh v\u00e0 m\u1ed7i c\u1ea1nh \u0111i xu\u1ed1ng \u1ee9ng v\u1edbi m\u1ed9t k\u1ebft c\u1ee5c c\u00f3 th\u1ec3 c\u1ee7a quy\u1ebft \u0111\u1ecbnh \u0111\u00f3, c\u00f2n m\u1ed7i l\u00e1 bi\u1ec3u di\u1ec5n m\u1ed9t k\u1ebft qu\u1ea3 cu\u1ed1i c\u00f9ng. V\u1edbi c\u00e2y quy\u1ebft \u0111\u1ecbnh nh\u1ecb ph\u00e2n gi\u1ea3i quy\u1ebft m\u1ed9t b\u00e0i to\u00e1n c\u00f3 $$n$$ k\u1ebft c\u1ee5c c\u00f3 th\u1ec3, s\u1ed1 ph\u00e9p so s\u00e1nh t\u1ed1i thi\u1ec3u trong tr\u01b0\u1eddng h\u1ee3p x\u1ea5u nh\u1ea5t b\u1eb1ng chi\u1ec1u cao c\u1ee7a c\u00e2y, \u00edt nh\u1ea5t l\u00e0 $$\\lceil \\log_2 n \\rceil$$.",
+        "see_ref": "",
+        "vi_terms": [
+            {
+                "term": "c\u00e2y quy\u1ebft \u0111\u1ecbnh",
+                "source_id": "bib-rosen-2003-vi",
+                "page": "tr. 641 (PDF)",
+                "pdf_page": 641,
+                "verified": true,
+                "recommended": true
+            },
+            {
+                "term": "c\u00e2y quy\u1ebft \u0111\u1ecbnh nh\u1ecb ph\u00e2n",
+                "source_id": "bib-rosen-2003-vi",
+                "page": "tr. 667 (PDF)",
+                "pdf_page": 667,
+                "verified": true,
+                "recommended": false
+            }
+        ]
+    },
+    {
+        "id": "decreasing",
+        "letter": "D",
+        "headword_en": "Decreasing",
+        "rosen_ref": "Rosen \u00a72.3",
+        "definition_vi": "M\u1ed9t h\u00e0m $$f$$ t\u1eeb t\u1eadp s\u1ed1 th\u1ef1c v\u00e0o t\u1eadp s\u1ed1 th\u1ef1c \u0111\u01b0\u1ee3c g\u1ecdi l\u00e0 gi\u1ea3m n\u1ebfu $$f(x) > f(y)$$ v\u1edbi m\u1ecdi $$x$$ v\u00e0 $$y$$ thu\u1ed9c mi\u1ec1n x\u00e1c \u0111\u1ecbnh th\u1ecfa m\u00e3n $$x < y$$. H\u00e0m $$f$$ \u0111\u01b0\u1ee3c g\u1ecdi l\u00e0 kh\u00f4ng t\u0103ng n\u1ebfu ch\u1ec9 \u0111\u00f2i h\u1ecfi $$f(x) \\geq f(y)$$ khi $$x < y$$.",
+        "see_ref": "",
+        "vi_terms": [
+            {
+                "term": "th\u1ef1c s\u1ef1 gi\u1ea3m",
+                "source_id": "bib-rosen-2003-vi",
+                "page": "tr. 85 (PDF)",
+                "pdf_page": 85,
+                "verified": true,
+                "recommended": false
+            },
+            {
+                "term": "gi\u1ea3m",
+                "source_id": "bib-rosen-2003-vi",
+                "page": "tr. 12 (PDF, b\u1ea3n d\u1ecbch Rosen)",
+                "pdf_page": 12,
+                "verified": true,
+                "recommended": true
+            }
+        ]
+    },
+    {
+        "id": "decryption",
+        "letter": "D",
+        "headword_en": "Decryption",
+        "rosen_ref": "Rosen \u00a73.6",
+        "definition_vi": "Gi\u1ea3i m\u00e3 l\u00e0 qu\u00e1 tr\u00ecnh \u0111\u01b0a m\u1ed9t b\u1ee9c th\u01b0 b\u00ed m\u1eadt tr\u1edf v\u1ec1 d\u1ea1ng ban \u0111\u1ea7u c\u1ee7a n\u00f3. N\u00f3i c\u00e1ch kh\u00e1c, gi\u1ea3i m\u00e3 l\u00e0 ph\u00e9p bi\u1ebfn \u0111\u1ed5i ng\u01b0\u1ee3c c\u1ee7a m\u00e3 h\u00f3a: t\u1eeb b\u1ee9c th\u01b0 \u0111\u00e3 \u0111\u01b0\u1ee3c m\u00e3 h\u00f3a, ta kh\u00f4i ph\u1ee5c l\u1ea1i b\u1ee9c th\u01b0 g\u1ed1c.",
+        "see_ref": "",
+        "vi_terms": [
+            {
+                "term": "gi\u1ea3i m\u00e3",
+                "source_id": "bib-rosen-2003-vi",
+                "page": "tr. 169 (PDF)",
+                "pdf_page": 169,
+                "verified": true,
+                "recommended": true
+            },
+            {
+                "term": "gi\u1ea3i m\u00e3",
+                "source_id": "bib-rosen-2003-vi",
+                "page": "tr. 164 (PDF)",
+                "pdf_page": 164,
+                "verified": true,
+                "recommended": false
+            },
+            {
+                "term": "gi\u1ea3i m\u00e3",
+                "source_id": "bib-nguyenducnghia-2006",
+                "page": "tr. 12 (PDF)",
+                "pdf_page": 12,
+                "verified": true,
+                "recommended": false
+            }
+        ]
+    },
+    {
+        "id": "degree-distribution",
+        "letter": "D",
+        "headword_en": "Degree Distribution",
+        "rosen_ref": "Rosen \u00a710.4",
+        "definition_vi": "Ph\u00e2n ph\u1ed1i b\u1eadc c\u1ee7a m\u1ed9t \u0111\u1ed3 th\u1ecb (hay m\u1ed9t m\u1ea1ng) $$G$$ l\u00e0 h\u00e0m $$P(k)$$ (k\u00fd hi\u1ec7u) cho bi\u1ebft t\u1ec9 l\u1ec7 c\u00e1c \u0111\u1ec9nh c\u00f3 b\u1eadc b\u1eb1ng $$k$$, t\u1ee9c l\u00e0 $$P(k) = \\frac{n_k}{n}$$, trong \u0111\u00f3 $$n_k$$ l\u00e0 s\u1ed1 \u0111\u1ec9nh c\u00f3 b\u1eadc $$k$$ v\u00e0 $$n = |V(G)|$$ l\u00e0 t\u1ed5ng s\u1ed1 \u0111\u1ec9nh. M\u1ed9t c\u00e1ch t\u01b0\u01a1ng \u0111\u01b0\u01a1ng, $$P(k)$$ l\u00e0 x\u00e1c su\u1ea5t \u0111\u1ec3 m\u1ed9t \u0111\u1ec9nh \u0111\u01b0\u1ee3c ch\u1ecdn ng\u1eabu nhi\u00ean c\u00f3 b\u1eadc \u0111\u00fang b\u1eb1ng $$k$$.",
+        "see_ref": "",
+        "vi_terms": [
+            {
+                "term": "ph\u00e2n ph\u1ed1i b\u1eadc",
+                "source_id": "",
+                "page": "",
+                "pdf_page": 0,
+                "verified": false,
+                "recommended": true
+            }
+        ]
+    },
+    {
+        "id": "degree",
+        "letter": "D",
+        "headword_en": "Degree of a vertex",
+        "rosen_ref": "Rosen \u00a710.2",
+        "definition_vi": "\\emph{B\u1eadc c\u1ee7a \u0111\u1ec9nh} $$v$$ trong \u0111\u1ed3 th\u1ecb v\u00f4 h\u01b0\u1edbng $$G$$, k\u00fd hi\u1ec7u $$\\deg_G(v)$$, l\u00e0 s\u1ed1 c\u1ea1nh k\u1ec1 v\u1edbi $$v$$, trong \u0111\u00f3 m\u1ed7i khuy\u00ean t\u1ea1i $$v$$ \u0111\u01b0\u1ee3c t\u00ednh hai l\u1ea7n.",
+        "see_ref": "",
+        "vi_terms": [
+            {
+                "term": "b\u1eadc c\u1ee7a \u0111\u1ec9nh",
+                "source_id": "bib-nguyenhoangthach-2020",
+                "page": "tr. 63 (PDF)",
+                "pdf_page": 63,
+                "verified": true,
+                "recommended": true
+            },
+            {
+                "term": "b\u1eadc c\u1ee7a \u0111\u1ec9nh",
+                "source_id": "bib-leanhvinh-2020",
+                "page": "tr. 153 (PDF)",
+                "pdf_page": 153,
+                "verified": true,
+                "recommended": false
+            },
+            {
+                "term": "b\u1eadc c\u1ee7a \u0111\u1ec9nh",
+                "source_id": "bib-nguyenhuudien-2019",
+                "page": "tr. 157 (PDF)",
+                "pdf_page": 157,
+                "verified": true,
+                "recommended": false
+            },
+            {
+                "term": "b\u1eadc c\u1ee7a \u0111\u1ec9nh",
+                "source_id": "bib-hoangchithanh-2007",
+                "page": "tr. 14 (PDF)",
+                "pdf_page": 14,
+                "verified": true,
+                "recommended": false
+            },
+            {
+                "term": "b\u1eadc c\u1ee7a \u0111\u1ec9nh",
+                "source_id": "bib-ngodactan-2004",
+                "page": "tr. 191 (PDF)",
+                "pdf_page": 191,
+                "verified": true,
+                "recommended": false
+            },
+            {
+                "term": "b\u1eadc c\u1ee7a \u0111\u1ec9nh",
+                "source_id": "bib-nguyenducnghia-2006",
+                "page": "tr. 169 (PDF)",
+                "pdf_page": 169,
+                "verified": true,
+                "recommended": false
+            },
+            {
+                "term": "b\u1eadc c\u1ee7a m\u1ed9t \u0111\u1ec9nh",
+                "source_id": "bib-nguyenhoangthach-2020",
+                "page": "tr. 63 (PDF)",
+                "pdf_page": 63,
+                "verified": true,
+                "recommended": false
+            },
+            {
+                "term": "b\u1eadc c\u1ee7a m\u1ed9t \u0111\u1ec9nh",
+                "source_id": "bib-hoangchithanh-2007",
+                "page": "tr. 14 (PDF)",
+                "pdf_page": 14,
+                "verified": true,
+                "recommended": false
+            },
+            {
+                "term": "b\u1eadc",
+                "source_id": "bib-hoangchithanh-2007",
+                "page": "tr. 14 (PDF)",
+                "pdf_page": 14,
+                "verified": true,
+                "recommended": false
+            },
+            {
+                "term": "b\u1eadc c\u1ee7a \u0111\u1ec9nh",
+                "source_id": "bib-rosen-2003-vi",
+                "page": "tr. 505 (PDF, b\u1ea3n d\u1ecbch Rosen)",
+                "pdf_page": 505,
+                "verified": true,
+                "recommended": false
+            },
+            {
+                "term": "b\u1eadc",
+                "source_id": "bib-rosen-2003-vi",
+                "page": "tr. 107 (PDF, b\u1ea3n d\u1ecbch Rosen)",
+                "pdf_page": 107,
+                "verified": true,
+                "recommended": false
+            },
+            {
+                "term": "b\u1eadc \u0111\u1ec9nh",
+                "source_id": "bib-nguyenhuudien-2019",
+                "page": "tr. 157 (PDF)",
+                "pdf_page": 157,
+                "verified": true,
+                "recommended": false
+            }
+        ]
+    },
+    {
+        "id": "degree-sequence",
+        "letter": "D",
+        "headword_en": "Degree sequence",
+        "rosen_ref": "Rosen \u00a710.2",
+        "definition_vi": "\\emph{D\u00e3y b\u1eadc} c\u1ee7a m\u1ed9t \u0111\u1ed3 th\u1ecb $$G$$ c\u00f3 $$n$$ \u0111\u1ec9nh l\u00e0 d\u00e3y g\u1ed3m b\u1eadc c\u1ee7a t\u1ea5t c\u1ea3 c\u00e1c \u0111\u1ec9nh c\u1ee7a $$G$$. Khi c\u1ea7n, ta s\u1eafp x\u1ebfp d\u00e3y n\u00e0y theo th\u1ee9 t\u1ef1 kh\u00f4ng t\u0103ng v\u00e0 k\u00fd hi\u1ec7u $$(d_1, d_2, \\ldots, d_n)$$ v\u1edbi $$d_1 \\geq d_2 \\geq \\cdots \\geq d_n$$.",
+        "see_ref": "",
+        "vi_terms": [
+            {
+                "term": "d\u00e3y b\u1eadc",
+                "source_id": "bib-leanhvinh-2020",
+                "page": "tr. 9 (PDF)",
+                "pdf_page": 9,
+                "verified": true,
+                "recommended": true
+            },
+            {
+                "term": "d\u00e3y b\u1eadc c\u1ee7a c\u00e1c \u0111\u1ec9nh",
+                "source_id": "bib-ngodactan-2004",
+                "page": "tr. 280 (PDF)",
+                "pdf_page": 280,
+                "verified": true,
+                "recommended": false
+            }
+        ]
+    },
+    {
+        "id": "depth-first-search",
+        "letter": "D",
+        "headword_en": "Depth-first search",
+        "rosen_ref": "Rosen \u00a711.4",
+        "definition_vi": "\\emph{Duy\u1ec7t theo chi\u1ec1u s\u00e2u} l\u00e0 m\u1ed9t ph\u00e9p duy\u1ec7t \u0111\u1ed3 th\u1ecb x\u00e2y d\u1ef1ng m\u1ed9t c\u00e2y khung c\u1ee7a \u0111\u1ed3 th\u1ecb li\u00ean th\u00f4ng $$G$$ b\u1eb1ng c\u00e1ch b\u1eaft \u0111\u1ea7u t\u1eeb m\u1ed9t \u0111\u1ec9nh g\u1ed1c, r\u1ed3i l\u1eb7p l\u1ea1i vi\u1ec7c \u0111i xa nh\u1ea5t c\u00f3 th\u1ec3 d\u1ecdc theo m\u1ed7i nh\u00e1nh v\u00e0 ch\u1ec9 quay lui khi kh\u00f4ng c\u00f2n \u0111\u1ec9nh k\u1ec1 ch\u01b0a \u0111\u01b0\u1ee3c th\u0103m. M\u1ed7i c\u1ea1nh d\u00f9ng \u0111\u1ec3 \u0111i t\u1edbi m\u1ed9t \u0111\u1ec9nh ch\u01b0a th\u0103m \u0111\u01b0\u1ee3c th\u00eam v\u00e0o c\u00e2y khung, n\u00ean k\u1ebft qu\u1ea3 l\u00e0 m\u1ed9t c\u00e2y khung c\u1ee7a $$G$$.",
+        "see_ref": "",
+        "vi_terms": [
+            {
+                "term": "duy\u1ec7t theo chi\u1ec1u s\u00e2u",
+                "source_id": "bib-nguyenhuudien-2019",
+                "page": "tr. 176 (PDF)",
+                "pdf_page": 176,
+                "verified": true,
+                "recommended": true
+            },
+            {
+                "term": "duy\u1ec7t \u0111\u1ed3 th\u1ecb theo chi\u1ec1u s\u00e2u",
+                "source_id": "bib-nguyenhuudien-2019",
+                "page": "tr. 176 (PDF)",
+                "pdf_page": 176,
+                "verified": true,
+                "recommended": false
+            },
+            {
+                "term": "t\u00ecm ki\u1ebfm theo chi\u1ec1u s\u00e2u",
+                "source_id": "bib-nguyenhoangthach-2020",
+                "page": "tr. 88 (PDF)",
+                "pdf_page": 88,
+                "verified": true,
+                "recommended": false
+            },
+            {
+                "term": "duy\u1ec7t theo chi\u1ec1u s\u00e2u",
+                "source_id": "bib-hoangchithanh-2007",
+                "page": "tr. 69 (PDF)",
+                "pdf_page": 69,
+                "verified": true,
+                "recommended": false
+            },
+            {
+                "term": "duy\u1ec7t \u0111\u1ed3 th\u1ecb theo chi\u1ec1u s\u00e2u",
+                "source_id": "bib-hoangchithanh-2007",
+                "page": "tr. 69 (PDF)",
+                "pdf_page": 69,
+                "verified": true,
+                "recommended": false
+            },
+            {
+                "term": "t\u00ecm ki\u1ebfm theo chi\u1ec1u s\u00e2u",
+                "source_id": "bib-nguyenducnghia-2006",
+                "page": "tr. 179 (PDF)",
+                "pdf_page": 179,
+                "verified": true,
+                "recommended": false
+            }
+        ]
+    },
+    {
+        "id": "derangement",
+        "letter": "D",
+        "headword_en": "Derangement",
+        "rosen_ref": "Rosen \u00a78.6",
+        "definition_vi": "M\u1ed9t \\emph{ho\u00e1n v\u1ecb m\u1ea5t th\u1ee9 t\u1ef1} c\u1ee7a m\u1ed9t t\u1eadp h\u1ee3p l\u00e0 m\u1ed9t ho\u00e1n v\u1ecb $$\\sigma$$ c\u1ee7a c\u00e1c ph\u1ea7n t\u1eed c\u1ee7a t\u1eadp h\u1ee3p \u0111\u00f3 kh\u00f4ng gi\u1eef c\u1ed1 \u0111\u1ecbnh ph\u1ea7n t\u1eed n\u00e0o, t\u1ee9c l\u00e0 $$\\sigma(i) \\neq i$$ v\u1edbi m\u1ecdi ph\u1ea7n t\u1eed $$i$$. S\u1ed1 c\u00e1c ho\u00e1n v\u1ecb m\u1ea5t th\u1ee9 t\u1ef1 c\u1ee7a m\u1ed9t t\u1eadp h\u1ee3p g\u1ed3m $$n$$ ph\u1ea7n t\u1eed \u0111\u01b0\u1ee3c k\u00fd hi\u1ec7u l\u00e0 $$D_n$$.",
+        "see_ref": "",
+        "vi_terms": [
+            {
+                "term": "ho\u00e1n v\u1ecb m\u1ea5t th\u1ee9 t\u1ef1",
+                "source_id": "bib-nguyenhoangthach-2020",
+                "page": "tr. 57 (PDF)",
+                "pdf_page": 57,
+                "verified": true,
+                "recommended": true
+            },
+            {
+                "term": "m\u1ea5t th\u1ee9 t\u1ef1",
+                "source_id": "bib-nguyenhuudien-2019",
+                "page": "tr. 85 (PDF)",
+                "pdf_page": 85,
+                "verified": true,
+                "recommended": false
+            },
+            {
+                "term": "s\u1ed1 m\u1ea5t th\u1ee9 t\u1ef1",
+                "source_id": "bib-nguyenducnghia-2006",
+                "page": "tr. 29 (PDF)",
+                "pdf_page": 29,
+                "verified": true,
+                "recommended": false
+            },
+            {
+                "term": "m\u1ea5t th\u1ee9 t\u1ef1",
+                "source_id": "bib-ngodactan-2004",
+                "page": "tr. 98 (PDF)",
+                "pdf_page": 98,
+                "verified": true,
+                "recommended": false
+            },
+            {
+                "term": "ho\u00e1n v\u1ecb kh\u00f4ng c\u00f3 \u0111i\u1ec3m b\u1ea5t \u0111\u1ed9ng",
+                "source_id": "bib-ngodactan-2004",
+                "page": "tr. 99 (PDF)",
+                "pdf_page": 99,
+                "verified": true,
+                "recommended": false
+            }
+        ]
+    },
+    {
+        "id": "derivation-tree",
+        "letter": "D",
+        "headword_en": "Derivation Tree",
+        "rosen_ref": "Rosen \u00a713.1",
+        "definition_vi": "C\u00e2y d\u1eabn xu\u1ea5t l\u00e0 m\u1ed9t c\u00e2y c\u00f3 g\u1ed1c \u0111\u01b0\u1ee3c s\u1eafp th\u1ee9 t\u1ef1 bi\u1ec3u di\u1ec5n c\u00e1ch m\u1ed9t x\u00e2u \u0111\u01b0\u1ee3c d\u1eabn xu\u1ea5t trong m\u1ed9t v\u0103n ph\u1ea1m. G\u1ed1c c\u1ee7a c\u00e2y bi\u1ec3u di\u1ec5n k\u00fd hi\u1ec7u xu\u1ea5t ph\u00e1t, m\u1ed7i \u0111\u1ec9nh trong bi\u1ec3u di\u1ec5n m\u1ed9t k\u00fd hi\u1ec7u kh\u00f4ng k\u1ebft th\u00fac, m\u1ed7i l\u00e1 bi\u1ec3u di\u1ec5n m\u1ed9t k\u00fd hi\u1ec7u k\u1ebft th\u00fac, v\u00e0 c\u00e1c con c\u1ee7a m\u1ed9t \u0111\u1ec9nh t\u01b0\u01a1ng \u1ee9ng v\u1edbi v\u1ebf ph\u1ea3i c\u1ee7a lu\u1eadt s\u1ea3n xu\u1ea5t \u0111\u01b0\u1ee3c \u00e1p d\u1ee5ng.",
+        "see_ref": "",
+        "vi_terms": [
+            {
+                "term": "c\u00e2y d\u1eabn xu\u1ea5t",
+                "source_id": "bib-rosen-2003-vi",
+                "page": "tr. 775 (PDF)",
+                "pdf_page": 775,
+                "verified": true,
+                "recommended": true
+            },
+            {
+                "term": "c\u00e2y d\u1eabn xu\u1ea5t",
+                "source_id": "bib-rosen-2003-vi",
+                "page": "tr. 845 (PDF)",
+                "pdf_page": 845,
+                "verified": true,
+                "recommended": false
+            }
+        ]
+    },
+    {
+        "id": "descendants",
+        "letter": "D",
+        "headword_en": "Descendants",
+        "rosen_ref": "Rosen \u00a710.1",
+        "definition_vi": "C\u00e1c \u0111\u1ec9nh con ch\u00e1u c\u1ee7a m\u1ed9t \u0111\u1ec9nh $$v$$ trong c\u00e2y c\u00f3 g\u1ed1c l\u00e0 t\u1ea5t c\u1ea3 c\u00e1c \u0111\u1ec9nh nh\u1eadn $$v$$ l\u00e0m t\u1ed5 ti\u00ean, t\u1ee9c l\u00e0 m\u1ecdi \u0111\u1ec9nh $$u \\neq v$$ m\u00e0 $$v$$ n\u1eb1m tr\u00ean \u0111\u01b0\u1eddng \u0111i duy nh\u1ea5t t\u1eeb g\u1ed1c \u0111\u1ebfn $$u$$. N\u00f3i c\u00e1ch kh\u00e1c, m\u1ed9t \u0111\u1ec9nh $$u$$ l\u00e0 con ch\u00e1u c\u1ee7a $$v$$ khi v\u00e0 ch\u1ec9 khi $$v$$ l\u00e0 t\u1ed5 ti\u00ean c\u1ee7a $$u$$.",
+        "see_ref": "",
+        "vi_terms": [
+            {
+                "term": "con ch\u00e1u",
+                "source_id": "bib-hoangchithanh-2007",
+                "page": "tr. 138 (PDF)",
+                "pdf_page": 138,
+                "verified": true,
+                "recommended": false
+            },
+            {
+                "term": "con ch\u00e1u",
+                "source_id": "bib-nguyenhuudien-2019",
+                "page": "tr. 252 (PDF)",
+                "pdf_page": 252,
+                "verified": true,
+                "recommended": false
+            },
+            {
+                "term": "con ch\u00e1u",
+                "source_id": "bib-rosen-2003-vi",
+                "page": "tr. 623 (PDF)",
+                "pdf_page": 623,
+                "verified": true,
+                "recommended": false
+            },
+            {
+                "term": "h\u1eadu du\u1ec7",
+                "source_id": "bib-nguyenhoangthach-2020",
+                "page": "tr. 84 (PDF)",
+                "pdf_page": 84,
+                "verified": true,
+                "recommended": false
+            },
+            {
+                "term": "\u0111\u1ec9nh con ch\u00e1u",
+                "source_id": "",
+                "page": "",
+                "pdf_page": 0,
+                "verified": false,
+                "recommended": false
+            },
+            {
+                "term": "C\u00e1c \u0111\u1ec9nh con ch\u00e1u",
+                "source_id": "",
+                "page": "",
+                "pdf_page": 0,
+                "verified": false,
+                "recommended": true
+            }
+        ]
+    },
+    {
+        "id": "diameter",
+        "letter": "D",
+        "headword_en": "Diameter",
+        "rosen_ref": "Rosen \u00a710.4",
+        "definition_vi": "\\emph{\u0110\u01b0\u1eddng k\u00ednh} c\u1ee7a m\u1ed9t \u0111\u1ed3 th\u1ecb li\u00ean th\u00f4ng $$G$$, k\u00fd hi\u1ec7u $$\\operatorname{diam}(G)$$, l\u00e0 kho\u1ea3ng c\u00e1ch l\u1edbn nh\u1ea5t gi\u1eefa hai \u0111\u1ec9nh b\u1ea5t k\u1ef3 c\u1ee7a $$G$$, t\u1ee9c l\u00e0 $$\\operatorname{diam}(G) = \\max_{u,v} d(u,v)$$, trong \u0111\u00f3 c\u1ef1c \u0111\u1ea1i \u0111\u01b0\u1ee3c l\u1ea5y tr\u00ean m\u1ecdi c\u1eb7p \u0111\u1ec9nh $$u, v \\in V(G)$$.",
+        "see_ref": "",
+        "vi_terms": [
+            {
+                "term": "\u0111\u01b0\u1eddng k\u00ednh",
+                "source_id": "bib-leanhvinh-2020",
+                "page": "tr. 17 (PDF)",
+                "pdf_page": 17,
+                "verified": true,
+                "recommended": true
+            },
+            {
+                "term": "\u0111\u01b0\u1eddng k\u00ednh c\u1ee7a G",
+                "source_id": "bib-leanhvinh-2020",
+                "page": "tr. 17 (PDF)",
+                "pdf_page": 17,
+                "verified": true,
+                "recommended": false
+            },
+            {
+                "term": "\u0111\u01b0\u1eddng k\u00ednh c\u1ee7a \u0111\u1ed3 th\u1ecb",
+                "source_id": "bib-hoangchithanh-2007",
+                "page": "tr. 100 (PDF)",
+                "pdf_page": 100,
+                "verified": true,
+                "recommended": false
+            },
+            {
+                "term": "\u0111\u01b0\u1eddng k\u00ednh c\u1ee7a m\u1ed9t \u0111\u1ed3 th\u1ecb",
+                "source_id": "bib-hoangchithanh-2007",
+                "page": "tr. 100 (PDF)",
+                "pdf_page": 100,
+                "verified": true,
+                "recommended": false
+            },
+            {
+                "term": "\u0111\u01b0\u1eddng k\u00ednh",
+                "source_id": "bib-rosen-2003-vi",
+                "page": "tr. 376 (PDF, b\u1ea3n d\u1ecbch Rosen)",
+                "pdf_page": 376,
+                "verified": true,
+                "recommended": false
+            }
+        ]
+    },
+    {
+        "id": "difference",
+        "letter": "D",
+        "headword_en": "Difference",
+        "rosen_ref": "Rosen \u00a72.2",
+        "definition_vi": "Hi\u1ec7u c\u1ee7a hai t\u1eadp h\u1ee3p $$A$$ v\u00e0 $$B$$, k\u00fd hi\u1ec7u $$A - B$$ (ho\u1eb7c $$A \\setminus B$$), l\u00e0 t\u1eadp h\u1ee3p g\u1ed3m c\u00e1c ph\u1ea7n t\u1eed thu\u1ed9c $$A$$ nh\u01b0ng kh\u00f4ng thu\u1ed9c $$B$$; ngh\u0129a l\u00e0 $$A - B = \\{x : x \\in A \\wedge x \\notin B\\}$$.",
+        "see_ref": "",
+        "vi_terms": [
+            {
+                "term": "hi\u1ec7u c\u1ee7a hai t\u1eadp h\u1ee3p",
+                "source_id": "bib-rosen-2003-vi",
+                "page": "tr. 78 (PDF)",
+                "pdf_page": 78,
+                "verified": true,
+                "recommended": false
+            },
+            {
+                "term": "hi\u1ec7u c\u1ee7a t\u1eadp",
+                "source_id": "bib-nguyenducnghia-2006",
+                "page": "tr. 12 (PDF)",
+                "pdf_page": 12,
+                "verified": true,
+                "recommended": false
+            },
+            {
+                "term": "Hi\u1ec7u",
+                "source_id": "bib-rosen-2003-vi",
+                "page": "tr. 3 (PDF, b\u1ea3n d\u1ecbch Rosen)",
+                "pdf_page": 3,
+                "verified": true,
+                "recommended": true
+            },
+            {
+                "term": "hi\u1ec7u c\u1ee7a t\u1eadp",
+                "source_id": "bib-rosen-2003-vi",
+                "page": "tr. 66 (PDF, b\u1ea3n d\u1ecbch Rosen)",
+                "pdf_page": 66,
+                "verified": true,
+                "recommended": false
+            }
+        ]
+    },
+    {
+        "id": "digit",
+        "letter": "D",
+        "headword_en": "Digit",
+        "rosen_ref": "Rosen \u00a73.6",
+        "definition_vi": "Ch\u1eef s\u1ed1 l\u00e0 m\u1ed9t trong c\u00e1c k\u00fd hi\u1ec7u c\u01a1 b\u1ea3n d\u00f9ng \u0111\u1ec3 bi\u1ec3u di\u1ec5n m\u1ed9t s\u1ed1 trong m\u1ed9t h\u1ec7 c\u01a1 s\u1ed1 cho tr\u01b0\u1edbc. Trong khai tri\u1ec3n c\u01a1 s\u1ed1 $$b$$, m\u1ed9t s\u1ed1 nguy\u00ean d\u01b0\u01a1ng \u0111\u01b0\u1ee3c vi\u1ebft d\u01b0\u1edbi d\u1ea1ng d\u00e3y c\u00e1c ch\u1eef s\u1ed1 l\u1ea5y gi\u00e1 tr\u1ecb trong t\u1eadp $$\\{0, 1, \\ldots, b-1\\}$$; v\u1edbi h\u1ec7 th\u1eadp ph\u00e2n $$(b = 10)$$ c\u00e1c ch\u1eef s\u1ed1 l\u00e0 $$0, 1, \\ldots, 9$$ v\u00e0 v\u1edbi h\u1ec7 nh\u1ecb ph\u00e2n $$(b = 2)$$ c\u00e1c ch\u1eef s\u1ed1 l\u00e0 $$0$$ v\u00e0 $$1$$.",
+        "see_ref": "",
+        "vi_terms": [
+            {
+                "term": "ch\u1eef s\u1ed1",
+                "source_id": "bib-rosen-2003-vi",
+                "page": "tr. 174 (PDF)",
+                "pdf_page": 174,
+                "verified": true,
+                "recommended": true
+            },
+            {
+                "term": "ch\u1eef s\u1ed1 th\u1eadp ph\u00e2n",
+                "source_id": "bib-rosen-2003-vi",
+                "page": "tr. 128 (PDF)",
+                "pdf_page": 128,
+                "verified": true,
+                "recommended": false
+            },
+            {
+                "term": "ch\u1eef s\u1ed1",
+                "source_id": "bib-nguyenhoangthach-2020",
+                "page": "tr. 15 (PDF)",
+                "pdf_page": 15,
+                "verified": true,
+                "recommended": false
+            },
+            {
+                "term": "ch\u1eef s\u1ed1",
+                "source_id": "bib-nguyenhuudien-2019",
+                "page": "tr. 87 (PDF)",
+                "pdf_page": 87,
+                "verified": true,
+                "recommended": false
+            },
+            {
+                "term": "ch\u1eef s\u1ed1",
+                "source_id": "bib-nguyenducnghia-2006",
+                "page": "tr. 25 (PDF)",
+                "pdf_page": 25,
+                "verified": true,
+                "recommended": false
+            },
+            {
+                "term": "ch\u1eef s\u1ed1",
+                "source_id": "bib-ngodactan-2004",
+                "page": "tr. 29 (PDF)",
+                "pdf_page": 29,
+                "verified": true,
+                "recommended": false
+            }
+        ]
+    },
+    {
+        "id": "digital-signature",
+        "letter": "D",
+        "headword_en": "Digital Signature",
+        "rosen_ref": "Rosen \u00a74.6",
+        "definition_vi": "Ch\u1eef k\u00fd s\u1ed1 l\u00e0 m\u1ed9t ph\u01b0\u01a1ng ph\u00e1p m\u00e0 ng\u01b0\u1eddi nh\u1eadn c\u00f3 th\u1ec3 d\u00f9ng \u0111\u1ec3 x\u00e1c \u0111\u1ecbnh ng\u01b0\u1eddi g\u1eedi c\u1ee7a m\u1ed9t th\u00f4ng \u0111i\u1ec7p. B\u1eb1ng c\u00e1ch \u00e1p d\u1ee5ng m\u1ed9t ph\u00e9p bi\u1ebfn \u0111\u1ed5i m\u1eadt m\u00e3 m\u00e0 ch\u1ec9 ri\u00eang ng\u01b0\u1eddi g\u1eedi m\u1edbi th\u1ef1c hi\u1ec7n \u0111\u01b0\u1ee3c l\u00ean th\u00f4ng \u0111i\u1ec7p, ng\u01b0\u1eddi nh\u1eadn c\u00f3 th\u1ec3 ki\u1ec3m tra v\u00e0 x\u00e1c nh\u1eadn r\u1eb1ng th\u00f4ng \u0111i\u1ec7p \u0111\u00fang l\u00e0 do ng\u01b0\u1eddi g\u1eedi \u0111\u00f3 t\u1ea1o ra.",
+        "see_ref": "",
+        "vi_terms": [
+            {
+                "term": "ch\u1eef k\u00fd s\u1ed1",
+                "source_id": "",
+                "page": "",
+                "pdf_page": 0,
+                "verified": false,
+                "recommended": true
+            }
+        ]
+    },
+    {
+        "id": "digraph",
+        "letter": "D",
+        "headword_en": "Digraph",
+        "rosen_ref": "",
+        "definition_vi": "",
+        "see_ref": "directed-graph",
+        "vi_terms": [
+            {
+                "term": "\u0111\u1ed3 th\u1ecb c\u00f3 h\u01b0\u1edbng",
+                "source_id": "",
+                "page": "",
+                "pdf_page": 0,
+                "verified": false,
+                "recommended": false
+            },
+            {
+                "term": "\u0111\u1ed3 th\u1ecb \u0111\u1ecbnh h\u01b0\u1edbng",
+                "source_id": "",
+                "page": "",
+                "pdf_page": 0,
+                "verified": false,
+                "recommended": false
+            },
+            {
+                "term": "\u0111\u01a1n \u0111\u1ed3 th\u1ecb c\u00f3 h\u01b0\u1edbng",
+                "source_id": "",
+                "page": "",
+                "pdf_page": 0,
+                "verified": false,
+                "recommended": false
+            },
+            {
+                "term": "\u0111a \u0111\u1ed3 th\u1ecb c\u00f3 h\u01b0\u1edbng",
+                "source_id": "",
+                "page": "",
+                "pdf_page": 0,
+                "verified": false,
+                "recommended": false
+            }
+        ]
+    },
+    {
+        "id": "dijkstra-algorithm",
+        "letter": "D",
+        "headword_en": "Dijkstra's algorithm",
+        "rosen_ref": "Rosen \u00a710.6",
+        "definition_vi": "\\emph{Thu\u1eadt to\u00e1n Dijkstra} l\u00e0 m\u1ed9t th\u1ee7 t\u1ee5c tham lam t\u00ecm \u0111\u1ed9 d\u00e0i \u0111\u01b0\u1eddng \u0111i ng\u1eafn nh\u1ea5t gi\u1eefa hai \u0111\u1ec9nh trong m\u1ed9t \u0111\u1ed3 th\u1ecb li\u00ean th\u00f4ng c\u00f3 tr\u1ecdng s\u1ed1 v\u1edbi m\u1ecdi tr\u1ecdng s\u1ed1 c\u1ea1nh kh\u00f4ng \u00e2m. B\u1eaft \u0111\u1ea7u t\u1eeb \u0111\u1ec9nh ngu\u1ed3n, thu\u1eadt to\u00e1n l\u1eb7p l\u1ea1i vi\u1ec7c th\u00eam v\u00e0o m\u1ed9t t\u1eadp h\u1ee3p $$S$$ \u0111\u1ec9nh ch\u01b0a thu\u1ed9c $$S$$ c\u00f3 kho\u1ea3ng c\u00e1ch \u0111\u00e3 bi\u1ebft nh\u1ecf nh\u1ea5t t\u00ednh t\u1eeb \u0111\u1ec9nh ngu\u1ed3n, cho \u0111\u1ebfn khi \u0111\u1ec9nh \u0111\u00edch \u0111\u01b0\u1ee3c th\u00eam v\u00e0o $$S$$.",
+        "see_ref": "",
+        "vi_terms": [
+            {
+                "term": "thu\u1eadt to\u00e1n Dijkstra",
+                "source_id": "bib-leanhvinh-2020",
+                "page": "tr. 34 (PDF)",
+                "pdf_page": 34,
+                "verified": true,
+                "recommended": true
+            },
+            {
+                "term": "thu\u1eadt to\u00e1n Dijkstra",
+                "source_id": "bib-nguyenhoangthach-2020",
+                "page": "tr. 92 (PDF)",
+                "pdf_page": 92,
+                "verified": true,
+                "recommended": false
+            },
+            {
+                "term": "thu\u1eadt to\u00e1n Dijkstra",
+                "source_id": "bib-nguyenhuudien-2019",
+                "page": "tr. 207 (PDF)",
+                "pdf_page": 207,
+                "verified": true,
+                "recommended": false
+            },
+            {
+                "term": "thu\u1eadt to\u00e1n Dijkstra",
+                "source_id": "bib-hoangchithanh-2007",
+                "page": "tr. 95 (PDF)",
+                "pdf_page": 95,
+                "verified": true,
+                "recommended": false
+            },
+            {
+                "term": "thu\u1eadt to\u00e1n Dijkstra",
+                "source_id": "bib-nguyenducnghia-2006",
+                "page": "tr. 227 (PDF)",
+                "pdf_page": 227,
+                "verified": true,
+                "recommended": false
+            },
+            {
+                "term": "thu\u1eadt to\u00e1n Dijkstra",
+                "source_id": "bib-ngodactan-2004",
+                "page": "tr. 236 (PDF)",
+                "pdf_page": 236,
+                "verified": true,
+                "recommended": false
+            },
+            {
+                "term": "thu\u1eadt to\u00e1n Dijkstra t\u00ecm \u0111\u01b0\u1eddng \u0111i ng\u1eafn nh\u1ea5t",
+                "source_id": "bib-nguyenhoangthach-2020",
+                "page": "tr. 92 (PDF)",
+                "pdf_page": 92,
+                "verified": true,
+                "recommended": false
+            },
+            {
+                "term": "thu\u1eadt to\u00e1n Dijkstra t\u00ecm \u0111\u01b0\u1eddng \u0111i ng\u1eafn nh\u1ea5t",
+                "source_id": "bib-nguyenhuudien-2019",
+                "page": "tr. 207 (PDF)",
+                "pdf_page": 207,
+                "verified": true,
+                "recommended": false
+            },
+            {
+                "term": "thu\u1eadt to\u00e1n Dijkstra t\u00ecm \u0111\u01b0\u1eddng \u0111i ng\u1eafn nh\u1ea5t",
+                "source_id": "bib-hoangchithanh-2007",
+                "page": "tr. 93 (PDF)",
+                "pdf_page": 93,
+                "verified": true,
+                "recommended": false
+            },
+            {
+                "term": "thu\u1eadt to\u00e1n Dijkstra",
+                "source_id": "bib-rosen-2003-vi",
+                "page": "tr. 571 (PDF, b\u1ea3n d\u1ecbch Rosen)",
+                "pdf_page": 571,
+                "verified": true,
+                "recommended": false
+            },
+            {
+                "term": "thu\u1eadt to\u00e1n Dijkstra t\u00ecm \u0111\u01b0\u1eddng \u0111i ng\u1eafn nh\u1ea5t",
+                "source_id": "bib-rosen-2003-vi",
+                "page": "tr. 575 (PDF, b\u1ea3n d\u1ecbch Rosen)",
+                "pdf_page": 575,
+                "verified": true,
+                "recommended": false
+            }
+        ]
+    },
+    {
+        "id": "direct-proof",
+        "letter": "D",
+        "headword_en": "Direct Proof",
+        "rosen_ref": "Rosen \u00a71.6",
+        "definition_vi": "Ch\u1ee9ng minh tr\u1ef1c ti\u1ebfp l\u00e0 ph\u01b0\u01a1ng ph\u00e1p ch\u1ee9ng minh m\u1ec7nh \u0111\u1ec1 k\u00e9o theo $$p \\rightarrow q$$ b\u1eb1ng c\u00e1ch gi\u1ea3 s\u1eed $$p$$ \u0111\u00fang r\u1ed3i d\u00f9ng c\u00e1c b\u01b0\u1edbc suy di\u1ec5n (\u0111\u1ecbnh ngh\u0129a, ti\u00ean \u0111\u1ec1, \u0111\u1ecbnh l\u00fd \u0111\u00e3 bi\u1ebft) \u0111\u1ec3 d\u1eabn t\u1edbi k\u1ebft lu\u1eadn $$q$$ \u0111\u00fang. V\u00ec tr\u01b0\u1eddng h\u1ee3p $$p$$ sai \u0111\u00e3 l\u00e0m cho $$p \\rightarrow q$$ \u0111\u00fang, ta ch\u1ec9 c\u1ea7n x\u00e9t tr\u01b0\u1eddng h\u1ee3p $$p$$ \u0111\u00fang.",
+        "see_ref": "",
+        "vi_terms": [
+            {
+                "term": "ch\u1ee9ng minh tr\u1ef1c ti\u1ebfp",
+                "source_id": "bib-nguyenhuudien-2019",
+                "page": "tr. 56 (PDF)",
+                "pdf_page": 56,
+                "verified": true,
+                "recommended": false
+            },
+            {
+                "term": "ch\u1ee9ng minh tr\u1ef1c ti\u1ebfp",
+                "source_id": "bib-ngodactan-2004",
+                "page": "tr. 318 (PDF)",
+                "pdf_page": 318,
+                "verified": true,
+                "recommended": false
+            },
+            {
+                "term": "ch\u1ee9ng minh tr\u1ef1c ti\u1ebfp",
+                "source_id": "bib-rosen-2003-vi",
+                "page": "tr. 278 (PDF)",
+                "pdf_page": 278,
+                "verified": true,
+                "recommended": false
+            },
+            {
+                "term": "Ch\u1ee9ng minh tr\u1ef1c ti\u1ebfp",
+                "source_id": "bib-rosen-2003-vi",
+                "page": "tr. 216 (PDF, b\u1ea3n d\u1ecbch Rosen)",
+                "pdf_page": 216,
+                "verified": true,
+                "recommended": true
+            }
+        ]
+    },
+    {
+        "id": "directed-acyclic-graph",
+        "letter": "D",
+        "headword_en": "Directed Acyclic Graph",
+        "rosen_ref": "Rosen \u00a710.5",
+        "definition_vi": "\u0110\u1ed3 th\u1ecb c\u00f3 h\u01b0\u1edbng kh\u00f4ng c\u00f3 chu tr\u00ecnh l\u00e0 m\u1ed9t \u0111\u1ed3 th\u1ecb c\u00f3 h\u01b0\u1edbng $$G = (V, E)$$ kh\u00f4ng ch\u1ee9a b\u1ea5t k\u1ef3 chu tr\u00ecnh c\u00f3 h\u01b0\u1edbng n\u00e0o, ngh\u0129a l\u00e0 kh\u00f4ng t\u1ed3n t\u1ea1i \u0111\u01b0\u1eddng \u0111i c\u00f3 h\u01b0\u1edbng n\u00e0o xu\u1ea5t ph\u00e1t t\u1eeb m\u1ed9t \u0111\u1ec9nh v\u00e0 quay tr\u1edf l\u1ea1i ch\u00ednh \u0111\u1ec9nh \u0111\u00f3. M\u1ed9t \u0111\u1ed3 th\u1ecb c\u00f3 h\u01b0\u1edbng $$G$$ l\u00e0 kh\u00f4ng c\u00f3 chu tr\u00ecnh khi v\u00e0 ch\u1ec9 khi c\u00f3 th\u1ec3 \u0111\u00e1nh s\u1ed1 c\u00e1c \u0111\u1ec9nh c\u1ee7a $$G$$ sao cho m\u1ecdi c\u1ea1nh $$(u, v) \\in E$$ \u0111\u1ec1u th\u1ecfa m\u00e3n s\u1ed1 th\u1ee9 t\u1ef1 c\u1ee7a $$u$$ nh\u1ecf h\u01a1n s\u1ed1 th\u1ee9 t\u1ef1 c\u1ee7a $$v$$.",
+        "see_ref": "",
+        "vi_terms": [
+            {
+                "term": "\u0111\u1ed3 th\u1ecb c\u00f3 h\u01b0\u1edbng kh\u00f4ng ch\u1ee9a chu tr\u00ecnh",
+                "source_id": "",
+                "page": "",
+                "pdf_page": 0,
+                "verified": false,
+                "recommended": false
+            },
+            {
+                "term": "\u0111\u1ed3 th\u1ecb \u0111\u1ecbnh h\u01b0\u1edbng phi chu tr\u00ecnh",
+                "source_id": "bib-hoangchithanh-2007",
+                "page": "tr. 49 (PDF)",
+                "pdf_page": 49,
+                "verified": true,
+                "recommended": false
+            },
+            {
+                "term": "\u0111\u1ed3 th\u1ecb \u0111\u1ecbnh h\u01b0\u1edbng phi chu tr\u00ecnh",
+                "source_id": "bib-nguyenhuudien-2019",
+                "page": "tr. 226 (PDF)",
+                "pdf_page": 226,
+                "verified": true,
+                "recommended": false
+            },
+            {
+                "term": "\u0111\u1ed3 th\u1ecb c\u00f3 h\u01b0\u1edbng kh\u00f4ng c\u00f3 chu tr\u00ecnh",
+                "source_id": "",
+                "page": "",
+                "pdf_page": 0,
+                "verified": false,
+                "recommended": true
+            }
+        ]
+    },
+    {
+        "id": "directed-edge",
+        "letter": "D",
+        "headword_en": "Directed Edge",
+        "rosen_ref": "Rosen \u00a710.1",
+        "definition_vi": "C\u1ea1nh c\u00f3 h\u01b0\u1edbng c\u1ee7a m\u1ed9t \u0111\u1ed3 th\u1ecb c\u00f3 h\u01b0\u1edbng $$G$$ l\u00e0 m\u1ed9t c\u1eb7p c\u00f3 th\u1ee9 t\u1ef1 $$(u, v)$$ g\u1ed3m hai \u0111\u1ec9nh, bi\u1ec3u di\u1ec5n m\u1ed9t li\u00ean k\u1ebft \u0111i t\u1eeb \u0111\u1ec9nh \u0111\u1ea7u $$u$$ \u0111\u1ebfn \u0111\u1ec9nh cu\u1ed1i $$v$$. Kh\u00e1c v\u1edbi c\u1ea1nh v\u00f4 h\u01b0\u1edbng, hai c\u1ea1nh c\u00f3 h\u01b0\u1edbng $$(u, v)$$ v\u00e0 $$(v, u)$$ \u0111\u01b0\u1ee3c xem l\u00e0 kh\u00e1c nhau khi $$u \\neq v$$.",
+        "see_ref": "",
+        "vi_terms": [
+            {
+                "term": "c\u1ea1nh c\u00f3 h\u01b0\u1edbng",
+                "source_id": "bib-leanhvinh-2020",
+                "page": "tr. 11 (PDF)",
+                "pdf_page": 11,
+                "verified": true,
+                "recommended": true
+            },
+            {
+                "term": "c\u1ea1nh c\u00f3 h\u01b0\u1edbng",
+                "source_id": "bib-nguyenhoangthach-2020",
+                "page": "tr. 62 (PDF)",
+                "pdf_page": 62,
+                "verified": true,
+                "recommended": false
+            },
+            {
+                "term": "cung",
+                "source_id": "bib-nguyenhoangthach-2020",
+                "page": "tr. 62 (PDF)",
+                "pdf_page": 62,
+                "verified": true,
+                "recommended": false
+            },
+            {
+                "term": "c\u1ea1nh c\u00f3 h\u01b0\u1edbng",
+                "source_id": "bib-nguyenhuudien-2019",
+                "page": "tr. 209 (PDF)",
+                "pdf_page": 209,
+                "verified": true,
+                "recommended": false
+            },
+            {
+                "term": "c\u1ea1nh c\u00f3 h\u01b0\u1edbng",
+                "source_id": "bib-hoangchithanh-2007",
+                "page": "tr. 6 (PDF)",
+                "pdf_page": 6,
+                "verified": true,
+                "recommended": false
+            },
+            {
+                "term": "c\u1ea1nh c\u00f3 h\u01b0\u1edbng",
+                "source_id": "bib-nguyenducnghia-2006",
+                "page": "tr. 154 (PDF)",
+                "pdf_page": 154,
+                "verified": true,
+                "recommended": false
+            },
+            {
+                "term": "c\u1ea1nh c\u00f3 h\u01b0\u1edbng",
+                "source_id": "bib-rosen-2003-vi",
+                "page": "tr. 622 (PDF)",
+                "pdf_page": 622,
+                "verified": true,
+                "recommended": false
+            },
+            {
+                "term": "cung",
+                "source_id": "bib-rosen-2003-vi",
+                "page": "tr. 165 (PDF, b\u1ea3n d\u1ecbch Rosen)",
+                "pdf_page": 165,
+                "verified": true,
+                "recommended": false
+            },
+            {
+                "term": "cung c\u1ee7a \u0111\u1ed3 th\u1ecb c\u00f3 h\u01b0\u1edbng",
+                "source_id": "bib-nguyenducnghia-2006",
+                "page": "tr. 190 (PDF)",
+                "pdf_page": 190,
+                "verified": true,
+                "recommended": false
+            }
+        ]
+    },
+    {
+        "id": "directed-graph",
+        "letter": "D",
+        "headword_en": "Directed graph",
+        "rosen_ref": "Rosen \u00a710.2",
+        "definition_vi": "M\u1ed9t \\emph{\u0111\u1ed3 th\u1ecb c\u00f3 h\u01b0\u1edbng} $$G = (V, E)$$ g\u1ed3m m\u1ed9t t\u1eadp kh\u00e1c r\u1ed7ng c\u00e1c \u0111\u1ec9nh $$V$$ v\u00e0 m\u1ed9t t\u1eadp c\u00e1c c\u1ea1nh c\u00f3 h\u01b0\u1edbng $$E$$, trong \u0111\u00f3 m\u1ed7i c\u1ea1nh c\u00f3 h\u01b0\u1edbng \u0111\u01b0\u1ee3c g\u1eafn v\u1edbi m\u1ed9t c\u1eb7p \u0111\u1ec9nh c\u00f3 th\u1ee9 t\u1ef1 $$(u, v)$$ th\u1ec3 hi\u1ec7n h\u01b0\u1edbng c\u1ee7a n\u00f3 t\u1eeb \u0111\u1ec9nh $$u$$ \u0111\u1ebfn \u0111\u1ec9nh $$v$$.",
+        "see_ref": "",
+        "vi_terms": [
+            {
+                "term": "\u0111\u1ed3 th\u1ecb c\u00f3 h\u01b0\u1edbng",
+                "source_id": "bib-leanhvinh-2020",
+                "page": "tr. 11 (PDF)",
+                "pdf_page": 11,
+                "verified": true,
+                "recommended": true
+            },
+            {
+                "term": "\u0111\u1ed3 th\u1ecb c\u00f3 h\u01b0\u1edbng",
+                "source_id": "bib-nguyenhoangthach-2020",
+                "page": "tr. 62 (PDF)",
+                "pdf_page": 62,
+                "verified": true,
+                "recommended": false
+            },
+            {
+                "term": "\u0111\u1ed3 th\u1ecb \u0111\u1ecbnh h\u01b0\u1edbng",
+                "source_id": "bib-nguyenhuudien-2019",
+                "page": "tr. 226 (PDF)",
+                "pdf_page": 226,
+                "verified": true,
+                "recommended": false
+            },
+            {
+                "term": "\u0111\u1ed3 th\u1ecb \u0111\u1ecbnh h\u01b0\u1edbng",
+                "source_id": "bib-hoangchithanh-2007",
+                "page": "tr. 19 (PDF)",
+                "pdf_page": 19,
+                "verified": true,
+                "recommended": false
+            },
+            {
+                "term": "\u0111\u1ed3 th\u1ecb c\u00f3 h\u01b0\u1edbng",
+                "source_id": "bib-hoangchithanh-2007",
+                "page": "tr. 84 (PDF)",
+                "pdf_page": 84,
+                "verified": true,
+                "recommended": false
+            },
+            {
+                "term": "\u0111\u1ed3 th\u1ecb c\u00f3 h\u01b0\u1edbng",
+                "source_id": "bib-nguyenducnghia-2006",
+                "page": "tr. 171 (PDF)",
+                "pdf_page": 171,
+                "verified": true,
+                "recommended": false
+            },
+            {
+                "term": "\u0111\u1ed3 th\u1ecb c\u00f3 h\u01b0\u1edbng",
+                "source_id": "bib-ngodactan-2004",
+                "page": "tr. 185 (PDF)",
+                "pdf_page": 185,
+                "verified": true,
+                "recommended": false
+            },
+            {
+                "term": "\u0111\u1ed3 th\u1ecb c\u00f3 h\u01b0\u1edbng",
+                "source_id": "bib-rosen-2003-vi",
+                "page": "tr. 446 (PDF, b\u1ea3n d\u1ecbch Rosen)",
+                "pdf_page": 446,
+                "verified": true,
+                "recommended": false
+            },
+            {
+                "term": "\u0111\u1ed3 th\u1ecb \u0111\u1ecbnh h\u01b0\u1edbng",
+                "source_id": "bib-rosen-2003-vi",
+                "page": "tr. 504 (PDF, b\u1ea3n d\u1ecbch Rosen)",
+                "pdf_page": 504,
+                "verified": true,
+                "recommended": false
+            },
+            {
+                "term": "\u0111\u01a1n \u0111\u1ed3 th\u1ecb c\u00f3 h\u01b0\u1edbng",
+                "source_id": "bib-nguyenhoangthach-2020",
+                "page": "tr. 62 (PDF)",
+                "pdf_page": 62,
+                "verified": true,
+                "recommended": false
+            },
+            {
+                "term": "\u0111a \u0111\u1ed3 th\u1ecb c\u00f3 h\u01b0\u1edbng",
+                "source_id": "bib-nguyenhoangthach-2020",
+                "page": "tr. 62 (PDF)",
+                "pdf_page": 62,
+                "verified": true,
+                "recommended": false
+            }
+        ]
+    }
+]
+
+hook: PostToolUse
+hook: PostToolUse Completed
+codex
+The batch is longer than the first screen and includes one cross-reference stub (`digraph`) that should be skipped. I’m extracting a compact table of ids, headwords, recommended terms, and existing variants so the web checks stay focused.
+hook: PreToolUse
+hook: PreToolUse Completed
+exec
+/bin/bash -lc "jq -r '.[] | [.id, .headword_en, .see_ref, (([.vi_terms[]? | select(.recommended == true) | .term] | join(\" | \"))), (([.vi_terms[]? | .term] | unique | join(\"; \")))] | @tsv' workflow/loop/review/batch-4.json" in /home/ubuntu/DM-Concepts
+ succeeded in 0ms:
+contingency	Contingency		tiếp liên	tiếp liên
+continuum-hypothesis	Continuum Hypothesis		giả thuyết continuum	giả thuyết continuum
+contradiction	Contradiction		mâu thuẫn	hằng sai; mâu thuẫn; mệnh đề mâu thuẫn
+contrapositive	Contrapositive		mệnh đề phản đảo	mệnh đề phản đảo
+converse	Converse		mệnh đề đảo	mệnh đề ngược lại; mệnh đề đảo; điều ngược lại
+corollary	Corollary		Hệ quả	Hệ quả
+correctness	Correctness		tính đúng đắn	tính đúng đắn
+count-of-an-itemset	Count Of An Itemset		số đếm của tập mục	số đếm của tập mục
+countable-set	Countable set		tập đếm được	tập đếm được
+counterexample	Counterexample		phản ví dụ	phản ví dụ; đồ thị phản ví dụ
+cover	Cover		bao phủ	bao phủ; phủ đỉnh; tập phủ cạnh; tập phủ đỉnh
+cryptanalysis	Cryptanalysis		phân tích mật mã	phân tích mật mã
+cryptosystem	Cryptosystem		hệ thống mật mã	hệ mật mã; hệ thống mật mã
+cut-edge	Cut Edge		cạnh cắt	cạnh cầu; cạnh cắt; cầu
+cut-vertex	Cut vertex		đỉnh cắt	điểm khớp; đỉnh cắt; đỉnh khớp; đỉnh rẽ nhánh
+cycle	Cycle		đồ thị vòng	chu trình; đồ thị chu trình; đồ thị vòng
+de-morgans-laws-for-quantifiers	De Morgan's Laws for Quantifiers		Luật De Morgan cho lượng từ	Luật De Morgan cho lượng từ; phủ định các lượng từ; quy tắc phủ định mệnh đề có lượng từ
+decimal	Decimal		Hệ cơ số 10 (hệ thập phân)	Hệ cơ số $10$ (hệ thập phân; Hệ cơ số 10 (hệ thập phân); biểu diễn thập phân; hệ cơ đếm thập phân; ký số thập phân
+decimal-representation	Decimal Representation		biểu diễn thập phân	biểu diễn thập phân; khai triển thập phân
+decision-problem	Decision Problem		bài toán quyết định	bài toán quyết định
+decision-tree	Decision Tree		cây quyết định	cây quyết định; cây quyết định nhị phân
+decreasing	Decreasing		giảm	giảm; thực sự giảm
+decryption	Decryption		giải mã	giải mã
+degree-distribution	Degree Distribution		phân phối bậc	phân phối bậc
+degree	Degree of a vertex		bậc của đỉnh	bậc; bậc của một đỉnh; bậc của đỉnh; bậc đỉnh
+degree-sequence	Degree sequence		dãy bậc	dãy bậc; dãy bậc của các đỉnh
+depth-first-search	Depth-first search		duyệt theo chiều sâu	duyệt theo chiều sâu; duyệt đồ thị theo chiều sâu; tìm kiếm theo chiều sâu
+derangement	Derangement		hoán vị mất thứ tự	hoán vị không có điểm bất động; hoán vị mất thứ tự; mất thứ tự; số mất thứ tự
+derivation-tree	Derivation Tree		cây dẫn xuất	cây dẫn xuất
+descendants	Descendants		Các đỉnh con cháu	Các đỉnh con cháu; con cháu; hậu duệ; đỉnh con cháu
+diameter	Diameter		đường kính	đường kính; đường kính của G; đường kính của một đồ thị; đường kính của đồ thị
+difference	Difference		Hiệu	Hiệu; hiệu của hai tập hợp; hiệu của tập
+digit	Digit		chữ số	chữ số; chữ số thập phân
+digital-signature	Digital Signature		chữ ký số	chữ ký số
+digraph	Digraph	directed-graph		đa đồ thị có hướng; đơn đồ thị có hướng; đồ thị có hướng; đồ thị định hướng
+dijkstra-algorithm	Dijkstra's algorithm		thuật toán Dijkstra	thuật toán Dijkstra; thuật toán Dijkstra tìm đường đi ngắn nhất
+direct-proof	Direct Proof		Chứng minh trực tiếp	Chứng minh trực tiếp; chứng minh trực tiếp
+directed-acyclic-graph	Directed Acyclic Graph		đồ thị có hướng không có chu trình	đồ thị có hướng không chứa chu trình; đồ thị có hướng không có chu trình; đồ thị định hướng phi chu trình
+directed-edge	Directed Edge		cạnh có hướng	cung; cung của đồ thị có hướng; cạnh có hướng
+directed-graph	Directed graph		đồ thị có hướng	đa đồ thị có hướng; đơn đồ thị có hướng; đồ thị có hướng; đồ thị định hướng
+
+hook: PostToolUse
+hook: PostToolUse Completed
+web search: 
+web search: "continuum hypothesis" "giả thuyết liên tục"
+web search: 
+web search: "Continuum Hypothesis" "giả thuyết continuum" "giả thuyết liên tục" -reddit
+web search: 
+web search: "count of an itemset" "độ hỗ trợ" "tập mục"
+codex
+Several entries already have multiple verified local variants, so I’m concentrating searches on weakly sourced or likely-missing variants. Search snippets so far indicate likely findings for items such as continuum hypothesis, itemset count, countable set, cryptanalysis, cut vertex, decreasing, and cover.
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+hook: PreToolUse
+exec
+/bin/bash -lc "sed -n '1,220p' workflow/loop/review/findings-1.json" in /home/ubuntu/DM-Concepts
+ succeeded in 0ms:
+{"loop":1,"reviewed":69,"findings":[{"id":"adjacency-list","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"danh sách kế cận","source":"https://tailieu.tv/tai-lieu/phan-tich-va-thiet-ke-giai-thuat-chuong-3-chien-luoc-giam-de-tri-decrease-and-conquer-32938/"}]},{"id":"adjacency-matrix","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"ma trận kế cận","source":"https://tailieu.tv/tai-lieu/phan-tich-va-thiet-ke-giai-thuat-chuong-3-chien-luoc-giam-de-tri-decrease-and-conquer-32938/"}]},{"id":"and-gate","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"cổng VÀ","source":"https://elib.vku.udn.vn/bitstream/123456789/2598/3/C2.%20Dai%20so%20Boole%20va%20cac%20cong%20ly%20luan.pdf"}]},{"id":"asymptotic-estimate","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"ước lượng tiệm cận","source":"https://math.ac.vn/public/uploads/luan-an/Luanan_HaDucThai.pdf"}]},{"id":"asymptotic-notation","commonality":{"verdict":"uncommon","better_term":"ký pháp tiệm cận","source":"https://ptit.edu.vn/saudaihoc/wp-content/uploads/2023/06/LA_Tr%E1%BA%A7n-Vi%E1%BB%87t-Ch%C6%B0%C6%A1ng.pdf"},"missing_variants":[{"term":"ký pháp tiệm cận","source":"https://ptit.edu.vn/saudaihoc/wp-content/uploads/2023/06/LA_Tr%E1%BA%A7n-Vi%E1%BB%87t-Ch%C6%B0%C6%A1ng.pdf"},{"term":"ký hiệu tiệm cận","source":"https://ptit.edu.vn/saudaihoc/wp-content/uploads/2023/06/LA_Tr%E1%BA%A7n-Vi%E1%BB%87t-Ch%C6%B0%C6%A1ng.pdf"}]},{"id":"automorphism","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"phép tự đẳng cấu","source":"https://vi.wikipedia.org/wiki/Ph%C3%A9p_%C4%91%E1%BA%B3ng_c%E1%BA%A5u"}]},{"id":"average-case-complexity","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"độ phức tạp trung bình","source":"https://daotao.sgu.edu.vn/images/pdf/chuong_trinh_dao_tao/2016/1620_ToanUD.pdf"}]},{"id":"backtracking","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"phương pháp quay lui","source":"https://khmt.uit.edu.vn/wp-content/uploads/2013/12/images_decuong_CS112.pdf"}]},{"id":"ball","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"quả cầu","source":"https://vi.wikipedia.org/wiki/Qu%E1%BA%A3_c%E1%BA%A7u"},{"term":"khối cầu","source":"https://vi.wikipedia.org/wiki/Qu%E1%BA%A3_c%E1%BA%A7u"}]},{"id":"base","commonality":{"verdict":"uncommon","better_term":"cơ số","source":"https://dulieu.tailieuhoctap.vn/books/giao-duc-dai-cuong/toan-roi-rac/file_goc_768449.pdf"},"missing_variants":[]},{"id":"best-case-complexity","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"độ phức tạp tốt nhất","source":"https://daotao.sgu.edu.vn/images/pdf/chuong_trinh_dao_tao/2016/1620_ToanUD.pdf"}]},{"id":"bi-implication","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"phép kéo theo hai chiều","source":"https://tktung.files.wordpress.com/2014/04/toanroirac-nguyenngoctrung.pdf"}]},{"id":"binary","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"hệ nhị phân","source":"https://dulieu.tailieuhoctap.vn/books/giao-duc-dai-cuong/toan-roi-rac/file_goc_768449.pdf"}]},{"id":"binary-relation","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"quan hệ nhị phân","source":"https://uet.vnu.edu.vn/~thuyhq/Student_Thesis/K44_Nguyen_Danh_Hoan_Thesis.pdf"}]},{"id":"binary-search-tree","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"cây nhị phân tìm kiếm","source":"https://oj.vnoi.info/problem/nktree"}]},{"id":"bipartite-graph","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"đồ thị lưỡng phân","source":"https://vi.wikipedia.org/wiki/%C4%90%E1%BB%93_th%E1%BB%8B_hai_ph%C3%ADa"}]},{"id":"bit-string","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"dãy bit","source":"https://cuuduongthancong.com/dlf/22193658/toan-roi-rac/tran-vinh-duc/slide_trr_dagop.pdf"}]},{"id":"block","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"thành phần song liên thông","source":"https://oj.vnoi.info/tags/?tag_id=biconnected"}]},{"id":"boolean-algebra","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"đại số Boolean","source":"https://toanroirac2011.files.wordpress.com/2011/12/chap00_introduction.pdf"}]},{"id":"boolean-expression","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"biểu thức Boolean","source":"https://www.scribd.com/document/731873766/QUY%E1%BB%82N-GHI-TOAN-R%E1%BB%9CI-R%E1%BA%A0C-2024-67IT3-4"}]},{"id":"boolean-function","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"hàm Boolean","source":"https://www.slideshare.net/slideshow/chuong-7ham-boolepdf/258956466"}]},{"id":"bound-variable","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"biến buộc","source":"https://tapchitriet.com/wp-content/uploads/2025/12/triet-16.pdf"}]},{"id":"breadth-first-search","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"duyệt theo bề rộng trước","source":"https://cuuduongthancong.com/dlf/843771/phan-tich-va-thiet-ke-giai-thuat/duong-tuan-anh/chap3_chien-luoc-giam-de-tri%28decrease-and-conquer%29.pdf"},{"term":"thuật toán loang","source":"https://ntlieu.files.wordpress.com/2013/07/ltdt.pdf"}]},{"id":"cantor-diagonalization-argument","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"lập luận cắt đường chéo","source":"https://vi.wikipedia.org/wiki/L%E1%BA%ADp_lu%E1%BA%ADn_%C4%91%C6%B0%E1%BB%9Dng_ch%C3%A9o_c%E1%BB%A7a_Cantor"},{"term":"phương pháp đường chéo","source":"https://vi.wikipedia.org/wiki/L%E1%BA%ADp_lu%E1%BA%ADn_%C4%91%C6%B0%E1%BB%9Dng_ch%C3%A9o_c%E1%BB%A7a_Cantor"}]}]}
+
+hook: PostToolUse
+exec
+/bin/bash -lc "sed -n '1,220p' workflow/loop/review/findings-2.json" in /home/ubuntu/DM-Concepts
+ succeeded in 0ms:
+{"loop":2,"reviewed":38,"findings":[{"id":"binary","commonality":{"verdict":"uncommon","better_term":"hệ nhị phân","source":"https://www.studocu.vn/vn/document/truong-dai-hoc-dai-nam/toan-ung-dung/toan-roi-rac-tich/72388548"},"missing_variants":[{"term":"hệ đếm nhị phân","source":"https://www.studocu.vn/vn/document/truong-dai-hoc-dai-nam/toan-ung-dung/toan-roi-rac-tich/72388548"}]},{"id":"binary-search-algorithm","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"tìm kiếm nhị phân","source":"https://ipe.iuh.edu.vn/uploads/2020/06/6.-De-cuong-on-tap-Co-so-tin-hoc.pdf"}]},{"id":"bit-operation","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"phép toán với bit","source":"https://wiki.vnoi.info/algo/basic/bitwise-operators.md"},{"term":"phép toán thao tác bit","source":"https://cuuduongthancong.com/dlf/407593/kien-truc-may-tinh-va-hop-ngu/pham-tuan-son/cacthaotacxulybit.pdf"}]},{"id":"bit-string","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"chuỗi nhị phân","source":"https://www.scribd.com/document/777698242/Logic-and-Proofs"}]},{"id":"block-cipher","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"mã khối","source":"https://users.soict.hust.edu.vn/vannk/AntoanThongtin/MatMaKhoi-KhoaDX.pdf"}]},{"id":"boolean-function","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"hàm Bool","source":"https://s3.cloud.cmctelecom.vn/tvu/IT/110003_ToanRoiRac/Slide/Chuong4_v1.0.pdf"}]},{"id":"boolean-product","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"tích Boolean","source":"https://www.studocu.vn/vn/document/truong-dai-hoc-kinh-te-thanh-pho-ho-chi-minh/toan-danh-cho-tin-hoc/13-dgafgsdhsfhsfhfhgfhfg/81880315"}]},{"id":"boolean-sum","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"tổng Boolean","source":"https://www.studocu.vn/vn/document/truong-dai-hoc-kinh-te-thanh-pho-ho-chi-minh/toan-danh-cho-tin-hoc/13-dgafgsdhsfhsfhfhgfhfg/81880315"}]},{"id":"boolean-variable","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"biến Boolean","source":"https://www.studocu.vn/vn/document/truong-dai-hoc-cong-nghe-dai-hoc-quoc-gia-ha-noi/toan-roi-rac/week2/119886597"}]},{"id":"bound-variable","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"biến lượng tử","source":"https://novaspro.vn/upload/files/tailieu/GT-tri-tue-nhan-tao-1.pdf"}]},{"id":"breadth-first-search","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"duyệt theo bề rộng","source":"https://www.scribd.com/presentation/848262223/C4-Cay"}]}]}
+
+hook: PostToolUse
+hook: PreToolUse Completed
+hook: PostToolUse Completed
+hook: PostToolUse Completed
+exec
+/bin/bash -lc "sed -n '1,220p' workflow/loop/review/findings-3.json" in /home/ubuntu/DM-Concepts
+ succeeded in 0ms:
+{"loop":3,"reviewed":35,"findings":[{"id":"circular-reasoning","commonality":{"verdict":"uncommon","better_term":"suy luận quẩn","source":"https://www.studocu.vn/vn/document/truong-dai-hoc-thang-long/logic-suy-luan-toan-hoc-va-ky-thuat-dem/cac-thuat-ngu-trong-logic/85398025"},"missing_variants":[{"term":"ngụy biện vòng tròn","source":"https://bloganchoi.com/nguy-bien-begging-the-question/"},{"term":"lập luận vòng tròn","source":"https://bloganchoi.com/nguy-bien-begging-the-question/"}]},{"id":"clique","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"bè","source":"https://www.scribd.com/document/693881574/Tha-y-Bu-i-Quo-c-Trung-Thua-t-toa-n-%C6%B0-ng-du-ng"}]},{"id":"codomain","commonality":{"verdict":"unsure","better_term":"","source":""},"missing_variants":[{"term":"đối miền","source":"https://vi.glosbe.com/en/vi/codomain"}]},{"id":"combinatorial-circuit","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"mạch kết hợp","source":"https://cuuduongthancong.com/atc/526/c4-mach-logic-so---kien-truc-may-tinh"}]},{"id":"combinatorics","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"toán học tổ hợp","source":"https://www.studocu.vn/vn/document/dai-hoc-khoa-hoc-tu-nhien-dai-hoc-quoc-gia-thanh-pho-ho-chi-minh/toan-hoc-to-hop/clc-mth00058-hki-de-cuong/118971206"},{"term":"toán tổ hợp","source":"https://www.studocu.vn/vn/document/dai-hoc-khoa-hoc-tu-nhien-dai-hoc-quoc-gia-thanh-pho-ho-chi-minh/toan-hoc-to-hop/clc-mth00058-hki-de-cuong/118971206"}]},{"id":"complete-bipartite-graph","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"đồ thị lưỡng phân đầy đủ","source":"https://www.scribd.com/document/547693802/EQGiao-trinh-l%C3%BD-thuy%E1%BA%BFt-%C4%91%E1%BB%93-th%E1%BB%8B-va-%E1%BB%A9ng-d%E1%BB%A5ng"}]},{"id":"complete-matching","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"cặp ghép đầy đủ","source":"https://thuvienso.hcmute.edu.vn/tailieu/2011/20111030/muaythai5/13_split_9_4314.pdf"},{"term":"bộ ghép đầy đủ","source":"https://vnspoj.github.io/problems/MATCH2.html"}]},{"id":"computable-function","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"hàm số khả tính","source":"https://en.glosbe.com/en/vi/computable%20function"},{"term":"hàm khả tính","source":"https://vi.wikipedia.org/wiki/B%C3%A0i_to%C3%A1n_d%E1%BB%ABng"}]},{"id":"concatenation","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"ghép xâu","source":"https://thinhtugi.files.wordpress.com/2010/01/nnht.pdf"}]},{"id":"conditional-statement","commonality":{"verdict":"uncommon","better_term":"mệnh đề kéo theo","source":"https://www.studocu.vn/vn/document/truong-dai-hoc-thang-long/logic-suy-luan-toan-hoc-va-ky-thuat-dem/cac-thuat-ngu-trong-logic/85398025"},"missing_variants":[{"term":"mệnh đề điều kiện","source":"https://pt.scribd.com/document/719569520/MAD101"}]},{"id":"congruence","commonality":{"verdict":"uncommon","better_term":"đồng dư","source":"https://www.thuvientailieu.vn/tai-lieu/giao-trinh-toan-roi-rac-chuong-1-tap-hop-quan-he-nguyen-duc-nghia-49179/"},"missing_variants":[{"term":"đồng dư theo môđun m","source":"https://www.thuvientailieu.vn/tai-lieu/giao-trinh-toan-roi-rac-chuong-1-tap-hop-quan-he-nguyen-duc-nghia-49179/"}]},{"id":"conjecture","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"phỏng đoán","source":"https://www.mathvn.com/2009/07/gia-thuyet-poincare-va-cau-chuyen-nam-o.html"}]},{"id":"conjunctive-normal-form","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"dạng chuẩn hội","source":"https://cuuduongthancong.com/atc/2531/suy-luan-logic-%28tri-tue-nhan-tao%29"}]}]}
+
+hook: PostToolUse
+hook: PostToolUse Completed
+web search: 
+web search: "degree distribution" "phân bố bậc" "phân phối bậc"
+web search: 
+web search: "cycle graph" "đồ thị vòng" "đồ thị chu trình"
+web search: 
+web search: "directed acyclic graph" "đồ thị có hướng phi chu trình"
+web search: 
+web search: "decryption" "giải mật" "giải mã"
+web search: 
+web search: "De Morgan" "lượng từ" "luật" "định luật"
+web search: 
+web search: "depth-first search" "tìm kiếm sâu" "duyệt"
+web search: 
+web search: "contrapositive" "mệnh đề phản đảo" "mệnh đề phản vị"
+web search: 
+web search: "countable set" "tập liệt kê được" "tập đếm được"
+web search: 
+web search: "tập phủ" "cover" "đồ thị" "vertex cover" "edge cover"
+web search: 
+web search: "contradiction" "mệnh đề hằng sai" "mâu thuẫn"
+web search: 
+web search: "digit" "ký số" "chữ số" "toán rời rạc"
+web search: 
+web search: "hoán vị mất thứ tự" "derangement"
+codex
+The search pass is now covering the remaining ambiguous cases and exact missing-variant candidates. I’m using only snippets and URL metadata, and I’m not opening the result pages or PDFs.
+hook: PreToolUse
+hook: PreToolUse Completed
+exec
+/bin/bash -lc "jq '[.[] | select(.see_ref == \"\")] | length' workflow/loop/review/batch-4.json" in /home/ubuntu/DM-Concepts
+ succeeded in 0ms:
+39
+
+hook: PostToolUse
+hook: PostToolUse Completed
+codex
+I have enough snippet evidence to write the findings file. I’ll add `workflow/loop/review/findings-4.json` only, then validate it with `jq`/`json.tool`; no dictionary entries will be modified.
+hook: PreToolUse
+hook: PreToolUse Completed
+exec
+/bin/bash -lc 'test -e workflow/loop/review/findings-4.json' in /home/ubuntu/DM-Concepts
+ exited 1 in 0ms:
+hook: PostToolUse
+hook: PostToolUse Completed
+hook: PreToolUse
+hook: PreToolUse Completed
+exec
+/bin/bash -lc 'git status --short workflow/loop/review/findings-4.json workflow/loop/review/batch-4.json' in /home/ubuntu/DM-Concepts
+ succeeded in 0ms:
+ M workflow/loop/review/batch-4.json
+
+hook: PostToolUse
+hook: PostToolUse Completed
+apply patch
+patch: completed
+/home/ubuntu/DM-Concepts/workflow/loop/review/findings-4.json
+diff --git a/workflow/loop/review/findings-4.json b/workflow/loop/review/findings-4.json
+new file mode 100644
+index 0000000000000000000000000000000000000000..f1de3d4dd531e91b973c08da19f22f4d6077506c
+--- /dev/null
++++ b/workflow/loop/review/findings-4.json
+@@ -0,0 +1 @@
++{"loop":4,"reviewed":39,"findings":[{"id":"contingency","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"mệnh đề tiếp liên","source":"https://www.studocu.vn/vn/document/truong-dai-hoc-thang-long/tieng-anh-so-cap/logic-phan-1-give-you-tai-lieu-hoc-tap-cho-mon-hoc-truong-dh/22808809"}]},{"id":"continuum-hypothesis","commonality":{"verdict":"uncommon","better_term":"giả thuyết liên tục","source":"https://vi.wikipedia.org/wiki/S%E1%BB%91_th%E1%BB%B1c"},"missing_variants":[{"term":"giả thuyết liên tục","source":"https://vi.wikipedia.org/wiki/S%E1%BB%91_th%E1%BB%B1c"}]},{"id":"contradiction","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"mệnh đề hằng sai","source":"https://cuuduongthancong.com/dlf/1719978/cau-truc-roi-rac/nguyen-quang-chau/gttoanroirac2.pdf"}]},{"id":"corollary","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"hệ luận","source":"https://tratu.soha.vn/dict/en_vn/Corollary"}]},{"id":"count-of-an-itemset","commonality":{"verdict":"uncommon","better_term":"số đếm hỗ trợ","source":"https://luanvan.net.vn/luan-van/luan-van-khai-pha-du-lieu-va-thuat-toan-khai-pha-luat-ket-hop-song-song-28424/"},"missing_variants":[{"term":"số đếm hỗ trợ","source":"https://luanvan.net.vn/luan-van/luan-van-khai-pha-du-lieu-va-thuat-toan-khai-pha-luat-ket-hop-song-song-28424/"}]},{"id":"countable-set","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"tập hợp đếm được","source":"https://vi.wikipedia.org/wiki/T%E1%BA%ADp_h%E1%BB%A3p_%C4%91%E1%BA%BFm_%C4%91%C6%B0%E1%BB%A3c"}]},{"id":"counterexample","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"phản thí dụ","source":"https://www.vjol.info/phan-thi-du-la-gi"}]},{"id":"cover","commonality":{"verdict":"uncommon","better_term":"tập phủ","source":"https://www.studocu.vn/vn/document/dai-hoc-cong-nghiep-ha-noi/mach-dien-2/blt-ttcsn-uqwrwqw/114126905"},"missing_variants":[{"term":"tập phủ","source":"https://www.studocu.vn/vn/document/dai-hoc-cong-nghiep-ha-noi/mach-dien-2/blt-ttcsn-uqwrwqw/114126905"}]},{"id":"cryptanalysis","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"thám mã","source":"https://repository.vnu.edu.vn/server/api/core/bitstreams/8a26333c-4eeb-48d1-a1f5-fd8528ccba79/content"},{"term":"phá mã","source":"https://www.studocu.vn/vn/document/truong-dai-hoc-cong-nghiep-thanh-pho-ho-chi-minh/analysis-finance/04-nmattt-hethong-matmahoc/57899312"}]},{"id":"cryptosystem","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"hệ mã","source":"https://www.cit.ctu.edu.vn/~dtnghi/crypto/ch1.pdf"},{"term":"hệ mật","source":"https://www.scribd.com/document/674043612/T%E1%BB%95ng-quan-l%C3%BD-thuy%E1%BA%BFt-m%E1%BA%ADt-ma-va-%E1%BB%A9ng-d%E1%BB%A5ng"}]},{"id":"cut-vertex","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"điểm cắt","source":"https://fullhousedev.com/blogs/lesson/1248/"}]},{"id":"decimal","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"hệ thập phân","source":"https://quantrimang.com/cong-nghe/doi-co-so-10-sang-co-so-16-165425"}]},{"id":"decision-problem","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"bài toán có-không","source":"https://www.scribd.com/document/852147226/TRR-B-%C4%90oan-Nh%E1%BA%ADn-Ngon-Ng%E1%BB%AF"}]},{"id":"decision-tree","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"cây ra quyết định","source":"https://masterskills.org/Training-models-Decision-Tree.htm"}]},{"id":"decreasing","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"nghịch biến","source":"https://www.academia.edu/124027151/_C%C3%B3_M%E1%BB%A5c_l%E1%BB%A5c_SGK_To%C3%A1n_%C4%91%E1%BA%A1i_s%E1%BB%91_10_song_ng%E1%BB%AF_Vi%E1%BB%87t_Anh_NXBGD_Vi%E1%BB%87t_Nam_colored_"}]},{"id":"decryption","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"giải mật mã","source":"https://www.cit.ctu.edu.vn/~dtnghi/crypto/ch1.pdf"}]},{"id":"degree-distribution","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"phân bố bậc","source":"https://gust.edu.vn/media/30/uftai-ve-tai-day30407.pdf"}]},{"id":"depth-first-search","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"tìm kiếm sâu","source":"https://developer945330148.wordpress.com/2018/04/30/thuat-toan-tim-kiem-sau-depth-first-search/"}]},{"id":"derangement","commonality":{"verdict":"uncommon","better_term":"hoán vị không có điểm bất động","source":"https://www.scribd.com/document/953571274/TO-41"},"missing_variants":[{"term":"hoán vị xáo trộn","source":"https://www.scribd.com/document/753494424/C%E1%BB%B1c-tr%E1%BB%8B-t%E1%BB%95-h%E1%BB%A3p"},{"term":"hoán vị vô trật tự","source":"https://vted.vn/tin-tuc/nguyen-ly-bao-gom-%E2%80%93-loai-tru-va-bai-toan-xao-tron-hay-hoan-vi-vo-trat-tu-6451.html"}]},{"id":"descendants","commonality":{"verdict":"uncommon","better_term":"hậu duệ","source":"https://www.studocu.vn/vn/document/truong-dai-hoc-bach-khoa-ha-noi/cau-truc-du-lieu-va-giai-thuat/tuan6-7-cau-truc-cay-01-slide/108919703"},"missing_variants":[]},{"id":"difference","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"phần bù tương đối","source":"https://vi.wikipedia.org/wiki/Ph%E1%BA%A7n_b%C3%B9_%28l%C3%BD_thuy%E1%BA%BFt_t%E1%BA%ADp_h%E1%BB%A3p%29"}]},{"id":"digit","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"ký số","source":"https://vi.glosbe.com/vi/en/k%C3%BD%20s%E1%BB%91"}]},{"id":"directed-acyclic-graph","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"đồ thị có hướng phi chu trình","source":"https://uet.vnu.edu.vn/~thuyhq/Student_Thesis/K47_Nguyen_Thi_Huong_Thao_Thesis.pdf"}]}]}
+
+diff --git a/workflow/loop/review/findings-4.json b/workflow/loop/review/findings-4.json
+new file mode 100644
+index 0000000000000000000000000000000000000000..f1de3d4dd531e91b973c08da19f22f4d6077506c
+--- /dev/null
++++ b/workflow/loop/review/findings-4.json
+@@ -0,0 +1 @@
++{"loop":4,"reviewed":39,"findings":[{"id":"contingency","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"mệnh đề tiếp liên","source":"https://www.studocu.vn/vn/document/truong-dai-hoc-thang-long/tieng-anh-so-cap/logic-phan-1-give-you-tai-lieu-hoc-tap-cho-mon-hoc-truong-dh/22808809"}]},{"id":"continuum-hypothesis","commonality":{"verdict":"uncommon","better_term":"giả thuyết liên tục","source":"https://vi.wikipedia.org/wiki/S%E1%BB%91_th%E1%BB%B1c"},"missing_variants":[{"term":"giả thuyết liên tục","source":"https://vi.wikipedia.org/wiki/S%E1%BB%91_th%E1%BB%B1c"}]},{"id":"contradiction","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"mệnh đề hằng sai","source":"https://cuuduongthancong.com/dlf/1719978/cau-truc-roi-rac/nguyen-quang-chau/gttoanroirac2.pdf"}]},{"id":"corollary","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"hệ luận","source":"https://tratu.soha.vn/dict/en_vn/Corollary"}]},{"id":"count-of-an-itemset","commonality":{"verdict":"uncommon","better_term":"số đếm hỗ trợ","source":"https://luanvan.net.vn/luan-van/luan-van-khai-pha-du-lieu-va-thuat-toan-khai-pha-luat-ket-hop-song-song-28424/"},"missing_variants":[{"term":"số đếm hỗ trợ","source":"https://luanvan.net.vn/luan-van/luan-van-khai-pha-du-lieu-va-thuat-toan-khai-pha-luat-ket-hop-song-song-28424/"}]},{"id":"countable-set","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"tập hợp đếm được","source":"https://vi.wikipedia.org/wiki/T%E1%BA%ADp_h%E1%BB%A3p_%C4%91%E1%BA%BFm_%C4%91%C6%B0%E1%BB%A3c"}]},{"id":"counterexample","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"phản thí dụ","source":"https://www.vjol.info/phan-thi-du-la-gi"}]},{"id":"cover","commonality":{"verdict":"uncommon","better_term":"tập phủ","source":"https://www.studocu.vn/vn/document/dai-hoc-cong-nghiep-ha-noi/mach-dien-2/blt-ttcsn-uqwrwqw/114126905"},"missing_variants":[{"term":"tập phủ","source":"https://www.studocu.vn/vn/document/dai-hoc-cong-nghiep-ha-noi/mach-dien-2/blt-ttcsn-uqwrwqw/114126905"}]},{"id":"cryptanalysis","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"thám mã","source":"https://repository.vnu.edu.vn/server/api/core/bitstreams/8a26333c-4eeb-48d1-a1f5-fd8528ccba79/content"},{"term":"phá mã","source":"https://www.studocu.vn/vn/document/truong-dai-hoc-cong-nghiep-thanh-pho-ho-chi-minh/analysis-finance/04-nmattt-hethong-matmahoc/57899312"}]},{"id":"cryptosystem","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"hệ mã","source":"https://www.cit.ctu.edu.vn/~dtnghi/crypto/ch1.pdf"},{"term":"hệ mật","source":"https://www.scribd.com/document/674043612/T%E1%BB%95ng-quan-l%C3%BD-thuy%E1%BA%BFt-m%E1%BA%ADt-ma-va-%E1%BB%A9ng-d%E1%BB%A5ng"}]},{"id":"cut-vertex","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"điểm cắt","source":"https://fullhousedev.com/blogs/lesson/1248/"}]},{"id":"decimal","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"hệ thập phân","source":"https://quantrimang.com/cong-nghe/doi-co-so-10-sang-co-so-16-165425"}]},{"id":"decision-problem","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"bài toán có-không","source":"https://www.scribd.com/document/852147226/TRR-B-%C4%90oan-Nh%E1%BA%ADn-Ngon-Ng%E1%BB%AF"}]},{"id":"decision-tree","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"cây ra quyết định","source":"https://masterskills.org/Training-models-Decision-Tree.htm"}]},{"id":"decreasing","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"nghịch biến","source":"https://www.academia.edu/124027151/_C%C3%B3_M%E1%BB%A5c_l%E1%BB%A5c_SGK_To%C3%A1n_%C4%91%E1%BA%A1i_s%E1%BB%91_10_song_ng%E1%BB%AF_Vi%E1%BB%87t_Anh_NXBGD_Vi%E1%BB%87t_Nam_colored_"}]},{"id":"decryption","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"giải mật mã","source":"https://www.cit.ctu.edu.vn/~dtnghi/crypto/ch1.pdf"}]},{"id":"degree-distribution","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"phân bố bậc","source":"https://gust.edu.vn/media/30/uftai-ve-tai-day30407.pdf"}]},{"id":"depth-first-search","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"tìm kiếm sâu","source":"https://developer945330148.wordpress.com/2018/04/30/thuat-toan-tim-kiem-sau-depth-first-search/"}]},{"id":"derangement","commonality":{"verdict":"uncommon","better_term":"hoán vị không có điểm bất động","source":"https://www.scribd.com/document/953571274/TO-41"},"missing_variants":[{"term":"hoán vị xáo trộn","source":"https://www.scribd.com/document/753494424/C%E1%BB%B1c-tr%E1%BB%8B-t%E1%BB%95-h%E1%BB%A3p"},{"term":"hoán vị vô trật tự","source":"https://vted.vn/tin-tuc/nguyen-ly-bao-gom-%E2%80%93-loai-tru-va-bai-toan-xao-tron-hay-hoan-vi-vo-trat-tu-6451.html"}]},{"id":"descendants","commonality":{"verdict":"uncommon","better_term":"hậu duệ","source":"https://www.studocu.vn/vn/document/truong-dai-hoc-bach-khoa-ha-noi/cau-truc-du-lieu-va-giai-thuat/tuan6-7-cau-truc-cay-01-slide/108919703"},"missing_variants":[]},{"id":"difference","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"phần bù tương đối","source":"https://vi.wikipedia.org/wiki/Ph%E1%BA%A7n_b%C3%B9_%28l%C3%BD_thuy%E1%BA%BFt_t%E1%BA%ADp_h%E1%BB%A3p%29"}]},{"id":"digit","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"ký số","source":"https://vi.glosbe.com/vi/en/k%C3%BD%20s%E1%BB%91"}]},{"id":"directed-acyclic-graph","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"đồ thị có hướng phi chu trình","source":"https://uet.vnu.edu.vn/~thuyhq/Student_Thesis/K47_Nguyen_Thi_Huong_Thao_Thesis.pdf"}]}]}
+
+codex
+The findings file is written. I’m validating that it is syntactically valid JSON and that the top-level loop/reviewed fields are correct before I print the required markers.
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+hook: PreToolUse
+exec
+/bin/bash -lc "jq -e '.loop == 4 and .reviewed == 39 and (.findings | type == \"array\")' workflow/loop/review/findings-4.json" in /home/ubuntu/DM-Concepts
+ succeeded in 0ms:
+true
+
+hook: PostToolUse
+hook: PreToolUse Completed
+hook: PostToolUse Completed
+exec
+/bin/bash -lc 'python3 -m json.tool workflow/loop/review/findings-4.json' in /home/ubuntu/DM-Concepts
+ succeeded in 0ms:
+{
+    "loop": 4,
+    "reviewed": 39,
+    "findings": [
+        {
+            "id": "contingency",
+            "commonality": {
+                "verdict": "common",
+                "better_term": "",
+                "source": ""
+            },
+            "missing_variants": [
+                {
+                    "term": "m\u1ec7nh \u0111\u1ec1 ti\u1ebfp li\u00ean",
+                    "source": "https://www.studocu.vn/vn/document/truong-dai-hoc-thang-long/tieng-anh-so-cap/logic-phan-1-give-you-tai-lieu-hoc-tap-cho-mon-hoc-truong-dh/22808809"
+                }
+            ]
+        },
+        {
+            "id": "continuum-hypothesis",
+            "commonality": {
+                "verdict": "uncommon",
+                "better_term": "gi\u1ea3 thuy\u1ebft li\u00ean t\u1ee5c",
+                "source": "https://vi.wikipedia.org/wiki/S%E1%BB%91_th%E1%BB%B1c"
+            },
+            "missing_variants": [
+                {
+                    "term": "gi\u1ea3 thuy\u1ebft li\u00ean t\u1ee5c",
+                    "source": "https://vi.wikipedia.org/wiki/S%E1%BB%91_th%E1%BB%B1c"
+                }
+            ]
+        },
+        {
+            "id": "contradiction",
+            "commonality": {
+                "verdict": "common",
+                "better_term": "",
+                "source": ""
+            },
+            "missing_variants": [
+                {
+                    "term": "m\u1ec7nh \u0111\u1ec1 h\u1eb1ng sai",
+                    "source": "https://cuuduongthancong.com/dlf/1719978/cau-truc-roi-rac/nguyen-quang-chau/gttoanroirac2.pdf"
+                }
+            ]
+        },
+        {
+            "id": "corollary",
+            "commonality": {
+                "verdict": "common",
+                "better_term": "",
+                "source": ""
+            },
+            "missing_variants": [
+                {
+                    "term": "h\u1ec7 lu\u1eadn",
+                    "source": "https://tratu.soha.vn/dict/en_vn/Corollary"
+                }
+            ]
+        },
+        {
+            "id": "count-of-an-itemset",
+            "commonality": {
+                "verdict": "uncommon",
+                "better_term": "s\u1ed1 \u0111\u1ebfm h\u1ed7 tr\u1ee3",
+                "source": "https://luanvan.net.vn/luan-van/luan-van-khai-pha-du-lieu-va-thuat-toan-khai-pha-luat-ket-hop-song-song-28424/"
+            },
+            "missing_variants": [
+                {
+                    "term": "s\u1ed1 \u0111\u1ebfm h\u1ed7 tr\u1ee3",
+                    "source": "https://luanvan.net.vn/luan-van/luan-van-khai-pha-du-lieu-va-thuat-toan-khai-pha-luat-ket-hop-song-song-28424/"
+                }
+            ]
+        },
+        {
+            "id": "countable-set",
+            "commonality": {
+                "verdict": "common",
+                "better_term": "",
+                "source": ""
+            },
+            "missing_variants": [
+                {
+                    "term": "t\u1eadp h\u1ee3p \u0111\u1ebfm \u0111\u01b0\u1ee3c",
+                    "source": "https://vi.wikipedia.org/wiki/T%E1%BA%ADp_h%E1%BB%A3p_%C4%91%E1%BA%BFm_%C4%91%C6%B0%E1%BB%A3c"
+                }
+            ]
+        },
+        {
+            "id": "counterexample",
+            "commonality": {
+                "verdict": "common",
+                "better_term": "",
+                "source": ""
+            },
+            "missing_variants": [
+                {
+                    "term": "ph\u1ea3n th\u00ed d\u1ee5",
+                    "source": "https://www.vjol.info/phan-thi-du-la-gi"
+                }
+            ]
+        },
+        {
+            "id": "cover",
+            "commonality": {
+                "verdict": "uncommon",
+                "better_term": "t\u1eadp ph\u1ee7",
+                "source": "https://www.studocu.vn/vn/document/dai-hoc-cong-nghiep-ha-noi/mach-dien-2/blt-ttcsn-uqwrwqw/114126905"
+            },
+            "missing_variants": [
+                {
+                    "term": "t\u1eadp ph\u1ee7",
+                    "source": "https://www.studocu.vn/vn/document/dai-hoc-cong-nghiep-ha-noi/mach-dien-2/blt-ttcsn-uqwrwqw/114126905"
+                }
+            ]
+        },
+        {
+            "id": "cryptanalysis",
+            "commonality": {
+                "verdict": "common",
+                "better_term": "",
+                "source": ""
+            },
+            "missing_variants": [
+                {
+                    "term": "th\u00e1m m\u00e3",
+                    "source": "https://repository.vnu.edu.vn/server/api/core/bitstreams/8a26333c-4eeb-48d1-a1f5-fd8528ccba79/content"
+                },
+                {
+                    "term": "ph\u00e1 m\u00e3",
+                    "source": "https://www.studocu.vn/vn/document/truong-dai-hoc-cong-nghiep-thanh-pho-ho-chi-minh/analysis-finance/04-nmattt-hethong-matmahoc/57899312"
+                }
+            ]
+        },
+        {
+            "id": "cryptosystem",
+            "commonality": {
+                "verdict": "common",
+                "better_term": "",
+                "source": ""
+            },
+            "missing_variants": [
+                {
+                    "term": "h\u1ec7 m\u00e3",
+                    "source": "https://www.cit.ctu.edu.vn/~dtnghi/crypto/ch1.pdf"
+                },
+                {
+                    "term": "h\u1ec7 m\u1eadt",
+                    "source": "https://www.scribd.com/document/674043612/T%E1%BB%95ng-quan-l%C3%BD-thuy%E1%BA%BFt-m%E1%BA%ADt-ma-va-%E1%BB%A9ng-d%E1%BB%A5ng"
+                }
+            ]
+        },
+        {
+            "id": "cut-vertex",
+            "commonality": {
+                "verdict": "common",
+                "better_term": "",
+                "source": ""
+            },
+            "missing_variants": [
+                {
+                    "term": "\u0111i\u1ec3m c\u1eaft",
+                    "source": "https://fullhousedev.com/blogs/lesson/1248/"
+                }
+            ]
+        },
+        {
+            "id": "decimal",
+            "commonality": {
+                "verdict": "common",
+                "better_term": "",
+                "source": ""
+            },
+            "missing_variants": [
+                {
+                    "term": "h\u1ec7 th\u1eadp ph\u00e2n",
+                    "source": "https://quantrimang.com/cong-nghe/doi-co-so-10-sang-co-so-16-165425"
+                }
+            ]
+        },
+        {
+            "id": "decision-problem",
+            "commonality": {
+                "verdict": "common",
+                "better_term": "",
+                "source": ""
+            },
+            "missing_variants": [
+                {
+                    "term": "b\u00e0i to\u00e1n c\u00f3-kh\u00f4ng",
+                    "source": "https://www.scribd.com/document/852147226/TRR-B-%C4%90oan-Nh%E1%BA%ADn-Ngon-Ng%E1%BB%AF"
+                }
+            ]
+        },
+        {
+            "id": "decision-tree",
+            "commonality": {
+                "verdict": "common",
+                "better_term": "",
+                "source": ""
+            },
+            "missing_variants": [
+                {
+                    "term": "c\u00e2y ra quy\u1ebft \u0111\u1ecbnh",
+                    "source": "https://masterskills.org/Training-models-Decision-Tree.htm"
+                }
+            ]
+        },
+        {
+            "id": "decreasing",
+            "commonality": {
+                "verdict": "common",
+                "better_term": "",
+                "source": ""
+            },
+            "missing_variants": [
+                {
+                    "term": "ngh\u1ecbch bi\u1ebfn",
+                    "source": "https://www.academia.edu/124027151/_C%C3%B3_M%E1%BB%A5c_l%E1%BB%A5c_SGK_To%C3%A1n_%C4%91%E1%BA%A1i_s%E1%BB%91_10_song_ng%E1%BB%AF_Vi%E1%BB%87t_Anh_NXBGD_Vi%E1%BB%87t_Nam_colored_"
+                }
+            ]
+        },
+        {
+            "id": "decryption",
+            "commonality": {
+                "verdict": "common",
+                "better_term": "",
+                "source": ""
+            },
+            "missing_variants": [
+                {
+                    "term": "gi\u1ea3i m\u1eadt m\u00e3",
+                    "source": "https://www.cit.ctu.edu.vn/~dtnghi/crypto/ch1.pdf"
+                }
+            ]
+        },
+        {
+            "id": "degree-distribution",
+            "commonality": {
+                "verdict": "common",
+                "better_term": "",
+                "source": ""
+            },
+            "missing_variants": [
+                {
+                    "term": "ph\u00e2n b\u1ed1 b\u1eadc",
+                    "source": "https://gust.edu.vn/media/30/uftai-ve-tai-day30407.pdf"
+                }
+            ]
+        },
+        {
+            "id": "depth-first-search",
+            "commonality": {
+                "verdict": "common",
+                "better_term": "",
+                "source": ""
+            },
+            "missing_variants": [
+                {
+                    "term": "t\u00ecm ki\u1ebfm s\u00e2u",
+                    "source": "https://developer945330148.wordpress.com/2018/04/30/thuat-toan-tim-kiem-sau-depth-first-search/"
+                }
+            ]
+        },
+        {
+            "id": "derangement",
+            "commonality": {
+                "verdict": "uncommon",
+                "better_term": "ho\u00e1n v\u1ecb kh\u00f4ng c\u00f3 \u0111i\u1ec3m b\u1ea5t \u0111\u1ed9ng",
+                "source": "https://www.scribd.com/document/953571274/TO-41"
+            },
+            "missing_variants": [
+                {
+                    "term": "ho\u00e1n v\u1ecb x\u00e1o tr\u1ed9n",
+                    "source": "https://www.scribd.com/document/753494424/C%E1%BB%B1c-tr%E1%BB%8B-t%E1%BB%95-h%E1%BB%A3p"
+                },
+                {
+                    "term": "ho\u00e1n v\u1ecb v\u00f4 tr\u1eadt t\u1ef1",
+                    "source": "https://vted.vn/tin-tuc/nguyen-ly-bao-gom-%E2%80%93-loai-tru-va-bai-toan-xao-tron-hay-hoan-vi-vo-trat-tu-6451.html"
+                }
+            ]
+        },
+        {
+            "id": "descendants",
+            "commonality": {
+                "verdict": "uncommon",
+                "better_term": "h\u1eadu du\u1ec7",
+                "source": "https://www.studocu.vn/vn/document/truong-dai-hoc-bach-khoa-ha-noi/cau-truc-du-lieu-va-giai-thuat/tuan6-7-cau-truc-cay-01-slide/108919703"
+            },
+            "missing_variants": []
+        },
+        {
+            "id": "difference",
+            "commonality": {
+                "verdict": "common",
+                "better_term": "",
+                "source": ""
+            },
+            "missing_variants": [
+                {
+                    "term": "ph\u1ea7n b\u00f9 t\u01b0\u01a1ng \u0111\u1ed1i",
+                    "source": "https://vi.wikipedia.org/wiki/Ph%E1%BA%A7n_b%C3%B9_%28l%C3%BD_thuy%E1%BA%BFt_t%E1%BA%ADp_h%E1%BB%A3p%29"
+                }
+            ]
+        },
+        {
+            "id": "digit",
+            "commonality": {
+                "verdict": "common",
+                "better_term": "",
+                "source": ""
+            },
+            "missing_variants": [
+                {
+                    "term": "k\u00fd s\u1ed1",
+                    "source": "https://vi.glosbe.com/vi/en/k%C3%BD%20s%E1%BB%91"
+                }
+            ]
+        },
+        {
+            "id": "directed-acyclic-graph",
+            "commonality": {
+                "verdict": "common",
+                "better_term": "",
+                "source": ""
+            },
+            "missing_variants": [
+                {
+                    "term": "\u0111\u1ed3 th\u1ecb c\u00f3 h\u01b0\u1edbng phi chu tr\u00ecnh",
+                    "source": "https://uet.vnu.edu.vn/~thuyhq/Student_Thesis/K47_Nguyen_Thi_Huong_Thao_Thesis.pdf"
+                }
+            ]
+        }
+    ]
+}
+
+exec
+/bin/bash -lc 'git status --short workflow/loop/review/findings-4.json workflow/loop/review/batch-4.json' in /home/ubuntu/DM-Concepts
+ succeeded in 0ms:
+ M workflow/loop/review/batch-4.json
+?? workflow/loop/review/findings-4.json
+
+hook: PostToolUse
+hook: PostToolUse
+hook: PostToolUse Completed
+hook: PostToolUse Completed
+diff --git a/workflow/loop/review/findings-4.json b/workflow/loop/review/findings-4.json
+new file mode 100644
+index 0000000000000000000000000000000000000000..f1de3d4dd531e91b973c08da19f22f4d6077506c
+--- /dev/null
++++ b/workflow/loop/review/findings-4.json
+@@ -0,0 +1 @@
++{"loop":4,"reviewed":39,"findings":[{"id":"contingency","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"mệnh đề tiếp liên","source":"https://www.studocu.vn/vn/document/truong-dai-hoc-thang-long/tieng-anh-so-cap/logic-phan-1-give-you-tai-lieu-hoc-tap-cho-mon-hoc-truong-dh/22808809"}]},{"id":"continuum-hypothesis","commonality":{"verdict":"uncommon","better_term":"giả thuyết liên tục","source":"https://vi.wikipedia.org/wiki/S%E1%BB%91_th%E1%BB%B1c"},"missing_variants":[{"term":"giả thuyết liên tục","source":"https://vi.wikipedia.org/wiki/S%E1%BB%91_th%E1%BB%B1c"}]},{"id":"contradiction","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"mệnh đề hằng sai","source":"https://cuuduongthancong.com/dlf/1719978/cau-truc-roi-rac/nguyen-quang-chau/gttoanroirac2.pdf"}]},{"id":"corollary","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"hệ luận","source":"https://tratu.soha.vn/dict/en_vn/Corollary"}]},{"id":"count-of-an-itemset","commonality":{"verdict":"uncommon","better_term":"số đếm hỗ trợ","source":"https://luanvan.net.vn/luan-van/luan-van-khai-pha-du-lieu-va-thuat-toan-khai-pha-luat-ket-hop-song-song-28424/"},"missing_variants":[{"term":"số đếm hỗ trợ","source":"https://luanvan.net.vn/luan-van/luan-van-khai-pha-du-lieu-va-thuat-toan-khai-pha-luat-ket-hop-song-song-28424/"}]},{"id":"countable-set","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"tập hợp đếm được","source":"https://vi.wikipedia.org/wiki/T%E1%BA%ADp_h%E1%BB%A3p_%C4%91%E1%BA%BFm_%C4%91%C6%B0%E1%BB%A3c"}]},{"id":"counterexample","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"phản thí dụ","source":"https://www.vjol.info/phan-thi-du-la-gi"}]},{"id":"cover","commonality":{"verdict":"uncommon","better_term":"tập phủ","source":"https://www.studocu.vn/vn/document/dai-hoc-cong-nghiep-ha-noi/mach-dien-2/blt-ttcsn-uqwrwqw/114126905"},"missing_variants":[{"term":"tập phủ","source":"https://www.studocu.vn/vn/document/dai-hoc-cong-nghiep-ha-noi/mach-dien-2/blt-ttcsn-uqwrwqw/114126905"}]},{"id":"cryptanalysis","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"thám mã","source":"https://repository.vnu.edu.vn/server/api/core/bitstreams/8a26333c-4eeb-48d1-a1f5-fd8528ccba79/content"},{"term":"phá mã","source":"https://www.studocu.vn/vn/document/truong-dai-hoc-cong-nghiep-thanh-pho-ho-chi-minh/analysis-finance/04-nmattt-hethong-matmahoc/57899312"}]},{"id":"cryptosystem","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"hệ mã","source":"https://www.cit.ctu.edu.vn/~dtnghi/crypto/ch1.pdf"},{"term":"hệ mật","source":"https://www.scribd.com/document/674043612/T%E1%BB%95ng-quan-l%C3%BD-thuy%E1%BA%BFt-m%E1%BA%ADt-ma-va-%E1%BB%A9ng-d%E1%BB%A5ng"}]},{"id":"cut-vertex","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"điểm cắt","source":"https://fullhousedev.com/blogs/lesson/1248/"}]},{"id":"decimal","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"hệ thập phân","source":"https://quantrimang.com/cong-nghe/doi-co-so-10-sang-co-so-16-165425"}]},{"id":"decision-problem","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"bài toán có-không","source":"https://www.scribd.com/document/852147226/TRR-B-%C4%90oan-Nh%E1%BA%ADn-Ngon-Ng%E1%BB%AF"}]},{"id":"decision-tree","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"cây ra quyết định","source":"https://masterskills.org/Training-models-Decision-Tree.htm"}]},{"id":"decreasing","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"nghịch biến","source":"https://www.academia.edu/124027151/_C%C3%B3_M%E1%BB%A5c_l%E1%BB%A5c_SGK_To%C3%A1n_%C4%91%E1%BA%A1i_s%E1%BB%91_10_song_ng%E1%BB%AF_Vi%E1%BB%87t_Anh_NXBGD_Vi%E1%BB%87t_Nam_colored_"}]},{"id":"decryption","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"giải mật mã","source":"https://www.cit.ctu.edu.vn/~dtnghi/crypto/ch1.pdf"}]},{"id":"degree-distribution","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"phân bố bậc","source":"https://gust.edu.vn/media/30/uftai-ve-tai-day30407.pdf"}]},{"id":"depth-first-search","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"tìm kiếm sâu","source":"https://developer945330148.wordpress.com/2018/04/30/thuat-toan-tim-kiem-sau-depth-first-search/"}]},{"id":"derangement","commonality":{"verdict":"uncommon","better_term":"hoán vị không có điểm bất động","source":"https://www.scribd.com/document/953571274/TO-41"},"missing_variants":[{"term":"hoán vị xáo trộn","source":"https://www.scribd.com/document/753494424/C%E1%BB%B1c-tr%E1%BB%8B-t%E1%BB%95-h%E1%BB%A3p"},{"term":"hoán vị vô trật tự","source":"https://vted.vn/tin-tuc/nguyen-ly-bao-gom-%E2%80%93-loai-tru-va-bai-toan-xao-tron-hay-hoan-vi-vo-trat-tu-6451.html"}]},{"id":"descendants","commonality":{"verdict":"uncommon","better_term":"hậu duệ","source":"https://www.studocu.vn/vn/document/truong-dai-hoc-bach-khoa-ha-noi/cau-truc-du-lieu-va-giai-thuat/tuan6-7-cau-truc-cay-01-slide/108919703"},"missing_variants":[]},{"id":"difference","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"phần bù tương đối","source":"https://vi.wikipedia.org/wiki/Ph%E1%BA%A7n_b%C3%B9_%28l%C3%BD_thuy%E1%BA%BFt_t%E1%BA%ADp_h%E1%BB%A3p%29"}]},{"id":"digit","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"ký số","source":"https://vi.glosbe.com/vi/en/k%C3%BD%20s%E1%BB%91"}]},{"id":"directed-acyclic-graph","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"đồ thị có hướng phi chu trình","source":"https://uet.vnu.edu.vn/~thuyhq/Student_Thesis/K47_Nguyen_Thi_Huong_Thao_Thesis.pdf"}]}]}
+
+codex
+WROTE findings-4.json
+===CODEX_REVIEW_DONE===
+diff --git a/workflow/loop/review/findings-4.json b/workflow/loop/review/findings-4.json
+new file mode 100644
+index 0000000000000000000000000000000000000000..f1de3d4dd531e91b973c08da19f22f4d6077506c
+--- /dev/null
++++ b/workflow/loop/review/findings-4.json
+@@ -0,0 +1 @@
++{"loop":4,"reviewed":39,"findings":[{"id":"contingency","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"mệnh đề tiếp liên","source":"https://www.studocu.vn/vn/document/truong-dai-hoc-thang-long/tieng-anh-so-cap/logic-phan-1-give-you-tai-lieu-hoc-tap-cho-mon-hoc-truong-dh/22808809"}]},{"id":"continuum-hypothesis","commonality":{"verdict":"uncommon","better_term":"giả thuyết liên tục","source":"https://vi.wikipedia.org/wiki/S%E1%BB%91_th%E1%BB%B1c"},"missing_variants":[{"term":"giả thuyết liên tục","source":"https://vi.wikipedia.org/wiki/S%E1%BB%91_th%E1%BB%B1c"}]},{"id":"contradiction","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"mệnh đề hằng sai","source":"https://cuuduongthancong.com/dlf/1719978/cau-truc-roi-rac/nguyen-quang-chau/gttoanroirac2.pdf"}]},{"id":"corollary","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"hệ luận","source":"https://tratu.soha.vn/dict/en_vn/Corollary"}]},{"id":"count-of-an-itemset","commonality":{"verdict":"uncommon","better_term":"số đếm hỗ trợ","source":"https://luanvan.net.vn/luan-van/luan-van-khai-pha-du-lieu-va-thuat-toan-khai-pha-luat-ket-hop-song-song-28424/"},"missing_variants":[{"term":"số đếm hỗ trợ","source":"https://luanvan.net.vn/luan-van/luan-van-khai-pha-du-lieu-va-thuat-toan-khai-pha-luat-ket-hop-song-song-28424/"}]},{"id":"countable-set","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"tập hợp đếm được","source":"https://vi.wikipedia.org/wiki/T%E1%BA%ADp_h%E1%BB%A3p_%C4%91%E1%BA%BFm_%C4%91%C6%B0%E1%BB%A3c"}]},{"id":"counterexample","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"phản thí dụ","source":"https://www.vjol.info/phan-thi-du-la-gi"}]},{"id":"cover","commonality":{"verdict":"uncommon","better_term":"tập phủ","source":"https://www.studocu.vn/vn/document/dai-hoc-cong-nghiep-ha-noi/mach-dien-2/blt-ttcsn-uqwrwqw/114126905"},"missing_variants":[{"term":"tập phủ","source":"https://www.studocu.vn/vn/document/dai-hoc-cong-nghiep-ha-noi/mach-dien-2/blt-ttcsn-uqwrwqw/114126905"}]},{"id":"cryptanalysis","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"thám mã","source":"https://repository.vnu.edu.vn/server/api/core/bitstreams/8a26333c-4eeb-48d1-a1f5-fd8528ccba79/content"},{"term":"phá mã","source":"https://www.studocu.vn/vn/document/truong-dai-hoc-cong-nghiep-thanh-pho-ho-chi-minh/analysis-finance/04-nmattt-hethong-matmahoc/57899312"}]},{"id":"cryptosystem","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"hệ mã","source":"https://www.cit.ctu.edu.vn/~dtnghi/crypto/ch1.pdf"},{"term":"hệ mật","source":"https://www.scribd.com/document/674043612/T%E1%BB%95ng-quan-l%C3%BD-thuy%E1%BA%BFt-m%E1%BA%ADt-ma-va-%E1%BB%A9ng-d%E1%BB%A5ng"}]},{"id":"cut-vertex","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"điểm cắt","source":"https://fullhousedev.com/blogs/lesson/1248/"}]},{"id":"decimal","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"hệ thập phân","source":"https://quantrimang.com/cong-nghe/doi-co-so-10-sang-co-so-16-165425"}]},{"id":"decision-problem","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"bài toán có-không","source":"https://www.scribd.com/document/852147226/TRR-B-%C4%90oan-Nh%E1%BA%ADn-Ngon-Ng%E1%BB%AF"}]},{"id":"decision-tree","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"cây ra quyết định","source":"https://masterskills.org/Training-models-Decision-Tree.htm"}]},{"id":"decreasing","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"nghịch biến","source":"https://www.academia.edu/124027151/_C%C3%B3_M%E1%BB%A5c_l%E1%BB%A5c_SGK_To%C3%A1n_%C4%91%E1%BA%A1i_s%E1%BB%91_10_song_ng%E1%BB%AF_Vi%E1%BB%87t_Anh_NXBGD_Vi%E1%BB%87t_Nam_colored_"}]},{"id":"decryption","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"giải mật mã","source":"https://www.cit.ctu.edu.vn/~dtnghi/crypto/ch1.pdf"}]},{"id":"degree-distribution","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"phân bố bậc","source":"https://gust.edu.vn/media/30/uftai-ve-tai-day30407.pdf"}]},{"id":"depth-first-search","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"tìm kiếm sâu","source":"https://developer945330148.wordpress.com/2018/04/30/thuat-toan-tim-kiem-sau-depth-first-search/"}]},{"id":"derangement","commonality":{"verdict":"uncommon","better_term":"hoán vị không có điểm bất động","source":"https://www.scribd.com/document/953571274/TO-41"},"missing_variants":[{"term":"hoán vị xáo trộn","source":"https://www.scribd.com/document/753494424/C%E1%BB%B1c-tr%E1%BB%8B-t%E1%BB%95-h%E1%BB%A3p"},{"term":"hoán vị vô trật tự","source":"https://vted.vn/tin-tuc/nguyen-ly-bao-gom-%E2%80%93-loai-tru-va-bai-toan-xao-tron-hay-hoan-vi-vo-trat-tu-6451.html"}]},{"id":"descendants","commonality":{"verdict":"uncommon","better_term":"hậu duệ","source":"https://www.studocu.vn/vn/document/truong-dai-hoc-bach-khoa-ha-noi/cau-truc-du-lieu-va-giai-thuat/tuan6-7-cau-truc-cay-01-slide/108919703"},"missing_variants":[]},{"id":"difference","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"phần bù tương đối","source":"https://vi.wikipedia.org/wiki/Ph%E1%BA%A7n_b%C3%B9_%28l%C3%BD_thuy%E1%BA%BFt_t%E1%BA%ADp_h%E1%BB%A3p%29"}]},{"id":"digit","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"ký số","source":"https://vi.glosbe.com/vi/en/k%C3%BD%20s%E1%BB%91"}]},{"id":"directed-acyclic-graph","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"đồ thị có hướng phi chu trình","source":"https://uet.vnu.edu.vn/~thuyhq/Student_Thesis/K47_Nguyen_Thi_Huong_Thao_Thesis.pdf"}]}]}
+
+tokens used
+285,091
+WROTE findings-4.json
+===CODEX_REVIEW_DONE===

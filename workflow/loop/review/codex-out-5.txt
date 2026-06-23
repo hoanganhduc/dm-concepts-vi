@@ -1,0 +1,2077 @@
+OpenAI Codex v0.141.0
+--------
+workdir: /home/ubuntu/DM-Concepts
+model: gpt-5.5
+provider: openai
+approval: never
+sandbox: danger-full-access
+reasoning effort: xhigh
+reasoning summaries: none
+session id: 019ef27c-315f-7de3-a352-9a6d15219735
+--------
+user
+You are a meticulous bilingual (English-Vietnamese) discrete-mathematics dictionary reviewer.
+Working directory: /home/ubuntu/DM-Concepts. Do NOT modify any dictionary file. Be evidence-based; NEVER invent a translation or a source.
+
+Read this batch of entries:
+  cat workflow/loop/review/batch-5.json
+It is a JSON array; each entry has: id, headword_en, definition_vi (Vietnamese), vi_terms (array of {term, recommended, ...}), see_ref.
+If see_ref is non-empty the entry is a cross-reference stub: SKIP it.
+
+For EACH non-stub entry, use WEB SEARCH (prefer authoritative Vietnamese sources: university lecture notes / giáo trình, published textbooks, standard references) to check TWO things:
+
+(A) COMMONALITY of the recommended Vietnamese term (the vi_term with recommended=true): is it the common/standard rendering of this English concept in Vietnamese discrete mathematics? If it is uncommon and a clearly MORE standard term exists, report verdict "uncommon" with the better term and a source URL. Otherwise verdict "common" (or "unsure").
+
+(B) ALTERNATIVE TRANSLATIONS: any additional valid Vietnamese translation of the English concept that is NOT already among the entry's existing vi_terms. Example: 'independent set' = 'tập độc lập' AND 'tập ổn định' (internal stable set). List each missing variant with a brief source (URL or book).
+
+Efficiency (IMPORTANT - your context is limited): use web SEARCH RESULT SNIPPETS only; do NOT open or fetch full web pages or PDF files (fetching large pages overflows your context and the run fails). At most 1-2 lightweight searches per entry; skip entries that are clearly fine.
+
+WRITE your result as a JSON file to workflow/loop/review/findings-5.json (use your file-writing tool), exactly this shape:
+{"loop":5,"reviewed":<int>,"findings":[{"id":"<id>","commonality":{"verdict":"common|uncommon|unsure","better_term":"<term or empty>","source":"<url or empty>"},"missing_variants":[{"term":"<vi term>","source":"<url or book>"}]}]}
+Include ONLY entries that have at least one finding (an uncommon verdict OR a missing variant). Valid JSON only (no comments, no trailing commas).
+
+After writing the file, print on its own line:  WROTE findings-5.json
+Then print the final marker line:  ===CODEX_REVIEW_DONE===
+
+hook: SessionStart
+hook: SessionStart Completed
+codex
+Docs/Helpers Checked:
+- User-provided AGENTS.md instructions in this prompt, including evidence-first review rules and no dictionary modification.
+- I will also quickly check for local review docs/helper files before reviewing entries.
+
+Plan:
+1. Inspect local review inputs/docs and read `workflow/loop/review/batch-5.json`.
+2. For each non-stub entry, run only lightweight web search queries and use search-result snippets/URLs, without opening pages or PDFs.
+3. Write only substantiated findings to `workflow/loop/review/findings-5.json`, validate JSON shape, then print the required marker lines.
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+exec
+/bin/bash -lc "sed -n '1,240p' workflow/loop/review/batch-5.json" in /home/ubuntu/DM-Concepts
+ succeeded in 0ms:
+[
+ {
+  "id": "directed-multigraph",
+  "letter": "D",
+  "headword_en": "Directed Multigraph",
+  "rosen_ref": "Rosen §10.1",
+  "definition_vi": "Một đa đồ thị có hướng là một đồ thị có hướng có thể chứa nhiều cạnh có hướng giữa cùng một cặp đỉnh.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "đa đồ thị có hướng",
+    "source_id": "bib-nguyenhoangthach-2020",
+    "page": "tr. 62 (PDF)",
+    "pdf_page": 62,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "đa đồ thị có hướng",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 156 (PDF)",
+    "pdf_page": 156,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "đa đồ thị có hướng",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 605 (PDF)",
+    "pdf_page": 605,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "disconnected",
+  "letter": "D",
+  "headword_en": "Disconnected",
+  "rosen_ref": "Rosen §10.4",
+  "definition_vi": "Một đồ thị vô hướng $$G$$ được gọi là không liên thông nếu nó không liên thông, tức là tồn tại hai đỉnh $$u, v \\in V(G)$$ sao cho không có đường đi nào trong $$G$$ nối $$u$$ với $$v$$. Khi đó $$G$$ có thể được tách thành hợp của hai hay nhiều đồ thị con liên thông (các thành phần liên thông) rời nhau.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "không liên thông",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 168 (PDF)",
+    "pdf_page": 168,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "không liên thông",
+    "source_id": "bib-leanhvinh-2020",
+    "page": "tr. 37 (PDF)",
+    "pdf_page": 37,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "không liên thông",
+    "source_id": "bib-nguyenhoangthach-2020",
+    "page": "tr. 74 (PDF)",
+    "pdf_page": 74,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "không liên thông",
+    "source_id": "bib-nguyenducnghia-2006",
+    "page": "tr. 156 (PDF)",
+    "pdf_page": 156,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "không liên thông",
+    "source_id": "bib-ngodactan-2004",
+    "page": "tr. 216 (PDF)",
+    "pdf_page": 216,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "không liên thông",
+    "source_id": "bib-hoangchithanh-2007",
+    "page": "tr. 14 (PDF)",
+    "pdf_page": 14,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "không liên thông",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 539 (PDF)",
+    "pdf_page": 539,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "discrete",
+  "letter": "D",
+  "headword_en": "Discrete",
+  "rosen_ref": "Rosen, Chương 1 (mở đầu)",
+  "definition_vi": "Một đối tượng được gọi là rời rạc nếu nó tách biệt và phân biệt với các đối tượng khác, tức là có thể đếm được hoặc phân tách hoàn toàn, đối lập với các đối tượng liên tục. Toán rời rạc là lĩnh vực nghiên cứu các đối tượng rời rạc cùng các cấu trúc rời rạc biểu diễn chúng, chẳng hạn các tập hữu hạn, dãy số nguyên, hay đồ thị $$G = (V, E)$$.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "đối tượng rời rạc",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 3 (PDF)",
+    "pdf_page": 3,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "đối tượng rời rạc",
+    "source_id": "bib-nguyenducnghia-2006",
+    "page": "tr. 3 (PDF)",
+    "pdf_page": 3,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "đối tượng rời rạc",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 5 (PDF)",
+    "pdf_page": 5,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "discrete-logarithm",
+  "letter": "D",
+  "headword_en": "Discrete Logarithm",
+  "rosen_ref": "Rosen §4.6",
+  "definition_vi": "Cho $$p$$ là một số nguyên tố và $$r$$ là một căn nguyên thủy modulo $$p$$. Lôgarit rời rạc của một số nguyên $$a$$ theo cơ số $$r$$ modulo $$p$$ là số nguyên $$e$$ thỏa mãn $$r^e \\equiv a \\pmod p$$.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "lôgarit rời rạc",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": true
+   }
+  ]
+ },
+ {
+  "id": "discrete-structure",
+  "letter": "D",
+  "headword_en": "Discrete Structure",
+  "rosen_ref": "Rosen, Preface",
+  "definition_vi": "Cấu trúc rời rạc là một cấu trúc toán học rời rạc, tức là gồm các đối tượng phân biệt và tách biệt nhau, được dùng để biểu diễn quan hệ giữa các đối tượng. Các ví dụ tiêu biểu bao gồm tập hợp, quan hệ, hoán vị và đặc biệt là đồ thị $$G = (V, E)$$ gồm tập đỉnh $$V$$ và tập cạnh $$E$$.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "cấu trúc rời rạc",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 154 (PDF)",
+    "pdf_page": 154,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "cấu trúc rời rạc",
+    "source_id": "bib-nguyenducnghia-2006",
+    "page": "tr. 3 (PDF)",
+    "pdf_page": 3,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "cấu trúc rời rạc",
+    "source_id": "bib-nguyenhoangthach-2020",
+    "page": "tr. 61 (PDF)",
+    "pdf_page": 61,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "cấu trúc rời rạc",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 60 (PDF)",
+    "pdf_page": 60,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "biểu diễn một cấu trúc rời rạc",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "disjoint",
+  "letter": "D",
+  "headword_en": "Disjoint",
+  "rosen_ref": "Rosen §2.2",
+  "definition_vi": "Hai tập hợp $$A$$ và $$B$$ được gọi là rời nhau nếu chúng không có phần tử chung, tức là giao của chúng là tập rỗng, ký hiệu $$A \\cap B = \\emptyset$$. Một họ các tập hợp được gọi là đôi một rời nhau nếu giao của hai tập bất kỳ trong họ đều bằng tập rỗng.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "rời nhau",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 65 (PDF)",
+    "pdf_page": 65,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "rời nhau",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 78 (PDF)",
+    "pdf_page": 78,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "rời nhau",
+    "source_id": "bib-nguyenhoangthach-2020",
+    "page": "tr. 24 (PDF)",
+    "pdf_page": 24,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "rời nhau",
+    "source_id": "bib-nguyenducnghia-2006",
+    "page": "tr. 15 (PDF)",
+    "pdf_page": 15,
+
+hook: PostToolUse
+exec
+/bin/bash -lc "test -f workflow/loop/review/findings-5.json && sed -n '1,200p' workflow/loop/review/findings-5.json || true" in /home/ubuntu/DM-Concepts
+exec
+/bin/bash -lc "rg --files -g 'AGENTS.md' -g 'README*' -g '*review*' -g '*.md' workflow ." in /home/ubuntu/DM-Concepts
+ succeeded in 0ms:
+ succeeded in 0ms:
+./docs/PLAN.md
+./docs/mat3500-term-review.md
+./docs/mat3500-audit.md
+./workflow/loop/review/review-log.jsonl
+./workflow/loop/recovery.md
+./workflow/scripts/review-prep.py
+./workflow/scripts/review-step.sh
+./workflow/scripts/codex-review-prompt.sh
+./workflow/scripts/apply-review.py
+workflow/loop/review/review-log.jsonl
+workflow/loop/recovery.md
+workflow/scripts/review-prep.py
+workflow/scripts/review-step.sh
+./README.md
+workflow/scripts/codex-review-prompt.sh
+workflow/scripts/apply-review.py
+
+hook: PostToolUse
+hook: PostToolUse
+hook: PostToolUse Completed
+hook: PostToolUse Completed
+hook: PostToolUse Completed
+codex
+I found local workflow scripts and docs, plus the batch file. I’m reading the remainder of the batch now, then I’ll keep searches to snippets/URLs only as requested.
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+exec
+/bin/bash -lc "sed -n '241,520p' workflow/loop/review/batch-5.json" in /home/ubuntu/DM-Concepts
+ succeeded in 0ms:
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "đôi một rời nhau",
+    "source_id": "bib-ngodactan-2004",
+    "page": "tr. 25 (PDF)",
+    "pdf_page": 25,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "rời nhau",
+    "source_id": "bib-hoangchithanh-2007",
+    "page": "tr. 106 (PDF)",
+    "pdf_page": 106,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "disjoint-sets",
+  "letter": "D",
+  "headword_en": "Disjoint sets",
+  "rosen_ref": "Rosen §2.2",
+  "definition_vi": "Hai tập hợp $$A$$ và $$B$$ được gọi là \\emph{rời nhau} nếu giao của chúng là tập rỗng, ký hiệu $$A \\cap B = \\emptyset$$; nghĩa là $$A$$ và $$B$$ không có phần tử chung.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "tập hợp rời nhau",
+    "source_id": "bib-nguyenhoangthach-2020",
+    "page": "tr. 24 (PDF)",
+    "pdf_page": 24,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "tập hợp rời nhau",
+    "source_id": "bib-nguyenducnghia-2006",
+    "page": "tr. 15 (PDF)",
+    "pdf_page": 15,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "tập rời nhau",
+    "source_id": "bib-leanhvinh-2020",
+    "page": "tr. 37 (PDF)",
+    "pdf_page": 37,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "tập rời nhau",
+    "source_id": "bib-leanhvinh-2020",
+    "page": "tr. 202 (PDF)",
+    "pdf_page": 202,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "tập rời nhau",
+    "source_id": "bib-ngodactan-2004",
+    "page": "tr. 21 (PDF)",
+    "pdf_page": 21,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "rời nhau",
+    "source_id": "bib-leanhvinh-2020",
+    "page": "tr. 69 (PDF)",
+    "pdf_page": 69,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "rời nhau",
+    "source_id": "bib-hoangchithanh-2007",
+    "page": "tr. 106 (PDF)",
+    "pdf_page": 106,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "tập con rời nhau",
+    "source_id": "bib-nguyenducnghia-2006",
+    "page": "tr. 15 (PDF)",
+    "pdf_page": 15,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "không giao nhau",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 228 (PDF)",
+    "pdf_page": 228,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "không giao nhau",
+    "source_id": "bib-nguyenducnghia-2006",
+    "page": "tr. 210 (PDF)",
+    "pdf_page": 210,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "không giao nhau",
+    "source_id": "bib-ngodactan-2004",
+    "page": "tr. 206 (PDF)",
+    "pdf_page": 206,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "không giao nhau",
+    "source_id": "bib-hoangchithanh-2007",
+    "page": "tr. 18 (PDF)",
+    "pdf_page": 18,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "tập rời nhau",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 65 (PDF, bản dịch Rosen)",
+    "pdf_page": 65,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "rời nhau",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 65 (PDF, bản dịch Rosen)",
+    "pdf_page": 65,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "tập con rời nhau",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 478 (PDF, bản dịch Rosen)",
+    "pdf_page": 478,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "disjunction",
+  "letter": "D",
+  "headword_en": "Disjunction",
+  "rosen_ref": "Rosen §1.1",
+  "definition_vi": "Tuyển của hai mệnh đề $$p$$ và $$q$$, ký hiệu $$p \\vee q$$, là mệnh đề \"$$p$$ hoặc $$q$$\". Mệnh đề $$p \\vee q$$ sai khi cả $$p$$ và $$q$$ đều sai, và đúng trong các trường hợp còn lại.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "tuyển",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 8 (PDF)",
+    "pdf_page": 8,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "phép tuyển",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 17 (PDF)",
+    "pdf_page": 17,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "tuyển",
+    "source_id": "bib-nguyenducnghia-2006",
+    "page": "tr. 267 (PDF)",
+    "pdf_page": 267,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "Tuyển",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 8 (PDF, bản dịch Rosen)",
+    "pdf_page": 8,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "phép tuyển",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 9 (PDF, bản dịch Rosen)",
+    "pdf_page": 9,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "disjunctive-normal-form",
+  "letter": "D",
+  "headword_en": "Disjunctive Normal Form",
+  "rosen_ref": "Rosen §12.2",
+  "definition_vi": "Dạng tuyển chuẩn tắc của một hàm Boole là biểu diễn của hàm đó dưới dạng tuyển (phép OR) của các hội sơ cấp, trong đó mỗi hội sơ cấp là tích (phép AND) của các biến hoặc phần bù của chúng. Khi mỗi hội sơ cấp chứa đầy đủ mọi biến của hàm, ta được dạng tuyển chuẩn tắc hoàn toàn, tức là khai triển tổng các tích biểu diễn hàm $$f(x_1, x_2, \\ldots, x_n)$$.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "dạng tuyển chuẩn tắc",
+    "source_id": "bib-nguyenducnghia-2006",
+    "page": "tr. 270 (PDF)",
+    "pdf_page": 270,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "dạng chuẩn tắc tuyển",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 25 (PDF)",
+    "pdf_page": 25,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "dạng tuyển chuẩn tắc",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 30 (PDF)",
+    "pdf_page": 30,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "disjunctive-syllogism",
+  "letter": "D",
+  "headword_en": "Disjunctive Syllogism",
+  "rosen_ref": "Rosen §1.6",
+  "definition_vi": "Tam đoạn luận tuyển là quy tắc suy diễn cho phép từ một tuyển $$p \\lor q$$ và phủ định $$\\neg p$$ của một thành phần suy ra thành phần còn lại $$q$$, ký hiệu $$[(p \\lor q) \\land \\neg p] \\rightarrow q$$. Quy tắc này đúng vì biểu thức $$[(p \\lor q) \\land \\neg p] \\rightarrow q$$ là một hằng đúng.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "Tam đoạn luận tuyển",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 211 (PDF)",
+    "pdf_page": 211,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "Tam đoạn luận phân biệt",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 875 (PDF)",
+    "pdf_page": 875,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "Tam đoạn luận rời",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 33 (PDF)",
+    "pdf_page": 33,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "distance",
+  "letter": "D",
+  "headword_en": "Distance",
+  "rosen_ref": "Rosen §10.4",
+  "definition_vi": "\\emph{Khoảng cách} giữa hai đỉnh $$u$$ và $$v$$ trong một đồ thị $$G$$, ký hiệu $$d(u, v)$$, là độ dài của một đường đi ngắn nhất giữa $$u$$ và $$v$$. Nếu không tồn tại đường đi nào giữa $$u$$ và $$v$$ thì $$d(u, v)$$ được quy ước bằng $$\\infty$$.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "khoảng cách",
+    "source_id": "bib-leanhvinh-2020",
+
+hook: PostToolUse
+exec
+/bin/bash -lc "sed -n '1,220p' docs/mat3500-term-review.md" in /home/ubuntu/DM-Concepts
+ succeeded in 0ms:
+# 33 thuật ngữ lệch dịch — sách ↔ MAT3500 (cần bạn duyệt)
+
+Quy ước: `A → B` nghĩa là đề xuất đổi 'recommended' của sách từ A sang B (theo bài giảng).
+Đánh dấu ✔ cạnh từ bạn muốn đổi; bỏ trống nếu giữ nguyên sách.
+
+## ❗ Bản dịch khác (sách nên xem lại / bổ sung biến thể)
+- **ancestors** — sách: `tổ tiên` · bài giảng: Các đỉnh tổ tiên
+- **karnaugh maps** — sách: `bìa Karnaugh` · bài giảng: Phương pháp sơ đồ Karnaugh
+- **knight's tour** — sách: `hành trình của con mã` · bài giảng: Đường đi tuần của quân mã
+- **least common multiple** — sách: `bội số chung nhỏ nhất` · bài giảng: Bội chung nhỏ nhất
+- **maximum matching** — sách: `cặp ghép lớn nhất` · bài giảng: ghép cặp cực đại
+- **neighborhood** — sách: `lân cận` · bài giảng: tập láng giềng
+- **one-to-one function** — sách: `đơn ánh` · bài giảng: hàm một-một
+- **optimization problems** — sách: `bài toán tối ưu` · bài giảng: Các bài toán tối ưu
+- **ordered pair** — sách: `cặp có thứ tự` · bài giảng: cặp sắp thứ tự
+- **perfect matching** — sách: `cặp ghép hoàn hảo` · bài giảng: ghép cặp hoàn hảo
+- **prime numbers** — sách: `số nguyên tố` · bài giảng: các số nguyên tố
+- **regular graph** — sách: `đồ thị đều bậc k` · bài giảng: đồ thị chính quy
+## ⚠️ Sách khuyến nghị thuật ngữ khác với bài giảng
+- **articulation point** — sách khuyến nghị: `đỉnh cắt` · bài giảng dùng: điểm khớp
+- **circuit** — sách khuyến nghị: `chu trình đơn` · bài giảng dùng: mạch
+- **cycle** — sách khuyến nghị: `đồ thị vòng` · bài giảng dùng: chu trình
+- **edge connectivity** — sách khuyến nghị: `độ liên thông cạnh` · bài giảng dùng: Số liên thông cạnh
+- **function** — sách khuyến nghị: `hàm số` · bài giảng dùng: hàm
+- **integers** — sách khuyến nghị: `số nguyên` · bài giảng dùng: Tập số nguyên
+- **leaf** — sách khuyến nghị: `lá` · bài giảng dùng: đỉnh lá
+- **matching** — sách khuyến nghị: `cặp ghép` · bài giảng dùng: ghép cặp
+- **minimum spanning tree** — sách khuyến nghị: `cây bao trùm nhỏ nhất` · bài giảng dùng: cây khung nhỏ nhất
+- **natural numbers** — sách khuyến nghị: `số tự nhiên` · bài giảng dùng: Tập số tự nhiên
+- **negation** — sách khuyến nghị: `mệnh đề phủ định` · bài giảng dùng: Phủ định
+- **node** — sách khuyến nghị: `đỉnh` · bài giảng dùng: nút
+- **odd cycle** — sách khuyến nghị: `chu trình độ dài lẻ` · bài giảng dùng: chu trình lẻ
+- **permutation** — sách khuyến nghị: `chỉnh hợp` · bài giảng dùng: hoán vị
+- **quotient** — sách khuyến nghị: `thương số` · bài giảng dùng: thương
+- **recurrence relation** — sách khuyến nghị: `quan hệ truy hồi` · bài giảng dùng: hệ thức truy hồi
+- **relation** — sách khuyến nghị: `quan hệ hai ngôi` · bài giảng dùng: quan hệ
+- **sequence** — sách khuyến nghị: `dãy số` · bài giảng dùng: dãy
+- **spanning tree** — sách khuyến nghị: `cây bao trùm` · bài giảng dùng: cây khung
+- **venn diagram** — sách khuyến nghị: `sơ đồ Venn` · bài giảng dùng: giản đồ Venn
+- **vertex connectivity** — sách khuyến nghị: `độ liên thông đỉnh` · bài giảng dùng: Số liên thông đỉnh
+## ❌ Thuật ngữ bài giảng chưa có trong sách
+
+hook: PostToolUse
+exec
+/bin/bash -lc "sed -n '1,220p' workflow/loop/recovery.md" in /home/ubuntu/DM-Concepts
+ succeeded in 0ms:
+# Autonomous loop — recovery
+
+**Goal:** build verified EN–VI lexicon chapters for all alphabet letters (autonomous, no re-prompt).
+
+**Current status:** running.
+
+- **Done:** C (14 entries, enriched, 85 citations).
+- **In progress:** G (build-chapter workflow `wpd4bi667`).
+- **Pending:** A, B, D, E, F, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z.
+
+**Next safe action:** when the G workflow completes → encode (`encode-chapter.py g`), add `ch-g.ptx` xinclude to `source/main.ptx`, validate, build, commit; then launch `build-chapter` for the next pending letter (A). Repeat per letter.
+
+**Side job:** Rosen VI OCR (~180/978) → on completion, un-defer for a final reference-enrichment pass across all chapters (Rosen never recommended).
+
+**Per-letter pipeline:** build-chapter workflow → `encode-chapter.py <l>` → xinclude in main.ptx → `validate-entry.py` → `build-search-index.py` → `pretext build web` → commit.
+
+**Stop:** all letters processed; or user pause/stop; or a letter fails build 3× (skip + record).
+
+**Evidence gates:** verified citations carry source_id+pdf_page+snippet; recommended from newest source; definitions checked vs Rosen by the panel; every chapter must build before commit.
+
+- 2026-06-21T15:34:15 done G; next=A; done=2 skipped=0 pending=24
+- 2026-06-21T16:10:02 done A; next=B; done=3 skipped=0 pending=23
+- 2026-06-21T16:45:38 done B; next=D; done=4 skipped=0 pending=22
+- 2026-06-21T17:22:05 done D; next=E; done=5 skipped=0 pending=21
+- 2026-06-21T17:56:04 done E; next=F; done=6 skipped=0 pending=20
+- 2026-06-21T18:31:35 done F; next=H; done=7 skipped=0 pending=19
+- 2026-06-21T19:03:39 done H; next=I; done=8 skipped=0 pending=18
+- 2026-06-21T19:37:56 done I; next=J; done=9 skipped=0 pending=17
+- 2026-06-21T19:59:01 done J; next=K; done=10 skipped=0 pending=16
+- 2026-06-21T20:36:25 done K; next=L; done=11 skipped=0 pending=15
+- 2026-06-21T21:14:40 done L; next=M; done=12 skipped=0 pending=14
+- 2026-06-21T21:49:01 done M; next=N; done=13 skipped=0 pending=13
+- 2026-06-21T22:26:51 done N; next=O; done=14 skipped=0 pending=12
+- 2026-06-21T22:58:39 done O; next=P; done=15 skipped=0 pending=11
+- 2026-06-21T23:32:37 done P; next=Q; done=16 skipped=0 pending=10
+- 2026-06-21T23:49:49 done Q; next=R; done=17 skipped=0 pending=9
+- 2026-06-22T03:47:35 done R; next=S; done=18 skipped=0 pending=8
+- 2026-06-22T04:20:57 done S; next=T; done=19 skipped=0 pending=7
+- 2026-06-22T04:53:02 done T; next=U; done=20 skipped=0 pending=6
+- 2026-06-22T05:17:15 done U; next=V; done=21 skipped=0 pending=5
+- 2026-06-22T05:41:41 done V; next=W; done=22 skipped=0 pending=4
+- 2026-06-22T06:07:01 done W; next=X; done=23 skipped=0 pending=3
+- 2026-06-22T06:22:29 done X; next=Y; done=24 skipped=0 pending=2
+- 2026-06-22T06:34:43 done Y; next=Z; done=25 skipped=0 pending=1
+- 2026-06-22T06:50:52 done Z; next=DONE; done=26 skipped=0 pending=0
+hook: PostToolUse
+hook: PostToolUse Completed
+hook: PostToolUse Completed
+hook: PostToolUse Completed
+codex
+The local docs confirm this is a term-review side job with evidence gates, and I haven’t found a separate helper that should replace the requested manual review. The batch has no stubs so far; I’m finishing the entry list before searching.
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+exec
+/bin/bash -lc "sed -n '521,820p' workflow/loop/review/batch-5.json" in /home/ubuntu/DM-Concepts
+ succeeded in 0ms:
+    "page": "tr. 17 (PDF)",
+    "pdf_page": 17,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "khoảng cách giữa hai đỉnh",
+    "source_id": "bib-leanhvinh-2020",
+    "page": "tr. 222 (PDF)",
+    "pdf_page": 222,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "khoảng cách giữa u và v",
+    "source_id": "bib-nguyenhoangthach-2020",
+    "page": "tr. 88 (PDF)",
+    "pdf_page": 88,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "khoảng cách d(u, v)",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 202 (PDF)",
+    "pdf_page": 202,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "khoảng cách giữa đỉnh x và đỉnh y",
+    "source_id": "bib-hoangchithanh-2007",
+    "page": "tr. 99 (PDF)",
+    "pdf_page": 99,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "khoảng cách giữa hai đỉnh u và v",
+    "source_id": "bib-ngodactan-2004",
+    "page": "tr. 216 (PDF)",
+    "pdf_page": 216,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "khoảng cách",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 316 (PDF, bản dịch Rosen)",
+    "pdf_page": 316,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "khoảng cách giữa hai đỉnh",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 613 (PDF, bản dịch Rosen)",
+    "pdf_page": 613,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "distinct",
+  "letter": "D",
+  "headword_en": "Distinct",
+  "rosen_ref": "Rosen §2.1",
+  "definition_vi": "Hai đối tượng được gọi là $$phân$$ $$biệt$$ nếu chúng không bằng nhau, tức là $$x \\neq y$$. Một họ các phần tử $$x_1, x_2, \\ldots, x_n$$ là phân biệt từng đôi một nếu $$x_i \\neq x_j$$ với mọi $$i \\neq j$$.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "phân biệt",
+    "source_id": "bib-leanhvinh-2020",
+    "page": "tr. 16 (PDF)",
+    "pdf_page": 16,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "phân biệt",
+    "source_id": "bib-nguyenhoangthach-2020",
+    "page": "tr. 21 (PDF)",
+    "pdf_page": 21,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "phân biệt",
+    "source_id": "bib-nguyenducnghia-2006",
+    "page": "tr. 35 (PDF)",
+    "pdf_page": 35,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "phân biệt",
+    "source_id": "bib-ngodactan-2004",
+    "page": "tr. 82 (PDF)",
+    "pdf_page": 82,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "phân biệt",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 84 (PDF)",
+    "pdf_page": 84,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "distribution-of-a-random-variable",
+  "letter": "D",
+  "headword_en": "Distribution of a Random Variable",
+  "rosen_ref": "Rosen §7.2",
+  "definition_vi": "Phân phối của một biến ngẫu nhiên $$X$$ trên một không gian mẫu là tập hợp các cặp $$(r, p(X = r))$$ ứng với mọi giá trị $$r$$ mà biến ngẫu nhiên $$X$$ có thể nhận. Nói cách khác, phân phối cho biết với mỗi giá trị $$r$$ của $$X$$, xác suất để $$X$$ nhận giá trị đó là $$p(X = r)$$.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "phân phối của biến ngẫu nhiên",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": true
+   },
+   {
+    "term": "biến ngẫu nhiên",
+    "source_id": "bib-leanhvinh-2020",
+    "page": "tr. 155 (PDF)",
+    "pdf_page": 155,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "divide-and-conquer",
+  "letter": "D",
+  "headword_en": "Divide And Conquer",
+  "rosen_ref": "Rosen §8.3",
+  "definition_vi": "Chia để trị là kỹ thuật thiết kế thuật toán trong đó một bài toán kích thước $$n$$ được phân rã thành $$a$$ bài toán con, mỗi bài toán con có kích thước $$n/b$$, rồi giải các bài toán con đó và kết hợp các lời giải lại. Độ phức tạp $$f(n)$$ của thuật toán thỏa mãn hệ thức truy hồi chia để trị $$f(n) = a\\,f(n/b) + g(n)$$, trong đó $$g(n)$$ là chi phí phân chia và kết hợp.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "chia để trị",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 100 (PDF)",
+    "pdf_page": 100,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "chia để trị",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 397 (PDF)",
+    "pdf_page": 397,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "divide-and-conquer-algorithm",
+  "letter": "D",
+  "headword_en": "Divide-And-Conquer Algorithm",
+  "rosen_ref": "",
+  "definition_vi": "",
+  "see_ref": "divide-and-conquer",
+  "vi_terms": []
+ },
+ {
+  "id": "dividend",
+  "letter": "D",
+  "headword_en": "Dividend",
+  "rosen_ref": "Rosen §4.1",
+  "definition_vi": "Số bị chia là số $$a$$ được đem chia trong phép chia có dư. Theo thuật toán chia, với số nguyên $$a$$ và số nguyên dương $$d$$, tồn tại duy nhất các số nguyên $$q$$ và $$r$$ với $$0 \\leq r \\lt d$$ sao cho $$a = dq + r$$; khi đó $$a$$ được gọi là số bị chia, $$d$$ là số chia, $$q$$ là thương và $$r$$ là số dư.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "số bị chia",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 142 (PDF)",
+    "pdf_page": 142,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "số bị chia",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 897 (PDF)",
+    "pdf_page": 897,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "divisibility",
+  "letter": "D",
+  "headword_en": "Divisibility",
+  "rosen_ref": "Rosen §4.1",
+  "definition_vi": "Cho hai số nguyên $$a$$ và $$b$$ với $$a \\neq 0$$, ta nói $$a$$ \\emph{chia hết} $$b$$, ký hiệu $$a \\mid b$$, nếu tồn tại một số nguyên $$c$$ sao cho $$b = ac$$; nếu $$a$$ không chia hết $$b$$ ta viết $$a \\nmid b$$. Khi $$a \\mid b$$, ta nói $$a$$ là một ước của $$b$$ và $$b$$ là một bội của $$a$$.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "chia hết",
+    "source_id": "bib-nguyenhoangthach-2020",
+    "page": "tr. 54 (PDF)",
+    "pdf_page": 54,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "chia hết",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 15 (PDF)",
+    "pdf_page": 15,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "chia hết",
+    "source_id": "bib-nguyenducnghia-2006",
+    "page": "tr. 14 (PDF)",
+    "pdf_page": 14,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "chia hết",
+    "source_id": "bib-ngodactan-2004",
+    "page": "tr. 173 (PDF)",
+    "pdf_page": 173,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "quan hệ chia hết",
+    "source_id": "bib-ngodactan-2004",
+    "page": "tr. 173 (PDF)",
+    "pdf_page": 173,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "chia hết",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 107 (PDF, bản dịch Rosen)",
+    "pdf_page": 107,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "division-algorithm",
+  "letter": "D",
+  "headword_en": "Division algorithm",
+  "rosen_ref": "Rosen §4.1",
+  "definition_vi": "\\emph{Thuật toán chia} khẳng định rằng với mọi số nguyên $$a$$ và mọi số nguyên dương $$b$$, tồn tại duy nhất hai số nguyên $$q$$ và $$r$$ thỏa mãn $$0 \\leq r < b$$ sao cho $$a = bq + r$$; ký hiệu $$q$$ là thương số và $$r$$ là số dư trong phép chia $$a$$ cho $$b$$.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "thuật toán chia",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 141 (PDF)",
+    "pdf_page": 141,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "thuật chia (Euclide)",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": false
+   },
+   {
+    "term": "thuật toán chia",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 155 (PDF, bản dịch Rosen)",
+    "pdf_page": 155,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "division-rule-for-counting",
+  "letter": "D",
+  "headword_en": "Division Rule For Counting",
+  "rosen_ref": "",
+  "definition_vi": "",
+  "see_ref": "the-division-rule",
+  "vi_terms": []
+
+hook: PostToolUse
+exec
+/bin/bash -lc "sed -n '1,220p' workflow/scripts/review-step.sh" in /home/ubuntu/DM-Concepts
+ succeeded in 0ms:
+#!/usr/bin/env bash
+# Apply finished batch <i>, advance the ledger, and prepare batch <i+1>.
+# Prints NEXT=<i+1> (or ALL_BATCHES_DONE). Usage: review-step.sh <i>
+set -uo pipefail
+i="${1:?usage: review-step.sh <batch-number>}"
+cd /home/ubuntu/DM-Concepts
+PY="$HOME/.venvs/pretext/bin/python"
+R=workflow/loop/review
+TOTAL=$("$PY" -c "import glob;print(len(glob.glob('$R/batch-*.json')))")
+
+if [ -f "$R/findings-$i.json" ]; then
+  "$PY" workflow/scripts/apply-review.py "$i"
+else
+  echo "WARN: no findings-$i.json"; tail -2 "$R/codex-out-$i.txt" 2>/dev/null
+fi
+next=$((i+1))
+"$PY" -c "import json;p='$R/loop_state.json';s=json.load(open(p));s['done_loops']=sorted(set(s.get('done_loops',[])+[$i]));s['current']=$next;json.dump(s,open(p,'w'),ensure_ascii=False,indent=1)"
+if [ "$next" -le "$TOTAL" ]; then
+  bash workflow/scripts/codex-review-prompt.sh "$next" > "/tmp/rp$next.txt"
+  rm -f "$R/findings-$next.json" "$R/codex-out-$next.txt"
+  echo "NEXT=$next ready (of $TOTAL)"
+else
+  echo "ALL_BATCHES_DONE ($TOTAL batches)"
+fi
+
+hook: PostToolUse
+hook: PostToolUse Completed
+hook: PostToolUse Completed
+hook: PreToolUse
+hook: PreToolUse Completed
+exec
+/bin/bash -lc "sed -n '1,220p' workflow/scripts/codex-review-prompt.sh" in /home/ubuntu/DM-Concepts
+ succeeded in 0ms:
+#!/usr/bin/env bash
+# Emit the Codex web-review prompt for loop <i> (dimensions 2+3; dimension 1 is
+# done deterministically by check-citations.py). Usage: codex-review-prompt.sh <i>
+i="${1:?usage: codex-review-prompt.sh <loop-number>}"
+cat <<EOF
+You are a meticulous bilingual (English-Vietnamese) discrete-mathematics dictionary reviewer.
+Working directory: /home/ubuntu/DM-Concepts. Do NOT modify any dictionary file. Be evidence-based; NEVER invent a translation or a source.
+
+Read this batch of entries:
+  cat workflow/loop/review/batch-${i}.json
+It is a JSON array; each entry has: id, headword_en, definition_vi (Vietnamese), vi_terms (array of {term, recommended, ...}), see_ref.
+If see_ref is non-empty the entry is a cross-reference stub: SKIP it.
+
+For EACH non-stub entry, use WEB SEARCH (prefer authoritative Vietnamese sources: university lecture notes / giáo trình, published textbooks, standard references) to check TWO things:
+
+(A) COMMONALITY of the recommended Vietnamese term (the vi_term with recommended=true): is it the common/standard rendering of this English concept in Vietnamese discrete mathematics? If it is uncommon and a clearly MORE standard term exists, report verdict "uncommon" with the better term and a source URL. Otherwise verdict "common" (or "unsure").
+
+(B) ALTERNATIVE TRANSLATIONS: any additional valid Vietnamese translation of the English concept that is NOT already among the entry's existing vi_terms. Example: 'independent set' = 'tập độc lập' AND 'tập ổn định' (internal stable set). List each missing variant with a brief source (URL or book).
+
+Efficiency (IMPORTANT - your context is limited): use web SEARCH RESULT SNIPPETS only; do NOT open or fetch full web pages or PDF files (fetching large pages overflows your context and the run fails). At most 1-2 lightweight searches per entry; skip entries that are clearly fine.
+
+WRITE your result as a JSON file to workflow/loop/review/findings-${i}.json (use your file-writing tool), exactly this shape:
+{"loop":${i},"reviewed":<int>,"findings":[{"id":"<id>","commonality":{"verdict":"common|uncommon|unsure","better_term":"<term or empty>","source":"<url or empty>"},"missing_variants":[{"term":"<vi term>","source":"<url or book>"}]}]}
+Include ONLY entries that have at least one finding (an uncommon verdict OR a missing variant). Valid JSON only (no comments, no trailing commas).
+
+After writing the file, print on its own line:  WROTE findings-${i}.json
+Then print the final marker line:  ===CODEX_REVIEW_DONE===
+EOF
+
+hook: PostToolUse
+hook: PostToolUse Completed
+hook: PreToolUse
+hook: PreToolUse Completed
+exec
+/bin/bash -lc "sed -n '821,1100p' workflow/loop/review/batch-5.json" in /home/ubuntu/DM-Concepts
+ succeeded in 0ms:
+ },
+ {
+  "id": "division-rule-for-sets",
+  "letter": "D",
+  "headword_en": "Division Rule For Sets",
+  "rosen_ref": "",
+  "definition_vi": "",
+  "see_ref": "the-division-rule",
+  "vi_terms": []
+ },
+ {
+  "id": "divisor",
+  "letter": "D",
+  "headword_en": "Divisor",
+  "rosen_ref": "Rosen §3.4",
+  "definition_vi": "Số chia là số nguyên $$b$$ trong thuật toán chia: cho hai số nguyên $$a$$ và $$b$$ với $$b > 0$$, tồn tại duy nhất cặp số nguyên $$q$$ và $$r$$ thỏa mãn $$a = bq + r$$ với $$0 \\leq r < b$$. Trong đẳng thức này, $$b$$ được gọi là số chia, $$a$$ là số bị chia, $$q$$ là thương và $$r$$ là số dư.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "số chia",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 142 (PDF)",
+    "pdf_page": 142,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "số chia",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 156 (PDF)",
+    "pdf_page": 156,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "domain",
+  "letter": "D",
+  "headword_en": "Domain",
+  "rosen_ref": "Rosen §2.3",
+  "definition_vi": "\\emph{Miền xác định} của một hàm $$f : A \\to B$$ là tập $$A$$ gồm mọi phần tử mà $$f$$ gán cho một giá trị, tức là tập tất cả các đầu vào có thể có của $$f$$.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "miền xác định",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 129 (PDF)",
+    "pdf_page": 129,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "miền xác định",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 82 (PDF)",
+    "pdf_page": 82,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "miền xác định",
+    "source_id": "bib-nguyenducnghia-2006",
+    "page": "tr. 267 (PDF)",
+    "pdf_page": 267,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "miền xác định",
+    "source_id": "bib-ngodactan-2004",
+    "page": "tr. 128 (PDF)",
+    "pdf_page": 128,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "tập nguồn",
+    "source_id": "bib-nguyenducnghia-2006",
+    "page": "tr. 19 (PDF)",
+    "pdf_page": 19,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "miền xác định",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 82 (PDF, bản dịch Rosen)",
+    "pdf_page": 82,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "tập xác định",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "domain-of-discourse",
+  "letter": "D",
+  "headword_en": "Domain Of Discourse",
+  "rosen_ref": "Rosen §1.4",
+  "definition_vi": "Miền xác định (hay vũ trụ biện luận) là tập hợp các giá trị mà một biến trong hàm mệnh đề $$P(x)$$ có thể nhận. Khi xét lượng từ trên hàm mệnh đề, mỗi biến chỉ lấy giá trị trong miền xác định của nó.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "miền xác định",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 46 (PDF)",
+    "pdf_page": 46,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "vũ trụ biện luận",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 34 (PDF)",
+    "pdf_page": 34,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "miền xác định",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 82 (PDF, bản dịch Rosen)",
+    "pdf_page": 82,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "dominating-set",
+  "letter": "D",
+  "headword_en": "Dominating set",
+  "rosen_ref": "Rosen §10.1",
+  "definition_vi": "Một \\emph{tập thống trị} của đồ thị $$G$$ là một tập con $$D \\subseteq V(G)$$ các đỉnh sao cho mỗi đỉnh của $$G$$ hoặc thuộc $$D$$, hoặc kề với một đỉnh nào đó trong $$D$$. Nói cách khác, với mọi đỉnh $$v \\in V(G)$$ ta có $$v \\in D$$ hoặc tồn tại $$u \\in D$$ sao cho $$uv \\in E(G)$$.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "tập thống trị",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": true
+   }
+  ]
+ },
+ {
+  "id": "double-counting-proof",
+  "letter": "D",
+  "headword_en": "Double Counting Proof",
+  "rosen_ref": "",
+  "definition_vi": "Phương pháp đếm bằng hai cách là kỹ thuật chứng minh một đẳng thức tổ hợp bằng cách đếm số phần tử của cùng một tập hợp hữu hạn $$S$$ theo hai cách khác nhau. Vì cả hai cách đều cho lực lượng $$|S|$$, ta thu được đẳng thức giữa hai biểu thức đếm được.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "đếm bằng hai cách",
+    "source_id": "bib-leanhvinh-2020",
+    "page": "tr. 50 (PDF)",
+    "pdf_page": 50,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "đếm bằng hai cách",
+    "source_id": "bib-leanhvinh-2020",
+    "page": "tr. 218 (PDF)",
+    "pdf_page": 218,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "đếm số phần tử bằng hai cách",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": false
+   },
+   {
+    "term": "phương pháp đếm bằng hai cách",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": true
+   }
+  ]
+ },
+ {
+  "id": "double-sum",
+  "letter": "D",
+  "headword_en": "Double Sum",
+  "rosen_ref": "Rosen §2.4",
+  "definition_vi": "Tổng đôi (tổng kép) là tổng lồng nhau của một dãy số được đánh chỉ số bởi hai chỉ số, ký hiệu $$\\sum_{i=m}^{n}\\sum_{j=p}^{q} a_{ij}$$. Giá trị của nó được tính bằng cách trước hết khai triển tổng trong theo chỉ số $$j$$, rồi lấy tổng các kết quả nhận được theo chỉ số $$i$$.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "tổng kép",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 100 (PDF)",
+    "pdf_page": 100,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "Tổng đôi",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": true
+   }
+  ]
+ },
+ {
+  "id": "dual",
+  "letter": "D",
+  "headword_en": "Dual",
+  "rosen_ref": "Rosen §10.7",
+  "definition_vi": "Đối ngẫu (đồ thị đối ngẫu) của một đồ thị phẳng $$G$$ đã cho một biểu diễn phẳng, ký hiệu $$G^*$$, là đồ thị mà mỗi đỉnh tương ứng với một miền của $$G$$, và hai đỉnh của $$G^*$$ được nối bởi một cạnh ứng với mỗi cạnh chung trên biên của hai miền tương ứng. Mọi đồ thị phẳng đều có đồ thị đối ngẫu cũng là đồ thị phẳng.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "đồ thị đối ngẫu",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 235 (PDF)",
+    "pdf_page": 235,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "đồ thị đối ngẫu",
+    "source_id": "bib-nguyenhoangthach-2020",
+    "page": "tr. 82 (PDF)",
+    "pdf_page": 82,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "đồ thị đối ngẫu",
+    "source_id": "bib-ngodactan-2004",
+    "page": "tr. 294 (PDF)",
+    "pdf_page": 294,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "đồ thị đối ngẫu",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 594 (PDF)",
+    "pdf_page": 594,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "Đối ngẫu",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 29 (PDF, bản dịch Rosen)",
+    "pdf_page": 29,
+    "verified": true,
+    "recommended": true
+   }
+  ]
+ },
+ {
+  "id": "dual-graph",
+  "letter": "D",
+  "headword_en": "Dual graph",
+  "rosen_ref": "Rosen §10.7",
+  "definition_vi": "\\emph{Đồ thị đối ngẫu} của một đồ thị phẳng $$G$$, ký hiệu $$G^{*}$$, là đồ thị có mỗi đỉnh tương ứng với một miền (mặt) của $$G$$. Mỗi cạnh của $$G$$ nằm chung trên biên của hai miền $$R_1$$ và $$R_2$$ cho một cạnh của $$G^{*}$$ nối hai đỉnh ứng với $$R_1$$ và $$R_2$$; mỗi cạnh kề cùng một miền ở cả hai phía (một cầu) cho một khuyên tại đỉnh ứng với miền đó. Như vậy tương ứng giữa các cạnh của $$G$$ và các cạnh của $$G^{*}$$ là một song ánh.",
+  "see_ref": "",
+  "vi_terms": [
+
+hook: PostToolUse
+hook: PostToolUse Completed
+hook: PreToolUse
+hook: PreToolUse Completed
+exec
+/bin/bash -lc "sed -n '1101,1380p' workflow/loop/review/batch-5.json" in /home/ubuntu/DM-Concepts
+ succeeded in 0ms:
+   {
+    "term": "đồ thị đối ngẫu",
+    "source_id": "bib-nguyenhoangthach-2020",
+    "page": "tr. 82 (PDF)",
+    "pdf_page": 82,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "đồ thị đối ngẫu",
+    "source_id": "bib-nguyenhoangthach-2020",
+    "page": "tr. 81 (PDF)",
+    "pdf_page": 81,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "đồ thị đối ngẫu",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 235 (PDF)",
+    "pdf_page": 235,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "đồ thị đối ngẫu của",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 235 (PDF)",
+    "pdf_page": 235,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "đồ thị đối ngẫu",
+    "source_id": "bib-ngodactan-2004",
+    "page": "tr. 294 (PDF)",
+    "pdf_page": 294,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "đồ thị đối ngẫu",
+    "source_id": "bib-ngodactan-2004",
+    "page": "tr. 295 (PDF)",
+    "pdf_page": 295,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "đồ thị đối ngẫu của",
+    "source_id": "bib-ngodactan-2004",
+    "page": "tr. 294 (PDF)",
+    "pdf_page": 294,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "đồ thị đối ngẫu",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 594 (PDF, bản dịch Rosen)",
+    "pdf_page": 594,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "dual-of-a-boolean-expression",
+  "letter": "D",
+  "headword_en": "Dual Of A Boolean Expression",
+  "rosen_ref": "",
+  "definition_vi": "",
+  "see_ref": "duality-principle",
+  "vi_terms": [
+   {
+    "term": "đối ngẫu của biểu thức Boole",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 757 (PDF)",
+    "pdf_page": 757,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "duality-principle",
+  "letter": "D",
+  "headword_en": "Duality Principle",
+  "rosen_ref": "Rosen §11.1",
+  "definition_vi": "Nguyên lý đối ngẫu khẳng định rằng một hằng đẳng thức giữa các hàm Boole vẫn còn đúng khi ta thay nó bằng hằng đẳng thức đối ngẫu, tức là đổi mỗi phép $$\\cdot$$ thành $$+$$, mỗi phép $$+$$ thành $$\\cdot$$, đồng thời đổi mỗi hằng $$0$$ thành $$1$$ và mỗi hằng $$1$$ thành $$0$$ (các biến giữ nguyên). Đối ngẫu của một biểu thức Boole $$E$$, ký hiệu $$E^{d}$$, nhận được bằng cách thực hiện các phép đổi này.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "nguyên lý đối ngẫu",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 757 (PDF)",
+    "pdf_page": 757,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "luật đối ngẫu",
+    "source_id": "bib-nguyenducnghia-2006",
+    "page": "tr. 270 (PDF)",
+    "pdf_page": 270,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "Nguyên lý đối ngẫu",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 757 (PDF, bản dịch Rosen)",
+    "pdf_page": 757,
+    "verified": true,
+    "recommended": true
+   }
+  ]
+ },
+ {
+  "id": "dynamic-programming",
+  "letter": "D",
+  "headword_en": "Dynamic Programming",
+  "rosen_ref": "",
+  "definition_vi": "Quy hoạch động là một mô hình thuật toán tìm lời giải tối ưu bằng cách kết hợp các lời giải của những bài toán con gối nhau. Mỗi bài toán con chỉ được giải một lần, sau đó lời giải của nó được lưu lại và dùng lại để tạo nên lời giải tối ưu cho bài toán ban đầu.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "quy hoạch động",
+    "source_id": "bib-nguyenhoangthach-2020",
+    "page": "tr. 91 (PDF)",
+    "pdf_page": 91,
+    "verified": true,
+    "recommended": true
+   }
+  ]
+ },
+ {
+  "id": "eccentricity",
+  "letter": "E",
+  "headword_en": "Eccentricity",
+  "rosen_ref": "Rosen §10.4",
+  "definition_vi": "Độ lệch tâm của một đỉnh $$v$$ trong đồ thị liên thông $$G$$, ký hiệu $$e(v)$$, là khoảng cách lớn nhất từ $$v$$ tới mọi đỉnh khác của $$G$$, tức là $$e(v) = \\max_{u \\in V(G)} d(u,v)$$, trong đó $$d(u,v)$$ là độ dài đường đi ngắn nhất giữa $$u$$ và $$v$$.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "độ lệch tâm",
+    "source_id": "bib-leanhvinh-2020",
+    "page": "tr. 43 (PDF)",
+    "pdf_page": 43,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "tâm sai",
+    "source_id": "bib-ngodactan-2004",
+    "page": "tr. 216 (PDF)",
+    "pdf_page": 216,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "độ lệch",
+    "source_id": "bib-hoangchithanh-2007",
+    "page": "tr. 100 (PDF)",
+    "pdf_page": 100,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "tâm sai",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 636 (PDF, bản dịch Rosen)",
+    "pdf_page": 636,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "edge",
+  "letter": "E",
+  "headword_en": "Edge",
+  "rosen_ref": "Rosen §10.1",
+  "definition_vi": "\\emph{Cạnh} của một đồ thị $$G$$ nối một cặp đỉnh $$u$$ và $$v$$, gọi là hai đầu mút của nó, ký hiệu $$e = \\{u, v\\}$$. Trong đồ thị vô hướng, một cạnh là một cặp đỉnh không sắp thứ tự $$\\{u, v\\}$$; trong đồ thị có hướng, một cạnh là một cặp đỉnh sắp thứ tự $$(u, v)$$.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "cạnh",
+    "source_id": "bib-leanhvinh-2020",
+    "page": "tr. 8 (PDF)",
+    "pdf_page": 8,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "cạnh của đồ thị",
+    "source_id": "bib-leanhvinh-2020",
+    "page": "tr. 59 (PDF)",
+    "pdf_page": 59,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "cạnh vô hướng",
+    "source_id": "bib-nguyenhoangthach-2020",
+    "page": "tr. 63 (PDF)",
+    "pdf_page": 63,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "cạnh có hướng",
+    "source_id": "bib-nguyenhoangthach-2020",
+    "page": "tr. 62 (PDF)",
+    "pdf_page": 62,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "cung",
+    "source_id": "bib-nguyenhoangthach-2020",
+    "page": "tr. 62 (PDF)",
+    "pdf_page": 62,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "cung",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 158 (PDF)",
+    "pdf_page": 158,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "cạnh vô hướng",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 156 (PDF)",
+    "pdf_page": 156,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "cạnh",
+    "source_id": "bib-nguyenhoangthach-2020",
+    "page": "tr. 61 (PDF)",
+    "pdf_page": 61,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "cạnh",
+    "source_id": "bib-hoangchithanh-2007",
+    "page": "tr. 5 (PDF)",
+    "pdf_page": 5,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "cạnh vô hướng",
+    "source_id": "bib-hoangchithanh-2007",
+    "page": "tr. 6 (PDF)",
+    "pdf_page": 6,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "cạnh",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 5 (PDF, bản dịch Rosen)",
+    "pdf_page": 5,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "cạnh của đồ thị",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 460 (PDF, bản dịch Rosen)",
+    "pdf_page": 460,
+    "verified": true,
+
+hook: PostToolUse
+hook: PostToolUse Completed
+hook: PreToolUse
+hook: PreToolUse Completed
+exec
+/bin/bash -lc "sed -n '1381,1680p' workflow/loop/review/batch-5.json" in /home/ubuntu/DM-Concepts
+ succeeded in 0ms:
+    "recommended": false
+   },
+   {
+    "term": "cạnh vô hướng",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 495 (PDF, bản dịch Rosen)",
+    "pdf_page": 495,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "cạnh có hướng",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 453 (PDF, bản dịch Rosen)",
+    "pdf_page": 453,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "cung",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 165 (PDF, bản dịch Rosen)",
+    "pdf_page": 165,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "edge-chromatic-number",
+  "letter": "E",
+  "headword_en": "Edge Chromatic Number",
+  "rosen_ref": "Rosen §10.8",
+  "definition_vi": "Sắc số cạnh của một đồ thị $$G$$, ký hiệu $$\\chi'(G)$$, là số màu nhỏ nhất cần dùng để tô màu các cạnh của $$G$$ sao cho hai cạnh kề nhau bất kỳ được tô hai màu khác nhau.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "sắc số cạnh",
+    "source_id": "bib-leanhvinh-2020",
+    "page": "tr. 107 (PDF)",
+    "pdf_page": 107,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "sắc số cạnh",
+    "source_id": "bib-ngodactan-2004",
+    "page": "tr. 292 (PDF)",
+    "pdf_page": 292,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "Sắc số cạnh",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": true
+   }
+  ]
+ },
+ {
+  "id": "edge-coloring",
+  "letter": "E",
+  "headword_en": "Edge coloring",
+  "rosen_ref": "Rosen §10.8",
+  "definition_vi": "Một \\emph{tô màu cạnh} của đồ thị $$G$$ là một phép gán màu cho các cạnh của $$G$$ sao cho không có hai cạnh kề nhau (cùng chung một đỉnh đầu mút) nào được gán cùng một màu. Số màu nhỏ nhất cần dùng để có một tô màu cạnh của $$G$$ được gọi là sắc số cạnh, ký hiệu $$\\chi'(G)$$.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "tô màu cạnh",
+    "source_id": "bib-leanhvinh-2020",
+    "page": "tr. 107 (PDF)",
+    "pdf_page": 107,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "tô màu các cạnh",
+    "source_id": "bib-leanhvinh-2020",
+    "page": "tr. 107 (PDF)",
+    "pdf_page": 107,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "sắc số cạnh",
+    "source_id": "bib-leanhvinh-2020",
+    "page": "tr. 107 (PDF)",
+    "pdf_page": 107,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "edge-connectivity",
+  "letter": "E",
+  "headword_en": "Edge connectivity",
+  "rosen_ref": "Rosen §10.4",
+  "definition_vi": "\\emph{Độ liên thông cạnh} của một đồ thị $$G$$, ký hiệu $$\\lambda(G)$$, là số cạnh ít nhất cần xóa để làm cho $$G$$ mất liên thông hoặc trở thành đồ thị chỉ có một đỉnh. Với $$G$$ có ít nhất hai đỉnh, $$\\lambda(G)$$ cũng bằng số nguyên $$k$$ lớn nhất sao cho $$G$$ là $$k$$-liên thông cạnh.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "độ liên thông cạnh",
+    "source_id": "bib-nguyenhoangthach-2020",
+    "page": "tr. 75 (PDF)",
+    "pdf_page": 75,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "độ liên thông cạnh",
+    "source_id": "bib-ngodactan-2004",
+    "page": "tr. 266 (PDF)",
+    "pdf_page": 266,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "chỉ số liên thông cạnh",
+    "source_id": "bib-leanhvinh-2020",
+    "page": "tr. 26 (PDF)",
+    "pdf_page": 26,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "số liên thông cạnh",
+    "source_id": "bib-leanhvinh-2020",
+    "page": "tr. 225 (PDF)",
+    "pdf_page": 225,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "edge-cut",
+  "letter": "E",
+  "headword_en": "Edge Cut",
+  "rosen_ref": "",
+  "definition_vi": "",
+  "see_ref": "separating-set-of-edges",
+  "vi_terms": [
+   {
+    "term": "lát cắt cạnh",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "eigenvalue",
+  "letter": "E",
+  "headword_en": "Eigenvalue",
+  "rosen_ref": "Rosen §10.3",
+  "definition_vi": "\\emph{Giá trị riêng} của một ma trận vuông $$A$$ là một số vô hướng $$\\lambda$$ sao cho tồn tại một vectơ khác không $$\\mathbf{x}$$ thỏa mãn $$A\\mathbf{x} = \\lambda\\mathbf{x}$$. Giá trị riêng của một đồ thị $$G$$ là giá trị riêng của ma trận kề $$A_G$$ của nó.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "giá trị riêng",
+    "source_id": "bib-leanhvinh-2020",
+    "page": "tr. 206 (PDF)",
+    "pdf_page": 206,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "giá trị riêng của ma trận",
+    "source_id": "bib-leanhvinh-2020",
+    "page": "tr. 57 (PDF)",
+    "pdf_page": 57,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "element",
+  "letter": "E",
+  "headword_en": "Element",
+  "rosen_ref": "Rosen §2.1",
+  "definition_vi": "\\emph{Phần tử} của một tập hợp $$A$$ là một đối tượng thuộc về $$A$$; ký hiệu $$a \\in A$$ để chỉ rằng $$a$$ là một phần tử của $$A$$, và $$a \\notin A$$ để chỉ rằng $$a$$ không là phần tử của $$A$$.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "phần tử",
+    "source_id": "bib-nguyenhoangthach-2020",
+    "page": "tr. 16 (PDF)",
+    "pdf_page": 16,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "phần tử của tập hợp",
+    "source_id": "bib-nguyenhoangthach-2020",
+    "page": "tr. 19 (PDF)",
+    "pdf_page": 19,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "phần tử của tập",
+    "source_id": "bib-ngodactan-2004",
+    "page": "tr. 31 (PDF)",
+    "pdf_page": 31,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "phần tử",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 5 (PDF, bản dịch Rosen)",
+    "pdf_page": 5,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "phần tử của tập hợp",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 54 (PDF, bản dịch Rosen)",
+    "pdf_page": 54,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "phần tử của tập",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 54 (PDF, bản dịch Rosen)",
+    "pdf_page": 54,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "elementary-subdivision",
+  "letter": "E",
+  "headword_en": "Elementary Subdivision",
+  "rosen_ref": "",
+  "definition_vi": "",
+  "see_ref": "subdivision",
+  "vi_terms": [
+   {
+    "term": "phép phân chia sơ cấp",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": false
+   }
+  ]
+ }
+]
+hook: PostToolUse
+hook: PostToolUse Completed
+codex
+The full batch has a mix of already well-cited terms and a few weakly sourced recommended terms. I’ll count the non-stubs now, then search the likely-risk entries first while spot-checking the clearly standard ones.
+hook: PreToolUse
+hook: PreToolUse Completed
+exec
+/bin/bash -lc "jq -r '[.[]|select(.see_ref==\"\")]|length, ([.[]|select(.see_ref==\"\")|.id]|join(\"\\n\"))' workflow/loop/review/batch-5.json" in /home/ubuntu/DM-Concepts
+ succeeded in 0ms:
+34
+directed-multigraph
+disconnected
+discrete
+discrete-logarithm
+discrete-structure
+disjoint
+disjoint-sets
+disjunction
+disjunctive-normal-form
+disjunctive-syllogism
+distance
+distinct
+distribution-of-a-random-variable
+divide-and-conquer
+dividend
+divisibility
+division-algorithm
+divisor
+domain
+domain-of-discourse
+dominating-set
+double-counting-proof
+double-sum
+dual
+dual-graph
+duality-principle
+dynamic-programming
+eccentricity
+edge
+edge-chromatic-number
+edge-coloring
+edge-connectivity
+eigenvalue
+element
+
+hook: PostToolUse
+hook: PostToolUse Completed
+web search: 
+web search: "đa đồ thị có hướng" "directed multigraph"
+web search: 
+web search: "cấu trúc rời rạc" "discrete structure" giáo trình
+web search: 
+web search: "dạng tuyển chuẩn tắc" "disjunctive normal form"
+web search: 
+web search: "phân phối của biến ngẫu nhiên" "distribution of a random variable"
+web search: 
+web search: "tính chia hết" "divisibility" "số học"
+web search: 
+web search: "divisor" "số chia" "số bị chia" "thương" "số dư"
+web search: 
+web search: "tập thống trị" "dominating set" đồ thị
+web search: 
+web search: "đếm bằng hai cách" "double counting" "toán rời rạc"
+web search: 
+web search: "tổng kép" "\sum" toán học
+web search: 
+web search: "Tổng kép" "Rosen"
+web search: 
+web search: "đồ thị đối ngẫu" "dual graph" đồ thị phẳng
+web search: 
+web search: "quy hoạch động" "dynamic programming" giáo trình
+web search: 
+web search: "sắc số cạnh" "edge chromatic number"
+web search: 
+web search: "phần tử" "element" "tập hợp" "toán rời rạc"
+web search: 
+web search: "định lý chia có dư" "division algorithm"
+codex
+I’ve finished the snippet-only web checks. The findings are concentrated in entries where the recommended term is a phrase rather than the usual headword, or where search snippets show established Vietnamese variants not yet listed.
+hook: PreToolUse
+hook: PreToolUse Completed
+exec
+/bin/bash -lc 'ls -l workflow/loop/review/findings-5.json' in /home/ubuntu/DM-Concepts
+ exited 2 in 0ms:
+ls: cannot access 'workflow/loop/review/findings-5.json': No such file or directory
+
+hook: PostToolUse
+hook: PostToolUse Completed
+codex
+I’m writing the findings file now. I’m keeping only entries with an actual actionable finding, and preserving `reviewed: 34` for the non-stub count.
+apply patch
+patch: completed
+/home/ubuntu/DM-Concepts/workflow/loop/review/findings-5.json
+diff --git a/workflow/loop/review/findings-5.json b/workflow/loop/review/findings-5.json
+new file mode 100644
+index 0000000000000000000000000000000000000000..8901bc5e82435b75a14ac73492fa4d20ff8fb532
+--- /dev/null
++++ b/workflow/loop/review/findings-5.json
+@@ -0,0 +1 @@
++{"loop":5,"reviewed":34,"findings":[{"id":"discrete","commonality":{"verdict":"uncommon","better_term":"rời rạc","source":"https://cuuduongthancong.com/dlf/553000/toan-roi-rac/nguyen-thanh-nhut/00-introtrr.pdf"},"missing_variants":[{"term":"rời rạc","source":"https://cuuduongthancong.com/dlf/553000/toan-roi-rac/nguyen-thanh-nhut/00-introtrr.pdf"}]},{"id":"discrete-logarithm","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"logarit rời rạc","source":"https://www.studocu.vn/vn/document/truong-dai-hoc-su-pham-thanh-pho-ho-chi-minh/number-theory/chuong-4/10774142"}]},{"id":"disjoint","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"không giao nhau","source":"https://vi.wikipedia.org/wiki/C%C3%A1c_t%E1%BA%ADp_h%E1%BB%A3p_kh%C3%B4ng_giao_nhau"}]},{"id":"disjunctive-normal-form","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"dạng chuẩn tuyển","source":"https://www.scribd.com/presentation/605657312/Chuong06-Dai-so-Boolean"}]},{"id":"distribution-of-a-random-variable","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"phân phối xác suất của biến ngẫu nhiên","source":"https://cuuduongthancong.com/atc/2634/phan-phoi-xac-suat-cua-bien-ngau-nhien"},{"term":"quy luật phân phối xác suất của biến ngẫu nhiên","source":"https://www.studocu.vn/vn/document/truong-dai-hoc-su-pham-thanh-pho-ho-chi-minh/xac-suat-thong-ke/xac-suat-thong-ke-chuong-2/9996135"}]},{"id":"divisibility","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"tính chia hết","source":"https://www.scribd.com/document/734565920/Basic-Number-Theory-I"}]},{"id":"divisor","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"ước số","source":"https://www.scribd.com/document/734565920/Basic-Number-Theory-I"},{"term":"ước","source":"https://www.scribd.com/document/734565920/Basic-Number-Theory-I"}]},{"id":"domain-of-discourse","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"miền biện luận","source":"https://www.scribd.com/document/839226890/Lecture-1"},{"term":"tập nền","source":"https://www.scribd.com/document/839226890/Lecture-1"},{"term":"tập xác định","source":"https://www.scribd.com/document/839226890/Lecture-1"}]},{"id":"dominating-set","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"tập trội","source":"https://www.scribd.com/document/887339130/Graph-1"},{"term":"tập khống chế","source":"https://math.ac.vn/uploads_manager/Baocaotongket/HDKH2010_web.pdf"}]},{"id":"double-sum","commonality":{"verdict":"uncommon","better_term":"tổng kép","source":"https://www.scribd.com/document/549523517/SachLogic20-5-2017"},"missing_variants":[]}]}
+
+diff --git a/workflow/loop/review/findings-5.json b/workflow/loop/review/findings-5.json
+new file mode 100644
+index 0000000000000000000000000000000000000000..8901bc5e82435b75a14ac73492fa4d20ff8fb532
+--- /dev/null
++++ b/workflow/loop/review/findings-5.json
+@@ -0,0 +1 @@
++{"loop":5,"reviewed":34,"findings":[{"id":"discrete","commonality":{"verdict":"uncommon","better_term":"rời rạc","source":"https://cuuduongthancong.com/dlf/553000/toan-roi-rac/nguyen-thanh-nhut/00-introtrr.pdf"},"missing_variants":[{"term":"rời rạc","source":"https://cuuduongthancong.com/dlf/553000/toan-roi-rac/nguyen-thanh-nhut/00-introtrr.pdf"}]},{"id":"discrete-logarithm","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"logarit rời rạc","source":"https://www.studocu.vn/vn/document/truong-dai-hoc-su-pham-thanh-pho-ho-chi-minh/number-theory/chuong-4/10774142"}]},{"id":"disjoint","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"không giao nhau","source":"https://vi.wikipedia.org/wiki/C%C3%A1c_t%E1%BA%ADp_h%E1%BB%A3p_kh%C3%B4ng_giao_nhau"}]},{"id":"disjunctive-normal-form","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"dạng chuẩn tuyển","source":"https://www.scribd.com/presentation/605657312/Chuong06-Dai-so-Boolean"}]},{"id":"distribution-of-a-random-variable","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"phân phối xác suất của biến ngẫu nhiên","source":"https://cuuduongthancong.com/atc/2634/phan-phoi-xac-suat-cua-bien-ngau-nhien"},{"term":"quy luật phân phối xác suất của biến ngẫu nhiên","source":"https://www.studocu.vn/vn/document/truong-dai-hoc-su-pham-thanh-pho-ho-chi-minh/xac-suat-thong-ke/xac-suat-thong-ke-chuong-2/9996135"}]},{"id":"divisibility","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"tính chia hết","source":"https://www.scribd.com/document/734565920/Basic-Number-Theory-I"}]},{"id":"divisor","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"ước số","source":"https://www.scribd.com/document/734565920/Basic-Number-Theory-I"},{"term":"ước","source":"https://www.scribd.com/document/734565920/Basic-Number-Theory-I"}]},{"id":"domain-of-discourse","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"miền biện luận","source":"https://www.scribd.com/document/839226890/Lecture-1"},{"term":"tập nền","source":"https://www.scribd.com/document/839226890/Lecture-1"},{"term":"tập xác định","source":"https://www.scribd.com/document/839226890/Lecture-1"}]},{"id":"dominating-set","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"tập trội","source":"https://www.scribd.com/document/887339130/Graph-1"},{"term":"tập khống chế","source":"https://math.ac.vn/uploads_manager/Baocaotongket/HDKH2010_web.pdf"}]},{"id":"double-sum","commonality":{"verdict":"uncommon","better_term":"tổng kép","source":"https://www.scribd.com/document/549523517/SachLogic20-5-2017"},"missing_variants":[]}]}
+
+codex
+The file is written. I’m validating it with `jq` before returning the required marker lines.
+hook: PreToolUse
+hook: PreToolUse Completed
+exec
+/bin/bash -lc "jq -e '.loop == 5 and (.reviewed|type == \"number\") and (.findings|type == \"array\")' workflow/loop/review/findings-5.json" in /home/ubuntu/DM-Concepts
+ succeeded in 0ms:
+true
+
+hook: PostToolUse
+hook: PostToolUse Completed
+diff --git a/workflow/loop/review/findings-5.json b/workflow/loop/review/findings-5.json
+new file mode 100644
+index 0000000000000000000000000000000000000000..8901bc5e82435b75a14ac73492fa4d20ff8fb532
+--- /dev/null
++++ b/workflow/loop/review/findings-5.json
+@@ -0,0 +1 @@
++{"loop":5,"reviewed":34,"findings":[{"id":"discrete","commonality":{"verdict":"uncommon","better_term":"rời rạc","source":"https://cuuduongthancong.com/dlf/553000/toan-roi-rac/nguyen-thanh-nhut/00-introtrr.pdf"},"missing_variants":[{"term":"rời rạc","source":"https://cuuduongthancong.com/dlf/553000/toan-roi-rac/nguyen-thanh-nhut/00-introtrr.pdf"}]},{"id":"discrete-logarithm","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"logarit rời rạc","source":"https://www.studocu.vn/vn/document/truong-dai-hoc-su-pham-thanh-pho-ho-chi-minh/number-theory/chuong-4/10774142"}]},{"id":"disjoint","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"không giao nhau","source":"https://vi.wikipedia.org/wiki/C%C3%A1c_t%E1%BA%ADp_h%E1%BB%A3p_kh%C3%B4ng_giao_nhau"}]},{"id":"disjunctive-normal-form","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"dạng chuẩn tuyển","source":"https://www.scribd.com/presentation/605657312/Chuong06-Dai-so-Boolean"}]},{"id":"distribution-of-a-random-variable","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"phân phối xác suất của biến ngẫu nhiên","source":"https://cuuduongthancong.com/atc/2634/phan-phoi-xac-suat-cua-bien-ngau-nhien"},{"term":"quy luật phân phối xác suất của biến ngẫu nhiên","source":"https://www.studocu.vn/vn/document/truong-dai-hoc-su-pham-thanh-pho-ho-chi-minh/xac-suat-thong-ke/xac-suat-thong-ke-chuong-2/9996135"}]},{"id":"divisibility","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"tính chia hết","source":"https://www.scribd.com/document/734565920/Basic-Number-Theory-I"}]},{"id":"divisor","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"ước số","source":"https://www.scribd.com/document/734565920/Basic-Number-Theory-I"},{"term":"ước","source":"https://www.scribd.com/document/734565920/Basic-Number-Theory-I"}]},{"id":"domain-of-discourse","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"miền biện luận","source":"https://www.scribd.com/document/839226890/Lecture-1"},{"term":"tập nền","source":"https://www.scribd.com/document/839226890/Lecture-1"},{"term":"tập xác định","source":"https://www.scribd.com/document/839226890/Lecture-1"}]},{"id":"dominating-set","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"tập trội","source":"https://www.scribd.com/document/887339130/Graph-1"},{"term":"tập khống chế","source":"https://math.ac.vn/uploads_manager/Baocaotongket/HDKH2010_web.pdf"}]},{"id":"double-sum","commonality":{"verdict":"uncommon","better_term":"tổng kép","source":"https://www.scribd.com/document/549523517/SachLogic20-5-2017"},"missing_variants":[]}]}
+
+codex
+WROTE findings-5.json
+===CODEX_REVIEW_DONE===
+diff --git a/workflow/loop/review/findings-5.json b/workflow/loop/review/findings-5.json
+new file mode 100644
+index 0000000000000000000000000000000000000000..8901bc5e82435b75a14ac73492fa4d20ff8fb532
+--- /dev/null
++++ b/workflow/loop/review/findings-5.json
+@@ -0,0 +1 @@
++{"loop":5,"reviewed":34,"findings":[{"id":"discrete","commonality":{"verdict":"uncommon","better_term":"rời rạc","source":"https://cuuduongthancong.com/dlf/553000/toan-roi-rac/nguyen-thanh-nhut/00-introtrr.pdf"},"missing_variants":[{"term":"rời rạc","source":"https://cuuduongthancong.com/dlf/553000/toan-roi-rac/nguyen-thanh-nhut/00-introtrr.pdf"}]},{"id":"discrete-logarithm","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"logarit rời rạc","source":"https://www.studocu.vn/vn/document/truong-dai-hoc-su-pham-thanh-pho-ho-chi-minh/number-theory/chuong-4/10774142"}]},{"id":"disjoint","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"không giao nhau","source":"https://vi.wikipedia.org/wiki/C%C3%A1c_t%E1%BA%ADp_h%E1%BB%A3p_kh%C3%B4ng_giao_nhau"}]},{"id":"disjunctive-normal-form","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"dạng chuẩn tuyển","source":"https://www.scribd.com/presentation/605657312/Chuong06-Dai-so-Boolean"}]},{"id":"distribution-of-a-random-variable","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"phân phối xác suất của biến ngẫu nhiên","source":"https://cuuduongthancong.com/atc/2634/phan-phoi-xac-suat-cua-bien-ngau-nhien"},{"term":"quy luật phân phối xác suất của biến ngẫu nhiên","source":"https://www.studocu.vn/vn/document/truong-dai-hoc-su-pham-thanh-pho-ho-chi-minh/xac-suat-thong-ke/xac-suat-thong-ke-chuong-2/9996135"}]},{"id":"divisibility","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"tính chia hết","source":"https://www.scribd.com/document/734565920/Basic-Number-Theory-I"}]},{"id":"divisor","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"ước số","source":"https://www.scribd.com/document/734565920/Basic-Number-Theory-I"},{"term":"ước","source":"https://www.scribd.com/document/734565920/Basic-Number-Theory-I"}]},{"id":"domain-of-discourse","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"miền biện luận","source":"https://www.scribd.com/document/839226890/Lecture-1"},{"term":"tập nền","source":"https://www.scribd.com/document/839226890/Lecture-1"},{"term":"tập xác định","source":"https://www.scribd.com/document/839226890/Lecture-1"}]},{"id":"dominating-set","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"tập trội","source":"https://www.scribd.com/document/887339130/Graph-1"},{"term":"tập khống chế","source":"https://math.ac.vn/uploads_manager/Baocaotongket/HDKH2010_web.pdf"}]},{"id":"double-sum","commonality":{"verdict":"uncommon","better_term":"tổng kép","source":"https://www.scribd.com/document/549523517/SachLogic20-5-2017"},"missing_variants":[]}]}
+
+tokens used
+399,639
+WROTE findings-5.json
+===CODEX_REVIEW_DONE===

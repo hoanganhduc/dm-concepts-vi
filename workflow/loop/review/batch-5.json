@@ -1,82 +1,420 @@
 [
  {
-  "id": "implement",
-  "letter": "I",
-  "headword_en": "Implement",
-  "rosen_ref": "Rosen §3.1",
-  "definition_vi": "Cài đặt một thuật toán, ký hiệu chung là biến đổi mô tả của thuật toán thành một chương trình chạy được trên máy tính bằng một ngôn ngữ lập trình cụ thể. Việc cài đặt giữ nguyên các bước và tính đúng đắn của thuật toán, đồng thời quy định chi tiết cách biểu diễn dữ liệu và thực hiện từng câu lệnh trên máy.",
+  "id": "directed-multigraph",
+  "letter": "D",
+  "headword_en": "Directed Multigraph",
+  "rosen_ref": "Rosen §10.1",
+  "definition_vi": "Một đa đồ thị có hướng là một đồ thị có hướng có thể chứa nhiều cạnh có hướng giữa cùng một cặp đỉnh.",
   "see_ref": "",
   "vi_terms": [
    {
-    "term": "cài đặt",
-    "source_id": "bib-nguyenducnghia-2006",
-    "page": "tr. 83 (PDF)",
-    "pdf_page": 83,
+    "term": "đa đồ thị có hướng",
+    "source_id": "bib-nguyenhoangthach-2020",
+    "page": "tr. 62 (PDF)",
+    "pdf_page": 62,
     "verified": true,
     "recommended": true
    },
    {
-    "term": "cài đặt",
+    "term": "đa đồ thị có hướng",
     "source_id": "bib-nguyenhuudien-2019",
-    "page": "tr. 132 (PDF)",
-    "pdf_page": 132,
+    "page": "tr. 156 (PDF)",
+    "pdf_page": 156,
     "verified": true,
     "recommended": false
    },
    {
-    "term": "cài đặt",
-    "source_id": "bib-hoangchithanh-2007",
-    "page": "tr. 4 (PDF)",
-    "pdf_page": 4,
-    "verified": true,
-    "recommended": false
-   }
-  ]
- },
- {
-  "id": "implicant",
-  "letter": "I",
-  "headword_en": "Implicant",
-  "rosen_ref": "Rosen §12.4",
-  "definition_vi": "Nguyên nhân của một hàm Boole $$f$$ là một tích các tục biến (một hội sơ cấp) mà từ đó suy ra $$f$$, nghĩa là tại mọi bộ giá trị làm cho tích đó bằng $$1$$ thì $$f$$ cũng nhận giá trị $$1$$. Nói cách khác, nếu ký hiệu tích các tục biến là $$g$$ thì $$g$$ là một nguyên nhân của $$f$$ khi và chỉ khi phép kéo theo $$g \\rightarrow f$$ luôn nhận giá trị $$1$$.",
-  "see_ref": "",
-  "vi_terms": [
-   {
-    "term": "nguyên nhân",
-    "source_id": "bib-nguyenducnghia-2006",
-    "page": "tr. 274 (PDF)",
-    "pdf_page": 274,
-    "verified": true,
-    "recommended": true
-   },
-   {
-    "term": "nguyên nhân",
+    "term": "đa đồ thị có hướng",
     "source_id": "bib-rosen-2003-vi",
-    "page": "tr. 145 (PDF, bản dịch Rosen)",
-    "pdf_page": 145,
+    "page": "tr. 605 (PDF)",
+    "pdf_page": 605,
     "verified": true,
     "recommended": false
    }
   ]
  },
  {
-  "id": "implication",
-  "letter": "I",
-  "headword_en": "Implication",
-  "rosen_ref": "Rosen §1.1",
-  "definition_vi": "Phép kéo theo của hai mệnh đề $$p$$ và $$q$$, ký hiệu $$p \\rightarrow q$$, là mệnh đề có giá trị chân lý sai khi $$p$$ đúng và $$q$$ sai, và đúng trong mọi trường hợp còn lại. Trong $$p \\rightarrow q$$, mệnh đề $$p$$ được gọi là giả thiết và $$q$$ được gọi là kết luận.",
+  "id": "disconnected",
+  "letter": "D",
+  "headword_en": "Disconnected",
+  "rosen_ref": "Rosen §10.4",
+  "definition_vi": "Một đồ thị vô hướng $$G$$ được gọi là không liên thông nếu nó không liên thông, tức là tồn tại hai đỉnh $$u, v \\in V(G)$$ sao cho không có đường đi nào trong $$G$$ nối $$u$$ với $$v$$. Khi đó $$G$$ có thể được tách thành hợp của hai hay nhiều đồ thị con liên thông (các thành phần liên thông) rời nhau.",
   "see_ref": "",
   "vi_terms": [
    {
-    "term": "phép kéo theo",
+    "term": "không liên thông",
     "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 168 (PDF)",
+    "pdf_page": 168,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "không liên thông",
+    "source_id": "bib-leanhvinh-2020",
+    "page": "tr. 37 (PDF)",
+    "pdf_page": 37,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "không liên thông",
+    "source_id": "bib-nguyenhoangthach-2020",
+    "page": "tr. 74 (PDF)",
+    "pdf_page": 74,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "không liên thông",
+    "source_id": "bib-nguyenducnghia-2006",
+    "page": "tr. 156 (PDF)",
+    "pdf_page": 156,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "không liên thông",
+    "source_id": "bib-ngodactan-2004",
+    "page": "tr. 216 (PDF)",
+    "pdf_page": 216,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "không liên thông",
+    "source_id": "bib-hoangchithanh-2007",
+    "page": "tr. 14 (PDF)",
+    "pdf_page": 14,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "không liên thông",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 539 (PDF)",
+    "pdf_page": 539,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "discrete",
+  "letter": "D",
+  "headword_en": "Discrete",
+  "rosen_ref": "Rosen, Chương 1 (mở đầu)",
+  "definition_vi": "Một đối tượng được gọi là rời rạc nếu nó tách biệt và phân biệt với các đối tượng khác, tức là có thể đếm được hoặc phân tách hoàn toàn, đối lập với các đối tượng liên tục. Toán rời rạc là lĩnh vực nghiên cứu các đối tượng rời rạc cùng các cấu trúc rời rạc biểu diễn chúng, chẳng hạn các tập hữu hạn, dãy số nguyên, hay đồ thị $$G = (V, E)$$.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "đối tượng rời rạc",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 3 (PDF)",
+    "pdf_page": 3,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "đối tượng rời rạc",
+    "source_id": "bib-nguyenducnghia-2006",
+    "page": "tr. 3 (PDF)",
+    "pdf_page": 3,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "đối tượng rời rạc",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 5 (PDF)",
+    "pdf_page": 5,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "discrete-logarithm",
+  "letter": "D",
+  "headword_en": "Discrete Logarithm",
+  "rosen_ref": "Rosen §4.6",
+  "definition_vi": "Cho $$p$$ là một số nguyên tố và $$r$$ là một căn nguyên thủy modulo $$p$$. Lôgarit rời rạc của một số nguyên $$a$$ theo cơ số $$r$$ modulo $$p$$ là số nguyên $$e$$ thỏa mãn $$r^e \\equiv a \\pmod p$$.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "lôgarit rời rạc",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": true
+   }
+  ]
+ },
+ {
+  "id": "discrete-structure",
+  "letter": "D",
+  "headword_en": "Discrete Structure",
+  "rosen_ref": "Rosen, Preface",
+  "definition_vi": "Cấu trúc rời rạc là một cấu trúc toán học rời rạc, tức là gồm các đối tượng phân biệt và tách biệt nhau, được dùng để biểu diễn quan hệ giữa các đối tượng. Các ví dụ tiêu biểu bao gồm tập hợp, quan hệ, hoán vị và đặc biệt là đồ thị $$G = (V, E)$$ gồm tập đỉnh $$V$$ và tập cạnh $$E$$.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "cấu trúc rời rạc",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 154 (PDF)",
+    "pdf_page": 154,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "cấu trúc rời rạc",
+    "source_id": "bib-nguyenducnghia-2006",
+    "page": "tr. 3 (PDF)",
+    "pdf_page": 3,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "cấu trúc rời rạc",
+    "source_id": "bib-nguyenhoangthach-2020",
+    "page": "tr. 61 (PDF)",
+    "pdf_page": 61,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "cấu trúc rời rạc",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 60 (PDF)",
+    "pdf_page": 60,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "biểu diễn một cấu trúc rời rạc",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "disjoint",
+  "letter": "D",
+  "headword_en": "Disjoint",
+  "rosen_ref": "Rosen §2.2",
+  "definition_vi": "Hai tập hợp $$A$$ và $$B$$ được gọi là rời nhau nếu chúng không có phần tử chung, tức là giao của chúng là tập rỗng, ký hiệu $$A \\cap B = \\emptyset$$. Một họ các tập hợp được gọi là đôi một rời nhau nếu giao của hai tập bất kỳ trong họ đều bằng tập rỗng.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "rời nhau",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 65 (PDF)",
+    "pdf_page": 65,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "rời nhau",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 78 (PDF)",
+    "pdf_page": 78,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "rời nhau",
+    "source_id": "bib-nguyenhoangthach-2020",
+    "page": "tr. 24 (PDF)",
+    "pdf_page": 24,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "rời nhau",
+    "source_id": "bib-nguyenducnghia-2006",
+    "page": "tr. 15 (PDF)",
+    "pdf_page": 15,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "đôi một rời nhau",
+    "source_id": "bib-ngodactan-2004",
+    "page": "tr. 25 (PDF)",
+    "pdf_page": 25,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "rời nhau",
+    "source_id": "bib-hoangchithanh-2007",
+    "page": "tr. 106 (PDF)",
+    "pdf_page": 106,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "disjoint-sets",
+  "letter": "D",
+  "headword_en": "Disjoint sets",
+  "rosen_ref": "Rosen §2.2",
+  "definition_vi": "Hai tập hợp $$A$$ và $$B$$ được gọi là \\emph{rời nhau} nếu giao của chúng là tập rỗng, ký hiệu $$A \\cap B = \\emptyset$$; nghĩa là $$A$$ và $$B$$ không có phần tử chung.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "tập hợp rời nhau",
+    "source_id": "bib-nguyenhoangthach-2020",
+    "page": "tr. 24 (PDF)",
+    "pdf_page": 24,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "tập hợp rời nhau",
+    "source_id": "bib-nguyenducnghia-2006",
+    "page": "tr. 15 (PDF)",
+    "pdf_page": 15,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "tập rời nhau",
+    "source_id": "bib-leanhvinh-2020",
+    "page": "tr. 37 (PDF)",
+    "pdf_page": 37,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "tập rời nhau",
+    "source_id": "bib-leanhvinh-2020",
+    "page": "tr. 202 (PDF)",
+    "pdf_page": 202,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "tập rời nhau",
+    "source_id": "bib-ngodactan-2004",
+    "page": "tr. 21 (PDF)",
+    "pdf_page": 21,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "rời nhau",
+    "source_id": "bib-leanhvinh-2020",
+    "page": "tr. 69 (PDF)",
+    "pdf_page": 69,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "rời nhau",
+    "source_id": "bib-hoangchithanh-2007",
+    "page": "tr. 106 (PDF)",
+    "pdf_page": 106,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "tập con rời nhau",
+    "source_id": "bib-nguyenducnghia-2006",
+    "page": "tr. 15 (PDF)",
+    "pdf_page": 15,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "không giao nhau",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 228 (PDF)",
+    "pdf_page": 228,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "không giao nhau",
+    "source_id": "bib-nguyenducnghia-2006",
+    "page": "tr. 210 (PDF)",
+    "pdf_page": 210,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "không giao nhau",
+    "source_id": "bib-ngodactan-2004",
+    "page": "tr. 206 (PDF)",
+    "pdf_page": 206,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "không giao nhau",
+    "source_id": "bib-hoangchithanh-2007",
     "page": "tr. 18 (PDF)",
     "pdf_page": 18,
     "verified": true,
     "recommended": false
    },
    {
-    "term": "hàm kéo theo",
+    "term": "tập rời nhau",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 65 (PDF, bản dịch Rosen)",
+    "pdf_page": 65,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "rời nhau",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 65 (PDF, bản dịch Rosen)",
+    "pdf_page": 65,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "tập con rời nhau",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 478 (PDF, bản dịch Rosen)",
+    "pdf_page": 478,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "disjunction",
+  "letter": "D",
+  "headword_en": "Disjunction",
+  "rosen_ref": "Rosen §1.1",
+  "definition_vi": "Tuyển của hai mệnh đề $$p$$ và $$q$$, ký hiệu $$p \\vee q$$, là mệnh đề \"$$p$$ hoặc $$q$$\". Mệnh đề $$p \\vee q$$ sai khi cả $$p$$ và $$q$$ đều sai, và đúng trong các trường hợp còn lại.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "tuyển",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 8 (PDF)",
+    "pdf_page": 8,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "phép tuyển",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 17 (PDF)",
+    "pdf_page": 17,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "tuyển",
     "source_id": "bib-nguyenducnghia-2006",
     "page": "tr. 267 (PDF)",
     "pdf_page": 267,
@@ -84,417 +422,225 @@
     "recommended": false
    },
    {
-    "term": "mệnh đề kéo theo",
+    "term": "Tuyển",
     "source_id": "bib-rosen-2003-vi",
-    "page": "tr. 10 (PDF)",
-    "pdf_page": 10,
-    "verified": true,
-    "recommended": false
-   },
-   {
-    "term": "kéo theo",
-    "source_id": "bib-rosen-2003-vi",
-    "page": "tr. 10 (PDF, bản dịch Rosen)",
-    "pdf_page": 10,
+    "page": "tr. 8 (PDF, bản dịch Rosen)",
+    "pdf_page": 8,
     "verified": true,
     "recommended": true
    },
    {
-    "term": "phép kéo theo",
+    "term": "phép tuyển",
     "source_id": "bib-rosen-2003-vi",
-    "page": "tr. 10 (PDF, bản dịch Rosen)",
-    "pdf_page": 10,
+    "page": "tr. 9 (PDF, bản dịch Rosen)",
+    "pdf_page": 9,
     "verified": true,
     "recommended": false
    }
   ]
  },
  {
-  "id": "in-degree",
-  "letter": "I",
-  "headword_en": "In-Degree",
-  "rosen_ref": "",
-  "definition_vi": "",
-  "see_ref": "indegree",
+  "id": "disjunctive-normal-form",
+  "letter": "D",
+  "headword_en": "Disjunctive Normal Form",
+  "rosen_ref": "Rosen §12.2",
+  "definition_vi": "Dạng tuyển chuẩn tắc của một hàm Boole là biểu diễn của hàm đó dưới dạng tuyển (phép OR) của các hội sơ cấp, trong đó mỗi hội sơ cấp là tích (phép AND) của các biến hoặc phần bù của chúng. Khi mỗi hội sơ cấp chứa đầy đủ mọi biến của hàm, ta được dạng tuyển chuẩn tắc hoàn toàn, tức là khai triển tổng các tích biểu diễn hàm $$f(x_1, x_2, \\ldots, x_n)$$.",
+  "see_ref": "",
   "vi_terms": [
    {
-    "term": "Bậc vào",
-    "source_id": "",
-    "page": "",
-    "pdf_page": 0,
-    "verified": false,
+    "term": "dạng tuyển chuẩn tắc",
+    "source_id": "bib-nguyenducnghia-2006",
+    "page": "tr. 270 (PDF)",
+    "pdf_page": 270,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "dạng chuẩn tắc tuyển",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 25 (PDF)",
+    "pdf_page": 25,
+    "verified": true,
     "recommended": false
    },
    {
-    "term": "bán bậc vào",
-    "source_id": "",
-    "page": "",
-    "pdf_page": 0,
-    "verified": false,
+    "term": "dạng tuyển chuẩn tắc",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 30 (PDF)",
+    "pdf_page": 30,
+    "verified": true,
     "recommended": false
    }
   ]
  },
  {
-  "id": "incidence-matrix",
-  "letter": "I",
-  "headword_en": "incidence matrix",
-  "rosen_ref": "Rosen §10.3",
-  "definition_vi": "Ma trận liên thuộc của đồ thị $$G$$ với tập đỉnh $$V(G) = \\{v_1, v_2, \\ldots, v_n\\}$$ và tập cạnh $$E(G) = \\{e_1, e_2, \\ldots, e_m\\}$$, ký hiệu $$M = (m_{ij})$$, là ma trận cỡ $$n \\times m$$ trong đó $$m_{ij} = 1$$ nếu đỉnh $$v_i$$ liên thuộc với cạnh $$e_j$$ và $$m_{ij} = 0$$ trong trường hợp ngược lại.",
+  "id": "disjunctive-syllogism",
+  "letter": "D",
+  "headword_en": "Disjunctive Syllogism",
+  "rosen_ref": "Rosen §1.6",
+  "definition_vi": "Tam đoạn luận tuyển là quy tắc suy diễn cho phép từ một tuyển $$p \\lor q$$ và phủ định $$\\neg p$$ của một thành phần suy ra thành phần còn lại $$q$$, ký hiệu $$[(p \\lor q) \\land \\neg p] \\rightarrow q$$. Quy tắc này đúng vì biểu thức $$[(p \\lor q) \\land \\neg p] \\rightarrow q$$ là một hằng đúng.",
   "see_ref": "",
   "vi_terms": [
    {
-    "term": "ma trận liên thuộc",
+    "term": "Tam đoạn luận tuyển",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 211 (PDF)",
+    "pdf_page": 211,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "Tam đoạn luận phân biệt",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 875 (PDF)",
+    "pdf_page": 875,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "Tam đoạn luận rời",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 33 (PDF)",
+    "pdf_page": 33,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "distance",
+  "letter": "D",
+  "headword_en": "Distance",
+  "rosen_ref": "Rosen §10.4",
+  "definition_vi": "\\emph{Khoảng cách} giữa hai đỉnh $$u$$ và $$v$$ trong một đồ thị $$G$$, ký hiệu $$d(u, v)$$, là độ dài của một đường đi ngắn nhất giữa $$u$$ và $$v$$. Nếu không tồn tại đường đi nào giữa $$u$$ và $$v$$ thì $$d(u, v)$$ được quy ước bằng $$\\infty$$.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "khoảng cách",
     "source_id": "bib-leanhvinh-2020",
-    "page": "tr. 54 (PDF)",
-    "pdf_page": 54,
+    "page": "tr. 17 (PDF)",
+    "pdf_page": 17,
     "verified": true,
     "recommended": true
    },
    {
-    "term": "ma trận liên thuộc",
+    "term": "khoảng cách giữa hai đỉnh",
+    "source_id": "bib-leanhvinh-2020",
+    "page": "tr. 222 (PDF)",
+    "pdf_page": 222,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "khoảng cách giữa u và v",
     "source_id": "bib-nguyenhoangthach-2020",
-    "page": "tr. 67 (PDF)",
-    "pdf_page": 67,
+    "page": "tr. 88 (PDF)",
+    "pdf_page": 88,
     "verified": true,
     "recommended": false
    },
    {
-    "term": "ma trận liên thuộc",
+    "term": "khoảng cách d(u, v)",
     "source_id": "bib-nguyenhuudien-2019",
-    "page": "tr. 164 (PDF)",
-    "pdf_page": 164,
+    "page": "tr. 202 (PDF)",
+    "pdf_page": 202,
     "verified": true,
     "recommended": false
    },
    {
-    "term": "ma trận liên thuộc",
+    "term": "khoảng cách giữa đỉnh x và đỉnh y",
     "source_id": "bib-hoangchithanh-2007",
-    "page": "tr. 20 (PDF)",
-    "pdf_page": 20,
+    "page": "tr. 99 (PDF)",
+    "pdf_page": 99,
     "verified": true,
     "recommended": false
    },
    {
-    "term": "ma trận liên thuộc",
-    "source_id": "bib-nguyenducnghia-2006",
-    "page": "tr. 171 (PDF)",
-    "pdf_page": 171,
-    "verified": true,
-    "recommended": false
-   },
-   {
-    "term": "ma trận liên thuộc",
+    "term": "khoảng cách giữa hai đỉnh u và v",
     "source_id": "bib-ngodactan-2004",
-    "page": "tr. 220 (PDF)",
-    "pdf_page": 220,
+    "page": "tr. 216 (PDF)",
+    "pdf_page": 216,
     "verified": true,
     "recommended": false
    },
    {
-    "term": "ma trận liên thuộc đỉnh-cạnh",
-    "source_id": "bib-nguyenducnghia-2006",
-    "page": "tr. 171 (PDF)",
-    "pdf_page": 171,
-    "verified": true,
-    "recommended": false
-   },
-   {
-    "term": "ma trận liên thuộc",
+    "term": "khoảng cách",
     "source_id": "bib-rosen-2003-vi",
-    "page": "tr. 523 (PDF, bản dịch Rosen)",
-    "pdf_page": 523,
+    "page": "tr. 316 (PDF, bản dịch Rosen)",
+    "pdf_page": 316,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "khoảng cách giữa hai đỉnh",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 613 (PDF, bản dịch Rosen)",
+    "pdf_page": 613,
     "verified": true,
     "recommended": false
    }
   ]
  },
  {
-  "id": "incident",
-  "letter": "I",
-  "headword_en": "Incident",
-  "rosen_ref": "Rosen §10.2",
-  "definition_vi": "Một cạnh $$e = \\{u, v\\}$$ được gọi là liên thuộc với hai đỉnh $$u$$ và $$v$$; ngược lại, mỗi đỉnh $$u$$ và $$v$$ cũng được gọi là liên thuộc với cạnh $$e$$. Hai đỉnh $$u$$ và $$v$$ này được gọi là các đầu mút của cạnh $$e$$.",
+  "id": "distinct",
+  "letter": "D",
+  "headword_en": "Distinct",
+  "rosen_ref": "Rosen §2.1",
+  "definition_vi": "Hai đối tượng được gọi là $$phân$$ $$biệt$$ nếu chúng không bằng nhau, tức là $$x \\neq y$$. Một họ các phần tử $$x_1, x_2, \\ldots, x_n$$ là phân biệt từng đôi một nếu $$x_i \\neq x_j$$ với mọi $$i \\neq j$$.",
   "see_ref": "",
   "vi_terms": [
    {
-    "term": "liên thuộc",
-    "source_id": "bib-nguyenhuudien-2019",
-    "page": "tr. 157 (PDF)",
-    "pdf_page": 157,
+    "term": "phân biệt",
+    "source_id": "bib-leanhvinh-2020",
+    "page": "tr. 16 (PDF)",
+    "pdf_page": 16,
     "verified": true,
     "recommended": true
    },
    {
-    "term": "liên thuộc",
-    "source_id": "bib-ngodactan-2004",
-    "page": "tr. 186 (PDF)",
-    "pdf_page": 186,
+    "term": "phân biệt",
+    "source_id": "bib-nguyenhoangthach-2020",
+    "page": "tr. 21 (PDF)",
+    "pdf_page": 21,
     "verified": true,
     "recommended": false
    },
    {
-    "term": "liên thuộc",
-    "source_id": "bib-rosen-2003-vi",
-    "page": "tr. 505 (PDF)",
-    "pdf_page": 505,
+    "term": "phân biệt",
+    "source_id": "bib-nguyenducnghia-2006",
+    "page": "tr. 35 (PDF)",
+    "pdf_page": 35,
     "verified": true,
     "recommended": false
-   }
-  ]
- },
- {
-  "id": "inclusion-exclusion-principle",
-  "letter": "I",
-  "headword_en": "Inclusion-Exclusion Principle",
-  "rosen_ref": "Rosen §7.5",
-  "definition_vi": "Nguyên lý bù trừ là công thức đếm số phần tử của hợp các tập hữu hạn $$A_1, A_2, \\ldots, A_n$$ bằng cách cộng kích thước của từng tập, rồi trừ kích thước của các giao từng cặp, cộng lại các giao bộ ba, và tiếp tục đan dấu cho đến giao của cả $$n$$ tập, ký hiệu $$\\left| \\bigcup_{i=1}^{n} A_i \\right|$$. Với hai tập, công thức là $$|A_1 \\cup A_2| = |A_1| + |A_2| - |A_1 \\cap A_2|$$.",
-  "see_ref": "",
-  "vi_terms": [
+   },
    {
-    "term": "nguyên lý bù trừ",
-    "source_id": "bib-nguyenhuudien-2019",
+    "term": "phân biệt",
+    "source_id": "bib-ngodactan-2004",
+    "page": "tr. 82 (PDF)",
+    "pdf_page": 82,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "phân biệt",
+    "source_id": "bib-rosen-2003-vi",
     "page": "tr. 84 (PDF)",
     "pdf_page": 84,
     "verified": true,
     "recommended": false
-   },
-   {
-    "term": "nguyên lý bù trừ",
-    "source_id": "bib-nguyenhoangthach-2020",
-    "page": "tr. 55 (PDF)",
-    "pdf_page": 55,
-    "verified": true,
-    "recommended": false
-   },
-   {
-    "term": "nguyên lý bù trừ",
-    "source_id": "bib-nguyenducnghia-2006",
-    "page": "tr. 27 (PDF)",
-    "pdf_page": 27,
-    "verified": true,
-    "recommended": false
-   },
-   {
-    "term": "nguyên lý bù trừ",
-    "source_id": "bib-rosen-2003-vi",
-    "page": "tr. 410 (PDF)",
-    "pdf_page": 410,
-    "verified": true,
-    "recommended": false
-   },
-   {
-    "term": "nguyên lý bao hàm và loại trừ",
-    "source_id": "bib-ngodactan-2004",
-    "page": "tr. 109 (PDF)",
-    "pdf_page": 109,
-    "verified": true,
-    "recommended": false
-   },
-   {
-    "term": "Nguyên lý bù trừ",
-    "source_id": "bib-rosen-2003-vi",
-    "page": "tr. 77 (PDF, bản dịch Rosen)",
-    "pdf_page": 77,
-    "verified": true,
-    "recommended": true
-   },
-   {
-    "term": "Đếm mỗi phần tử trong tập hợp đang xét nhiều hơn một lần, không nhận ra rằng cần sử dụng nguyên tắc bù-trừ",
-    "source_id": "",
-    "page": "",
-    "pdf_page": 0,
-    "verified": false,
-    "recommended": false
    }
   ]
  },
  {
-  "id": "incomparable",
-  "letter": "I",
-  "headword_en": "Incomparable",
-  "rosen_ref": "Rosen §9.6",
-  "definition_vi": "Hai phần tử $$a$$ và $$b$$ của một tập có thứ tự bộ phận $$(S, \\preceq)$$ được gọi là không so sánh được nếu cả $$a \\preceq b$$ lẫn $$b \\preceq a$$ đều không xảy ra. Nói cách khác, $$a$$ và $$b$$ không so sánh được khi chúng không so sánh được với nhau theo quan hệ thứ tự bộ phận $$\\preceq$$.",
+  "id": "distribution-of-a-random-variable",
+  "letter": "D",
+  "headword_en": "Distribution of a Random Variable",
+  "rosen_ref": "Rosen §7.2",
+  "definition_vi": "Phân phối của một biến ngẫu nhiên $$X$$ trên một không gian mẫu là tập hợp các cặp $$(r, p(X = r))$$ ứng với mọi giá trị $$r$$ mà biến ngẫu nhiên $$X$$ có thể nhận. Nói cách khác, phân phối cho biết với mỗi giá trị $$r$$ của $$X$$, xác suất để $$X$$ nhận giá trị đó là $$p(X = r)$$.",
   "see_ref": "",
   "vi_terms": [
    {
-    "term": "không so sánh được",
-    "source_id": "bib-ngodactan-2004",
-    "page": "tr. 164 (PDF)",
-    "pdf_page": 164,
-    "verified": true,
-    "recommended": true
-   },
-   {
-    "term": "không so sánh được",
-    "source_id": "bib-ngodactan-2004",
-    "page": "tr. 274 (PDF)",
-    "pdf_page": 274,
-    "verified": true,
-    "recommended": false
-   }
-  ]
- },
- {
-  "id": "increasing",
-  "letter": "I",
-  "headword_en": "Increasing",
-  "rosen_ref": "Rosen §2.3",
-  "definition_vi": "Hàm $$f$$ từ tập số thực vào tập số thực được gọi là tăng nếu với mọi $$x$$ và $$y$$ thuộc miền xác định mà $$x < y$$ thì $$f(x) \\leq f(y)$$. Nếu điều kiện mạnh hơn $$f(x) < f(y)$$ luôn đúng khi $$x < y$$, ta nói $$f$$ tăng thực sự (ký hiệu $$x < y \\implies f(x) < f(y)$$).",
-  "see_ref": "",
-  "vi_terms": [
-   {
-    "term": "hàm tăng",
-    "source_id": "bib-nguyenhuudien-2019",
-    "page": "tr. 101 (PDF)",
-    "pdf_page": 101,
-    "verified": true,
-    "recommended": false
-   },
-   {
-    "term": "hàm tăng",
-    "source_id": "bib-nguyenducnghia-2006",
-    "page": "tr. 86 (PDF)",
-    "pdf_page": 86,
-    "verified": true,
-    "recommended": false
-   },
-   {
-    "term": "dãy tăng",
-    "source_id": "bib-nguyenducnghia-2006",
-    "page": "tr. 62 (PDF)",
-    "pdf_page": 62,
-    "verified": true,
-    "recommended": false
-   },
-   {
-    "term": "thực sự tăng",
-    "source_id": "bib-rosen-2003-vi",
-    "page": "tr. 85 (PDF)",
-    "pdf_page": 85,
-    "verified": true,
-    "recommended": false
-   },
-   {
-    "term": "tăng",
-    "source_id": "bib-rosen-2003-vi",
-    "page": "tr. 33 (PDF, bản dịch Rosen)",
-    "pdf_page": 33,
-    "verified": true,
-    "recommended": true
-   },
-   {
-    "term": "hàm tăng",
-    "source_id": "bib-rosen-2003-vi",
-    "page": "tr. 400 (PDF, bản dịch Rosen)",
-    "pdf_page": 400,
-    "verified": true,
-    "recommended": false
-   }
-  ]
- },
- {
-  "id": "indegree",
-  "letter": "I",
-  "headword_en": "indegree",
-  "rosen_ref": "Rosen §10.2",
-  "definition_vi": "Bậc vào của một đỉnh $$v$$ trong đồ thị có hướng $$G$$ là số cạnh nhận $$v$$ làm đỉnh cuối, ký hiệu $$\\deg^{-}(v)$$.",
-  "see_ref": "",
-  "vi_terms": [
-   {
-    "term": "bậc vào",
-    "source_id": "bib-leanhvinh-2020",
-    "page": "tr. 11 (PDF)",
-    "pdf_page": 11,
-    "verified": true,
-    "recommended": true
-   },
-   {
-    "term": "bậc vào của đỉnh",
-    "source_id": "bib-nguyenhuudien-2019",
-    "page": "tr. 226 (PDF)",
-    "pdf_page": 226,
-    "verified": true,
-    "recommended": false
-   },
-   {
-    "term": "bậc vào",
-    "source_id": "bib-hoangchithanh-2007",
-    "page": "tr. 49 (PDF)",
-    "pdf_page": 49,
-    "verified": true,
-    "recommended": false
-   },
-   {
-    "term": "bán bậc vào",
-    "source_id": "bib-nguyenducnghia-2006",
-    "page": "tr. 155 (PDF)",
-    "pdf_page": 155,
-    "verified": true,
-    "recommended": false
-   },
-   {
-    "term": "bậc vào",
-    "source_id": "bib-rosen-2003-vi",
-    "page": "tr. 516 (PDF, bản dịch Rosen)",
-    "pdf_page": 516,
-    "verified": true,
-    "recommended": false
-   }
-  ]
- },
- {
-  "id": "independent-events",
-  "letter": "I",
-  "headword_en": "Independent Events",
-  "rosen_ref": "Rosen §6.2",
-  "definition_vi": "Hai biến cố $$E$$ và $$F$$ được gọi là độc lập nếu $$p(E \\cap F) = p(E)p(F)$$. Nói cách khác, hai biến cố là độc lập khi xác suất xảy ra đồng thời của chúng bằng tích các xác suất riêng lẻ.",
-  "see_ref": "",
-  "vi_terms": [
-   {
-    "term": "biến cố độc lập",
-    "source_id": "",
-    "page": "",
-    "pdf_page": 0,
-    "verified": false,
-    "recommended": true
-   },
-   {
-    "term": "biến cố độc lập",
-    "source_id": "bib-rosen-2003-vi",
-    "page": "tr. 337 (PDF)",
-    "pdf_page": 337,
-    "verified": true,
-    "recommended": false
-   },
-   {
-    "term": "biến cố",
-    "source_id": "bib-leanhvinh-2020",
-    "page": "tr. 157 (PDF)",
-    "pdf_page": 157,
-    "verified": true,
-    "recommended": false
-   },
-   {
-    "term": "biến cố",
-    "source_id": "bib-rosen-2003-vi",
-    "page": "tr. 290 (PDF, bản dịch Rosen)",
-    "pdf_page": 290,
-    "verified": true,
-    "recommended": false
-   }
-  ]
- },
- {
-  "id": "independent-random-variables",
-  "letter": "I",
-  "headword_en": "Independent Random Variables",
-  "rosen_ref": "Rosen §7.4",
-  "definition_vi": "Hai biến ngẫu nhiên $$X$$ và $$Y$$ được gọi là độc lập nếu phân phối đồng thời của chúng phân tích thành tích của các phân phối lề. Nói cách khác, $$X$$ và $$Y$$ độc lập khi $$p(X = r_1 \\text{ và } Y = r_2) = p(X = r_1) \\cdot p(Y = r_2)$$ với mọi giá trị $$r_1$$ của $$X$$ và mọi giá trị $$r_2$$ của $$Y$$.",
-  "see_ref": "",
-  "vi_terms": [
-   {
-    "term": "biến ngẫu nhiên độc lập",
+    "term": "phân phối của biến ngẫu nhiên",
     "source_id": "",
     "page": "",
     "pdf_page": 0,
@@ -504,6 +650,203 @@
    {
     "term": "biến ngẫu nhiên",
     "source_id": "bib-leanhvinh-2020",
+    "page": "tr. 155 (PDF)",
+    "pdf_page": 155,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "divide-and-conquer",
+  "letter": "D",
+  "headword_en": "Divide And Conquer",
+  "rosen_ref": "Rosen §8.3",
+  "definition_vi": "Chia để trị là kỹ thuật thiết kế thuật toán trong đó một bài toán kích thước $$n$$ được phân rã thành $$a$$ bài toán con, mỗi bài toán con có kích thước $$n/b$$, rồi giải các bài toán con đó và kết hợp các lời giải lại. Độ phức tạp $$f(n)$$ của thuật toán thỏa mãn hệ thức truy hồi chia để trị $$f(n) = a\\,f(n/b) + g(n)$$, trong đó $$g(n)$$ là chi phí phân chia và kết hợp.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "chia để trị",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 100 (PDF)",
+    "pdf_page": 100,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "chia để trị",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 397 (PDF)",
+    "pdf_page": 397,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "divide-and-conquer-algorithm",
+  "letter": "D",
+  "headword_en": "Divide-And-Conquer Algorithm",
+  "rosen_ref": "",
+  "definition_vi": "",
+  "see_ref": "divide-and-conquer",
+  "vi_terms": []
+ },
+ {
+  "id": "dividend",
+  "letter": "D",
+  "headword_en": "Dividend",
+  "rosen_ref": "Rosen §4.1",
+  "definition_vi": "Số bị chia là số $$a$$ được đem chia trong phép chia có dư. Theo thuật toán chia, với số nguyên $$a$$ và số nguyên dương $$d$$, tồn tại duy nhất các số nguyên $$q$$ và $$r$$ với $$0 \\leq r \\lt d$$ sao cho $$a = dq + r$$; khi đó $$a$$ được gọi là số bị chia, $$d$$ là số chia, $$q$$ là thương và $$r$$ là số dư.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "số bị chia",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 142 (PDF)",
+    "pdf_page": 142,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "số bị chia",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 897 (PDF)",
+    "pdf_page": 897,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "divisibility",
+  "letter": "D",
+  "headword_en": "Divisibility",
+  "rosen_ref": "Rosen §4.1",
+  "definition_vi": "Cho hai số nguyên $$a$$ và $$b$$ với $$a \\neq 0$$, ta nói $$a$$ \\emph{chia hết} $$b$$, ký hiệu $$a \\mid b$$, nếu tồn tại một số nguyên $$c$$ sao cho $$b = ac$$; nếu $$a$$ không chia hết $$b$$ ta viết $$a \\nmid b$$. Khi $$a \\mid b$$, ta nói $$a$$ là một ước của $$b$$ và $$b$$ là một bội của $$a$$.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "chia hết",
+    "source_id": "bib-nguyenhoangthach-2020",
+    "page": "tr. 54 (PDF)",
+    "pdf_page": 54,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "chia hết",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 15 (PDF)",
+    "pdf_page": 15,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "chia hết",
+    "source_id": "bib-nguyenducnghia-2006",
+    "page": "tr. 14 (PDF)",
+    "pdf_page": 14,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "chia hết",
+    "source_id": "bib-ngodactan-2004",
+    "page": "tr. 173 (PDF)",
+    "pdf_page": 173,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "quan hệ chia hết",
+    "source_id": "bib-ngodactan-2004",
+    "page": "tr. 173 (PDF)",
+    "pdf_page": 173,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "chia hết",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 107 (PDF, bản dịch Rosen)",
+    "pdf_page": 107,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "division-algorithm",
+  "letter": "D",
+  "headword_en": "Division algorithm",
+  "rosen_ref": "Rosen §4.1",
+  "definition_vi": "\\emph{Thuật toán chia} khẳng định rằng với mọi số nguyên $$a$$ và mọi số nguyên dương $$b$$, tồn tại duy nhất hai số nguyên $$q$$ và $$r$$ thỏa mãn $$0 \\leq r < b$$ sao cho $$a = bq + r$$; ký hiệu $$q$$ là thương số và $$r$$ là số dư trong phép chia $$a$$ cho $$b$$.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "thuật toán chia",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 141 (PDF)",
+    "pdf_page": 141,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "thuật chia (Euclide)",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": false
+   },
+   {
+    "term": "thuật toán chia",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 155 (PDF, bản dịch Rosen)",
+    "pdf_page": 155,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "division-rule-for-counting",
+  "letter": "D",
+  "headword_en": "Division Rule For Counting",
+  "rosen_ref": "",
+  "definition_vi": "",
+  "see_ref": "the-division-rule",
+  "vi_terms": []
+ },
+ {
+  "id": "division-rule-for-sets",
+  "letter": "D",
+  "headword_en": "Division Rule For Sets",
+  "rosen_ref": "",
+  "definition_vi": "",
+  "see_ref": "the-division-rule",
+  "vi_terms": []
+ },
+ {
+  "id": "divisor",
+  "letter": "D",
+  "headword_en": "Divisor",
+  "rosen_ref": "Rosen §3.4",
+  "definition_vi": "Số chia là số nguyên $$b$$ trong thuật toán chia: cho hai số nguyên $$a$$ và $$b$$ với $$b > 0$$, tồn tại duy nhất cặp số nguyên $$q$$ và $$r$$ thỏa mãn $$a = bq + r$$ với $$0 \\leq r < b$$. Trong đẳng thức này, $$b$$ được gọi là số chia, $$a$$ là số bị chia, $$q$$ là thương và $$r$$ là số dư.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "số chia",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 142 (PDF)",
+    "pdf_page": 142,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "số chia",
+    "source_id": "bib-rosen-2003-vi",
     "page": "tr. 156 (PDF)",
     "pdf_page": 156,
     "verified": true,
@@ -512,673 +855,47 @@
   ]
  },
  {
-  "id": "independent-set",
-  "letter": "I",
-  "headword_en": "independent set",
-  "rosen_ref": "Rosen §10.8",
-  "definition_vi": "Một \\emph{tập độc lập} của đồ thị $$G$$ là một tập con các đỉnh đôi một không kề nhau, tức là một tập con $$S \\subseteq V(G)$$ sao cho không có cạnh nào của $$G$$ nối hai đỉnh thuộc $$S$$.",
-  "see_ref": "",
-  "vi_terms": [
-   {
-    "term": "tập độc lập",
-    "source_id": "bib-leanhvinh-2020",
-    "page": "tr. 80 (PDF)",
-    "pdf_page": 80,
-    "verified": true,
-    "recommended": true
-   },
-   {
-    "term": "tập đỉnh độc lập",
-    "source_id": "bib-leanhvinh-2020",
-    "page": "tr. 89 (PDF)",
-    "pdf_page": 89,
-    "verified": true,
-    "recommended": false
-   },
-   {
-    "term": "tập ổn định trong",
-    "source_id": "bib-nguyenhuudien-2019",
-    "page": "tr. 228 (PDF)",
-    "pdf_page": 228,
-    "verified": true,
-    "recommended": false
-   },
-   {
-    "term": "tập ổn định trong",
-    "source_id": "bib-hoangchithanh-2007",
-    "page": "tr. 29 (PDF)",
-    "pdf_page": 29,
-    "verified": true,
-    "recommended": false
-   },
-   {
-    "term": "tập độc lập",
-    "source_id": "bib-ngodactan-2004",
-    "page": "tr. 288 (PDF)",
-    "pdf_page": 288,
-    "verified": true,
-    "recommended": false
-   },
-   {
-    "term": "tập đỉnh độc lập",
-    "source_id": "bib-ngodactan-2004",
-    "page": "tr. 288 (PDF)",
-    "pdf_page": 288,
-    "verified": true,
-    "recommended": false
-   },
-   {
-    "term": "tập độc lập",
-    "source_id": "bib-rosen-2003-vi",
-    "page": "tr. 614 (PDF, bản dịch Rosen)",
-    "pdf_page": 614,
-    "verified": true,
-    "recommended": false
-   }
-  ]
- },
- {
-  "id": "index",
-  "letter": "I",
-  "headword_en": "Index",
-  "rosen_ref": "Rosen §2.4",
-  "definition_vi": "Chỉ số là biến chạy dùng để đánh số và xác định vị trí của các phần tử trong một bộ được đánh chỉ số, chẳng hạn một dãy $$a_0, a_1, a_2, \\ldots$$ hoặc một họ tập hợp $$\\{A_i\\}$$. Trong tổng $$\\sum_{i=m}^{n} a_i$$, biến $$i$$ được gọi là chỉ số lấy tổng, chạy qua mọi số nguyên từ cận dưới $$m$$ đến cận trên $$n$$.",
-  "see_ref": "",
-  "vi_terms": [
-   {
-    "term": "chỉ số lấy tổng",
-    "source_id": "bib-rosen-2003-vi",
-    "page": "tr. 99 (PDF)",
-    "pdf_page": 99,
-    "verified": true,
-    "recommended": false
-   },
-   {
-    "term": "chỉ số dưới",
-    "source_id": "bib-nguyenhuudien-2019",
-    "page": "tr. 134 (PDF)",
-    "pdf_page": 134,
-    "verified": true,
-    "recommended": false
-   },
-   {
-    "term": "chỉ số dưới",
-    "source_id": "bib-ngodactan-2004",
-    "page": "tr. 230 (PDF)",
-    "pdf_page": 230,
-    "verified": true,
-    "recommended": false
-   },
-   {
-    "term": "chỉ số",
-    "source_id": "bib-leanhvinh-2020",
-    "page": "tr. 23 (PDF)",
-    "pdf_page": 23,
-    "verified": true,
-    "recommended": true
-   },
-   {
-    "term": "chỉ số",
-    "source_id": "bib-nguyenducnghia-2006",
-    "page": "tr. 97 (PDF)",
-    "pdf_page": 97,
-    "verified": true,
-    "recommended": false
-   },
-   {
-    "term": "chỉ số",
-    "source_id": "bib-hoangchithanh-2007",
-    "page": "tr. 27 (PDF)",
-    "pdf_page": 27,
-    "verified": true,
-    "recommended": false
-   },
-   {
-    "term": "chỉ số",
-    "source_id": "bib-rosen-2003-vi",
-    "page": "tr. 98 (PDF, bản dịch Rosen)",
-    "pdf_page": 98,
-    "verified": true,
-    "recommended": false
-   },
-   {
-    "term": "chỉ số dưới",
-    "source_id": "bib-rosen-2003-vi",
-    "page": "tr. 98 (PDF, bản dịch Rosen)",
-    "pdf_page": 98,
-    "verified": true,
-    "recommended": false
-   }
-  ]
- },
- {
-  "id": "index-of-summation",
-  "letter": "I",
-  "headword_en": "Index Of Summation",
-  "rosen_ref": "Rosen §2.4",
-  "definition_vi": "Chỉ số lấy tổng là biến chạy $$j$$ trong ký hiệu tổng $$\\sum_{j=m}^{n} a_j$$, lần lượt nhận tất cả các giá trị nguyên từ giới hạn dưới $$m$$ đến giới hạn trên $$n$$ để xác định các số hạng được cộng. Việc chọn chữ cái cho chỉ số lấy tổng là tùy ý, nghĩa là $$\\sum_{j=m}^{n} a_j = \\sum_{i=m}^{n} a_i$$.",
-  "see_ref": "",
-  "vi_terms": [
-   {
-    "term": "chỉ số lấy tổng",
-    "source_id": "bib-rosen-2003-vi",
-    "page": "tr. 99 (PDF)",
-    "pdf_page": 99,
-    "verified": true,
-    "recommended": true
-   }
-  ]
- },
- {
-  "id": "indirect-proof",
-  "letter": "I",
-  "headword_en": "Indirect Proof",
-  "rosen_ref": "Rosen §1.6",
-  "definition_vi": "Chứng minh gián tiếp là phương pháp chứng minh mệnh đề kéo theo $$p \\rightarrow q$$ bằng cách chứng minh mệnh đề phản đảo tương đương $$\\neg q \\rightarrow \\neg p$$. Vì $$p \\rightarrow q$$ và $$\\neg q \\rightarrow \\neg p$$ có cùng giá trị chân lý, nên việc giả sử $$\\neg q$$ đúng rồi suy ra $$\\neg p$$ đúng sẽ chứng tỏ $$p \\rightarrow q$$ là đúng.",
-  "see_ref": "",
-  "vi_terms": [
-   {
-    "term": "chứng minh gián tiếp",
-    "source_id": "bib-nguyenhuudien-2019",
-    "page": "tr. 59 (PDF)",
-    "pdf_page": 59,
-    "verified": true,
-    "recommended": false
-   },
-   {
-    "term": "chứng minh gián tiếp",
-    "source_id": "bib-rosen-2003-vi",
-    "page": "tr. 216 (PDF)",
-    "pdf_page": 216,
-    "verified": true,
-    "recommended": false
-   },
-   {
-    "term": "Chứng minh gián tiếp",
-    "source_id": "bib-rosen-2003-vi",
-    "page": "tr. 216 (PDF, bản dịch Rosen)",
-    "pdf_page": 216,
-    "verified": true,
-    "recommended": true
-   }
-  ]
- },
- {
-  "id": "induced-subgraph",
-  "letter": "I",
-  "headword_en": "induced subgraph",
-  "rosen_ref": "Rosen §10.2",
-  "definition_vi": "Cho đồ thị $$G = (V, E)$$ và một tập đỉnh $$W \\subseteq V$$. Đồ thị con cảm sinh bởi $$W$$, ký hiệu $$G[W]$$, là đồ thị con có tập đỉnh là $$W$$ và tập cạnh gồm đúng những cạnh của $$G$$ nối hai đỉnh thuộc $$W$$.",
-  "see_ref": "",
-  "vi_terms": [
-   {
-    "term": "đồ thị con cảm sinh",
-    "source_id": "bib-leanhvinh-2020",
-    "page": "tr. 69 (PDF)",
-    "pdf_page": 69,
-    "verified": true,
-    "recommended": true
-   },
-   {
-    "term": "đồ thị con cảm sinh",
-    "source_id": "bib-nguyenhoangthach-2020",
-    "page": "tr. 71 (PDF)",
-    "pdf_page": 71,
-    "verified": true,
-    "recommended": false
-   },
-   {
-    "term": "đồ thị con cảm sinh",
-    "source_id": "bib-ngodactan-2004",
-    "page": "tr. 190 (PDF)",
-    "pdf_page": 190,
-    "verified": true,
-    "recommended": false
-   },
-   {
-    "term": "đồ thị con cảm sinh trên tập đỉnh",
-    "source_id": "bib-leanhvinh-2020",
-    "page": "tr. 69 (PDF)",
-    "pdf_page": 69,
-    "verified": true,
-    "recommended": false
-   },
-   {
-    "term": "đồ thị con cảm sinh bởi tập",
-    "source_id": "bib-nguyenhoangthach-2020",
-    "page": "tr. 71 (PDF)",
-    "pdf_page": 71,
-    "verified": true,
-    "recommended": false
-   },
-   {
-    "term": "đồ thị con sinh bởi tập đỉnh",
-    "source_id": "bib-hoangchithanh-2007",
-    "page": "tr. 88 (PDF)",
-    "pdf_page": 88,
-    "verified": true,
-    "recommended": false
-   },
-   {
-    "term": "đồ thị con tạo bởi",
-    "source_id": "bib-hoangchithanh-2007",
-    "page": "tr. 86 (PDF)",
-    "pdf_page": 86,
-    "verified": true,
-    "recommended": false
-   }
-  ]
- },
- {
-  "id": "mathematical-induction",
-  "letter": "I",
-  "headword_en": "induction, mathematical",
-  "rosen_ref": "Rosen §5.1",
-  "definition_vi": "Quy nạp toán học là kỹ thuật chứng minh một khẳng định $$P(n)$$ đúng với mọi số nguyên dương $$n$$, gồm bước cơ sở chứng minh $$P(1)$$ đúng và bước quy nạp chứng minh rằng nếu $$P(k)$$ đúng thì $$P(k+1)$$ cũng đúng với mọi số nguyên dương $$k$$.",
-  "see_ref": "",
-  "vi_terms": [
-   {
-    "term": "nguyên lý quy nạp",
-    "source_id": "bib-leanhvinh-2020",
-    "page": "tr. 17 (PDF)",
-    "pdf_page": 17,
-    "verified": true,
-    "recommended": false
-   },
-   {
-    "term": "quy nạp",
-    "source_id": "bib-leanhvinh-2020",
-    "page": "tr. 21 (PDF)",
-    "pdf_page": 21,
-    "verified": true,
-    "recommended": false
-   },
-   {
-    "term": "quy nạp toán học",
-    "source_id": "bib-nguyenhuudien-2019",
-    "page": "tr. 69 (PDF)",
-    "pdf_page": 69,
-    "verified": true,
-    "recommended": true
-   },
-   {
-    "term": "phương pháp quy nạp toán học",
-    "source_id": "bib-nguyenhuudien-2019",
-    "page": "tr. 69 (PDF)",
-    "pdf_page": 69,
-    "verified": true,
-    "recommended": false
-   },
-   {
-    "term": "phương pháp quy nạp",
-    "source_id": "bib-nguyenhuudien-2019",
-    "page": "tr. 60 (PDF)",
-    "pdf_page": 60,
-    "verified": true,
-    "recommended": false
-   },
-   {
-    "term": "nguyên lý quy nạp",
-    "source_id": "bib-rosen-2003-vi",
-    "page": "tr. 233 (PDF, bản dịch Rosen)",
-    "pdf_page": 233,
-    "verified": true,
-    "recommended": false
-   },
-   {
-    "term": "quy nạp",
-    "source_id": "bib-rosen-2003-vi",
-    "page": "tr. 208 (PDF, bản dịch Rosen)",
-    "pdf_page": 208,
-    "verified": true,
-    "recommended": false
-   },
-   {
-    "term": "quy nạp toán học",
-    "source_id": "bib-rosen-2003-vi",
-    "page": "tr. 208 (PDF, bản dịch Rosen)",
-    "pdf_page": 208,
-    "verified": true,
-    "recommended": false
-   },
-   {
-    "term": "phương pháp quy nạp toán học",
-    "source_id": "bib-rosen-2003-vi",
-    "page": "tr. 231 (PDF, bản dịch Rosen)",
-    "pdf_page": 231,
-    "verified": true,
-    "recommended": false
-   },
-   {
-    "term": "phương pháp quy nạp",
-    "source_id": "bib-rosen-2003-vi",
-    "page": "tr. 208 (PDF, bản dịch Rosen)",
-    "pdf_page": 208,
-    "verified": true,
-    "recommended": false
-   }
-  ]
- },
- {
-  "id": "inductive-step",
-  "letter": "I",
-  "headword_en": "Inductive Step",
-  "rosen_ref": "Rosen §5.1",
-  "definition_vi": "Bước quy nạp là bước thứ hai trong chứng minh bằng quy nạp toán học, trong đó ta chứng minh phép kéo theo $$P(k) \\rightarrow P(k+1)$$ đúng với mọi số nguyên dương $$k$$; tức là, giả sử $$P(k)$$ đúng (giả thiết quy nạp), ta suy ra $$P(k+1)$$ cũng đúng.",
-  "see_ref": "",
-  "vi_terms": [
-   {
-    "term": "Bước quy nạp",
-    "source_id": "bib-rosen-2003-vi",
-    "page": "tr. 230 (PDF)",
-    "pdf_page": 230,
-    "verified": true,
-    "recommended": true
-   },
-   {
-    "term": "Bước qui nạp",
-    "source_id": "bib-nguyenhuudien-2019",
-    "page": "tr. 62 (PDF)",
-    "pdf_page": 62,
-    "verified": true,
-    "recommended": false
-   },
-   {
-    "term": "Bước qui nạp",
-    "source_id": "bib-rosen-2003-vi",
-    "page": "tr. 434 (PDF, bản dịch Rosen)",
-    "pdf_page": 434,
-    "verified": true,
-    "recommended": false
-   }
-  ]
- },
- {
-  "id": "inequality",
-  "letter": "I",
-  "headword_en": "Inequality",
-  "rosen_ref": "Rosen §App.1",
-  "definition_vi": "Bất đẳng thức là một khẳng định toán học so sánh hai biểu thức bằng một quan hệ thứ tự, cụ thể là một trong các quan hệ $$<$$, $$\\leq$$, $$>$$, $$\\geq$$ hoặc $$\\neq$$ (ký hiệu lần lượt là nhỏ hơn, nhỏ hơn hoặc bằng, lớn hơn, lớn hơn hoặc bằng, và khác nhau). Khẳng định $$a \\leq b$$ có nghĩa là $$a$$ nhỏ hơn hoặc bằng $$b$$.",
-  "see_ref": "",
-  "vi_terms": [
-   {
-    "term": "bất đẳng thức",
-    "source_id": "bib-leanhvinh-2020",
-    "page": "tr. 150 (PDF)",
-    "pdf_page": 150,
-    "verified": true,
-    "recommended": true
-   },
-   {
-    "term": "bất đẳng thức",
-    "source_id": "bib-nguyenhuudien-2019",
-    "page": "tr. 170 (PDF)",
-    "pdf_page": 170,
-    "verified": true,
-    "recommended": false
-   },
-   {
-    "term": "bất đẳng thức",
-    "source_id": "bib-nguyenhoangthach-2020",
-    "page": "tr. 80 (PDF)",
-    "pdf_page": 80,
-    "verified": true,
-    "recommended": false
-   },
-   {
-    "term": "bất đẳng thức",
-    "source_id": "bib-nguyenducnghia-2006",
-    "page": "tr. 64 (PDF)",
-    "pdf_page": 64,
-    "verified": true,
-    "recommended": false
-   },
-   {
-    "term": "bất đẳng thức",
-    "source_id": "bib-ngodactan-2004",
-    "page": "tr. 214 (PDF)",
-    "pdf_page": 214,
-    "verified": true,
-    "recommended": false
-   },
-   {
-    "term": "bất đẳng thức",
-    "source_id": "bib-rosen-2003-vi",
-    "page": "tr. 233 (PDF)",
-    "pdf_page": 233,
-    "verified": true,
-    "recommended": false
-   }
-  ]
- },
- {
-  "id": "inference-rule",
-  "letter": "I",
-  "headword_en": "Inference Rule",
-  "rosen_ref": "Rosen §1.6",
-  "definition_vi": "Quy tắc suy luận là một quy tắc cho phép suy ra một kết luận từ một tập hợp các tiền đề, dựa trên một hằng đúng có dạng kéo theo. Cụ thể, nếu các giả thiết $$p_1, p_2, \\ldots, p_n$$ đều đúng thì kết luận $$q$$ cũng đúng, với điều kiện $$(p_1 \\wedge p_2 \\wedge \\cdots \\wedge p_n) \\rightarrow q$$ là một hằng đúng.",
-  "see_ref": "",
-  "vi_terms": [
-   {
-    "term": "quy tắc suy luận",
-    "source_id": "bib-rosen-2003-vi",
-    "page": "tr. 211 (PDF)",
-    "pdf_page": 211,
-    "verified": true,
-    "recommended": true
-   },
-   {
-    "term": "quy tắc suy diễn",
-    "source_id": "bib-nguyenhuudien-2019",
-    "page": "tr. 28 (PDF)",
-    "pdf_page": 28,
-    "verified": true,
-    "recommended": false
-   },
-   {
-    "term": "luật suy diễn",
-    "source_id": "bib-nguyenhuudien-2019",
-    "page": "tr. 29 (PDF)",
-    "pdf_page": 29,
-    "verified": true,
-    "recommended": false
-   },
-   {
-    "term": "quy tắc suy diễn",
-    "source_id": "bib-rosen-2003-vi",
-    "page": "tr. 211 (PDF, bản dịch Rosen)",
-    "pdf_page": 211,
-    "verified": true,
-    "recommended": false
-   },
-   {
-    "term": "luật suy diễn",
-    "source_id": "bib-rosen-2003-vi",
-    "page": "tr. 210 (PDF, bản dịch Rosen)",
-    "pdf_page": 210,
-    "verified": true,
-    "recommended": false
-   }
-  ]
- },
- {
-  "id": "infinite-graph",
-  "letter": "I",
-  "headword_en": "Infinite Graph",
-  "rosen_ref": "Rosen §10.1",
-  "definition_vi": "Đồ thị vô hạn là một đồ thị $$G$$ có tập đỉnh $$V(G)$$ vô hạn, hoặc tập cạnh $$E(G)$$ vô hạn, tức là $$G$$ không phải là đồ thị hữu hạn.",
-  "see_ref": "",
-  "vi_terms": [
-   {
-    "term": "đồ thị vô hạn",
-    "source_id": "bib-leanhvinh-2020",
-    "page": "tr. 172 (PDF)",
-    "pdf_page": 172,
-    "verified": true,
-    "recommended": true
-   }
-  ]
- },
- {
-  "id": "infinite-set",
-  "letter": "I",
-  "headword_en": "infinite set",
-  "rosen_ref": "Rosen §2.1",
-  "definition_vi": "Một tập hợp $$A$$ được gọi là tập vô hạn nếu nó không phải là tập hữu hạn, tức là không thể đặt các phần tử của $$A$$ tương ứng một-một với các số nguyên dương từ $$1$$ đến một số nguyên không âm cố định $$n$$ nào đó (trường hợp $$n = 0$$ ứng với tập rỗng).",
-  "see_ref": "",
-  "vi_terms": [
-   {
-    "term": "tập vô hạn",
-    "source_id": "bib-leanhvinh-2020",
-    "page": "tr. 172 (PDF)",
-    "pdf_page": 172,
-    "verified": true,
-    "recommended": true
-   },
-   {
-    "term": "tập vô hạn",
-    "source_id": "bib-nguyenhuudien-2019",
-    "page": "tr. 78 (PDF)",
-    "pdf_page": 78,
-    "verified": true,
-    "recommended": false
-   },
-   {
-    "term": "tập vô hạn",
-    "source_id": "bib-ngodactan-2004",
-    "page": "tr. 308 (PDF)",
-    "pdf_page": 308,
-    "verified": true,
-    "recommended": false
-   },
-   {
-    "term": "tập vô hạn",
-    "source_id": "bib-rosen-2003-vi",
-    "page": "tr. 58 (PDF, bản dịch Rosen)",
-    "pdf_page": 58,
-    "verified": true,
-    "recommended": false
-   }
-  ]
- },
- {
-  "id": "initial-conditions",
-  "letter": "I",
-  "headword_en": "Initial Conditions",
-  "rosen_ref": "Rosen §8.1",
-  "definition_vi": "Điều kiện ban đầu của một dãy là các giá trị của những số hạng đứng trước các số hạng được xác định bởi một hệ thức truy hồi. Cùng với hệ thức truy hồi, các điều kiện ban đầu này xác định duy nhất toàn bộ dãy; chẳng hạn, một hệ thức truy hồi tuyến tính thuần nhất bậc $$k$$ được xác định hoàn toàn bởi một bộ $$k$$ điều kiện ban đầu $$a_0, a_1, \\ldots, a_{k-1}$$.",
-  "see_ref": "",
-  "vi_terms": [
-   {
-    "term": "điều kiện ban đầu",
-    "source_id": "bib-nguyenhoangthach-2020",
-    "page": "tr. 40 (PDF)",
-    "pdf_page": 40,
-    "verified": true,
-    "recommended": true
-   },
-   {
-    "term": "điều kiện ban đầu",
-    "source_id": "bib-nguyenhoangthach-2020",
-    "page": "tr. 37 (PDF)",
-    "pdf_page": 37,
-    "verified": true,
-    "recommended": false
-   },
-   {
-    "term": "điều kiện ban đầu",
-    "source_id": "bib-nguyenhuudien-2019",
-    "page": "tr. 99 (PDF)",
-    "pdf_page": 99,
-    "verified": true,
-    "recommended": false
-   },
-   {
-    "term": "điều kiện ban đầu",
-    "source_id": "bib-rosen-2003-vi",
-    "page": "tr. 395 (PDF)",
-    "pdf_page": 395,
-    "verified": true,
-    "recommended": false
-   }
-  ]
- },
- {
-  "id": "initial-term",
-  "letter": "I",
-  "headword_en": "Initial Term",
-  "rosen_ref": "Rosen §2.4",
-  "definition_vi": "Số hạng đầu tiên của một dãy $$\\{a_n\\}$$, thường ký hiệu $$a_0$$ hoặc $$a_1$$, là số hạng ứng với chỉ số nhỏ nhất trong miền của dãy. Trong một hệ thức truy hồi, các số hạng đầu tiên được cho trước làm điều kiện ban đầu để xác định toàn bộ dãy; trong một cấp số nhân với công bội $$r$$, số hạng đầu là $$a$$ sao cho $$a_n = a r^n$$.",
-  "see_ref": "",
-  "vi_terms": [
-   {
-    "term": "số hạng đầu tiên",
-    "source_id": "bib-nguyenhoangthach-2020",
-    "page": "tr. 37 (PDF)",
-    "pdf_page": 37,
-    "verified": true,
-    "recommended": true
-   },
-   {
-    "term": "số hạng đầu tiên",
-    "source_id": "bib-nguyenhuudien-2019",
-    "page": "tr. 97 (PDF)",
-    "pdf_page": 97,
-    "verified": true,
-    "recommended": false
-   },
-   {
-    "term": "số hạng đầu tiên",
-    "source_id": "bib-rosen-2003-vi",
-    "page": "tr. 372 (PDF)",
-    "pdf_page": 372,
-    "verified": true,
-    "recommended": false
-   },
-   {
-    "term": "số hạng đầu",
-    "source_id": "bib-rosen-2003-vi",
-    "page": "tr. 100 (PDF)",
-    "pdf_page": 100,
-    "verified": true,
-    "recommended": false
-   }
-  ]
- },
- {
-  "id": "injection",
-  "letter": "I",
-  "headword_en": "injection",
+  "id": "domain",
+  "letter": "D",
+  "headword_en": "Domain",
   "rosen_ref": "Rosen §2.3",
-  "definition_vi": "Một hàm $$f\\colon A \\to B$$ được gọi là một đơn ánh nếu nó ánh xạ các phần tử phân biệt của miền xác định thành các phần tử phân biệt của miền đến (tập đích) $$B$$; nghĩa là với mọi $$a_1, a_2 \\in A$$, nếu $$f(a_1) = f(a_2)$$ thì $$a_1 = a_2$$ (tương đương, $$a_1 \\neq a_2$$ kéo theo $$f(a_1) \\neq f(a_2)$$).",
+  "definition_vi": "\\emph{Miền xác định} của một hàm $$f : A \\to B$$ là tập $$A$$ gồm mọi phần tử mà $$f$$ gán cho một giá trị, tức là tập tất cả các đầu vào có thể có của $$f$$.",
   "see_ref": "",
   "vi_terms": [
    {
-    "term": "đơn ánh",
-    "source_id": "bib-leanhvinh-2020",
-    "page": "tr. 232 (PDF)",
-    "pdf_page": 232,
+    "term": "miền xác định",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 129 (PDF)",
+    "pdf_page": 129,
     "verified": true,
     "recommended": true
    },
    {
-    "term": "đơn ánh",
-    "source_id": "bib-nguyenhoangthach-2020",
-    "page": "tr. 20 (PDF)",
-    "pdf_page": 20,
-    "verified": true,
-    "recommended": false
-   },
-   {
-    "term": "đơn ánh",
+    "term": "miền xác định",
     "source_id": "bib-nguyenhuudien-2019",
-    "page": "tr. 78 (PDF)",
-    "pdf_page": 78,
+    "page": "tr. 82 (PDF)",
+    "pdf_page": 82,
     "verified": true,
     "recommended": false
    },
    {
-    "term": "đơn ánh",
+    "term": "miền xác định",
+    "source_id": "bib-nguyenducnghia-2006",
+    "page": "tr. 267 (PDF)",
+    "pdf_page": 267,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "miền xác định",
+    "source_id": "bib-ngodactan-2004",
+    "page": "tr. 128 (PDF)",
+    "pdf_page": 128,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "tập nguồn",
     "source_id": "bib-nguyenducnghia-2006",
     "page": "tr. 19 (PDF)",
     "pdf_page": 19,
@@ -1186,39 +903,15 @@
     "recommended": false
    },
    {
-    "term": "đơn ánh",
-    "source_id": "bib-ngodactan-2004",
-    "page": "tr. 21 (PDF)",
-    "pdf_page": 21,
-    "verified": true,
-    "recommended": false
-   },
-   {
-    "term": "hàm đơn ánh",
-    "source_id": "bib-ngodactan-2004",
-    "page": "tr. 37 (PDF)",
-    "pdf_page": 37,
-    "verified": true,
-    "recommended": false
-   },
-   {
-    "term": "đơn ánh",
+    "term": "miền xác định",
     "source_id": "bib-rosen-2003-vi",
-    "page": "tr. 84 (PDF, bản dịch Rosen)",
-    "pdf_page": 84,
+    "page": "tr. 82 (PDF, bản dịch Rosen)",
+    "pdf_page": 82,
     "verified": true,
     "recommended": false
    },
    {
-    "term": "hàm đơn ánh",
-    "source_id": "bib-rosen-2003-vi",
-    "page": "tr. 85 (PDF, bản dịch Rosen)",
-    "pdf_page": 85,
-    "verified": true,
-    "recommended": false
-   },
-   {
-    "term": "hàm một-một",
+    "term": "tập xác định",
     "source_id": "",
     "page": "",
     "pdf_page": 0,
@@ -1228,377 +921,83 @@
   ]
  },
  {
-  "id": "inorder-traversal",
-  "letter": "I",
-  "headword_en": "Inorder Traversal",
-  "rosen_ref": "Rosen §11.3",
-  "definition_vi": "Duyệt trung thứ tự là cách duyệt một cây có gốc có thứ tự $$T$$, trong đó nếu $$T$$ chỉ gồm một gốc $$r$$ thì kết quả là $$r$$; ngược lại, nếu $$r$$ có các cây con $$T_1, T_2, \\ldots, T_k$$ theo thứ tự từ trái sang phải, thì ta lần lượt duyệt trung thứ tự cây con $$T_1$$, viếng thăm gốc $$r$$, rồi duyệt trung thứ tự các cây con $$T_2, \\ldots, T_k$$. Với cây nhị phân, thứ tự duyệt là cây con trái, gốc, rồi cây con phải.",
+  "id": "domain-of-discourse",
+  "letter": "D",
+  "headword_en": "Domain Of Discourse",
+  "rosen_ref": "Rosen §1.4",
+  "definition_vi": "Miền xác định (hay vũ trụ biện luận) là tập hợp các giá trị mà một biến trong hàm mệnh đề $$P(x)$$ có thể nhận. Khi xét lượng từ trên hàm mệnh đề, mỗi biến chỉ lấy giá trị trong miền xác định của nó.",
   "see_ref": "",
   "vi_terms": [
    {
-    "term": "trung thứ tự",
+    "term": "miền xác định",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 46 (PDF)",
+    "pdf_page": 46,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "vũ trụ biện luận",
     "source_id": "bib-rosen-2003-vi",
-    "page": "tr. 648 (PDF)",
-    "pdf_page": 648,
-    "verified": true,
-    "recommended": true
-   },
-   {
-    "term": "duyệt theo thứ tự giữa",
-    "source_id": "bib-nguyenhuudien-2019",
-    "page": "tr. 253 (PDF)",
-    "pdf_page": 253,
+    "page": "tr. 34 (PDF)",
+    "pdf_page": 34,
     "verified": true,
     "recommended": false
    },
    {
-    "term": "trung thứ tự",
-    "source_id": "bib-nguyenhuudien-2019",
-    "page": "tr. 261 (PDF)",
-    "pdf_page": 261,
-    "verified": true,
-    "recommended": false
-   },
-   {
-    "term": "duyệt theo thứ tự giữa",
-    "source_id": "bib-hoangchithanh-2007",
-    "page": "tr. 139 (PDF)",
-    "pdf_page": 139,
+    "term": "miền xác định",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 82 (PDF, bản dịch Rosen)",
+    "pdf_page": 82,
     "verified": true,
     "recommended": false
    }
   ]
  },
  {
-  "id": "input-size",
-  "letter": "I",
-  "headword_en": "Input Size",
-  "rosen_ref": "Rosen §3.3",
-  "definition_vi": "Kích thước đầu vào của một bài toán là số đo độ lớn của dữ liệu vào, thường lấy bằng số bit cần để biểu diễn dữ liệu hoặc bằng một tham số tự nhiên như số phần tử $$n$$ của danh sách hay số đỉnh và số cạnh của đồ thị $$G$$. Độ phức tạp thời gian của một thuật toán được biểu diễn như một hàm theo kích thước đầu vào.",
+  "id": "dominating-set",
+  "letter": "D",
+  "headword_en": "Dominating set",
+  "rosen_ref": "Rosen §10.1",
+  "definition_vi": "Một \\emph{tập thống trị} của đồ thị $$G$$ là một tập con $$D \\subseteq V(G)$$ các đỉnh sao cho mỗi đỉnh của $$G$$ hoặc thuộc $$D$$, hoặc kề với một đỉnh nào đó trong $$D$$. Nói cách khác, với mọi đỉnh $$v \\in V(G)$$ ta có $$v \\in D$$ hoặc tồn tại $$u \\in D$$ sao cho $$uv \\in E(G)$$.",
   "see_ref": "",
   "vi_terms": [
    {
-    "term": "kích thước đầu vào",
-    "source_id": "bib-nguyenducnghia-2006",
-    "page": "tr. 84 (PDF)",
-    "pdf_page": 84,
-    "verified": true,
+    "term": "tập thống trị",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
     "recommended": true
-   },
-   {
-    "term": "kích thước đầu vào",
-    "source_id": "bib-nguyenducnghia-2006",
-    "page": "tr. 91 (PDF)",
-    "pdf_page": 91,
-    "verified": true,
-    "recommended": false
-   },
-   {
-    "term": "kích thước đầu vào",
-    "source_id": "bib-nguyenducnghia-2006",
-    "page": "tr. 178 (PDF)",
-    "pdf_page": 178,
-    "verified": true,
-    "recommended": false
    }
   ]
  },
  {
-  "id": "integer",
-  "letter": "I",
-  "headword_en": "integer",
-  "rosen_ref": "Rosen §2.1",
-  "definition_vi": "Một \\emph{số nguyên} là một số nguyên dương, một số nguyên âm, hoặc số $$0$$. Tập hợp tất cả các số nguyên được ký hiệu là $$\\mathbb{Z} = \\{\\ldots, -2, -1, 0, 1, 2, \\ldots\\}$$.",
+  "id": "double-counting-proof",
+  "letter": "D",
+  "headword_en": "Double Counting Proof",
+  "rosen_ref": "",
+  "definition_vi": "Phương pháp đếm bằng hai cách là kỹ thuật chứng minh một đẳng thức tổ hợp bằng cách đếm số phần tử của cùng một tập hợp hữu hạn $$S$$ theo hai cách khác nhau. Vì cả hai cách đều cho lực lượng $$|S|$$, ta thu được đẳng thức giữa hai biểu thức đếm được.",
   "see_ref": "",
   "vi_terms": [
    {
-    "term": "số nguyên",
+    "term": "đếm bằng hai cách",
     "source_id": "bib-leanhvinh-2020",
-    "page": "tr. 25 (PDF)",
-    "pdf_page": 25,
-    "verified": true,
-    "recommended": true
-   },
-   {
-    "term": "tập số nguyên",
-    "source_id": "bib-nguyenhuudien-2019",
-    "page": "tr. 128 (PDF)",
-    "pdf_page": 128,
+    "page": "tr. 50 (PDF)",
+    "pdf_page": 50,
     "verified": true,
     "recommended": false
    },
    {
-    "term": "số nguyên",
-    "source_id": "bib-hoangchithanh-2007",
-    "page": "tr. 21 (PDF)",
-    "pdf_page": 21,
-    "verified": true,
-    "recommended": false
-   },
-   {
-    "term": "tập số nguyên",
-    "source_id": "bib-nguyenducnghia-2006",
-    "page": "tr. 23 (PDF)",
-    "pdf_page": 23,
-    "verified": true,
-    "recommended": false
-   },
-   {
-    "term": "số nguyên",
-    "source_id": "bib-rosen-2003-vi",
-    "page": "tr. 5 (PDF, bản dịch Rosen)",
-    "pdf_page": 5,
-    "verified": true,
-    "recommended": false
-   },
-   {
-    "term": "tập số nguyên",
-    "source_id": "bib-rosen-2003-vi",
-    "page": "tr. 86 (PDF, bản dịch Rosen)",
-    "pdf_page": 86,
-    "verified": true,
-    "recommended": false
-   }
-  ]
- },
- {
-  "id": "internal-vertex",
-  "letter": "I",
-  "headword_en": "Internal Vertex",
-  "rosen_ref": "",
-  "definition_vi": "",
-  "see_ref": "internal-vertices",
-  "vi_terms": [
-   {
-    "term": "đỉnh trong",
-    "source_id": "",
-    "page": "",
-    "pdf_page": 0,
-    "verified": false,
-    "recommended": false
-   }
-  ]
- },
- {
-  "id": "internal-vertices",
-  "letter": "I",
-  "headword_en": "Internal Vertices",
-  "rosen_ref": "Rosen §10.4",
-  "definition_vi": "Các đỉnh trong của một đường đi từ $$u$$ đến $$v$$ trong đồ thị $$G$$ là các đỉnh nằm trên đường đi đó nhưng khác hai đầu mút $$u$$ và $$v$$. Trong một cây có gốc, các đỉnh trong là các đỉnh có ít nhất một con, tức là các đỉnh không phải là lá.",
-  "see_ref": "",
-  "vi_terms": [
-   {
-    "term": "các đỉnh trong của đường đi",
-    "source_id": "bib-rosen-2003-vi",
-    "page": "tr. 466 (PDF)",
-    "pdf_page": 466,
-    "verified": true,
-    "recommended": false
-   },
-   {
-    "term": "đỉnh trong",
-    "source_id": "bib-nguyenhoangthach-2020",
-    "page": "tr. 85 (PDF)",
-    "pdf_page": 85,
-    "verified": true,
-    "recommended": false
-   },
-   {
-    "term": "đỉnh trong của cây",
-    "source_id": "bib-nguyenhuudien-2019",
-    "page": "tr. 251 (PDF)",
-    "pdf_page": 251,
-    "verified": true,
-    "recommended": false
-   },
-   {
-    "term": "đỉnh trong của cây",
-    "source_id": "bib-hoangchithanh-2007",
-    "page": "tr. 136 (PDF)",
-    "pdf_page": 136,
-    "verified": true,
-    "recommended": false
-   },
-   {
-    "term": "các đỉnh trong",
-    "source_id": "bib-rosen-2003-vi",
-    "page": "tr. 466 (PDF, bản dịch Rosen)",
-    "pdf_page": 466,
-    "verified": true,
-    "recommended": true
-   },
-   {
-    "term": "đỉnh trong",
-    "source_id": "bib-rosen-2003-vi",
-    "page": "tr. 464 (PDF, bản dịch Rosen)",
-    "pdf_page": 464,
-    "verified": true,
-    "recommended": false
-   },
-   {
-    "term": "đỉnh trong của cây",
-    "source_id": "bib-rosen-2003-vi",
-    "page": "tr. 775 (PDF, bản dịch Rosen)",
-    "pdf_page": 775,
-    "verified": true,
-    "recommended": false
-   }
-  ]
- },
- {
-  "id": "intersection",
-  "letter": "I",
-  "headword_en": "Intersection",
-  "rosen_ref": "Rosen §2.2",
-  "definition_vi": "Giao của hai tập hợp $$A$$ và $$B$$, ký hiệu $$A \\cap B$$, là tập hợp gồm tất cả các phần tử đồng thời thuộc cả $$A$$ và $$B$$, tức là $$A \\cap B = \\{x : x \\in A \\wedge x \\in B\\}$$.",
-  "see_ref": "",
-  "vi_terms": [
-   {
-    "term": "Giao",
-    "source_id": "bib-nguyenhuudien-2019",
-    "page": "tr. 74 (PDF)",
-    "pdf_page": 74,
-    "verified": true,
-    "recommended": true
-   },
-   {
-    "term": "Giao",
-    "source_id": "bib-nguyenducnghia-2006",
-    "page": "tr. 12 (PDF)",
-    "pdf_page": 12,
-    "verified": true,
-    "recommended": false
-   },
-   {
-    "term": "Giao",
-    "source_id": "bib-rosen-2003-vi",
-    "page": "tr. 65 (PDF)",
-    "pdf_page": 65,
-    "verified": true,
-    "recommended": false
-   }
-  ]
- },
- {
-  "id": "intersection-of-sets",
-  "letter": "I",
-  "headword_en": "intersection of sets",
-  "rosen_ref": "Rosen §2.2",
-  "definition_vi": "Giao của hai tập hợp $$A$$ và $$B$$, ký hiệu $$A \\cap B$$, là tập hợp gồm tất cả các phần tử thuộc đồng thời cả $$A$$ và $$B$$, tức là $$A \\cap B = \\{x : x \\in A \\text{ và } x \\in B\\}$$.",
-  "see_ref": "",
-  "vi_terms": [
-   {
-    "term": "giao của hai tập hợp",
-    "source_id": "bib-nguyenhuudien-2019",
-    "page": "tr. 74 (PDF)",
-    "pdf_page": 74,
-    "verified": true,
-    "recommended": true
-   },
-   {
-    "term": "giao của A và B",
-    "source_id": "bib-nguyenducnghia-2006",
-    "page": "tr. 12 (PDF)",
-    "pdf_page": 12,
-    "verified": true,
-    "recommended": false
-   },
-   {
-    "term": "giao của hai tập hợp",
-    "source_id": "bib-rosen-2003-vi",
-    "page": "tr. 65 (PDF, bản dịch Rosen)",
-    "pdf_page": 65,
-    "verified": true,
-    "recommended": false
-   },
-   {
-    "term": "giao của A và B",
-    "source_id": "bib-rosen-2003-vi",
-    "page": "tr. 65 (PDF, bản dịch Rosen)",
-    "pdf_page": 65,
-    "verified": true,
-    "recommended": false
-   }
-  ]
- },
- {
-  "id": "interval",
-  "letter": "I",
-  "headword_en": "interval",
-  "rosen_ref": "Rosen §2.3",
-  "definition_vi": "Khoảng giữa hai số thực $$a$$ và $$b$$ với $$a \\leq b$$ là tập hợp tất cả các số thực $$x$$ nằm giữa $$a$$ và $$b$$, có thể chứa hoặc không chứa hai đầu mút. Khoảng đóng, ký hiệu $$[a, b]$$, là tập $$\\{x : a \\leq x \\leq b\\}$$; khoảng mở $$(a, b)$$ là tập $$\\{x : a < x < b\\}$$; còn các khoảng nửa đóng $$[a, b)$$ và $$(a, b]$$ chứa đúng một trong hai đầu mút.",
-  "see_ref": "",
-  "vi_terms": [
-   {
-    "term": "khoảng",
+    "term": "đếm bằng hai cách",
     "source_id": "bib-leanhvinh-2020",
-    "page": "tr. 190 (PDF)",
-    "pdf_page": 190,
-    "verified": true,
-    "recommended": true
-   },
-   {
-    "term": "khoảng",
-    "source_id": "bib-nguyenhuudien-2019",
-    "page": "tr. 86 (PDF)",
-    "pdf_page": 86,
+    "page": "tr. 218 (PDF)",
+    "pdf_page": 218,
     "verified": true,
     "recommended": false
    },
    {
-    "term": "khoảng",
-    "source_id": "bib-nguyenducnghia-2006",
-    "page": "tr. 60 (PDF)",
-    "pdf_page": 60,
-    "verified": true,
-    "recommended": false
-   },
-   {
-    "term": "khoảng",
-    "source_id": "bib-ngodactan-2004",
-    "page": "tr. 165 (PDF)",
-    "pdf_page": 165,
-    "verified": true,
-    "recommended": false
-   },
-   {
-    "term": "khoảng",
-    "source_id": "bib-rosen-2003-vi",
-    "page": "tr. 103 (PDF, bản dịch Rosen)",
-    "pdf_page": 103,
-    "verified": true,
-    "recommended": false
-   }
-  ]
- },
- {
-  "id": "invariant-for-graph-isomorphism",
-  "letter": "I",
-  "headword_en": "Invariant For Graph Isomorphism",
-  "rosen_ref": "",
-  "definition_vi": "",
-  "see_ref": "graph-invariant",
-  "vi_terms": [
-   {
-    "term": "bất biến đối với phép đẳng cấu",
-    "source_id": "",
-    "page": "",
-    "pdf_page": 0,
-    "verified": false,
-    "recommended": false
-   }
-  ]
- },
- {
-  "id": "inverse",
-  "letter": "I",
-  "headword_en": "Inverse",
-  "rosen_ref": "Rosen §1.1",
-  "definition_vi": "Mệnh đề nghịch đảo (phản đề) của mệnh đề kéo theo $$p \\to q$$, ký hiệu $$\\neg p \\to \\neg q$$, là mệnh đề thu được bằng cách phủ định cả giả thiết và kết luận của mệnh đề ban đầu. Một mệnh đề kéo theo và mệnh đề nghịch đảo của nó không nhất thiết tương đương logic, nhưng mệnh đề nghịch đảo luôn tương đương với mệnh đề đảo $$q \\to p$$.",
-  "see_ref": "",
-  "vi_terms": [
-   {
-    "term": "nghịch đảo",
+    "term": "đếm số phần tử bằng hai cách",
     "source_id": "",
     "page": "",
     "pdf_page": 0,
@@ -1606,15 +1005,7 @@
     "recommended": false
    },
    {
-    "term": "mệnh đề nghịch đảo",
-    "source_id": "",
-    "page": "",
-    "pdf_page": 0,
-    "verified": false,
-    "recommended": false
-   },
-   {
-    "term": "mệnh đề nghịch đảo, nghịch đảo",
+    "term": "phương pháp đếm bằng hai cách",
     "source_id": "",
     "page": "",
     "pdf_page": 0,
@@ -1624,438 +1015,23 @@
   ]
  },
  {
-  "id": "inverse-function",
-  "letter": "I",
-  "headword_en": "inverse function",
-  "rosen_ref": "Rosen §2.3",
-  "definition_vi": "Hàm ngược của một song ánh $$f$$ từ tập $$A$$ vào tập $$B$$, ký hiệu $$f^{-1}$$, là hàm gán cho mỗi phần tử $$b \\in B$$ phần tử duy nhất $$a \\in A$$ sao cho $$f(a) = b$$. Như vậy $$f^{-1}(b) = a$$ khi và chỉ khi $$f(a) = b$$.",
+  "id": "double-sum",
+  "letter": "D",
+  "headword_en": "Double Sum",
+  "rosen_ref": "Rosen §2.4",
+  "definition_vi": "Tổng đôi (tổng kép) là tổng lồng nhau của một dãy số được đánh chỉ số bởi hai chỉ số, ký hiệu $$\\sum_{i=m}^{n}\\sum_{j=p}^{q} a_{ij}$$. Giá trị của nó được tính bằng cách trước hết khai triển tổng trong theo chỉ số $$j$$, rồi lấy tổng các kết quả nhận được theo chỉ số $$i$$.",
   "see_ref": "",
   "vi_terms": [
    {
-    "term": "hàm ngược",
-    "source_id": "",
-    "page": "",
-    "pdf_page": null,
-    "verified": false,
-    "recommended": true
-   }
-  ]
- },
- {
-  "id": "inverse-modulo-m",
-  "letter": "I",
-  "headword_en": "Inverse Modulo M",
-  "rosen_ref": "Rosen §4.4",
-  "definition_vi": "Nghịch đảo của $$a$$ theo môđun $$m$$ là một số nguyên $$\\bar{a}$$ là nghịch đảo phép nhân của $$a$$ theo môđun $$m$$, tức là $$\\bar{a} a \\equiv 1 \\pmod{m}$$.",
-  "see_ref": "",
-  "vi_terms": [
-   {
-    "term": "nghịch đảo của $$a$$ theo môđun $$m$$",
-    "source_id": "",
-    "page": "",
-    "pdf_page": 0,
-    "verified": false,
-    "recommended": true
-   },
-   {
-    "term": "nghịch đảo của $$a$$ theo môđun $$m$$",
+    "term": "tổng kép",
     "source_id": "bib-rosen-2003-vi",
-    "page": "tr. 874 (PDF)",
-    "pdf_page": 874,
-    "verified": true,
-    "recommended": false
-   }
-  ]
- },
- {
-  "id": "inverse-of-a-function",
-  "letter": "I",
-  "headword_en": "Inverse Of A Function",
-  "rosen_ref": "",
-  "definition_vi": "",
-  "see_ref": "inverse-function",
-  "vi_terms": []
- },
- {
-  "id": "inverse-relation",
-  "letter": "I",
-  "headword_en": "inverse relation",
-  "rosen_ref": "Rosen §9.1",
-  "definition_vi": "Quan hệ ngược của một quan hệ $$R$$ từ tập $$A$$ vào tập $$B$$, ký hiệu $$R^{-1}$$, là quan hệ từ $$B$$ vào $$A$$ thu được bằng cách đảo thứ tự của mỗi cặp có thứ tự thuộc $$R$$; nghĩa là $$R^{-1} = \\{(b, a) : (a, b) \\in R\\}$$.",
-  "see_ref": "",
-  "vi_terms": [
-   {
-    "term": "quan hệ ngược",
-    "source_id": "bib-nguyenhuudien-2019",
-    "page": "tr. 113 (PDF)",
-    "pdf_page": 113,
-    "verified": true,
-    "recommended": true
-   },
-   {
-    "term": "quan hệ ngược",
-    "source_id": "bib-rosen-2003-vi",
-    "page": "tr. 436 (PDF, bản dịch Rosen)",
-    "pdf_page": 436,
-    "verified": true,
-    "recommended": false
-   }
-  ]
- },
- {
-  "id": "inverter",
-  "letter": "I",
-  "headword_en": "Inverter",
-  "rosen_ref": "Rosen §12.3",
-  "definition_vi": "Bộ đảo là một phần tử logic nhận một đầu vào Boole duy nhất $$x$$ và tạo ra đầu ra là phần bù của giá trị đó, tức là $$\\overline{x}$$. Do đó đầu ra bằng $$1$$ khi $$x = 0$$ và bằng $$0$$ khi $$x = 1$$.",
-  "see_ref": "",
-  "vi_terms": [
-   {
-    "term": "bộ đảo",
-    "source_id": "bib-rosen-2003-vi",
-    "page": "tr. 728 (PDF)",
-    "pdf_page": 728,
+    "page": "tr. 100 (PDF)",
+    "pdf_page": 100,
     "verified": true,
     "recommended": false
    },
    {
-    "term": "Bộ đảo",
-    "source_id": "bib-rosen-2003-vi",
-    "page": "tr. 728 (PDF, bản dịch Rosen)",
-    "pdf_page": 728,
-    "verified": true,
-    "recommended": true
-   },
-   {
-    "term": "Đặt bộ đảo",
-    "source_id": "",
-    "page": "",
-    "pdf_page": 0,
-    "verified": false,
-    "recommended": false
-   }
-  ]
- },
- {
-  "id": "invertible-function",
-  "letter": "I",
-  "headword_en": "Invertible Function",
-  "rosen_ref": "Rosen §2.3",
-  "definition_vi": "Hàm khả nghịch là hàm $$f: A \\to B$$ tồn tại hàm $$g: B \\to A$$ sao cho $$g \\circ f$$ là hàm đồng nhất trên $$A$$ và $$f \\circ g$$ là hàm đồng nhất trên $$B$$; khi đó $$g$$ gọi là hàm ngược của $$f$$, ký hiệu $$f^{-1}$$. Một hàm là khả nghịch khi và chỉ khi nó là song ánh.",
-  "see_ref": "",
-  "vi_terms": [
-   {
-    "term": "hàm khả nghịch",
-    "source_id": "bib-rosen-2003-vi",
-    "page": "tr. 88 (PDF)",
-    "pdf_page": 88,
-    "verified": true,
-    "recommended": true
-   }
-  ]
- },
- {
-  "id": "irrational-number",
-  "letter": "I",
-  "headword_en": "Irrational Number",
-  "rosen_ref": "Rosen §1.7",
-  "definition_vi": "Số vô tỷ là số thực $$x$$ không thể viết được dưới dạng tỷ số $$p/q$$ của hai số nguyên $$p$$ và $$q$$ với $$q \\neq 0$$; nói cách khác, $$x$$ là số vô tỷ khi và chỉ khi $$x$$ không phải là số hữu tỷ, ký hiệu $$x \\in \\mathbb{R} \\setminus \\mathbb{Q}$$.",
-  "see_ref": "",
-  "vi_terms": [
-   {
-    "term": "số vô tỷ",
-    "source_id": "bib-rosen-2003-vi",
-    "page": "tr. 166 (PDF)",
-    "pdf_page": 166,
-    "verified": true,
-    "recommended": true
-   },
-   {
-    "term": "số vô tỷ",
-    "source_id": "bib-ngodactan-2004",
-    "page": "tr. 91 (PDF)",
-    "pdf_page": 91,
-    "verified": true,
-    "recommended": false
-   }
-  ]
- },
- {
-  "id": "irreflexive-relation",
-  "letter": "I",
-  "headword_en": "irreflexive relation",
-  "rosen_ref": "Rosen §9.1",
-  "definition_vi": "Một quan hệ $$R$$ trên tập $$A$$ được gọi là quan hệ không phản xạ nếu không có phần tử nào của $$A$$ có quan hệ với chính nó, tức là $$(a, a) \\notin R$$ với mọi $$a \\in A$$.",
-  "see_ref": "",
-  "vi_terms": [
-   {
-    "term": "quan hệ không phản xạ",
-    "source_id": "bib-nguyenhuudien-2019",
-    "page": "tr. 111 (PDF)",
-    "pdf_page": 111,
-    "verified": true,
-    "recommended": true
-   },
-   {
-    "term": "không phản xạ",
-    "source_id": "bib-nguyenhuudien-2019",
-    "page": "tr. 111 (PDF)",
-    "pdf_page": 111,
-    "verified": true,
-    "recommended": false
-   },
-   {
-    "term": "quan hệ không phản xạ",
-    "source_id": "bib-rosen-2003-vi",
-    "page": "tr. 489 (PDF, bản dịch Rosen)",
-    "pdf_page": 489,
-    "verified": true,
-    "recommended": false
-   },
-   {
-    "term": "không phản xạ",
-    "source_id": "bib-rosen-2003-vi",
-    "page": "tr. 435 (PDF, bản dịch Rosen)",
-    "pdf_page": 435,
-    "verified": true,
-    "recommended": false
-   }
-  ]
- },
- {
-  "id": "isolated-vertex",
-  "letter": "I",
-  "headword_en": "isolated vertex",
-  "rosen_ref": "Rosen §10.2",
-  "definition_vi": "Đỉnh cô lập là một đỉnh có bậc $$0$$, tức là một đỉnh $$v$$ thỏa mãn $$\\deg(v) = 0$$ và do đó không phải là đầu mút của bất kỳ cạnh nào.",
-  "see_ref": "",
-  "vi_terms": [
-   {
-    "term": "đỉnh cô lập",
-    "source_id": "bib-nguyenhoangthach-2020",
-    "page": "tr. 64 (PDF)",
-    "pdf_page": 64,
-    "verified": true,
-    "recommended": true
-   },
-   {
-    "term": "đỉnh bậc 0",
-    "source_id": "bib-nguyenhoangthach-2020",
-    "page": "tr. 64 (PDF)",
-    "pdf_page": 64,
-    "verified": true,
-    "recommended": false
-   },
-   {
-    "term": "đỉnh cô lập",
-    "source_id": "bib-nguyenhuudien-2019",
-    "page": "tr. 157 (PDF)",
-    "pdf_page": 157,
-    "verified": true,
-    "recommended": false
-   },
-   {
-    "term": "đỉnh cô lập",
-    "source_id": "bib-hoangchithanh-2007",
-    "page": "tr. 33 (PDF)",
-    "pdf_page": 33,
-    "verified": true,
-    "recommended": false
-   },
-   {
-    "term": "đỉnh bậc 0",
-    "source_id": "bib-hoangchithanh-2007",
-    "page": "tr. 17 (PDF)",
-    "pdf_page": 17,
-    "verified": true,
-    "recommended": false
-   },
-   {
-    "term": "đỉnh cô lập",
-    "source_id": "bib-nguyenducnghia-2006",
-    "page": "tr. 194 (PDF)",
-    "pdf_page": 194,
-    "verified": true,
-    "recommended": false
-   },
-   {
-    "term": "đỉnh cô lập",
-    "source_id": "bib-ngodactan-2004",
-    "page": "tr. 186 (PDF)",
-    "pdf_page": 186,
-    "verified": true,
-    "recommended": false
-   },
-   {
-    "term": "đỉnh cô lập",
-    "source_id": "bib-rosen-2003-vi",
-    "page": "tr. 505 (PDF, bản dịch Rosen)",
-    "pdf_page": 505,
-    "verified": true,
-    "recommended": false
-   }
-  ]
- },
- {
-  "id": "isomorphic",
-  "letter": "I",
-  "headword_en": "Isomorphic",
-  "rosen_ref": "Rosen §10.3",
-  "definition_vi": "Hai đơn đồ thị $$G_1 = (V_1, E_1)$$ và $$G_2 = (V_2, E_2)$$ được gọi là đẳng cấu (ký hiệu $$G_1 \\cong G_2$$) nếu tồn tại một song ánh $$f : V_1 \\to V_2$$ sao cho với mọi cặp đỉnh $$u, v \\in V_1$$ ta có $$uv \\in E_1$$ khi và chỉ khi $$f(u)f(v) \\in E_2$$. Song ánh $$f$$ như vậy được gọi là một phép đẳng cấu giữa $$G_1$$ và $$G_2$$.",
-  "see_ref": "",
-  "vi_terms": [
-   {
-    "term": "đẳng cấu",
-    "source_id": "bib-leanhvinh-2020",
-    "page": "tr. 12 (PDF)",
-    "pdf_page": 12,
-    "verified": true,
-    "recommended": true
-   },
-   {
-    "term": "đẳng cấu",
-    "source_id": "bib-nguyenhoangthach-2020",
-    "page": "tr. 73 (PDF)",
-    "pdf_page": 73,
-    "verified": true,
-    "recommended": false
-   },
-   {
-    "term": "đẳng cấu",
-    "source_id": "bib-nguyenhuudien-2019",
-    "page": "tr. 164 (PDF)",
-    "pdf_page": 164,
-    "verified": true,
-    "recommended": false
-   },
-   {
-    "term": "đẳng cấu",
-    "source_id": "bib-nguyenducnghia-2006",
-    "page": "tr. 165 (PDF)",
-    "pdf_page": 165,
-    "verified": true,
-    "recommended": false
-   },
-   {
-    "term": "đẳng cấu",
-    "source_id": "bib-ngodactan-2004",
-    "page": "tr. 191 (PDF)",
-    "pdf_page": 191,
-    "verified": true,
-    "recommended": false
-   },
-   {
-    "term": "đẳng cấu",
-    "source_id": "bib-hoangchithanh-2007",
-    "page": "tr. 8 (PDF)",
-    "pdf_page": 8,
-    "verified": true,
-    "recommended": false
-   },
-   {
-    "term": "đẳng cấu",
-    "source_id": "bib-rosen-2003-vi",
-    "page": "tr. 525 (PDF)",
-    "pdf_page": 525,
-    "verified": true,
-    "recommended": false
-   },
-   {
-    "term": "đẳng cấu đồ thị",
-    "source_id": "bib-nguyenhoangthach-2020",
-    "page": "tr. 73 (PDF)",
-    "pdf_page": 73,
-    "verified": true,
-    "recommended": false
-   },
-   {
-    "term": "phép đẳng cấu",
-    "source_id": "bib-nguyenhuudien-2019",
-    "page": "tr. 165 (PDF)",
-    "pdf_page": 165,
-    "verified": true,
-    "recommended": false
-   },
-   {
-    "term": "đồ thị đẳng cấu",
-    "source_id": "bib-nguyenhuudien-2019",
-    "page": "tr. 165 (PDF)",
-    "pdf_page": 165,
-    "verified": true,
-    "recommended": false
-   }
-  ]
- },
- {
-  "id": "isomorphic-simple-graphs",
-  "letter": "I",
-  "headword_en": "Isomorphic Simple Graphs",
-  "rosen_ref": "",
-  "definition_vi": "",
-  "see_ref": "isomorphic",
-  "vi_terms": [
-   {
-    "term": "đơn đồ thị đẳng cấu",
-    "source_id": "bib-rosen-2003-vi",
-    "page": "tr. 525 (PDF, bản dịch Rosen)",
-    "pdf_page": 525,
-    "verified": true,
-    "recommended": false
-   }
-  ]
- },
- {
-  "id": "isomorphism",
-  "letter": "I",
-  "headword_en": "isomorphism",
-  "rosen_ref": "",
-  "definition_vi": "",
-  "see_ref": "isomorphic",
-  "vi_terms": [
-   {
-    "term": "đẳng cấu",
-    "source_id": "",
-    "page": "",
-    "pdf_page": 0,
-    "verified": false,
-    "recommended": false
-   },
-   {
-    "term": "đẳng cấu đồ thị",
-    "source_id": "",
-    "page": "",
-    "pdf_page": 0,
-    "verified": false,
-    "recommended": false
-   },
-   {
-    "term": "phép đẳng cấu",
-    "source_id": "",
-    "page": "",
-    "pdf_page": 0,
-    "verified": false,
-    "recommended": false
-   },
-   {
-    "term": "đồ thị đẳng cấu",
-    "source_id": "",
-    "page": "",
-    "pdf_page": 0,
-    "verified": false,
-    "recommended": false
-   }
-  ]
- },
- {
-  "id": "itemset",
-  "letter": "I",
-  "headword_en": "Itemset",
-  "rosen_ref": "",
-  "definition_vi": "Một tập mục là một tập hợp gồm các mục (item).",
-  "see_ref": "",
-  "vi_terms": [
-   {
-    "term": "tập mục",
+    "term": "Tổng đôi",
     "source_id": "",
     "page": "",
     "pdf_page": 0,
@@ -2065,329 +1041,121 @@
   ]
  },
  {
-  "id": "jacobi-symbol",
-  "letter": "J",
-  "headword_en": "Jacobi symbol",
-  "rosen_ref": "Rosen §4.4",
-  "definition_vi": "Cho số nguyên $$a$$ và số nguyên dương lẻ $$n=p_1^{e_1}\\cdots p_r^{e_r}$$, trong đó $$p_1,\\dots,p_r$$ là các số nguyên tố lẻ phân biệt. \\emph{Ký hiệu Jacobi} của $$a$$ theo $$n$$, ký hiệu $$\\left(\\tfrac{a}{n}\\right)$$, được định nghĩa là tích các ký hiệu Legendre $$\\left(\\tfrac{a}{n}\\right)=\\prod_{i=1}^{r}\\left(\\tfrac{a}{p_i}\\right)^{e_i}$$, mở rộng ký hiệu Legendre sang mọi môđun lẻ dương.",
-  "see_ref": "",
-  "vi_terms": [
-   {
-    "term": "ký hiệu Jacobi",
-    "source_id": "",
-    "page": "",
-    "pdf_page": 0,
-    "verified": false,
-    "recommended": true
-   }
-  ]
- },
- {
-  "id": "johnson-graph",
-  "letter": "J",
-  "headword_en": "Johnson graph",
-  "rosen_ref": "Rosen §10.2",
-  "definition_vi": "\\emph{Đồ thị Johnson}, ký hiệu $$J(n,k)$$, là đồ thị có các đỉnh là các tập con $$k$$ phần tử của một tập $$n$$ phần tử, trong đó hai đỉnh kề nhau khi và chỉ khi hai tập con tương ứng có chung đúng $$k-1$$ phần tử (tương đương, hiệu đối xứng của chúng có lực lượng bằng $$2$$).",
-  "see_ref": "",
-  "vi_terms": [
-   {
-    "term": "đồ thị Johnson",
-    "source_id": "bib-leanhvinh-2020",
-    "page": "tr. 222 (PDF)",
-    "pdf_page": 222,
-    "verified": true,
-    "recommended": true
-   }
-  ]
- },
- {
-  "id": "johnsons-algorithm",
-  "letter": "J",
-  "headword_en": "Johnson's algorithm",
-  "rosen_ref": "Rosen §10.6",
-  "definition_vi": "\\emph{Thuật toán Johnson} là thủ tục tìm độ dài đường đi ngắn nhất giữa mọi cặp đỉnh trong một đồ thị có hướng có trọng số $$G = (V, E)$$ mà trọng số cạnh có thể âm nhưng không chứa chu trình có trọng số âm. Thuật toán dùng thuật toán Bellman–Ford để gán cho mỗi đỉnh $$v$$ một thế năng $$h(v)$$, rồi đổi trọng số của mỗi cạnh $$(u, v)$$ từ $$w(u, v)$$ thành $$w'(u, v) = w(u, v) + h(u) - h(v) \\geq 0$$ để mọi trọng số trở thành không âm; sau đó chạy thuật toán Dijkstra từ mỗi đỉnh trên đồ thị đã đổi trọng số và quy đổi kết quả về khoảng cách ban đầu.",
-  "see_ref": "",
-  "vi_terms": [
-   {
-    "term": "thuật toán Johnson",
-    "source_id": "",
-    "page": "",
-    "pdf_page": 0,
-    "verified": false,
-    "recommended": true
-   }
-  ]
- },
- {
-  "id": "join",
-  "letter": "J",
-  "headword_en": "Join",
-  "rosen_ref": "Rosen, Định nghĩa 3, tr. 444 (bản dịch tiếng Việt)",
-  "definition_vi": "Cho $$R$$ là một quan hệ bậc $$m$$ và $$S$$ là một quan hệ bậc $$n$$. Phép kết nối $$J_p(R, S)$$, với $$p \\leq m$$ và $$p \\leq n$$, là phép toán tạo một quan hệ bậc $$m + n - p$$ gồm tất cả các bộ $$(m + n - p)$$ thành phần thu được bằng cách tổ hợp một bộ $$m$$ thành phần của $$R$$ với một bộ $$n$$ thành phần của $$S$$, trong đó $$p$$ thành phần cuối cùng của bộ thuộc $$R$$ trùng với $$p$$ thành phần đầu tiên của bộ thuộc $$S$$.",
-  "see_ref": "",
-  "vi_terms": [
-   {
-    "term": "phép kết nối",
-    "source_id": "",
-    "page": "",
-    "pdf_page": 0,
-    "verified": false,
-    "recommended": true
-   },
-   {
-    "term": "phép hợp",
-    "source_id": "bib-rosen-2003-vi",
-    "page": "tr. 444 (PDF)",
-    "pdf_page": 444,
-    "verified": true,
-    "recommended": false
-   }
-  ]
- },
- {
-  "id": "join-lattice",
-  "letter": "J",
-  "headword_en": "join (least upper bound in a lattice)",
-  "rosen_ref": "Rosen §9.6",
-  "definition_vi": "Trong một dàn $$(L,\\preceq)$$, \\emph{chặn trên nhỏ nhất} của hai phần tử $$a$$ và $$b$$, ký hiệu $$a\\vee b$$, là phần tử $$\\sup(a,b)$$ thỏa mãn $$a\\preceq a\\vee b$$, $$b\\preceq a\\vee b$$, và $$a\\vee b\\preceq c$$ với mọi chặn trên $$c$$ của cả $$a$$ và $$b$$.",
-  "see_ref": "",
-  "vi_terms": [
-   {
-    "term": "chặn trên nhỏ nhất",
-    "source_id": "bib-nguyenhuudien-2019",
-    "page": "tr. 120 (PDF)",
-    "pdf_page": 120,
-    "verified": true,
-    "recommended": true
-   },
-   {
-    "term": "sup",
-    "source_id": "bib-nguyenhuudien-2019",
-    "page": "tr. 123 (PDF)",
-    "pdf_page": 123,
-    "verified": true,
-    "recommended": false
-   },
-   {
-    "term": "cận trên",
-    "source_id": "bib-ngodactan-2004",
-    "page": "tr. 164 (PDF)",
-    "pdf_page": 164,
-    "verified": true,
-    "recommended": false
-   },
-   {
-    "term": "cận trên",
-    "source_id": "bib-rosen-2003-vi",
-    "page": "tr. 634 (PDF, bản dịch Rosen)",
-    "pdf_page": 634,
-    "verified": true,
-    "recommended": false
-   }
-  ]
- },
- {
-  "id": "join-of-two-graphs",
-  "letter": "J",
-  "headword_en": "join of two graphs",
-  "rosen_ref": "Rosen §10.2",
-  "definition_vi": "Cho hai đồ thị đơn $$G_1=(V_1,E_1)$$ và $$G_2=(V_2,E_2)$$ có tập đỉnh rời nhau. \\emph{Kết nối của hai đồ thị} $$G_1$$ và $$G_2$$, ký hiệu là $$G_1 + G_2$$, là đồ thị trên tập đỉnh $$V_1 \\cup V_2$$ nhận được từ hợp rời của $$G_1$$ và $$G_2$$ bằng cách thêm vào mọi cạnh $$xy$$ với $$x \\in V_1$$ và $$y \\in V_2$$.",
-  "see_ref": "",
-  "vi_terms": [
-   {
-    "term": "kết nối của hai đồ thị",
-    "source_id": "bib-ngodactan-2004",
-    "page": "tr. 267 (PDF)",
-    "pdf_page": 267,
-    "verified": true,
-    "recommended": true
-   },
-   {
-    "term": "kết nối của hai đồ thị",
-    "source_id": "bib-ngodactan-2004",
-    "page": "tr. 190 (PDF)",
-    "pdf_page": 190,
-    "verified": true,
-    "recommended": false
-   }
-  ]
- },
- {
-  "id": "jordan-curve-theorem",
-  "letter": "J",
-  "headword_en": "Jordan curve theorem",
+  "id": "dual",
+  "letter": "D",
+  "headword_en": "Dual",
   "rosen_ref": "Rosen §10.7",
-  "definition_vi": "\\emph{Định lý đường cong Jordan} khẳng định rằng mọi đường cong Jordan khép kín $$C$$ trong mặt phẳng (tức là một đường cong liên tục, không tự cắt, có hai điểm đầu mút trùng nhau) chia mặt phẳng thành đúng hai miền: một miền trong bị chặn và một miền ngoài không bị chặn. Đường cong $$C$$ là biên chung của hai miền này.",
+  "definition_vi": "Đối ngẫu (đồ thị đối ngẫu) của một đồ thị phẳng $$G$$ đã cho một biểu diễn phẳng, ký hiệu $$G^*$$, là đồ thị mà mỗi đỉnh tương ứng với một miền của $$G$$, và hai đỉnh của $$G^*$$ được nối bởi một cạnh ứng với mỗi cạnh chung trên biên của hai miền tương ứng. Mọi đồ thị phẳng đều có đồ thị đối ngẫu cũng là đồ thị phẳng.",
   "see_ref": "",
   "vi_terms": [
    {
-    "term": "định lý đường cong Jordan",
-    "source_id": "",
-    "page": "",
-    "pdf_page": 0,
-    "verified": false,
-    "recommended": true
-   },
-   {
-    "term": "đường cong Jordan khép kín",
-    "source_id": "bib-ngodactan-2004",
-    "page": "tr. 210 (PDF)",
-    "pdf_page": 210,
-    "verified": true,
-    "recommended": false
-   },
-   {
-    "term": "đường cong Jordan",
-    "source_id": "bib-ngodactan-2004",
-    "page": "tr. 210 (PDF)",
-    "pdf_page": 210,
-    "verified": true,
-    "recommended": false
-   }
-  ]
- },
- {
-  "id": "complete-graph-kn",
-  "letter": "K",
-  "headword_en": "complete graph K_n",
-  "rosen_ref": "Rosen §10.2",
-  "definition_vi": "\\emph{Đồ thị đầy đủ} trên $$n$$ đỉnh, ký hiệu $$K_n$$, là đơn đồ thị mà mỗi cặp đỉnh phân biệt được nối với nhau bởi đúng một cạnh.",
-  "see_ref": "",
-  "vi_terms": [
-   {
-    "term": "đồ thị đầy đủ",
-    "source_id": "bib-leanhvinh-2020",
-    "page": "tr. 14 (PDF)",
-    "pdf_page": 14,
-    "verified": true,
-    "recommended": true
-   },
-   {
-    "term": "đồ thị đầy đủ bậc n",
-    "source_id": "bib-leanhvinh-2020",
-    "page": "tr. 14 (PDF)",
-    "pdf_page": 14,
-    "verified": true,
-    "recommended": false
-   },
-   {
-    "term": "đồ thị đầy đủ Kn",
-    "source_id": "bib-nguyenhoangthach-2020",
-    "page": "tr. 69 (PDF)",
-    "pdf_page": 69,
-    "verified": true,
-    "recommended": false
-   },
-   {
-    "term": "đồ thị đầy đủ n đỉnh",
+    "term": "đồ thị đối ngẫu",
     "source_id": "bib-nguyenhuudien-2019",
-    "page": "tr. 159 (PDF)",
-    "pdf_page": 159,
+    "page": "tr. 235 (PDF)",
+    "pdf_page": 235,
     "verified": true,
     "recommended": false
    },
    {
-    "term": "n-đồ thị đầy đủ",
+    "term": "đồ thị đối ngẫu",
+    "source_id": "bib-nguyenhoangthach-2020",
+    "page": "tr. 82 (PDF)",
+    "pdf_page": 82,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "đồ thị đối ngẫu",
     "source_id": "bib-ngodactan-2004",
-    "page": "tr. 190 (PDF)",
-    "pdf_page": 190,
+    "page": "tr. 294 (PDF)",
+    "pdf_page": 294,
     "verified": true,
     "recommended": false
    },
    {
-    "term": "đồ thị đầy đủ",
+    "term": "đồ thị đối ngẫu",
     "source_id": "bib-rosen-2003-vi",
-    "page": "tr. 605 (PDF, bản dịch Rosen)",
-    "pdf_page": 605,
+    "page": "tr. 594 (PDF)",
+    "pdf_page": 594,
     "verified": true,
     "recommended": false
-   }
-  ]
- },
- {
-  "id": "k-ary-tree",
-  "letter": "K",
-  "headword_en": "k-ary tree",
-  "rosen_ref": "",
-  "definition_vi": "",
-  "see_ref": "m-ary-tree",
-  "vi_terms": [
+   },
    {
-    "term": "cây m-phân",
-    "source_id": "",
-    "page": "",
-    "pdf_page": 0,
-    "verified": false,
-    "recommended": false
+    "term": "Đối ngẫu",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 29 (PDF, bản dịch Rosen)",
+    "pdf_page": 29,
+    "verified": true,
+    "recommended": true
    }
   ]
  },
  {
-  "id": "k-coloring",
-  "letter": "K",
-  "headword_en": "k-coloring",
-  "rosen_ref": "Rosen §10.8",
-  "definition_vi": "Một \\emph{cách tô màu bằng $$k$$ màu} của một đồ thị đơn $$G$$ là một phép gán cho mỗi đỉnh của $$G$$ một trong $$k$$ màu, tức một hàm $$c: V(G) \\to \\{1, 2, \\ldots, k\\}$$ thỏa mãn $$c(u) \\neq c(v)$$ với mọi cạnh $$uv \\in E(G)$$, nghĩa là không có hai đỉnh kề nhau nào được gán cùng một màu.",
+  "id": "dual-graph",
+  "letter": "D",
+  "headword_en": "Dual graph",
+  "rosen_ref": "Rosen §10.7",
+  "definition_vi": "\\emph{Đồ thị đối ngẫu} của một đồ thị phẳng $$G$$, ký hiệu $$G^{*}$$, là đồ thị có mỗi đỉnh tương ứng với một miền (mặt) của $$G$$. Mỗi cạnh của $$G$$ nằm chung trên biên của hai miền $$R_1$$ và $$R_2$$ cho một cạnh của $$G^{*}$$ nối hai đỉnh ứng với $$R_1$$ và $$R_2$$; mỗi cạnh kề cùng một miền ở cả hai phía (một cầu) cho một khuyên tại đỉnh ứng với miền đó. Như vậy tương ứng giữa các cạnh của $$G$$ và các cạnh của $$G^{*}$$ là một song ánh.",
   "see_ref": "",
   "vi_terms": [
    {
-    "term": "tô màu một đồ thị đơn bằng k màu",
+    "term": "đồ thị đối ngẫu",
+    "source_id": "bib-nguyenhoangthach-2020",
+    "page": "tr. 82 (PDF)",
+    "pdf_page": 82,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "đồ thị đối ngẫu",
     "source_id": "bib-nguyenhoangthach-2020",
     "page": "tr. 81 (PDF)",
     "pdf_page": 81,
     "verified": true,
-    "recommended": true
-   },
-   {
-    "term": "tô màu (các đỉnh của G) bởi k màu",
-    "source_id": "bib-leanhvinh-2020",
-    "page": "tr. 90 (PDF)",
-    "pdf_page": 90,
-    "verified": true,
     "recommended": false
    },
    {
-    "term": "tô được bởi k màu",
-    "source_id": "bib-leanhvinh-2020",
-    "page": "tr. 90 (PDF)",
-    "pdf_page": 90,
-    "verified": true,
-    "recommended": false
-   },
-   {
-    "term": "tô được bằng k màu",
+    "term": "đồ thị đối ngẫu",
     "source_id": "bib-nguyenhuudien-2019",
-    "page": "tr. 227 (PDF)",
-    "pdf_page": 227,
+    "page": "tr. 235 (PDF)",
+    "pdf_page": 235,
     "verified": true,
     "recommended": false
    },
    {
-    "term": "k-tô màu",
+    "term": "đồ thị đối ngẫu của",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 235 (PDF)",
+    "pdf_page": 235,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "đồ thị đối ngẫu",
     "source_id": "bib-ngodactan-2004",
-    "page": "tr. 283 (PDF)",
-    "pdf_page": 283,
+    "page": "tr. 294 (PDF)",
+    "pdf_page": 294,
     "verified": true,
     "recommended": false
    },
    {
-    "term": "tô màu các đỉnh",
-    "source_id": "bib-leanhvinh-2020",
-    "page": "tr. 245 (PDF)",
-    "pdf_page": 245,
+    "term": "đồ thị đối ngẫu",
+    "source_id": "bib-ngodactan-2004",
+    "page": "tr. 295 (PDF)",
+    "pdf_page": 295,
     "verified": true,
     "recommended": false
    },
    {
-    "term": "tô màu đồ thị",
-    "source_id": "bib-leanhvinh-2020",
-    "page": "tr. 90 (PDF)",
-    "pdf_page": 90,
+    "term": "đồ thị đối ngẫu của",
+    "source_id": "bib-ngodactan-2004",
+    "page": "tr. 294 (PDF)",
+    "pdf_page": 294,
     "verified": true,
     "recommended": false
    },
    {
-    "term": "tô màu đồ thị",
+    "term": "đồ thị đối ngẫu",
     "source_id": "bib-rosen-2003-vi",
     "page": "tr. 594 (PDF, bản dịch Rosen)",
     "pdf_page": 594,
@@ -2397,15 +1165,325 @@
   ]
  },
  {
-  "id": "k-connected-graph",
-  "letter": "K",
-  "headword_en": "k-connected graph",
-  "rosen_ref": "Rosen §10.4",
-  "definition_vi": "Cho $$k$$ là một số nguyên dương. Một đồ thị liên thông $$G$$ được gọi là \\emph{$$k$$-liên thông} nếu độ liên thông đỉnh của nó thỏa mãn $$\\kappa(G) \\geq k$$, tức là không thể làm cho $$G$$ mất liên thông (hoặc trở thành đồ thị tầm thường một đỉnh) bằng cách xóa đi ít hơn $$k$$ đỉnh bất kỳ.",
+  "id": "dual-of-a-boolean-expression",
+  "letter": "D",
+  "headword_en": "Dual Of A Boolean Expression",
+  "rosen_ref": "",
+  "definition_vi": "",
+  "see_ref": "duality-principle",
+  "vi_terms": [
+   {
+    "term": "đối ngẫu của biểu thức Boole",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 757 (PDF)",
+    "pdf_page": 757,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "duality-principle",
+  "letter": "D",
+  "headword_en": "Duality Principle",
+  "rosen_ref": "Rosen §11.1",
+  "definition_vi": "Nguyên lý đối ngẫu khẳng định rằng một hằng đẳng thức giữa các hàm Boole vẫn còn đúng khi ta thay nó bằng hằng đẳng thức đối ngẫu, tức là đổi mỗi phép $$\\cdot$$ thành $$+$$, mỗi phép $$+$$ thành $$\\cdot$$, đồng thời đổi mỗi hằng $$0$$ thành $$1$$ và mỗi hằng $$1$$ thành $$0$$ (các biến giữ nguyên). Đối ngẫu của một biểu thức Boole $$E$$, ký hiệu $$E^{d}$$, nhận được bằng cách thực hiện các phép đổi này.",
   "see_ref": "",
   "vi_terms": [
    {
-    "term": "k-liên thông",
+    "term": "nguyên lý đối ngẫu",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 757 (PDF)",
+    "pdf_page": 757,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "luật đối ngẫu",
+    "source_id": "bib-nguyenducnghia-2006",
+    "page": "tr. 270 (PDF)",
+    "pdf_page": 270,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "Nguyên lý đối ngẫu",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 757 (PDF, bản dịch Rosen)",
+    "pdf_page": 757,
+    "verified": true,
+    "recommended": true
+   }
+  ]
+ },
+ {
+  "id": "dynamic-programming",
+  "letter": "D",
+  "headword_en": "Dynamic Programming",
+  "rosen_ref": "",
+  "definition_vi": "Quy hoạch động là một mô hình thuật toán tìm lời giải tối ưu bằng cách kết hợp các lời giải của những bài toán con gối nhau. Mỗi bài toán con chỉ được giải một lần, sau đó lời giải của nó được lưu lại và dùng lại để tạo nên lời giải tối ưu cho bài toán ban đầu.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "quy hoạch động",
+    "source_id": "bib-nguyenhoangthach-2020",
+    "page": "tr. 91 (PDF)",
+    "pdf_page": 91,
+    "verified": true,
+    "recommended": true
+   }
+  ]
+ },
+ {
+  "id": "eccentricity",
+  "letter": "E",
+  "headword_en": "Eccentricity",
+  "rosen_ref": "Rosen §10.4",
+  "definition_vi": "Độ lệch tâm của một đỉnh $$v$$ trong đồ thị liên thông $$G$$, ký hiệu $$e(v)$$, là khoảng cách lớn nhất từ $$v$$ tới mọi đỉnh khác của $$G$$, tức là $$e(v) = \\max_{u \\in V(G)} d(u,v)$$, trong đó $$d(u,v)$$ là độ dài đường đi ngắn nhất giữa $$u$$ và $$v$$.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "độ lệch tâm",
+    "source_id": "bib-leanhvinh-2020",
+    "page": "tr. 43 (PDF)",
+    "pdf_page": 43,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "tâm sai",
+    "source_id": "bib-ngodactan-2004",
+    "page": "tr. 216 (PDF)",
+    "pdf_page": 216,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "độ lệch",
+    "source_id": "bib-hoangchithanh-2007",
+    "page": "tr. 100 (PDF)",
+    "pdf_page": 100,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "tâm sai",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 636 (PDF, bản dịch Rosen)",
+    "pdf_page": 636,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "edge",
+  "letter": "E",
+  "headword_en": "Edge",
+  "rosen_ref": "Rosen §10.1",
+  "definition_vi": "\\emph{Cạnh} của một đồ thị $$G$$ nối một cặp đỉnh $$u$$ và $$v$$, gọi là hai đầu mút của nó, ký hiệu $$e = \\{u, v\\}$$. Trong đồ thị vô hướng, một cạnh là một cặp đỉnh không sắp thứ tự $$\\{u, v\\}$$; trong đồ thị có hướng, một cạnh là một cặp đỉnh sắp thứ tự $$(u, v)$$.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "cạnh",
+    "source_id": "bib-leanhvinh-2020",
+    "page": "tr. 8 (PDF)",
+    "pdf_page": 8,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "cạnh của đồ thị",
+    "source_id": "bib-leanhvinh-2020",
+    "page": "tr. 59 (PDF)",
+    "pdf_page": 59,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "cạnh vô hướng",
+    "source_id": "bib-nguyenhoangthach-2020",
+    "page": "tr. 63 (PDF)",
+    "pdf_page": 63,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "cạnh có hướng",
+    "source_id": "bib-nguyenhoangthach-2020",
+    "page": "tr. 62 (PDF)",
+    "pdf_page": 62,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "cung",
+    "source_id": "bib-nguyenhoangthach-2020",
+    "page": "tr. 62 (PDF)",
+    "pdf_page": 62,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "cung",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 158 (PDF)",
+    "pdf_page": 158,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "cạnh vô hướng",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 156 (PDF)",
+    "pdf_page": 156,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "cạnh",
+    "source_id": "bib-nguyenhoangthach-2020",
+    "page": "tr. 61 (PDF)",
+    "pdf_page": 61,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "cạnh",
+    "source_id": "bib-hoangchithanh-2007",
+    "page": "tr. 5 (PDF)",
+    "pdf_page": 5,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "cạnh vô hướng",
+    "source_id": "bib-hoangchithanh-2007",
+    "page": "tr. 6 (PDF)",
+    "pdf_page": 6,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "cạnh",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 5 (PDF, bản dịch Rosen)",
+    "pdf_page": 5,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "cạnh của đồ thị",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 460 (PDF, bản dịch Rosen)",
+    "pdf_page": 460,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "cạnh vô hướng",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 495 (PDF, bản dịch Rosen)",
+    "pdf_page": 495,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "cạnh có hướng",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 453 (PDF, bản dịch Rosen)",
+    "pdf_page": 453,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "cung",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 165 (PDF, bản dịch Rosen)",
+    "pdf_page": 165,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "edge-chromatic-number",
+  "letter": "E",
+  "headword_en": "Edge Chromatic Number",
+  "rosen_ref": "Rosen §10.8",
+  "definition_vi": "Sắc số cạnh của một đồ thị $$G$$, ký hiệu $$\\chi'(G)$$, là số màu nhỏ nhất cần dùng để tô màu các cạnh của $$G$$ sao cho hai cạnh kề nhau bất kỳ được tô hai màu khác nhau.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "sắc số cạnh",
+    "source_id": "bib-leanhvinh-2020",
+    "page": "tr. 107 (PDF)",
+    "pdf_page": 107,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "sắc số cạnh",
+    "source_id": "bib-ngodactan-2004",
+    "page": "tr. 292 (PDF)",
+    "pdf_page": 292,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "Sắc số cạnh",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": true
+   }
+  ]
+ },
+ {
+  "id": "edge-coloring",
+  "letter": "E",
+  "headword_en": "Edge coloring",
+  "rosen_ref": "Rosen §10.8",
+  "definition_vi": "Một \\emph{tô màu cạnh} của đồ thị $$G$$ là một phép gán màu cho các cạnh của $$G$$ sao cho không có hai cạnh kề nhau (cùng chung một đỉnh đầu mút) nào được gán cùng một màu. Số màu nhỏ nhất cần dùng để có một tô màu cạnh của $$G$$ được gọi là sắc số cạnh, ký hiệu $$\\chi'(G)$$.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "tô màu cạnh",
+    "source_id": "bib-leanhvinh-2020",
+    "page": "tr. 107 (PDF)",
+    "pdf_page": 107,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "tô màu các cạnh",
+    "source_id": "bib-leanhvinh-2020",
+    "page": "tr. 107 (PDF)",
+    "pdf_page": 107,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "sắc số cạnh",
+    "source_id": "bib-leanhvinh-2020",
+    "page": "tr. 107 (PDF)",
+    "pdf_page": 107,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "edge-connectivity",
+  "letter": "E",
+  "headword_en": "Edge connectivity",
+  "rosen_ref": "Rosen §10.4",
+  "definition_vi": "\\emph{Độ liên thông cạnh} của một đồ thị $$G$$, ký hiệu $$\\lambda(G)$$, là số cạnh ít nhất cần xóa để làm cho $$G$$ mất liên thông hoặc trở thành đồ thị chỉ có một đỉnh. Với $$G$$ có ít nhất hai đỉnh, $$\\lambda(G)$$ cũng bằng số nguyên $$k$$ lớn nhất sao cho $$G$$ là $$k$$-liên thông cạnh.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "độ liên thông cạnh",
     "source_id": "bib-nguyenhoangthach-2020",
     "page": "tr. 75 (PDF)",
     "pdf_page": 75,
@@ -2413,661 +1491,148 @@
     "recommended": true
    },
    {
-    "term": "đồ thị k-liên thông",
+    "term": "độ liên thông cạnh",
+    "source_id": "bib-ngodactan-2004",
+    "page": "tr. 266 (PDF)",
+    "pdf_page": 266,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "chỉ số liên thông cạnh",
     "source_id": "bib-leanhvinh-2020",
+    "page": "tr. 26 (PDF)",
+    "pdf_page": 26,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "số liên thông cạnh",
+    "source_id": "bib-leanhvinh-2020",
+    "page": "tr. 225 (PDF)",
+    "pdf_page": 225,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "edge-cut",
+  "letter": "E",
+  "headword_en": "Edge Cut",
+  "rosen_ref": "",
+  "definition_vi": "",
+  "see_ref": "separating-set-of-edges",
+  "vi_terms": [
+   {
+    "term": "lát cắt cạnh",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "eigenvalue",
+  "letter": "E",
+  "headword_en": "Eigenvalue",
+  "rosen_ref": "Rosen §10.3",
+  "definition_vi": "\\emph{Giá trị riêng} của một ma trận vuông $$A$$ là một số vô hướng $$\\lambda$$ sao cho tồn tại một vectơ khác không $$\\mathbf{x}$$ thỏa mãn $$A\\mathbf{x} = \\lambda\\mathbf{x}$$. Giá trị riêng của một đồ thị $$G$$ là giá trị riêng của ma trận kề $$A_G$$ của nó.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "giá trị riêng",
+    "source_id": "bib-leanhvinh-2020",
+    "page": "tr. 206 (PDF)",
+    "pdf_page": 206,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "giá trị riêng của ma trận",
+    "source_id": "bib-leanhvinh-2020",
+    "page": "tr. 57 (PDF)",
+    "pdf_page": 57,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "element",
+  "letter": "E",
+  "headword_en": "Element",
+  "rosen_ref": "Rosen §2.1",
+  "definition_vi": "\\emph{Phần tử} của một tập hợp $$A$$ là một đối tượng thuộc về $$A$$; ký hiệu $$a \\in A$$ để chỉ rằng $$a$$ là một phần tử của $$A$$, và $$a \\notin A$$ để chỉ rằng $$a$$ không là phần tử của $$A$$.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "phần tử",
+    "source_id": "bib-nguyenhoangthach-2020",
+    "page": "tr. 16 (PDF)",
+    "pdf_page": 16,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "phần tử của tập hợp",
+    "source_id": "bib-nguyenhoangthach-2020",
+    "page": "tr. 19 (PDF)",
+    "pdf_page": 19,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "phần tử của tập",
+    "source_id": "bib-ngodactan-2004",
     "page": "tr. 31 (PDF)",
     "pdf_page": 31,
     "verified": true,
     "recommended": false
    },
    {
-    "term": "k-liên thông",
-    "source_id": "bib-leanhvinh-2020",
-    "page": "tr. 25 (PDF)",
-    "pdf_page": 25,
+    "term": "phần tử",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 5 (PDF, bản dịch Rosen)",
+    "pdf_page": 5,
     "verified": true,
     "recommended": false
    },
    {
-    "term": "k-liên thông đỉnh",
-    "source_id": "bib-ngodactan-2004",
-    "page": "tr. 265 (PDF)",
-    "pdf_page": 265,
+    "term": "phần tử của tập hợp",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 54 (PDF, bản dịch Rosen)",
+    "pdf_page": 54,
     "verified": true,
     "recommended": false
    },
    {
-    "term": "đồ thị k-liên thông",
-    "source_id": "bib-ngodactan-2004",
-    "page": "tr. 280 (PDF)",
-    "pdf_page": 280,
+    "term": "phần tử của tập",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 54 (PDF, bản dịch Rosen)",
+    "pdf_page": 54,
     "verified": true,
     "recommended": false
    }
   ]
  },
  {
-  "id": "k-cube",
-  "letter": "K",
-  "headword_en": "k-cube",
+  "id": "elementary-subdivision",
+  "letter": "E",
+  "headword_en": "Elementary Subdivision",
   "rosen_ref": "",
   "definition_vi": "",
-  "see_ref": "hypercube",
+  "see_ref": "subdivision",
   "vi_terms": [
    {
-    "term": "đồ thị lập phương",
+    "term": "phép phân chia sơ cấp",
     "source_id": "",
     "page": "",
     "pdf_page": 0,
     "verified": false,
     "recommended": false
-   },
-   {
-    "term": "đồ thị siêu lập phương",
-    "source_id": "",
-    "page": "",
-    "pdf_page": 0,
-    "verified": false,
-    "recommended": false
-   },
-   {
-    "term": "siêu khối",
-    "source_id": "",
-    "page": "",
-    "pdf_page": 0,
-    "verified": false,
-    "recommended": false
-   },
-   {
-    "term": "mạng kiểu siêu khối",
-    "source_id": "",
-    "page": "",
-    "pdf_page": 0,
-    "verified": false,
-    "recommended": false
-   }
-  ]
- },
- {
-  "id": "k-map",
-  "letter": "K",
-  "headword_en": "K-Map",
-  "rosen_ref": "",
-  "definition_vi": "",
-  "see_ref": "karnaugh-map",
-  "vi_terms": []
- },
- {
-  "id": "k-regular-graph",
-  "letter": "K",
-  "headword_en": "k-regular graph",
-  "rosen_ref": "Rosen §10.2",
-  "definition_vi": "Cho $$k$$ là một số nguyên không âm. \\emph{Đồ thị $$k$$ chính quy} là đồ thị $$G$$ trong đó mọi đỉnh đều có bậc đúng bằng $$k$$, tức là $$\\deg_G(v) = k$$ với mọi $$v \\in V(G)$$.",
-  "see_ref": "",
-  "vi_terms": [
-   {
-    "term": "đồ thị k chính quy",
-    "source_id": "bib-leanhvinh-2020",
-    "page": "tr. 214 (PDF)",
-    "pdf_page": 214,
-    "verified": true,
-    "recommended": true
-   },
-   {
-    "term": "đồ thị đều bậc k",
-    "source_id": "bib-leanhvinh-2020",
-    "page": "tr. 214 (PDF)",
-    "pdf_page": 214,
-    "verified": true,
-    "recommended": false
-   },
-   {
-    "term": "đồ thị chính qui bậc k",
-    "source_id": "bib-nguyenducnghia-2006",
-    "page": "tr. 164 (PDF)",
-    "pdf_page": 164,
-    "verified": true,
-    "recommended": false
-   },
-   {
-    "term": "đồ thị chính qui bậc k",
-    "source_id": "bib-ngodactan-2004",
-    "page": "tr. 191 (PDF)",
-    "pdf_page": 191,
-    "verified": true,
-    "recommended": false
-   },
-   {
-    "term": "k-chính qui",
-    "source_id": "bib-ngodactan-2004",
-    "page": "tr. 191 (PDF)",
-    "pdf_page": 191,
-    "verified": true,
-    "recommended": false
-   },
-   {
-    "term": "đồ thị bậc k",
-    "source_id": "bib-ngodactan-2004",
-    "page": "tr. 336 (PDF)",
-    "pdf_page": 336,
-    "verified": true,
-    "recommended": false
-   }
-  ]
- },
- {
-  "id": "k-tuple",
-  "letter": "K",
-  "headword_en": "k-tuple",
-  "rosen_ref": "Rosen §2.1",
-  "definition_vi": "Một \\emph{$$k$$-bộ sắp thứ tự} là một dãy gồm $$k$$ đối tượng được liệt kê theo một thứ tự xác định, ký hiệu $$(a_1, a_2, \\ldots, a_k)$$, trong đó $$a_i$$ là thành phần thứ $$i$$. Thứ tự của các thành phần là quan trọng và các thành phần được phép lặp lại, nên $$(a_1, a_2, \\ldots, a_k) = (b_1, b_2, \\ldots, b_k)$$ khi và chỉ khi $$a_i = b_i$$ với mọi $$i$$ thỏa $$1 \\leq i \\leq k$$.",
-  "see_ref": "",
-  "vi_terms": [
-   {
-    "term": "bộ sắp thứ tự",
-    "source_id": "bib-nguyenhoangthach-2020",
-    "page": "tr. 21 (PDF)",
-    "pdf_page": 21,
-    "verified": true,
-    "recommended": true
-   },
-   {
-    "term": "bộ sắp thứ tự gồm k phần tử",
-    "source_id": "bib-nguyenhoangthach-2020",
-    "page": "tr. 20 (PDF)",
-    "pdf_page": 20,
-    "verified": true,
-    "recommended": false
-   },
-   {
-    "term": "bộ thứ tự",
-    "source_id": "bib-nguyenhuudien-2019",
-    "page": "tr. 236 (PDF)",
-    "pdf_page": 236,
-    "verified": true,
-    "recommended": false
-   },
-   {
-    "term": "bộ có thứ tự",
-    "source_id": "bib-nguyenducnghia-2006",
-    "page": "tr. 16 (PDF)",
-    "pdf_page": 16,
-    "verified": true,
-    "recommended": false
-   },
-   {
-    "term": "bộ có thứ tự gồm k thành phần",
-    "source_id": "bib-ngodactan-2004",
-    "page": "tr. 27 (PDF)",
-    "pdf_page": 27,
-    "verified": true,
-    "recommended": false
-   },
-   {
-    "term": "bộ có thứ tự",
-    "source_id": "bib-rosen-2003-vi",
-    "page": "tr. 333 (PDF, bản dịch Rosen)",
-    "pdf_page": 333,
-    "verified": true,
-    "recommended": false
-   }
-  ]
- },
- {
-  "id": "karnaugh-map",
-  "letter": "K",
-  "headword_en": "Karnaugh map",
-  "rosen_ref": "Rosen §12.4",
-  "definition_vi": "\\emph{Bìa Karnaugh} của một hàm Boole $$f$$ với một số nhỏ biến (thường nhiều nhất $$4$$ biến) là một sơ đồ dạng bảng biểu diễn các giá trị của $$f$$, trong đó các ô được sắp xếp theo mã Gray sao cho hai ô kề nhau (kể cả hai ô ở hai mép đối diện) ứng với hai số hạng chỉ khác nhau ở đúng một biến. Bìa Karnaugh được dùng để tối thiểu hóa $$f$$ bằng cách gộp các ô kề nhau có giá trị $$1$$ thành các nhóm.",
-  "see_ref": "",
-  "vi_terms": [
-   {
-    "term": "bìa Karnaugh",
-    "source_id": "",
-    "page": "",
-    "pdf_page": 0,
-    "verified": false,
-    "recommended": true
-   },
-   {
-    "term": "sơ đồ Karnaugh",
-    "source_id": "",
-    "page": "",
-    "pdf_page": 0,
-    "verified": false,
-    "recommended": false
-   },
-   {
-    "term": "Phương pháp sơ đồ Karnaugh",
-    "source_id": "",
-    "page": "",
-    "pdf_page": 0,
-    "verified": false,
-    "recommended": false
-   }
-  ]
- },
- {
-  "id": "kernel-of-a-graph",
-  "letter": "K",
-  "headword_en": "kernel of a graph",
-  "rosen_ref": "Rosen §10.5 (directed graphs; kernel not a named §10.2 topic)",
-  "definition_vi": "\\emph{Nhân} của một đồ thị có hướng $$G = (V, E)$$ là một tập đỉnh $$B \\subseteq V$$ vừa độc lập (không có cung nào nối hai đỉnh của $$B$$) vừa hấp thụ (mỗi đỉnh ngoài $$B$$ đều có một cung đi vào $$B$$); trong tài liệu hai điều kiện này còn được gọi là tập ổn định trong và tập ổn định ngoài.",
-  "see_ref": "",
-  "vi_terms": [
-   {
-    "term": "nhân của đồ thị",
-    "source_id": "bib-hoangchithanh-2007",
-    "page": "tr. 34 (PDF)",
-    "pdf_page": 34,
-    "verified": true,
-    "recommended": true
-   },
-   {
-    "term": "nhân",
-    "source_id": "bib-hoangchithanh-2007",
-    "page": "tr. 35 (PDF)",
-    "pdf_page": 35,
-    "verified": true,
-    "recommended": false
-   },
-   {
-    "term": "nhân",
-    "source_id": "bib-rosen-2003-vi",
-    "page": "tr. 11 (PDF, bản dịch Rosen)",
-    "pdf_page": 11,
-    "verified": true,
-    "recommended": false
-   }
-  ]
- },
- {
-  "id": "key",
-  "letter": "K",
-  "headword_en": "key",
-  "rosen_ref": "Rosen §9.2",
-  "definition_vi": "Một \\emph{khóa} của một quan hệ $$n$$-ngôi $$R \\subseteq A_1 \\times A_2 \\times \\cdots \\times A_n$$ là một miền $$A_i$$ hoặc một tập các miền sao cho các giá trị trên đó xác định duy nhất mỗi bộ $$n$$ phần tử của $$R$$; nghĩa là, không có hai bộ phân biệt nào của $$R$$ trùng nhau trên tất cả các thành phần thuộc khóa.",
-  "see_ref": "",
-  "vi_terms": [
-   {
-    "term": "khóa",
-    "source_id": "",
-    "page": "",
-    "pdf_page": 0,
-    "verified": false,
-    "recommended": true
-   }
-  ]
- },
- {
-  "id": "key-exchange-protocol",
-  "letter": "K",
-  "headword_en": "Key Exchange Protocol",
-  "rosen_ref": "Rosen §4.6",
-  "definition_vi": "Giao thức trao đổi khóa là một giao thức được hai bên sử dụng để cùng thống nhất về một khóa bí mật dùng chung. Khóa bí mật chung này sau đó có thể được dùng để mã hóa và giải mã các thông điệp trao đổi giữa hai bên.",
-  "see_ref": "",
-  "vi_terms": [
-   {
-    "term": "giao thức trao đổi khóa",
-    "source_id": "",
-    "page": "",
-    "pdf_page": 0,
-    "verified": false,
-    "recommended": true
-   }
-  ]
- },
- {
-  "id": "knapsack-problem",
-  "letter": "K",
-  "headword_en": "knapsack problem",
-  "rosen_ref": "Rosen §8.1",
-  "definition_vi": "\\emph{Bài toán cái túi} là bài toán tối ưu trong đó cho một cái túi có sức chứa trọng lượng $$D$$ và $$n$$ đồ vật, đồ vật thứ $$j$$ có trọng lượng $$a_j$$ và giá trị $$c_j$$ (với $$j = 1, 2, \\ldots, n$$), yêu cầu chọn một tập con các đồ vật sao cho tổng giá trị là lớn nhất trong khi tổng trọng lượng không vượt quá $$D$$. Mỗi phương án chọn được biểu diễn bởi một vectơ nhị phân $$x = (x_1, x_2, \\ldots, x_n)$$, trong đó $$x_j = 1$$ nghĩa là đồ vật thứ $$j$$ được chọn và $$x_j = 0$$ nghĩa là không chọn, và mục tiêu là cực đại hóa $$\\sum_{j=1}^{n} c_j x_j$$ với ràng buộc $$\\sum_{j=1}^{n} a_j x_j \\leq D$$.",
-  "see_ref": "",
-  "vi_terms": [
-   {
-    "term": "bài toán cái túi",
-    "source_id": "bib-nguyenducnghia-2006",
-    "page": "tr. 115 (PDF)",
-    "pdf_page": 115,
-    "verified": true,
-    "recommended": true
-   }
-  ]
- },
- {
-  "id": "knights-tour",
-  "letter": "K",
-  "headword_en": "knight's tour",
-  "rosen_ref": "Rosen §10.5",
-  "definition_vi": "\\emph{Hành trình của con mã} trên một bàn cờ là một dãy các nước đi của con mã sao cho mỗi ô của bàn cờ được đi qua đúng một lần. Nếu con mã trở lại được ô xuất phát sau khi đi qua tất cả các ô, hành trình đó được gọi là khép kín; ngược lại, nó được gọi là hở.",
-  "see_ref": "",
-  "vi_terms": [
-   {
-    "term": "hành trình của con mã",
-    "source_id": "bib-nguyenhuudien-2019",
-    "page": "tr. 189 (PDF)",
-    "pdf_page": 189,
-    "verified": true,
-    "recommended": true
-   },
-   {
-    "term": "đường đi của con mã",
-    "source_id": "bib-nguyenhuudien-2019",
-    "page": "tr. 188 (PDF)",
-    "pdf_page": 188,
-    "verified": true,
-    "recommended": false
-   },
-   {
-    "term": "bài toán mã đi tuần",
-    "source_id": "bib-hoangchithanh-2007",
-    "page": "tr. 82 (PDF)",
-    "pdf_page": 82,
-    "verified": true,
-    "recommended": false
-   },
-   {
-    "term": "mã đi tuần",
-    "source_id": "bib-hoangchithanh-2007",
-    "page": "tr. 82 (PDF)",
-    "pdf_page": 82,
-    "verified": true,
-    "recommended": false
-   },
-   {
-    "term": "hành trình của con mã",
-    "source_id": "bib-rosen-2003-vi",
-    "page": "tr. 617 (PDF, bản dịch Rosen)",
-    "pdf_page": 617,
-    "verified": true,
-    "recommended": false
-   },
-   {
-    "term": "đường đi tuần của quân mã",
-    "source_id": "",
-    "page": "",
-    "pdf_page": 0,
-    "verified": false,
-    "recommended": false
-   }
-  ]
- },
- {
-  "id": "kruskals-algorithm",
-  "letter": "K",
-  "headword_en": "Kruskal's algorithm",
-  "rosen_ref": "Rosen §11.5",
-  "definition_vi": "\\emph{Thuật toán Kruskal} là thuật toán tìm cây bao trùm nhỏ nhất của một đồ thị liên thông, vô hướng và có trọng số $$G = (V, E)$$ với hàm trọng số $$c \\colon E \\to \\mathbb{R}$$. Bắt đầu từ rừng gồm $$|V|$$ đỉnh rời nhau và không có cạnh, ở mỗi bước thuật toán xét các cạnh theo thứ tự trọng số tăng dần và thêm vào cạnh có trọng số nhỏ nhất trong số các cạnh còn lại mà không tạo thành một chu trình, cho đến khi thu được một cây bao trùm.",
-  "see_ref": "",
-  "vi_terms": [
-   {
-    "term": "thuật toán Kruskal",
-    "source_id": "bib-leanhvinh-2020",
-    "page": "tr. 61 (PDF)",
-    "pdf_page": 61,
-    "verified": true,
-    "recommended": true
-   },
-   {
-    "term": "thuật toán Kruskal",
-    "source_id": "bib-nguyenhoangthach-2020",
-    "page": "tr. 95 (PDF)",
-    "pdf_page": 95,
-    "verified": true,
-    "recommended": false
-   },
-   {
-    "term": "thuật toán Kruskal",
-    "source_id": "bib-nguyenhuudien-2019",
-    "page": "tr. 250 (PDF)",
-    "pdf_page": 250,
-    "verified": true,
-    "recommended": false
-   },
-   {
-    "term": "thuật toán Kruskal",
-    "source_id": "bib-hoangchithanh-2007",
-    "page": "tr. 132 (PDF)",
-    "pdf_page": 132,
-    "verified": true,
-    "recommended": false
-   },
-   {
-    "term": "thuật toán Kruskal",
-    "source_id": "bib-nguyenducnghia-2006",
-    "page": "tr. 208 (PDF)",
-    "pdf_page": 208,
-    "verified": true,
-    "recommended": false
-   },
-   {
-    "term": "thuật toán Kruskal",
-    "source_id": "bib-ngodactan-2004",
-    "page": "tr. 224 (PDF)",
-    "pdf_page": 224,
-    "verified": true,
-    "recommended": false
-   },
-   {
-    "term": "thuật toán Kruskal",
-    "source_id": "bib-rosen-2003-vi",
-    "page": "tr. 694 (PDF, bản dịch Rosen)",
-    "pdf_page": 694,
-    "verified": true,
-    "recommended": false
-   }
-  ]
- },
- {
-  "id": "kuratowskis-subgraph",
-  "letter": "K",
-  "headword_en": "Kuratowski's Subgraph",
-  "rosen_ref": "Rosen §10.7",
-  "definition_vi": "Đồ thị con Kuratowski của một đồ thị $$G$$ là một đồ thị con của $$G$$ đồng phôi với đồ thị đầy đủ $$K_5$$ hoặc với đồ thị hai phần đầy đủ $$K_{3,3}$$ (ký hiệu hai đồ thị Kuratowski). Theo định lý Kuratowski, $$G$$ là không phẳng khi và chỉ khi $$G$$ chứa một đồ thị con Kuratowski, tức một đồ thị con đồng phôi với $$K_5$$ hoặc $$K_{3,3}$$.",
-  "see_ref": "",
-  "vi_terms": [
-   {
-    "term": "đồ thị con đồng phôi với $$K_5$$ hoặc $$K_{3,3}$$",
-    "source_id": "bib-nguyenhoangthach-2020",
-    "page": "tr. 81 (PDF)",
-    "pdf_page": 81,
-    "verified": true,
-    "recommended": false
-   },
-   {
-    "term": "cấu hình $$K_5$$ / $$K_{3,3}$$",
-    "source_id": "bib-nguyenhuudien-2019",
-    "page": "tr. 234 (PDF)",
-    "pdf_page": 234,
-    "verified": true,
-    "recommended": false
-   },
-   {
-    "term": "đồ thị con Kuratowski",
-    "source_id": "",
-    "page": "",
-    "pdf_page": 0,
-    "verified": false,
-    "recommended": true
-   }
-  ]
- },
- {
-  "id": "kuratowskis-theorem",
-  "letter": "K",
-  "headword_en": "Kuratowski's theorem",
-  "rosen_ref": "Rosen §10.7",
-  "definition_vi": "\\emph{Định lý Kuratowski} khẳng định rằng một đồ thị $$G$$ là phẳng khi và chỉ khi nó không chứa đồ thị con nào đồng phôi với đồ thị đầy đủ $$K_5$$ hoặc đồ thị hai phần đầy đủ $$K_{3,3}$$.",
-  "see_ref": "",
-  "vi_terms": [
-   {
-    "term": "định lý Kuratowski",
-    "source_id": "bib-nguyenhoangthach-2020",
-    "page": "tr. 81 (PDF)",
-    "pdf_page": 81,
-    "verified": true,
-    "recommended": true
-   },
-   {
-    "term": "định lý Kuratowski",
-    "source_id": "bib-leanhvinh-2020",
-    "page": "tr. 127 (PDF)",
-    "pdf_page": 127,
-    "verified": true,
-    "recommended": false
-   },
-   {
-    "term": "định lý Kuratowski",
-    "source_id": "bib-nguyenhuudien-2019",
-    "page": "tr. 234 (PDF)",
-    "pdf_page": 234,
-    "verified": true,
-    "recommended": false
-   },
-   {
-    "term": "định lý Kuratowski",
-    "source_id": "bib-hoangchithanh-2007",
-    "page": "tr. 119 (PDF)",
-    "pdf_page": 119,
-    "verified": true,
-    "recommended": false
-   },
-   {
-    "term": "định lý Kuratowski",
-    "source_id": "bib-ngodactan-2004",
-    "page": "tr. 210 (PDF)",
-    "pdf_page": 210,
-    "verified": true,
-    "recommended": false
-   },
-   {
-    "term": "định lý Kuratowski - Pontragin",
-    "source_id": "bib-ngodactan-2004",
-    "page": "tr. 210 (PDF)",
-    "pdf_page": 210,
-    "verified": true,
-    "recommended": false
-   },
-   {
-    "term": "định lý Kuratowski",
-    "source_id": "bib-rosen-2003-vi",
-    "page": "tr. 587 (PDF, bản dịch Rosen)",
-    "pdf_page": 587,
-    "verified": true,
-    "recommended": false
-   }
-  ]
- },
- {
-  "id": "konigsberg-bridge-problem",
-  "letter": "K",
-  "headword_en": "Königsberg bridge problem",
-  "rosen_ref": "Rosen §10.5",
-  "definition_vi": "\\emph{Bài toán bảy cây cầu Königsberg} hỏi liệu có thể đi dạo qua thành phố sao cho mỗi cây trong bảy cây cầu được đi qua đúng một lần hay không. Mô hình hóa thành phố bằng một đa đồ thị $$G$$ trong đó mỗi vùng đất là một đỉnh và mỗi cây cầu là một cạnh, câu hỏi tương đương với việc $$G$$ có một đường đi Euler (hoặc một chu trình Euler nếu yêu cầu quay về điểm xuất phát) hay không. Một đa đồ thị liên thông có một đường đi Euler khi và chỉ khi nó có đúng $$0$$ hoặc $$2$$ đỉnh bậc lẻ, và có một chu trình Euler khi và chỉ khi mọi đỉnh đều có bậc chẵn; Euler đã chứng minh rằng với Königsberg điều này là không thể.",
-  "see_ref": "",
-  "vi_terms": [
-   {
-    "term": "bài toán bảy cây cầu",
-    "source_id": "bib-leanhvinh-2020",
-    "page": "tr. 20 (PDF)",
-    "pdf_page": 20,
-    "verified": true,
-    "recommended": true
-   },
-   {
-    "term": "bảy cầu của thành phố Konigsberg",
-    "source_id": "bib-nguyenhuudien-2019",
-    "page": "tr. 181 (PDF)",
-    "pdf_page": 181,
-    "verified": true,
-    "recommended": false
-   },
-   {
-    "term": "bảy cái cầu ở Konigsberg",
-    "source_id": "bib-nguyenhuudien-2019",
-    "page": "tr. 181 (PDF)",
-    "pdf_page": 181,
-    "verified": true,
-    "recommended": false
-   },
-   {
-    "term": "bài toán 7 cây cầu ở Konigsberg",
-    "source_id": "bib-hoangchithanh-2007",
-    "page": "tr. 76 (PDF)",
-    "pdf_page": 76,
-    "verified": true,
-    "recommended": false
-   },
-   {
-    "term": "bài toán về bảy chiếc cầu ở Königsberg",
-    "source_id": "bib-ngodactan-2004",
-    "page": "tr. 184 (PDF)",
-    "pdf_page": 184,
-    "verified": true,
-    "recommended": false
-   }
-  ]
- },
- {
-  "id": "labeled-graph",
-  "letter": "L",
-  "headword_en": "labeled graph",
-  "rosen_ref": "Rosen §10.3",
-  "definition_vi": "Một \\emph{đồ thị gán nhãn} là một đồ thị $$G$$ trong đó mỗi đỉnh hoặc mỗi cạnh được gán một nhãn phân biệt, sao cho các đỉnh và các cạnh của $$G$$ được phân biệt với nhau.",
-  "see_ref": "",
-  "vi_terms": [
-   {
-    "term": "đồ thị gán nhãn",
-    "source_id": "",
-    "page": "",
-    "pdf_page": 0,
-    "verified": false,
-    "recommended": true
-   }
-  ]
- },
- {
-  "id": "language",
-  "letter": "L",
-  "headword_en": "Language",
-  "rosen_ref": "Rosen §13.1",
-  "definition_vi": "Ngôn ngữ trên một bảng chữ cái $$\\Sigma$$ là một tập con của tập tất cả các xâu ký tự lập từ $$\\Sigma$$. Nếu ký hiệu $$\\Sigma^*$$ là tập tất cả các xâu trên $$\\Sigma$$ thì một ngôn ngữ $$L$$ thỏa mãn $$L \\subseteq \\Sigma^*$$.",
-  "see_ref": "",
-  "vi_terms": [
-   {
-    "term": "ngôn ngữ",
-    "source_id": "bib-rosen-2003-vi",
-    "page": "tr. 818 (PDF)",
-    "pdf_page": 818,
-    "verified": true,
-    "recommended": true
-   },
-   {
-    "term": "ngôn ngữ",
-    "source_id": "bib-rosen-2003-vi",
-    "page": "tr. 767 (PDF)",
-    "pdf_page": 767,
-    "verified": true,
-    "recommended": false
-   }
-  ]
- },
- {
-  "id": "language-recognized-by-an-automaton",
-  "letter": "L",
-  "headword_en": "Language Recognized By An Automaton",
-  "rosen_ref": "Rosen §13.3",
-  "definition_vi": "Ngôn ngữ được đoán nhận (hay được thừa nhận) bởi một ôtômat là tập hợp các xâu vào mà ôtômat đó chấp nhận. Với một ôtômat $$M$$, ngôn ngữ này thường được ký hiệu là $$L(M)$$.",
-  "see_ref": "",
-  "vi_terms": [
-   {
-    "term": "ngôn ngữ được đoán nhận bởi ôtômat",
-    "source_id": "",
-    "page": "",
-    "pdf_page": 0,
-    "verified": false,
-    "recommended": true
    }
   ]
  }

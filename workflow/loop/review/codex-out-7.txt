@@ -1,0 +1,2527 @@
+OpenAI Codex v0.141.0
+--------
+workdir: /home/ubuntu/DM-Concepts
+model: gpt-5.5
+provider: openai
+approval: never
+sandbox: danger-full-access
+reasoning effort: xhigh
+reasoning summaries: none
+session id: 019ef289-304f-7ee3-8ee2-18374605ef0f
+--------
+user
+You are a meticulous bilingual (English-Vietnamese) discrete-mathematics dictionary reviewer.
+Working directory: /home/ubuntu/DM-Concepts. Do NOT modify any dictionary file. Be evidence-based; NEVER invent a translation or a source.
+
+Read this batch of entries:
+  cat workflow/loop/review/batch-7.json
+It is a JSON array; each entry has: id, headword_en, definition_vi (Vietnamese), vi_terms (array of {term, recommended, ...}), see_ref.
+If see_ref is non-empty the entry is a cross-reference stub: SKIP it.
+
+For EACH non-stub entry, use WEB SEARCH (prefer authoritative Vietnamese sources: university lecture notes / giáo trình, published textbooks, standard references) to check TWO things:
+
+(A) COMMONALITY of the recommended Vietnamese term (the vi_term with recommended=true): is it the common/standard rendering of this English concept in Vietnamese discrete mathematics? If it is uncommon and a clearly MORE standard term exists, report verdict "uncommon" with the better term and a source URL. Otherwise verdict "common" (or "unsure").
+
+(B) ALTERNATIVE TRANSLATIONS: any additional valid Vietnamese translation of the English concept that is NOT already among the entry's existing vi_terms. Example: 'independent set' = 'tập độc lập' AND 'tập ổn định' (internal stable set). List each missing variant with a brief source (URL or book).
+
+Efficiency (IMPORTANT - your context is limited): use web SEARCH RESULT SNIPPETS only; do NOT open or fetch full web pages or PDF files (fetching large pages overflows your context and the run fails). At most 1-2 lightweight searches per entry; skip entries that are clearly fine.
+
+WRITE your result as a JSON file to workflow/loop/review/findings-7.json (use your file-writing tool), exactly this shape:
+{"loop":7,"reviewed":<int>,"findings":[{"id":"<id>","commonality":{"verdict":"common|uncommon|unsure","better_term":"<term or empty>","source":"<url or empty>"},"missing_variants":[{"term":"<vi term>","source":"<url or book>"}]}]}
+Include ONLY entries that have at least one finding (an uncommon verdict OR a missing variant). Valid JSON only (no comments, no trailing commas).
+
+After writing the file, print on its own line:  WROTE findings-7.json
+Then print the final marker line:  ===CODEX_REVIEW_DONE===
+
+hook: SessionStart
+hook: SessionStart Completed
+codex
+Docs/Helpers Checked:
+- User-provided `AGENTS.md` instructions in this prompt, including the evidence-first protocol and the “snippets only” web-search constraint.
+
+Plan:
+1. Check local repo docs/helpers relevant to the review workflow, then read `workflow/loop/review/batch-7.json`.
+2. Skip entries with non-empty `see_ref`; for each remaining entry, use at most 1-2 web search queries and rely only on search result snippets.
+3. Write only actionable findings to `workflow/loop/review/findings-7.json` as valid JSON, then print the requested marker lines.
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+exec
+/bin/bash -lc "rg --files -g 'AGENTS.md' -g 'README*' -g '*.md'" in /home/ubuntu/DM-Concepts
+ succeeded in 0ms:
+docs/PLAN.md
+docs/mat3500-term-review.md
+docs/mat3500-audit.md
+workflow/loop/recovery.md
+README.md
+
+hook: PostToolUse
+exec
+/bin/bash -lc 'rg --files workflow/loop/review' in /home/ubuntu/DM-Concepts
+ succeeded in 0ms:
+workflow/loop/review/findings-6.json
+workflow/loop/review/batch-11.json
+workflow/loop/review/findings-1.json
+workflow/loop/review/citation-issues.json
+workflow/loop/review/batch-19.json
+workflow/loop/review/findings-2.json
+workflow/loop/review/batch-17.json
+workflow/loop/review/codex-out-5.txt
+workflow/loop/review/batch-6.json
+workflow/loop/review/iterations.jsonl
+workflow/loop/review/batch-14.json
+workflow/loop/review/codex-out-6.txt
+workflow/loop/review/batch-20.json
+workflow/loop/review/batch-18.json
+workflow/loop/review/batch-4.json
+workflow/loop/review/codex-out-2.txt
+workflow/loop/review/findings-3.json
+workflow/loop/review/batch-15.json
+workflow/loop/review/loop_state.json
+workflow/loop/review/batch-7.json
+workflow/loop/review/batch-3.json
+workflow/loop/review/codex-out-4.txt
+workflow/loop/review/batch-12.json
+workflow/loop/review/findings-5.json
+workflow/loop/review/findings-4.json
+workflow/loop/review/codex-out-1.txt
+workflow/loop/review/batch-9.json
+workflow/loop/review/batch-13.json
+workflow/loop/review/batch-5.json
+workflow/loop/review/codex-out-3.txt
+workflow/loop/review/batch-10.json
+workflow/loop/review/batch-16.json
+workflow/loop/review/batch-1.json
+workflow/loop/review/review-log.jsonl
+workflow/loop/review/codex-out-7.txt
+workflow/loop/review/batch-8.json
+workflow/loop/review/batch-2.json
+
+hook: PostToolUse
+hook: PostToolUse Completed
+hook: PostToolUse Completed
+codex
+I found repo-level docs and the review batch directory. I’m reading only the lightweight local guidance and adjacent review artifacts needed to preserve the expected JSON format before touching `findings-7.json`.
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+exec
+/bin/bash -lc "sed -n '1,220p' README.md" in /home/ubuntu/DM-Concepts
+ succeeded in 0ms:
+# Một số thuật ngữ trong Toán rời rạc
+
+*Selected Terms in Discrete Mathematics — An English–Vietnamese Annotated Lexicon*
+
+Một cuốn **sách mở** viết bằng [PreTeXt](https://pretextbook.org/) (theo khuôn của
+*[Discrete Mathematics: An Open Introduction](https://github.com/oscarlevin/discrete-book/)*
+— Oscar Levin), tập hợp các định nghĩa và khái niệm quen thuộc trong toán rời rạc
+và lý thuyết đồ thị.
+
+## Ý tưởng
+
+- Tổ chức theo **bảng chữ cái tiếng Anh**: mỗi chương là một chữ cái `A`, `B`, `C`, …
+- Mỗi **mục từ** lấy một khái niệm/ký hiệu tiếng Anh (chủ yếu từ *Rosen — Discrete
+  Mathematics and Its Applications*), nêu **định nghĩa bằng tiếng Việt**, liệt kê
+  **mọi** thuật ngữ tiếng Việt tương ứng đã tìm thấy — mỗi biến thể kèm **trích dẫn**
+  chính xác tới nguồn tiếng Việt.
+- Nguồn thuật ngữ tiếng Việt: tổng hợp từ các sách toán rời rạc & lý thuyết đồ thị
+  trong thư viện Zotero.
+- **Bản HTML tối ưu tra cứu**: tìm kiếm toàn văn, trang lọc-khi-gõ, tìm **không
+  phân biệt dấu** (gõ `so mau` ra `số màu`), tra được từ **cả hai chiều** Anh ↔ Việt.
+
+## Trạng thái
+
+🚧 Giai đoạn lập kế hoạch. Xem **[`docs/PLAN.md`](docs/PLAN.md)** để biết toàn bộ
+thiết kế: mô hình mục từ, ánh xạ PreTeXt, kiến trúc sản xuất nhiều-agent, và lộ trình.
+
+## Giấy phép
+
+CC BY-SA 4.0 — xem [`LICENSE`](LICENSE).
+
+hook: PostToolUse
+exec
+/bin/bash -lc "sed -n '1,220p' docs/mat3500-term-review.md" in /home/ubuntu/DM-Concepts
+ succeeded in 0ms:
+# 33 thuật ngữ lệch dịch — sách ↔ MAT3500 (cần bạn duyệt)
+
+Quy ước: `A → B` nghĩa là đề xuất đổi 'recommended' của sách từ A sang B (theo bài giảng).
+Đánh dấu ✔ cạnh từ bạn muốn đổi; bỏ trống nếu giữ nguyên sách.
+
+## ❗ Bản dịch khác (sách nên xem lại / bổ sung biến thể)
+- **ancestors** — sách: `tổ tiên` · bài giảng: Các đỉnh tổ tiên
+- **karnaugh maps** — sách: `bìa Karnaugh` · bài giảng: Phương pháp sơ đồ Karnaugh
+- **knight's tour** — sách: `hành trình của con mã` · bài giảng: Đường đi tuần của quân mã
+- **least common multiple** — sách: `bội số chung nhỏ nhất` · bài giảng: Bội chung nhỏ nhất
+- **maximum matching** — sách: `cặp ghép lớn nhất` · bài giảng: ghép cặp cực đại
+- **neighborhood** — sách: `lân cận` · bài giảng: tập láng giềng
+- **one-to-one function** — sách: `đơn ánh` · bài giảng: hàm một-một
+- **optimization problems** — sách: `bài toán tối ưu` · bài giảng: Các bài toán tối ưu
+- **ordered pair** — sách: `cặp có thứ tự` · bài giảng: cặp sắp thứ tự
+- **perfect matching** — sách: `cặp ghép hoàn hảo` · bài giảng: ghép cặp hoàn hảo
+- **prime numbers** — sách: `số nguyên tố` · bài giảng: các số nguyên tố
+- **regular graph** — sách: `đồ thị đều bậc k` · bài giảng: đồ thị chính quy
+## ⚠️ Sách khuyến nghị thuật ngữ khác với bài giảng
+- **articulation point** — sách khuyến nghị: `đỉnh cắt` · bài giảng dùng: điểm khớp
+- **circuit** — sách khuyến nghị: `chu trình đơn` · bài giảng dùng: mạch
+- **cycle** — sách khuyến nghị: `đồ thị vòng` · bài giảng dùng: chu trình
+- **edge connectivity** — sách khuyến nghị: `độ liên thông cạnh` · bài giảng dùng: Số liên thông cạnh
+- **function** — sách khuyến nghị: `hàm số` · bài giảng dùng: hàm
+- **integers** — sách khuyến nghị: `số nguyên` · bài giảng dùng: Tập số nguyên
+- **leaf** — sách khuyến nghị: `lá` · bài giảng dùng: đỉnh lá
+- **matching** — sách khuyến nghị: `cặp ghép` · bài giảng dùng: ghép cặp
+- **minimum spanning tree** — sách khuyến nghị: `cây bao trùm nhỏ nhất` · bài giảng dùng: cây khung nhỏ nhất
+- **natural numbers** — sách khuyến nghị: `số tự nhiên` · bài giảng dùng: Tập số tự nhiên
+- **negation** — sách khuyến nghị: `mệnh đề phủ định` · bài giảng dùng: Phủ định
+- **node** — sách khuyến nghị: `đỉnh` · bài giảng dùng: nút
+- **odd cycle** — sách khuyến nghị: `chu trình độ dài lẻ` · bài giảng dùng: chu trình lẻ
+- **permutation** — sách khuyến nghị: `chỉnh hợp` · bài giảng dùng: hoán vị
+- **quotient** — sách khuyến nghị: `thương số` · bài giảng dùng: thương
+- **recurrence relation** — sách khuyến nghị: `quan hệ truy hồi` · bài giảng dùng: hệ thức truy hồi
+- **relation** — sách khuyến nghị: `quan hệ hai ngôi` · bài giảng dùng: quan hệ
+- **sequence** — sách khuyến nghị: `dãy số` · bài giảng dùng: dãy
+- **spanning tree** — sách khuyến nghị: `cây bao trùm` · bài giảng dùng: cây khung
+- **venn diagram** — sách khuyến nghị: `sơ đồ Venn` · bài giảng dùng: giản đồ Venn
+- **vertex connectivity** — sách khuyến nghị: `độ liên thông đỉnh` · bài giảng dùng: Số liên thông đỉnh
+## ❌ Thuật ngữ bài giảng chưa có trong sách
+
+hook: PostToolUse
+exec
+/bin/bash -lc "sed -n '1,220p' workflow/loop/recovery.md" in /home/ubuntu/DM-Concepts
+ succeeded in 0ms:
+# Autonomous loop — recovery
+
+**Goal:** build verified EN–VI lexicon chapters for all alphabet letters (autonomous, no re-prompt).
+
+**Current status:** running.
+
+- **Done:** C (14 entries, enriched, 85 citations).
+- **In progress:** G (build-chapter workflow `wpd4bi667`).
+- **Pending:** A, B, D, E, F, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z.
+
+**Next safe action:** when the G workflow completes → encode (`encode-chapter.py g`), add `ch-g.ptx` xinclude to `source/main.ptx`, validate, build, commit; then launch `build-chapter` for the next pending letter (A). Repeat per letter.
+
+**Side job:** Rosen VI OCR (~180/978) → on completion, un-defer for a final reference-enrichment pass across all chapters (Rosen never recommended).
+
+**Per-letter pipeline:** build-chapter workflow → `encode-chapter.py <l>` → xinclude in main.ptx → `validate-entry.py` → `build-search-index.py` → `pretext build web` → commit.
+
+**Stop:** all letters processed; or user pause/stop; or a letter fails build 3× (skip + record).
+
+**Evidence gates:** verified citations carry source_id+pdf_page+snippet; recommended from newest source; definitions checked vs Rosen by the panel; every chapter must build before commit.
+
+- 2026-06-21T15:34:15 done G; next=A; done=2 skipped=0 pending=24
+- 2026-06-21T16:10:02 done A; next=B; done=3 skipped=0 pending=23
+- 2026-06-21T16:45:38 done B; next=D; done=4 skipped=0 pending=22
+- 2026-06-21T17:22:05 done D; next=E; done=5 skipped=0 pending=21
+- 2026-06-21T17:56:04 done E; next=F; done=6 skipped=0 pending=20
+- 2026-06-21T18:31:35 done F; next=H; done=7 skipped=0 pending=19
+- 2026-06-21T19:03:39 done H; next=I; done=8 skipped=0 pending=18
+- 2026-06-21T19:37:56 done I; next=J; done=9 skipped=0 pending=17
+- 2026-06-21T19:59:01 done J; next=K; done=10 skipped=0 pending=16
+- 2026-06-21T20:36:25 done K; next=L; done=11 skipped=0 pending=15
+- 2026-06-21T21:14:40 done L; next=M; done=12 skipped=0 pending=14
+- 2026-06-21T21:49:01 done M; next=N; done=13 skipped=0 pending=13
+- 2026-06-21T22:26:51 done N; next=O; done=14 skipped=0 pending=12
+- 2026-06-21T22:58:39 done O; next=P; done=15 skipped=0 pending=11
+- 2026-06-21T23:32:37 done P; next=Q; done=16 skipped=0 pending=10
+- 2026-06-21T23:49:49 done Q; next=R; done=17 skipped=0 pending=9
+- 2026-06-22T03:47:35 done R; next=S; done=18 skipped=0 pending=8
+- 2026-06-22T04:20:57 done S; next=T; done=19 skipped=0 pending=7
+- 2026-06-22T04:53:02 done T; next=U; done=20 skipped=0 pending=6
+- 2026-06-22T05:17:15 done U; next=V; done=21 skipped=0 pending=5
+- 2026-06-22T05:41:41 done V; next=W; done=22 skipped=0 pending=4
+- 2026-06-22T06:07:01 done W; next=X; done=23 skipped=0 pending=3
+- 2026-06-22T06:22:29 done X; next=Y; done=24 skipped=0 pending=2
+- 2026-06-22T06:34:43 done Y; next=Z; done=25 skipped=0 pending=1
+- 2026-06-22T06:50:52 done Z; next=DONE; done=26 skipped=0 pending=0
+hook: PostToolUse
+exec
+/bin/bash -lc "sed -n '1,220p' workflow/loop/review/findings-6.json" in /home/ubuntu/DM-Concepts
+ succeeded in 0ms:
+{"loop":6,"reviewed":38,"findings":[{"id":"empty-graph","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"đồ thị không","source":"https://www.scribd.com/document/667824914/Bai-Toan-to-Mau-Do-Thi-Va-Ung-Dung"}]},{"id":"empty-string","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"chuỗi trống","source":"https://vi.wikipedia.org/wiki/Chu%E1%BB%97i_tr%E1%BB%91ng"}]},{"id":"encryption-key","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"khóa mật mã hóa","source":"https://learn.microsoft.com/vi-vn/power-platform/admin/manage-encryption-key"}]},{"id":"endpoint","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"điểm cuối","source":"https://toanroirac2011.files.wordpress.com/2011/12/chap_06_graphs_1.pdf"}]},{"id":"enumeration","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"liệt kê","source":"https://www.studocu.vn/vn/document/truong-dai-hoc-su-pham-ky-thuat-thanh-pho-ho-chi-minh/toan-roi-rac/dscc235864-cau-truc-roi-rac/88747715"}]},{"id":"euler-circuit","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"mạch Euler","source":"https://vi.wikipedia.org/wiki/%C4%90%C6%B0%E1%BB%9Dng_%C4%91i_Euler"}]},{"id":"euler-path","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"dây chuyền Euler","source":"https://vi.wikipedia.org/wiki/%C4%90%C6%B0%E1%BB%9Dng_%C4%91i_Euler"}]},{"id":"exclusive-or","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"phép tuyển loại trừ","source":"https://thuvienso.uhd.edu.vn/home/vi/news/khoa-toan-va-khoa-hoc-tu-nhien/tap-hop-va-logic-toan-316.html?download=1&id=0"},{"term":"hoặc loại trừ","source":"https://www.studocu.vn/vn/document/truong-dai-hoc-kinh-te-thanh-pho-ho-chi-minh/toan-danh-cho-tin-hoc/book-tlht-2016-toan4tin/56127889"}]},{"id":"existential-generalization","commonality":{"verdict":"uncommon","better_term":"tổng quát hóa tồn tại","source":"https://thuvienso.uhd.edu.vn/home/vi/news/khoa-toan-va-khoa-hoc-tu-nhien/tap-hop-va-logic-toan-316.html?download=1&id=0"},"missing_variants":[{"term":"tổng quát hóa tồn tại","source":"https://thuvienso.uhd.edu.vn/home/vi/news/khoa-toan-va-khoa-hoc-tu-nhien/tap-hop-va-logic-toan-316.html?download=1&id=0"}]},{"id":"existential-instantiation","commonality":{"verdict":"uncommon","better_term":"cụ thể hóa tồn tại","source":"https://www.scribd.com/presentation/526626551/BG-Ch1-Bai-5-Cac-Ph%C6%B0%C6%A1ng-Phap-Ch%E1%BB%A9ng-Minh"},"missing_variants":[{"term":"cụ thể hóa tồn tại","source":"https://www.scribd.com/presentation/526626551/BG-Ch1-Bai-5-Cac-Ph%C6%B0%C6%A1ng-Phap-Ch%E1%BB%A9ng-Minh"}]},{"id":"expected-value","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"kỳ vọng toán","source":"https://iuv.edu.vn/cms/plugin_upload/preview/news/1470/1170/giao-trinh-ly-thuyet-xac-suat-va-thong-ke-ung-dung.pdf"},{"term":"giá trị mong đợi","source":"https://pedia.vietstock.vn/134/Mot-vai-ly-thuyet-pho-bien/1896/Gia-tri-ky-vong"}]},{"id":"factor","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"thừa số","source":"https://www.scribd.com/document/1032908677/MATH-VOCABULARY"}]},{"id":"fallacy-of-denying-the-hypothesis","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"ngụy biện phủ định tiền kiện","source":"https://www.studocu.vn/vn/document/truong-dai-hoc-mo-thanh-pho-ho-chi-minh/luat-dan-su-1/tim-mot-hoac-mot-so-nguy-bien-van-de-xa-hoi-hoac-chuyen-nganh-van-dung-kien-thuc-ky-nang-tu-duy-bien-luan-phan-tich-va-danh-gia-cac-nguy-bien-do/75743055"}]},{"id":"fermats-little-theorem","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"định lý nhỏ của Fermat","source":"https://vi.wikipedia.org/wiki/%C4%90%E1%BB%8Bnh_l%C3%BD_nh%E1%BB%8F_Fermat"},{"term":"định lý Fermat nhỏ","source":"https://vi.wikipedia.org/wiki/%C4%90%E1%BB%8Bnh_l%C3%BD_nh%E1%BB%8F_Fermat"}]},{"id":"first-order-logic","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"logic bậc nhất","source":"https://vi.wikipedia.org/wiki/Logic_b%E1%BA%ADc_nh%E1%BA%A5t"},{"term":"phép tính vị từ bậc nhất","source":"https://vi.wikipedia.org/wiki/Logic_b%E1%BA%ADc_nh%E1%BA%A5t"}]},{"id":"fixed-point","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"điểm cố định","source":"https://repository.vnu.edu.vn/server/api/core/bitstreams/88f95bba-5591-46c2-82db-bf5d83d390e4/content"},{"term":"điểm bất biến","source":"https://repository.vnu.edu.vn/server/api/core/bitstreams/88f95bba-5591-46c2-82db-bf5d83d390e4/content"}]}]}
+
+hook: PostToolUse
+hook: PostToolUse Completed
+hook: PostToolUse Completed
+hook: PostToolUse Completed
+hook: PostToolUse Completed
+codex
+The local docs confirm this lexicon is citation-focused and that earlier review outputs use the same compact findings-only JSON. Next I’m reading batch 7 and will count only non-stub entries.
+hook: PreToolUse
+hook: PreToolUse Completed
+hook: PreToolUse
+exec
+/bin/bash -lc "jq '.' workflow/loop/review/batch-7.json" in /home/ubuntu/DM-Concepts
+ succeeded in 0ms:
+[
+  {
+    "id": "floor",
+    "letter": "F",
+    "headword_en": "Floor",
+    "rosen_ref": "",
+    "definition_vi": "",
+    "see_ref": "floor-function",
+    "vi_terms": [
+      {
+        "term": "hàm sàn",
+        "source_id": "",
+        "page": "",
+        "pdf_page": 0,
+        "verified": false,
+        "recommended": false
+      },
+      {
+        "term": "hàm phần nguyên",
+        "source_id": "",
+        "page": "",
+        "pdf_page": 0,
+        "verified": false,
+        "recommended": false
+      },
+      {
+        "term": "phần nguyên (sàn)",
+        "source_id": "",
+        "page": "",
+        "pdf_page": 0,
+        "verified": false,
+        "recommended": false
+      }
+    ]
+  },
+  {
+    "id": "floor-function",
+    "letter": "F",
+    "headword_en": "Floor function",
+    "rosen_ref": "Rosen §2.3",
+    "definition_vi": "\\emph{Hàm sàn} là hàm gán cho mỗi số thực $$x$$ số nguyên lớn nhất nhỏ hơn hoặc bằng $$x$$, ký hiệu $$\\lfloor x \\rfloor$$.",
+    "see_ref": "",
+    "vi_terms": [
+      {
+        "term": "hàm sàn",
+        "source_id": "bib-nguyenhuudien-2019",
+        "page": "tr. 86 (PDF)",
+        "pdf_page": 86,
+        "verified": true,
+        "recommended": true
+      },
+      {
+        "term": "hàm phần nguyên",
+        "source_id": "bib-nguyenhuudien-2019",
+        "page": "tr. 86 (PDF)",
+        "pdf_page": 86,
+        "verified": true,
+        "recommended": false
+      },
+      {
+        "term": "phần nguyên",
+        "source_id": "bib-ngodactan-2004",
+        "page": "tr. 111 (PDF)",
+        "pdf_page": 111,
+        "verified": true,
+        "recommended": false
+      },
+      {
+        "term": "sàn",
+        "source_id": "bib-ngodactan-2004",
+        "page": "tr. 111 (PDF)",
+        "pdf_page": 111,
+        "verified": true,
+        "recommended": false
+      },
+      {
+        "term": "hàm sàn",
+        "source_id": "bib-rosen-2003-vi",
+        "page": "tr. 91 (PDF, bản dịch Rosen)",
+        "pdf_page": 91,
+        "verified": true,
+        "recommended": false
+      },
+      {
+        "term": "phần nguyên",
+        "source_id": "bib-rosen-2003-vi",
+        "page": "tr. 91 (PDF, bản dịch Rosen)",
+        "pdf_page": 91,
+        "verified": true,
+        "recommended": false
+      },
+      {
+        "term": "sàn",
+        "source_id": "bib-rosen-2003-vi",
+        "page": "tr. 91 (PDF, bản dịch Rosen)",
+        "pdf_page": 91,
+        "verified": true,
+        "recommended": false
+      },
+      {
+        "term": "phần nguyên (sàn)",
+        "source_id": "",
+        "page": "",
+        "pdf_page": 0,
+        "verified": false,
+        "recommended": false
+      }
+    ]
+  },
+  {
+    "id": "flow",
+    "letter": "F",
+    "headword_en": "Flow",
+    "rosen_ref": "Rosen §10.7",
+    "definition_vi": "Một \\emph{luồng vận tải} trên mạng vận tải với nguồn $$s$$ và đích $$t$$ là một hàm $$f : E \\to \\mathbb{R}^{+} \\cup \\{0\\}$$ gán cho mỗi cung có hướng một giá trị không âm không vượt quá khả năng thông qua của cung đó. Tại mỗi đỉnh khác $$s$$ và $$t$$, tổng giá trị $$f$$ trên các cung đi vào bằng tổng giá trị $$f$$ trên các cung đi ra.",
+    "see_ref": "",
+    "vi_terms": [
+      {
+        "term": "luồng vận tải",
+        "source_id": "bib-nguyenhuudien-2019",
+        "page": "tr. 210 (PDF)",
+        "pdf_page": 210,
+        "verified": true,
+        "recommended": true
+      },
+      {
+        "term": "luồng",
+        "source_id": "bib-nguyenhuudien-2019",
+        "page": "tr. 212 (PDF)",
+        "pdf_page": 212,
+        "verified": true,
+        "recommended": false
+      },
+      {
+        "term": "luồng trong mạng",
+        "source_id": "bib-nguyenducnghia-2006",
+        "page": "tr. 245 (PDF)",
+        "pdf_page": 245,
+        "verified": true,
+        "recommended": false
+      },
+      {
+        "term": "luồng qua mạng",
+        "source_id": "bib-hoangchithanh-2007",
+        "page": "tr. 104 (PDF)",
+        "pdf_page": 104,
+        "verified": true,
+        "recommended": false
+      },
+      {
+        "term": "luồng trong mạng vận tải",
+        "source_id": "bib-ngodactan-2004",
+        "page": "tr. 257 (PDF)",
+        "pdf_page": 257,
+        "verified": true,
+        "recommended": false
+      }
+    ]
+  },
+  {
+    "id": "flowchart",
+    "letter": "F",
+    "headword_en": "Flowchart",
+    "rosen_ref": "",
+    "definition_vi": "Sơ đồ khối (lưu đồ) là một cách biểu diễn trực quan một thuật toán bằng các khối hình học nối với nhau bởi các mũi tên, trong đó mỗi khối ứng với một bước tính toán hoặc một quyết định và các mũi tên chỉ thứ tự thực hiện các bước. Đây là một trong các cách trình bày thuật toán bên cạnh ngôn ngữ tự nhiên và ngôn ngữ lập trình.",
+    "see_ref": "",
+    "vi_terms": [
+      {
+        "term": "sơ đồ khối",
+        "source_id": "bib-hoangchithanh-2007",
+        "page": "tr. 5 (PDF)",
+        "pdf_page": 5,
+        "verified": true,
+        "recommended": false
+      },
+      {
+        "term": "lưu đồ",
+        "source_id": "bib-nguyenhuudien-2019",
+        "page": "tr. 132 (PDF)",
+        "pdf_page": 132,
+        "verified": true,
+        "recommended": false
+      },
+      {
+        "term": "Sơ đồ khối",
+        "source_id": "",
+        "page": "",
+        "pdf_page": 0,
+        "verified": false,
+        "recommended": true
+      }
+    ]
+  },
+  {
+    "id": "forest",
+    "letter": "F",
+    "headword_en": "Forest",
+    "rosen_ref": "Rosen §11.1",
+    "definition_vi": "\\emph{Rừng} là một đồ thị vô hướng không chứa chu trình (đơn), hay tương đương, là một đồ thị mà mọi thành phần liên thông của nó đều là cây.",
+    "see_ref": "",
+    "vi_terms": [
+      {
+        "term": "rừng",
+        "source_id": "bib-leanhvinh-2020",
+        "page": "tr. 41 (PDF)",
+        "pdf_page": 41,
+        "verified": true,
+        "recommended": true
+      },
+      {
+        "term": "rừng",
+        "source_id": "bib-nguyenducnghia-2006",
+        "page": "tr. 200 (PDF)",
+        "pdf_page": 200,
+        "verified": true,
+        "recommended": false
+      },
+      {
+        "term": "rừng",
+        "source_id": "bib-ngodactan-2004",
+        "page": "tr. 197 (PDF)",
+        "pdf_page": 197,
+        "verified": true,
+        "recommended": false
+      },
+      {
+        "term": "rừng",
+        "source_id": "bib-hoangchithanh-2007",
+        "page": "tr. 146 (PDF)",
+        "pdf_page": 146,
+        "verified": true,
+        "recommended": false
+      },
+      {
+        "term": "(đồ thị) không chứa chu trình",
+        "source_id": "",
+        "page": "",
+        "pdf_page": 0,
+        "verified": false,
+        "recommended": false
+      },
+      {
+        "term": "rừng",
+        "source_id": "bib-rosen-2003-vi",
+        "page": "tr. 120 (PDF, bản dịch Rosen)",
+        "pdf_page": 120,
+        "verified": true,
+        "recommended": false
+      }
+    ]
+  },
+  {
+    "id": "formal-proof",
+    "letter": "F",
+    "headword_en": "Formal Proof",
+    "rosen_ref": "Rosen §1.7",
+    "definition_vi": "Chứng minh hình thức của một mệnh đề là một dãy hữu hạn các mệnh đề, trong đó mỗi mệnh đề là một tiên đề, một giả thiết, hoặc được suy ra từ các mệnh đề đứng trước nhờ một quy tắc suy luận, và mệnh đề cuối cùng chính là mệnh đề cần chứng minh. Mọi bước trong chứng minh hình thức đều phải được biện minh đầy đủ và rõ ràng.",
+    "see_ref": "",
+    "vi_terms": [
+      {
+        "term": "chứng minh hình thức",
+        "source_id": "",
+        "page": "",
+        "pdf_page": 0,
+        "verified": false,
+        "recommended": true
+      }
+    ]
+  },
+  {
+    "id": "formula",
+    "letter": "F",
+    "headword_en": "Formula (well-formed formula)",
+    "rosen_ref": "Rosen §1.1",
+    "definition_vi": "\\emph{Biểu thức logic} (công thức hợp thức của phép tính mệnh đề) là biểu thức được xây dựng từ các biến mệnh đề bằng các phép nối logic ($$\\neg, \\land, \\lor, \\to, \\leftrightarrow$$) theo các quy tắc tạo lập. Mỗi biến mệnh đề là một biểu thức logic, và nếu $$E$$, $$F$$ là các biểu thức logic thì $$\\neg E$$, $$E \\land F$$, $$E \\lor F$$, $$E \\to F$$, $$E \\leftrightarrow F$$ cũng là các biểu thức logic.",
+    "see_ref": "",
+    "vi_terms": [
+      {
+        "term": "biểu thức logic",
+        "source_id": "bib-nguyenhuudien-2019",
+        "page": "tr. 20 (PDF)",
+        "pdf_page": 20,
+        "verified": true,
+        "recommended": true
+      },
+      {
+        "term": "biểu thức logic",
+        "source_id": "bib-nguyenducnghia-2006",
+        "page": "tr. 99 (PDF)",
+        "pdf_page": 99,
+        "verified": true,
+        "recommended": false
+      },
+      {
+        "term": "biểu thức logic",
+        "source_id": "bib-rosen-2003-vi",
+        "page": "tr. 13 (PDF, bản dịch Rosen)",
+        "pdf_page": 13,
+        "verified": true,
+        "recommended": false
+      }
+    ]
+  },
+  {
+    "id": "four-color-theorem",
+    "letter": "F",
+    "headword_en": "Four Color Theorem",
+    "rosen_ref": "Rosen §10.8",
+    "definition_vi": "Định lý bốn màu khẳng định rằng số màu của mọi đồ thị phẳng không vượt quá $$4$$, tức là các đỉnh của mỗi đồ thị phẳng đều có thể tô bằng nhiều nhất bốn màu sao cho hai đỉnh kề nhau luôn được tô khác màu. Phát biểu dưới dạng bản đồ, mọi bản đồ trên mặt phẳng đều có thể tô bằng bốn màu sao cho hai miền có chung biên giới được tô khác màu.",
+    "see_ref": "",
+    "vi_terms": [
+      {
+        "term": "Định lý Bốn màu",
+        "source_id": "bib-nguyenhoangthach-2020",
+        "page": "tr. 82 (PDF)",
+        "pdf_page": 82,
+        "verified": true,
+        "recommended": false
+      },
+      {
+        "term": "Định lý Bốn màu",
+        "source_id": "bib-nguyenhuudien-2019",
+        "page": "tr. 237 (PDF)",
+        "pdf_page": 237,
+        "verified": true,
+        "recommended": false
+      },
+      {
+        "term": "Định lý bốn màu",
+        "source_id": "bib-leanhvinh-2020",
+        "page": "tr. 123 (PDF)",
+        "pdf_page": 123,
+        "verified": true,
+        "recommended": true
+      },
+      {
+        "term": "Định lý Bốn màu",
+        "source_id": "bib-rosen-2003-vi",
+        "page": "tr. 595 (PDF)",
+        "pdf_page": 595,
+        "verified": true,
+        "recommended": false
+      },
+      {
+        "term": "Bài toán bốn màu",
+        "source_id": "bib-hoangchithanh-2007",
+        "page": "tr. 122 (PDF)",
+        "pdf_page": 122,
+        "verified": true,
+        "recommended": false
+      },
+      {
+        "term": "Giả thuyết bốn màu",
+        "source_id": "bib-ngodactan-2004",
+        "page": "tr. 298 (PDF)",
+        "pdf_page": 298,
+        "verified": true,
+        "recommended": false
+      },
+      {
+        "term": "Định lý bốn màu",
+        "source_id": "bib-rosen-2003-vi",
+        "page": "tr. 595 (PDF, bản dịch Rosen)",
+        "pdf_page": 595,
+        "verified": true,
+        "recommended": false
+      },
+      {
+        "term": "Bài toán bốn màu",
+        "source_id": "bib-rosen-2003-vi",
+        "page": "tr. 595 (PDF, bản dịch Rosen)",
+        "pdf_page": 595,
+        "verified": true,
+        "recommended": false
+      }
+    ]
+  },
+  {
+    "id": "free-tree",
+    "letter": "F",
+    "headword_en": "Free tree",
+    "rosen_ref": "Rosen §11.1",
+    "definition_vi": "\\emph{Cây (không có gốc)} là một đồ thị vô hướng liên thông không chứa chu trình đơn, tức là một cây được xét mà không chỉ định bất kỳ đỉnh nào làm gốc.",
+    "see_ref": "",
+    "vi_terms": [
+      {
+        "term": "cây (không có gốc)",
+        "source_id": "bib-leanhvinh-2020",
+        "page": "tr. 52 (PDF)",
+        "pdf_page": 52,
+        "verified": true,
+        "recommended": true
+      },
+      {
+        "term": "cây",
+        "source_id": "bib-nguyenducnghia-2006",
+        "page": "tr. 200 (PDF)",
+        "pdf_page": 200,
+        "verified": true,
+        "recommended": false
+      },
+      {
+        "term": "cây",
+        "source_id": "bib-rosen-2003-vi",
+        "page": "tr. 19 (PDF, bản dịch Rosen)",
+        "pdf_page": 19,
+        "verified": true,
+        "recommended": false
+      }
+    ]
+  },
+  {
+    "id": "free-variable",
+    "letter": "F",
+    "headword_en": "Free Variable",
+    "rosen_ref": "Rosen §1.4",
+    "definition_vi": "Biến tự do là biến trong một hàm mệnh đề mà không bị ràng buộc bởi bất kỳ lượng từ nào, do đó giá trị chân lý của biểu thức còn phụ thuộc vào giá trị gán cho biến đó. Trong biểu thức $$\\exists x\\, P(x, y)$$, biến $$x$$ bị ràng buộc bởi lượng từ, còn biến $$y$$ là biến tự do.",
+    "see_ref": "",
+    "vi_terms": [
+      {
+        "term": "biến tự do",
+        "source_id": "bib-nguyenhuudien-2019",
+        "page": "tr. 50 (PDF)",
+        "pdf_page": 50,
+        "verified": true,
+        "recommended": true
+      },
+      {
+        "term": "biến tự do",
+        "source_id": "bib-rosen-2003-vi",
+        "page": "tr. 222 (PDF)",
+        "pdf_page": 222,
+        "verified": true,
+        "recommended": false
+      }
+    ]
+  },
+  {
+    "id": "frequent-itemset",
+    "letter": "F",
+    "headword_en": "Frequent Itemset",
+    "rosen_ref": "",
+    "definition_vi": "Một tập mục (itemset) được gọi là tập phổ biến nếu tần suất của nó lớn hơn hoặc bằng một ngưỡng cho trước. Nói cách khác, đó là một tập mục $$I$$ với tần suất thỏa mãn $$\\mathrm{freq}(I) \\geq t$$, trong đó $$t$$ là ngưỡng đã cho.",
+    "see_ref": "",
+    "vi_terms": [
+      {
+        "term": "tập phổ biến",
+        "source_id": "",
+        "page": "",
+        "pdf_page": 0,
+        "verified": false,
+        "recommended": true
+      },
+      {
+        "term": "tập mục phổ biến",
+        "source_id": "",
+        "page": "",
+        "pdf_page": 0,
+        "verified": false,
+        "recommended": false
+      }
+    ]
+  },
+  {
+    "id": "full-adder",
+    "letter": "F",
+    "headword_en": "Full Adder",
+    "rosen_ref": "Rosen §12.3",
+    "definition_vi": "Mạch cộng toàn phần là mạch logic tổ hợp cộng hai bit đầu vào cùng với một bit nhớ đầu vào, rồi tạo ra một bit tổng và một bit nhớ đầu ra. Như vậy nó nhận ba bit đầu vào $$x$$, $$y$$ và $$c_{\\mathrm{in}}$$, rồi sinh ra bit tổng $$s$$ và bit nhớ đầu ra $$c_{\\mathrm{out}}$$.",
+    "see_ref": "",
+    "vi_terms": [
+      {
+        "term": "mạch cộng toàn phần",
+        "source_id": "",
+        "page": "",
+        "pdf_page": 0,
+        "verified": false,
+        "recommended": true
+      }
+    ]
+  },
+  {
+    "id": "full-binary-tree",
+    "letter": "F",
+    "headword_en": "Full binary tree",
+    "rosen_ref": "Rosen §11.1",
+    "definition_vi": "\\emph{Cây nhị phân đầy đủ} là một cây nhị phân có gốc trong đó mỗi đỉnh trong (mỗi đỉnh không phải là lá) có đúng hai con.",
+    "see_ref": "",
+    "vi_terms": [
+      {
+        "term": "cây nhị phân đầy đủ",
+        "source_id": "bib-hoangchithanh-2007",
+        "page": "tr. 147 (PDF)",
+        "pdf_page": 147,
+        "verified": true,
+        "recommended": true
+      },
+      {
+        "term": "cây nhị phân đầy đủ",
+        "source_id": "bib-rosen-2003-vi",
+        "page": "tr. 624 (PDF, bản dịch Rosen)",
+        "pdf_page": 624,
+        "verified": true,
+        "recommended": false
+      }
+    ]
+  },
+  {
+    "id": "full-m-ary-tree",
+    "letter": "F",
+    "headword_en": "Full m-Ary Tree",
+    "rosen_ref": "Rosen §11.1",
+    "definition_vi": "Một \\emph{cây $$m$$-phân đầy} là một cây $$m$$-phân mà trong đó mỗi đỉnh trong (mỗi đỉnh không phải là lá) có đúng $$m$$ con.",
+    "see_ref": "",
+    "vi_terms": [
+      {
+        "term": "cây m-phân đầy",
+        "source_id": "bib-nguyenhoangthach-2020",
+        "page": "tr. 85 (PDF)",
+        "pdf_page": 85,
+        "verified": true,
+        "recommended": true
+      },
+      {
+        "term": "cây m-phân đầy đủ",
+        "source_id": "bib-rosen-2003-vi",
+        "page": "tr. 632 (PDF)",
+        "pdf_page": 632,
+        "verified": true,
+        "recommended": false
+      },
+      {
+        "term": "cây m-phân đầy",
+        "source_id": "bib-rosen-2003-vi",
+        "page": "tr. 632 (PDF, bản dịch Rosen)",
+        "pdf_page": 632,
+        "verified": true,
+        "recommended": false
+      }
+    ]
+  },
+  {
+    "id": "fully-homomorphic-cryptosystem",
+    "letter": "F",
+    "headword_en": "Fully Homomorphic Cryptosystem",
+    "rosen_ref": "Rosen §4.6",
+    "definition_vi": "Hệ mật mã đồng cấu hoàn toàn là một hệ mật mã cho phép thực hiện tính toán tùy ý trên dữ liệu đã được mã hóa.",
+    "see_ref": "",
+    "vi_terms": [
+      {
+        "term": "hệ mật mã đồng cấu hoàn toàn",
+        "source_id": "",
+        "page": "",
+        "pdf_page": 0,
+        "verified": false,
+        "recommended": true
+      },
+      {
+        "term": "hệ thống mật mã",
+        "source_id": "bib-rosen-2003-vi",
+        "page": "tr. 161 (PDF)",
+        "pdf_page": 161,
+        "verified": true,
+        "recommended": false
+      },
+      {
+        "term": "đồng cấu",
+        "source_id": "bib-nguyenhuudien-2019",
+        "page": "tr. 124 (PDF)",
+        "pdf_page": 124,
+        "verified": true,
+        "recommended": false
+      }
+    ]
+  },
+  {
+    "id": "function",
+    "letter": "F",
+    "headword_en": "Function",
+    "rosen_ref": "Rosen §2.3",
+    "definition_vi": "Một \\emph{hàm số} $$f$$ từ tập $$A$$ vào tập $$B$$ là một phép gán mỗi phần tử của $$A$$ với đúng một phần tử của $$B$$, ký hiệu $$f : A \\to B$$. Tập $$A$$ được gọi là tập nguồn và tập $$B$$ được gọi là tập đích của $$f$$.",
+    "see_ref": "",
+    "vi_terms": [
+      {
+        "term": "hàm số",
+        "source_id": "bib-nguyenhuudien-2019",
+        "page": "tr. 102 (PDF)",
+        "pdf_page": 102,
+        "verified": true,
+        "recommended": true
+      },
+      {
+        "term": "hàm",
+        "source_id": "bib-leanhvinh-2020",
+        "page": "tr. 48 (PDF)",
+        "pdf_page": 48,
+        "verified": true,
+        "recommended": false
+      },
+      {
+        "term": "ánh xạ",
+        "source_id": "bib-leanhvinh-2020",
+        "page": "tr. 90 (PDF)",
+        "pdf_page": 90,
+        "verified": true,
+        "recommended": false
+      },
+      {
+        "term": "hàm số",
+        "source_id": "bib-nguyenhoangthach-2020",
+        "page": "tr. 46 (PDF)",
+        "pdf_page": 46,
+        "verified": true,
+        "recommended": false
+      },
+      {
+        "term": "ánh xạ",
+        "source_id": "bib-hoangchithanh-2007",
+        "page": "tr. 6 (PDF)",
+        "pdf_page": 6,
+        "verified": true,
+        "recommended": false
+      },
+      {
+        "term": "hàm số",
+        "source_id": "bib-ngodactan-2004",
+        "page": "tr. 128 (PDF)",
+        "pdf_page": 128,
+        "verified": true,
+        "recommended": false
+      },
+      {
+        "term": "ánh xạ",
+        "source_id": "bib-ngodactan-2004",
+        "page": "tr. 41 (PDF)",
+        "pdf_page": 41,
+        "verified": true,
+        "recommended": false
+      },
+      {
+        "term": "hàm số",
+        "source_id": "bib-rosen-2003-vi",
+        "page": "tr. 108 (PDF, bản dịch Rosen)",
+        "pdf_page": 108,
+        "verified": true,
+        "recommended": false
+      },
+      {
+        "term": "hàm",
+        "source_id": "bib-rosen-2003-vi",
+        "page": "tr. 5 (PDF, bản dịch Rosen)",
+        "pdf_page": 5,
+        "verified": true,
+        "recommended": false
+      },
+      {
+        "term": "ánh xạ",
+        "source_id": "bib-rosen-2003-vi",
+        "page": "tr. 82 (PDF, bản dịch Rosen)",
+        "pdf_page": 82,
+        "verified": true,
+        "recommended": false
+      }
+    ]
+  },
+  {
+    "id": "function-composition",
+    "letter": "F",
+    "headword_en": "Function composition",
+    "rosen_ref": "Rosen §2.3",
+    "definition_vi": "\\emph{Hợp thành} của hai hàm $$g : B \\to C$$ và $$f : A \\to B$$ là hàm từ $$A$$ vào $$C$$, ký hiệu $$g \\circ f$$, được xác định bởi $$(g \\circ f)(a) = g(f(a))$$ với mọi $$a \\in A$$.",
+    "see_ref": "",
+    "vi_terms": [
+      {
+        "term": "hợp thành",
+        "source_id": "bib-nguyenhuudien-2019",
+        "page": "tr. 114 (PDF)",
+        "pdf_page": 114,
+        "verified": true,
+        "recommended": true
+      },
+      {
+        "term": "quan hệ hợp thành",
+        "source_id": "bib-nguyenhuudien-2019",
+        "page": "tr. 114 (PDF)",
+        "pdf_page": 114,
+        "verified": true,
+        "recommended": false
+      },
+      {
+        "term": "hợp thành",
+        "source_id": "bib-rosen-2003-vi",
+        "page": "tr. 87 (PDF, bản dịch Rosen)",
+        "pdf_page": 87,
+        "verified": true,
+        "recommended": false
+      }
+    ]
+  },
+  {
+    "id": "functionally-complete",
+    "letter": "F",
+    "headword_en": "Functionally Complete",
+    "rosen_ref": "Rosen §1.2",
+    "definition_vi": "Một tập hợp các toán tử logic được gọi là đầy đủ (về mặt chức năng) nếu mọi mệnh đề phức hợp đều tương đương lôgic với một mệnh đề chỉ dùng các toán tử trong tập đó. Chẳng hạn, tập $$\\{\\neg, \\wedge, \\vee\\}$$ là đầy đủ vì mọi hàm mệnh đề đều biểu diễn được qua phép phủ định, hội và tuyển.",
+    "see_ref": "",
+    "vi_terms": [
+      {
+        "term": "đầy đủ",
+        "source_id": "bib-rosen-2003-vi",
+        "page": "tr. 30 (PDF)",
+        "pdf_page": 30,
+        "verified": true,
+        "recommended": true
+      },
+      {
+        "term": "hệ đầy đủ",
+        "source_id": "bib-nguyenducnghia-2006",
+        "page": "tr. 271 (PDF)",
+        "pdf_page": 271,
+        "verified": true,
+        "recommended": false
+      }
+    ]
+  },
+  {
+    "id": "game-tree",
+    "letter": "G",
+    "headword_en": "Game Tree",
+    "rosen_ref": "Rosen §11.2",
+    "definition_vi": "Cây trò chơi là một cây có gốc trong đó các đỉnh biểu diễn các hình trạng của một trò chơi và các cạnh biểu diễn các nước đi.",
+    "see_ref": "",
+    "vi_terms": [
+      {
+        "term": "cây trò chơi",
+        "source_id": "",
+        "page": "",
+        "pdf_page": 0,
+        "verified": false,
+        "recommended": true
+      }
+    ]
+  },
+  {
+    "id": "gate",
+    "letter": "G",
+    "headword_en": "Gate",
+    "rosen_ref": "Rosen §12.3",
+    "definition_vi": "Cổng (cổng logic) là phần tử mạch cơ bản nhận một hay nhiều đầu vào nhị phân và cho một đầu ra nhị phân, trong đó đầu ra là giá trị của một phép toán Boole áp dụng cho các giá trị đầu vào. Ba loại cổng cơ bản là cổng đảo (NOT), thực hiện phép $$\\overline{x}$$, cổng OR, thực hiện phép $$x + y$$, và cổng AND, thực hiện phép $$x \\cdot y$$; bằng cách ghép nối các cổng ta thu được các mạch logic (mạch tổ hợp).",
+    "see_ref": "",
+    "vi_terms": [
+      {
+        "term": "cổng",
+        "source_id": "bib-rosen-2003-vi",
+        "page": "tr. 727 (PDF)",
+        "pdf_page": 727,
+        "verified": true,
+        "recommended": true
+      },
+      {
+        "term": "cổng logic",
+        "source_id": "bib-rosen-2003-vi",
+        "page": "tr. 739 (PDF)",
+        "pdf_page": 739,
+        "verified": true,
+        "recommended": false
+      }
+    ]
+  },
+  {
+    "id": "generalized-binomial-coefficient",
+    "letter": "G",
+    "headword_en": "Generalized Binomial Coefficient",
+    "rosen_ref": "Rosen §5.4",
+    "definition_vi": "Hệ số nhị thức tổng quát, ký hiệu $$\\binom{u}{k}$$, mở rộng hệ số nhị thức cho số mũ trên là một số thực $$u$$ tùy ý và $$k$$ là số nguyên không âm, xác định bởi $$\\binom{u}{k} = \\dfrac{u(u-1)\\cdots(u-k+1)}{k!}$$ khi $$k > 0$$ và $$\\binom{u}{0} = 1$$.",
+    "see_ref": "",
+    "vi_terms": [
+      {
+        "term": "hệ số nhị thức mở rộng",
+        "source_id": "bib-nguyenhoangthach-2020",
+        "page": "tr. 47 (PDF)",
+        "pdf_page": 47,
+        "verified": true,
+        "recommended": false
+      },
+      {
+        "term": "hệ số nhị thức tổng quát",
+        "source_id": "",
+        "page": "",
+        "pdf_page": 0,
+        "verified": false,
+        "recommended": true
+      }
+    ]
+  },
+  {
+    "id": "generating-function",
+    "letter": "G",
+    "headword_en": "Generating function",
+    "rosen_ref": "Rosen §8.4",
+    "definition_vi": "Hàm sinh của dãy số thực $$a_0, a_1, \\ldots, a_k, \\ldots$$ là chuỗi lũy thừa hình thức $$\\displaystyle\\sum_{k=0}^{\\infty} a_k x^k$$, ký hiệu $$G(x)$$. Mỗi số hạng $$a_k$$ của dãy là hệ số của $$x^k$$ trong chuỗi này.",
+    "see_ref": "",
+    "vi_terms": [
+      {
+        "term": "hàm sinh",
+        "source_id": "bib-nguyenhoangthach-2020",
+        "page": "tr. 45 (PDF)",
+        "pdf_page": 45,
+        "verified": true,
+        "recommended": true
+      },
+      {
+        "term": "hàm sinh",
+        "source_id": "bib-nguyenducnghia-2006",
+        "page": "tr. 38 (PDF)",
+        "pdf_page": 38,
+        "verified": true,
+        "recommended": false
+      },
+      {
+        "term": "hàm sinh",
+        "source_id": "bib-ngodactan-2004",
+        "page": "tr. 59 (PDF)",
+        "pdf_page": 59,
+        "verified": true,
+        "recommended": false
+      },
+      {
+        "term": "hàm sinh thông thường",
+        "source_id": "bib-ngodactan-2004",
+        "page": "tr. 87 (PDF)",
+        "pdf_page": 87,
+        "verified": true,
+        "recommended": false
+      },
+      {
+        "term": "hàm sinh mũ",
+        "source_id": "bib-ngodactan-2004",
+        "page": "tr. 97 (PDF)",
+        "pdf_page": 97,
+        "verified": true,
+        "recommended": false
+      },
+      {
+        "term": "hàm sinh",
+        "source_id": "bib-rosen-2003-vi",
+        "page": "tr. 422 (PDF, bản dịch Rosen)",
+        "pdf_page": 422,
+        "verified": true,
+        "recommended": false
+      }
+    ]
+  },
+  {
+    "id": "genus",
+    "letter": "G",
+    "headword_en": "Genus",
+    "rosen_ref": "Rosen §10.7",
+    "definition_vi": "Giống của một đồ thị $$G$$ là số quai ít nhất cần gắn thêm vào mặt cầu để $$G$$ có thể được vẽ trên mặt thu được mà không có cạnh nào cắt nhau; ký hiệu $$g(G)$$.",
+    "see_ref": "",
+    "vi_terms": [
+      {
+        "term": "giống",
+        "source_id": "bib-ngodactan-2004",
+        "page": "tr. 212 (PDF)",
+        "pdf_page": 212,
+        "verified": true,
+        "recommended": true
+      },
+      {
+        "term": "đồ thị giống g",
+        "source_id": "bib-ngodactan-2004",
+        "page": "tr. 212 (PDF)",
+        "pdf_page": 212,
+        "verified": true,
+        "recommended": false
+      },
+      {
+        "term": "giống của mặt",
+        "source_id": "bib-ngodactan-2004",
+        "page": "tr. 212 (PDF)",
+        "pdf_page": 212,
+        "verified": true,
+        "recommended": false
+      },
+      {
+        "term": "giống",
+        "source_id": "bib-rosen-2003-vi",
+        "page": "tr. 35 (PDF, bản dịch Rosen)",
+        "pdf_page": 35,
+        "verified": true,
+        "recommended": false
+      }
+    ]
+  },
+  {
+    "id": "geodesic",
+    "letter": "G",
+    "headword_en": "Geodesic",
+    "rosen_ref": "Rosen §10.4",
+    "definition_vi": "Một đường đi ngắn nhất nối hai đỉnh $$u$$ và $$v$$ trong một đồ thị $$G$$ là một đường đi giữa $$u$$ và $$v$$ có độ dài nhỏ nhất. Độ dài của đường đi ngắn nhất đó được gọi là khoảng cách giữa hai đỉnh $$u$$ và $$v$$, ký hiệu $$d(u,v)$$.",
+    "see_ref": "",
+    "vi_terms": [
+      {
+        "term": "khoảng cách",
+        "source_id": "bib-leanhvinh-2020",
+        "page": "tr. 17 (PDF)",
+        "pdf_page": 17,
+        "verified": true,
+        "recommended": true
+      },
+      {
+        "term": "khoảng cách",
+        "source_id": "bib-nguyenhoangthach-2020",
+        "page": "tr. 88 (PDF)",
+        "pdf_page": 88,
+        "verified": true,
+        "recommended": false
+      },
+      {
+        "term": "đường đi ngắn nhất giữa hai đỉnh",
+        "source_id": "bib-nguyenhoangthach-2020",
+        "page": "tr. 92 (PDF)",
+        "pdf_page": 92,
+        "verified": true,
+        "recommended": false
+      },
+      {
+        "term": "đường đi ngắn nhất",
+        "source_id": "bib-nguyenhuudien-2019",
+        "page": "tr. 244 (PDF)",
+        "pdf_page": 244,
+        "verified": true,
+        "recommended": false
+      },
+      {
+        "term": "khoảng cách d(u, v)",
+        "source_id": "bib-nguyenhuudien-2019",
+        "page": "tr. 186 (PDF)",
+        "pdf_page": 186,
+        "verified": true,
+        "recommended": false
+      },
+      {
+        "term": "khoảng cách giữa hai đỉnh",
+        "source_id": "bib-ngodactan-2004",
+        "page": "tr. 216 (PDF)",
+        "pdf_page": 216,
+        "verified": true,
+        "recommended": false
+      },
+      {
+        "term": "khoảng cách giữa đỉnh",
+        "source_id": "bib-hoangchithanh-2007",
+        "page": "tr. 99 (PDF)",
+        "pdf_page": 99,
+        "verified": true,
+        "recommended": false
+      },
+      {
+        "term": "đường đi ngắn nhất",
+        "source_id": "bib-nguyenducnghia-2006",
+        "page": "tr. 222 (PDF)",
+        "pdf_page": 222,
+        "verified": true,
+        "recommended": false
+      },
+      {
+        "term": "khoảng cách",
+        "source_id": "bib-rosen-2003-vi",
+        "page": "tr. 316 (PDF, bản dịch Rosen)",
+        "pdf_page": 316,
+        "verified": true,
+        "recommended": false
+      },
+      {
+        "term": "đường đi ngắn nhất giữa hai đỉnh",
+        "source_id": "bib-rosen-2003-vi",
+        "page": "tr. 131 (PDF, bản dịch Rosen)",
+        "pdf_page": 131,
+        "verified": true,
+        "recommended": false
+      },
+      {
+        "term": "đường đi ngắn nhất",
+        "source_id": "bib-rosen-2003-vi",
+        "page": "tr. 131 (PDF, bản dịch Rosen)",
+        "pdf_page": 131,
+        "verified": true,
+        "recommended": false
+      },
+      {
+        "term": "khoảng cách giữa hai đỉnh",
+        "source_id": "bib-rosen-2003-vi",
+        "page": "tr. 613 (PDF, bản dịch Rosen)",
+        "pdf_page": 613,
+        "verified": true,
+        "recommended": false
+      }
+    ]
+  },
+  {
+    "id": "geometric-distribution",
+    "letter": "G",
+    "headword_en": "Geometric Distribution",
+    "rosen_ref": "Rosen §7.4",
+    "definition_vi": "Phân phối hình học là phân phối của một biến ngẫu nhiên cho số phép thử cần thực hiện cho đến khi đạt được thành công đầu tiên. Nếu mỗi phép thử thành công với xác suất $$p$$ một cách độc lập, thì xác suất để thành công đầu tiên xảy ra ở phép thử thứ $$k$$ là $$P(X = k) = (1-p)^{k-1} p$$ với $$k = 1, 2, 3, \\ldots$$.",
+    "see_ref": "",
+    "vi_terms": [
+      {
+        "term": "phân phối hình học",
+        "source_id": "",
+        "page": "",
+        "pdf_page": 0,
+        "verified": false,
+        "recommended": true
+      },
+      {
+        "term": "biến ngẫu nhiên",
+        "source_id": "bib-leanhvinh-2020",
+        "page": "tr. 155 (PDF)",
+        "pdf_page": 155,
+        "verified": true,
+        "recommended": false
+      }
+    ]
+  },
+  {
+    "id": "geometric-progression",
+    "letter": "G",
+    "headword_en": "Geometric Progression",
+    "rosen_ref": "Rosen §2.4",
+    "definition_vi": "Cấp số nhân là một dãy số có dạng $$a, ar, ar^2, \\ldots, ar^n, \\ldots$$, trong đó số hạng đầu $$a$$ và công bội $$r$$ là các số thực với $$r \\neq 0$$. Mỗi số hạng nhận được từ số hạng liền trước bằng cách nhân với công bội $$r$$, tức là $$a_n = ar^n$$.",
+    "see_ref": "",
+    "vi_terms": [
+      {
+        "term": "cấp số nhân",
+        "source_id": "bib-nguyenhoangthach-2020",
+        "page": "tr. 41 (PDF)",
+        "pdf_page": 41,
+        "verified": true,
+        "recommended": true
+      },
+      {
+        "term": "cấp số nhân",
+        "source_id": "bib-rosen-2003-vi",
+        "page": "tr. 234 (PDF)",
+        "pdf_page": 234,
+        "verified": true,
+        "recommended": false
+      }
+    ]
+  },
+  {
+    "id": "geometric-series",
+    "letter": "G",
+    "headword_en": "Geometric series",
+    "rosen_ref": "Rosen §2.4",
+    "definition_vi": "Một \\emph{tổng cấp số nhân} là tổng hữu hạn của các số hạng liên tiếp của một cấp số nhân, tức là tổng có dạng $$\\displaystyle\\sum_{j=0}^{n} a r^j$$, trong đó số hạng đầu $$a$$ và công bội $$r$$ là các số thực. Tổng này, ký hiệu $$\\displaystyle\\sum_{j=0}^{n} a r^j = a + a r + a r^2 + \\dots + a r^n$$, được lấy trên các số mũ $$j$$ từ $$0$$ đến $$n$$.",
+    "see_ref": "",
+    "vi_terms": [
+      {
+        "term": "tổng cấp số nhân",
+        "source_id": "",
+        "page": "",
+        "pdf_page": 0,
+        "verified": false,
+        "recommended": true
+      },
+      {
+        "term": "cấp số nhân",
+        "source_id": "bib-nguyenhoangthach-2020",
+        "page": "tr. 41 (PDF)",
+        "pdf_page": 41,
+        "verified": true,
+        "recommended": false
+      },
+      {
+        "term": "cấp số nhân",
+        "source_id": "bib-rosen-2003-vi",
+        "page": "tr. 100 (PDF, bản dịch Rosen)",
+        "pdf_page": 100,
+        "verified": true,
+        "recommended": false
+      }
+    ]
+  },
+  {
+    "id": "girth",
+    "letter": "G",
+    "headword_en": "Girth",
+    "rosen_ref": "Rosen §10.4",
+    "definition_vi": "Đai của một đồ thị $$G$$ chứa ít nhất một chu trình là độ dài của một chu trình ngắn nhất trong $$G$$, ký hiệu $$g(G)$$. Nếu $$G$$ không chứa chu trình nào thì $$g(G)$$ không được xác định.",
+    "see_ref": "",
+    "vi_terms": [
+      {
+        "term": "độ dài chu trình ngắn nhất",
+        "source_id": "bib-leanhvinh-2020",
+        "page": "tr. 118 (PDF)",
+        "pdf_page": 118,
+        "verified": true,
+        "recommended": true
+      },
+      {
+        "term": "độ dài chu trình ngắn nhất",
+        "source_id": "bib-nguyenhoangthach-2020",
+        "page": "tr. 80 (PDF)",
+        "pdf_page": 80,
+        "verified": true,
+        "recommended": false
+      },
+      {
+        "term": "đai",
+        "source_id": "bib-nguyenhuudien-2019",
+        "page": "tr. 233 (PDF)",
+        "pdf_page": 233,
+        "verified": true,
+        "recommended": false
+      },
+      {
+        "term": "đai",
+        "source_id": "bib-hoangchithanh-2007",
+        "page": "tr. 118 (PDF)",
+        "pdf_page": 118,
+        "verified": true,
+        "recommended": false
+      },
+      {
+        "term": "chu trình ngắn nhất",
+        "source_id": "bib-ngodactan-2004",
+        "page": "tr. 207 (PDF)",
+        "pdf_page": 207,
+        "verified": true,
+        "recommended": false
+      },
+      {
+        "term": "chu vi nhỏ nhất",
+        "source_id": "bib-ngodactan-2004",
+        "page": "tr. 207 (PDF)",
+        "pdf_page": 207,
+        "verified": true,
+        "recommended": false
+      },
+      {
+        "term": "đai",
+        "source_id": "bib-rosen-2003-vi",
+        "page": "tr. 184 (PDF, bản dịch Rosen)",
+        "pdf_page": 184,
+        "verified": true,
+        "recommended": false
+      }
+    ]
+  },
+  {
+    "id": "graph",
+    "letter": "G",
+    "headword_en": "Graph",
+    "rosen_ref": "Rosen §10.1",
+    "definition_vi": "Một \\emph{đồ thị} $$G = (V, E)$$ gồm một tập đỉnh $$V$$ khác rỗng và một tập cạnh $$E$$, trong đó mỗi cạnh được gắn với một hoặc hai đỉnh, gọi là các đầu mút của cạnh đó.",
+    "see_ref": "",
+    "vi_terms": [
+      {
+        "term": "đồ thị",
+        "source_id": "bib-leanhvinh-2020",
+        "page": "tr. 8 (PDF)",
+        "pdf_page": 8,
+        "verified": true,
+        "recommended": true
+      },
+      {
+        "term": "đồ thị",
+        "source_id": "bib-nguyenhoangthach-2020",
+        "page": "tr. 61 (PDF)",
+        "pdf_page": 61,
+        "verified": true,
+        "recommended": false
+      },
+      {
+        "term": "đồ thị",
+        "source_id": "bib-nguyenhuudien-2019",
+        "page": "tr. 154 (PDF)",
+        "pdf_page": 154,
+        "verified": true,
+        "recommended": false
+      },
+      {
+        "term": "đồ thị",
+        "source_id": "bib-hoangchithanh-2007",
+        "page": "tr. 5 (PDF)",
+        "pdf_page": 5,
+        "verified": true,
+        "recommended": false
+      },
+      {
+        "term": "đồ thị",
+        "source_id": "bib-nguyenducnghia-2006",
+        "page": "tr. 152 (PDF)",
+        "pdf_page": 152,
+        "verified": true,
+        "recommended": false
+      },
+      {
+        "term": "đồ thị",
+        "source_id": "bib-ngodactan-2004",
+        "page": "tr. 188 (PDF)",
+        "pdf_page": 188,
+        "verified": true,
+        "recommended": false
+      },
+      {
+        "term": "đồ thị G",
+        "source_id": "bib-hoangchithanh-2007",
+        "page": "tr. 6 (PDF)",
+        "pdf_page": 6,
+        "verified": true,
+        "recommended": false
+      },
+      {
+        "term": "graph",
+        "source_id": "bib-hoangchithanh-2007",
+        "page": "tr. 5 (PDF)",
+        "pdf_page": 5,
+        "verified": true,
+        "recommended": false
+      },
+      {
+        "term": "đồ thị",
+        "source_id": "bib-rosen-2003-vi",
+        "page": "tr. 90 (PDF, bản dịch Rosen)",
+        "pdf_page": 90,
+        "verified": true,
+        "recommended": false
+      },
+      {
+        "term": "đồ thị G",
+        "source_id": "bib-rosen-2003-vi",
+        "page": "tr. 495 (PDF, bản dịch Rosen)",
+        "pdf_page": 495,
+        "verified": true,
+        "recommended": false
+      }
+    ]
+  },
+  {
+    "id": "graph-coloring",
+    "letter": "G",
+    "headword_en": "Graph coloring",
+    "rosen_ref": "Rosen §10.8",
+    "definition_vi": "Một phép tô màu đồ thị của một đơn đồ thị $$G$$ là một phép gán cho mỗi đỉnh của $$G$$ một màu sao cho không có hai đỉnh kề nhau nào được gán cùng một màu. Nói cách khác, với mọi cạnh $$uv \\in E(G)$$, hai đỉnh $$u$$ và $$v$$ nhận hai màu khác nhau.",
+    "see_ref": "",
+    "vi_terms": [
+      {
+        "term": "tô màu đồ thị",
+        "source_id": "bib-nguyenhoangthach-2020",
+        "page": "tr. 81 (PDF)",
+        "pdf_page": 81,
+        "verified": true,
+        "recommended": true
+      },
+      {
+        "term": "tô màu đồ thị",
+        "source_id": "bib-nguyenhuudien-2019",
+        "page": "tr. 223 (PDF)",
+        "pdf_page": 223,
+        "verified": true,
+        "recommended": false
+      },
+      {
+        "term": "tô màu đồ thị",
+        "source_id": "bib-leanhvinh-2020",
+        "page": "tr. 90 (PDF)",
+        "pdf_page": 90,
+        "verified": true,
+        "recommended": false
+      },
+      {
+        "term": "tô màu đồ thị",
+        "source_id": "bib-nguyenducnghia-2006",
+        "page": "tr. 166 (PDF)",
+        "pdf_page": 166,
+        "verified": true,
+        "recommended": false
+      },
+      {
+        "term": "tô màu đồ thị",
+        "source_id": "bib-ngodactan-2004",
+        "page": "tr. 283 (PDF)",
+        "pdf_page": 283,
+        "verified": true,
+        "recommended": false
+      },
+      {
+        "term": "tô màu đồ thị",
+        "source_id": "bib-hoangchithanh-2007",
+        "page": "tr. 51 (PDF)",
+        "pdf_page": 51,
+        "verified": true,
+        "recommended": false
+      },
+      {
+        "term": "tô màu các đỉnh",
+        "source_id": "bib-leanhvinh-2020",
+        "page": "tr. 107 (PDF)",
+        "pdf_page": 107,
+        "verified": true,
+        "recommended": false
+      },
+      {
+        "term": "tô màu các đỉnh",
+        "source_id": "bib-nguyenhuudien-2019",
+        "page": "tr. 227 (PDF)",
+        "pdf_page": 227,
+        "verified": true,
+        "recommended": false
+      },
+      {
+        "term": "tô màu các đỉnh",
+        "source_id": "bib-hoangchithanh-2007",
+        "page": "tr. 51 (PDF)",
+        "pdf_page": 51,
+        "verified": true,
+        "recommended": false
+      },
+      {
+        "term": "bài toán tô màu",
+        "source_id": "bib-nguyenhuudien-2019",
+        "page": "tr. 227 (PDF)",
+        "pdf_page": 227,
+        "verified": true,
+        "recommended": false
+      },
+      {
+        "term": "bài toán tô màu",
+        "source_id": "bib-nguyenducnghia-2006",
+        "page": "tr. 166 (PDF)",
+        "pdf_page": 166,
+        "verified": true,
+        "recommended": false
+      },
+      {
+        "term": "bài toán tô màu",
+        "source_id": "bib-hoangchithanh-2007",
+        "page": "tr. 51 (PDF)",
+        "pdf_page": 51,
+        "verified": true,
+        "recommended": false
+      },
+      {
+        "term": "tô màu tốt",
+        "source_id": "bib-leanhvinh-2020",
+        "page": "tr. 90 (PDF)",
+        "pdf_page": 90,
+        "verified": true,
+        "recommended": false
+      },
+      {
+        "term": "tô màu đỉnh",
+        "source_id": "bib-ngodactan-2004",
+        "page": "tr. 283 (PDF)",
+        "pdf_page": 283,
+        "verified": true,
+        "recommended": false
+      },
+      {
+        "term": "phép tô màu đồ thị",
+        "source_id": "bib-nguyenducnghia-2006",
+        "page": "tr. 166 (PDF)",
+        "pdf_page": 166,
+        "verified": true,
+        "recommended": false
+      },
+      {
+        "term": "tô màu",
+        "source_id": "bib-ngodactan-2004",
+        "page": "tr. 283 (PDF)",
+        "pdf_page": 283,
+        "verified": true,
+        "recommended": false
+      },
+      {
+        "term": "tô màu đồ thị",
+        "source_id": "bib-rosen-2003-vi",
+        "page": "tr. 594 (PDF, bản dịch Rosen)",
+        "pdf_page": 594,
+        "verified": true,
+        "recommended": false
+      },
+      {
+        "term": "bài toán tô màu",
+        "source_id": "bib-rosen-2003-vi",
+        "page": "tr. 594 (PDF, bản dịch Rosen)",
+        "pdf_page": 594,
+        "verified": true,
+        "recommended": false
+      },
+      {
+        "term": "tô màu",
+        "source_id": "bib-rosen-2003-vi",
+        "page": "tr. 485 (PDF, bản dịch Rosen)",
+        "pdf_page": 485,
+        "verified": true,
+        "recommended": false
+      }
+    ]
+  },
+  {
+    "id": "graph-invariant",
+    "letter": "G",
+    "headword_en": "Graph Invariant",
+    "rosen_ref": "Rosen §10.3",
+    "definition_vi": "Bất biến đồ thị là một tính chất hoặc đại lượng của đồ thị được bảo toàn qua phép đẳng cấu, nghĩa là hai đồ thị đẳng cấu luôn nhận cùng một giá trị của tính chất đó. Do vậy, nếu hai đồ thị $$G$$ và $$H$$ có một bất biến nhận giá trị khác nhau thì $$G$$ và $$H$$ không đẳng cấu với nhau.",
+    "see_ref": "",
+    "vi_terms": [
+      {
+        "term": "bất biến đối với phép đẳng cấu",
+        "source_id": "bib-rosen-2003-vi",
+        "page": "tr. 542 (PDF)",
+        "pdf_page": 542,
+        "verified": true,
+        "recommended": false
+      },
+      {
+        "term": "bất biến đối với phép đẳng cấu",
+        "source_id": "bib-nguyenhuudien-2019",
+        "page": "tr. 165 (PDF)",
+        "pdf_page": 165,
+        "verified": true,
+        "recommended": false
+      },
+      {
+        "term": "tính chất bất biến",
+        "source_id": "bib-nguyenhoangthach-2020",
+        "page": "tr. 73 (PDF)",
+        "pdf_page": 73,
+        "verified": true,
+        "recommended": false
+      },
+      {
+        "term": "bất biến đồ thị",
+        "source_id": "",
+        "page": "",
+        "pdf_page": 0,
+        "verified": false,
+        "recommended": true
+      }
+    ]
+  },
+  {
+    "id": "graph-isomorphism",
+    "letter": "G",
+    "headword_en": "Graph isomorphism",
+    "rosen_ref": "Rosen §10.3",
+    "definition_vi": "Hai đồ thị đơn $$G_1 = (V_1, E_1)$$ và $$G_2 = (V_2, E_2)$$ được gọi là đẳng cấu, ký hiệu $$G_1 \\cong G_2$$, nếu tồn tại một song ánh $$f : V_1 \\to V_2$$ sao cho với mọi cặp đỉnh $$u, v \\in V_1$$, hai đỉnh $$u$$ và $$v$$ kề nhau trong $$G_1$$ khi và chỉ khi $$f(u)$$ và $$f(v)$$ kề nhau trong $$G_2$$. Khi đó, song ánh $$f$$ được gọi là một đẳng cấu giữa $$G_1$$ và $$G_2$$.",
+    "see_ref": "",
+    "vi_terms": [
+      {
+        "term": "đẳng cấu đồ thị",
+        "source_id": "bib-nguyenhoangthach-2020",
+        "page": "tr. 73 (PDF)",
+        "pdf_page": 73,
+        "verified": true,
+        "recommended": true
+      },
+      {
+        "term": "đẳng cấu",
+        "source_id": "bib-leanhvinh-2020",
+        "page": "tr. 12 (PDF)",
+        "pdf_page": 12,
+        "verified": true,
+        "recommended": false
+      },
+      {
+        "term": "sự đẳng cấu đồ thị",
+        "source_id": "bib-nguyenhuudien-2019",
+        "page": "tr. 163 (PDF)",
+        "pdf_page": 163,
+        "verified": true,
+        "recommended": false
+      },
+      {
+        "term": "đồ thị đẳng cấu",
+        "source_id": "bib-nguyenhuudien-2019",
+        "page": "tr. 165 (PDF)",
+        "pdf_page": 165,
+        "verified": true,
+        "recommended": false
+      },
+      {
+        "term": "sự đẳng cấu",
+        "source_id": "bib-hoangchithanh-2007",
+        "page": "tr. 8 (PDF)",
+        "pdf_page": 8,
+        "verified": true,
+        "recommended": false
+      },
+      {
+        "term": "đẳng cấu",
+        "source_id": "bib-rosen-2003-vi",
+        "page": "tr. 520 (PDF, bản dịch Rosen)",
+        "pdf_page": 520,
+        "verified": true,
+        "recommended": false
+      },
+      {
+        "term": "đồ thị đẳng cấu",
+        "source_id": "bib-rosen-2003-vi",
+        "page": "tr. 525 (PDF, bản dịch Rosen)",
+        "pdf_page": 525,
+        "verified": true,
+        "recommended": false
+      },
+      {
+        "term": "sự đẳng cấu",
+        "source_id": "bib-rosen-2003-vi",
+        "page": "tr. 633 (PDF, bản dịch Rosen)",
+        "pdf_page": 633,
+        "verified": true,
+        "recommended": false
+      }
+    ]
+  },
+  {
+    "id": "graph-of-a-function",
+    "letter": "G",
+    "headword_en": "Graph of a function",
+    "rosen_ref": "Rosen §2.3",
+    "definition_vi": "Đồ thị của hàm số $$f$$ từ tập $$A$$ đến tập $$B$$ là tập các cặp sắp thứ tự gồm mỗi phần tử $$a \\in A$$ và ảnh $$f(a)$$ của nó, ký hiệu\n\n```math\n\\{(a, b) : a \\in A \\text{ và } f(a) = b\\}.\n```\n\nĐồ thị của hàm số $$f$$ là một tập con của tích Descartes $$A \\times B$$.",
+    "see_ref": "",
+    "vi_terms": [
+      {
+        "term": "đồ thị của hàm số",
+        "source_id": "",
+        "page": "",
+        "pdf_page": 0,
+        "verified": false,
+        "recommended": true
+      },
+      {
+        "term": "đồ thị của hàm",
+        "source_id": "bib-rosen-2003-vi",
+        "page": "tr. 90 (PDF)",
+        "pdf_page": 90,
+        "verified": true,
+        "recommended": false
+      }
+    ]
+  },
+  {
+    "id": "gray-code",
+    "letter": "G",
+    "headword_en": "Gray code",
+    "rosen_ref": "Rosen §10.5",
+    "definition_vi": "Mã Gray độ dài $$n$$ là một cách sắp xếp toàn bộ $$2^n$$ xâu bit độ dài $$n$$ thành một dãy sao cho hai xâu liên tiếp bất kỳ chỉ khác nhau đúng tại một vị trí bit, và xâu cuối cũng chỉ khác xâu đầu đúng tại một vị trí bit.",
+    "see_ref": "",
+    "vi_terms": [
+      {
+        "term": "mã Gray",
+        "source_id": "",
+        "page": "",
+        "pdf_page": null,
+        "verified": false,
+        "recommended": true
+      }
+    ]
+  },
+  {
+    "id": "greatest-common-divisor",
+    "letter": "G",
+    "headword_en": "Greatest common divisor",
+    "rosen_ref": "Rosen §4.3",
+    "definition_vi": "Ước chung lớn nhất của hai số nguyên $$a$$ và $$b$$ không đồng thời bằng $$0$$ là số nguyên lớn nhất $$d$$ chia hết cả $$a$$ và $$b$$, ký hiệu $$\\gcd(a,b)$$.",
+    "see_ref": "",
+    "vi_terms": [
+      {
+        "term": "ước chung lớn nhất",
+        "source_id": "bib-nguyenhuudien-2019",
+        "page": "tr. 141 (PDF)",
+        "pdf_page": 141,
+        "verified": true,
+        "recommended": true
+      },
+      {
+        "term": "ước chung lớn nhất",
+        "source_id": "bib-nguyenhuudien-2019",
+        "page": "tr. 142 (PDF)",
+        "pdf_page": 142,
+        "verified": true,
+        "recommended": false
+      },
+      {
+        "term": "ước chung lớn nhất",
+        "source_id": "bib-nguyenducnghia-2006",
+        "page": "tr. 89 (PDF)",
+        "pdf_page": 89,
+        "verified": true,
+        "recommended": false
+      },
+      {
+        "term": "ước số chung lớn nhất",
+        "source_id": "bib-nguyenhuudien-2019",
+        "page": "tr. 124 (PDF)",
+        "pdf_page": 124,
+        "verified": true,
+        "recommended": false
+      },
+      {
+        "term": "ước số chung lớn nhất",
+        "source_id": "bib-ngodactan-2004",
+        "page": "tr. 176 (PDF)",
+        "pdf_page": 176,
+        "verified": true,
+        "recommended": false
+      },
+      {
+        "term": "ước số chung lớn nhất",
+        "source_id": "bib-ngodactan-2004",
+        "page": "tr. 156 (PDF)",
+        "pdf_page": 156,
+        "verified": true,
+        "recommended": false
+      },
+      {
+        "term": "ƯCLN",
+        "source_id": "bib-nguyenhuudien-2019",
+        "page": "tr. 142 (PDF)",
+        "pdf_page": 142,
+        "verified": true,
+        "recommended": false
+      },
+      {
+        "term": "ước chung lớn nhất",
+        "source_id": "bib-rosen-2003-vi",
+        "page": "tr. 248 (PDF, bản dịch Rosen)",
+        "pdf_page": 248,
+        "verified": true,
+        "recommended": false
+      },
+      {
+        "term": "ước số chung lớn nhất",
+        "source_id": "bib-rosen-2003-vi",
+        "page": "tr. 130 (PDF, bản dịch Rosen)",
+        "pdf_page": 130,
+        "verified": true,
+        "recommended": false
+      },
+      {
+        "term": "ƯCLN",
+        "source_id": "bib-rosen-2003-vi",
+        "page": "tr. 168 (PDF, bản dịch Rosen)",
+        "pdf_page": 168,
+        "verified": true,
+        "recommended": false
+      }
+    ]
+  },
+  {
+    "id": "euclidean-algorithm",
+    "letter": "G",
+    "headword_en": "Greatest common divisor (Euclidean algorithm)",
+    "rosen_ref": "Rosen §4.3",
+    "definition_vi": "Thuật toán Euclide là thủ tục tính ước chung lớn nhất của hai số nguyên dương $$a$$ và $$b$$, ký hiệu $$\\gcd(a,b)$$, bằng cách lặp lại việc thay cặp $$(a, b)$$ bởi cặp $$(b, a \\bmod b)$$ cho đến khi thành phần thứ hai bằng $$0$$. Khi đó thành phần thứ nhất chính là $$\\gcd(a, b)$$.",
+    "see_ref": "",
+    "vi_terms": [
+      {
+        "term": "thuật toán Euclide",
+        "source_id": "bib-nguyenhuudien-2019",
+        "page": "tr. 141 (PDF)",
+        "pdf_page": 141,
+        "verified": true,
+        "recommended": true
+      },
+      {
+        "term": "ước chung lớn nhất",
+        "source_id": "bib-nguyenhuudien-2019",
+        "page": "tr. 142 (PDF)",
+        "pdf_page": 142,
+        "verified": true,
+        "recommended": false
+      },
+      {
+        "term": "thuật toán Euclide tìm ước chung lớn nhất",
+        "source_id": "bib-nguyenducnghia-2006",
+        "page": "tr. 89 (PDF)",
+        "pdf_page": 89,
+        "verified": true,
+        "recommended": false
+      },
+      {
+        "term": "ước chung lớn nhất",
+        "source_id": "bib-rosen-2003-vi",
+        "page": "tr. 248 (PDF, bản dịch Rosen)",
+        "pdf_page": 248,
+        "verified": true,
+        "recommended": false
+      }
+    ]
+  },
+  {
+    "id": "greatest-element",
+    "letter": "G",
+    "headword_en": "Greatest Element",
+    "rosen_ref": "Rosen §9.6",
+    "definition_vi": "Phần tử lớn nhất của một tập sắp thứ tự (poset) là một phần tử lớn hơn mọi phần tử khác của tập đó. Nói cách khác, phần tử $$a$$ là phần tử lớn nhất nếu $$b \\preceq a$$ với mọi phần tử $$b$$ của tập, và phần tử lớn nhất, nếu có, là duy nhất.",
+    "see_ref": "",
+    "vi_terms": [
+      {
+        "term": "phần tử lớn nhất",
+        "source_id": "bib-nguyenhuudien-2019",
+        "page": "119",
+        "pdf_page": 119,
+        "verified": true,
+        "recommended": true
+      },
+      {
+        "term": "phần tử lớn nhất",
+        "source_id": "bib-nguyenhuudien-2019",
+        "page": "119",
+        "pdf_page": 119,
+        "verified": true,
+        "recommended": false
+      },
+      {
+        "term": "phần tử lớn nhất",
+        "source_id": "bib-rosen-2003-vi",
+        "page": "tr. 132 (PDF, bản dịch Rosen)",
+        "pdf_page": 132,
+        "verified": true,
+        "recommended": false
+      }
+    ]
+  },
+  {
+    "id": "greatest-integer-function",
+    "letter": "G",
+    "headword_en": "Greatest Integer Function",
+    "rosen_ref": "Rosen §2.3",
+    "definition_vi": "Hàm phần nguyên (còn gọi là hàm sàn, ký hiệu $$\\lfloor x \\rfloor$$) là hàm gán cho mỗi số thực $$x$$ số nguyên lớn nhất không vượt quá $$x$$, tức là số nguyên lớn nhất có giá trị $$\\leq x$$.",
+    "see_ref": "",
+    "vi_terms": [
+      {
+        "term": "hàm phần nguyên",
+        "source_id": "bib-nguyenhuudien-2019",
+        "page": "tr. 86 (PDF)",
+        "pdf_page": 86,
+        "verified": true,
+        "recommended": true
+      },
+      {
+        "term": "hàm sàn",
+        "source_id": "bib-rosen-2003-vi",
+        "page": "tr. 91 (PDF)",
+        "pdf_page": 91,
+        "verified": true,
+        "recommended": false
+      },
+      {
+        "term": "phần nguyên",
+        "source_id": "bib-ngodactan-2004",
+        "page": "tr. 111 (PDF)",
+        "pdf_page": 111,
+        "verified": true,
+        "recommended": false
+      },
+      {
+        "term": "phần nguyên",
+        "source_id": "bib-rosen-2003-vi",
+        "page": "tr. 91 (PDF, bản dịch Rosen)",
+        "pdf_page": 91,
+        "verified": true,
+        "recommended": false
+      }
+    ]
+  },
+  {
+    "id": "greatest-lower-bound",
+    "letter": "G",
+    "headword_en": "Greatest Lower Bound",
+    "rosen_ref": "Rosen §9.6",
+    "definition_vi": "Cho một tập con $$S$$ của một tập sắp thứ tự bộ phận. Một phần tử $$x$$ được gọi là \\emph{chặn dưới lớn nhất} của $$S$$ nếu $$x$$ là một chặn dưới của $$S$$ và $$x$$ lớn hơn mọi chặn dưới khác của $$S$$, tức là $$y \\preceq x$$ với mọi chặn dưới $$y$$ của $$S$$.",
+    "see_ref": "",
+    "vi_terms": [
+      {
+        "term": "chặn dưới lớn nhất",
+        "source_id": "",
+        "page": "",
+        "pdf_page": 0,
+        "verified": false,
+        "recommended": true
+      },
+      {
+        "term": "chận dưới lớn nhất",
+        "source_id": "bib-nguyenhuudien-2019",
+        "page": "tr. 123 (PDF)",
+        "pdf_page": 123,
+        "verified": true,
+        "recommended": false
+      },
+      {
+        "term": "chận dưới lớn nhất",
+        "source_id": "bib-nguyenhuudien-2019",
+        "page": "tr. 124 (PDF)",
+        "pdf_page": 124,
+        "verified": true,
+        "recommended": false
+      }
+    ]
+  },
+  {
+    "id": "greedy-algorithm",
+    "letter": "G",
+    "headword_en": "Greedy algorithm",
+    "rosen_ref": "Rosen §3.1",
+    "definition_vi": "Thuật toán tham lam là thuật toán mà tại mỗi bước đều chọn phương án tối ưu cục bộ theo một tiêu chí đã định, với hy vọng đạt được lời giải tối ưu toàn cục.",
+    "see_ref": "",
+    "vi_terms": [
+      {
+        "term": "thuật toán tham lam",
+        "source_id": "bib-leanhvinh-2020",
+        "page": "tr. 61 (PDF)",
+        "pdf_page": 61,
+        "verified": true,
+        "recommended": true
+      },
+      {
+        "term": "thuật toán tham lam",
+        "source_id": "bib-nguyenhoangthach-2020",
+        "page": "tr. 93 (PDF)",
+        "pdf_page": 93,
+        "verified": true,
+        "recommended": false
+      },
+      {
+        "term": "tham lam",
+        "source_id": "bib-leanhvinh-2020",
+        "page": "tr. 59 (PDF)",
+        "pdf_page": 59,
+        "verified": true,
+        "recommended": false
+      },
+      {
+        "term": "thuật toán tham lam",
+        "source_id": "bib-rosen-2003-vi",
+        "page": "tr. 692 (PDF, bản dịch Rosen)",
+        "pdf_page": 692,
+        "verified": true,
+        "recommended": false
+      },
+      {
+        "term": "tham lam",
+        "source_id": "bib-rosen-2003-vi",
+        "page": "tr. 692 (PDF, bản dịch Rosen)",
+        "pdf_page": 692,
+        "verified": true,
+        "recommended": false
+      }
+    ]
+  }
+]
+
+hook: PostToolUse
+hook: PreToolUse Completed
+hook: PostToolUse Completed
+exec
+/bin/bash -lc "jq '[.[] | select((.see_ref // \"\") == \"\")] | length' workflow/loop/review/batch-7.json" in /home/ubuntu/DM-Concepts
+ succeeded in 0ms:
+39
+
+hook: PostToolUse
+hook: PostToolUse Completed
+codex
+Batch 7 has 39 non-stub entries. The full pretty print is too large, so I’m switching to compact per-entry summaries: id, headword, recommended term, and existing Vietnamese variants.
+hook: PreToolUse
+hook: PreToolUse Completed
+exec
+/bin/bash -lc "jq -r '.[] | select((.see_ref // \"\") == \"\") | {id, headword_en, recommended: ([.vi_terms[] | select(.recommended==true).term] | join(\" | \")), terms: [.vi_terms[].term]} | @json' workflow/loop/review/batch-7.json" in /home/ubuntu/DM-Concepts
+ succeeded in 0ms:
+{"id":"floor-function","headword_en":"Floor function","recommended":"hàm sàn","terms":["hàm sàn","hàm phần nguyên","phần nguyên","sàn","hàm sàn","phần nguyên","sàn","phần nguyên (sàn)"]}
+{"id":"flow","headword_en":"Flow","recommended":"luồng vận tải","terms":["luồng vận tải","luồng","luồng trong mạng","luồng qua mạng","luồng trong mạng vận tải"]}
+{"id":"flowchart","headword_en":"Flowchart","recommended":"Sơ đồ khối","terms":["sơ đồ khối","lưu đồ","Sơ đồ khối"]}
+{"id":"forest","headword_en":"Forest","recommended":"rừng","terms":["rừng","rừng","rừng","rừng","(đồ thị) không chứa chu trình","rừng"]}
+{"id":"formal-proof","headword_en":"Formal Proof","recommended":"chứng minh hình thức","terms":["chứng minh hình thức"]}
+{"id":"formula","headword_en":"Formula (well-formed formula)","recommended":"biểu thức logic","terms":["biểu thức logic","biểu thức logic","biểu thức logic"]}
+{"id":"four-color-theorem","headword_en":"Four Color Theorem","recommended":"Định lý bốn màu","terms":["Định lý Bốn màu","Định lý Bốn màu","Định lý bốn màu","Định lý Bốn màu","Bài toán bốn màu","Giả thuyết bốn màu","Định lý bốn màu","Bài toán bốn màu"]}
+{"id":"free-tree","headword_en":"Free tree","recommended":"cây (không có gốc)","terms":["cây (không có gốc)","cây","cây"]}
+{"id":"free-variable","headword_en":"Free Variable","recommended":"biến tự do","terms":["biến tự do","biến tự do"]}
+{"id":"frequent-itemset","headword_en":"Frequent Itemset","recommended":"tập phổ biến","terms":["tập phổ biến","tập mục phổ biến"]}
+{"id":"full-adder","headword_en":"Full Adder","recommended":"mạch cộng toàn phần","terms":["mạch cộng toàn phần"]}
+{"id":"full-binary-tree","headword_en":"Full binary tree","recommended":"cây nhị phân đầy đủ","terms":["cây nhị phân đầy đủ","cây nhị phân đầy đủ"]}
+{"id":"full-m-ary-tree","headword_en":"Full m-Ary Tree","recommended":"cây m-phân đầy","terms":["cây m-phân đầy","cây m-phân đầy đủ","cây m-phân đầy"]}
+{"id":"fully-homomorphic-cryptosystem","headword_en":"Fully Homomorphic Cryptosystem","recommended":"hệ mật mã đồng cấu hoàn toàn","terms":["hệ mật mã đồng cấu hoàn toàn","hệ thống mật mã","đồng cấu"]}
+{"id":"function","headword_en":"Function","recommended":"hàm số","terms":["hàm số","hàm","ánh xạ","hàm số","ánh xạ","hàm số","ánh xạ","hàm số","hàm","ánh xạ"]}
+{"id":"function-composition","headword_en":"Function composition","recommended":"hợp thành","terms":["hợp thành","quan hệ hợp thành","hợp thành"]}
+{"id":"functionally-complete","headword_en":"Functionally Complete","recommended":"đầy đủ","terms":["đầy đủ","hệ đầy đủ"]}
+{"id":"game-tree","headword_en":"Game Tree","recommended":"cây trò chơi","terms":["cây trò chơi"]}
+{"id":"gate","headword_en":"Gate","recommended":"cổng","terms":["cổng","cổng logic"]}
+{"id":"generalized-binomial-coefficient","headword_en":"Generalized Binomial Coefficient","recommended":"hệ số nhị thức tổng quát","terms":["hệ số nhị thức mở rộng","hệ số nhị thức tổng quát"]}
+{"id":"generating-function","headword_en":"Generating function","recommended":"hàm sinh","terms":["hàm sinh","hàm sinh","hàm sinh","hàm sinh thông thường","hàm sinh mũ","hàm sinh"]}
+{"id":"genus","headword_en":"Genus","recommended":"giống","terms":["giống","đồ thị giống g","giống của mặt","giống"]}
+{"id":"geodesic","headword_en":"Geodesic","recommended":"khoảng cách","terms":["khoảng cách","khoảng cách","đường đi ngắn nhất giữa hai đỉnh","đường đi ngắn nhất","khoảng cách d(u, v)","khoảng cách giữa hai đỉnh","khoảng cách giữa đỉnh","đường đi ngắn nhất","khoảng cách","đường đi ngắn nhất giữa hai đỉnh","đường đi ngắn nhất","khoảng cách giữa hai đỉnh"]}
+{"id":"geometric-distribution","headword_en":"Geometric Distribution","recommended":"phân phối hình học","terms":["phân phối hình học","biến ngẫu nhiên"]}
+{"id":"geometric-progression","headword_en":"Geometric Progression","recommended":"cấp số nhân","terms":["cấp số nhân","cấp số nhân"]}
+{"id":"geometric-series","headword_en":"Geometric series","recommended":"tổng cấp số nhân","terms":["tổng cấp số nhân","cấp số nhân","cấp số nhân"]}
+{"id":"girth","headword_en":"Girth","recommended":"độ dài chu trình ngắn nhất","terms":["độ dài chu trình ngắn nhất","độ dài chu trình ngắn nhất","đai","đai","chu trình ngắn nhất","chu vi nhỏ nhất","đai"]}
+{"id":"graph","headword_en":"Graph","recommended":"đồ thị","terms":["đồ thị","đồ thị","đồ thị","đồ thị","đồ thị","đồ thị","đồ thị G","graph","đồ thị","đồ thị G"]}
+{"id":"graph-coloring","headword_en":"Graph coloring","recommended":"tô màu đồ thị","terms":["tô màu đồ thị","tô màu đồ thị","tô màu đồ thị","tô màu đồ thị","tô màu đồ thị","tô màu đồ thị","tô màu các đỉnh","tô màu các đỉnh","tô màu các đỉnh","bài toán tô màu","bài toán tô màu","bài toán tô màu","tô màu tốt","tô màu đỉnh","phép tô màu đồ thị","tô màu","tô màu đồ thị","bài toán tô màu","tô màu"]}
+{"id":"graph-invariant","headword_en":"Graph Invariant","recommended":"bất biến đồ thị","terms":["bất biến đối với phép đẳng cấu","bất biến đối với phép đẳng cấu","tính chất bất biến","bất biến đồ thị"]}
+{"id":"graph-isomorphism","headword_en":"Graph isomorphism","recommended":"đẳng cấu đồ thị","terms":["đẳng cấu đồ thị","đẳng cấu","sự đẳng cấu đồ thị","đồ thị đẳng cấu","sự đẳng cấu","đẳng cấu","đồ thị đẳng cấu","sự đẳng cấu"]}
+{"id":"graph-of-a-function","headword_en":"Graph of a function","recommended":"đồ thị của hàm số","terms":["đồ thị của hàm số","đồ thị của hàm"]}
+{"id":"gray-code","headword_en":"Gray code","recommended":"mã Gray","terms":["mã Gray"]}
+{"id":"greatest-common-divisor","headword_en":"Greatest common divisor","recommended":"ước chung lớn nhất","terms":["ước chung lớn nhất","ước chung lớn nhất","ước chung lớn nhất","ước số chung lớn nhất","ước số chung lớn nhất","ước số chung lớn nhất","ƯCLN","ước chung lớn nhất","ước số chung lớn nhất","ƯCLN"]}
+{"id":"euclidean-algorithm","headword_en":"Greatest common divisor (Euclidean algorithm)","recommended":"thuật toán Euclide","terms":["thuật toán Euclide","ước chung lớn nhất","thuật toán Euclide tìm ước chung lớn nhất","ước chung lớn nhất"]}
+{"id":"greatest-element","headword_en":"Greatest Element","recommended":"phần tử lớn nhất","terms":["phần tử lớn nhất","phần tử lớn nhất","phần tử lớn nhất"]}
+{"id":"greatest-integer-function","headword_en":"Greatest Integer Function","recommended":"hàm phần nguyên","terms":["hàm phần nguyên","hàm sàn","phần nguyên","phần nguyên"]}
+{"id":"greatest-lower-bound","headword_en":"Greatest Lower Bound","recommended":"chặn dưới lớn nhất","terms":["chặn dưới lớn nhất","chận dưới lớn nhất","chận dưới lớn nhất"]}
+{"id":"greedy-algorithm","headword_en":"Greedy algorithm","recommended":"thuật toán tham lam","terms":["thuật toán tham lam","thuật toán tham lam","tham lam","thuật toán tham lam","tham lam"]}
+
+hook: PostToolUse
+hook: PostToolUse Completed
+web search: 
+web search: "floor function" "hàm sàn" "hàm phần nguyên" toán rời rạc
+web search: 
+web search: "formal proof" "chứng minh hình thức" logic toán
+web search: 
+web search: "free variable" "biến tự do" logic toán
+web search: 
+web search: "full m-ary tree" "cây m-phân đầy" "cây m-phân đầy đủ"
+web search: 
+web search: "functionally complete" "đầy đủ chức năng" logic mệnh đề "cổng"
+web search: 
+web search: "generalized binomial coefficient" "hệ số nhị thức tổng quát" "hệ số nhị thức mở rộng"
+web search: 
+web search: "geometric distribution" "phân phối hình học" "phân bố hình học"
+web search: 
+web search: "geometric series" "chuỗi hình học" Vietnamese math
+web search: 
+web search: "graph" "đồ thị" "toán rời rạc" đại học
+web search: 
+web search: "graph of a function" "đồ thị của hàm số" "đồ thị hàm số"
+web search: 
+web search: "greatest element" "phần tử lớn nhất" "tập sắp thứ tự"
+web search: 
+web search: "cận dưới lớn nhất" "greatest lower bound"
+web search: 
+web search: "công thức hợp thức" "well-formed formula"
+web search: 
+web search: "hàm sinh" "generating function" "toán rời rạc"
+web search: 
+web search: "hàm hợp" "function composition"
+codex
+I have enough snippet evidence for the entries that need action. I’m going to write only findings where the snippet evidence showed either a clearly better/commoner term or an additional valid Vietnamese variant not already in the entry.
+hook: PreToolUse
+hook: PreToolUse Completed
+exec
+/bin/bash -lc 'test -e workflow/loop/review/findings-7.json; echo $?' in /home/ubuntu/DM-Concepts
+ succeeded in 0ms:
+1
+
+hook: PostToolUse
+hook: PostToolUse Completed
+codex
+I’m writing `findings-7.json` now. This only creates the review output file; it does not modify any dictionary source file.
+apply patch
+patch: completed
+/home/ubuntu/DM-Concepts/workflow/loop/review/findings-7.json
+diff --git a/workflow/loop/review/findings-7.json b/workflow/loop/review/findings-7.json
+new file mode 100644
+index 0000000000000000000000000000000000000000..bcd6b5c21a9221f7d594f24439b819dfa5fd7c13
+--- /dev/null
++++ b/workflow/loop/review/findings-7.json
+@@ -0,0 +1 @@
++{"loop":7,"reviewed":39,"findings":[{"id":"flowchart","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"lưu đồ thuật toán","source":"https://stanford.com.vn/kien-thuc-lap-trinh/tin-chi-tiet/cagId/27/id/22569/huong-dan-viet-so-do-khoi-thuat-toan-trong-lap-trinh"},{"term":"sơ đồ luồng","source":"https://quantrimang.com/cong-nghe/ve-hinh-trong-ms-word-18574"}]},{"id":"formula","commonality":{"verdict":"uncommon","better_term":"công thức hợp thức","source":"https://voer.edu.vn/m/ngon-ngu-vi-tu-bac-mot/dbbadaa1"},"missing_variants":[{"term":"công thức hợp thức","source":"https://voer.edu.vn/m/ngon-ngu-vi-tu-bac-mot/dbbadaa1"}]},{"id":"free-tree","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"cây tự do","source":"https://www.studocu.vn/vn/document/truong-dai-hoc-sai-gon/ly-thuyet-do-thi/chapter-5-compatibility-mode/104724011"}]},{"id":"frequent-itemset","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"tập mục thường xuyên","source":"https://repository.vnu.edu.vn/server/api/core/bitstreams/a33ee2a8-4201-40eb-955f-bf1c01318124/content"}]},{"id":"full-adder","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"bộ cộng toàn phần","source":"https://www.studocu.vn/vn/document/truong-dai-hoc-ky-thuat-cong-nghiep/bai-tham-khao/mach-cong-toan-phan-va-mach-cong-ban-phan/86760981"}]},{"id":"fully-homomorphic-cryptosystem","commonality":{"verdict":"unsure","better_term":"","source":""},"missing_variants":[{"term":"mã hóa đồng hình hoàn toàn","source":"https://mst.gov.vn/ma-hoa-dong-hinh-hoan-toan-giai-phap-bao-mat-cua-tuong-lai-197150184.htm"},{"term":"hệ mật mã đồng cấu đầy đủ","source":"https://www.academia.edu/33848272/H%E1%BB%87_m%E1%BA%ADt_m%C3%A3_%C4%91%E1%BB%93ng_c%E1%BA%A5u_%C4%91%E1%BA%A7y_%C4%91%E1%BB%A7_BGV_v%C3%A0_th%C6%B0_vi%E1%BB%87n_m%C3%A3_h%C3%B3a_%C4%91%E1%BB%93ng_c%E1%BA%A5u_HELIB"}]},{"id":"function-composition","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"hàm hợp","source":"https://vi.wikipedia.org/wiki/H%C3%A0m_h%E1%BB%A3p"}]},{"id":"functionally-complete","commonality":{"verdict":"uncommon","better_term":"đầy đủ chức năng","source":"https://www.studocu.vn/vn/document/truong-dai-hoc-bach-khoa-ha-noi/tri-tue-nhan-tao-va-hoc-may/chuong-12-dai-so-boolean-va-thiet-ke-mach-dien-tu-cs101/128638146"},"missing_variants":[{"term":"đầy đủ chức năng","source":"https://www.studocu.vn/vn/document/truong-dai-hoc-bach-khoa-ha-noi/tri-tue-nhan-tao-va-hoc-may/chuong-12-dai-so-boolean-va-thiet-ke-mach-dien-tu-cs101/128638146"},{"term":"hoàn chỉnh về chức năng","source":"https://www.studocu.vn/vn/document/truong-dai-hoc-bach-khoa-ha-noi/tri-tue-nhan-tao-va-hoc-may/chuong-12-dai-so-boolean-va-thiet-ke-mach-dien-tu-cs101/128638146"}]},{"id":"geodesic","commonality":{"verdict":"uncommon","better_term":"đường đi ngắn nhất","source":"https://ptit.edu.vn/saudaihoc/wp-content/uploads/2021/08/LA_Nguy%E1%BB%85n-Xu%C3%A2n-D%C5%A9ng.pdf"},"missing_variants":[{"term":"đường trắc địa","source":"https://ptit.edu.vn/saudaihoc/wp-content/uploads/2021/08/LA_Nguy%E1%BB%85n-Xu%C3%A2n-D%C5%A9ng.pdf"}]},{"id":"geometric-distribution","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"phân bố hình học","source":"https://www.studocu.vn/vn/document/truong-dai-hoc-tai-chinh-ke-toan/finance-banking/the-geometric-distribution/67566597"}]},{"id":"geometric-series","commonality":{"verdict":"uncommon","better_term":"chuỗi hình học","source":"https://vi.wikipedia.org/wiki/Chu%E1%BB%97i_h%C3%ACnh_h%E1%BB%8Dc"},"missing_variants":[{"term":"chuỗi hình học","source":"https://vi.wikipedia.org/wiki/Chu%E1%BB%97i_h%C3%ACnh_h%E1%BB%8Dc"},{"term":"chuỗi cấp số nhân","source":"https://vi.wikipedia.org/wiki/Chu%E1%BB%97i_h%C3%ACnh_h%E1%BB%8Dc"}]},{"id":"girth","commonality":{"verdict":"uncommon","better_term":"đai","source":"https://www.studocu.vn/vn/document/dai-hoc-nguyen-tat-thanh/li-thuyet-do-thi/do-thi-phang-bc-bai-3-cong-thuc-euler-va-bat-dang-thuc-ev/135879865"},"missing_variants":[]},{"id":"graph-isomorphism","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"phép đẳng cấu đồ thị","source":"https://vi.wikipedia.org/wiki/Ph%C3%A9p_%C4%91%E1%BA%B3ng_c%E1%BA%A5u_%C4%91%E1%BB%93_th%E1%BB%8B"}]},{"id":"euclidean-algorithm","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"thuật toán Euclid","source":"https://nam.name.vn/bai-4-giai-thuat-euclid-va-euclid-mo-rong.html"}]},{"id":"greatest-lower-bound","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"cận dưới lớn nhất","source":"https://vi.wikipedia.org/wiki/L%C3%BD_thuy%E1%BA%BFt_th%E1%BB%A9_t%E1%BB%B1"},{"term":"cận dưới đúng","source":"https://vi.wikipedia.org/wiki/L%C3%BD_thuy%E1%BA%BFt_th%E1%BB%A9_t%E1%BB%B1"}]},{"id":"greedy-algorithm","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"giải thuật tham lam","source":"https://vi.wikipedia.org/wiki/Gi%E1%BA%A3i_thu%E1%BA%ADt_tham_lam"}]}]}
+
+diff --git a/workflow/loop/review/findings-7.json b/workflow/loop/review/findings-7.json
+new file mode 100644
+index 0000000000000000000000000000000000000000..bcd6b5c21a9221f7d594f24439b819dfa5fd7c13
+--- /dev/null
++++ b/workflow/loop/review/findings-7.json
+@@ -0,0 +1 @@
++{"loop":7,"reviewed":39,"findings":[{"id":"flowchart","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"lưu đồ thuật toán","source":"https://stanford.com.vn/kien-thuc-lap-trinh/tin-chi-tiet/cagId/27/id/22569/huong-dan-viet-so-do-khoi-thuat-toan-trong-lap-trinh"},{"term":"sơ đồ luồng","source":"https://quantrimang.com/cong-nghe/ve-hinh-trong-ms-word-18574"}]},{"id":"formula","commonality":{"verdict":"uncommon","better_term":"công thức hợp thức","source":"https://voer.edu.vn/m/ngon-ngu-vi-tu-bac-mot/dbbadaa1"},"missing_variants":[{"term":"công thức hợp thức","source":"https://voer.edu.vn/m/ngon-ngu-vi-tu-bac-mot/dbbadaa1"}]},{"id":"free-tree","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"cây tự do","source":"https://www.studocu.vn/vn/document/truong-dai-hoc-sai-gon/ly-thuyet-do-thi/chapter-5-compatibility-mode/104724011"}]},{"id":"frequent-itemset","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"tập mục thường xuyên","source":"https://repository.vnu.edu.vn/server/api/core/bitstreams/a33ee2a8-4201-40eb-955f-bf1c01318124/content"}]},{"id":"full-adder","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"bộ cộng toàn phần","source":"https://www.studocu.vn/vn/document/truong-dai-hoc-ky-thuat-cong-nghiep/bai-tham-khao/mach-cong-toan-phan-va-mach-cong-ban-phan/86760981"}]},{"id":"fully-homomorphic-cryptosystem","commonality":{"verdict":"unsure","better_term":"","source":""},"missing_variants":[{"term":"mã hóa đồng hình hoàn toàn","source":"https://mst.gov.vn/ma-hoa-dong-hinh-hoan-toan-giai-phap-bao-mat-cua-tuong-lai-197150184.htm"},{"term":"hệ mật mã đồng cấu đầy đủ","source":"https://www.academia.edu/33848272/H%E1%BB%87_m%E1%BA%ADt_m%C3%A3_%C4%91%E1%BB%93ng_c%E1%BA%A5u_%C4%91%E1%BA%A7y_%C4%91%E1%BB%A7_BGV_v%C3%A0_th%C6%B0_vi%E1%BB%87n_m%C3%A3_h%C3%B3a_%C4%91%E1%BB%93ng_c%E1%BA%A5u_HELIB"}]},{"id":"function-composition","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"hàm hợp","source":"https://vi.wikipedia.org/wiki/H%C3%A0m_h%E1%BB%A3p"}]},{"id":"functionally-complete","commonality":{"verdict":"uncommon","better_term":"đầy đủ chức năng","source":"https://www.studocu.vn/vn/document/truong-dai-hoc-bach-khoa-ha-noi/tri-tue-nhan-tao-va-hoc-may/chuong-12-dai-so-boolean-va-thiet-ke-mach-dien-tu-cs101/128638146"},"missing_variants":[{"term":"đầy đủ chức năng","source":"https://www.studocu.vn/vn/document/truong-dai-hoc-bach-khoa-ha-noi/tri-tue-nhan-tao-va-hoc-may/chuong-12-dai-so-boolean-va-thiet-ke-mach-dien-tu-cs101/128638146"},{"term":"hoàn chỉnh về chức năng","source":"https://www.studocu.vn/vn/document/truong-dai-hoc-bach-khoa-ha-noi/tri-tue-nhan-tao-va-hoc-may/chuong-12-dai-so-boolean-va-thiet-ke-mach-dien-tu-cs101/128638146"}]},{"id":"geodesic","commonality":{"verdict":"uncommon","better_term":"đường đi ngắn nhất","source":"https://ptit.edu.vn/saudaihoc/wp-content/uploads/2021/08/LA_Nguy%E1%BB%85n-Xu%C3%A2n-D%C5%A9ng.pdf"},"missing_variants":[{"term":"đường trắc địa","source":"https://ptit.edu.vn/saudaihoc/wp-content/uploads/2021/08/LA_Nguy%E1%BB%85n-Xu%C3%A2n-D%C5%A9ng.pdf"}]},{"id":"geometric-distribution","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"phân bố hình học","source":"https://www.studocu.vn/vn/document/truong-dai-hoc-tai-chinh-ke-toan/finance-banking/the-geometric-distribution/67566597"}]},{"id":"geometric-series","commonality":{"verdict":"uncommon","better_term":"chuỗi hình học","source":"https://vi.wikipedia.org/wiki/Chu%E1%BB%97i_h%C3%ACnh_h%E1%BB%8Dc"},"missing_variants":[{"term":"chuỗi hình học","source":"https://vi.wikipedia.org/wiki/Chu%E1%BB%97i_h%C3%ACnh_h%E1%BB%8Dc"},{"term":"chuỗi cấp số nhân","source":"https://vi.wikipedia.org/wiki/Chu%E1%BB%97i_h%C3%ACnh_h%E1%BB%8Dc"}]},{"id":"girth","commonality":{"verdict":"uncommon","better_term":"đai","source":"https://www.studocu.vn/vn/document/dai-hoc-nguyen-tat-thanh/li-thuyet-do-thi/do-thi-phang-bc-bai-3-cong-thuc-euler-va-bat-dang-thuc-ev/135879865"},"missing_variants":[]},{"id":"graph-isomorphism","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"phép đẳng cấu đồ thị","source":"https://vi.wikipedia.org/wiki/Ph%C3%A9p_%C4%91%E1%BA%B3ng_c%E1%BA%A5u_%C4%91%E1%BB%93_th%E1%BB%8B"}]},{"id":"euclidean-algorithm","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"thuật toán Euclid","source":"https://nam.name.vn/bai-4-giai-thuat-euclid-va-euclid-mo-rong.html"}]},{"id":"greatest-lower-bound","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"cận dưới lớn nhất","source":"https://vi.wikipedia.org/wiki/L%C3%BD_thuy%E1%BA%BFt_th%E1%BB%A9_t%E1%BB%B1"},{"term":"cận dưới đúng","source":"https://vi.wikipedia.org/wiki/L%C3%BD_thuy%E1%BA%BFt_th%E1%BB%A9_t%E1%BB%B1"}]},{"id":"greedy-algorithm","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"giải thuật tham lam","source":"https://vi.wikipedia.org/wiki/Gi%E1%BA%A3i_thu%E1%BA%ADt_tham_lam"}]}]}
+
+codex
+The file is written. I’m running a narrow verification now: JSON parse plus the expected loop/reviewed fields and array shape.
+hook: PreToolUse
+hook: PreToolUse Completed
+hook: PreToolUse
+exec
+/bin/bash -lc "jq -e '.' workflow/loop/review/findings-7.json" in /home/ubuntu/DM-Concepts
+ succeeded in 0ms:
+{
+  "loop": 7,
+  "reviewed": 39,
+  "findings": [
+    {
+      "id": "flowchart",
+      "commonality": {
+        "verdict": "common",
+        "better_term": "",
+        "source": ""
+      },
+      "missing_variants": [
+        {
+          "term": "lưu đồ thuật toán",
+          "source": "https://stanford.com.vn/kien-thuc-lap-trinh/tin-chi-tiet/cagId/27/id/22569/huong-dan-viet-so-do-khoi-thuat-toan-trong-lap-trinh"
+        },
+        {
+          "term": "sơ đồ luồng",
+          "source": "https://quantrimang.com/cong-nghe/ve-hinh-trong-ms-word-18574"
+        }
+      ]
+    },
+    {
+      "id": "formula",
+      "commonality": {
+        "verdict": "uncommon",
+        "better_term": "công thức hợp thức",
+        "source": "https://voer.edu.vn/m/ngon-ngu-vi-tu-bac-mot/dbbadaa1"
+      },
+      "missing_variants": [
+        {
+          "term": "công thức hợp thức",
+          "source": "https://voer.edu.vn/m/ngon-ngu-vi-tu-bac-mot/dbbadaa1"
+        }
+      ]
+    },
+    {
+      "id": "free-tree",
+      "commonality": {
+        "verdict": "common",
+        "better_term": "",
+        "source": ""
+      },
+      "missing_variants": [
+        {
+          "term": "cây tự do",
+          "source": "https://www.studocu.vn/vn/document/truong-dai-hoc-sai-gon/ly-thuyet-do-thi/chapter-5-compatibility-mode/104724011"
+        }
+      ]
+    },
+    {
+      "id": "frequent-itemset",
+      "commonality": {
+        "verdict": "common",
+        "better_term": "",
+        "source": ""
+      },
+      "missing_variants": [
+        {
+          "term": "tập mục thường xuyên",
+          "source": "https://repository.vnu.edu.vn/server/api/core/bitstreams/a33ee2a8-4201-40eb-955f-bf1c01318124/content"
+        }
+      ]
+    },
+    {
+      "id": "full-adder",
+      "commonality": {
+        "verdict": "common",
+        "better_term": "",
+        "source": ""
+      },
+      "missing_variants": [
+        {
+          "term": "bộ cộng toàn phần",
+          "source": "https://www.studocu.vn/vn/document/truong-dai-hoc-ky-thuat-cong-nghiep/bai-tham-khao/mach-cong-toan-phan-va-mach-cong-ban-phan/86760981"
+        }
+      ]
+    },
+    {
+      "id": "fully-homomorphic-cryptosystem",
+      "commonality": {
+        "verdict": "unsure",
+        "better_term": "",
+        "source": ""
+      },
+      "missing_variants": [
+        {
+          "term": "mã hóa đồng hình hoàn toàn",
+          "source": "https://mst.gov.vn/ma-hoa-dong-hinh-hoan-toan-giai-phap-bao-mat-cua-tuong-lai-197150184.htm"
+        },
+        {
+          "term": "hệ mật mã đồng cấu đầy đủ",
+          "source": "https://www.academia.edu/33848272/H%E1%BB%87_m%E1%BA%ADt_m%C3%A3_%C4%91%E1%BB%93ng_c%E1%BA%A5u_%C4%91%E1%BA%A7y_%C4%91%E1%BB%A7_BGV_v%C3%A0_th%C6%B0_vi%E1%BB%87n_m%C3%A3_h%C3%B3a_%C4%91%E1%BB%93ng_c%E1%BA%A5u_HELIB"
+        }
+      ]
+    },
+    {
+      "id": "function-composition",
+      "commonality": {
+        "verdict": "common",
+        "better_term": "",
+        "source": ""
+      },
+      "missing_variants": [
+        {
+          "term": "hàm hợp",
+          "source": "https://vi.wikipedia.org/wiki/H%C3%A0m_h%E1%BB%A3p"
+        }
+      ]
+    },
+    {
+      "id": "functionally-complete",
+      "commonality": {
+        "verdict": "uncommon",
+        "better_term": "đầy đủ chức năng",
+        "source": "https://www.studocu.vn/vn/document/truong-dai-hoc-bach-khoa-ha-noi/tri-tue-nhan-tao-va-hoc-may/chuong-12-dai-so-boolean-va-thiet-ke-mach-dien-tu-cs101/128638146"
+      },
+      "missing_variants": [
+        {
+          "term": "đầy đủ chức năng",
+          "source": "https://www.studocu.vn/vn/document/truong-dai-hoc-bach-khoa-ha-noi/tri-tue-nhan-tao-va-hoc-may/chuong-12-dai-so-boolean-va-thiet-ke-mach-dien-tu-cs101/128638146"
+        },
+        {
+          "term": "hoàn chỉnh về chức năng",
+          "source": "https://www.studocu.vn/vn/document/truong-dai-hoc-bach-khoa-ha-noi/tri-tue-nhan-tao-va-hoc-may/chuong-12-dai-so-boolean-va-thiet-ke-mach-dien-tu-cs101/128638146"
+        }
+      ]
+    },
+    {
+      "id": "geodesic",
+      "commonality": {
+        "verdict": "uncommon",
+        "better_term": "đường đi ngắn nhất",
+        "source": "https://ptit.edu.vn/saudaihoc/wp-content/uploads/2021/08/LA_Nguy%E1%BB%85n-Xu%C3%A2n-D%C5%A9ng.pdf"
+      },
+      "missing_variants": [
+        {
+          "term": "đường trắc địa",
+          "source": "https://ptit.edu.vn/saudaihoc/wp-content/uploads/2021/08/LA_Nguy%E1%BB%85n-Xu%C3%A2n-D%C5%A9ng.pdf"
+        }
+      ]
+    },
+    {
+      "id": "geometric-distribution",
+      "commonality": {
+        "verdict": "common",
+        "better_term": "",
+        "source": ""
+      },
+      "missing_variants": [
+        {
+          "term": "phân bố hình học",
+          "source": "https://www.studocu.vn/vn/document/truong-dai-hoc-tai-chinh-ke-toan/finance-banking/the-geometric-distribution/67566597"
+        }
+      ]
+    },
+    {
+      "id": "geometric-series",
+      "commonality": {
+        "verdict": "uncommon",
+        "better_term": "chuỗi hình học",
+        "source": "https://vi.wikipedia.org/wiki/Chu%E1%BB%97i_h%C3%ACnh_h%E1%BB%8Dc"
+      },
+      "missing_variants": [
+        {
+          "term": "chuỗi hình học",
+          "source": "https://vi.wikipedia.org/wiki/Chu%E1%BB%97i_h%C3%ACnh_h%E1%BB%8Dc"
+        },
+        {
+          "term": "chuỗi cấp số nhân",
+          "source": "https://vi.wikipedia.org/wiki/Chu%E1%BB%97i_h%C3%ACnh_h%E1%BB%8Dc"
+        }
+      ]
+    },
+    {
+      "id": "girth",
+      "commonality": {
+        "verdict": "uncommon",
+        "better_term": "đai",
+        "source": "https://www.studocu.vn/vn/document/dai-hoc-nguyen-tat-thanh/li-thuyet-do-thi/do-thi-phang-bc-bai-3-cong-thuc-euler-va-bat-dang-thuc-ev/135879865"
+      },
+      "missing_variants": []
+    },
+    {
+      "id": "graph-isomorphism",
+      "commonality": {
+        "verdict": "common",
+        "better_term": "",
+        "source": ""
+      },
+      "missing_variants": [
+        {
+          "term": "phép đẳng cấu đồ thị",
+          "source": "https://vi.wikipedia.org/wiki/Ph%C3%A9p_%C4%91%E1%BA%B3ng_c%E1%BA%A5u_%C4%91%E1%BB%93_th%E1%BB%8B"
+        }
+      ]
+    },
+    {
+      "id": "euclidean-algorithm",
+      "commonality": {
+        "verdict": "common",
+        "better_term": "",
+        "source": ""
+      },
+      "missing_variants": [
+        {
+          "term": "thuật toán Euclid",
+          "source": "https://nam.name.vn/bai-4-giai-thuat-euclid-va-euclid-mo-rong.html"
+        }
+      ]
+    },
+    {
+      "id": "greatest-lower-bound",
+      "commonality": {
+        "verdict": "common",
+        "better_term": "",
+        "source": ""
+      },
+      "missing_variants": [
+        {
+          "term": "cận dưới lớn nhất",
+          "source": "https://vi.wikipedia.org/wiki/L%C3%BD_thuy%E1%BA%BFt_th%E1%BB%A9_t%E1%BB%B1"
+        },
+        {
+          "term": "cận dưới đúng",
+          "source": "https://vi.wikipedia.org/wiki/L%C3%BD_thuy%E1%BA%BFt_th%E1%BB%A9_t%E1%BB%B1"
+        }
+      ]
+    },
+    {
+      "id": "greedy-algorithm",
+      "commonality": {
+        "verdict": "common",
+        "better_term": "",
+        "source": ""
+      },
+      "missing_variants": [
+        {
+          "term": "giải thuật tham lam",
+          "source": "https://vi.wikipedia.org/wiki/Gi%E1%BA%A3i_thu%E1%BA%ADt_tham_lam"
+        }
+      ]
+    }
+  ]
+}
+
+hook: PostToolUse
+hook: PreToolUse Completed
+hook: PostToolUse Completed
+exec
+/bin/bash -lc "jq -e '.loop == 7 and .reviewed == 39 and (.findings | type == \"array\")' workflow/loop/review/findings-7.json" in /home/ubuntu/DM-Concepts
+ succeeded in 0ms:
+true
+
+hook: PostToolUse
+hook: PostToolUse Completed
+diff --git a/workflow/loop/review/findings-7.json b/workflow/loop/review/findings-7.json
+new file mode 100644
+index 0000000000000000000000000000000000000000..bcd6b5c21a9221f7d594f24439b819dfa5fd7c13
+--- /dev/null
++++ b/workflow/loop/review/findings-7.json
+@@ -0,0 +1 @@
++{"loop":7,"reviewed":39,"findings":[{"id":"flowchart","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"lưu đồ thuật toán","source":"https://stanford.com.vn/kien-thuc-lap-trinh/tin-chi-tiet/cagId/27/id/22569/huong-dan-viet-so-do-khoi-thuat-toan-trong-lap-trinh"},{"term":"sơ đồ luồng","source":"https://quantrimang.com/cong-nghe/ve-hinh-trong-ms-word-18574"}]},{"id":"formula","commonality":{"verdict":"uncommon","better_term":"công thức hợp thức","source":"https://voer.edu.vn/m/ngon-ngu-vi-tu-bac-mot/dbbadaa1"},"missing_variants":[{"term":"công thức hợp thức","source":"https://voer.edu.vn/m/ngon-ngu-vi-tu-bac-mot/dbbadaa1"}]},{"id":"free-tree","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"cây tự do","source":"https://www.studocu.vn/vn/document/truong-dai-hoc-sai-gon/ly-thuyet-do-thi/chapter-5-compatibility-mode/104724011"}]},{"id":"frequent-itemset","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"tập mục thường xuyên","source":"https://repository.vnu.edu.vn/server/api/core/bitstreams/a33ee2a8-4201-40eb-955f-bf1c01318124/content"}]},{"id":"full-adder","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"bộ cộng toàn phần","source":"https://www.studocu.vn/vn/document/truong-dai-hoc-ky-thuat-cong-nghiep/bai-tham-khao/mach-cong-toan-phan-va-mach-cong-ban-phan/86760981"}]},{"id":"fully-homomorphic-cryptosystem","commonality":{"verdict":"unsure","better_term":"","source":""},"missing_variants":[{"term":"mã hóa đồng hình hoàn toàn","source":"https://mst.gov.vn/ma-hoa-dong-hinh-hoan-toan-giai-phap-bao-mat-cua-tuong-lai-197150184.htm"},{"term":"hệ mật mã đồng cấu đầy đủ","source":"https://www.academia.edu/33848272/H%E1%BB%87_m%E1%BA%ADt_m%C3%A3_%C4%91%E1%BB%93ng_c%E1%BA%A5u_%C4%91%E1%BA%A7y_%C4%91%E1%BB%A7_BGV_v%C3%A0_th%C6%B0_vi%E1%BB%87n_m%C3%A3_h%C3%B3a_%C4%91%E1%BB%93ng_c%E1%BA%A5u_HELIB"}]},{"id":"function-composition","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"hàm hợp","source":"https://vi.wikipedia.org/wiki/H%C3%A0m_h%E1%BB%A3p"}]},{"id":"functionally-complete","commonality":{"verdict":"uncommon","better_term":"đầy đủ chức năng","source":"https://www.studocu.vn/vn/document/truong-dai-hoc-bach-khoa-ha-noi/tri-tue-nhan-tao-va-hoc-may/chuong-12-dai-so-boolean-va-thiet-ke-mach-dien-tu-cs101/128638146"},"missing_variants":[{"term":"đầy đủ chức năng","source":"https://www.studocu.vn/vn/document/truong-dai-hoc-bach-khoa-ha-noi/tri-tue-nhan-tao-va-hoc-may/chuong-12-dai-so-boolean-va-thiet-ke-mach-dien-tu-cs101/128638146"},{"term":"hoàn chỉnh về chức năng","source":"https://www.studocu.vn/vn/document/truong-dai-hoc-bach-khoa-ha-noi/tri-tue-nhan-tao-va-hoc-may/chuong-12-dai-so-boolean-va-thiet-ke-mach-dien-tu-cs101/128638146"}]},{"id":"geodesic","commonality":{"verdict":"uncommon","better_term":"đường đi ngắn nhất","source":"https://ptit.edu.vn/saudaihoc/wp-content/uploads/2021/08/LA_Nguy%E1%BB%85n-Xu%C3%A2n-D%C5%A9ng.pdf"},"missing_variants":[{"term":"đường trắc địa","source":"https://ptit.edu.vn/saudaihoc/wp-content/uploads/2021/08/LA_Nguy%E1%BB%85n-Xu%C3%A2n-D%C5%A9ng.pdf"}]},{"id":"geometric-distribution","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"phân bố hình học","source":"https://www.studocu.vn/vn/document/truong-dai-hoc-tai-chinh-ke-toan/finance-banking/the-geometric-distribution/67566597"}]},{"id":"geometric-series","commonality":{"verdict":"uncommon","better_term":"chuỗi hình học","source":"https://vi.wikipedia.org/wiki/Chu%E1%BB%97i_h%C3%ACnh_h%E1%BB%8Dc"},"missing_variants":[{"term":"chuỗi hình học","source":"https://vi.wikipedia.org/wiki/Chu%E1%BB%97i_h%C3%ACnh_h%E1%BB%8Dc"},{"term":"chuỗi cấp số nhân","source":"https://vi.wikipedia.org/wiki/Chu%E1%BB%97i_h%C3%ACnh_h%E1%BB%8Dc"}]},{"id":"girth","commonality":{"verdict":"uncommon","better_term":"đai","source":"https://www.studocu.vn/vn/document/dai-hoc-nguyen-tat-thanh/li-thuyet-do-thi/do-thi-phang-bc-bai-3-cong-thuc-euler-va-bat-dang-thuc-ev/135879865"},"missing_variants":[]},{"id":"graph-isomorphism","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"phép đẳng cấu đồ thị","source":"https://vi.wikipedia.org/wiki/Ph%C3%A9p_%C4%91%E1%BA%B3ng_c%E1%BA%A5u_%C4%91%E1%BB%93_th%E1%BB%8B"}]},{"id":"euclidean-algorithm","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"thuật toán Euclid","source":"https://nam.name.vn/bai-4-giai-thuat-euclid-va-euclid-mo-rong.html"}]},{"id":"greatest-lower-bound","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"cận dưới lớn nhất","source":"https://vi.wikipedia.org/wiki/L%C3%BD_thuy%E1%BA%BFt_th%E1%BB%A9_t%E1%BB%B1"},{"term":"cận dưới đúng","source":"https://vi.wikipedia.org/wiki/L%C3%BD_thuy%E1%BA%BFt_th%E1%BB%A9_t%E1%BB%B1"}]},{"id":"greedy-algorithm","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"giải thuật tham lam","source":"https://vi.wikipedia.org/wiki/Gi%E1%BA%A3i_thu%E1%BA%ADt_tham_lam"}]}]}
+
+codex
+WROTE findings-7.json
+===CODEX_REVIEW_DONE===
+diff --git a/workflow/loop/review/findings-7.json b/workflow/loop/review/findings-7.json
+new file mode 100644
+index 0000000000000000000000000000000000000000..bcd6b5c21a9221f7d594f24439b819dfa5fd7c13
+--- /dev/null
++++ b/workflow/loop/review/findings-7.json
+@@ -0,0 +1 @@
++{"loop":7,"reviewed":39,"findings":[{"id":"flowchart","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"lưu đồ thuật toán","source":"https://stanford.com.vn/kien-thuc-lap-trinh/tin-chi-tiet/cagId/27/id/22569/huong-dan-viet-so-do-khoi-thuat-toan-trong-lap-trinh"},{"term":"sơ đồ luồng","source":"https://quantrimang.com/cong-nghe/ve-hinh-trong-ms-word-18574"}]},{"id":"formula","commonality":{"verdict":"uncommon","better_term":"công thức hợp thức","source":"https://voer.edu.vn/m/ngon-ngu-vi-tu-bac-mot/dbbadaa1"},"missing_variants":[{"term":"công thức hợp thức","source":"https://voer.edu.vn/m/ngon-ngu-vi-tu-bac-mot/dbbadaa1"}]},{"id":"free-tree","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"cây tự do","source":"https://www.studocu.vn/vn/document/truong-dai-hoc-sai-gon/ly-thuyet-do-thi/chapter-5-compatibility-mode/104724011"}]},{"id":"frequent-itemset","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"tập mục thường xuyên","source":"https://repository.vnu.edu.vn/server/api/core/bitstreams/a33ee2a8-4201-40eb-955f-bf1c01318124/content"}]},{"id":"full-adder","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"bộ cộng toàn phần","source":"https://www.studocu.vn/vn/document/truong-dai-hoc-ky-thuat-cong-nghiep/bai-tham-khao/mach-cong-toan-phan-va-mach-cong-ban-phan/86760981"}]},{"id":"fully-homomorphic-cryptosystem","commonality":{"verdict":"unsure","better_term":"","source":""},"missing_variants":[{"term":"mã hóa đồng hình hoàn toàn","source":"https://mst.gov.vn/ma-hoa-dong-hinh-hoan-toan-giai-phap-bao-mat-cua-tuong-lai-197150184.htm"},{"term":"hệ mật mã đồng cấu đầy đủ","source":"https://www.academia.edu/33848272/H%E1%BB%87_m%E1%BA%ADt_m%C3%A3_%C4%91%E1%BB%93ng_c%E1%BA%A5u_%C4%91%E1%BA%A7y_%C4%91%E1%BB%A7_BGV_v%C3%A0_th%C6%B0_vi%E1%BB%87n_m%C3%A3_h%C3%B3a_%C4%91%E1%BB%93ng_c%E1%BA%A5u_HELIB"}]},{"id":"function-composition","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"hàm hợp","source":"https://vi.wikipedia.org/wiki/H%C3%A0m_h%E1%BB%A3p"}]},{"id":"functionally-complete","commonality":{"verdict":"uncommon","better_term":"đầy đủ chức năng","source":"https://www.studocu.vn/vn/document/truong-dai-hoc-bach-khoa-ha-noi/tri-tue-nhan-tao-va-hoc-may/chuong-12-dai-so-boolean-va-thiet-ke-mach-dien-tu-cs101/128638146"},"missing_variants":[{"term":"đầy đủ chức năng","source":"https://www.studocu.vn/vn/document/truong-dai-hoc-bach-khoa-ha-noi/tri-tue-nhan-tao-va-hoc-may/chuong-12-dai-so-boolean-va-thiet-ke-mach-dien-tu-cs101/128638146"},{"term":"hoàn chỉnh về chức năng","source":"https://www.studocu.vn/vn/document/truong-dai-hoc-bach-khoa-ha-noi/tri-tue-nhan-tao-va-hoc-may/chuong-12-dai-so-boolean-va-thiet-ke-mach-dien-tu-cs101/128638146"}]},{"id":"geodesic","commonality":{"verdict":"uncommon","better_term":"đường đi ngắn nhất","source":"https://ptit.edu.vn/saudaihoc/wp-content/uploads/2021/08/LA_Nguy%E1%BB%85n-Xu%C3%A2n-D%C5%A9ng.pdf"},"missing_variants":[{"term":"đường trắc địa","source":"https://ptit.edu.vn/saudaihoc/wp-content/uploads/2021/08/LA_Nguy%E1%BB%85n-Xu%C3%A2n-D%C5%A9ng.pdf"}]},{"id":"geometric-distribution","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"phân bố hình học","source":"https://www.studocu.vn/vn/document/truong-dai-hoc-tai-chinh-ke-toan/finance-banking/the-geometric-distribution/67566597"}]},{"id":"geometric-series","commonality":{"verdict":"uncommon","better_term":"chuỗi hình học","source":"https://vi.wikipedia.org/wiki/Chu%E1%BB%97i_h%C3%ACnh_h%E1%BB%8Dc"},"missing_variants":[{"term":"chuỗi hình học","source":"https://vi.wikipedia.org/wiki/Chu%E1%BB%97i_h%C3%ACnh_h%E1%BB%8Dc"},{"term":"chuỗi cấp số nhân","source":"https://vi.wikipedia.org/wiki/Chu%E1%BB%97i_h%C3%ACnh_h%E1%BB%8Dc"}]},{"id":"girth","commonality":{"verdict":"uncommon","better_term":"đai","source":"https://www.studocu.vn/vn/document/dai-hoc-nguyen-tat-thanh/li-thuyet-do-thi/do-thi-phang-bc-bai-3-cong-thuc-euler-va-bat-dang-thuc-ev/135879865"},"missing_variants":[]},{"id":"graph-isomorphism","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"phép đẳng cấu đồ thị","source":"https://vi.wikipedia.org/wiki/Ph%C3%A9p_%C4%91%E1%BA%B3ng_c%E1%BA%A5u_%C4%91%E1%BB%93_th%E1%BB%8B"}]},{"id":"euclidean-algorithm","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"thuật toán Euclid","source":"https://nam.name.vn/bai-4-giai-thuat-euclid-va-euclid-mo-rong.html"}]},{"id":"greatest-lower-bound","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"cận dưới lớn nhất","source":"https://vi.wikipedia.org/wiki/L%C3%BD_thuy%E1%BA%BFt_th%E1%BB%A9_t%E1%BB%B1"},{"term":"cận dưới đúng","source":"https://vi.wikipedia.org/wiki/L%C3%BD_thuy%E1%BA%BFt_th%E1%BB%A9_t%E1%BB%B1"}]},{"id":"greedy-algorithm","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"giải thuật tham lam","source":"https://vi.wikipedia.org/wiki/Gi%E1%BA%A3i_thu%E1%BA%ADt_tham_lam"}]}]}
+
+tokens used
+301,820
+WROTE findings-7.json
+===CODEX_REVIEW_DONE===

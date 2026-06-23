@@ -1,0 +1,2426 @@
+OpenAI Codex v0.141.0
+--------
+workdir: /home/ubuntu/DM-Concepts
+model: gpt-5.5
+provider: openai
+approval: never
+sandbox: danger-full-access
+reasoning effort: xhigh
+reasoning summaries: none
+session id: 019ef26e-1797-73f3-b2e7-1b42b2d4bd1e
+--------
+user
+You are a meticulous bilingual (English-Vietnamese) discrete-mathematics dictionary reviewer.
+Working directory: /home/ubuntu/DM-Concepts. Do NOT modify any dictionary file. Be evidence-based; NEVER invent a translation or a source.
+
+Read this batch of entries:
+  cat workflow/loop/review/batch-3.json
+It is a JSON array; each entry has: id, headword_en, definition_vi (Vietnamese), vi_terms (array of {term, recommended, ...}), see_ref.
+If see_ref is non-empty the entry is a cross-reference stub: SKIP it.
+
+For EACH non-stub entry, use WEB SEARCH (prefer authoritative Vietnamese sources: university lecture notes / giáo trình, published textbooks, standard references) to check TWO things:
+
+(A) COMMONALITY of the recommended Vietnamese term (the vi_term with recommended=true): is it the common/standard rendering of this English concept in Vietnamese discrete mathematics? If it is uncommon and a clearly MORE standard term exists, report verdict "uncommon" with the better term and a source URL. Otherwise verdict "common" (or "unsure").
+
+(B) ALTERNATIVE TRANSLATIONS: any additional valid Vietnamese translation of the English concept that is NOT already among the entry's existing vi_terms. Example: 'independent set' = 'tập độc lập' AND 'tập ổn định' (internal stable set). List each missing variant with a brief source (URL or book).
+
+Efficiency (IMPORTANT - your context is limited): use web SEARCH RESULT SNIPPETS only; do NOT open or fetch full web pages or PDF files (fetching large pages overflows your context and the run fails). At most 1-2 lightweight searches per entry; skip entries that are clearly fine.
+
+WRITE your result as a JSON file to workflow/loop/review/findings-3.json (use your file-writing tool), exactly this shape:
+{"loop":3,"reviewed":<int>,"findings":[{"id":"<id>","commonality":{"verdict":"common|uncommon|unsure","better_term":"<term or empty>","source":"<url or empty>"},"missing_variants":[{"term":"<vi term>","source":"<url or book>"}]}]}
+Include ONLY entries that have at least one finding (an uncommon verdict OR a missing variant). Valid JSON only (no comments, no trailing commas).
+
+After writing the file, print on its own line:  WROTE findings-3.json
+Then print the final marker line:  ===CODEX_REVIEW_DONE===
+
+hook: SessionStart
+hook: SessionStart Completed
+codex
+I’ll use the `source-research` skill for the source-checking workflow, then keep this narrow: inspect local instructions, read the batch, search only result snippets, and write the JSON findings file.
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+exec
+/bin/bash -lc "sed -n '1,220p' /home/ubuntu/.codex/skills/source-research/SKILL.md" in /home/ubuntu/DM-Concepts
+ succeeded in 0ms:
+---
+name: "source-research"
+description: "General web and source-gathering research workflow for current-information synthesis."
+metadata:
+  short-description: "General web and source-gathering research workflow for current-information synthesis."
+---
+
+<!-- Managed by ai-agents-skills. Generated target: codex. Install mode: reference. -->
+
+# source-research
+
+This is a thin adapter for agents that cannot load symlinked skills.
+
+Canonical skill source:
+
+- `~/ai-agents-skills/canonical/skills/source-research/SKILL.md`
+
+Before using this skill, read the canonical source file above and follow
+its instructions. Related reference files live next to that source file
+in the same skill directory.
+
+
+hook: PostToolUse
+hook: PostToolUse Completed
+exec
+/bin/bash -lc "find .. -name AGENTS.md -o -name README.md -o -name '*review*' -o -name '*workflow*' | sed -n '1,80p'" in /home/ubuntu/DM-Concepts
+codex
+The source-research skill is a thin adapter, so I’m reading its canonical instructions. The first helper search was too broad; I’m going to stop that and inspect only the current repository’s relevant files.
+hook: PostToolUse
+hook: PostToolUse Completed
+ exited 130 in 10391ms:
+../openclaw-bot/README.md
+../openclaw-bot/aux-workspaces/workspace-moltbook-reviewer
+../openclaw-bot/aux-workspaces/workspace-moltbook-reviewer/AGENTS.md
+../openclaw-bot/aux-workspaces/workspace-moltbook/AGENTS.md
+../openclaw-bot/aux-workspaces/workspace-host/AGENTS.md
+../openclaw-bot/aux-workspaces/workspace-sanitizer/AGENTS.md
+../openclaw-bot/aux-workspaces/workspace-review
+../openclaw-bot/aux-workspaces/workspace-review/AGENTS.md
+../openclaw-bot/agents/moltbook-reviewer
+../openclaw-bot/agents/review
+../openclaw-bot/workspace/AGENTS.md
+../openclaw-bot/workspace/prose/README.md
+../openclaw-bot/workspace/prose/agent_group_review.prose
+../openclaw-bot/workspace/prose/README-multiworkflows.md
+../openclaw-bot/workspace/protocols/review-queue.md
+../openclaw-bot/workspace/protocols/research-review-verification.md
+../openclaw-bot/workspace/skills/workspace_rearranger/README.md
+../openclaw-bot/workspace/skills/self-improving-agent/scripts/review.sh
+../openclaw-bot/workspace/skills/self-improving-agent/tests/test-review.sh
+../openclaw-bot/workspace/skills/source-research/references/literature-review-template.md
+../openclaw-bot/workspace/skills/deep-research-workflow
+../openclaw-bot/workspace/skills/deep-research-workflow/run_deep_research_workflow.sh
+../openclaw-bot/workspace/skills/paper-review
+../openclaw-bot/workspace/skills/research-report-reviewer
+../openclaw-bot/workspace/skills/research-report-reviewer/references/reviewer-prompt.md
+../openclaw-bot/workspace/skills/annotated-review
+../openclaw-bot/workspace/skills/annotated-review/__pycache__/review.cpython-312.pyc
+../openclaw-bot/workspace/skills/annotated-review/review.py
+../openclaw-bot/workspace/skills/annotated-review/run_review.sh
+../openclaw-bot/workspace/skills/zotero/README.md
+../openclaw-bot/workspace/skills/cross-agent-delegation/references/research-workflow-integration.md
+../openclaw-bot/workspace/skills/cross-agent-delegation/references/research-workflow-templates.md
+../openclaw-bot/workspace/skills/tikz-draw/assets/templates/tikz-snippets/README.md
+../openclaw-bot/workspace/skills/tikz-draw/assets/examples/semantic-regression/README.md
+../openclaw-bot/workspace/skills/tikz-draw/assets/spec-schema/semantic-review.schema.json
+../openclaw-bot/workspace/skills/tikz-draw/assets/checks/review-rules.md
+../openclaw-bot/workspace/skills/vnthuquan/references/workflows.md
+../openclaw-bot/workspace/skills/agent_group_discuss/README.md
+../.npm/_npx/de2bd410102f5eda/node_modules/router/README.md
+../.npm/_npx/de2bd410102f5eda/node_modules/wrappy/README.md
+../.npm/_npx/de2bd410102f5eda/node_modules/call-bind-apply-helpers/README.md
+../.npm/_npx/de2bd410102f5eda/node_modules/vary/README.md
+../.npm/_npx/de2bd410102f5eda/node_modules/json-schema-typed/README.md
+../.npm/_npx/de2bd410102f5eda/node_modules/mime-types/README.md
+../.npm/_npx/de2bd410102f5eda/node_modules/parseurl/README.md
+../.npm/_npx/de2bd410102f5eda/node_modules/fast-deep-equal/README.md
+../.npm/_npx/de2bd410102f5eda/node_modules/color-convert/README.md
+../.npm/_npx/de2bd410102f5eda/node_modules/@modelcontextprotocol/sdk/README.md
+../.npm/_npx/de2bd410102f5eda/node_modules/@modelcontextprotocol/server-sequential-thinking/README.md
+../.npm/_npx/de2bd410102f5eda/node_modules/get-intrinsic/README.md
+../.npm/_npx/de2bd410102f5eda/node_modules/forwarded/README.md
+../.npm/_npx/de2bd410102f5eda/node_modules/es-define-property/README.md
+../.npm/_npx/de2bd410102f5eda/node_modules/gopd/README.md
+../.npm/_npx/de2bd410102f5eda/node_modules/finalhandler/README.md
+../.npm/_npx/de2bd410102f5eda/node_modules/encodeurl/README.md
+../.npm/_npx/de2bd410102f5eda/node_modules/debug/README.md
+../.npm/_npx/de2bd410102f5eda/node_modules/ajv/README.md
+../.npm/_npx/de2bd410102f5eda/node_modules/content-disposition/README.md
+../.npm/_npx/de2bd410102f5eda/node_modules/which/README.md
+../.npm/_npx/de2bd410102f5eda/node_modules/yargs-parser/README.md
+../.npm/_npx/de2bd410102f5eda/node_modules/yargs/README.md
+../.npm/_npx/de2bd410102f5eda/node_modules/accepts/README.md
+../.npm/_npx/de2bd410102f5eda/node_modules/has-symbols/README.md
+../.npm/_np
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+exec
+/bin/bash -lc "sed -n '1,240p' /home/ubuntu/ai-agents-skills/canonical/skills/source-research/SKILL.md" in /home/ubuntu/DM-Concepts
+ succeeded in 0ms:
+---
+name: source-research
+description: Use when the user wants research, source gathering, current-information lookups, cross-source synthesis, or extraction from URLs/PDFs/videos using web search, page inspection, local tools, and sub-agents.
+metadata:
+  short-description: Source-gathering research workflow
+---
+
+# Source Research
+
+Use this as the default source-gathering research router.
+
+## Supporting files
+
+Open these only when relevant:
+
+- `references/specialist-subagents.md` for focused single-specialist delegation briefs imported from the local Claude setup
+
+## Legacy tool mapping
+
+- legacy `web_search` -> Codex `web.search_query`
+- legacy `web_fetch` -> Codex `web.open`
+- legacy task/session spawning -> Codex `spawn_agent`
+- legacy `exec` -> Codex `functions.exec_command`
+
+## Live workspace routing
+
+- Generic paper, article, preprint, DOI, ISBN, and book retrieval or sharing requests route to `zotero` first.
+- Explicit Calibre-library ebook operations route to `calibre`.
+- External paper or book retrieval routes to `getscipapers-requester` only
+  after the relevant local-library workflow does not satisfy the request, or
+  after the user explicitly says not to check/use the library. The word
+  "download" alone is not an outside-library opt-out.
+- Multi-agent discussion/review/research routes to `agent-group-discuss` by default and `prose` for more structured workflows.
+- Annotated paper review routes to `annotated-review` only when the user explicitly asks for both annotation and review.
+- Review-only paper tasks route to `paper-review`.
+- Topic/news digests route to `research-digest-wrapper` or `rss-news-digest`.
+- Digest-to-paper extraction routes to `digest-bridge`.
+- Explicit phased deep research with structured source handoff routes to `deep-research-workflow`.
+- Writing, report, review, digest, or final-answer workflows must load
+  `writing-style-settings.md`; math or LaTeX writing must also load
+  `math-manuscript-style.md`.
+- Explicit TikZ drawing, refactoring, extraction, compile, or diagram-review requests route to `tikz-draw`.
+- Small graph-theoretic verification routes to `graph-verifier`.
+- Mathematical research tasks that need heavy graph-theoretic, combinatorial, algebraic, or spectral computation route to `sagemath`.
+
+## Default workflow
+
+1. If the request is current, says "latest", "today", "verify", or otherwise depends on recent facts, browse first.
+2. Start with focused search queries, not long prompts.
+3. Open the best primary sources, not just search snippets.
+4. Extract only the parts needed for the answer.
+5. Synthesize after evidence collection, not before.
+6. Cite concrete sources and dates whenever the answer depends on live or specific facts.
+7. For writing-producing outputs, record or surface `style_profile_ref`,
+   `active_overlays`, `active_requirement_ids`, and `style_applied`; do not
+   treat a bare `style_applied: true` assertion as sufficient evidence.
+
+## Research heuristics
+
+- Prefer primary sources: official docs, vendor pages, papers, standards, government sites.
+- Use domain filters when the source class is obvious.
+- For PDFs, use `web.open` and `web.screenshot` when needed.
+- For local files, use `functions.exec_command` instead of browsing.
+- Separate sourced facts from your own inference.
+- Prefer `deep-research-workflow` over this skill when the user explicitly wants phased search -> analysis -> writing with source preservation across stages.
+- Prefer `tikz-draw` for explicit TikZ or structural-diagram requests, including research-derived figures that already have a narrowed brief.
+- If a research task needs a diagram, keep the research in `deep-research-workflow` first and hand off to `tikz-draw` only after analysis identifies a concrete figure worth generating.
+- For literature retrieval requests, check the relevant local library workflow before browsing or external download.
+- For review tasks that need a paper/book, use the lookup order `zotero` -> `calibre` -> online fallback.
+- For digest follow-up, use `digest-bridge` to extract identifiers before bulk paper retrieval.
+- For explicit Calibre ebook-library workflows, prefer `calibre` over improvised filesystem search.
+- For mathematical verification, prefer local Python for small checks and route to `sagemath` when the computation needs SageMath-native capabilities.
+- Never use `curl`, `wget`, ad hoc browser fetches, or direct publisher-site HTTP requests as a substitute for the library tools on paper/book retrieval tasks.
+- When a lookup returns multiple plausible paper/book matches, show a numbered
+  list with title, authors, and year when available, then wait for the user's
+  chosen index before `--best`, `--index`, add, attach, send, review, or external
+  retrieval.
+
+## Parallelism
+
+If the task has distinct independent threads, spawn sub-agents in parallel.
+
+Good candidates:
+- source discovery vs synthesis plan
+- product A vs product B
+- multiple independent subtopics
+
+Do not spawn agents for the immediate blocking step if local work is faster.
+Ask for explicit confirmation before spawning subagents unless the user already
+requested multi-agent work, approved a workflow that includes subagents, or gave
+an explicit budget/depth instruction that makes parallel delegation expected.
+
+## Focused specialist delegation
+
+When the task needs one narrow specialist rather than a full panel, reuse the
+briefs in `references/specialist-subagents.md`.
+
+Good matches:
+
+- literature survey or citation hunting -> `literature-scout`
+- small-case exploration or counterexample search -> `math-explorer`
+- single-reviewer manuscript critique -> `paper-reviewer`
+- adversarial checking of one proof/lemma -> `proof-checker`
+
+## Route to narrower skills
+
+- Use `zotero` for generic paper, DOI, ISBN, book, and paper-library retrieval or sharing requests, including "find/get/send/share this paper or book".
+- Use `docling` for local parsing, conversion, chunking, and structure-aware analysis of PDFs, office documents, HTML, and image-backed documents.
+- Use `get-available-resources` before heavy local parsing or compute when resource constraints may materially affect the approach.
+- Use `database-lookup` for structured public scientific, regulatory, and economic database queries.
+- Use `paper-lookup` for external literature metadata/discovery after the library-first workflow and before external retrieval.
+- Use `deep-research-workflow` for single-agent phased deep research that needs explicit source handoff across search, analysis, and final writing.
+- Use `tikz-draw` for explicit TikZ figure generation, refactoring, extraction, compile, or review work, especially when the output should follow a structure-first brief -> spec -> render flow.
+- Use `calibre` for explicit Calibre library operations: ebook search/get by ID, sending Calibre-managed books, add/update, tags, shelves, sync, remove, convert, export, doctor, and clean.
+- Use `getscipapers-requester` only for external retrieval or DOI/ISBN
+  resolution after Zotero does not satisfy the request, or when the user
+  explicitly says not to check/use the library and wants outside retrieval. For
+  review tasks that need a document, check `calibre` after `zotero` and before
+  this fallback.
+- If an externally retrieved book file should be added to the ebook library, hand off to `calibre` for the final add/update step.
+- Use `annotated-review` only for annotate+review paper flows.
+- Use `paper-review` for single-agent review-only paper flows such as review, critique, hard review, or issue-finding requests.
+- Use `agent-group-discuss` for conversational multi-agent discussion, review, or research panels.
+- Use `prose` when the user wants explicit multi-agent research-and-synthesis orchestration.
+- Use `research-digest-wrapper` and `rss-news-digest` for tracked-topic and RSS-based research updates.
+- Use `graph-verifier` for lightweight graph sanity checks before escalating to SageMath.
+- Use `digest-bridge` to turn digest results into identifiers and manifests for retrieval.
+- Use `sagemath` for graph invariants, algebraic checks, spectral computations, exhaustive counterexample search, and other math tasks beyond lightweight local tooling.
+
+hook: PostToolUse
+exec
+/bin/bash -lc "rg --files -g 'AGENTS.md' -g 'README.md' -g '*review*' -g '*workflow*' -g '"'!node_modules'"' -g '"'!venv'"' -g '"'!.git'"'" in /home/ubuntu/DM-Concepts
+ succeeded in 0ms:
+docs/mat3500-term-review.md
+workflow/loop/review/review-log.jsonl
+workflow/scripts/review-prep.py
+workflow/scripts/codex-review-prompt.sh
+workflow/scripts/apply-review.py
+README.md
+
+hook: PostToolUse
+hook: PostToolUse Completed
+hook: PostToolUse Completed
+codex
+I found a small set of local project review docs and helper scripts. I’m checking the relevant ones now so the batch review follows the project’s existing conventions.
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+exec
+/bin/bash -lc "sed -n '1,220p' README.md" in /home/ubuntu/DM-Concepts
+ succeeded in 0ms:
+# Một số thuật ngữ trong Toán rời rạc
+
+*Selected Terms in Discrete Mathematics — An English–Vietnamese Annotated Lexicon*
+
+Một cuốn **sách mở** viết bằng [PreTeXt](https://pretextbook.org/) (theo khuôn của
+*[Discrete Mathematics: An Open Introduction](https://github.com/oscarlevin/discrete-book/)*
+— Oscar Levin), tập hợp các định nghĩa và khái niệm quen thuộc trong toán rời rạc
+và lý thuyết đồ thị.
+
+## Ý tưởng
+
+- Tổ chức theo **bảng chữ cái tiếng Anh**: mỗi chương là một chữ cái `A`, `B`, `C`, …
+- Mỗi **mục từ** lấy một khái niệm/ký hiệu tiếng Anh (chủ yếu từ *Rosen — Discrete
+  Mathematics and Its Applications*), nêu **định nghĩa bằng tiếng Việt**, liệt kê
+  **mọi** thuật ngữ tiếng Việt tương ứng đã tìm thấy — mỗi biến thể kèm **trích dẫn**
+  chính xác tới nguồn tiếng Việt.
+- Nguồn thuật ngữ tiếng Việt: tổng hợp từ các sách toán rời rạc & lý thuyết đồ thị
+  trong thư viện Zotero.
+- **Bản HTML tối ưu tra cứu**: tìm kiếm toàn văn, trang lọc-khi-gõ, tìm **không
+  phân biệt dấu** (gõ `so mau` ra `số màu`), tra được từ **cả hai chiều** Anh ↔ Việt.
+
+## Trạng thái
+
+🚧 Giai đoạn lập kế hoạch. Xem **[`docs/PLAN.md`](docs/PLAN.md)** để biết toàn bộ
+thiết kế: mô hình mục từ, ánh xạ PreTeXt, kiến trúc sản xuất nhiều-agent, và lộ trình.
+
+## Giấy phép
+
+CC BY-SA 4.0 — xem [`LICENSE`](LICENSE).
+
+hook: PreToolUse
+hook: PostToolUse
+exec
+/bin/bash -lc "sed -n '1,220p' workflow/scripts/codex-review-prompt.sh" in /home/ubuntu/DM-Concepts
+exec
+/bin/bash -lc "sed -n '1,220p' docs/mat3500-term-review.md" in /home/ubuntu/DM-Concepts
+ succeeded in 0ms:
+# 33 thuật ngữ lệch dịch — sách ↔ MAT3500 (cần bạn duyệt)
+
+Quy ước: `A → B` nghĩa là đề xuất đổi 'recommended' của sách từ A sang B (theo bài giảng).
+Đánh dấu ✔ cạnh từ bạn muốn đổi; bỏ trống nếu giữ nguyên sách.
+
+## ❗ Bản dịch khác (sách nên xem lại / bổ sung biến thể)
+- **ancestors** — sách: `tổ tiên` · bài giảng: Các đỉnh tổ tiên
+- **karnaugh maps** — sách: `bìa Karnaugh` · bài giảng: Phương pháp sơ đồ Karnaugh
+- **knight's tour** — sách: `hành trình của con mã` · bài giảng: Đường đi tuần của quân mã
+- **least common multiple** — sách: `bội số chung nhỏ nhất` · bài giảng: Bội chung nhỏ nhất
+- **maximum matching** — sách: `cặp ghép lớn nhất` · bài giảng: ghép cặp cực đại
+- **neighborhood** — sách: `lân cận` · bài giảng: tập láng giềng
+- **one-to-one function** — sách: `đơn ánh` · bài giảng: hàm một-một
+- **optimization problems** — sách: `bài toán tối ưu` · bài giảng: Các bài toán tối ưu
+- **ordered pair** — sách: `cặp có thứ tự` · bài giảng: cặp sắp thứ tự
+- **perfect matching** — sách: `cặp ghép hoàn hảo` · bài giảng: ghép cặp hoàn hảo
+- **prime numbers** — sách: `số nguyên tố` · bài giảng: các số nguyên tố
+- **regular graph** — sách: `đồ thị đều bậc k` · bài giảng: đồ thị chính quy
+## ⚠️ Sách khuyến nghị thuật ngữ khác với bài giảng
+- **articulation point** — sách khuyến nghị: `đỉnh cắt` · bài giảng dùng: điểm khớp
+- **circuit** — sách khuyến nghị: `chu trình đơn` · bài giảng dùng: mạch
+- **cycle** — sách khuyến nghị: `đồ thị vòng` · bài giảng dùng: chu trình
+- **edge connectivity** — sách khuyến nghị: `độ liên thông cạnh` · bài giảng dùng: Số liên thông cạnh
+- **function** — sách khuyến nghị: `hàm số` · bài giảng dùng: hàm
+- **integers** — sách khuyến nghị: `số nguyên` · bài giảng dùng: Tập số nguyên
+- **leaf** — sách khuyến nghị: `lá` · bài giảng dùng: đỉnh lá
+- **matching** — sách khuyến nghị: `cặp ghép` · bài giảng dùng: ghép cặp
+- **minimum spanning tree** — sách khuyến nghị: `cây bao trùm nhỏ nhất` · bài giảng dùng: cây khung nhỏ nhất
+- **natural numbers** — sách khuyến nghị: `số tự nhiên` · bài giảng dùng: Tập số tự nhiên
+- **negation** — sách khuyến nghị: `mệnh đề phủ định` · bài giảng dùng: Phủ định
+- **node** — sách khuyến nghị: `đỉnh` · bài giảng dùng: nút
+- **odd cycle** — sách khuyến nghị: `chu trình độ dài lẻ` · bài giảng dùng: chu trình lẻ
+- **permutation** — sách khuyến nghị: `chỉnh hợp` · bài giảng dùng: hoán vị
+- **quotient** — sách khuyến nghị: `thương số` · bài giảng dùng: thương
+- **recurrence relation** — sách khuyến nghị: `quan hệ truy hồi` · bài giảng dùng: hệ thức truy hồi
+- **relation** — sách khuyến nghị: `quan hệ hai ngôi` · bài giảng dùng: quan hệ
+- **sequence** — sách khuyến nghị: `dãy số` · bài giảng dùng: dãy
+- **spanning tree** — sách khuyến nghị: `cây bao trùm` · bài giảng dùng: cây khung
+- **venn diagram** — sách khuyến nghị: `sơ đồ Venn` · bài giảng dùng: giản đồ Venn
+- **vertex connectivity** — sách khuyến nghị: `độ liên thông đỉnh` · bài giảng dùng: Số liên thông đỉnh
+## ❌ Thuật ngữ bài giảng chưa có trong sách
+
+ succeeded in 0ms:
+#!/usr/bin/env bash
+# Emit the Codex web-review prompt for loop <i> (dimensions 2+3; dimension 1 is
+# done deterministically by check-citations.py). Usage: codex-review-prompt.sh <i>
+i="${1:?usage: codex-review-prompt.sh <loop-number>}"
+cat <<EOF
+You are a meticulous bilingual (English-Vietnamese) discrete-mathematics dictionary reviewer.
+Working directory: /home/ubuntu/DM-Concepts. Do NOT modify any dictionary file. Be evidence-based; NEVER invent a translation or a source.
+
+Read this batch of entries:
+  cat workflow/loop/review/batch-${i}.json
+It is a JSON array; each entry has: id, headword_en, definition_vi (Vietnamese), vi_terms (array of {term, recommended, ...}), see_ref.
+If see_ref is non-empty the entry is a cross-reference stub: SKIP it.
+
+For EACH non-stub entry, use WEB SEARCH (prefer authoritative Vietnamese sources: university lecture notes / giáo trình, published textbooks, standard references) to check TWO things:
+
+(A) COMMONALITY of the recommended Vietnamese term (the vi_term with recommended=true): is it the common/standard rendering of this English concept in Vietnamese discrete mathematics? If it is uncommon and a clearly MORE standard term exists, report verdict "uncommon" with the better term and a source URL. Otherwise verdict "common" (or "unsure").
+
+(B) ALTERNATIVE TRANSLATIONS: any additional valid Vietnamese translation of the English concept that is NOT already among the entry's existing vi_terms. Example: 'independent set' = 'tập độc lập' AND 'tập ổn định' (internal stable set). List each missing variant with a brief source (URL or book).
+
+Efficiency (IMPORTANT - your context is limited): use web SEARCH RESULT SNIPPETS only; do NOT open or fetch full web pages or PDF files (fetching large pages overflows your context and the run fails). At most 1-2 lightweight searches per entry; skip entries that are clearly fine.
+
+WRITE your result as a JSON file to workflow/loop/review/findings-${i}.json (use your file-writing tool), exactly this shape:
+{"loop":${i},"reviewed":<int>,"findings":[{"id":"<id>","commonality":{"verdict":"common|uncommon|unsure","better_term":"<term or empty>","source":"<url or empty>"},"missing_variants":[{"term":"<vi term>","source":"<url or book>"}]}]}
+Include ONLY entries that have at least one finding (an uncommon verdict OR a missing variant). Valid JSON only (no comments, no trailing commas).
+
+After writing the file, print on its own line:  WROTE findings-${i}.json
+Then print the final marker line:  ===CODEX_REVIEW_DONE===
+EOF
+
+hook: PostToolUse
+hook: PostToolUse
+hook: PostToolUse Completed
+hook: PreToolUse Completed
+hook: PostToolUse Completed
+hook: PostToolUse Completed
+exec
+/bin/bash -lc "sed -n '1,220p' workflow/scripts/apply-review.py" in /home/ubuntu/DM-Concepts
+ succeeded in 0ms:
+#!/usr/bin/env python3
+"""Apply one loop's Codex web-review findings (workflow/loop/review/findings-<i>.json).
+
+Per the editorial policy (keep the book's recommended term; add alternatives as
+variants): every Codex-found missing translation and every "better term" from an
+uncommon-verdict is added as an uncited usage variant (verified=false,
+recommended=false) if not already present. Uncommon verdicts are logged for the
+editor. Non-destructive; recommended terms are never changed.
+
+Usage: apply-review.py <loop-number>
+"""
+import glob
+import json
+import os
+import sys
+import unicodedata
+
+ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+REVIEW = os.path.join(ROOT, "workflow", "loop", "review")
+
+
+def norm(s):
+    s = unicodedata.normalize("NFD", s or "")
+    s = "".join(c for c in s if unicodedata.category(c) != "Mn")
+    return s.replace("đ", "d").replace("Đ", "d").lower().strip()
+
+
+def variant(term):
+    return {"term": term, "source_id": "", "page": "", "pdf_page": 0, "snippet": "",
+            "verified": False, "recommended": False}
+
+
+def main():
+    i = sys.argv[1]
+    data = json.load(open(os.path.join(REVIEW, f"findings-{i}.json"), encoding="utf-8"))
+    findings = {x["id"]: x for x in data.get("findings", [])}
+    files, idmap = {}, {}
+    for f in glob.glob(os.path.join(ROOT, "workflow", "panels", "chapter-*-final.json")):
+        d = json.load(open(f, encoding="utf-8"))
+        files[f] = d
+        for e in d["final_entries"]:
+            idmap[e["id"]] = e
+
+    added, flagged = 0, []
+    for eid, fd in findings.items():
+        e = idmap.get(eid)
+        if not e or e.get("see_ref"):
+            continue
+        have = {norm(t.get("term", "")) for t in e.get("vi_terms", [])}
+        for mv in (fd.get("missing_variants") or []):
+            term = (mv.get("term") or "").strip()
+            if term and norm(term) not in have:
+                e["vi_terms"].append(variant(term))
+                have.add(norm(term))
+                added += 1
+        com = fd.get("commonality") or {}
+        if com.get("verdict") == "uncommon":
+            bt = (com.get("better_term") or "").strip()
+            if bt and norm(bt) not in have:
+                e["vi_terms"].append(variant(bt))
+                have.add(norm(bt))
+                added += 1
+            flagged.append({"id": eid, "better_term": bt, "source": com.get("source", "")})
+
+    for f, d in files.items():
+        json.dump(d, open(f, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+    open(os.path.join(REVIEW, "review-log.jsonl"), "a", encoding="utf-8").write(
+        json.dumps({"loop": i, "variants_added": added, "uncommon_flagged": flagged},
+                   ensure_ascii=False) + "\n")
+    print(f"loop {i}: added {added} variant(s); flagged {len(flagged)} uncommon-recommended for editor")
+
+
+if __name__ == "__main__":
+    main()
+
+hook: PostToolUse
+hook: PostToolUse Completed
+codex
+Docs/Helpers Checked:
+- `/home/ubuntu/.codex/skills/source-research/SKILL.md`
+- `/home/ubuntu/ai-agents-skills/canonical/skills/source-research/SKILL.md`
+- `README.md`
+- `docs/mat3500-term-review.md`
+- `workflow/scripts/codex-review-prompt.sh`
+- `workflow/scripts/apply-review.py`
+
+Plan:
+1. Read `workflow/loop/review/batch-3.json` and count only non-stub entries.
+2. For each non-stub entry, run 1-2 focused web searches using snippets only; no page/PDF opens.
+3. Record only evidence-backed findings: uncommon recommended terms or missing Vietnamese variants.
+4. Write valid JSON to `workflow/loop/review/findings-3.json`, then report the required two marker lines.
+hook: PreToolUse
+hook: PreToolUse Completed
+exec
+/bin/bash -lc 'cat workflow/loop/review/batch-3.json' in /home/ubuntu/DM-Concepts
+ succeeded in 0ms:
+[
+ {
+  "id": "chromatic-number",
+  "letter": "C",
+  "headword_en": "Chromatic number",
+  "rosen_ref": "Rosen §10.8",
+  "definition_vi": "Sắc số của một đồ thị $$G$$, ký hiệu $$\\chi(G)$$, là số màu nhỏ nhất cần dùng để tô màu các đỉnh của $$G$$ sao cho không có hai đỉnh kề nhau nào được tô cùng một màu.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "sắc số",
+    "source_id": "bib-leanhvinh-2020",
+    "page": "tr. 90 (PDF)",
+    "pdf_page": 90,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "sắc số",
+    "source_id": "bib-nguyenhoangthach-2020",
+    "page": "tr. 81 (PDF)",
+    "pdf_page": 81,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "sắc số",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 228 (PDF)",
+    "pdf_page": 228,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "sắc số",
+    "source_id": "bib-hoangchithanh-2007",
+    "page": "tr. 51 (PDF)",
+    "pdf_page": 51,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "sắc số",
+    "source_id": "bib-nguyenducnghia-2006",
+    "page": "tr. 166 (PDF)",
+    "pdf_page": 166,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "sắc số",
+    "source_id": "bib-ngodactan-2004",
+    "page": "tr. 283 (PDF)",
+    "pdf_page": 283,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "circuit",
+  "letter": "C",
+  "headword_en": "Circuit",
+  "rosen_ref": "Rosen §10.4",
+  "definition_vi": "Chu trình đơn trong một đồ thị $$G$$ là một đường đi khép kín có độ dài $$\\geq 1$$, tức là bắt đầu và kết thúc tại cùng một đỉnh, sao cho không có cạnh nào bị lặp lại (các đỉnh có thể được lặp lại). Trong Ngô Đắc Tân (2004), khái niệm này được gọi bằng từ đơn 'mạch'; xem ghi chú.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "chu trình đơn",
+    "source_id": "bib-nguyenhoangthach-2020",
+    "page": "tr. 73 (PDF)",
+    "pdf_page": 73,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "chu trình đơn",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 181 (PDF)",
+    "pdf_page": 181,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "chu trình đơn",
+    "source_id": "bib-nguyenducnghia-2006",
+    "page": "tr. 190 (PDF)",
+    "pdf_page": 190,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "mạch",
+    "source_id": "bib-ngodactan-2004",
+    "page": "tr. 195 (PDF)",
+    "pdf_page": 195,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "chu trình đơn",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 541 (PDF, bản dịch Rosen)",
+    "pdf_page": 541,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "mạch",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 494 (PDF, bản dịch Rosen)",
+    "pdf_page": 494,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "circular-reasoning",
+  "letter": "C",
+  "headword_en": "Circular Reasoning",
+  "rosen_ref": "Rosen §1.7",
+  "definition_vi": "Suy luận quẩn là kiểu suy luận trong đó một phát biểu được chứng minh bằng cách dùng chính nó. Nói cách khác, một hay nhiều bước trong lập luận dựa trên chính mệnh đề cần chứng minh, nên không cho ta một chứng minh hợp lệ.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "lý luận quẩn",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 214 (PDF)",
+    "pdf_page": 214,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "nguỵ biện dùng ngay câu hỏi",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 214 (PDF)",
+    "pdf_page": 214,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "suy luận quẩn",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 224 (PDF)",
+    "pdf_page": 224,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "class-p",
+  "letter": "C",
+  "headword_en": "Class P",
+  "rosen_ref": "Rosen §3.3",
+  "definition_vi": "Lớp $$\\mathsf{P}$$ là lớp các bài toán giải được trong thời gian đa thức, tức là các bài toán mà tồn tại một thuật toán giải chúng với độ phức tạp thời gian là một hàm đa thức theo kích thước đầu vào.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "lớp P",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": true
+   }
+  ]
+ },
+ {
+  "id": "clique",
+  "letter": "C",
+  "headword_en": "Clique",
+  "rosen_ref": "Rosen §10.2",
+  "definition_vi": "Một clique của đồ thị $$G$$ là một tập con các đỉnh đôi một kề nhau, tức là một tập con cảm sinh một đồ thị con đầy đủ.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "clique",
+    "source_id": "bib-leanhvinh-2020",
+    "page": "tr. 95 (PDF)",
+    "pdf_page": 95,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "đồ thị con đầy đủ cực đại",
+    "source_id": "bib-leanhvinh-2020",
+    "page": "tr. 101 (PDF)",
+    "pdf_page": 101,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "clique",
+    "source_id": "bib-ngodactan-2004",
+    "page": "tr. 314 (PDF)",
+    "pdf_page": 314,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "codomain",
+  "letter": "C",
+  "headword_en": "Codomain",
+  "rosen_ref": "Rosen §2.3",
+  "definition_vi": "Miền giá trị (tập đích) của một hàm $$f : A \\to B$$ là tập hợp $$B$$ chứa mọi giá trị có thể có của hàm, ký hiệu là $$B$$. Với mỗi $$a \\in A$$, ảnh $$f(a)$$ là một phần tử của $$B$$, nhưng không nhất thiết mọi phần tử của $$B$$ đều là ảnh của một phần tử nào đó thuộc miền xác định $$A$$.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "miền giá trị",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 85 (PDF)",
+    "pdf_page": 85,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "tập đích",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": false
+   },
+   {
+    "term": "miền giá trị, tập đích",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": true
+   }
+  ]
+ },
+ {
+  "id": "coefficient",
+  "letter": "C",
+  "headword_en": "Coefficient",
+  "rosen_ref": "Rosen §6.4",
+  "definition_vi": "Hệ số của một số hạng trong một biểu thức đại số là thừa số hằng (thường là số) nhân với phần biến của số hạng đó. Trong một đa thức $$p(x) = a_n x^n + a_{n-1} x^{n-1} + \\cdots + a_1 x + a_0$$, mỗi số $$a_k$$ được gọi là hệ số của $$x^k$$.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "hệ số",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 205 (PDF)",
+    "pdf_page": 205,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "hệ số",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 92 (PDF)",
+    "pdf_page": 92,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "hệ số",
+    "source_id": "bib-leanhvinh-2020",
+    "page": "tr. 106 (PDF)",
+    "pdf_page": 106,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "hệ số nhị thức",
+    "source_id": "bib-nguyenhoangthach-2020",
+    "page": "tr. 24 (PDF)",
+    "pdf_page": 24,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "hệ số tổ hợp",
+    "source_id": "bib-nguyenducnghia-2006",
+    "page": "tr. 22 (PDF)",
+    "pdf_page": 22,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "hệ số nhị thức",
+    "source_id": "bib-ngodactan-2004",
+    "page": "tr. 41 (PDF)",
+    "pdf_page": 41,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "hệ số nhị thức",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 317 (PDF, bản dịch Rosen)",
+    "pdf_page": 317,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "combination",
+  "letter": "C",
+  "headword_en": "Combination",
+  "rosen_ref": "Rosen §6.3",
+  "definition_vi": "Một tổ hợp chập $$r$$ của một tập hợp là một cách chọn không có thứ tự $$r$$ phần tử của tập hợp đó. Số tổ hợp chập $$r$$ của một tập hợp gồm $$n$$ phần tử, ký hiệu $$\\binom{n}{r}$$, bằng $$\\binom{n}{r} = \\dfrac{n!}{r!\\,(n-r)!}$$.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "tổ hợp",
+    "source_id": "bib-nguyenhoangthach-2020",
+    "page": "tr. 21 (PDF)",
+    "pdf_page": 21,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "tổ hợp chập k",
+    "source_id": "bib-nguyenhoangthach-2020",
+    "page": "tr. 21 (PDF)",
+    "pdf_page": 21,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "tổ hợp chập r",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 89 (PDF)",
+    "pdf_page": 89,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "tổ hợp",
+    "source_id": "bib-nguyenducnghia-2006",
+    "page": "tr. 19 (PDF)",
+    "pdf_page": 19,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "tổ hợp chập k",
+    "source_id": "bib-nguyenducnghia-2006",
+    "page": "tr. 19 (PDF)",
+    "pdf_page": 19,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "tổ hợp",
+    "source_id": "bib-ngodactan-2004",
+    "page": "tr. 29 (PDF)",
+    "pdf_page": 29,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "tổ hợp chập k của n phần tử",
+    "source_id": "bib-ngodactan-2004",
+    "page": "tr. 29 (PDF)",
+    "pdf_page": 29,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "tổ hợp không lặp chập k",
+    "source_id": "bib-ngodactan-2004",
+    "page": "tr. 29 (PDF)",
+    "pdf_page": 29,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "tổ hợp",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 5 (PDF, bản dịch Rosen)",
+    "pdf_page": 5,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "tổ hợp chập r",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 316 (PDF, bản dịch Rosen)",
+    "pdf_page": 316,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "combinatorial-circuit",
+  "letter": "C",
+  "headword_en": "Combinatorial Circuit",
+  "rosen_ref": "Rosen §10.3",
+  "definition_vi": "Mạch tổ hợp là một mạch logic được tạo thành từ các cổng logic (cổng $$\\mathrm{AND}$$, cổng $$\\mathrm{OR}$$ và cổng $$\\mathrm{NOT}$$), trong đó các giá trị đầu ra chỉ phụ thuộc vào các giá trị đầu vào hiện tại mà không phụ thuộc vào trạng thái trước đó. Mỗi mạch tổ hợp tính một hàm Boolean, tức là một ánh xạ từ $$\\{0,1\\}^n$$ vào $$\\{0,1\\}$$.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "mạch tổ hợp",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 728 (PDF)",
+    "pdf_page": 728,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "mạch tổ hợp",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 728 (PDF)",
+    "pdf_page": 728,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "combinatorial-proof",
+  "letter": "C",
+  "headword_en": "Combinatorial Proof",
+  "rosen_ref": "Rosen §6.4",
+  "definition_vi": "Chứng minh tổ hợp là một chứng minh sử dụng các lập luận đếm thay vì biến đổi đại số. Thông thường, một đẳng thức được chứng minh bằng cách đếm số phần tử của cùng một tập hợp hữu hạn theo hai cách khác nhau, hoặc bằng cách thiết lập một song ánh giữa hai tập hợp hữu hạn.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "chứng minh tổ hợp",
+    "source_id": "bib-nguyenhoangthach-2020",
+    "page": "tr. 85 (PDF)",
+    "pdf_page": 85,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "chứng minh tổ hợp",
+    "source_id": "bib-nguyenhoangthach-2020",
+    "page": "tr. 23 (PDF)",
+    "pdf_page": 23,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "combinatorics",
+  "letter": "C",
+  "headword_en": "Combinatorics",
+  "rosen_ref": "Rosen §4.1",
+  "definition_vi": "Lý thuyết tổ hợp là ngành nghiên cứu về cách sắp xếp các đối tượng. Nó gắn liền với việc đếm và nghiên cứu các cách bố trí những đối tượng của một tập hợp, có kể tới thứ tự hoặc không.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "lý thuyết tổ hợp",
+    "source_id": "bib-nguyenducnghia-2006",
+    "page": "tr. 10 (PDF)",
+    "pdf_page": 10,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "lý thuyết tổ hợp",
+    "source_id": "bib-ngodactan-2004",
+    "page": "tr. 20 (PDF)",
+    "pdf_page": 20,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "sắp xếp các đối tượng",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 290 (PDF)",
+    "pdf_page": 290,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "lý thuyết tổ hợp",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 290 (PDF, bản dịch Rosen)",
+    "pdf_page": 290,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "common-difference",
+  "letter": "C",
+  "headword_en": "Common Difference",
+  "rosen_ref": "Rosen §2.4",
+  "definition_vi": "Công sai là hằng số $$d$$ sao cho mỗi số hạng của một cấp số cộng nhận được từ số hạng liền trước bằng cách cộng thêm $$d$$. Cấp số cộng là dãy có dạng $$a, a + d, a + 2d, \\ldots, a + nd, \\ldots$$, trong đó $$a$$ là số hạng đầu (ký hiệu $$a$$) và $$d$$ là công sai (ký hiệu $$d$$).",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "công sai",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": true
+   }
+  ]
+ },
+ {
+  "id": "common-ratio",
+  "letter": "C",
+  "headword_en": "Common Ratio",
+  "rosen_ref": "Rosen §2.4",
+  "definition_vi": "Công bội của một cấp số nhân là tỷ số không đổi $$r$$ giữa hai số hạng liên tiếp của cấp số đó. Cấp số nhân có số hạng đầu $$a$$ và công bội $$r$$ là dãy có dạng $$a, ar, ar^2, ar^3, \\dots$$, trong đó số hạng tổng quát là $$a_n = ar^n$$ với $$a, r$$ là các số thực và $$r \\neq 0$$.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "công bội",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 100 (PDF)",
+    "pdf_page": 100,
+    "verified": true,
+    "recommended": true
+   }
+  ]
+ },
+ {
+  "id": "comparable",
+  "letter": "C",
+  "headword_en": "Comparable",
+  "rosen_ref": "",
+  "definition_vi": "Hai phần tử $$a$$ và $$b$$ của một tập sắp thứ tự bộ phận được gọi là so sánh được nếu $$a \\preceq b$$ hoặc $$b \\preceq a$$.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "so sánh được",
+    "source_id": "bib-ngodactan-2004",
+    "page": "tr. 164 (PDF)",
+    "pdf_page": 164,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "so sánh được",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 142 (PDF, bản dịch Rosen)",
+    "pdf_page": 142,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "compatible-total-ordering",
+  "letter": "C",
+  "headword_en": "Compatible Total Ordering",
+  "rosen_ref": "",
+  "definition_vi": "",
+  "see_ref": "topological-sort",
+  "vi_terms": [
+   {
+    "term": "thứ tự toàn phần tương thích",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "121",
+    "pdf_page": 121,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "complement",
+  "letter": "C",
+  "headword_en": "Complement",
+  "rosen_ref": "Rosen §2.2",
+  "definition_vi": "Phần bù của tập $$A$$ (đối với tập vũ trụ $$U$$), ký hiệu $$\\overline{A}$$, là tập hợp gồm tất cả các phần tử của $$U$$ không thuộc $$A$$, tức là $$\\overline{A} = \\{x \\in U : x \\notin A\\} = U \\setminus A$$.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "Phần bù",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 75 (PDF)",
+    "pdf_page": 75,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "Phần bù",
+    "source_id": "bib-nguyenducnghia-2006",
+    "page": "tr. 12 (PDF)",
+    "pdf_page": 12,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "Phần bù",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 67 (PDF)",
+    "pdf_page": 67,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "complement-graph",
+  "letter": "C",
+  "headword_en": "Complement Graph",
+  "rosen_ref": "",
+  "definition_vi": "",
+  "see_ref": "complement-of-a-graph",
+  "vi_terms": [
+   {
+    "term": "đồ thị bù",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "complement-of-a-graph",
+  "letter": "C",
+  "headword_en": "Complement of a graph",
+  "rosen_ref": "Rosen §10.2",
+  "definition_vi": "Đồ thị bù của một đơn đồ thị $$G$$, ký hiệu $$\\overline{G}$$, là đồ thị có cùng tập đỉnh với $$G$$, trong đó hai đỉnh phân biệt kề nhau khi và chỉ khi chúng không kề nhau trong $$G$$.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "đồ thị bù",
+    "source_id": "bib-leanhvinh-2020",
+    "page": "tr. 101 (PDF)",
+    "pdf_page": 101,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "đồ thị bù",
+    "source_id": "bib-nguyenhoangthach-2020",
+    "page": "tr. 72 (PDF)",
+    "pdf_page": 72,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "đồ thị bù",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 167 (PDF)",
+    "pdf_page": 167,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "đồ thị bù",
+    "source_id": "bib-hoangchithanh-2007",
+    "page": "tr. 58 (PDF)",
+    "pdf_page": 58,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "đồ thị bù",
+    "source_id": "bib-nguyenducnghia-2006",
+    "page": "tr. 164 (PDF)",
+    "pdf_page": 164,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "đồ thị bù",
+    "source_id": "bib-ngodactan-2004",
+    "page": "tr. 336 (PDF)",
+    "pdf_page": 336,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "đồ thị bù",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 519 (PDF, bản dịch Rosen)",
+    "pdf_page": 519,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "complete-bipartite-graph",
+  "letter": "C",
+  "headword_en": "Complete bipartite graph",
+  "rosen_ref": "Rosen §10.2",
+  "definition_vi": "Đồ thị hai phía đầy đủ, ký hiệu $$K_{m,n}$$, là đồ thị đơn có tập đỉnh được phân hoạch thành hai tập rời nhau có kích thước $$m$$ và $$n$$, trong đó mỗi đỉnh thuộc tập này được nối với mọi đỉnh thuộc tập kia bằng đúng một cạnh và không có cạnh nào nối hai đỉnh trong cùng một tập.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "đồ thị hai phần đầy đủ",
+    "source_id": "bib-leanhvinh-2020",
+    "page": "tr. 190 (PDF)",
+    "pdf_page": 190,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "đồ thị hai phần đầy đủ",
+    "source_id": "bib-nguyenhoangthach-2020",
+    "page": "tr. 67 (PDF)",
+    "pdf_page": 67,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "đồ thị phân đôi đầy đủ",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 160 (PDF)",
+    "pdf_page": 160,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "đồ thị hai phần đầy đủ",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 233 (PDF)",
+    "pdf_page": 233,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "đồ thị hai phần đầy đủ",
+    "source_id": "bib-hoangchithanh-2007",
+    "page": "tr. 118 (PDF)",
+    "pdf_page": 118,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "đồ thị hai phía đầy đủ",
+    "source_id": "bib-nguyenducnghia-2006",
+    "page": "tr. 198 (PDF)",
+    "pdf_page": 198,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "đồ thị hai phần đầy đủ",
+    "source_id": "bib-ngodactan-2004",
+    "page": "tr. 216 (PDF)",
+    "pdf_page": 216,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "đồ thị phân đôi đầy đủ",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 510 (PDF, bản dịch Rosen)",
+    "pdf_page": 510,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "complete-graph",
+  "letter": "C",
+  "headword_en": "Complete graph",
+  "rosen_ref": "Rosen §10.2",
+  "definition_vi": "Đồ thị đầy đủ $$n$$ đỉnh, ký hiệu $$K_n$$, là đơn đồ thị vô hướng mà giữa mọi cặp đỉnh phân biệt đều có một cạnh nối.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "đồ thị đầy đủ",
+    "source_id": "bib-nguyenhoangthach-2020",
+    "page": "tr. 67 (PDF)",
+    "pdf_page": 67,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "đồ thị đầy đủ",
+    "source_id": "bib-leanhvinh-2020",
+    "page": "tr. 14 (PDF)",
+    "pdf_page": 14,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "đồ thị đầy đủ",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 159 (PDF)",
+    "pdf_page": 159,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "đồ thị đầy đủ",
+    "source_id": "bib-hoangchithanh-2007",
+    "page": "tr. 16 (PDF)",
+    "pdf_page": 16,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "đồ thị đầy đủ",
+    "source_id": "bib-nguyenducnghia-2006",
+    "page": "tr. 158 (PDF)",
+    "pdf_page": 158,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "n-đồ thị đầy đủ",
+    "source_id": "bib-ngodactan-2004",
+    "page": "tr. 190 (PDF)",
+    "pdf_page": 190,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "đồ thị đầy đủ",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 605 (PDF, bản dịch Rosen)",
+    "pdf_page": 605,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "complete-matching",
+  "letter": "C",
+  "headword_en": "Complete Matching",
+  "rosen_ref": "Rosen §10.2",
+  "definition_vi": "Một ghép cặp đầy đủ từ $$V_1$$ tới $$V_2$$ trong một đồ thị hai phần với hai phần $$V_1$$ và $$V_2$$ là một ghép cặp $$M$$ sao cho mọi đỉnh của $$V_1$$ đều là đầu mút của một cạnh trong $$M$$; ký hiệu $$|M| = |V_1|$$. Nói cách khác, ghép cặp $$M$$ phủ hết các đỉnh thuộc phần $$V_1$$.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "ghép cặp đầy đủ",
+    "source_id": "bib-ngodactan-2004",
+    "page": "tr. 270 (PDF)",
+    "pdf_page": 270,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "ghép cặp đầy đủ",
+    "source_id": "bib-nguyenhoangthach-2020",
+    "page": "tr. 70 (PDF)",
+    "pdf_page": 70,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "complexity",
+  "letter": "C",
+  "headword_en": "Complexity",
+  "rosen_ref": "Rosen §3.3",
+  "definition_vi": "Độ phức tạp của một thuật toán là lượng tài nguyên tính toán mà thuật toán đòi hỏi để giải bài toán theo kích thước đầu vào $$n$$. Độ phức tạp thời gian đo số phép toán thực hiện và độ phức tạp không gian đo lượng bộ nhớ cần dùng, thường được biểu diễn theo ký hiệu $$O(f(n))$$.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "Độ phức tạp",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 137 (PDF)",
+    "pdf_page": 137,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "Độ phức tạp",
+    "source_id": "bib-leanhvinh-2020",
+    "page": "tr. 76 (PDF)",
+    "pdf_page": 76,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "Độ phức tạp",
+    "source_id": "bib-nguyenhoangthach-2020",
+    "page": "tr. 88 (PDF)",
+    "pdf_page": 88,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "Độ phức tạp",
+    "source_id": "bib-hoangchithanh-2007",
+    "page": "tr. 70 (PDF)",
+    "pdf_page": 70,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "Độ phức tạp tính toán",
+    "source_id": "bib-nguyenducnghia-2006",
+    "page": "tr. 90 (PDF)",
+    "pdf_page": 90,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "Độ phức tạp tính toán",
+    "source_id": "bib-ngodactan-2004",
+    "page": "tr. 251 (PDF)",
+    "pdf_page": 251,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "Độ phức tạp tính toán",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 130 (PDF)",
+    "pdf_page": 130,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "Độ phức tạp thời gian",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 142 (PDF)",
+    "pdf_page": 142,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "Độ phức tạp",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 130 (PDF, bản dịch Rosen)",
+    "pdf_page": 130,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "composite",
+  "letter": "C",
+  "headword_en": "Composite",
+  "rosen_ref": "",
+  "definition_vi": "",
+  "see_ref": "composite-number",
+  "vi_terms": []
+ },
+ {
+  "id": "composite-key",
+  "letter": "C",
+  "headword_en": "Composite Key",
+  "rosen_ref": "",
+  "definition_vi": "",
+  "see_ref": "key",
+  "vi_terms": [
+   {
+    "term": "khóa phức hợp",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "composite-number",
+  "letter": "C",
+  "headword_en": "Composite Number",
+  "rosen_ref": "Rosen §3.5",
+  "definition_vi": "Hợp số là một số nguyên dương lớn hơn $$1$$ và không phải là số nguyên tố. Nói cách khác, $$n$$ là hợp số nếu $$n > 1$$ và tồn tại số nguyên $$a$$ với $$1 < a < n$$ sao cho $$a$$ chia hết $$n$$.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "hợp số",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 153 (PDF)",
+    "pdf_page": 153,
+    "verified": true,
+    "recommended": true
+   }
+  ]
+ },
+ {
+  "id": "compound-proposition",
+  "letter": "C",
+  "headword_en": "Compound Proposition",
+  "rosen_ref": "Rosen §1.1",
+  "definition_vi": "Mệnh đề phức hợp là mệnh đề được tạo thành từ một hay nhiều mệnh đề đã có bằng các phép toán logic (như $$\\neg$$, $$\\wedge$$, $$\\vee$$, $$\\rightarrow$$, $$\\leftrightarrow$$). Giá trị chân lý của mệnh đề phức hợp được xác định hoàn toàn từ giá trị chân lý của các mệnh đề thành phần và các phép toán logic dùng để liên kết chúng.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "mệnh đề phức hợp",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 15 (PDF)",
+    "pdf_page": 15,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "mệnh đề phức hợp",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 7 (PDF)",
+    "pdf_page": 7,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "Mệnh đề phức hợp",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 23 (PDF, bản dịch Rosen)",
+    "pdf_page": 23,
+    "verified": true,
+    "recommended": true
+   }
+  ]
+ },
+ {
+  "id": "computable-function",
+  "letter": "C",
+  "headword_en": "Computable Function",
+  "rosen_ref": "Rosen §3.1",
+  "definition_vi": "Hàm tính được là một hàm mà tồn tại một chương trình máy tính tìm được các giá trị của nó. Nói cách khác, một hàm $$f$$ là tính được nếu có một chương trình máy tính, với mỗi đầu vào thuộc miền xác định, trả về giá trị tương ứng của $$f$$.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "hàm tính được",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 833 (PDF)",
+    "pdf_page": 833,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "hàm tính được",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 862 (PDF)",
+    "pdf_page": 862,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "concatenation",
+  "letter": "C",
+  "headword_en": "Concatenation",
+  "rosen_ref": "Rosen §5.3",
+  "definition_vi": "Phép ghép của hai xâu là xâu được tạo nên bằng cách viết các ký hiệu của xâu này nối tiếp vào sau xâu kia. Cụ thể, phép ghép của hai xâu $$x$$ và $$y$$, ký hiệu $$xy$$, là xâu thu được bằng cách thêm các ký hiệu của $$y$$ vào cuối xâu $$x$$.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "phép ghép",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 256 (PDF)",
+    "pdf_page": 256,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "ghép các xâu",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 813 (PDF)",
+    "pdf_page": 813,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "conclusion",
+  "letter": "C",
+  "headword_en": "Conclusion",
+  "rosen_ref": "Rosen §1.6",
+  "definition_vi": "Kết luận là phát biểu cuối cùng trong một suy luận hoặc một dạng suy luận.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "kết luận",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 29 (PDF)",
+    "pdf_page": 29,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "kết luận",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 210 (PDF)",
+    "pdf_page": 210,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "conditional-statement",
+  "letter": "C",
+  "headword_en": "Conditional Statement",
+  "rosen_ref": "Rosen §1.1",
+  "definition_vi": "Mệnh đề điều kiện (mệnh đề kéo theo) của hai mệnh đề $$p$$ và $$q$$, ký hiệu $$p \\rightarrow q$$ và đọc là \"nếu $$p$$ thì $$q$$\", là mệnh đề chỉ nhận giá trị sai khi $$p$$ đúng và $$q$$ sai, và nhận giá trị đúng trong mọi trường hợp còn lại. Trong đó $$p$$ được gọi là giả thiết và $$q$$ được gọi là kết luận.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "Phép kéo theo",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 18 (PDF)",
+    "pdf_page": 18,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "Mệnh đề kéo theo",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 10 (PDF)",
+    "pdf_page": 10,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "Phép kéo theo",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 10 (PDF, bản dịch Rosen)",
+    "pdf_page": 10,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "Cấu trúc điều kiện",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": true
+   }
+  ]
+ },
+ {
+  "id": "congruence",
+  "letter": "C",
+  "headword_en": "Congruence",
+  "rosen_ref": "Rosen §3.4",
+  "definition_vi": "Cho $$m$$ là một số nguyên dương. Hai số nguyên $$a$$ và $$b$$ được gọi là đồng dư theo modulo $$m$$, ký hiệu $$a \\equiv b \\pmod m$$, nếu $$m$$ chia hết hiệu $$a - b$$. Khi đó $$a$$ và $$b$$ có cùng số dư khi chia cho $$m$$.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "đồng dư",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 159 (PDF)",
+    "pdf_page": 159,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "quan hệ đồng dư",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 106 (PDF)",
+    "pdf_page": 106,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "phép đồng dư",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 39 (PDF)",
+    "pdf_page": 39,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "phương trình đồng dư",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 202 (PDF, bản dịch Rosen)",
+    "pdf_page": 202,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "quan hệ đồng dư",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 480 (PDF, bản dịch Rosen)",
+    "pdf_page": 480,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "phép đồng dư",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 207 (PDF, bản dịch Rosen)",
+    "pdf_page": 207,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "conjecture",
+  "letter": "C",
+  "headword_en": "Conjecture",
+  "rosen_ref": "Rosen §1.8",
+  "definition_vi": "Giả thuyết là một mệnh đề toán học được phát biểu và tin là đúng, nhưng chưa được chứng minh cũng chưa bị bác bỏ. Khi một giả thuyết được chứng minh đúng bằng một dãy suy luận hợp lý, nó trở thành định lý.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "giả thuyết",
+    "source_id": "bib-leanhvinh-2020",
+    "page": "tr. 139 (PDF)",
+    "pdf_page": 139,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "giả thuyết",
+    "source_id": "bib-nguyenhoangthach-2020",
+    "page": "tr. 81 (PDF)",
+    "pdf_page": 81,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "giả thuyết",
+    "source_id": "bib-ngodactan-2004",
+    "page": "tr. 298 (PDF)",
+    "pdf_page": 298,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "giả thuyết",
+    "source_id": "bib-nguyenducnghia-2006",
+    "page": "tr. 55 (PDF)",
+    "pdf_page": 55,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "giả thuyết",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 288 (PDF)",
+    "pdf_page": 288,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "Giả thuyết",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 288 (PDF, bản dịch Rosen)",
+    "pdf_page": 288,
+    "verified": true,
+    "recommended": true
+   }
+  ]
+ },
+ {
+  "id": "conjunction",
+  "letter": "C",
+  "headword_en": "Conjunction",
+  "rosen_ref": "Rosen §1.1",
+  "definition_vi": "Hội của hai mệnh đề $$p$$ và $$q$$, ký hiệu $$p \\wedge q$$, là mệnh đề \"$$p$$ và $$q$$\". Mệnh đề $$p \\wedge q$$ nhận giá trị đúng khi và chỉ khi cả $$p$$ lẫn $$q$$ đều đúng, và nhận giá trị sai trong các trường hợp còn lại.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "hội",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 8 (PDF)",
+    "pdf_page": 8,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "phép hội",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 46 (PDF)",
+    "pdf_page": 46,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "hội",
+    "source_id": "bib-nguyenducnghia-2006",
+    "page": "tr. 13 (PDF)",
+    "pdf_page": 13,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "Hội",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 8 (PDF, bản dịch Rosen)",
+    "pdf_page": 8,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "phép hội",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 35 (PDF, bản dịch Rosen)",
+    "pdf_page": 35,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "conjunctive-normal-form",
+  "letter": "C",
+  "headword_en": "Conjunctive Normal Form",
+  "rosen_ref": "Rosen §1.3",
+  "definition_vi": "Dạng hội chuẩn tắc của một mệnh đề phức hợp là một biểu thức tương đương logic được viết dưới dạng hội (phép $$\\wedge$$) của một hay nhiều mệnh đề, trong đó mỗi mệnh đề thành phần là một tuyển (phép $$\\vee$$) của các literal (mỗi biến mệnh đề $$p$$ hoặc phủ định $$\\neg p$$ của nó). Mỗi mệnh đề phức hợp đều có thể đưa về một dạng hội chuẩn tắc tương đương logic.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "dạng chuẩn tắc hội",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 25 (PDF)",
+    "pdf_page": 25,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "dạng chính tắc hội",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 26 (PDF)",
+    "pdf_page": 26,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "dạng hội chuẩn tắc hoàn toàn",
+    "source_id": "bib-nguyenducnghia-2006",
+    "page": "tr. 270 (PDF)",
+    "pdf_page": 270,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "dạng hội chuẩn tắc",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 726 (PDF, bản dịch Rosen)",
+    "pdf_page": 726,
+    "verified": true,
+    "recommended": true
+   }
+  ]
+ },
+ {
+  "id": "connected",
+  "letter": "C",
+  "headword_en": "Connected",
+  "rosen_ref": "Rosen §10.4",
+  "definition_vi": "Một đồ thị vô hướng $$G$$ được gọi là liên thông nếu giữa mọi cặp đỉnh phân biệt của $$G$$ đều tồn tại một đường đi nối chúng. Ngược lại, $$G$$ được gọi là không liên thông.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "liên thông",
+    "source_id": "bib-leanhvinh-2020",
+    "page": "tr. 17 (PDF)",
+    "pdf_page": 17,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "liên thông",
+    "source_id": "bib-nguyenhoangthach-2020",
+    "page": "tr. 74 (PDF)",
+    "pdf_page": 74,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "liên thông",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 168 (PDF)",
+    "pdf_page": 168,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "liên thông",
+    "source_id": "bib-nguyenducnghia-2006",
+    "page": "tr. 156 (PDF)",
+    "pdf_page": 156,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "liên thông",
+    "source_id": "bib-ngodactan-2004",
+    "page": "tr. 195 (PDF)",
+    "pdf_page": 195,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "liên thông",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 539 (PDF)",
+    "pdf_page": 539,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "connected-component",
+  "letter": "C",
+  "headword_en": "Connected component",
+  "rosen_ref": "Rosen §10.4",
+  "definition_vi": "Thành phần liên thông của một đồ thị $$G$$ là một đồ thị con liên thông cực đại của $$G$$, tức là một đồ thị con liên thông không chứa trong bất kỳ đồ thị con liên thông nào lớn hơn.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "thành phần liên thông",
+    "source_id": "bib-nguyenhoangthach-2020",
+    "page": "tr. 74 (PDF)",
+    "pdf_page": 74,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "thành phần liên thông",
+    "source_id": "bib-leanhvinh-2020",
+    "page": "tr. 17 (PDF)",
+    "pdf_page": 17,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "thành phần liên thông",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 168 (PDF)",
+    "pdf_page": 168,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "thành phần liên thông",
+    "source_id": "bib-hoangchithanh-2007",
+    "page": "tr. 45 (PDF)",
+    "pdf_page": 45,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "thành phần liên thông",
+    "source_id": "bib-nguyenducnghia-2006",
+    "page": "tr. 157 (PDF)",
+    "pdf_page": 157,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "thành phần liên thông",
+    "source_id": "bib-ngodactan-2004",
+    "page": "tr. 196 (PDF)",
+    "pdf_page": 196,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "mảng liên thông",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 180 (PDF)",
+    "pdf_page": 180,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "mảng liên thông",
+    "source_id": "bib-hoangchithanh-2007",
+    "page": "tr. 14 (PDF)",
+    "pdf_page": 14,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "thành phần liên thông",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 539 (PDF, bản dịch Rosen)",
+    "pdf_page": 539,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "connected-graph",
+  "letter": "C",
+  "headword_en": "Connected graph",
+  "rosen_ref": "Rosen §10.4",
+  "definition_vi": "Một đồ thị vô hướng $$G$$ được gọi là đồ thị liên thông nếu giữa mọi cặp đỉnh phân biệt của $$G$$ luôn có một đường đi nối chúng.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "đồ thị liên thông",
+    "source_id": "bib-leanhvinh-2020",
+    "page": "tr. 17 (PDF)",
+    "pdf_page": 17,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "đồ thị liên thông",
+    "source_id": "bib-nguyenhoangthach-2020",
+    "page": "tr. 75 (PDF)",
+    "pdf_page": 75,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "liên thông",
+    "source_id": "bib-nguyenhoangthach-2020",
+    "page": "tr. 74 (PDF)",
+    "pdf_page": 74,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "đồ thị liên thông",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 169 (PDF)",
+    "pdf_page": 169,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "liên thông",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 168 (PDF)",
+    "pdf_page": 168,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "đồ thị liên thông",
+    "source_id": "bib-hoangchithanh-2007",
+    "page": "tr. 13 (PDF)",
+    "pdf_page": 13,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "đồ thị liên thông",
+    "source_id": "bib-nguyenducnghia-2006",
+    "page": "tr. 156 (PDF)",
+    "pdf_page": 156,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "liên thông",
+    "source_id": "bib-nguyenducnghia-2006",
+    "page": "tr. 156 (PDF)",
+    "pdf_page": 156,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "đồ thị liên thông",
+    "source_id": "bib-ngodactan-2004",
+    "page": "tr. 198 (PDF)",
+    "pdf_page": 198,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "liên thông",
+    "source_id": "bib-ngodactan-2004",
+    "page": "tr. 195 (PDF)",
+    "pdf_page": 195,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "đồ thị liên thông",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 546 (PDF, bản dịch Rosen)",
+    "pdf_page": 546,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "liên thông",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 461 (PDF, bản dịch Rosen)",
+    "pdf_page": 461,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "connectivity",
+  "letter": "C",
+  "headword_en": "Connectivity",
+  "rosen_ref": "",
+  "definition_vi": "",
+  "see_ref": "vertex-connectivity",
+  "vi_terms": [
+   {
+    "term": "độ liên thông đỉnh",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": false
+   },
+   {
+    "term": "số liên thông đỉnh",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": false
+   },
+   {
+    "term": "độ liên thông",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": false
+   },
+   {
+    "term": "liên thông đỉnh",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "consistent-compound-propositions",
+  "letter": "C",
+  "headword_en": "Consistent Compound Propositions",
+  "rosen_ref": "Rosen §1.1",
+  "definition_vi": "Một tập các mệnh đề phức hợp được gọi là nhất quán nếu tồn tại một phép gán các giá trị chân lý cho các biến mệnh đề làm cho tất cả các mệnh đề trong tập đó cùng nhận giá trị đúng.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "nhất quán",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 22 (PDF)",
+    "pdf_page": 22,
+    "verified": true,
+    "recommended": true
+   }
+  ]
+ },
+ {
+  "id": "constructive-existence-proof",
+  "letter": "C",
+  "headword_en": "Constructive Existence Proof",
+  "rosen_ref": "Rosen §1.7",
+  "definition_vi": "Chứng minh tồn tại kiến thiết là một chứng minh khẳng định rằng tồn tại một phần tử có tính chất mong muốn bằng cách chỉ ra một cách tường minh một phần tử như vậy. Nói cách khác, để chứng minh mệnh đề $$\\exists x P(x)$$, ta tìm được một phần tử $$a$$ và chỉ ra rằng $$P(a)$$ đúng.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "chứng minh tồn tại kiến thiết",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 220 (PDF)",
+    "pdf_page": 220,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "chứng minh tồn tại kiến thiết",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 220 (PDF)",
+    "pdf_page": 220,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "chứng minh tồn tại",
+    "source_id": "bib-ngodactan-2004",
+    "page": "tr. 24 (PDF)",
+    "pdf_page": 24,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "chứng minh tồn tại",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 220 (PDF, bản dịch Rosen)",
+    "pdf_page": 220,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ }
+]
+hook: PostToolUse
+hook: PostToolUse Completed
+codex
+The raw `cat` output is longer than the terminal budget, so I’m switching to a structured summary of IDs, stubs, recommended terms, and existing variants. That keeps the evidence review focused without losing batch coverage.
+hook: PreToolUse
+hook: PreToolUse Completed
+exec
+/bin/bash -lc "jq -r '.[] | [ .id, .headword_en, (if .see_ref == \"\" then \"nonstub\" else \"stub->\" + .see_ref end), ((.vi_terms[]? | select(.recommended==true) | .term) // \"\"), (([.vi_terms[]?.term] | unique) | join(\" | \")) ] | @tsv' workflow/loop/review/batch-3.json" in /home/ubuntu/DM-Concepts
+ succeeded in 0ms:
+chromatic-number	Chromatic number	nonstub	sắc số	sắc số
+circuit	Circuit	nonstub	chu trình đơn	chu trình đơn | mạch
+circular-reasoning	Circular Reasoning	nonstub	lý luận quẩn	lý luận quẩn | nguỵ biện dùng ngay câu hỏi | suy luận quẩn
+class-p	Class P	nonstub	lớp P	lớp P
+clique	Clique	nonstub	clique	clique | đồ thị con đầy đủ cực đại
+codomain	Codomain	nonstub	miền giá trị, tập đích	miền giá trị | miền giá trị, tập đích | tập đích
+coefficient	Coefficient	nonstub	hệ số	hệ số | hệ số nhị thức | hệ số tổ hợp
+combination	Combination	nonstub	tổ hợp	tổ hợp | tổ hợp chập k | tổ hợp chập k của n phần tử | tổ hợp chập r | tổ hợp không lặp chập k
+combinatorial-circuit	Combinatorial Circuit	nonstub	mạch tổ hợp	mạch tổ hợp
+combinatorial-proof	Combinatorial Proof	nonstub	chứng minh tổ hợp	chứng minh tổ hợp
+combinatorics	Combinatorics	nonstub	lý thuyết tổ hợp	lý thuyết tổ hợp | sắp xếp các đối tượng
+common-difference	Common Difference	nonstub	công sai	công sai
+common-ratio	Common Ratio	nonstub	công bội	công bội
+comparable	Comparable	nonstub	so sánh được	so sánh được
+compatible-total-ordering	Compatible Total Ordering	stub->topological-sort		thứ tự toàn phần tương thích
+complement	Complement	nonstub	Phần bù	Phần bù
+complement-graph	Complement Graph	stub->complement-of-a-graph		đồ thị bù
+complement-of-a-graph	Complement of a graph	nonstub	đồ thị bù	đồ thị bù
+complete-bipartite-graph	Complete bipartite graph	nonstub	đồ thị hai phần đầy đủ	đồ thị hai phía đầy đủ | đồ thị hai phần đầy đủ | đồ thị phân đôi đầy đủ
+complete-graph	Complete graph	nonstub	đồ thị đầy đủ	n-đồ thị đầy đủ | đồ thị đầy đủ
+complete-matching	Complete Matching	nonstub	ghép cặp đầy đủ	ghép cặp đầy đủ
+complexity	Complexity	nonstub	Độ phức tạp	Độ phức tạp | Độ phức tạp thời gian | Độ phức tạp tính toán
+composite	Composite	stub->composite-number		
+composite-key	Composite Key	stub->key		khóa phức hợp
+composite-number	Composite Number	nonstub	hợp số	hợp số
+compound-proposition	Compound Proposition	nonstub	Mệnh đề phức hợp	Mệnh đề phức hợp | mệnh đề phức hợp
+computable-function	Computable Function	nonstub	hàm tính được	hàm tính được
+concatenation	Concatenation	nonstub	phép ghép	ghép các xâu | phép ghép
+conclusion	Conclusion	nonstub	kết luận	kết luận
+conditional-statement	Conditional Statement	nonstub	Cấu trúc điều kiện	Cấu trúc điều kiện | Mệnh đề kéo theo | Phép kéo theo
+congruence	Congruence	nonstub	phương trình đồng dư	phép đồng dư | phương trình đồng dư | quan hệ đồng dư | đồng dư
+conjecture	Conjecture	nonstub	Giả thuyết	Giả thuyết | giả thuyết
+conjunction	Conjunction	nonstub	Hội	Hội | hội | phép hội
+conjunctive-normal-form	Conjunctive Normal Form	nonstub	dạng hội chuẩn tắc	dạng chuẩn tắc hội | dạng chính tắc hội | dạng hội chuẩn tắc | dạng hội chuẩn tắc hoàn toàn
+connected	Connected	nonstub	liên thông	liên thông
+connected-component	Connected component	nonstub	thành phần liên thông	mảng liên thông | thành phần liên thông
+connected-graph	Connected graph	nonstub	đồ thị liên thông	liên thông | đồ thị liên thông
+connectivity	Connectivity	stub->vertex-connectivity		liên thông đỉnh | số liên thông đỉnh | độ liên thông | độ liên thông đỉnh
+consistent-compound-propositions	Consistent Compound Propositions	nonstub	nhất quán	nhất quán
+constructive-existence-proof	Constructive Existence Proof	nonstub	chứng minh tồn tại kiến thiết	chứng minh tồn tại | chứng minh tồn tại kiến thiết
+
+hook: PostToolUse
+hook: PostToolUse Completed
+hook: PreToolUse
+hook: PreToolUse Completed
+exec
+/bin/bash -lc "jq '[.[] | select(.see_ref==\"\")] | length' workflow/loop/review/batch-3.json" in /home/ubuntu/DM-Concepts
+ succeeded in 0ms:
+35
+
+hook: PostToolUse
+hook: PostToolUse Completed
+web search: 
+web search: "sắc số" "chromatic number" đồ thị toán rời rạc
+web search: 
+web search: "clique" "đồ thị con đầy đủ" "toán rời rạc"
+web search: 
+web search: "codomain" "tập đích" site:edu.vn
+web search: 
+web search: "mạch tổ hợp" "combinational circuit" giáo trình
+web search: 
+web search: "so sánh được" "comparable" "thứ tự bộ phận"
+web search: 
+web search: "complete bipartite graph" "đồ thị lưỡng phân đầy đủ"
+web search: 
+web search: "complexity" "độ phức tạp" "độ phức tạp tính toán" "toán rời rạc"
+web search: 
+web search: "hàm khả tính" "computable function"
+web search: 
+web search: "concatenation" "phép ghép" "ghép xâu" "phép nối"
+web search: 
+web search: "congruence" "đồng dư" "phương trình đồng dư" "toán rời rạc"
+web search: 
+web search: "conjecture" "giả thuyết" "phỏng đoán" toán học
+web search: 
+web search: "connected graph" "đồ thị liên thông" "thành phần liên thông" "toán rời rạc"
+web search: 
+web search: "P là lớp" "thời gian đa thức" "lớp P"
+web search: 
+web search: "circular reasoning" "lý luận quẩn"
+web search: 
+web search: "mạch" "circuit" "đồ thị" "toán rời rạc"
+web search: 
+web search: "mệnh đề điều kiện" "conditional statement" "toán rời rạc"
+codex
+I’ve completed the snippet-only web checks. The findings are concentrated in a few entries where either the recommended term looks mismatched to the mathematical concept, or a sourced Vietnamese variant is missing from the entry.
+hook: PreToolUse
+hook: PreToolUse Completed
+hook: PreToolUse
+exec
+/bin/bash -lc "test -e workflow/loop/review/findings-3.json && sed -n '1,220p' workflow/loop/review/findings-3.json || true" in /home/ubuntu/DM-Concepts
+ succeeded in 0ms:
+hook: PostToolUse
+hook: PreToolUse Completed
+hook: PostToolUse Completed
+exec
+/bin/bash -lc pwd in /home/ubuntu/DM-Concepts
+ succeeded in 0ms:
+/home/ubuntu/DM-Concepts
+
+hook: PostToolUse
+hook: PostToolUse Completed
+codex
+I’m writing only the review output file now. No dictionary or source entry files are being modified.
+apply patch
+patch: completed
+/home/ubuntu/DM-Concepts/workflow/loop/review/findings-3.json
+diff --git a/workflow/loop/review/findings-3.json b/workflow/loop/review/findings-3.json
+new file mode 100644
+index 0000000000000000000000000000000000000000..f0d77632d162eb034cfd22ca083a0a7a03897417
+--- /dev/null
++++ b/workflow/loop/review/findings-3.json
+@@ -0,0 +1 @@
++{"loop":3,"reviewed":35,"findings":[{"id":"circular-reasoning","commonality":{"verdict":"uncommon","better_term":"suy luận quẩn","source":"https://www.studocu.vn/vn/document/truong-dai-hoc-thang-long/logic-suy-luan-toan-hoc-va-ky-thuat-dem/cac-thuat-ngu-trong-logic/85398025"},"missing_variants":[{"term":"ngụy biện vòng tròn","source":"https://bloganchoi.com/nguy-bien-begging-the-question/"},{"term":"lập luận vòng tròn","source":"https://bloganchoi.com/nguy-bien-begging-the-question/"}]},{"id":"clique","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"bè","source":"https://www.scribd.com/document/693881574/Tha-y-Bu-i-Quo-c-Trung-Thua-t-toa-n-%C6%B0-ng-du-ng"}]},{"id":"codomain","commonality":{"verdict":"unsure","better_term":"","source":""},"missing_variants":[{"term":"đối miền","source":"https://vi.glosbe.com/en/vi/codomain"}]},{"id":"combinatorial-circuit","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"mạch kết hợp","source":"https://cuuduongthancong.com/atc/526/c4-mach-logic-so---kien-truc-may-tinh"}]},{"id":"combinatorics","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"toán học tổ hợp","source":"https://www.studocu.vn/vn/document/dai-hoc-khoa-hoc-tu-nhien-dai-hoc-quoc-gia-thanh-pho-ho-chi-minh/toan-hoc-to-hop/clc-mth00058-hki-de-cuong/118971206"},{"term":"toán tổ hợp","source":"https://www.studocu.vn/vn/document/dai-hoc-khoa-hoc-tu-nhien-dai-hoc-quoc-gia-thanh-pho-ho-chi-minh/toan-hoc-to-hop/clc-mth00058-hki-de-cuong/118971206"}]},{"id":"complete-bipartite-graph","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"đồ thị lưỡng phân đầy đủ","source":"https://www.scribd.com/document/547693802/EQGiao-trinh-l%C3%BD-thuy%E1%BA%BFt-%C4%91%E1%BB%93-th%E1%BB%8B-va-%E1%BB%A9ng-d%E1%BB%A5ng"}]},{"id":"complete-matching","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"cặp ghép đầy đủ","source":"https://thuvienso.hcmute.edu.vn/tailieu/2011/20111030/muaythai5/13_split_9_4314.pdf"},{"term":"bộ ghép đầy đủ","source":"https://vnspoj.github.io/problems/MATCH2.html"}]},{"id":"computable-function","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"hàm số khả tính","source":"https://en.glosbe.com/en/vi/computable%20function"},{"term":"hàm khả tính","source":"https://vi.wikipedia.org/wiki/B%C3%A0i_to%C3%A1n_d%E1%BB%ABng"}]},{"id":"concatenation","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"ghép xâu","source":"https://thinhtugi.files.wordpress.com/2010/01/nnht.pdf"}]},{"id":"conditional-statement","commonality":{"verdict":"uncommon","better_term":"mệnh đề kéo theo","source":"https://www.studocu.vn/vn/document/truong-dai-hoc-thang-long/logic-suy-luan-toan-hoc-va-ky-thuat-dem/cac-thuat-ngu-trong-logic/85398025"},"missing_variants":[{"term":"mệnh đề điều kiện","source":"https://pt.scribd.com/document/719569520/MAD101"}]},{"id":"congruence","commonality":{"verdict":"uncommon","better_term":"đồng dư","source":"https://www.thuvientailieu.vn/tai-lieu/giao-trinh-toan-roi-rac-chuong-1-tap-hop-quan-he-nguyen-duc-nghia-49179/"},"missing_variants":[{"term":"đồng dư theo môđun m","source":"https://www.thuvientailieu.vn/tai-lieu/giao-trinh-toan-roi-rac-chuong-1-tap-hop-quan-he-nguyen-duc-nghia-49179/"}]},{"id":"conjecture","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"phỏng đoán","source":"https://www.mathvn.com/2009/07/gia-thuyet-poincare-va-cau-chuyen-nam-o.html"}]},{"id":"conjunctive-normal-form","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"dạng chuẩn hội","source":"https://cuuduongthancong.com/atc/2531/suy-luan-logic-%28tri-tue-nhan-tao%29"}]}]}
+
+diff --git a/workflow/loop/review/findings-3.json b/workflow/loop/review/findings-3.json
+new file mode 100644
+index 0000000000000000000000000000000000000000..f0d77632d162eb034cfd22ca083a0a7a03897417
+--- /dev/null
++++ b/workflow/loop/review/findings-3.json
+@@ -0,0 +1 @@
++{"loop":3,"reviewed":35,"findings":[{"id":"circular-reasoning","commonality":{"verdict":"uncommon","better_term":"suy luận quẩn","source":"https://www.studocu.vn/vn/document/truong-dai-hoc-thang-long/logic-suy-luan-toan-hoc-va-ky-thuat-dem/cac-thuat-ngu-trong-logic/85398025"},"missing_variants":[{"term":"ngụy biện vòng tròn","source":"https://bloganchoi.com/nguy-bien-begging-the-question/"},{"term":"lập luận vòng tròn","source":"https://bloganchoi.com/nguy-bien-begging-the-question/"}]},{"id":"clique","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"bè","source":"https://www.scribd.com/document/693881574/Tha-y-Bu-i-Quo-c-Trung-Thua-t-toa-n-%C6%B0-ng-du-ng"}]},{"id":"codomain","commonality":{"verdict":"unsure","better_term":"","source":""},"missing_variants":[{"term":"đối miền","source":"https://vi.glosbe.com/en/vi/codomain"}]},{"id":"combinatorial-circuit","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"mạch kết hợp","source":"https://cuuduongthancong.com/atc/526/c4-mach-logic-so---kien-truc-may-tinh"}]},{"id":"combinatorics","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"toán học tổ hợp","source":"https://www.studocu.vn/vn/document/dai-hoc-khoa-hoc-tu-nhien-dai-hoc-quoc-gia-thanh-pho-ho-chi-minh/toan-hoc-to-hop/clc-mth00058-hki-de-cuong/118971206"},{"term":"toán tổ hợp","source":"https://www.studocu.vn/vn/document/dai-hoc-khoa-hoc-tu-nhien-dai-hoc-quoc-gia-thanh-pho-ho-chi-minh/toan-hoc-to-hop/clc-mth00058-hki-de-cuong/118971206"}]},{"id":"complete-bipartite-graph","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"đồ thị lưỡng phân đầy đủ","source":"https://www.scribd.com/document/547693802/EQGiao-trinh-l%C3%BD-thuy%E1%BA%BFt-%C4%91%E1%BB%93-th%E1%BB%8B-va-%E1%BB%A9ng-d%E1%BB%A5ng"}]},{"id":"complete-matching","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"cặp ghép đầy đủ","source":"https://thuvienso.hcmute.edu.vn/tailieu/2011/20111030/muaythai5/13_split_9_4314.pdf"},{"term":"bộ ghép đầy đủ","source":"https://vnspoj.github.io/problems/MATCH2.html"}]},{"id":"computable-function","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"hàm số khả tính","source":"https://en.glosbe.com/en/vi/computable%20function"},{"term":"hàm khả tính","source":"https://vi.wikipedia.org/wiki/B%C3%A0i_to%C3%A1n_d%E1%BB%ABng"}]},{"id":"concatenation","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"ghép xâu","source":"https://thinhtugi.files.wordpress.com/2010/01/nnht.pdf"}]},{"id":"conditional-statement","commonality":{"verdict":"uncommon","better_term":"mệnh đề kéo theo","source":"https://www.studocu.vn/vn/document/truong-dai-hoc-thang-long/logic-suy-luan-toan-hoc-va-ky-thuat-dem/cac-thuat-ngu-trong-logic/85398025"},"missing_variants":[{"term":"mệnh đề điều kiện","source":"https://pt.scribd.com/document/719569520/MAD101"}]},{"id":"congruence","commonality":{"verdict":"uncommon","better_term":"đồng dư","source":"https://www.thuvientailieu.vn/tai-lieu/giao-trinh-toan-roi-rac-chuong-1-tap-hop-quan-he-nguyen-duc-nghia-49179/"},"missing_variants":[{"term":"đồng dư theo môđun m","source":"https://www.thuvientailieu.vn/tai-lieu/giao-trinh-toan-roi-rac-chuong-1-tap-hop-quan-he-nguyen-duc-nghia-49179/"}]},{"id":"conjecture","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"phỏng đoán","source":"https://www.mathvn.com/2009/07/gia-thuyet-poincare-va-cau-chuyen-nam-o.html"}]},{"id":"conjunctive-normal-form","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"dạng chuẩn hội","source":"https://cuuduongthancong.com/atc/2531/suy-luan-logic-%28tri-tue-nhan-tao%29"}]}]}
+
+codex
+The findings file is in place. I’m validating that it is parseable JSON and that the reviewed count matches the 35 non-stub entries in the batch.
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+exec
+/bin/bash -lc 'jq empty workflow/loop/review/findings-3.json' in /home/ubuntu/DM-Concepts
+ succeeded in 0ms:
+hook: PostToolUse
+exec
+/bin/bash -lc "jq '{reviewed_file:.reviewed, nonstub_batch:([input[] | select(.see_ref==\"\")] | length), findings:(.findings|length)}' workflow/loop/review/findings-3.json workflow/loop/review/batch-3.json" in /home/ubuntu/DM-Concepts
+ succeeded in 0ms:
+{
+  "reviewed_file": 35,
+  "nonstub_batch": 35,
+  "findings": 13
+}
+
+hook: PostToolUse
+exec
+/bin/bash -lc 'git diff --name-only' in /home/ubuntu/DM-Concepts
+ succeeded in 0ms:
+workflow/loop/review/batch-1.json
+workflow/loop/review/batch-10.json
+workflow/loop/review/batch-2.json
+workflow/loop/review/batch-3.json
+workflow/loop/review/batch-4.json
+workflow/loop/review/batch-5.json
+workflow/loop/review/batch-6.json
+workflow/loop/review/batch-7.json
+workflow/loop/review/batch-8.json
+workflow/loop/review/batch-9.json
+workflow/loop/review/codex-out-1.txt
+workflow/loop/review/loop_state.json
+workflow/panels/chapter-a-final.json
+workflow/panels/chapter-b-final.json
+workflow/panels/chapter-c-final.json
+workflow/scripts/codex-review-prompt.sh
+workflow/scripts/review-prep.py
+
+hook: PostToolUse
+hook: PostToolUse Completed
+hook: PostToolUse Completed
+hook: PostToolUse Completed
+diff --git a/workflow/loop/review/findings-3.json b/workflow/loop/review/findings-3.json
+new file mode 100644
+index 0000000000000000000000000000000000000000..f0d77632d162eb034cfd22ca083a0a7a03897417
+--- /dev/null
++++ b/workflow/loop/review/findings-3.json
+@@ -0,0 +1 @@
++{"loop":3,"reviewed":35,"findings":[{"id":"circular-reasoning","commonality":{"verdict":"uncommon","better_term":"suy luận quẩn","source":"https://www.studocu.vn/vn/document/truong-dai-hoc-thang-long/logic-suy-luan-toan-hoc-va-ky-thuat-dem/cac-thuat-ngu-trong-logic/85398025"},"missing_variants":[{"term":"ngụy biện vòng tròn","source":"https://bloganchoi.com/nguy-bien-begging-the-question/"},{"term":"lập luận vòng tròn","source":"https://bloganchoi.com/nguy-bien-begging-the-question/"}]},{"id":"clique","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"bè","source":"https://www.scribd.com/document/693881574/Tha-y-Bu-i-Quo-c-Trung-Thua-t-toa-n-%C6%B0-ng-du-ng"}]},{"id":"codomain","commonality":{"verdict":"unsure","better_term":"","source":""},"missing_variants":[{"term":"đối miền","source":"https://vi.glosbe.com/en/vi/codomain"}]},{"id":"combinatorial-circuit","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"mạch kết hợp","source":"https://cuuduongthancong.com/atc/526/c4-mach-logic-so---kien-truc-may-tinh"}]},{"id":"combinatorics","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"toán học tổ hợp","source":"https://www.studocu.vn/vn/document/dai-hoc-khoa-hoc-tu-nhien-dai-hoc-quoc-gia-thanh-pho-ho-chi-minh/toan-hoc-to-hop/clc-mth00058-hki-de-cuong/118971206"},{"term":"toán tổ hợp","source":"https://www.studocu.vn/vn/document/dai-hoc-khoa-hoc-tu-nhien-dai-hoc-quoc-gia-thanh-pho-ho-chi-minh/toan-hoc-to-hop/clc-mth00058-hki-de-cuong/118971206"}]},{"id":"complete-bipartite-graph","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"đồ thị lưỡng phân đầy đủ","source":"https://www.scribd.com/document/547693802/EQGiao-trinh-l%C3%BD-thuy%E1%BA%BFt-%C4%91%E1%BB%93-th%E1%BB%8B-va-%E1%BB%A9ng-d%E1%BB%A5ng"}]},{"id":"complete-matching","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"cặp ghép đầy đủ","source":"https://thuvienso.hcmute.edu.vn/tailieu/2011/20111030/muaythai5/13_split_9_4314.pdf"},{"term":"bộ ghép đầy đủ","source":"https://vnspoj.github.io/problems/MATCH2.html"}]},{"id":"computable-function","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"hàm số khả tính","source":"https://en.glosbe.com/en/vi/computable%20function"},{"term":"hàm khả tính","source":"https://vi.wikipedia.org/wiki/B%C3%A0i_to%C3%A1n_d%E1%BB%ABng"}]},{"id":"concatenation","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"ghép xâu","source":"https://thinhtugi.files.wordpress.com/2010/01/nnht.pdf"}]},{"id":"conditional-statement","commonality":{"verdict":"uncommon","better_term":"mệnh đề kéo theo","source":"https://www.studocu.vn/vn/document/truong-dai-hoc-thang-long/logic-suy-luan-toan-hoc-va-ky-thuat-dem/cac-thuat-ngu-trong-logic/85398025"},"missing_variants":[{"term":"mệnh đề điều kiện","source":"https://pt.scribd.com/document/719569520/MAD101"}]},{"id":"congruence","commonality":{"verdict":"uncommon","better_term":"đồng dư","source":"https://www.thuvientailieu.vn/tai-lieu/giao-trinh-toan-roi-rac-chuong-1-tap-hop-quan-he-nguyen-duc-nghia-49179/"},"missing_variants":[{"term":"đồng dư theo môđun m","source":"https://www.thuvientailieu.vn/tai-lieu/giao-trinh-toan-roi-rac-chuong-1-tap-hop-quan-he-nguyen-duc-nghia-49179/"}]},{"id":"conjecture","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"phỏng đoán","source":"https://www.mathvn.com/2009/07/gia-thuyet-poincare-va-cau-chuyen-nam-o.html"}]},{"id":"conjunctive-normal-form","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"dạng chuẩn hội","source":"https://cuuduongthancong.com/atc/2531/suy-luan-logic-%28tri-tue-nhan-tao%29"}]}]}
+
+codex
+JSON validation passed: `reviewed` is 35 and the batch has 35 non-stub entries. The broader working tree already has other modified files, but this run only added the findings file.
+hook: PreToolUse
+hook: PreToolUse Completed
+exec
+/bin/bash -lc 'git status --short workflow/loop/review/findings-3.json' in /home/ubuntu/DM-Concepts
+ succeeded in 0ms:
+?? workflow/loop/review/findings-3.json
+
+hook: PostToolUse
+hook: PostToolUse Completed
+diff --git a/workflow/loop/review/findings-3.json b/workflow/loop/review/findings-3.json
+new file mode 100644
+index 0000000000000000000000000000000000000000..f0d77632d162eb034cfd22ca083a0a7a03897417
+--- /dev/null
++++ b/workflow/loop/review/findings-3.json
+@@ -0,0 +1 @@
++{"loop":3,"reviewed":35,"findings":[{"id":"circular-reasoning","commonality":{"verdict":"uncommon","better_term":"suy luận quẩn","source":"https://www.studocu.vn/vn/document/truong-dai-hoc-thang-long/logic-suy-luan-toan-hoc-va-ky-thuat-dem/cac-thuat-ngu-trong-logic/85398025"},"missing_variants":[{"term":"ngụy biện vòng tròn","source":"https://bloganchoi.com/nguy-bien-begging-the-question/"},{"term":"lập luận vòng tròn","source":"https://bloganchoi.com/nguy-bien-begging-the-question/"}]},{"id":"clique","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"bè","source":"https://www.scribd.com/document/693881574/Tha-y-Bu-i-Quo-c-Trung-Thua-t-toa-n-%C6%B0-ng-du-ng"}]},{"id":"codomain","commonality":{"verdict":"unsure","better_term":"","source":""},"missing_variants":[{"term":"đối miền","source":"https://vi.glosbe.com/en/vi/codomain"}]},{"id":"combinatorial-circuit","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"mạch kết hợp","source":"https://cuuduongthancong.com/atc/526/c4-mach-logic-so---kien-truc-may-tinh"}]},{"id":"combinatorics","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"toán học tổ hợp","source":"https://www.studocu.vn/vn/document/dai-hoc-khoa-hoc-tu-nhien-dai-hoc-quoc-gia-thanh-pho-ho-chi-minh/toan-hoc-to-hop/clc-mth00058-hki-de-cuong/118971206"},{"term":"toán tổ hợp","source":"https://www.studocu.vn/vn/document/dai-hoc-khoa-hoc-tu-nhien-dai-hoc-quoc-gia-thanh-pho-ho-chi-minh/toan-hoc-to-hop/clc-mth00058-hki-de-cuong/118971206"}]},{"id":"complete-bipartite-graph","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"đồ thị lưỡng phân đầy đủ","source":"https://www.scribd.com/document/547693802/EQGiao-trinh-l%C3%BD-thuy%E1%BA%BFt-%C4%91%E1%BB%93-th%E1%BB%8B-va-%E1%BB%A9ng-d%E1%BB%A5ng"}]},{"id":"complete-matching","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"cặp ghép đầy đủ","source":"https://thuvienso.hcmute.edu.vn/tailieu/2011/20111030/muaythai5/13_split_9_4314.pdf"},{"term":"bộ ghép đầy đủ","source":"https://vnspoj.github.io/problems/MATCH2.html"}]},{"id":"computable-function","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"hàm số khả tính","source":"https://en.glosbe.com/en/vi/computable%20function"},{"term":"hàm khả tính","source":"https://vi.wikipedia.org/wiki/B%C3%A0i_to%C3%A1n_d%E1%BB%ABng"}]},{"id":"concatenation","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"ghép xâu","source":"https://thinhtugi.files.wordpress.com/2010/01/nnht.pdf"}]},{"id":"conditional-statement","commonality":{"verdict":"uncommon","better_term":"mệnh đề kéo theo","source":"https://www.studocu.vn/vn/document/truong-dai-hoc-thang-long/logic-suy-luan-toan-hoc-va-ky-thuat-dem/cac-thuat-ngu-trong-logic/85398025"},"missing_variants":[{"term":"mệnh đề điều kiện","source":"https://pt.scribd.com/document/719569520/MAD101"}]},{"id":"congruence","commonality":{"verdict":"uncommon","better_term":"đồng dư","source":"https://www.thuvientailieu.vn/tai-lieu/giao-trinh-toan-roi-rac-chuong-1-tap-hop-quan-he-nguyen-duc-nghia-49179/"},"missing_variants":[{"term":"đồng dư theo môđun m","source":"https://www.thuvientailieu.vn/tai-lieu/giao-trinh-toan-roi-rac-chuong-1-tap-hop-quan-he-nguyen-duc-nghia-49179/"}]},{"id":"conjecture","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"phỏng đoán","source":"https://www.mathvn.com/2009/07/gia-thuyet-poincare-va-cau-chuyen-nam-o.html"}]},{"id":"conjunctive-normal-form","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"dạng chuẩn hội","source":"https://cuuduongthancong.com/atc/2531/suy-luan-logic-%28tri-tue-nhan-tao%29"}]}]}
+
+codex
+WROTE findings-3.json
+===CODEX_REVIEW_DONE===
+diff --git a/workflow/loop/review/findings-3.json b/workflow/loop/review/findings-3.json
+new file mode 100644
+index 0000000000000000000000000000000000000000..f0d77632d162eb034cfd22ca083a0a7a03897417
+--- /dev/null
++++ b/workflow/loop/review/findings-3.json
+@@ -0,0 +1 @@
++{"loop":3,"reviewed":35,"findings":[{"id":"circular-reasoning","commonality":{"verdict":"uncommon","better_term":"suy luận quẩn","source":"https://www.studocu.vn/vn/document/truong-dai-hoc-thang-long/logic-suy-luan-toan-hoc-va-ky-thuat-dem/cac-thuat-ngu-trong-logic/85398025"},"missing_variants":[{"term":"ngụy biện vòng tròn","source":"https://bloganchoi.com/nguy-bien-begging-the-question/"},{"term":"lập luận vòng tròn","source":"https://bloganchoi.com/nguy-bien-begging-the-question/"}]},{"id":"clique","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"bè","source":"https://www.scribd.com/document/693881574/Tha-y-Bu-i-Quo-c-Trung-Thua-t-toa-n-%C6%B0-ng-du-ng"}]},{"id":"codomain","commonality":{"verdict":"unsure","better_term":"","source":""},"missing_variants":[{"term":"đối miền","source":"https://vi.glosbe.com/en/vi/codomain"}]},{"id":"combinatorial-circuit","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"mạch kết hợp","source":"https://cuuduongthancong.com/atc/526/c4-mach-logic-so---kien-truc-may-tinh"}]},{"id":"combinatorics","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"toán học tổ hợp","source":"https://www.studocu.vn/vn/document/dai-hoc-khoa-hoc-tu-nhien-dai-hoc-quoc-gia-thanh-pho-ho-chi-minh/toan-hoc-to-hop/clc-mth00058-hki-de-cuong/118971206"},{"term":"toán tổ hợp","source":"https://www.studocu.vn/vn/document/dai-hoc-khoa-hoc-tu-nhien-dai-hoc-quoc-gia-thanh-pho-ho-chi-minh/toan-hoc-to-hop/clc-mth00058-hki-de-cuong/118971206"}]},{"id":"complete-bipartite-graph","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"đồ thị lưỡng phân đầy đủ","source":"https://www.scribd.com/document/547693802/EQGiao-trinh-l%C3%BD-thuy%E1%BA%BFt-%C4%91%E1%BB%93-th%E1%BB%8B-va-%E1%BB%A9ng-d%E1%BB%A5ng"}]},{"id":"complete-matching","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"cặp ghép đầy đủ","source":"https://thuvienso.hcmute.edu.vn/tailieu/2011/20111030/muaythai5/13_split_9_4314.pdf"},{"term":"bộ ghép đầy đủ","source":"https://vnspoj.github.io/problems/MATCH2.html"}]},{"id":"computable-function","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"hàm số khả tính","source":"https://en.glosbe.com/en/vi/computable%20function"},{"term":"hàm khả tính","source":"https://vi.wikipedia.org/wiki/B%C3%A0i_to%C3%A1n_d%E1%BB%ABng"}]},{"id":"concatenation","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"ghép xâu","source":"https://thinhtugi.files.wordpress.com/2010/01/nnht.pdf"}]},{"id":"conditional-statement","commonality":{"verdict":"uncommon","better_term":"mệnh đề kéo theo","source":"https://www.studocu.vn/vn/document/truong-dai-hoc-thang-long/logic-suy-luan-toan-hoc-va-ky-thuat-dem/cac-thuat-ngu-trong-logic/85398025"},"missing_variants":[{"term":"mệnh đề điều kiện","source":"https://pt.scribd.com/document/719569520/MAD101"}]},{"id":"congruence","commonality":{"verdict":"uncommon","better_term":"đồng dư","source":"https://www.thuvientailieu.vn/tai-lieu/giao-trinh-toan-roi-rac-chuong-1-tap-hop-quan-he-nguyen-duc-nghia-49179/"},"missing_variants":[{"term":"đồng dư theo môđun m","source":"https://www.thuvientailieu.vn/tai-lieu/giao-trinh-toan-roi-rac-chuong-1-tap-hop-quan-he-nguyen-duc-nghia-49179/"}]},{"id":"conjecture","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"phỏng đoán","source":"https://www.mathvn.com/2009/07/gia-thuyet-poincare-va-cau-chuyen-nam-o.html"}]},{"id":"conjunctive-normal-form","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"dạng chuẩn hội","source":"https://cuuduongthancong.com/atc/2531/suy-luan-logic-%28tri-tue-nhan-tao%29"}]}]}
+
+tokens used
+262,415
+WROTE findings-3.json
+===CODEX_REVIEW_DONE===

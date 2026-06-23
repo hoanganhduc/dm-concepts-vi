@@ -89,11 +89,13 @@
     <title>nearest-neighbor algorithm — thuật toán láng giềng gần nhất</title>
     <idx><h>nearest-neighbor algorithm</h></idx>
     <idx><h>thuật toán láng giềng gần nhất</h></idx>
+    <idx><h>thuật toán người láng giềng gần nhất</h></idx>
     <statement>
       <p>Thuật toán láng giềng gần nhất là một thuật toán heuristic cho bài toán người du lịch trên một đồ thị có trọng số. Xuất phát từ một đỉnh ban đầu, thuật toán lặp lại việc di chuyển từ đỉnh hiện tại tới đỉnh chưa thăm gần nhất (đỉnh nối với đỉnh hiện tại bởi cạnh có trọng số nhỏ nhất), cho đến khi mọi đỉnh đều được thăm rồi quay trở về đỉnh xuất phát để tạo thành một chu trình (theo <xref ref="bib-rosen-2019" />, Rosen §10.6).</p>
       <p>Thuật ngữ tiếng Việt tương ứng:</p>
       <ul>
         <li><p><term>thuật toán láng giềng gần nhất</term> <em>(thuật ngữ chuẩn; chưa truy được trong kho văn bản)</em> — cách dùng phổ biến.</p></li>
+        <li><p><term>thuật toán người láng giềng gần nhất</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
       </ul>
       <p>Ví dụ: Xét đồ thị có trọng số với các đỉnh <m>a</m>, <m>b</m>, <m>c</m>, <m>d</m> và các trọng số cạnh <m>ab = 1</m>, <m>ac = 4</m>, <m>ad = 3</m>, <m>bc = 2</m>, <m>bd = 5</m>, <m>cd = 6</m>. Bắt đầu tại <m>a</m>, đỉnh chưa thăm gần nhất là <m>b</m> (vì <m>ab = 1</m> nhỏ nhất); từ <m>b</m>, đỉnh chưa thăm gần nhất là <m>c</m> (vì <m>bc = 2</m>); từ <m>c</m>, đỉnh chưa thăm còn lại là <m>d</m>; cuối cùng quay về <m>a</m>, cho chu trình <m>a, b, c, d, a</m>.</p>
       <p>Xem thêm <xref ref="def-traveling-salesperson-problem" text="title" />, <xref ref="def-hamilton-circuit" text="title" />, <xref ref="def-weighted-graph" text="title" />.</p>
@@ -151,6 +153,7 @@
     <idx><h>quan hệ 2 ngôi</h></idx>
     <idx><h>quan hệ hai ngôi</h></idx>
     <idx><h>quan hệ n ngôi</h></idx>
+    <idx><h>quan hệ nhiều ngôi</h></idx>
     <notation>
       <usage><m>R \subseteq A_1 \times \cdots \times A_n</m></usage>
       <description>quan hệ n ngôi</description>
@@ -162,6 +165,7 @@
         <li><p><term>quan hệ n ngôi</term> <em>(thuật ngữ chuẩn; chưa truy được trong kho văn bản)</em> — cách dùng phổ biến.</p></li>
         <li><p><term>quan hệ 2 ngôi</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 106 (PDF)).</p></li>
         <li><p><term>quan hệ hai ngôi</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 74 (PDF)); <xref ref="bib-nguyenducnghia-2006" /> (tr. 14 (PDF)); <xref ref="bib-ngodactan-2004" /> (tr. 163 (PDF)); <xref ref="bib-rosen-2003-vi" /> (tr. 424 (PDF, bản dịch Rosen)).</p></li>
+        <li><p><term>quan hệ nhiều ngôi</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
       </ul>
       <p>Ví dụ: Với <m>A_1 = \{1, 2\}</m>, <m>A_2 = \{a, b\}</m> và <m>A_3 = \{x\}</m>, tập hợp <m>R = \{(1, a, x), (2, b, x)\}</m> là một quan hệ <m>3</m> ngôi trên <m>A_1, A_2, A_3</m>.</p>
       <p>Xem thêm <xref ref="def-binary-relation" text="title" />, <xref ref="def-relation-on-a-set" text="title" />, <xref ref="def-cartesian-product" text="title" />.</p>
@@ -170,12 +174,14 @@
   <definition xml:id="def-np-complete-problem">
     <title>NP-complete problem — bài toán NP-đầy đủ</title>
     <idx><h>np-complete problem</h></idx>
+    <idx><h>bài toán NP đầy đủ</h></idx>
     <idx><h>bài toán NP-đầy đủ</h></idx>
     <statement>
       <p>Một bài toán quyết định thuộc lớp <m>\mathsf{NP}</m> được gọi là <em>bài toán NP-đầy đủ</em> nếu mọi bài toán trong <m>\mathsf{NP}</m> đều quy dẫn được về nó trong thời gian đa thức. Nói cách khác, <m>L</m> là bài toán NP-đầy đủ khi <m>L \in \mathsf{NP}</m> và với mọi <m>L' \in \mathsf{NP}</m> tồn tại một phép quy dẫn thời gian đa thức từ <m>L'</m> về <m>L</m> (theo <xref ref="bib-rosen-2019" />, Rosen §3.3).</p>
       <p>Thuật ngữ tiếng Việt tương ứng:</p>
       <ul>
         <li><p><term>bài toán NP-đầy đủ</term> <em>(thuật ngữ chuẩn; chưa truy được trong kho văn bản)</em> — cách dùng phổ biến.</p></li>
+        <li><p><term>bài toán NP đầy đủ</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
       </ul>
       <p>Ví dụ: Bài toán thoả mãn được (SAT), hỏi một biểu thức logic ở dạng chuẩn hội có nhận giá trị đúng với một cách gán giá trị chân lý nào đó cho các biến hay không, là một bài toán NP-đầy đủ: nó thuộc <m>\mathsf{NP}</m> và mọi bài toán trong <m>\mathsf{NP}</m> đều quy dẫn được về nó trong thời gian đa thức.</p>
       <p>Xem thêm <xref ref="def-decision-problem" text="title" />.</p>
@@ -270,6 +276,7 @@
     <title>Natural Logarithm — Lôgarit tự nhiên</title>
     <idx><h>natural logarithm</h></idx>
     <idx><h>Lôgarit tự nhiên</h></idx>
+    <idx><h>logarit Nêpe</h></idx>
     <notation>
       <usage><m>\ln x</m></usage>
       <description>Lôgarit tự nhiên</description>
@@ -279,6 +286,7 @@
       <p>Thuật ngữ tiếng Việt tương ứng:</p>
       <ul>
         <li><p><term>Lôgarit tự nhiên</term> <em>(thuật ngữ chuẩn; chưa truy được trong kho văn bản)</em> — cách dùng phổ biến.</p></li>
+        <li><p><term>logarit Nêpe</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
       </ul>
       <p>Ví dụ: Vì <m>e^{0} = 1</m> nên <m>\ln 1 = 0</m>, và vì <m>e^{1} = e</m> nên <m>\ln e = 1</m>.</p>
     </statement>
@@ -315,13 +323,17 @@
   <definition xml:id="def-nonconstructive-existence-proof">
     <title>Nonconstructive Existence Proof — chứng minh tồn tại không kiến thiết</title>
     <idx><h>nonconstructive existence proof</h></idx>
+    <idx><h>chứng minh không xây dựng</h></idx>
     <idx><h>chứng minh tồn tại không kiến thiết</h></idx>
+    <idx><h>chứng minh tồn tại không xây dựng</h></idx>
     <idx><h>không kiến thiết</h></idx>
     <statement>
       <p>Chứng minh tồn tại không kiến thiết là một chứng minh khẳng định rằng tồn tại một phần tử có tính chất mong muốn mà không trưng ra một phần tử cụ thể nào. Nói cách khác, để chứng minh mệnh đề <m>\exists x P(x)</m>, ta chỉ ra rằng có phần tử thỏa mãn <m>P(x)</m> nhưng không tìm được tường minh một phần tử <m>a</m> nào với <m>P(a)</m> đúng (theo <xref ref="bib-rosen-2019" />, Rosen §1.7).</p>
       <p>Thuật ngữ tiếng Việt tương ứng:</p>
       <ul>
         <li><p><term>chứng minh tồn tại không kiến thiết</term> <xref ref="bib-rosen-2003-vi" /> (tr. 221 (PDF)); <xref ref="bib-rosen-2003-vi" /> (tr. 220 (PDF)) — cách dùng phổ biến.</p></li>
+        <li><p><term>chứng minh không xây dựng</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
+        <li><p><term>chứng minh tồn tại không xây dựng</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
         <li><p><term>không kiến thiết</term> <xref ref="bib-ngodactan-2004" /> (tr. 24 (PDF)); <xref ref="bib-rosen-2003-vi" /> (tr. 220 (PDF, bản dịch Rosen)).</p></li>
       </ul>
       <p>Ví dụ: Để chứng minh tồn tại các số vô tỉ <m>x</m> và <m>y</m> sao cho <m>x^{y}</m> là số hữu tỉ, ta xét số <m>\sqrt{2}^{\sqrt{2}}</m>: nếu nó hữu tỉ thì <m>x = y = \sqrt{2}</m> là cặp cần tìm; nếu nó vô tỉ thì <m>x = \sqrt{2}^{\sqrt{2}}</m> và <m>y = \sqrt{2}</m> thỏa mãn <m>x^{y} = 2</m>. Ta khẳng định cặp số tồn tại mà không biết cụ thể trường hợp nào xảy ra, nên đây là một chứng minh tồn tại không kiến thiết.</p>

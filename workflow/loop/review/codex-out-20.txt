@@ -1,0 +1,729 @@
+OpenAI Codex v0.141.0
+--------
+workdir: /home/ubuntu/DM-Concepts
+model: gpt-5.5
+provider: openai
+approval: never
+sandbox: danger-full-access
+reasoning effort: xhigh
+reasoning summaries: none
+session id: 019ef2e5-e54d-7163-b388-99af1f5d1447
+--------
+user
+You are a meticulous bilingual (English-Vietnamese) discrete-mathematics dictionary reviewer.
+Working directory: /home/ubuntu/DM-Concepts. Do NOT modify any dictionary file. Be evidence-based; NEVER invent a translation or a source.
+
+Read this batch of entries:
+  cat workflow/loop/review/batch-20.json
+It is a JSON array; each entry has: id, headword_en, definition_vi (Vietnamese), vi_terms (array of {term, recommended, ...}), see_ref.
+If see_ref is non-empty the entry is a cross-reference stub: SKIP it.
+
+For EACH non-stub entry, use WEB SEARCH (prefer authoritative Vietnamese sources: university lecture notes / giáo trình, published textbooks, standard references) to check TWO things:
+
+(A) COMMONALITY of the recommended Vietnamese term (the vi_term with recommended=true): is it the common/standard rendering of this English concept in Vietnamese discrete mathematics? If it is uncommon and a clearly MORE standard term exists, report verdict "uncommon" with the better term and a source URL. Otherwise verdict "common" (or "unsure").
+
+(B) ALTERNATIVE TRANSLATIONS: any additional valid Vietnamese translation of the English concept that is NOT already among the entry's existing vi_terms. Example: 'independent set' = 'tập độc lập' AND 'tập ổn định' (internal stable set). List each missing variant with a brief source (URL or book).
+
+Efficiency (IMPORTANT - your context is limited): use web SEARCH RESULT SNIPPETS only; do NOT open or fetch full web pages or PDF files (fetching large pages overflows your context and the run fails). At most 1-2 lightweight searches per entry; skip entries that are clearly fine.
+
+WRITE your result as a JSON file to workflow/loop/review/findings-20.json (use your file-writing tool), exactly this shape:
+{"loop":20,"reviewed":<int>,"findings":[{"id":"<id>","commonality":{"verdict":"common|uncommon|unsure","better_term":"<term or empty>","source":"<url or empty>"},"missing_variants":[{"term":"<vi term>","source":"<url or book>"}]}]}
+Include ONLY entries that have at least one finding (an uncommon verdict OR a missing variant). Valid JSON only (no comments, no trailing commas).
+
+After writing the file, print on its own line:  WROTE findings-20.json
+Then print the final marker line:  ===CODEX_REVIEW_DONE===
+
+hook: SessionStart
+hook: SessionStart Completed
+codex
+I’ll use the `source-research` skill because this is source-grounded terminology checking, but I’ll keep it constrained to search snippets as requested. First I’m checking the relevant local instructions and the batch file shape, then I’ll search per non-stub entry and write only the findings JSON.
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+exec
+/bin/bash -lc "sed -n '1,220p' /home/ubuntu/.codex/instructions/research-quick-actions.md" in /home/ubuntu/DM-Concepts
+ succeeded in 0ms:
+<!-- Managed by ai-agents-skills. Generated target: codex. Source: instruction-doc:research-quick-actions.md. -->
+
+# Research Quick Actions
+
+Use these as routing notes, not as shell commands to run blindly.
+
+| Intent | Preferred skill |
+|---|---|
+| Scope nontrivial research | `research-briefing` |
+| Source-preserving research | `deep-research-workflow` |
+| Current source gathering | `source-research` |
+| Paper library lookup | `zotero` |
+| External paper retrieval fallback | `getscipapers-requester` |
+| Ebook lookup | `calibre` |
+| Document parsing | `docling` |
+| Database lookup | `database-lookup` |
+| Draft research review | `research-report-reviewer` |
+| Final evidence check | `research-verification-gate` |
+| TikZ figures | `tikz-draw` |
+| Sage or graph computation | `sagemath` or `graph-verifier` |
+| Multi-agent research | `agent-group-discuss` or `prose` |
+
+For paper and book retrieval, check local library workflows before external
+retrieval unless the user explicitly requests otherwise.
+
+## Recommend a Template
+
+When scoping or mentioning a task, recommend the matching workflow template if
+one fits, and offer to install the relevant artifact profile
+(`workflow-templates`, `serious-research`, or `cross-provider-delegation`).
+Templates are guidance runbooks; pair them with the backing skills they list.
+
+| Task | Template |
+|---|---|
+| Continuous / autonomous research until a stop condition | `autonomous-research-loop-runbook` |
+| Multi-phase research run (scope -> search -> analyze -> verify -> deliver) | `research-workflow-runbook` |
+| Pre-research scoping | `research-scope-brief` |
+| Final research report | `deep-research-report` |
+| Review a paper, proof, or code across agent families | `cross-agent-adversarial-review` |
+| Validate a delegated research output | `evidence-synthesis-critique` |
+| Pre-delivery research evidence check | `research-verification-checklist` |
+| Build / implement in a bounded, verified loop | `engineering-delivery-loop-runbook` |
+| Record a decision (rationale, alternatives, reversibility) | `reversible-decision-memo` |
+| Formalize an informal proof in Lean | `informal-to-lean-formalization-runbook` |
+| Spec / plan / checklist | `spec`, `tasks-plan`, `tasks-todo` |
+| Cross-provider or manager-worker delegation | `cross-provider-research-panel`, `hierarchical-agent-delegation` |
+
+hook: PostToolUse
+exec
+/bin/bash -lc "sed -n '1,220p' /home/ubuntu/.codex/skills/source-research/SKILL.md" in /home/ubuntu/DM-Concepts
+ succeeded in 0ms:
+---
+name: "source-research"
+description: "General web and source-gathering research workflow for current-information synthesis."
+metadata:
+  short-description: "General web and source-gathering research workflow for current-information synthesis."
+---
+
+<!-- Managed by ai-agents-skills. Generated target: codex. Install mode: reference. -->
+
+# source-research
+
+This is a thin adapter for agents that cannot load symlinked skills.
+
+Canonical skill source:
+
+- `~/ai-agents-skills/canonical/skills/source-research/SKILL.md`
+
+Before using this skill, read the canonical source file above and follow
+its instructions. Related reference files live next to that source file
+in the same skill directory.
+
+
+hook: PostToolUse
+exec
+/bin/bash -lc 'cat workflow/loop/review/batch-20.json' in /home/ubuntu/DM-Concepts
+ succeeded in 0ms:
+[
+ {
+  "id": "worst-case-complexity",
+  "letter": "W",
+  "headword_en": "Worst-Case Complexity",
+  "rosen_ref": "Rosen §3.3",
+  "definition_vi": "Độ phức tạp trường hợp xấu nhất của một thuật toán là số phép toán lớn nhất mà thuật toán cần thực hiện trên mọi dữ liệu vào có cùng kích thước $$n$$, dùng để cận trên cho thời gian chạy của thuật toán. Khi đo bằng số phép toán cơ bản, đại lượng này thường được biểu diễn theo ký hiệu $$O$$ lớn như một hàm của $$n$$.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "độ phức tạp thời gian trong trường hợp xấu nhất",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 150 (PDF)",
+    "pdf_page": 150,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "trường hợp xấu nhất",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 136 (PDF)",
+    "pdf_page": 136,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "trường hợp xấu nhất",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 143 (PDF, bản dịch Rosen)",
+    "pdf_page": 143,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "Độ phức tạp trường hợp xấu nhất",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": true
+   }
+  ]
+ },
+ {
+  "id": "xnor",
+  "letter": "X",
+  "headword_en": "XNOR (exclusive nor)",
+  "rosen_ref": "Rosen §1.1",
+  "definition_vi": "Phép tương đương của hai mệnh đề $$p$$ và $$q$$, ký hiệu $$\\overline{p \\oplus q}$$, là phủ định của phép hay loại trừ $$p \\oplus q$$ của chúng. Mệnh đề này nhận giá trị đúng khi và chỉ khi $$p$$ và $$q$$ có cùng chân trị, nên tương đương logic với phép kéo theo hai chiều $$p \\leftrightarrow q$$.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "phép tương đương",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 19 (PDF)",
+    "pdf_page": 19,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "phép kéo theo 2 chiều",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 19 (PDF)",
+    "pdf_page": 19,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "phép tương đương (mệnh đề tương đương)",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": false
+   },
+   {
+    "term": "tương đương logic",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 21 (PDF)",
+    "pdf_page": 21,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "phép tương đương",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 13 (PDF, bản dịch Rosen)",
+    "pdf_page": 13,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "tương đương logic",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 23 (PDF, bản dịch Rosen)",
+    "pdf_page": 23,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "xor",
+  "letter": "X",
+  "headword_en": "XOR (exclusive or)",
+  "rosen_ref": "Rosen §1.1",
+  "definition_vi": "Phép hay loại trừ của hai mệnh đề $$p$$ và $$q$$, ký hiệu $$p \\oplus q$$, là mệnh đề phức hợp đúng khi đúng một trong hai mệnh đề $$p$$, $$q$$ nhận giá trị đúng, và sai trong các trường hợp còn lại.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "hay loại trừ",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 18 (PDF)",
+    "pdf_page": 18,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "phép \"hoặc\"",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 18 (PDF)",
+    "pdf_page": 18,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "tuyển loại",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 10 (PDF)",
+    "pdf_page": 10,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "xor-bit-operation",
+  "letter": "X",
+  "headword_en": "XOR bit operation",
+  "rosen_ref": "Rosen §1.1",
+  "definition_vi": "Phép XOR theo bit của hai bit $$x$$ và $$y$$, ký hiệu $$x \\oplus y$$, nhận giá trị $$1$$ khi và chỉ khi một trong hai bit bằng $$1$$ và nhận giá trị $$0$$ trong các trường hợp còn lại. Phép toán này được mở rộng cho hai xâu bit có cùng độ dài bằng cách lấy XOR theo từng vị trí tương ứng.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "phép XOR theo bit",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": true
+   },
+   {
+    "term": "XOR bit",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 14-15 (PDF)",
+    "pdf_page": 15,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "phép $$\\oplus$$-tổng",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "y-delta-transform",
+  "letter": "Y",
+  "headword_en": "Y-Delta transform",
+  "rosen_ref": "Rosen §10.7",
+  "definition_vi": "Phép biến đổi sao-tam giác ($$Y$$-$$\\Delta$$) trên đồ thị $$G$$, ký hiệu $$Y \\leftrightarrow \\Delta$$, là phép thay một đỉnh bậc ba $$v$$ với ba láng giềng phân biệt $$a$$, $$b$$, $$c$$ cùng ba cạnh kề $$va$$, $$vb$$, $$vc$$ (cấu hình hình sao $$Y$$) bởi một tam giác trên ba láng giềng đó (cấu hình tam giác $$\\Delta$$), hoặc thực hiện phép thay ngược lại ($$\\Delta$$-$$Y$$). Nếu một cạnh của tam giác đã có sẵn thì các cạnh song song được gộp lại để giữ đồ thị đơn.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "phép biến đổi sao-tam giác",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": true
+   }
+  ]
+ },
+ {
+  "id": "young-tableau",
+  "letter": "Y",
+  "headword_en": "Young tableau",
+  "rosen_ref": "Rosen §6.5",
+  "definition_vi": "Cho phân hoạch $$\\lambda \\vdash n$$ của số nguyên dương $$n$$, một *bảng Young (chuẩn)* ứng với $$\\lambda$$ (ký hiệu $$T$$) là một cách điền các số $$1, 2, \\ldots, n$$, mỗi số đúng một lần, vào các ô của giản đồ Young của $$\\lambda$$ (một mảng ô được căn lề trái mà độ dài các dòng tạo thành $$\\lambda$$), sao cho các số tăng ngặt theo mỗi dòng từ trái sang phải và tăng ngặt theo mỗi cột từ trên xuống dưới.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "bảng Young",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": true
+   }
+  ]
+ },
+ {
+  "id": "integers-z",
+  "letter": "Z",
+  "headword_en": "Integers (the set Z)",
+  "rosen_ref": "Rosen §2.1",
+  "definition_vi": "Tập hợp các số nguyên, ký hiệu $$\\mathbb{Z}$$, là tập hợp gồm tất cả các số tự nhiên cùng với các số đối của chúng và số $$0$$, tức là $$\\mathbb{Z} = \\{\\ldots, -2, -1, 0, 1, 2, \\ldots\\}$$.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "tập hợp các số nguyên",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 74 (PDF)",
+    "pdf_page": 74,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "tập số nguyên",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 128 (PDF)",
+    "pdf_page": 128,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "tập các số nguyên",
+    "source_id": "bib-nguyenducnghia-2006",
+    "page": "tr. 23 (PDF)",
+    "pdf_page": 23,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "số nguyên",
+    "source_id": "bib-leanhvinh-2020",
+    "page": "tr. 25 (PDF)",
+    "pdf_page": 25,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "tập hợp các số nguyên",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 48 (PDF, bản dịch Rosen)",
+    "pdf_page": 48,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "tập số nguyên",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 86 (PDF, bản dịch Rosen)",
+    "pdf_page": 86,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "tập các số nguyên",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 51 (PDF, bản dịch Rosen)",
+    "pdf_page": 51,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "số nguyên",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 5 (PDF, bản dịch Rosen)",
+    "pdf_page": 5,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "integers-modulo-n",
+  "letter": "Z",
+  "headword_en": "Integers modulo n (the set Z_n)",
+  "rosen_ref": "Rosen §4.1",
+  "definition_vi": "Với số nguyên dương $$n$$, $$\\mathbb{Z}_n$$ là tập hợp thương của quan hệ đồng dư modulo $$n$$ trên $$\\mathbb{Z}$$, gồm $$n$$ phần tử $$\\mathbb{Z}_n = \\{[0], [1], [2], \\ldots, [n-1]\\}$$, trong đó mỗi phần tử $$[k]$$ là tập hợp tất cả các số nguyên đồng dư với $$k$$ modulo $$n$$. Khi viết gọn $$\\mathbb{Z}_n = \\{0, 1, 2, \\ldots, n-1\\}$$, mỗi số $$k$$ được hiểu là đại diện cho lớp $$[k]$$ của nó.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "số nguyên modulo n",
+    "source_id": "",
+    "page": "",
+    "pdf_page": null,
+    "verified": false,
+    "recommended": true
+   },
+   {
+    "term": "tập hợp thương $$\\mathbb{Z}_n$$",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": false
+   },
+   {
+    "term": "quan hệ đồng dư modulo n trên Z",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 116 (PDF)",
+    "pdf_page": 116,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "zero-one-matrix",
+  "letter": "Z",
+  "headword_en": "Zero-one matrix",
+  "rosen_ref": "Rosen §2.6",
+  "definition_vi": "Một ma trận $$0$$-$$1$$ là ma trận mà mọi phần tử đều bằng $$0$$ hoặc $$1$$, ký hiệu $$A = [a_{ij}]$$ với $$a_{ij} \\in \\{0, 1\\}$$. Loại ma trận này thường được dùng để biểu diễn các cấu trúc rời rạc như quan hệ và đồ thị; khi biểu diễn một quan hệ $$R$$, ta đặt $$a_{ij} = 1$$ khi và chỉ khi cặp phần tử tương ứng thuộc $$R$$.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "(0,1)-ma trận",
+    "source_id": "bib-nguyenducnghia-2006",
+    "page": "tr. 168 (PDF)",
+    "pdf_page": 168,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "ma trận quan hệ",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 114 (PDF)",
+    "pdf_page": 114,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "ma trận biểu diễn của quan hệ",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 108 (PDF)",
+    "pdf_page": 108,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "zorns-lemma",
+  "letter": "Z",
+  "headword_en": "Zorn's lemma",
+  "rosen_ref": "Rosen §9.6",
+  "definition_vi": "Bổ đề Zorn khẳng định rằng nếu $$P$$ là một tập khác rỗng được sắp thứ tự bộ phận sao cho mọi xích (tập con được sắp thứ tự toàn phần) của $$P$$ đều có một chặn trên trong $$P$$, thì $$P$$ chứa ít nhất một phần tử cực đại.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "bổ đề Zorn",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": true
+   }
+  ]
+ }
+]
+hook: PostToolUse
+hook: PostToolUse Completed
+hook: PostToolUse Completed
+hook: PostToolUse Completed
+codex
+Docs checked so far: the local `source-research` adapter points to the canonical skill, and the quick-actions doc confirms `source-research` is the right lightweight source-gathering route. I’ve also read the batch contents and found 10 non-stub entries to review.
+hook: PreToolUse
+hook: PreToolUse Completed
+exec
+/bin/bash -lc "sed -n '1,260p' /home/ubuntu/ai-agents-skills/canonical/skills/source-research/SKILL.md" in /home/ubuntu/DM-Concepts
+ succeeded in 0ms:
+---
+name: source-research
+description: Use when the user wants research, source gathering, current-information lookups, cross-source synthesis, or extraction from URLs/PDFs/videos using web search, page inspection, local tools, and sub-agents.
+metadata:
+  short-description: Source-gathering research workflow
+---
+
+# Source Research
+
+Use this as the default source-gathering research router.
+
+## Supporting files
+
+Open these only when relevant:
+
+- `references/specialist-subagents.md` for focused single-specialist delegation briefs imported from the local Claude setup
+
+## Legacy tool mapping
+
+- legacy `web_search` -> Codex `web.search_query`
+- legacy `web_fetch` -> Codex `web.open`
+- legacy task/session spawning -> Codex `spawn_agent`
+- legacy `exec` -> Codex `functions.exec_command`
+
+## Live workspace routing
+
+- Generic paper, article, preprint, DOI, ISBN, and book retrieval or sharing requests route to `zotero` first.
+- Explicit Calibre-library ebook operations route to `calibre`.
+- External paper or book retrieval routes to `getscipapers-requester` only
+  after the relevant local-library workflow does not satisfy the request, or
+  after the user explicitly says not to check/use the library. The word
+  "download" alone is not an outside-library opt-out.
+- Multi-agent discussion/review/research routes to `agent-group-discuss` by default and `prose` for more structured workflows.
+- Annotated paper review routes to `annotated-review` only when the user explicitly asks for both annotation and review.
+- Review-only paper tasks route to `paper-review`.
+- Topic/news digests route to `research-digest-wrapper` or `rss-news-digest`.
+- Digest-to-paper extraction routes to `digest-bridge`.
+- Explicit phased deep research with structured source handoff routes to `deep-research-workflow`.
+- Writing, report, review, digest, or final-answer workflows must load
+  `writing-style-settings.md`; math or LaTeX writing must also load
+  `math-manuscript-style.md`.
+- Explicit TikZ drawing, refactoring, extraction, compile, or diagram-review requests route to `tikz-draw`.
+- Small graph-theoretic verification routes to `graph-verifier`.
+- Mathematical research tasks that need heavy graph-theoretic, combinatorial, algebraic, or spectral computation route to `sagemath`.
+
+## Default workflow
+
+1. If the request is current, says "latest", "today", "verify", or otherwise depends on recent facts, browse first.
+2. Start with focused search queries, not long prompts.
+3. Open the best primary sources, not just search snippets.
+4. Extract only the parts needed for the answer.
+5. Synthesize after evidence collection, not before.
+6. Cite concrete sources and dates whenever the answer depends on live or specific facts.
+7. For writing-producing outputs, record or surface `style_profile_ref`,
+   `active_overlays`, `active_requirement_ids`, and `style_applied`; do not
+   treat a bare `style_applied: true` assertion as sufficient evidence.
+
+## Research heuristics
+
+- Prefer primary sources: official docs, vendor pages, papers, standards, government sites.
+- Use domain filters when the source class is obvious.
+- For PDFs, use `web.open` and `web.screenshot` when needed.
+- For local files, use `functions.exec_command` instead of browsing.
+- Separate sourced facts from your own inference.
+- Prefer `deep-research-workflow` over this skill when the user explicitly wants phased search -> analysis -> writing with source preservation across stages.
+- Prefer `tikz-draw` for explicit TikZ or structural-diagram requests, including research-derived figures that already have a narrowed brief.
+- If a research task needs a diagram, keep the research in `deep-research-workflow` first and hand off to `tikz-draw` only after analysis identifies a concrete figure worth generating.
+- For literature retrieval requests, check the relevant local library workflow before browsing or external download.
+- For review tasks that need a paper/book, use the lookup order `zotero` -> `calibre` -> online fallback.
+- For digest follow-up, use `digest-bridge` to extract identifiers before bulk paper retrieval.
+- For explicit Calibre ebook-library workflows, prefer `calibre` over improvised filesystem search.
+- For mathematical verification, prefer local Python for small checks and route to `sagemath` when the computation needs SageMath-native capabilities.
+- Never use `curl`, `wget`, ad hoc browser fetches, or direct publisher-site HTTP requests as a substitute for the library tools on paper/book retrieval tasks.
+- When a lookup returns multiple plausible paper/book matches, show a numbered
+  list with title, authors, and year when available, then wait for the user's
+  chosen index before `--best`, `--index`, add, attach, send, review, or external
+  retrieval.
+
+## Parallelism
+
+If the task has distinct independent threads, spawn sub-agents in parallel.
+
+Good candidates:
+- source discovery vs synthesis plan
+- product A vs product B
+- multiple independent subtopics
+
+Do not spawn agents for the immediate blocking step if local work is faster.
+Ask for explicit confirmation before spawning subagents unless the user already
+requested multi-agent work, approved a workflow that includes subagents, or gave
+an explicit budget/depth instruction that makes parallel delegation expected.
+
+## Focused specialist delegation
+
+When the task needs one narrow specialist rather than a full panel, reuse the
+briefs in `references/specialist-subagents.md`.
+
+Good matches:
+
+- literature survey or citation hunting -> `literature-scout`
+- small-case exploration or counterexample search -> `math-explorer`
+- single-reviewer manuscript critique -> `paper-reviewer`
+- adversarial checking of one proof/lemma -> `proof-checker`
+
+## Route to narrower skills
+
+- Use `zotero` for generic paper, DOI, ISBN, book, and paper-library retrieval or sharing requests, including "find/get/send/share this paper or book".
+- Use `docling` for local parsing, conversion, chunking, and structure-aware analysis of PDFs, office documents, HTML, and image-backed documents.
+- Use `get-available-resources` before heavy local parsing or compute when resource constraints may materially affect the approach.
+- Use `database-lookup` for structured public scientific, regulatory, and economic database queries.
+- Use `paper-lookup` for external literature metadata/discovery after the library-first workflow and before external retrieval.
+- Use `deep-research-workflow` for single-agent phased deep research that needs explicit source handoff across search, analysis, and final writing.
+- Use `tikz-draw` for explicit TikZ figure generation, refactoring, extraction, compile, or review work, especially when the output should follow a structure-first brief -> spec -> render flow.
+- Use `calibre` for explicit Calibre library operations: ebook search/get by ID, sending Calibre-managed books, add/update, tags, shelves, sync, remove, convert, export, doctor, and clean.
+- Use `getscipapers-requester` only for external retrieval or DOI/ISBN
+  resolution after Zotero does not satisfy the request, or when the user
+  explicitly says not to check/use the library and wants outside retrieval. For
+  review tasks that need a document, check `calibre` after `zotero` and before
+  this fallback.
+- If an externally retrieved book file should be added to the ebook library, hand off to `calibre` for the final add/update step.
+- Use `annotated-review` only for annotate+review paper flows.
+- Use `paper-review` for single-agent review-only paper flows such as review, critique, hard review, or issue-finding requests.
+- Use `agent-group-discuss` for conversational multi-agent discussion, review, or research panels.
+- Use `prose` when the user wants explicit multi-agent research-and-synthesis orchestration.
+- Use `research-digest-wrapper` and `rss-news-digest` for tracked-topic and RSS-based research updates.
+- Use `graph-verifier` for lightweight graph sanity checks before escalating to SageMath.
+- Use `digest-bridge` to turn digest results into identifiers and manifests for retrieval.
+- Use `sagemath` for graph invariants, algebraic checks, spectral computations, exhaustive counterexample search, and other math tasks beyond lightweight local tooling.
+
+hook: PostToolUse
+hook: PostToolUse Completed
+codex
+Docs/Helpers Checked:
+- `/home/ubuntu/.codex/skills/source-research/SKILL.md`
+- `/home/ubuntu/ai-agents-skills/canonical/skills/source-research/SKILL.md`
+- `/home/ubuntu/.codex/instructions/research-quick-actions.md`
+- `workflow/loop/review/batch-20.json`
+
+Plan:
+1. Review only entries with empty `see_ref`; this batch has 10 such entries.
+2. Use 1-2 web search queries per entry, relying only on result snippets and URLs, not opened pages/PDFs.
+3. Record only actionable findings: recommended term uncommon, or missing valid Vietnamese variants not already in `vi_terms`.
+4. Write valid JSON to `workflow/loop/review/findings-20.json`, then print the two required marker lines.
+web search: 
+web search: "độ phức tạp trường hợp xấu nhất" "độ phức tạp trong trường hợp xấu nhất"
+web search: 
+web search: "phép tương đương" "phép kéo theo" "XNOR" "toán rời rạc"
+web search: 
+web search: "biến đổi sao tam giác" "Y" "Delta" "đồ thị"
+web search: 
+web search: "Y-Δ" "sao" "tam giác" tiếng Việt
+web search: 
+web search: "tập các lớp đồng dư" "modulo n"
+web search: 
+web search: "ma trận 0-1" "toán rời rạc" "ma trận"
+web search: 
+web search: "bổ đề Zorn" "Zorn's lemma" tiếng Việt
+web search: 
+web search: "độ phức tạp trong trường hợp xấu nhất" site:edu.vn
+web search: 
+web search: "tập hợp các số nguyên" "tập số nguyên" "Z" "toán rời rạc"
+web search: 
+web search: "phép toán XNOR" tiếng Việt
+codex
+I’ve finished the snippet-only search pass. The likely findings are concentrated in missing variants for algorithm complexity, XOR/XNOR terminology, modulo classes, Young tableaux, Y-Delta, and zero-one matrices; `Z` and Zorn’s lemma look already covered well enough to omit.
+codex
+I’m going to write the findings file now. I’ll keep `reviewed` at 10 because all entries in this batch are non-stubs.
+hook: PreToolUse
+hook: PreToolUse Completed
+exec
+/bin/bash -lc "test -f workflow/loop/review/findings-20.json && sed -n '1,220p' workflow/loop/review/findings-20.json || true" in /home/ubuntu/DM-Concepts
+ succeeded in 0ms:
+hook: PostToolUse
+hook: PostToolUse Completed
+apply patch
+patch: completed
+/home/ubuntu/DM-Concepts/workflow/loop/review/findings-20.json
+diff --git a/workflow/loop/review/findings-20.json b/workflow/loop/review/findings-20.json
+new file mode 100644
+index 0000000000000000000000000000000000000000..ae4c5ade1a4ef4ab93cb138f83c11dfb856d4fe9
+--- /dev/null
++++ b/workflow/loop/review/findings-20.json
+@@ -0,0 +1 @@
++{"loop":20,"reviewed":10,"findings":[{"id":"worst-case-complexity","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"độ phức tạp trong trường hợp xấu nhất","source":"https://cntt.epu.edu.vn/Uploads/Images/Olympic/book_LeMinhHoang.pdf"}]},{"id":"xnor","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"phép toán XNOR","source":"https://monhoc.vn/tai-lieu/bai-giang-ky-thuat-so-chuong-2-cac-cong-logic-va-dai-so-boole-cao-dang-cong-nghe-thu-duc-10194/"}]},{"id":"xor","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"phép XOR","source":"https://www.cit.ctu.edu.vn/~dtnghi/math/new/logic.pdf"},{"term":"hoặc loại trừ","source":"https://vuquangnguyen2016.files.wordpress.com/2018/03/slide-dh-khtn-2018-ngon-ngu-lap-trinh-ngon-ngu-c.pdf"}]},{"id":"xor-bit-operation","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"phép cộng modulo 2","source":"https://fita.vnua.edu.vn/wp-content/uploads/2013/06/Baigiang_Coso_Mahoathongtin_Ch1.pdf"}]},{"id":"y-delta-transform","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"biến đổi Y-delta","source":"https://cuuduongthancong.com/dlf/160629/ky-thuat-dien/cac-phuong-phap-phan-tich-mach-dien.pdf"},{"term":"biến đổi tam giác-sao","source":"https://cuuduongthancong.com/dlf/160629/ky-thuat-dien/cac-phuong-phap-phan-tich-mach-dien.pdf"}]},{"id":"young-tableau","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"bảng Young chuẩn","source":"https://www.scribd.com/document/389254270/BDGV2012-Tinhoc-final-docx"},{"term":"bảng Young chuẩn tắc","source":"https://dlu.edu.vn/wp-content/uploads/2021/12/11.-Hoan-chinh_compressed.pdf"}]},{"id":"integers-modulo-n","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"tập hợp các số nguyên modulo n","source":"https://lhu.edu.vn/Data/News/8/files/ThongBao/Ch3_Quan_He_wgfoo.pdf"},{"term":"tập các lớp đồng dư modulo n","source":"https://timoday.edu.vn/wp-content/uploads/2020/01/Chuong2-BoSungKienThucToanHoc.pdf"}]},{"id":"zero-one-matrix","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"ma trận 0-1","source":"https://fita.vnua.edu.vn/wp-content/uploads/2013/06/BaiGiang_ToanRR.pdf"},{"term":"ma trận không-một","source":"https://dulieu.tailieuhoctap.vn/books/giao-duc-dai-cuong/toan-roi-rac/file_goc_768449.pdf"},{"term":"ma trận nhị phân","source":"https://gis.hcmuaf.edu.vn/data/file/TieuLuanTotNghiep_DH12GI/PhamNguyenAnhThu.pdf"}]}]}
+
+diff --git a/workflow/loop/review/findings-20.json b/workflow/loop/review/findings-20.json
+new file mode 100644
+index 0000000000000000000000000000000000000000..ae4c5ade1a4ef4ab93cb138f83c11dfb856d4fe9
+--- /dev/null
++++ b/workflow/loop/review/findings-20.json
+@@ -0,0 +1 @@
++{"loop":20,"reviewed":10,"findings":[{"id":"worst-case-complexity","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"độ phức tạp trong trường hợp xấu nhất","source":"https://cntt.epu.edu.vn/Uploads/Images/Olympic/book_LeMinhHoang.pdf"}]},{"id":"xnor","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"phép toán XNOR","source":"https://monhoc.vn/tai-lieu/bai-giang-ky-thuat-so-chuong-2-cac-cong-logic-va-dai-so-boole-cao-dang-cong-nghe-thu-duc-10194/"}]},{"id":"xor","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"phép XOR","source":"https://www.cit.ctu.edu.vn/~dtnghi/math/new/logic.pdf"},{"term":"hoặc loại trừ","source":"https://vuquangnguyen2016.files.wordpress.com/2018/03/slide-dh-khtn-2018-ngon-ngu-lap-trinh-ngon-ngu-c.pdf"}]},{"id":"xor-bit-operation","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"phép cộng modulo 2","source":"https://fita.vnua.edu.vn/wp-content/uploads/2013/06/Baigiang_Coso_Mahoathongtin_Ch1.pdf"}]},{"id":"y-delta-transform","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"biến đổi Y-delta","source":"https://cuuduongthancong.com/dlf/160629/ky-thuat-dien/cac-phuong-phap-phan-tich-mach-dien.pdf"},{"term":"biến đổi tam giác-sao","source":"https://cuuduongthancong.com/dlf/160629/ky-thuat-dien/cac-phuong-phap-phan-tich-mach-dien.pdf"}]},{"id":"young-tableau","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"bảng Young chuẩn","source":"https://www.scribd.com/document/389254270/BDGV2012-Tinhoc-final-docx"},{"term":"bảng Young chuẩn tắc","source":"https://dlu.edu.vn/wp-content/uploads/2021/12/11.-Hoan-chinh_compressed.pdf"}]},{"id":"integers-modulo-n","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"tập hợp các số nguyên modulo n","source":"https://lhu.edu.vn/Data/News/8/files/ThongBao/Ch3_Quan_He_wgfoo.pdf"},{"term":"tập các lớp đồng dư modulo n","source":"https://timoday.edu.vn/wp-content/uploads/2020/01/Chuong2-BoSungKienThucToanHoc.pdf"}]},{"id":"zero-one-matrix","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"ma trận 0-1","source":"https://fita.vnua.edu.vn/wp-content/uploads/2013/06/BaiGiang_ToanRR.pdf"},{"term":"ma trận không-một","source":"https://dulieu.tailieuhoctap.vn/books/giao-duc-dai-cuong/toan-roi-rac/file_goc_768449.pdf"},{"term":"ma trận nhị phân","source":"https://gis.hcmuaf.edu.vn/data/file/TieuLuanTotNghiep_DH12GI/PhamNguyenAnhThu.pdf"}]}]}
+
+codex
+The file is written. I’m running a narrow JSON validation now so I can report completion without guessing about syntax.
+hook: PreToolUse
+hook: PreToolUse Completed
+exec
+/bin/bash -lc "jq -e '.loop == 20 and .reviewed == 10 and (.findings | type == \"array\")' workflow/loop/review/findings-20.json" in /home/ubuntu/DM-Concepts
+ succeeded in 0ms:
+true
+
+hook: PostToolUse
+hook: PostToolUse Completed
+diff --git a/workflow/loop/review/findings-20.json b/workflow/loop/review/findings-20.json
+new file mode 100644
+index 0000000000000000000000000000000000000000..ae4c5ade1a4ef4ab93cb138f83c11dfb856d4fe9
+--- /dev/null
++++ b/workflow/loop/review/findings-20.json
+@@ -0,0 +1 @@
++{"loop":20,"reviewed":10,"findings":[{"id":"worst-case-complexity","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"độ phức tạp trong trường hợp xấu nhất","source":"https://cntt.epu.edu.vn/Uploads/Images/Olympic/book_LeMinhHoang.pdf"}]},{"id":"xnor","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"phép toán XNOR","source":"https://monhoc.vn/tai-lieu/bai-giang-ky-thuat-so-chuong-2-cac-cong-logic-va-dai-so-boole-cao-dang-cong-nghe-thu-duc-10194/"}]},{"id":"xor","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"phép XOR","source":"https://www.cit.ctu.edu.vn/~dtnghi/math/new/logic.pdf"},{"term":"hoặc loại trừ","source":"https://vuquangnguyen2016.files.wordpress.com/2018/03/slide-dh-khtn-2018-ngon-ngu-lap-trinh-ngon-ngu-c.pdf"}]},{"id":"xor-bit-operation","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"phép cộng modulo 2","source":"https://fita.vnua.edu.vn/wp-content/uploads/2013/06/Baigiang_Coso_Mahoathongtin_Ch1.pdf"}]},{"id":"y-delta-transform","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"biến đổi Y-delta","source":"https://cuuduongthancong.com/dlf/160629/ky-thuat-dien/cac-phuong-phap-phan-tich-mach-dien.pdf"},{"term":"biến đổi tam giác-sao","source":"https://cuuduongthancong.com/dlf/160629/ky-thuat-dien/cac-phuong-phap-phan-tich-mach-dien.pdf"}]},{"id":"young-tableau","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"bảng Young chuẩn","source":"https://www.scribd.com/document/389254270/BDGV2012-Tinhoc-final-docx"},{"term":"bảng Young chuẩn tắc","source":"https://dlu.edu.vn/wp-content/uploads/2021/12/11.-Hoan-chinh_compressed.pdf"}]},{"id":"integers-modulo-n","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"tập hợp các số nguyên modulo n","source":"https://lhu.edu.vn/Data/News/8/files/ThongBao/Ch3_Quan_He_wgfoo.pdf"},{"term":"tập các lớp đồng dư modulo n","source":"https://timoday.edu.vn/wp-content/uploads/2020/01/Chuong2-BoSungKienThucToanHoc.pdf"}]},{"id":"zero-one-matrix","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"ma trận 0-1","source":"https://fita.vnua.edu.vn/wp-content/uploads/2013/06/BaiGiang_ToanRR.pdf"},{"term":"ma trận không-một","source":"https://dulieu.tailieuhoctap.vn/books/giao-duc-dai-cuong/toan-roi-rac/file_goc_768449.pdf"},{"term":"ma trận nhị phân","source":"https://gis.hcmuaf.edu.vn/data/file/TieuLuanTotNghiep_DH12GI/PhamNguyenAnhThu.pdf"}]}]}
+
+codex
+WROTE findings-20.json
+===CODEX_REVIEW_DONE===
+diff --git a/workflow/loop/review/findings-20.json b/workflow/loop/review/findings-20.json
+new file mode 100644
+index 0000000000000000000000000000000000000000..ae4c5ade1a4ef4ab93cb138f83c11dfb856d4fe9
+--- /dev/null
++++ b/workflow/loop/review/findings-20.json
+@@ -0,0 +1 @@
++{"loop":20,"reviewed":10,"findings":[{"id":"worst-case-complexity","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"độ phức tạp trong trường hợp xấu nhất","source":"https://cntt.epu.edu.vn/Uploads/Images/Olympic/book_LeMinhHoang.pdf"}]},{"id":"xnor","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"phép toán XNOR","source":"https://monhoc.vn/tai-lieu/bai-giang-ky-thuat-so-chuong-2-cac-cong-logic-va-dai-so-boole-cao-dang-cong-nghe-thu-duc-10194/"}]},{"id":"xor","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"phép XOR","source":"https://www.cit.ctu.edu.vn/~dtnghi/math/new/logic.pdf"},{"term":"hoặc loại trừ","source":"https://vuquangnguyen2016.files.wordpress.com/2018/03/slide-dh-khtn-2018-ngon-ngu-lap-trinh-ngon-ngu-c.pdf"}]},{"id":"xor-bit-operation","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"phép cộng modulo 2","source":"https://fita.vnua.edu.vn/wp-content/uploads/2013/06/Baigiang_Coso_Mahoathongtin_Ch1.pdf"}]},{"id":"y-delta-transform","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"biến đổi Y-delta","source":"https://cuuduongthancong.com/dlf/160629/ky-thuat-dien/cac-phuong-phap-phan-tich-mach-dien.pdf"},{"term":"biến đổi tam giác-sao","source":"https://cuuduongthancong.com/dlf/160629/ky-thuat-dien/cac-phuong-phap-phan-tich-mach-dien.pdf"}]},{"id":"young-tableau","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"bảng Young chuẩn","source":"https://www.scribd.com/document/389254270/BDGV2012-Tinhoc-final-docx"},{"term":"bảng Young chuẩn tắc","source":"https://dlu.edu.vn/wp-content/uploads/2021/12/11.-Hoan-chinh_compressed.pdf"}]},{"id":"integers-modulo-n","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"tập hợp các số nguyên modulo n","source":"https://lhu.edu.vn/Data/News/8/files/ThongBao/Ch3_Quan_He_wgfoo.pdf"},{"term":"tập các lớp đồng dư modulo n","source":"https://timoday.edu.vn/wp-content/uploads/2020/01/Chuong2-BoSungKienThucToanHoc.pdf"}]},{"id":"zero-one-matrix","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"ma trận 0-1","source":"https://fita.vnua.edu.vn/wp-content/uploads/2013/06/BaiGiang_ToanRR.pdf"},{"term":"ma trận không-một","source":"https://dulieu.tailieuhoctap.vn/books/giao-duc-dai-cuong/toan-roi-rac/file_goc_768449.pdf"},{"term":"ma trận nhị phân","source":"https://gis.hcmuaf.edu.vn/data/file/TieuLuanTotNghiep_DH12GI/PhamNguyenAnhThu.pdf"}]}]}
+
+tokens used
+173,521
+WROTE findings-20.json
+===CODEX_REVIEW_DONE===

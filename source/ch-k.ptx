@@ -121,7 +121,11 @@
     <title>Karnaugh map — bìa Karnaugh</title>
     <idx><h>karnaugh map</h></idx>
     <idx><h>Phương pháp sơ đồ Karnaugh</h></idx>
+    <idx><h>biểu đồ Veitch</h></idx>
     <idx><h>bìa Karnaugh</h></idx>
+    <idx><h>bản đồ Karnaugh</h></idx>
+    <idx><h>bảng Karnaugh</h></idx>
+    <idx><h>sơ đồ Các-nô</h></idx>
     <idx><h>sơ đồ Karnaugh</h></idx>
     <statement>
       <p><em>Bìa Karnaugh</em> của một hàm Boole <m>f</m> với một số nhỏ biến (thường nhiều nhất <m>4</m> biến) là một sơ đồ dạng bảng biểu diễn các giá trị của <m>f</m>, trong đó các ô được sắp xếp theo mã Gray sao cho hai ô kề nhau (kể cả hai ô ở hai mép đối diện) ứng với hai số hạng chỉ khác nhau ở đúng một biến. Bìa Karnaugh được dùng để tối thiểu hóa <m>f</m> bằng cách gộp các ô kề nhau có giá trị <m>1</m> thành các nhóm (theo <xref ref="bib-rosen-2019" />, Rosen §12.4).</p>
@@ -129,6 +133,10 @@
       <ul>
         <li><p><term>bìa Karnaugh</term> <em>(thuật ngữ chuẩn; chưa truy được trong kho văn bản)</em> — cách dùng phổ biến.</p></li>
         <li><p><term>Phương pháp sơ đồ Karnaugh</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
+        <li><p><term>biểu đồ Veitch</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
+        <li><p><term>bản đồ Karnaugh</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
+        <li><p><term>bảng Karnaugh</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
+        <li><p><term>sơ đồ Các-nô</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
         <li><p><term>sơ đồ Karnaugh</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
       </ul>
       <p>Ví dụ: Với hàm Boole <m>f(x,y)</m>, bìa Karnaugh là bảng <m>2 \times 2</m> có các ô ứng với các tổ hợp giá trị của <m>x</m> và <m>y</m>; hai ô cùng một hàng hoặc cùng một cột là kề nhau vì chúng chỉ khác nhau ở một biến.</p>
@@ -159,6 +167,7 @@
     <idx><h>königsberg bridge problem</h></idx>
     <idx><h>bài toán 7 cây cầu ở Konigsberg</h></idx>
     <idx><h>bài toán bảy cây cầu</h></idx>
+    <idx><h>bài toán cầu Königsberg</h></idx>
     <idx><h>bài toán về bảy chiếc cầu ở Königsberg</h></idx>
     <idx><h>bảy cái cầu ở Konigsberg</h></idx>
     <idx><h>bảy cầu của thành phố Konigsberg</h></idx>
@@ -168,6 +177,7 @@
       <ul>
         <li><p><term>bài toán bảy cây cầu</term> <xref ref="bib-leanhvinh-2020" /> (tr. 20 (PDF)) — cách dùng phổ biến.</p></li>
         <li><p><term>bài toán 7 cây cầu ở Konigsberg</term> <xref ref="bib-hoangchithanh-2007" /> (tr. 76 (PDF)).</p></li>
+        <li><p><term>bài toán cầu Königsberg</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
         <li><p><term>bài toán về bảy chiếc cầu ở Königsberg</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
         <li><p><term>bảy cái cầu ở Konigsberg</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 181 (PDF)).</p></li>
         <li><p><term>bảy cầu của thành phố Konigsberg</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 181 (PDF)).</p></li>
@@ -179,12 +189,14 @@
   <definition xml:id="def-knapsack-problem">
     <title>knapsack problem — bài toán cái túi</title>
     <idx><h>knapsack problem</h></idx>
+    <idx><h>bài toán ba lô</h></idx>
     <idx><h>bài toán cái túi</h></idx>
     <statement>
       <p><em>Bài toán cái túi</em> là bài toán tối ưu trong đó cho một cái túi có sức chứa trọng lượng <m>D</m> và <m>n</m> đồ vật, đồ vật thứ <m>j</m> có trọng lượng <m>a_j</m> và giá trị <m>c_j</m> (với <m>j = 1, 2, \ldots, n</m>), yêu cầu chọn một tập con các đồ vật sao cho tổng giá trị là lớn nhất trong khi tổng trọng lượng không vượt quá <m>D</m>. Mỗi phương án chọn được biểu diễn bởi một vectơ nhị phân <m>x = (x_1, x_2, \ldots, x_n)</m>, trong đó <m>x_j = 1</m> nghĩa là đồ vật thứ <m>j</m> được chọn và <m>x_j = 0</m> nghĩa là không chọn, và mục tiêu là cực đại hóa <m>\sum_{j=1}^{n} c_j x_j</m> với ràng buộc <m>\sum_{j=1}^{n} a_j x_j \leq D</m> (theo <xref ref="bib-rosen-2019" />, Rosen §8.1).</p>
       <p>Thuật ngữ tiếng Việt tương ứng:</p>
       <ul>
         <li><p><term>bài toán cái túi</term> <xref ref="bib-nguyenducnghia-2006" /> (tr. 115 (PDF)) — cách dùng phổ biến.</p></li>
+        <li><p><term>bài toán ba lô</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
       </ul>
       <p>Ví dụ: Với sức chứa <m>D = 5</m> và ba đồ vật có cặp trọng lượng và giá trị lần lượt là <m>(a_1, c_1) = (2, 3)</m>, <m>(a_2, c_2) = (3, 4)</m>, <m>(a_3, c_3) = (4, 5)</m>, chọn các đồ vật <m>1</m> và <m>2</m> cho tổng trọng lượng <m>2 + 3 = 5 \leq 5</m> và tổng giá trị <m>3 + 4 = 7</m>, là phương án có tổng giá trị lớn nhất không vượt quá sức chứa.</p>
     </statement>
@@ -194,6 +206,7 @@
     <idx><h>knight's tour</h></idx>
     <idx><h>bài toán mã đi tuần</h></idx>
     <idx><h>hành trình của con mã</h></idx>
+    <idx><h>hành trình của quân mã</h></idx>
     <idx><h>mã đi tuần</h></idx>
     <idx><h>đường đi của con mã</h></idx>
     <idx><h>đường đi tuần của quân mã</h></idx>
@@ -203,6 +216,7 @@
       <ul>
         <li><p><term>hành trình của con mã</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 189 (PDF)); <xref ref="bib-rosen-2003-vi" /> (tr. 617 (PDF, bản dịch Rosen)) — cách dùng phổ biến.</p></li>
         <li><p><term>bài toán mã đi tuần</term> <xref ref="bib-hoangchithanh-2007" /> (tr. 82 (PDF)).</p></li>
+        <li><p><term>hành trình của quân mã</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
         <li><p><term>mã đi tuần</term> <xref ref="bib-hoangchithanh-2007" /> (tr. 82 (PDF)).</p></li>
         <li><p><term>đường đi của con mã</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 188 (PDF)).</p></li>
         <li><p><term>đường đi tuần của quân mã</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
@@ -234,6 +248,7 @@
     <idx><h>bộ sắp thứ tự</h></idx>
     <idx><h>bộ sắp thứ tự gồm k phần tử</h></idx>
     <idx><h>bộ thứ tự</h></idx>
+    <idx><h>k-bộ có thứ tự</h></idx>
     <notation>
       <usage><m>(a_1, a_2, \ldots, a_k)</m></usage>
       <description>bộ sắp thứ tự</description>
@@ -247,6 +262,7 @@
         <li><p><term>bộ có thứ tự gồm k thành phần</term> <xref ref="bib-ngodactan-2004" /> (tr. 27 (PDF)).</p></li>
         <li><p><term>bộ sắp thứ tự gồm k phần tử</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 20 (PDF)).</p></li>
         <li><p><term>bộ thứ tự</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 236 (PDF)).</p></li>
+        <li><p><term>k-bộ có thứ tự</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
       </ul>
       <p>Ví dụ: Bộ <m>(2, 1, 2)</m> là một <m>3</m>-bộ sắp thứ tự với <m>a_1 = 2</m>, <m>a_2 = 1</m>, <m>a_3 = 2</m>; nó khác với bộ <m>(1, 2, 2)</m> vì thứ tự các thành phần khác nhau, mặc dù cả hai cùng dùng các phần tử <m>1</m> và <m>2</m>.</p>
       <p>Xem thêm <xref ref="def-ordered-pair" text="title" />, <xref ref="def-cartesian-product" text="title" />, <xref ref="def-sequence" text="title" />.</p>
@@ -294,12 +310,14 @@
   <definition xml:id="def-key-exchange-protocol">
     <title>Key Exchange Protocol — giao thức trao đổi khóa</title>
     <idx><h>key exchange protocol</h></idx>
+    <idx><h>giao thức thỏa thuận khóa</h></idx>
     <idx><h>giao thức trao đổi khóa</h></idx>
     <statement>
       <p>Giao thức trao đổi khóa là một giao thức được hai bên sử dụng để cùng thống nhất về một khóa bí mật dùng chung. Khóa bí mật chung này sau đó có thể được dùng để mã hóa và giải mã các thông điệp trao đổi giữa hai bên (theo <xref ref="bib-rosen-2019" />, Rosen §4.6).</p>
       <p>Thuật ngữ tiếng Việt tương ứng:</p>
       <ul>
         <li><p><term>giao thức trao đổi khóa</term> <em>(thuật ngữ chuẩn; chưa truy được trong kho văn bản)</em> — cách dùng phổ biến.</p></li>
+        <li><p><term>giao thức thỏa thuận khóa</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
       </ul>
       <p>Ví dụ: Trong giao thức trao đổi khóa Diffie–Hellman, hai bên công khai chọn một số nguyên tố <m>p</m> và một số nguyên <m>a</m> với <m>2 \leq a \leq p-1</m>. Mỗi bên chọn riêng một số mũ bí mật, lần lượt là <m>k_1</m> và <m>k_2</m> với <m>1 \leq k_1, k_2 \leq p-1</m>, rồi gửi cho bên kia các giá trị <m>a^{k_1} \bmod p</m> và <m>a^{k_2} \bmod p</m>. Khi đó cả hai bên đều tính được cùng một khóa bí mật chung <m>a^{k_1 k_2} \bmod p</m>, trong khi một bên thứ ba chỉ biết <m>p</m>, <m>a</m>, <m>a^{k_1} \bmod p</m> và <m>a^{k_2} \bmod p</m> vẫn rất khó suy ra khóa này.</p>
       <p>Xem thêm <xref ref="def-public-key-cryptography" text="title" />, <xref ref="def-private-key-cryptography" text="title" />, <xref ref="def-key" text="title" />.</p>

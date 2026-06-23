@@ -1,0 +1,1681 @@
+OpenAI Codex v0.141.0
+--------
+workdir: /home/ubuntu/DM-Concepts
+model: gpt-5.5
+provider: openai
+approval: never
+sandbox: danger-full-access
+reasoning effort: xhigh
+reasoning summaries: none
+session id: 019ef2b9-eb74-7863-a4d7-871411ddb1cf
+--------
+user
+You are a meticulous bilingual (English-Vietnamese) discrete-mathematics dictionary reviewer.
+Working directory: /home/ubuntu/DM-Concepts. Do NOT modify any dictionary file. Be evidence-based; NEVER invent a translation or a source.
+
+Read this batch of entries:
+  cat workflow/loop/review/batch-14.json
+It is a JSON array; each entry has: id, headword_en, definition_vi (Vietnamese), vi_terms (array of {term, recommended, ...}), see_ref.
+If see_ref is non-empty the entry is a cross-reference stub: SKIP it.
+
+For EACH non-stub entry, use WEB SEARCH (prefer authoritative Vietnamese sources: university lecture notes / giáo trình, published textbooks, standard references) to check TWO things:
+
+(A) COMMONALITY of the recommended Vietnamese term (the vi_term with recommended=true): is it the common/standard rendering of this English concept in Vietnamese discrete mathematics? If it is uncommon and a clearly MORE standard term exists, report verdict "uncommon" with the better term and a source URL. Otherwise verdict "common" (or "unsure").
+
+(B) ALTERNATIVE TRANSLATIONS: any additional valid Vietnamese translation of the English concept that is NOT already among the entry's existing vi_terms. Example: 'independent set' = 'tập độc lập' AND 'tập ổn định' (internal stable set). List each missing variant with a brief source (URL or book).
+
+Efficiency (IMPORTANT - your context is limited): use web SEARCH RESULT SNIPPETS only; do NOT open or fetch full web pages or PDF files (fetching large pages overflows your context and the run fails). At most 1-2 lightweight searches per entry; skip entries that are clearly fine.
+
+WRITE your result as a JSON file to workflow/loop/review/findings-14.json (use your file-writing tool), exactly this shape:
+{"loop":14,"reviewed":<int>,"findings":[{"id":"<id>","commonality":{"verdict":"common|uncommon|unsure","better_term":"<term or empty>","source":"<url or empty>"},"missing_variants":[{"term":"<vi term>","source":"<url or book>"}]}]}
+Include ONLY entries that have at least one finding (an uncommon verdict OR a missing variant). Valid JSON only (no comments, no trailing commas).
+
+After writing the file, print on its own line:  WROTE findings-14.json
+Then print the final marker line:  ===CODEX_REVIEW_DONE===
+
+hook: SessionStart
+hook: SessionStart Completed
+codex
+I’ll use the `source-research` skill because this is a source-checking task, and I’ll keep the research to search-result snippets only as requested. First I’m checking the relevant local instruction file, then I’ll show the plan before reading the batch or writing anything.
+hook: PreToolUse
+hook: PreToolUse Completed
+exec
+/bin/bash -lc "sed -n '1,220p' /home/ubuntu/.codex/skills/source-research/SKILL.md" in /home/ubuntu/DM-Concepts
+ succeeded in 0ms:
+---
+name: "source-research"
+description: "General web and source-gathering research workflow for current-information synthesis."
+metadata:
+  short-description: "General web and source-gathering research workflow for current-information synthesis."
+---
+
+<!-- Managed by ai-agents-skills. Generated target: codex. Install mode: reference. -->
+
+# source-research
+
+This is a thin adapter for agents that cannot load symlinked skills.
+
+Canonical skill source:
+
+- `~/ai-agents-skills/canonical/skills/source-research/SKILL.md`
+
+Before using this skill, read the canonical source file above and follow
+its instructions. Related reference files live next to that source file
+in the same skill directory.
+
+
+hook: PostToolUse
+hook: PostToolUse Completed
+hook: PreToolUse
+hook: PreToolUse Completed
+exec
+/bin/bash -lc "sed -n '1,260p' /home/ubuntu/ai-agents-skills/canonical/skills/source-research/SKILL.md" in /home/ubuntu/DM-Concepts
+ succeeded in 0ms:
+---
+name: source-research
+description: Use when the user wants research, source gathering, current-information lookups, cross-source synthesis, or extraction from URLs/PDFs/videos using web search, page inspection, local tools, and sub-agents.
+metadata:
+  short-description: Source-gathering research workflow
+---
+
+# Source Research
+
+Use this as the default source-gathering research router.
+
+## Supporting files
+
+Open these only when relevant:
+
+- `references/specialist-subagents.md` for focused single-specialist delegation briefs imported from the local Claude setup
+
+## Legacy tool mapping
+
+- legacy `web_search` -> Codex `web.search_query`
+- legacy `web_fetch` -> Codex `web.open`
+- legacy task/session spawning -> Codex `spawn_agent`
+- legacy `exec` -> Codex `functions.exec_command`
+
+## Live workspace routing
+
+- Generic paper, article, preprint, DOI, ISBN, and book retrieval or sharing requests route to `zotero` first.
+- Explicit Calibre-library ebook operations route to `calibre`.
+- External paper or book retrieval routes to `getscipapers-requester` only
+  after the relevant local-library workflow does not satisfy the request, or
+  after the user explicitly says not to check/use the library. The word
+  "download" alone is not an outside-library opt-out.
+- Multi-agent discussion/review/research routes to `agent-group-discuss` by default and `prose` for more structured workflows.
+- Annotated paper review routes to `annotated-review` only when the user explicitly asks for both annotation and review.
+- Review-only paper tasks route to `paper-review`.
+- Topic/news digests route to `research-digest-wrapper` or `rss-news-digest`.
+- Digest-to-paper extraction routes to `digest-bridge`.
+- Explicit phased deep research with structured source handoff routes to `deep-research-workflow`.
+- Writing, report, review, digest, or final-answer workflows must load
+  `writing-style-settings.md`; math or LaTeX writing must also load
+  `math-manuscript-style.md`.
+- Explicit TikZ drawing, refactoring, extraction, compile, or diagram-review requests route to `tikz-draw`.
+- Small graph-theoretic verification routes to `graph-verifier`.
+- Mathematical research tasks that need heavy graph-theoretic, combinatorial, algebraic, or spectral computation route to `sagemath`.
+
+## Default workflow
+
+1. If the request is current, says "latest", "today", "verify", or otherwise depends on recent facts, browse first.
+2. Start with focused search queries, not long prompts.
+3. Open the best primary sources, not just search snippets.
+4. Extract only the parts needed for the answer.
+5. Synthesize after evidence collection, not before.
+6. Cite concrete sources and dates whenever the answer depends on live or specific facts.
+7. For writing-producing outputs, record or surface `style_profile_ref`,
+   `active_overlays`, `active_requirement_ids`, and `style_applied`; do not
+   treat a bare `style_applied: true` assertion as sufficient evidence.
+
+## Research heuristics
+
+- Prefer primary sources: official docs, vendor pages, papers, standards, government sites.
+- Use domain filters when the source class is obvious.
+- For PDFs, use `web.open` and `web.screenshot` when needed.
+- For local files, use `functions.exec_command` instead of browsing.
+- Separate sourced facts from your own inference.
+- Prefer `deep-research-workflow` over this skill when the user explicitly wants phased search -> analysis -> writing with source preservation across stages.
+- Prefer `tikz-draw` for explicit TikZ or structural-diagram requests, including research-derived figures that already have a narrowed brief.
+- If a research task needs a diagram, keep the research in `deep-research-workflow` first and hand off to `tikz-draw` only after analysis identifies a concrete figure worth generating.
+- For literature retrieval requests, check the relevant local library workflow before browsing or external download.
+- For review tasks that need a paper/book, use the lookup order `zotero` -> `calibre` -> online fallback.
+- For digest follow-up, use `digest-bridge` to extract identifiers before bulk paper retrieval.
+- For explicit Calibre ebook-library workflows, prefer `calibre` over improvised filesystem search.
+- For mathematical verification, prefer local Python for small checks and route to `sagemath` when the computation needs SageMath-native capabilities.
+- Never use `curl`, `wget`, ad hoc browser fetches, or direct publisher-site HTTP requests as a substitute for the library tools on paper/book retrieval tasks.
+- When a lookup returns multiple plausible paper/book matches, show a numbered
+  list with title, authors, and year when available, then wait for the user's
+  chosen index before `--best`, `--index`, add, attach, send, review, or external
+  retrieval.
+
+## Parallelism
+
+If the task has distinct independent threads, spawn sub-agents in parallel.
+
+Good candidates:
+- source discovery vs synthesis plan
+- product A vs product B
+- multiple independent subtopics
+
+Do not spawn agents for the immediate blocking step if local work is faster.
+Ask for explicit confirmation before spawning subagents unless the user already
+requested multi-agent work, approved a workflow that includes subagents, or gave
+an explicit budget/depth instruction that makes parallel delegation expected.
+
+## Focused specialist delegation
+
+When the task needs one narrow specialist rather than a full panel, reuse the
+briefs in `references/specialist-subagents.md`.
+
+Good matches:
+
+- literature survey or citation hunting -> `literature-scout`
+- small-case exploration or counterexample search -> `math-explorer`
+- single-reviewer manuscript critique -> `paper-reviewer`
+- adversarial checking of one proof/lemma -> `proof-checker`
+
+## Route to narrower skills
+
+- Use `zotero` for generic paper, DOI, ISBN, book, and paper-library retrieval or sharing requests, including "find/get/send/share this paper or book".
+- Use `docling` for local parsing, conversion, chunking, and structure-aware analysis of PDFs, office documents, HTML, and image-backed documents.
+- Use `get-available-resources` before heavy local parsing or compute when resource constraints may materially affect the approach.
+- Use `database-lookup` for structured public scientific, regulatory, and economic database queries.
+- Use `paper-lookup` for external literature metadata/discovery after the library-first workflow and before external retrieval.
+- Use `deep-research-workflow` for single-agent phased deep research that needs explicit source handoff across search, analysis, and final writing.
+- Use `tikz-draw` for explicit TikZ figure generation, refactoring, extraction, compile, or review work, especially when the output should follow a structure-first brief -> spec -> render flow.
+- Use `calibre` for explicit Calibre library operations: ebook search/get by ID, sending Calibre-managed books, add/update, tags, shelves, sync, remove, convert, export, doctor, and clean.
+- Use `getscipapers-requester` only for external retrieval or DOI/ISBN
+  resolution after Zotero does not satisfy the request, or when the user
+  explicitly says not to check/use the library and wants outside retrieval. For
+  review tasks that need a document, check `calibre` after `zotero` and before
+  this fallback.
+- If an externally retrieved book file should be added to the ebook library, hand off to `calibre` for the final add/update step.
+- Use `annotated-review` only for annotate+review paper flows.
+- Use `paper-review` for single-agent review-only paper flows such as review, critique, hard review, or issue-finding requests.
+- Use `agent-group-discuss` for conversational multi-agent discussion, review, or research panels.
+- Use `prose` when the user wants explicit multi-agent research-and-synthesis orchestration.
+- Use `research-digest-wrapper` and `rss-news-digest` for tracked-topic and RSS-based research updates.
+- Use `graph-verifier` for lightweight graph sanity checks before escalating to SageMath.
+- Use `digest-bridge` to turn digest results into identifiers and manifests for retrieval.
+- Use `sagemath` for graph invariants, algebraic checks, spectral computations, exhaustive counterexample search, and other math tasks beyond lightweight local tooling.
+
+hook: PostToolUse
+hook: PostToolUse Completed
+codex
+Docs/Helpers Checked:
+- `/home/ubuntu/.codex/skills/source-research/SKILL.md`
+- `/home/ubuntu/ai-agents-skills/canonical/skills/source-research/SKILL.md`
+
+Plan:
+1. Read `workflow/loop/review/batch-14.json` and skip entries with non-empty `see_ref`.
+2. For each non-stub entry, use only web search result snippets, capped at 1-2 focused searches per entry.
+3. Record only evidence-backed findings: uncommon recommended terms or missing Vietnamese variants already supported by snippets.
+4. Write valid JSON to `workflow/loop/review/findings-14.json`, then print the two required marker lines.
+hook: PreToolUse
+hook: PreToolUse Completed
+exec
+/bin/bash -lc 'cat workflow/loop/review/batch-14.json' in /home/ubuntu/DM-Concepts
+ succeeded in 0ms:
+[
+ {
+  "id": "power-set",
+  "letter": "P",
+  "headword_en": "Power set",
+  "rosen_ref": "Rosen §2.1",
+  "definition_vi": "Tập lũy thừa của một tập $$S$$, ký hiệu $$\\mathcal{P}(S)$$, là tập gồm tất cả các tập con của $$S$$. Nói cách khác, $$\\mathcal{P}(S) = \\{X : X \\subseteq S\\}$$.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "tập lũy thừa",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": true
+   },
+   {
+    "term": "tập luỹ thừa",
+    "source_id": "bib-ngodactan-2004",
+    "page": "tr. 164 (PDF)",
+    "pdf_page": 164,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "tập luỹ thừa",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 59 (PDF, bản dịch Rosen)",
+    "pdf_page": 59,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "predicate",
+  "letter": "P",
+  "headword_en": "Predicate",
+  "rosen_ref": "Rosen §1.4",
+  "definition_vi": "Một vị từ, ký hiệu $$P(x)$$, là một phát biểu phụ thuộc vào các biến lấy giá trị trên các miền xác định cho trước, sao cho khi mỗi biến được gán một giá trị cụ thể thuộc miền của nó thì $$P(x)$$ trở thành một mệnh đề có giá trị chân lý xác định.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "vị từ",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 46 (PDF)",
+    "pdf_page": 46,
+    "verified": true,
+    "recommended": true
+   }
+  ]
+ },
+ {
+  "id": "preimage",
+  "letter": "P",
+  "headword_en": "Preimage",
+  "rosen_ref": "Rosen §2.3",
+  "definition_vi": "Nghịch ảnh của một tập con $$S \\subseteq B$$ qua ánh xạ $$f : A \\to B$$, ký hiệu $$f^{-1}(S)$$, là tập tất cả các phần tử của $$A$$ có ảnh nằm trong $$S$$, tức là $$f^{-1}(S) = \\{ a \\in A : f(a) \\in S \\}$$. Khi $$S = \\{b\\}$$ chỉ gồm một phần tử, ta viết $$f^{-1}(b)$$ để chỉ nghịch ảnh của phần tử $$b$$.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "nghịch ảnh",
+    "source_id": "bib-nguyenhoangthach-2020",
+    "page": "tr. 33 (PDF)",
+    "pdf_page": 33,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "nghịch ảnh",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 95 (PDF)",
+    "pdf_page": 95,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "premise",
+  "letter": "P",
+  "headword_en": "Premise",
+  "rosen_ref": "Rosen §1.6",
+  "definition_vi": "Tiền đề là một mệnh đề trong một lập luận (hoặc một dạng suy luận) khác với kết luận. Một lập luận gồm một dãy các tiền đề $$p_1, p_2, \\ldots, p_n$$ và một kết luận $$q$$ được suy ra từ các tiền đề đó.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "tiền đề",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 34 (PDF)",
+    "pdf_page": 34,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "tiền đề",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 38 (PDF)",
+    "pdf_page": 38,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "preorder-traversal",
+  "letter": "P",
+  "headword_en": "Preorder Traversal",
+  "rosen_ref": "Rosen §10.3",
+  "definition_vi": "Duyệt tiền thứ tự (ký hiệu duyệt theo thứ tự trước) là cách duyệt một cây có gốc $$T$$, được định nghĩa đệ quy: trước hết liệt kê gốc $$r$$, sau đó lần lượt duyệt tiền thứ tự các cây con $$T_1, T_2, \\ldots, T_k$$ của $$r$$ theo thứ tự từ trái sang phải. Nếu $$T$$ chỉ gồm một đỉnh $$r$$ thì cách duyệt tiền thứ tự của $$T$$ chỉ là $$r$$.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "tiền thứ tự",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 261 (PDF)",
+    "pdf_page": 261,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "thứ tự trước",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 253 (PDF)",
+    "pdf_page": 253,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "thứ tự trước",
+    "source_id": "bib-hoangchithanh-2007",
+    "page": "tr. 139 (PDF)",
+    "pdf_page": 139,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "tiền thứ tự",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 648 (PDF)",
+    "pdf_page": 648,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "primary-key",
+  "letter": "P",
+  "headword_en": "Primary Key",
+  "rosen_ref": "",
+  "definition_vi": "",
+  "see_ref": "key",
+  "vi_terms": [
+   {
+    "term": "khóa chính",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "prime",
+  "letter": "P",
+  "headword_en": "Prime",
+  "rosen_ref": "",
+  "definition_vi": "",
+  "see_ref": "prime-number",
+  "vi_terms": []
+ },
+ {
+  "id": "prime-implicant",
+  "letter": "P",
+  "headword_en": "Prime Implicant",
+  "rosen_ref": "Rosen §12.4",
+  "definition_vi": "Một nguyên nhân (implicant) của một hàm Boole là một hội sơ cấp (tích các literal) sao cho mỗi khi hội đó nhận giá trị $$1$$ thì hàm cũng nhận giá trị $$1$$. Một nguyên nhân nguyên tố của hàm là một nguyên nhân không bị kéo theo bởi bất kỳ nguyên nhân nào khác của hàm đó; nói cách khác, không thể bỏ đi literal nào của nó mà vẫn còn là một nguyên nhân của hàm.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "nguyên nhân nguyên tố",
+    "source_id": "bib-nguyenducnghia-2006",
+    "page": "tr. 274 (PDF)",
+    "pdf_page": 274,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "nguyên nhân nguyên tố",
+    "source_id": "bib-nguyenducnghia-2006",
+    "page": "tr. 274 (PDF)",
+    "pdf_page": 274,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "prime-number",
+  "letter": "P",
+  "headword_en": "Prime number",
+  "rosen_ref": "Rosen §4.3",
+  "definition_vi": "Một số nguyên $$p > 1$$ được gọi là số nguyên tố nếu các ước nguyên dương duy nhất của $$p$$ là $$1$$ và $$p$$.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "số nguyên tố",
+    "source_id": "bib-leanhvinh-2020",
+    "page": "tr. 190 (PDF)",
+    "pdf_page": 190,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "nguyên tố",
+    "source_id": "bib-leanhvinh-2020",
+    "page": "tr. 179 (PDF)",
+    "pdf_page": 179,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "số nguyên tố",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 40 (PDF)",
+    "pdf_page": 40,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "số nguyên tố",
+    "source_id": "bib-nguyenducnghia-2006",
+    "page": "tr. 82 (PDF)",
+    "pdf_page": 82,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "số nguyên tố",
+    "source_id": "bib-ngodactan-2004",
+    "page": "tr. 173 (PDF)",
+    "pdf_page": 173,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "số nguyên tố",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 20 (PDF, bản dịch Rosen)",
+    "pdf_page": 20,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "nguyên tố",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 20 (PDF, bản dịch Rosen)",
+    "pdf_page": 20,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "primitive-root",
+  "letter": "P",
+  "headword_en": "Primitive Root",
+  "rosen_ref": "Rosen §3.7",
+  "definition_vi": "Một căn nguyên thủy modulo một số nguyên tố $$p$$ là một số nguyên $$r$$ mà các lũy thừa của nó sinh ra tất cả các thặng dư khác $$0$$ modulo $$p$$.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "căn nguyên thủy",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": true
+   }
+  ]
+ },
+ {
+  "id": "private-key-cryptography",
+  "letter": "P",
+  "headword_en": "Private Key Cryptography",
+  "rosen_ref": "Rosen §4.6",
+  "definition_vi": "Mật mã khóa bí mật là hệ mật mã trong đó cùng một khóa bí mật $$k$$ được dùng cho cả việc mã hóa và giải mã, nên khóa này phải được giữ kín và chia sẻ trước giữa người gửi và người nhận. Với hàm mã hóa $$E_k$$ và hàm giải mã $$D_k$$, ta có $$D_k(E_k(m)) = m$$ với mọi bản rõ $$m$$, trong đó $$D_k$$ là hàm ngược của $$E_k$$.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "mật mã khóa bí mật",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": true
+   }
+  ]
+ },
+ {
+  "id": "private-key-encryption",
+  "letter": "P",
+  "headword_en": "Private Key Encryption",
+  "rosen_ref": "",
+  "definition_vi": "",
+  "see_ref": "private-key-cryptography",
+  "vi_terms": []
+ },
+ {
+  "id": "probabilistic-algorithm",
+  "letter": "P",
+  "headword_en": "Probabilistic Algorithm",
+  "rosen_ref": "Rosen §3.1",
+  "definition_vi": "Thuật toán xác suất là một thuật toán có thực hiện các lựa chọn ngẫu nhiên trong quá trình thực thi của nó.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "thuật toán xác suất",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": true
+   },
+   {
+    "term": "theo kiểu xác suất",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 206 (PDF)",
+    "pdf_page": 206,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "probabilistic-method",
+  "letter": "P",
+  "headword_en": "Probabilistic Method",
+  "rosen_ref": "Rosen §7.2",
+  "definition_vi": "Phương pháp xác suất là một kỹ thuật để chứng minh sự tồn tại của một đối tượng bằng cách chỉ ra rằng xác suất để đối tượng đó xuất hiện là dương. Cụ thể, nếu khi chọn ngẫu nhiên một phần tử từ một tập hợp mà xác suất để phần tử đó có một tính chất nào đó lớn hơn $$0$$, thì tồn tại ít nhất một phần tử có tính chất ấy.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "phương pháp xác suất",
+    "source_id": "bib-leanhvinh-2020",
+    "page": "tr. 172 (PDF)",
+    "pdf_page": 172,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "phương pháp xác suất",
+    "source_id": "bib-leanhvinh-2020",
+    "page": "tr. 191 (PDF)",
+    "pdf_page": 191,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "phương pháp xác suất",
+    "source_id": "bib-ngodactan-2004",
+    "page": "tr. 24 (PDF)",
+    "pdf_page": 24,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "probability-distribution",
+  "letter": "P",
+  "headword_en": "Probability Distribution",
+  "rosen_ref": "Rosen §7.2",
+  "definition_vi": "Phân phối xác suất trên một không gian mẫu $$S$$ là một hàm $$p$$ gán cho mỗi kết cục (phần tử) $$s \\in S$$ một xác suất $$p(s)$$. Hàm này thỏa mãn $$0 \\leq p(s) \\leq 1$$ với mọi $$s \\in S$$ và $$\\sum_{s \\in S} p(s) = 1$$.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "phân phối xác suất",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": true
+   }
+  ]
+ },
+ {
+  "id": "probability-of-an-event",
+  "letter": "P",
+  "headword_en": "Probability Of An Event",
+  "rosen_ref": "Rosen §7.2",
+  "definition_vi": "Xác suất của một biến cố là tổng các xác suất của các kết cục nằm trong biến cố đó. Nói cách khác, nếu biến cố $$E$$ là một tập con của không gian mẫu thì $$p(E) = \\sum_{s \\in E} p(s)$$, trong đó $$p(s)$$ là xác suất của kết cục $$s$$.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "xác suất của một biến cố",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 333 (PDF)",
+    "pdf_page": 333,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "xác suất của một biến cố",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 361 (PDF)",
+    "pdf_page": 361,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "biến cố",
+    "source_id": "bib-leanhvinh-2020",
+    "page": "tr. 157 (PDF)",
+    "pdf_page": 157,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "biến cố",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 290 (PDF, bản dịch Rosen)",
+    "pdf_page": 290,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "product",
+  "letter": "P",
+  "headword_en": "Product",
+  "rosen_ref": "Rosen §2.1",
+  "definition_vi": "Tích (tích Đề các) của hai tập hợp $$A$$ và $$B$$, ký hiệu $$A \\times B$$, là tập hợp tất cả các cặp có thứ tự $$(a, b)$$ với $$a \\in A$$ và $$b \\in B$$. Tổng quát, tích Đề các của $$n$$ tập hợp $$A_1, A_2, \\ldots, A_n$$ là tập hợp các bộ có thứ tự $$(a_1, a_2, \\ldots, a_n)$$ với $$a_i \\in A_i$$ với mọi $$i$$.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "Tích Descartes",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 76 (PDF)",
+    "pdf_page": 76,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "Tích Descartes",
+    "source_id": "bib-nguyenhoangthach-2020",
+    "page": "tr. 26 (PDF)",
+    "pdf_page": 26,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "Tích Đề các",
+    "source_id": "bib-ngodactan-2004",
+    "page": "tr. 27 (PDF)",
+    "pdf_page": 27,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "Tích Đề các",
+    "source_id": "bib-nguyenducnghia-2006",
+    "page": "tr. 14 (PDF)",
+    "pdf_page": 14,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "Tích Đề các",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 60 (PDF)",
+    "pdf_page": 60,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "Tích",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 3 (PDF, bản dịch Rosen)",
+    "pdf_page": 3,
+    "verified": true,
+    "recommended": true
+   }
+  ]
+ },
+ {
+  "id": "product-rule-for-counting",
+  "letter": "P",
+  "headword_en": "Product Rule For Counting",
+  "rosen_ref": "",
+  "definition_vi": "",
+  "see_ref": "the-product-rule",
+  "vi_terms": []
+ },
+ {
+  "id": "product-rule-for-sets",
+  "letter": "P",
+  "headword_en": "Product Rule For Sets",
+  "rosen_ref": "",
+  "definition_vi": "",
+  "see_ref": "the-product-rule",
+  "vi_terms": []
+ },
+ {
+  "id": "product-of-sums-expansion",
+  "letter": "P",
+  "headword_en": "Product-Of-Sums Expansion",
+  "rosen_ref": "Rosen §12.2",
+  "definition_vi": "Khai triển tích các tổng của một hàm Boole là biểu diễn hàm đó dưới dạng tích (phép hội) của các đại hạng, trong đó mỗi đại hạng là một tổng (phép tuyển) chứa đúng một lần mỗi biến hoặc phủ định của nó. Đại hạng tương ứng với một bộ giá trị nhận giá trị $$0$$ tại đúng bộ đó và bằng $$1$$ tại mọi bộ còn lại, nên tích các đại hạng ứng với những bộ làm hàm bằng $$0$$ cho lại chính hàm đã cho.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "khai triển tích các tổng",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 726 (PDF)",
+    "pdf_page": 726,
+    "verified": true,
+    "recommended": true
+   }
+  ]
+ },
+ {
+  "id": "projection",
+  "letter": "P",
+  "headword_en": "Projection",
+  "rosen_ref": "Rosen §11.4",
+  "definition_vi": "Phép chiếu là một thao tác tạo ra các quan hệ có bậc nhỏ hơn bằng cách xóa bỏ một số trường của một quan hệ $$n$$ ngôi. Phép chiếu $$P_{i_1, i_2, \\ldots, i_m}$$ ánh xạ mỗi bộ $$n$$ phần tử $$(a_1, a_2, \\ldots, a_n)$$ thành bộ $$m$$ phần tử $$(a_{i_1}, a_{i_2}, \\ldots, a_{i_m})$$, trong đó $$m \\leq n$$.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "phép chiếu",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 442 (PDF)",
+    "pdf_page": 442,
+    "verified": true,
+    "recommended": true
+   }
+  ]
+ },
+ {
+  "id": "proof",
+  "letter": "P",
+  "headword_en": "Proof",
+  "rosen_ref": "Rosen §1.6",
+  "definition_vi": "Chứng minh của một mệnh đề toán học là một lập luận đúng đắn, gồm một dãy hữu hạn các khẳng định, mỗi khẳng định là tiên đề, giả thiết, hoặc được suy ra từ các khẳng định trước đó bằng các quy tắc suy diễn, nhằm thiết lập rằng mệnh đề đó là đúng. Một định lý đã được chứng minh là đúng được gọi là một định lý, và lập luận thiết lập tính đúng đắn của nó được gọi là chứng minh.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "chứng minh",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 28 (PDF)",
+    "pdf_page": 28,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "chứng minh",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 210 (PDF)",
+    "pdf_page": 210,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "chứng minh",
+    "source_id": "bib-leanhvinh-2020",
+    "page": "tr. 10 (PDF)",
+    "pdf_page": 10,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "chứng minh",
+    "source_id": "bib-nguyenhoangthach-2020",
+    "page": "tr. 21 (PDF)",
+    "pdf_page": 21,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "phép chứng minh",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 58 (PDF)",
+    "pdf_page": 58,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "phương pháp chứng minh",
+    "source_id": "bib-nguyenducnghia-2006",
+    "page": "tr. 72 (PDF)",
+    "pdf_page": 72,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "Chứng minh",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 24 (PDF, bản dịch Rosen)",
+    "pdf_page": 24,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "phép chứng minh",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 957 (PDF, bản dịch Rosen)",
+    "pdf_page": 957,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "phương pháp chứng minh",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 26 (PDF, bản dịch Rosen)",
+    "pdf_page": 26,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "proof-by-cases",
+  "letter": "P",
+  "headword_en": "Proof by Cases",
+  "rosen_ref": "Rosen §1.6",
+  "definition_vi": "Chứng minh bằng cách chia trường hợp là phương pháp chứng minh một mệnh đề điều kiện có giả thiết dạng tuyển $$p_1 \\lor p_2 \\lor \\cdots \\lor p_n$$ bằng cách chứng minh riêng từng kéo theo $$p_i \\to q$$ với mọi $$i$$. Vì các trường hợp $$p_1, p_2, \\ldots, p_n$$ vét cạn mọi khả năng nên khi mỗi kéo theo đều đúng thì $$(p_1 \\lor \\cdots \\lor p_n) \\to q$$ cũng đúng.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "Chứng minh bằng cách chia trường hợp",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 59 (PDF)",
+    "pdf_page": 59,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "Chứng minh bằng cách phân chia trường hợp",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "proof-by-contradiction",
+  "letter": "P",
+  "headword_en": "Proof By Contradiction",
+  "rosen_ref": "Rosen §1.6",
+  "definition_vi": "Chứng minh phản chứng là phương pháp chứng minh gián tiếp một mệnh đề $$p$$: ta giả sử $$\\neg p$$ đúng rồi suy ra một mâu thuẫn, tức một mệnh đề có dạng $$r \\wedge \\neg r$$. Vì $$\\neg p \\rightarrow (r \\wedge \\neg r)$$ luôn dẫn tới điều vô lý nên $$\\neg p$$ phải sai, do đó $$p$$ đúng.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "Chứng minh phản chứng",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 57 (PDF)",
+    "pdf_page": 57,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "Phương pháp phản chứng",
+    "source_id": "bib-nguyenducnghia-2006",
+    "page": "tr. 58 (PDF)",
+    "pdf_page": 58,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "Chứng minh bằng phản chứng",
+    "source_id": "bib-hoangchithanh-2007",
+    "page": "tr. 117 (PDF)",
+    "pdf_page": 117,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "Giả sử phản chứng",
+    "source_id": "bib-leanhvinh-2020",
+    "page": "tr. 23 (PDF)",
+    "pdf_page": 23,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "Chứng minh bằng phản chứng",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": false
+   },
+   {
+    "term": "Chứng minh bằng phản chứng",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 217 (PDF)",
+    "pdf_page": 217,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "proof-by-contraposition",
+  "letter": "P",
+  "headword_en": "Proof By Contraposition",
+  "rosen_ref": "Rosen §1.5",
+  "definition_vi": "Chứng minh phản đảo (còn gọi là chứng minh gián tiếp) là phương pháp chứng minh mệnh đề kéo theo $$p \\to q$$ bằng cách chứng minh mệnh đề phản đảo của nó là $$\\neg q \\to \\neg p$$ (ký hiệu $$\\neg q \\to \\neg p$$). Phương pháp này hợp lệ vì một mệnh đề kéo theo và mệnh đề phản đảo của nó là tương đương logic, tức là $$p \\to q \\equiv \\neg q \\to \\neg p$$.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "mệnh đề phản đảo",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 40 (PDF)",
+    "pdf_page": 40,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "phản đảo",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 12 (PDF)",
+    "pdf_page": 12,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "chứng minh gián tiếp",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 216 (PDF)",
+    "pdf_page": 216,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "mệnh đề phản đảo",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 12 (PDF, bản dịch Rosen)",
+    "pdf_page": 12,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "Chứng minh phản đảo",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": true
+   }
+  ]
+ },
+ {
+  "id": "proper-subgraph",
+  "letter": "P",
+  "headword_en": "Proper Subgraph",
+  "rosen_ref": "Rosen §10.2",
+  "definition_vi": "Đồ thị con thực sự của một đồ thị $$G$$ là một đồ thị con $$H$$ của $$G$$ (ký hiệu $$H \\subseteq G$$) sao cho $$H \\neq G$$, nghĩa là $$V(H) \\subsetneq V(G)$$ hoặc $$E(H) \\subsetneq E(G)$$. Khi đó ta viết $$H \\subsetneq G$$.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "đồ thị con thực sự",
+    "source_id": "bib-leanhvinh-2020",
+    "page": "tr. 91 (PDF)",
+    "pdf_page": 91,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "đồ thị con thực sự",
+    "source_id": "bib-leanhvinh-2020",
+    "page": "tr. 91 (PDF)",
+    "pdf_page": 91,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "đồ thị con thực sự",
+    "source_id": "bib-leanhvinh-2020",
+    "page": "tr. 91 (PDF)",
+    "pdf_page": 91,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "proper-subset",
+  "letter": "P",
+  "headword_en": "Proper Subset",
+  "rosen_ref": "Rosen §2.1",
+  "definition_vi": "Tập $$A$$ được gọi là một tập con thực sự của tập $$B$$, ký hiệu $$A \\subset B$$, nếu $$A$$ là tập con của $$B$$ và $$A \\neq B$$, tức là mọi phần tử của $$A$$ đều thuộc $$B$$ nhưng tồn tại ít nhất một phần tử của $$B$$ không thuộc $$A$$.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "tập con thực sự",
+    "source_id": "bib-leanhvinh-2020",
+    "page": "tr. 84 (PDF)",
+    "pdf_page": 84,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "tập con thực sự",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 97 (PDF)",
+    "pdf_page": 97,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "tập con thực sự",
+    "source_id": "bib-hoangchithanh-2007",
+    "page": "tr. 18 (PDF)",
+    "pdf_page": 18,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "tập con thực sự",
+    "source_id": "bib-nguyenducnghia-2006",
+    "page": "tr. 267 (PDF)",
+    "pdf_page": 267,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "tập con thực sự",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 704 (PDF)",
+    "pdf_page": 704,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "proposition",
+  "letter": "P",
+  "headword_en": "Proposition",
+  "rosen_ref": "Rosen §1.1",
+  "definition_vi": "Một \\emph{mệnh đề} là một câu khẳng định nhận đúng một trong hai giá trị đúng hoặc sai, không thể đồng thời vừa đúng vừa sai. Giá trị đúng hoặc sai của một mệnh đề được gọi là \\emph{chân trị} của nó, thường ký hiệu $$T$$ (true) cho đúng và $$F$$ (false) cho sai.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "mệnh đề",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 14 (PDF)",
+    "pdf_page": 14,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "mệnh đề toán học",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 14 (PDF)",
+    "pdf_page": 14,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "mệnh đề",
+    "source_id": "bib-nguyenducnghia-2006",
+    "page": "tr. 13 (PDF)",
+    "pdf_page": 13,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "mệnh đề",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 5 (PDF, bản dịch Rosen)",
+    "pdf_page": 5,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "mệnh đề toán học",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 5 (PDF, bản dịch Rosen)",
+    "pdf_page": 5,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "propositional-function",
+  "letter": "P",
+  "headword_en": "Propositional Function",
+  "rosen_ref": "Rosen §1.3",
+  "definition_vi": "Hàm mệnh đề (vị từ) là một phát biểu $$P(x_1, x_2, \\ldots, x_n)$$ phụ thuộc vào các biến $$x_1, x_2, \\ldots, x_n$$ lấy giá trị trong những miền xác định cho trước. Khi gán mỗi biến một giá trị cụ thể thuộc miền của nó, ta thu được một mệnh đề có giá trị chân lý xác định là đúng hoặc sai.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "hàm mệnh đề",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 33 (PDF)",
+    "pdf_page": 33,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "vị từ",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 46 (PDF)",
+    "pdf_page": 46,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "propositional-variable",
+  "letter": "P",
+  "headword_en": "Propositional Variable",
+  "rosen_ref": "Rosen §1.1",
+  "definition_vi": "Biến mệnh đề là một biến dùng để biểu diễn một mệnh đề. Các biến mệnh đề thường được ký hiệu bởi $$p$$, $$q$$, $$r$$, $$\\ldots$$ và mỗi biến nhận một trong hai giá trị chân lý là đúng hoặc sai.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "biến mệnh đề",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 20 (PDF)",
+    "pdf_page": 20,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "biến mệnh đề",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 13 (PDF)",
+    "pdf_page": 13,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "pseudocode",
+  "letter": "P",
+  "headword_en": "Pseudocode",
+  "rosen_ref": "Rosen §3.1",
+  "definition_vi": "Giả mã là một cách mô tả thuật toán nằm trung gian giữa ngôn ngữ tự nhiên và ngôn ngữ lập trình, dùng các cấu trúc điều khiển và lệnh gần với ngôn ngữ lập trình nhưng không phụ thuộc cú pháp của một ngôn ngữ cụ thể. Giả mã giúp trình bày các bước của thuật toán một cách rõ ràng và dễ chuyển thành chương trình.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "giả mã",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 132 (PDF)",
+    "pdf_page": 132,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "mã giả",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 122 (PDF)",
+    "pdf_page": 122,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "giả mã",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 133 (PDF)",
+    "pdf_page": 133,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "Giả mã",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 133 (PDF, bản dịch Rosen)",
+    "pdf_page": 133,
+    "verified": true,
+    "recommended": true
+   }
+  ]
+ },
+ {
+  "id": "pseudograph",
+  "letter": "P",
+  "headword_en": "Pseudograph",
+  "rosen_ref": "Rosen §10.1",
+  "definition_vi": "Một \\emph{giả đồ thị} là một đồ thị vô hướng $$G$$ trong đó cho phép có nhiều cạnh nối cùng một cặp đỉnh, đồng thời cho phép có khuyên, tức là cạnh nối một đỉnh với chính nó. Đây là loại đồ thị vô hướng tổng quát nhất, vì nó có thể chứa cả cạnh bội lẫn khuyên.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "đa đồ thị có khuyên",
+    "source_id": "bib-nguyenhoangthach-2020",
+    "page": "tr. 62 (PDF)",
+    "pdf_page": 62,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "giả đồ thị",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 155 (PDF)",
+    "pdf_page": 155,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "giả đồ thị",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 496 (PDF, bản dịch Rosen)",
+    "pdf_page": 496,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "pseudoprime",
+  "letter": "P",
+  "headword_en": "Pseudoprime",
+  "rosen_ref": "Rosen §4.4",
+  "definition_vi": "Một số giả nguyên tố cơ sở $$b$$ là một hợp số $$n$$ vượt qua được một phép kiểm tra tính nguyên tố ứng với cơ sở $$b$$ cho trước, tức là $$n$$ thỏa mãn điều kiện mà mọi số nguyên tố đều thỏa mãn (chẳng hạn $$b^{n-1} \\equiv 1 \\pmod{n}$$ theo định lý nhỏ Fermat) nhưng bản thân $$n$$ lại không phải là số nguyên tố.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "số giả nguyên tố",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 205 (PDF)",
+    "pdf_page": 205,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "số giả nguyên tố",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 206 (PDF)",
+    "pdf_page": 206,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "public-key-cryptography",
+  "letter": "P",
+  "headword_en": "Public Key Cryptography",
+  "rosen_ref": "Rosen §4.6",
+  "definition_vi": "Mật mã khóa công khai là hệ mật mã trong đó mỗi người dùng có một cặp khóa: khóa công khai (ký hiệu $$(n, e)$$) dùng để mã hóa và được công bố cho mọi người, và khóa bí mật (ký hiệu $$d$$) dùng để giải mã và được giữ kín. Biết khóa công khai vẫn không dễ suy ra khóa bí mật, chẳng hạn trong hệ RSA độ an toàn dựa trên việc phân tích số nguyên lớn $$n = pq$$ thành thừa số nguyên tố là bài toán khó về mặt tính toán.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "mật mã khóa công khai",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": true
+   }
+  ]
+ },
+ {
+  "id": "public-key-encryption",
+  "letter": "P",
+  "headword_en": "Public Key Encryption",
+  "rosen_ref": "",
+  "definition_vi": "",
+  "see_ref": "public-key-cryptography",
+  "vi_terms": []
+ },
+ {
+  "id": "quadratic-residue",
+  "letter": "Q",
+  "headword_en": "Quadratic residue",
+  "rosen_ref": "Rosen §4.4",
+  "definition_vi": "Cho số nguyên tố $$p$$ và số nguyên $$a$$ không chia hết cho $$p$$. Khi đó $$a$$ được gọi là một thặng dư bậc hai modulo $$p$$ nếu đồng dư thức $$x^2 \\equiv a \\pmod{p}$$ có nghiệm, tức là nếu $$a$$ đồng dư modulo $$p$$ với bình phương của một số nguyên không chia hết cho $$p$$; ngược lại, $$a$$ được gọi là một phi thặng dư bậc hai modulo $$p$$.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "thặng dư bậc hai",
+    "source_id": "bib-leanhvinh-2020",
+    "page": "tr. 217 (PDF)",
+    "pdf_page": 217,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "số chính phương modulo",
+    "source_id": "bib-leanhvinh-2020",
+    "page": "tr. 179 (PDF)",
+    "pdf_page": 179,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "quantifier",
+  "letter": "Q",
+  "headword_en": "Quantifier",
+  "rosen_ref": "Rosen §1.4",
+  "definition_vi": "Lượng từ là một toán tử logic tác động lên một vị từ để diễn đạt mức độ đúng của vị từ đó trên các phần tử của một miền xác định. Lượng từ với mọi $$\\forall x\\, P(x)$$ khẳng định rằng $$P(x)$$ đúng với mọi $$x$$ trong miền xác định, còn lượng từ tồn tại $$\\exists x\\, P(x)$$ khẳng định rằng $$P(x)$$ đúng với ít nhất một $$x$$ trong miền xác định.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "lượng từ",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 47 (PDF)",
+    "pdf_page": 47,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "lượng từ với mọi",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 47 (PDF)",
+    "pdf_page": 47,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "lượng từ tồn tại",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 47 (PDF)",
+    "pdf_page": 47,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "lượng từ phổ dụng",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 51 (PDF)",
+    "pdf_page": 51,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "lượng từ",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 33 (PDF, bản dịch Rosen)",
+    "pdf_page": 33,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "lượng từ tồn tại",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 35 (PDF, bản dịch Rosen)",
+    "pdf_page": 35,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "lượng từ phổ dụng",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 33 (PDF, bản dịch Rosen)",
+    "pdf_page": 33,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "queue",
+  "letter": "Q",
+  "headword_en": "Queue",
+  "rosen_ref": "Rosen §10.4",
+  "definition_vi": "Hàng đợi $$Q$$ là cấu trúc dữ liệu dạng danh sách trong đó phần tử được thêm vào ở một đầu và được lấy ra ở đầu kia, nên các phần tử được xử lý theo thứ tự vào trước ra trước (first-in first-out, FIFO). Trong tìm kiếm theo chiều rộng, hàng đợi $$Q$$ điều khiển thứ tự thăm các đỉnh của đồ thị $$G$$.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "hàng đợi",
+    "source_id": "bib-nguyenhoangthach-2020",
+    "page": "tr. 88 (PDF)",
+    "pdf_page": 88,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "hàng đợi Q",
+    "source_id": "bib-nguyenhoangthach-2020",
+    "page": "tr. 88 (PDF)",
+    "pdf_page": 88,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "hàng đợi",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 178 (PDF)",
+    "pdf_page": 178,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "hàng đợi",
+    "source_id": "bib-nguyenducnghia-2006",
+    "page": "tr. 181 (PDF)",
+    "pdf_page": 181,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "hàng đợi",
+    "source_id": "bib-hoangchithanh-2007",
+    "page": "tr. 72 (PDF)",
+    "pdf_page": 72,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "quine-mccluskey-method",
+  "letter": "Q",
+  "headword_en": "Quine–McCluskey method",
+  "rosen_ref": "Rosen §12.4",
+  "definition_vi": "Thuật toán Quine–McCluskey là một thủ tục dạng bảng để tối thiểu hóa một hàm đại số lôgic $$f$$, nhận đầu vào là dạng tuyển chuẩn tắc hoàn toàn của $$f$$. Thuật toán tiến hành bằng cách lần lượt dán các hội sơ cấp chỉ khác nhau ở một biến để tìm tất cả các nguyên nhân nguyên tố của $$f$$, rồi từ bảng các nguyên nhân nguyên tố chọn một họ phủ $$f$$ với số nguyên nhân nguyên tố ít nhất, có thể không duy nhất. Họ đầy đủ tất cả các nguyên nhân nguyên tố cho dạng tuyển chuẩn tắc thu gọn của $$f$$, còn việc chọn họ ít nhất phủ $$f$$ cho dạng tuyển chuẩn tắc tối thiểu.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "thuật toán Quine–McCluskey",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": true
+   },
+   {
+    "term": "thuật toán Quine",
+    "source_id": "bib-nguyenducnghia-2006",
+    "page": "tr. 281 (PDF)",
+    "pdf_page": 281,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "phương pháp Quine",
+    "source_id": "bib-nguyenducnghia-2006",
+    "page": "tr. 284 (PDF)",
+    "pdf_page": 284,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "phương pháp Quine",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 711 (PDF, bản dịch Rosen)",
+    "pdf_page": 711,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "quotient",
+  "letter": "Q",
+  "headword_en": "Quotient",
+  "rosen_ref": "Rosen §4.1",
+  "definition_vi": "Thương số của phép chia số nguyên $$a$$ cho số nguyên dương $$d$$ là số nguyên $$q$$ trong biểu diễn duy nhất $$a = dq + r$$ với $$0 \\leq r < d$$ cho bởi thuật toán chia, ký hiệu $$q = a \\;\\mathrm{div}\\; d$$.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "thương số",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 142 (PDF)",
+    "pdf_page": 142,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "thương số",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 65 (PDF)",
+    "pdf_page": 65,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "thương",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 143 (PDF)",
+    "pdf_page": 143,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "thương số",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 107 (PDF, bản dịch Rosen)",
+    "pdf_page": 107,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "thương",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 107 (PDF, bản dịch Rosen)",
+    "pdf_page": 107,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ }
+]
+hook: PostToolUse
+hook: PostToolUse Completed
+codex
+I have the batch loaded, but the terminal display truncated the middle of the JSON. I’m switching to `jq` summaries so I can inspect every entry without pulling excess context.
+hook: PreToolUse
+hook: PreToolUse Completed
+exec
+/bin/bash -lc "jq -r '.[] | select(.see_ref == \"\") | {id, headword_en, recommended: (.vi_terms[]? | select(.recommended==true).term), terms: [.vi_terms[].term]} | @json' workflow/loop/review/batch-14.json" in /home/ubuntu/DM-Concepts
+ succeeded in 0ms:
+{"id":"power-set","headword_en":"Power set","recommended":"tập lũy thừa","terms":["tập lũy thừa","tập luỹ thừa","tập luỹ thừa"]}
+{"id":"predicate","headword_en":"Predicate","recommended":"vị từ","terms":["vị từ"]}
+{"id":"preimage","headword_en":"Preimage","recommended":"nghịch ảnh","terms":["nghịch ảnh","nghịch ảnh"]}
+{"id":"premise","headword_en":"Premise","recommended":"tiền đề","terms":["tiền đề","tiền đề"]}
+{"id":"preorder-traversal","headword_en":"Preorder Traversal","recommended":"tiền thứ tự","terms":["tiền thứ tự","thứ tự trước","thứ tự trước","tiền thứ tự"]}
+{"id":"prime-implicant","headword_en":"Prime Implicant","recommended":"nguyên nhân nguyên tố","terms":["nguyên nhân nguyên tố","nguyên nhân nguyên tố"]}
+{"id":"prime-number","headword_en":"Prime number","recommended":"số nguyên tố","terms":["số nguyên tố","nguyên tố","số nguyên tố","số nguyên tố","số nguyên tố","số nguyên tố","nguyên tố"]}
+{"id":"primitive-root","headword_en":"Primitive Root","recommended":"căn nguyên thủy","terms":["căn nguyên thủy"]}
+{"id":"private-key-cryptography","headword_en":"Private Key Cryptography","recommended":"mật mã khóa bí mật","terms":["mật mã khóa bí mật"]}
+{"id":"probabilistic-algorithm","headword_en":"Probabilistic Algorithm","recommended":"thuật toán xác suất","terms":["thuật toán xác suất","theo kiểu xác suất"]}
+{"id":"probabilistic-method","headword_en":"Probabilistic Method","recommended":"phương pháp xác suất","terms":["phương pháp xác suất","phương pháp xác suất","phương pháp xác suất"]}
+{"id":"probability-distribution","headword_en":"Probability Distribution","recommended":"phân phối xác suất","terms":["phân phối xác suất"]}
+{"id":"probability-of-an-event","headword_en":"Probability Of An Event","recommended":"xác suất của một biến cố","terms":["xác suất của một biến cố","xác suất của một biến cố","biến cố","biến cố"]}
+{"id":"product","headword_en":"Product","recommended":"Tích","terms":["Tích Descartes","Tích Descartes","Tích Đề các","Tích Đề các","Tích Đề các","Tích"]}
+{"id":"product-of-sums-expansion","headword_en":"Product-Of-Sums Expansion","recommended":"khai triển tích các tổng","terms":["khai triển tích các tổng"]}
+{"id":"projection","headword_en":"Projection","recommended":"phép chiếu","terms":["phép chiếu"]}
+{"id":"proof","headword_en":"Proof","recommended":"Chứng minh","terms":["chứng minh","chứng minh","chứng minh","chứng minh","phép chứng minh","phương pháp chứng minh","Chứng minh","phép chứng minh","phương pháp chứng minh"]}
+{"id":"proof-by-cases","headword_en":"Proof by Cases","recommended":"Chứng minh bằng cách chia trường hợp","terms":["Chứng minh bằng cách chia trường hợp","Chứng minh bằng cách phân chia trường hợp"]}
+{"id":"proof-by-contradiction","headword_en":"Proof By Contradiction","recommended":"Chứng minh phản chứng","terms":["Chứng minh phản chứng","Phương pháp phản chứng","Chứng minh bằng phản chứng","Giả sử phản chứng","Chứng minh bằng phản chứng","Chứng minh bằng phản chứng"]}
+{"id":"proof-by-contraposition","headword_en":"Proof By Contraposition","recommended":"Chứng minh phản đảo","terms":["mệnh đề phản đảo","phản đảo","chứng minh gián tiếp","mệnh đề phản đảo","Chứng minh phản đảo"]}
+{"id":"proper-subgraph","headword_en":"Proper Subgraph","recommended":"đồ thị con thực sự","terms":["đồ thị con thực sự","đồ thị con thực sự","đồ thị con thực sự"]}
+{"id":"proper-subset","headword_en":"Proper Subset","recommended":"tập con thực sự","terms":["tập con thực sự","tập con thực sự","tập con thực sự","tập con thực sự","tập con thực sự"]}
+{"id":"proposition","headword_en":"Proposition","recommended":"mệnh đề","terms":["mệnh đề","mệnh đề toán học","mệnh đề","mệnh đề","mệnh đề toán học"]}
+{"id":"propositional-function","headword_en":"Propositional Function","recommended":"hàm mệnh đề","terms":["hàm mệnh đề","vị từ"]}
+{"id":"propositional-variable","headword_en":"Propositional Variable","recommended":"biến mệnh đề","terms":["biến mệnh đề","biến mệnh đề"]}
+{"id":"pseudocode","headword_en":"Pseudocode","recommended":"Giả mã","terms":["giả mã","mã giả","giả mã","Giả mã"]}
+{"id":"pseudograph","headword_en":"Pseudograph","recommended":"giả đồ thị","terms":["đa đồ thị có khuyên","giả đồ thị","giả đồ thị"]}
+{"id":"pseudoprime","headword_en":"Pseudoprime","recommended":"số giả nguyên tố","terms":["số giả nguyên tố","số giả nguyên tố"]}
+{"id":"public-key-cryptography","headword_en":"Public Key Cryptography","recommended":"mật mã khóa công khai","terms":["mật mã khóa công khai"]}
+{"id":"quadratic-residue","headword_en":"Quadratic residue","recommended":"thặng dư bậc hai","terms":["thặng dư bậc hai","số chính phương modulo"]}
+{"id":"quantifier","headword_en":"Quantifier","recommended":"lượng từ","terms":["lượng từ","lượng từ với mọi","lượng từ tồn tại","lượng từ phổ dụng","lượng từ","lượng từ tồn tại","lượng từ phổ dụng"]}
+{"id":"queue","headword_en":"Queue","recommended":"hàng đợi","terms":["hàng đợi","hàng đợi Q","hàng đợi","hàng đợi","hàng đợi"]}
+{"id":"quine-mccluskey-method","headword_en":"Quine–McCluskey method","recommended":"thuật toán Quine–McCluskey","terms":["thuật toán Quine–McCluskey","thuật toán Quine","phương pháp Quine","phương pháp Quine"]}
+{"id":"quotient","headword_en":"Quotient","recommended":"thương số","terms":["thương số","thương số","thương","thương số","thương"]}
+
+hook: PostToolUse
+hook: PostToolUse Completed
+codex
+There are 34 non-stub entries to review. The batch already contains strong local bibliographic evidence for many basic terms, so I’ll spend searches where a recommended term is unverified, narrow, or likely to have variants.
+hook: PreToolUse
+hook: PreToolUse Completed
+exec
+/bin/bash -lc "jq '[.[] | select(.see_ref == \"\")] | length' workflow/loop/review/batch-14.json" in /home/ubuntu/DM-Concepts
+ succeeded in 0ms:
+34
+
+hook: PostToolUse
+hook: PostToolUse Completed
+web search: 
+web search: site:edu.vn "preimage" "ảnh ngược" "nghịch ảnh" toán
+web search: 
+web search: site:edu.vn "mật mã khóa công khai" "mật mã khóa bất đối xứng"
+web search: 
+web search: "căn nguyên thủy" "nguyên căn" "modulo"
+web search: 
+web search: "prime implicant" "nguyên nhân nguyên tố"
+web search: 
+web search: site:edu.vn "chứng minh bằng phản đảo" "proof by contraposition"
+web search: 
+web search: site:edu.vn "preorder traversal" "duyệt trước"
+web search: 
+web search: site:edu.vn "probabilistic algorithm" "thuật toán xác suất"
+web search: 
+web search: site:edu.vn "mật mã khóa công cộng" "mật mã khóa công khai"
+web search: 
+web search: site:edu.vn "tập hợp lũy thừa" "power set"
+web search: 
+web search: "product of sums" "tích các tổng" "hàm Boole"
+web search: 
+web search: site:edu.vn "private-key cryptography" "mật mã khóa bí mật"
+web search: 
+web search: site:edu.vn "pseudoprime" "giả nguyên tố"
+web search: 
+web search: site:edu.vn "quadratic residue" "thặng dư bậc hai"
+web search: 
+web search: site:edu.vn "ảnh ngược" "nghịch ảnh" "ánh xạ"
+web search: 
+web search: site:edu.vn "proper subset" "tập con riêng"
+web search: 
+web search: site:edu.vn "proper subgraph" "đồ thị con riêng"
+web search: 
+web search: site:edu.vn "phương pháp Quine-McCluskey" "thuật toán Quine-McCluskey"
+codex
+I’ve finished the snippet-only evidence pass. I’m going to write only entries with actionable findings: one recommended term that looks too generic for the defined concept, plus missing variants that snippets explicitly support.
+hook: PreToolUse
+hook: PreToolUse Completed
+exec
+/bin/bash -lc 'ls -l workflow/loop/review/findings-14.json 2>/dev/null || true' in /home/ubuntu/DM-Concepts
+ succeeded in 0ms:
+hook: PostToolUse
+hook: PostToolUse Completed
+apply patch
+patch: completed
+/home/ubuntu/DM-Concepts/workflow/loop/review/findings-14.json
+diff --git a/workflow/loop/review/findings-14.json b/workflow/loop/review/findings-14.json
+new file mode 100644
+index 0000000000000000000000000000000000000000..b543080c5c41cfab19208fb66b85f60a510ee32f
+--- /dev/null
++++ b/workflow/loop/review/findings-14.json
+@@ -0,0 +1 @@
++{"loop":14,"reviewed":34,"findings":[{"id":"preimage","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"ảnh ngược","source":"https://osshcmup.wordpress.com/wp-content/uploads/2013/11/huy3.pdf"}]},{"id":"preorder-traversal","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"duyệt trước","source":"https://doan.edu.vn/do-an/bai-giang-cau-truc-du-lieu-va-giai-thuat-chuong-3-cau-truc-cay-p1-van-chi-nam-44594/"}]},{"id":"private-key-cryptography","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"mật mã khóa đối xứng","source":"https://users.soict.hust.edu.vn/tungbt/it4015/Bai02.pdf"},{"term":"hệ mật mã khóa đối xứng","source":"https://users.soict.hust.edu.vn/tungbt/it4015/Bai02.pdf"},{"term":"hệ mật đối xứng","source":"https://qlkh.humg.edu.vn/KhoaHocKhac/Download/2840?FileName=Bao+cao+SHHT+Thang+6+2021+%281%29.pdf"}]},{"id":"probabilistic-algorithm","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"thuật toán ngẫu nhiên","source":"https://mim.hus.vnu.edu.vn/sites/default/files/04_De_cuong_chi_tiet_ToanTin_2021.pdf"}]},{"id":"probability-distribution","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"phân bố xác suất","source":"https://cdct.vnuf.edu.vn/documents/1098268/5987171/B%E1%BB%99%20m%C3%B4n%20To%C3%A1n_%C4%90HLN_B%C3%A0i%20gi%E1%BA%A3ng%20X%C3%A1c%20su%E1%BA%A5t%20th%E1%BB%91ng%20k%C3%AA.pdf"}]},{"id":"probability-of-an-event","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"xác suất của biến cố","source":"https://cscb.vimaru.edu.vn/sites/cscb.vimaru.edu.vn/files/%5B18143%5D%20Ta%CC%80i%20lie%CC%A3%CC%82u%20ho%CC%A3c%20ta%CC%A3%CC%82p%20XSTK.pdf"}]},{"id":"product","commonality":{"verdict":"uncommon","better_term":"tích Descartes / tích Đề các","source":"https://fita.vnua.edu.vn/wp-content/uploads/2013/06/Baigiang_Coso_Mahoathongtin_Ch1.pdf"},"missing_variants":[]},{"id":"product-of-sums-expansion","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"dạng tích các tổng","source":"https://nguyenvanquangcse.files.wordpress.com/2012/10/c06_daisoboole.pdf"},{"term":"dạng hội chuẩn tắc","source":"https://toanroirac2011.files.wordpress.com/2011/12/chap_08_boolealgebra.pdf"}]},{"id":"proper-subset","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"tập con riêng","source":"https://tratu.soha.vn/dict/en_vn/Proper_subset"},{"term":"tập hợp con riêng","source":"https://tratu.soha.vn/dict/en_vn/Proper_subset"},{"term":"tập con thật sự","source":"https://fita.vnua.edu.vn/wp-content/uploads/2013/06/csdl_12_09_banIn_LAST1.pdf"}]},{"id":"public-key-cryptography","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"mật mã khóa bất đối xứng","source":"https://users.soict.hust.edu.vn/tungbt/it4260/lec02.pdf"},{"term":"hệ mật mã khóa bất đối xứng","source":"https://users.soict.hust.edu.vn/tungbt/it4015/Bai02.pdf"},{"term":"mã khóa phi đối xứng","source":"https://users.soict.hust.edu.vn/vannk/AntoanThongtin/GTATTT/GTATTT_Chuong3.pdf"}]},{"id":"quadratic-residue","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"thặng dư bình phương","source":"https://www.academia.edu/17890575/Epsilon_vol05_2015October"}]},{"id":"quine-mccluskey-method","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"phương pháp Quine-McCluskey","source":"https://dangcnd.files.wordpress.com/2009/08/tudc1.pdf"}]}]}
+
+diff --git a/workflow/loop/review/findings-14.json b/workflow/loop/review/findings-14.json
+new file mode 100644
+index 0000000000000000000000000000000000000000..b543080c5c41cfab19208fb66b85f60a510ee32f
+--- /dev/null
++++ b/workflow/loop/review/findings-14.json
+@@ -0,0 +1 @@
++{"loop":14,"reviewed":34,"findings":[{"id":"preimage","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"ảnh ngược","source":"https://osshcmup.wordpress.com/wp-content/uploads/2013/11/huy3.pdf"}]},{"id":"preorder-traversal","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"duyệt trước","source":"https://doan.edu.vn/do-an/bai-giang-cau-truc-du-lieu-va-giai-thuat-chuong-3-cau-truc-cay-p1-van-chi-nam-44594/"}]},{"id":"private-key-cryptography","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"mật mã khóa đối xứng","source":"https://users.soict.hust.edu.vn/tungbt/it4015/Bai02.pdf"},{"term":"hệ mật mã khóa đối xứng","source":"https://users.soict.hust.edu.vn/tungbt/it4015/Bai02.pdf"},{"term":"hệ mật đối xứng","source":"https://qlkh.humg.edu.vn/KhoaHocKhac/Download/2840?FileName=Bao+cao+SHHT+Thang+6+2021+%281%29.pdf"}]},{"id":"probabilistic-algorithm","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"thuật toán ngẫu nhiên","source":"https://mim.hus.vnu.edu.vn/sites/default/files/04_De_cuong_chi_tiet_ToanTin_2021.pdf"}]},{"id":"probability-distribution","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"phân bố xác suất","source":"https://cdct.vnuf.edu.vn/documents/1098268/5987171/B%E1%BB%99%20m%C3%B4n%20To%C3%A1n_%C4%90HLN_B%C3%A0i%20gi%E1%BA%A3ng%20X%C3%A1c%20su%E1%BA%A5t%20th%E1%BB%91ng%20k%C3%AA.pdf"}]},{"id":"probability-of-an-event","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"xác suất của biến cố","source":"https://cscb.vimaru.edu.vn/sites/cscb.vimaru.edu.vn/files/%5B18143%5D%20Ta%CC%80i%20lie%CC%A3%CC%82u%20ho%CC%A3c%20ta%CC%A3%CC%82p%20XSTK.pdf"}]},{"id":"product","commonality":{"verdict":"uncommon","better_term":"tích Descartes / tích Đề các","source":"https://fita.vnua.edu.vn/wp-content/uploads/2013/06/Baigiang_Coso_Mahoathongtin_Ch1.pdf"},"missing_variants":[]},{"id":"product-of-sums-expansion","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"dạng tích các tổng","source":"https://nguyenvanquangcse.files.wordpress.com/2012/10/c06_daisoboole.pdf"},{"term":"dạng hội chuẩn tắc","source":"https://toanroirac2011.files.wordpress.com/2011/12/chap_08_boolealgebra.pdf"}]},{"id":"proper-subset","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"tập con riêng","source":"https://tratu.soha.vn/dict/en_vn/Proper_subset"},{"term":"tập hợp con riêng","source":"https://tratu.soha.vn/dict/en_vn/Proper_subset"},{"term":"tập con thật sự","source":"https://fita.vnua.edu.vn/wp-content/uploads/2013/06/csdl_12_09_banIn_LAST1.pdf"}]},{"id":"public-key-cryptography","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"mật mã khóa bất đối xứng","source":"https://users.soict.hust.edu.vn/tungbt/it4260/lec02.pdf"},{"term":"hệ mật mã khóa bất đối xứng","source":"https://users.soict.hust.edu.vn/tungbt/it4015/Bai02.pdf"},{"term":"mã khóa phi đối xứng","source":"https://users.soict.hust.edu.vn/vannk/AntoanThongtin/GTATTT/GTATTT_Chuong3.pdf"}]},{"id":"quadratic-residue","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"thặng dư bình phương","source":"https://www.academia.edu/17890575/Epsilon_vol05_2015October"}]},{"id":"quine-mccluskey-method","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"phương pháp Quine-McCluskey","source":"https://dangcnd.files.wordpress.com/2009/08/tudc1.pdf"}]}]}
+
+codex
+The findings file is written. I’m doing a narrow JSON validation now so the final artifact is parseable and has the expected loop/reviewed fields.
+hook: PreToolUse
+hook: PreToolUse Completed
+exec
+/bin/bash -lc "jq -e '.loop == 14 and .reviewed == 34 and (.findings | type == \"array\")' workflow/loop/review/findings-14.json" in /home/ubuntu/DM-Concepts
+ succeeded in 0ms:
+true
+
+hook: PostToolUse
+hook: PostToolUse Completed
+diff --git a/workflow/loop/review/findings-14.json b/workflow/loop/review/findings-14.json
+new file mode 100644
+index 0000000000000000000000000000000000000000..b543080c5c41cfab19208fb66b85f60a510ee32f
+--- /dev/null
++++ b/workflow/loop/review/findings-14.json
+@@ -0,0 +1 @@
++{"loop":14,"reviewed":34,"findings":[{"id":"preimage","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"ảnh ngược","source":"https://osshcmup.wordpress.com/wp-content/uploads/2013/11/huy3.pdf"}]},{"id":"preorder-traversal","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"duyệt trước","source":"https://doan.edu.vn/do-an/bai-giang-cau-truc-du-lieu-va-giai-thuat-chuong-3-cau-truc-cay-p1-van-chi-nam-44594/"}]},{"id":"private-key-cryptography","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"mật mã khóa đối xứng","source":"https://users.soict.hust.edu.vn/tungbt/it4015/Bai02.pdf"},{"term":"hệ mật mã khóa đối xứng","source":"https://users.soict.hust.edu.vn/tungbt/it4015/Bai02.pdf"},{"term":"hệ mật đối xứng","source":"https://qlkh.humg.edu.vn/KhoaHocKhac/Download/2840?FileName=Bao+cao+SHHT+Thang+6+2021+%281%29.pdf"}]},{"id":"probabilistic-algorithm","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"thuật toán ngẫu nhiên","source":"https://mim.hus.vnu.edu.vn/sites/default/files/04_De_cuong_chi_tiet_ToanTin_2021.pdf"}]},{"id":"probability-distribution","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"phân bố xác suất","source":"https://cdct.vnuf.edu.vn/documents/1098268/5987171/B%E1%BB%99%20m%C3%B4n%20To%C3%A1n_%C4%90HLN_B%C3%A0i%20gi%E1%BA%A3ng%20X%C3%A1c%20su%E1%BA%A5t%20th%E1%BB%91ng%20k%C3%AA.pdf"}]},{"id":"probability-of-an-event","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"xác suất của biến cố","source":"https://cscb.vimaru.edu.vn/sites/cscb.vimaru.edu.vn/files/%5B18143%5D%20Ta%CC%80i%20lie%CC%A3%CC%82u%20ho%CC%A3c%20ta%CC%A3%CC%82p%20XSTK.pdf"}]},{"id":"product","commonality":{"verdict":"uncommon","better_term":"tích Descartes / tích Đề các","source":"https://fita.vnua.edu.vn/wp-content/uploads/2013/06/Baigiang_Coso_Mahoathongtin_Ch1.pdf"},"missing_variants":[]},{"id":"product-of-sums-expansion","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"dạng tích các tổng","source":"https://nguyenvanquangcse.files.wordpress.com/2012/10/c06_daisoboole.pdf"},{"term":"dạng hội chuẩn tắc","source":"https://toanroirac2011.files.wordpress.com/2011/12/chap_08_boolealgebra.pdf"}]},{"id":"proper-subset","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"tập con riêng","source":"https://tratu.soha.vn/dict/en_vn/Proper_subset"},{"term":"tập hợp con riêng","source":"https://tratu.soha.vn/dict/en_vn/Proper_subset"},{"term":"tập con thật sự","source":"https://fita.vnua.edu.vn/wp-content/uploads/2013/06/csdl_12_09_banIn_LAST1.pdf"}]},{"id":"public-key-cryptography","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"mật mã khóa bất đối xứng","source":"https://users.soict.hust.edu.vn/tungbt/it4260/lec02.pdf"},{"term":"hệ mật mã khóa bất đối xứng","source":"https://users.soict.hust.edu.vn/tungbt/it4015/Bai02.pdf"},{"term":"mã khóa phi đối xứng","source":"https://users.soict.hust.edu.vn/vannk/AntoanThongtin/GTATTT/GTATTT_Chuong3.pdf"}]},{"id":"quadratic-residue","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"thặng dư bình phương","source":"https://www.academia.edu/17890575/Epsilon_vol05_2015October"}]},{"id":"quine-mccluskey-method","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"phương pháp Quine-McCluskey","source":"https://dangcnd.files.wordpress.com/2009/08/tudc1.pdf"}]}]}
+
+codex
+WROTE findings-14.json
+===CODEX_REVIEW_DONE===
+diff --git a/workflow/loop/review/findings-14.json b/workflow/loop/review/findings-14.json
+new file mode 100644
+index 0000000000000000000000000000000000000000..b543080c5c41cfab19208fb66b85f60a510ee32f
+--- /dev/null
++++ b/workflow/loop/review/findings-14.json
+@@ -0,0 +1 @@
++{"loop":14,"reviewed":34,"findings":[{"id":"preimage","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"ảnh ngược","source":"https://osshcmup.wordpress.com/wp-content/uploads/2013/11/huy3.pdf"}]},{"id":"preorder-traversal","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"duyệt trước","source":"https://doan.edu.vn/do-an/bai-giang-cau-truc-du-lieu-va-giai-thuat-chuong-3-cau-truc-cay-p1-van-chi-nam-44594/"}]},{"id":"private-key-cryptography","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"mật mã khóa đối xứng","source":"https://users.soict.hust.edu.vn/tungbt/it4015/Bai02.pdf"},{"term":"hệ mật mã khóa đối xứng","source":"https://users.soict.hust.edu.vn/tungbt/it4015/Bai02.pdf"},{"term":"hệ mật đối xứng","source":"https://qlkh.humg.edu.vn/KhoaHocKhac/Download/2840?FileName=Bao+cao+SHHT+Thang+6+2021+%281%29.pdf"}]},{"id":"probabilistic-algorithm","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"thuật toán ngẫu nhiên","source":"https://mim.hus.vnu.edu.vn/sites/default/files/04_De_cuong_chi_tiet_ToanTin_2021.pdf"}]},{"id":"probability-distribution","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"phân bố xác suất","source":"https://cdct.vnuf.edu.vn/documents/1098268/5987171/B%E1%BB%99%20m%C3%B4n%20To%C3%A1n_%C4%90HLN_B%C3%A0i%20gi%E1%BA%A3ng%20X%C3%A1c%20su%E1%BA%A5t%20th%E1%BB%91ng%20k%C3%AA.pdf"}]},{"id":"probability-of-an-event","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"xác suất của biến cố","source":"https://cscb.vimaru.edu.vn/sites/cscb.vimaru.edu.vn/files/%5B18143%5D%20Ta%CC%80i%20lie%CC%A3%CC%82u%20ho%CC%A3c%20ta%CC%A3%CC%82p%20XSTK.pdf"}]},{"id":"product","commonality":{"verdict":"uncommon","better_term":"tích Descartes / tích Đề các","source":"https://fita.vnua.edu.vn/wp-content/uploads/2013/06/Baigiang_Coso_Mahoathongtin_Ch1.pdf"},"missing_variants":[]},{"id":"product-of-sums-expansion","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"dạng tích các tổng","source":"https://nguyenvanquangcse.files.wordpress.com/2012/10/c06_daisoboole.pdf"},{"term":"dạng hội chuẩn tắc","source":"https://toanroirac2011.files.wordpress.com/2011/12/chap_08_boolealgebra.pdf"}]},{"id":"proper-subset","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"tập con riêng","source":"https://tratu.soha.vn/dict/en_vn/Proper_subset"},{"term":"tập hợp con riêng","source":"https://tratu.soha.vn/dict/en_vn/Proper_subset"},{"term":"tập con thật sự","source":"https://fita.vnua.edu.vn/wp-content/uploads/2013/06/csdl_12_09_banIn_LAST1.pdf"}]},{"id":"public-key-cryptography","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"mật mã khóa bất đối xứng","source":"https://users.soict.hust.edu.vn/tungbt/it4260/lec02.pdf"},{"term":"hệ mật mã khóa bất đối xứng","source":"https://users.soict.hust.edu.vn/tungbt/it4015/Bai02.pdf"},{"term":"mã khóa phi đối xứng","source":"https://users.soict.hust.edu.vn/vannk/AntoanThongtin/GTATTT/GTATTT_Chuong3.pdf"}]},{"id":"quadratic-residue","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"thặng dư bình phương","source":"https://www.academia.edu/17890575/Epsilon_vol05_2015October"}]},{"id":"quine-mccluskey-method","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"phương pháp Quine-McCluskey","source":"https://dangcnd.files.wordpress.com/2009/08/tudc1.pdf"}]}]}
+
+tokens used
+274,375
+WROTE findings-14.json
+===CODEX_REVIEW_DONE===

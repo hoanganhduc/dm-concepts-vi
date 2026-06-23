@@ -1,0 +1,2392 @@
+OpenAI Codex v0.141.0
+--------
+workdir: /home/ubuntu/DM-Concepts
+model: gpt-5.5
+provider: openai
+approval: never
+sandbox: danger-full-access
+reasoning effort: xhigh
+reasoning summaries: none
+session id: 019ef268-026c-7142-a994-c1512eb28ee3
+--------
+user
+You are a meticulous bilingual (English-Vietnamese) discrete-mathematics dictionary reviewer.
+Working directory: /home/ubuntu/DM-Concepts. Do NOT modify any dictionary file. Be evidence-based; NEVER invent a translation or a source.
+
+Read this batch of entries:
+  cat workflow/loop/review/batch-2.json
+It is a JSON array; each entry has: id, headword_en, definition_vi (Vietnamese), vi_terms (array of {term, recommended, ...}), see_ref.
+If see_ref is non-empty the entry is a cross-reference stub: SKIP it.
+
+For EACH non-stub entry, use WEB SEARCH (prefer authoritative Vietnamese sources: university lecture notes / giáo trình, published textbooks, standard references) to check TWO things:
+
+(A) COMMONALITY of the recommended Vietnamese term (the vi_term with recommended=true): is it the common/standard rendering of this English concept in Vietnamese discrete mathematics? If it is uncommon and a clearly MORE standard term exists, report verdict "uncommon" with the better term and a source URL. Otherwise verdict "common" (or "unsure").
+
+(B) ALTERNATIVE TRANSLATIONS: any additional valid Vietnamese translation of the English concept that is NOT already among the entry's existing vi_terms. Example: 'independent set' = 'tập độc lập' AND 'tập ổn định' (internal stable set). List each missing variant with a brief source (URL or book).
+
+Efficiency (IMPORTANT - your context is limited): use web SEARCH RESULT SNIPPETS only; do NOT open or fetch full web pages or PDF files (fetching large pages overflows your context and the run fails). At most 1-2 lightweight searches per entry; skip entries that are clearly fine.
+
+WRITE your result as a JSON file to workflow/loop/review/findings-2.json (use your file-writing tool), exactly this shape:
+{"loop":2,"reviewed":<int>,"findings":[{"id":"<id>","commonality":{"verdict":"common|uncommon|unsure","better_term":"<term or empty>","source":"<url or empty>"},"missing_variants":[{"term":"<vi term>","source":"<url or book>"}]}]}
+Include ONLY entries that have at least one finding (an uncommon verdict OR a missing variant). Valid JSON only (no comments, no trailing commas).
+
+After writing the file, print on its own line:  WROTE findings-2.json
+Then print the final marker line:  ===CODEX_REVIEW_DONE===
+
+hook: SessionStart
+hook: SessionStart Completed
+codex
+I’m using the `source-research` skill because this is a source-backed terminology review. I’ll first read its instructions, then give the short plan before searching or writing anything.
+hook: PreToolUse
+hook: PreToolUse Completed
+exec
+/bin/bash -lc "sed -n '1,220p' /home/ubuntu/.codex/skills/source-research/SKILL.md" in /home/ubuntu/DM-Concepts
+ succeeded in 0ms:
+---
+name: "source-research"
+description: "General web and source-gathering research workflow for current-information synthesis."
+metadata:
+  short-description: "General web and source-gathering research workflow for current-information synthesis."
+---
+
+<!-- Managed by ai-agents-skills. Generated target: codex. Install mode: reference. -->
+
+# source-research
+
+This is a thin adapter for agents that cannot load symlinked skills.
+
+Canonical skill source:
+
+- `~/ai-agents-skills/canonical/skills/source-research/SKILL.md`
+
+Before using this skill, read the canonical source file above and follow
+its instructions. Related reference files live next to that source file
+in the same skill directory.
+
+
+hook: PostToolUse
+hook: PostToolUse Completed
+codex
+The local adapter points to the canonical skill body, so I’m reading that next. After that I’ll keep the workflow narrow: inspect the batch, search snippets only, then write the findings JSON.
+hook: PreToolUse
+hook: PreToolUse Completed
+exec
+/bin/bash -lc "sed -n '1,260p' /home/ubuntu/ai-agents-skills/canonical/skills/source-research/SKILL.md" in /home/ubuntu/DM-Concepts
+ succeeded in 0ms:
+---
+name: source-research
+description: Use when the user wants research, source gathering, current-information lookups, cross-source synthesis, or extraction from URLs/PDFs/videos using web search, page inspection, local tools, and sub-agents.
+metadata:
+  short-description: Source-gathering research workflow
+---
+
+# Source Research
+
+Use this as the default source-gathering research router.
+
+## Supporting files
+
+Open these only when relevant:
+
+- `references/specialist-subagents.md` for focused single-specialist delegation briefs imported from the local Claude setup
+
+## Legacy tool mapping
+
+- legacy `web_search` -> Codex `web.search_query`
+- legacy `web_fetch` -> Codex `web.open`
+- legacy task/session spawning -> Codex `spawn_agent`
+- legacy `exec` -> Codex `functions.exec_command`
+
+## Live workspace routing
+
+- Generic paper, article, preprint, DOI, ISBN, and book retrieval or sharing requests route to `zotero` first.
+- Explicit Calibre-library ebook operations route to `calibre`.
+- External paper or book retrieval routes to `getscipapers-requester` only
+  after the relevant local-library workflow does not satisfy the request, or
+  after the user explicitly says not to check/use the library. The word
+  "download" alone is not an outside-library opt-out.
+- Multi-agent discussion/review/research routes to `agent-group-discuss` by default and `prose` for more structured workflows.
+- Annotated paper review routes to `annotated-review` only when the user explicitly asks for both annotation and review.
+- Review-only paper tasks route to `paper-review`.
+- Topic/news digests route to `research-digest-wrapper` or `rss-news-digest`.
+- Digest-to-paper extraction routes to `digest-bridge`.
+- Explicit phased deep research with structured source handoff routes to `deep-research-workflow`.
+- Writing, report, review, digest, or final-answer workflows must load
+  `writing-style-settings.md`; math or LaTeX writing must also load
+  `math-manuscript-style.md`.
+- Explicit TikZ drawing, refactoring, extraction, compile, or diagram-review requests route to `tikz-draw`.
+- Small graph-theoretic verification routes to `graph-verifier`.
+- Mathematical research tasks that need heavy graph-theoretic, combinatorial, algebraic, or spectral computation route to `sagemath`.
+
+## Default workflow
+
+1. If the request is current, says "latest", "today", "verify", or otherwise depends on recent facts, browse first.
+2. Start with focused search queries, not long prompts.
+3. Open the best primary sources, not just search snippets.
+4. Extract only the parts needed for the answer.
+5. Synthesize after evidence collection, not before.
+6. Cite concrete sources and dates whenever the answer depends on live or specific facts.
+7. For writing-producing outputs, record or surface `style_profile_ref`,
+   `active_overlays`, `active_requirement_ids`, and `style_applied`; do not
+   treat a bare `style_applied: true` assertion as sufficient evidence.
+
+## Research heuristics
+
+- Prefer primary sources: official docs, vendor pages, papers, standards, government sites.
+- Use domain filters when the source class is obvious.
+- For PDFs, use `web.open` and `web.screenshot` when needed.
+- For local files, use `functions.exec_command` instead of browsing.
+- Separate sourced facts from your own inference.
+- Prefer `deep-research-workflow` over this skill when the user explicitly wants phased search -> analysis -> writing with source preservation across stages.
+- Prefer `tikz-draw` for explicit TikZ or structural-diagram requests, including research-derived figures that already have a narrowed brief.
+- If a research task needs a diagram, keep the research in `deep-research-workflow` first and hand off to `tikz-draw` only after analysis identifies a concrete figure worth generating.
+- For literature retrieval requests, check the relevant local library workflow before browsing or external download.
+- For review tasks that need a paper/book, use the lookup order `zotero` -> `calibre` -> online fallback.
+- For digest follow-up, use `digest-bridge` to extract identifiers before bulk paper retrieval.
+- For explicit Calibre ebook-library workflows, prefer `calibre` over improvised filesystem search.
+- For mathematical verification, prefer local Python for small checks and route to `sagemath` when the computation needs SageMath-native capabilities.
+- Never use `curl`, `wget`, ad hoc browser fetches, or direct publisher-site HTTP requests as a substitute for the library tools on paper/book retrieval tasks.
+- When a lookup returns multiple plausible paper/book matches, show a numbered
+  list with title, authors, and year when available, then wait for the user's
+  chosen index before `--best`, `--index`, add, attach, send, review, or external
+  retrieval.
+
+## Parallelism
+
+If the task has distinct independent threads, spawn sub-agents in parallel.
+
+Good candidates:
+- source discovery vs synthesis plan
+- product A vs product B
+- multiple independent subtopics
+
+Do not spawn agents for the immediate blocking step if local work is faster.
+Ask for explicit confirmation before spawning subagents unless the user already
+requested multi-agent work, approved a workflow that includes subagents, or gave
+an explicit budget/depth instruction that makes parallel delegation expected.
+
+## Focused specialist delegation
+
+When the task needs one narrow specialist rather than a full panel, reuse the
+briefs in `references/specialist-subagents.md`.
+
+Good matches:
+
+- literature survey or citation hunting -> `literature-scout`
+- small-case exploration or counterexample search -> `math-explorer`
+- single-reviewer manuscript critique -> `paper-reviewer`
+- adversarial checking of one proof/lemma -> `proof-checker`
+
+## Route to narrower skills
+
+- Use `zotero` for generic paper, DOI, ISBN, book, and paper-library retrieval or sharing requests, including "find/get/send/share this paper or book".
+- Use `docling` for local parsing, conversion, chunking, and structure-aware analysis of PDFs, office documents, HTML, and image-backed documents.
+- Use `get-available-resources` before heavy local parsing or compute when resource constraints may materially affect the approach.
+- Use `database-lookup` for structured public scientific, regulatory, and economic database queries.
+- Use `paper-lookup` for external literature metadata/discovery after the library-first workflow and before external retrieval.
+- Use `deep-research-workflow` for single-agent phased deep research that needs explicit source handoff across search, analysis, and final writing.
+- Use `tikz-draw` for explicit TikZ figure generation, refactoring, extraction, compile, or review work, especially when the output should follow a structure-first brief -> spec -> render flow.
+- Use `calibre` for explicit Calibre library operations: ebook search/get by ID, sending Calibre-managed books, add/update, tags, shelves, sync, remove, convert, export, doctor, and clean.
+- Use `getscipapers-requester` only for external retrieval or DOI/ISBN
+  resolution after Zotero does not satisfy the request, or when the user
+  explicitly says not to check/use the library and wants outside retrieval. For
+  review tasks that need a document, check `calibre` after `zotero` and before
+  this fallback.
+- If an externally retrieved book file should be added to the ebook library, hand off to `calibre` for the final add/update step.
+- Use `annotated-review` only for annotate+review paper flows.
+- Use `paper-review` for single-agent review-only paper flows such as review, critique, hard review, or issue-finding requests.
+- Use `agent-group-discuss` for conversational multi-agent discussion, review, or research panels.
+- Use `prose` when the user wants explicit multi-agent research-and-synthesis orchestration.
+- Use `research-digest-wrapper` and `rss-news-digest` for tracked-topic and RSS-based research updates.
+- Use `graph-verifier` for lightweight graph sanity checks before escalating to SageMath.
+- Use `digest-bridge` to turn digest results into identifiers and manifests for retrieval.
+- Use `sagemath` for graph invariants, algebraic checks, spectral computations, exhaustive counterexample search, and other math tasks beyond lightweight local tooling.
+
+hook: PostToolUse
+hook: PostToolUse Completed
+codex
+Docs/Helpers Checked:
+- `/home/ubuntu/.codex/skills/source-research/SKILL.md`
+- `/home/ubuntu/ai-agents-skills/canonical/skills/source-research/SKILL.md`
+
+Plan:
+1. Read `workflow/loop/review/batch-2.json` and count only entries where `see_ref` is empty.
+2. For each non-stub entry, use only web search result snippets and URLs, with no page/PDF opens, limiting to 1-2 searches where needed.
+3. Record only evidence-backed issues: uncommon recommended term with a better sourced term, or missing Vietnamese variants not already in `vi_terms`.
+4. Write valid JSON to `workflow/loop/review/findings-2.json`, then print the two requested marker lines.
+hook: PreToolUse
+hook: PreToolUse Completed
+exec
+/bin/bash -lc 'cat workflow/loop/review/batch-2.json' in /home/ubuntu/DM-Concepts
+ succeeded in 0ms:
+[
+ {
+  "id": "bijection",
+  "letter": "B",
+  "headword_en": "Bijection",
+  "rosen_ref": "Rosen §2.3",
+  "definition_vi": "Song ánh là một ánh xạ $$f : A \\to B$$ vừa đơn ánh vừa toàn ánh, nghĩa là mỗi phần tử của tập đích $$B$$ là ảnh của đúng một phần tử của tập nguồn $$A$$. Khi đó $$f$$ có ánh xạ ngược $$f^{-1} : B \\to A$$.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "song ánh",
+    "source_id": "bib-leanhvinh-2020",
+    "page": "tr. 12 (PDF)",
+    "pdf_page": 12,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "song ánh",
+    "source_id": "bib-nguyenhoangthach-2020",
+    "page": "tr. 73 (PDF)",
+    "pdf_page": 73,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "song ánh",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 78 (PDF)",
+    "pdf_page": 78,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "song ánh",
+    "source_id": "bib-hoangchithanh-2007",
+    "page": "tr. 8 (PDF)",
+    "pdf_page": 8,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "song ánh",
+    "source_id": "bib-nguyenducnghia-2006",
+    "page": "tr. 19 (PDF)",
+    "pdf_page": 19,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "song ánh",
+    "source_id": "bib-ngodactan-2004",
+    "page": "tr. 37 (PDF)",
+    "pdf_page": 37,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "tương ứng một-một",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 82 (PDF)",
+    "pdf_page": 82,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "tương ứng một-một",
+    "source_id": "bib-ngodactan-2004",
+    "page": "tr. 25 (PDF)",
+    "pdf_page": 25,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "tương ứng 1-1",
+    "source_id": "bib-nguyenhoangthach-2020",
+    "page": "tr. 16 (PDF)",
+    "pdf_page": 16,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "tương ứng 1-1",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 96 (PDF)",
+    "pdf_page": 96,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "tương ứng 1-1",
+    "source_id": "bib-nguyenducnghia-2006",
+    "page": "tr. 115 (PDF)",
+    "pdf_page": 115,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "song ánh",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 86 (PDF, bản dịch Rosen)",
+    "pdf_page": 86,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "tương ứng một-một",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 504 (PDF, bản dịch Rosen)",
+    "pdf_page": 504,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "binary",
+  "letter": "B",
+  "headword_en": "Binary",
+  "rosen_ref": "Rosen §4.2",
+  "definition_vi": "Hệ nhị phân (hệ cơ số $$2$$) là hệ đếm dùng cơ số $$b = 2$$ với hai chữ số $$0$$ và $$1$$. Mỗi số nguyên không âm $$n$$ có duy nhất một khai triển nhị phân $$n = a_{k-1} 2^{k-1} + \\dots + a_1 2^1 + a_0 2^0$$, trong đó mỗi chữ số $$a_i \\in \\{0, 1\\}$$, ký hiệu $$(a_{k-1} \\dots a_1 a_0)_2$$.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "biểu diễn cơ số 2",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 130 (PDF)",
+    "pdf_page": 130,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "khai triển nhị phân",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 130 (PDF)",
+    "pdf_page": 130,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "khai triển nhị phân",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 144 (PDF)",
+    "pdf_page": 144,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "biểu diễn nhị phân",
+    "source_id": "bib-nguyenducnghia-2006",
+    "page": "tr. 93 (PDF)",
+    "pdf_page": 93,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "biểu diễn nhị phân",
+    "source_id": "bib-hoangchithanh-2007",
+    "page": "tr. 27 (PDF)",
+    "pdf_page": 27,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "biểu diễn nhị phân",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 14 (PDF, bản dịch Rosen)",
+    "pdf_page": 14,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "Hệ cơ số $2$ (nhị phân",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": false
+   },
+   {
+    "term": "Hệ cơ số 2 (nhị phân)",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": true
+   },
+   {
+    "term": "hệ nhị phân",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "binary-operator",
+  "letter": "B",
+  "headword_en": "Binary Operator",
+  "rosen_ref": "Rosen §1.1",
+  "definition_vi": "Toán tử hai ngôi là một toán tử logic tác động lên hai toán hạng, tức là kết hợp hai mệnh đề $$p$$ và $$q$$ để tạo thành một mệnh đề phức hợp mới. Các toán tử hai ngôi cơ bản trong logic mệnh đề gồm hội (ký hiệu $$\\wedge$$), tuyển (ký hiệu $$\\vee$$), tuyển loại trừ (ký hiệu $$\\oplus$$), kéo theo (ký hiệu $$\\rightarrow$$) và tương đương (ký hiệu $$\\leftrightarrow$$).",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "toán tử logic",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 19 (PDF)",
+    "pdf_page": 19,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "toán tử",
+    "source_id": "bib-ngodactan-2004",
+    "page": "tr. 224 (PDF)",
+    "pdf_page": 224,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "toán tử logic",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 7 (PDF)",
+    "pdf_page": 7,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "toán tử hai ngôi",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 658 (PDF, bản dịch Rosen)",
+    "pdf_page": 658,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "toán tử",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 7 (PDF, bản dịch Rosen)",
+    "pdf_page": 7,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "binary-relation",
+  "letter": "B",
+  "headword_en": "Binary relation",
+  "rosen_ref": "Rosen §9.1",
+  "definition_vi": "Một *quan hệ hai ngôi* từ tập $$A$$ đến tập $$B$$ là một tập con của tích Descartes $$A \\times B$$, tức là một tập hợp các cặp có thứ tự $$(a, b)$$ với $$a \\in A$$ và $$b \\in B$$; ký hiệu $$R \\subseteq A \\times B$$, và ta viết $$a \\mathrel{R} b$$ khi $$(a, b) \\in R$$. Khi $$A = B$$, ta nói $$R$$ là một quan hệ hai ngôi trên tập $$A$$.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "quan hệ hai ngôi",
+    "source_id": "bib-nguyenhoangthach-2020",
+    "page": "tr. 74 (PDF)",
+    "pdf_page": 74,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "quan hệ hai ngôi",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 106 (PDF)",
+    "pdf_page": 106,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "quan hệ 2 ngôi",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 108 (PDF)",
+    "pdf_page": 108,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "quan hệ hai ngôi",
+    "source_id": "bib-nguyenducnghia-2006",
+    "page": "tr. 14 (PDF)",
+    "pdf_page": 14,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "quan hệ hai ngôi",
+    "source_id": "bib-ngodactan-2004",
+    "page": "tr. 185 (PDF)",
+    "pdf_page": 185,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "quan hệ hai ngôi",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 424 (PDF, bản dịch Rosen)",
+    "pdf_page": 424,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "quan hệ nhị nguyên",
+    "source_id": "bib-hoangchithanh-2007",
+    "page": "tr. 6 (PDF)",
+    "pdf_page": 6,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "quan hệ",
+    "source_id": "bib-leanhvinh-2020",
+    "page": "tr. 17 (PDF)",
+    "pdf_page": 17,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "quan hệ nhị phân",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "binary-representation",
+  "letter": "B",
+  "headword_en": "Binary Representation",
+  "rosen_ref": "",
+  "definition_vi": "",
+  "see_ref": "binary",
+  "vi_terms": [
+   {
+    "term": "biểu diễn nhị phân",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "binary-search-algorithm",
+  "letter": "B",
+  "headword_en": "Binary Search Algorithm",
+  "rosen_ref": "Rosen §3.1",
+  "definition_vi": "Thuật toán tìm kiếm nhị phân là một thủ tục để tìm kiếm một phần tử trong một bảng kê đã được sắp thứ tự bằng cách liên tiếp chia đôi khoảng tìm kiếm. Tại mỗi bước, thuật toán so sánh phần tử cần tìm với phần tử ở giữa khoảng còn lại để loại bỏ một nửa số phần tử, cho tới khi khoảng tìm kiếm chỉ còn một phần tử.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "thuật toán tìm kiếm nhị phân",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 134 (PDF)",
+    "pdf_page": 134,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "thuật toán tìm kiếm nhị phân",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 139 (PDF)",
+    "pdf_page": 139,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "binary-search-tree",
+  "letter": "B",
+  "headword_en": "Binary search tree",
+  "rosen_ref": "Rosen §11.2",
+  "definition_vi": "Một cây tìm kiếm nhị phân là một cây nhị phân trong đó mỗi đỉnh được gán một khóa sao cho khóa của mỗi đỉnh lớn hơn mọi khóa thuộc cây con bên trái của nó và nhỏ hơn mọi khóa thuộc cây con bên phải của nó (cây tìm kiếm nhị phân thường được ký hiệu $$T$$).",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "cây tìm kiếm nhị phân",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 638 (PDF)",
+    "pdf_page": 638,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "cây nhị phân tìm kiếm",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "binary-tree",
+  "letter": "B",
+  "headword_en": "Binary tree",
+  "rosen_ref": "Rosen §11.1",
+  "definition_vi": "Cây nhị phân là một cây có gốc trong đó mỗi đỉnh có không quá hai con, và mỗi con được phân biệt là con trái hoặc con phải. Một cây nhị phân thường được ký hiệu là $$T$$.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "cây nhị phân",
+    "source_id": "bib-nguyenhoangthach-2020",
+    "page": "tr. 85 (PDF)",
+    "pdf_page": 85,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "cây nhị phân",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 254 (PDF)",
+    "pdf_page": 254,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "cây nhị phân",
+    "source_id": "bib-hoangchithanh-2007",
+    "page": "tr. 140 (PDF)",
+    "pdf_page": 140,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "cây nhị phân",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 624 (PDF, bản dịch Rosen)",
+    "pdf_page": 624,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "binomial-coefficient",
+  "letter": "B",
+  "headword_en": "Binomial coefficient",
+  "rosen_ref": "Rosen §6.3",
+  "definition_vi": "Hệ số nhị thức, ký hiệu $$\\binom{n}{k}$$, là số tập con gồm $$k$$ phần tử của một tập hợp gồm $$n$$ phần tử, với $$n$$ và $$k$$ là các số nguyên thỏa $$0 \\leq k \\leq n$$. Giá trị này được tính bởi công thức $$\\displaystyle \\binom{n}{k} = \\frac{n!}{k!\\,(n-k)!}$$.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "hệ số nhị thức",
+    "source_id": "bib-nguyenhoangthach-2020",
+    "page": "tr. 24 (PDF)",
+    "pdf_page": 24,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "số tổ hợp chập k của n",
+    "source_id": "bib-nguyenhoangthach-2020",
+    "page": "tr. 21 (PDF)",
+    "pdf_page": 21,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "tổ hợp chập k của n",
+    "source_id": "bib-nguyenhoangthach-2020",
+    "page": "tr. 21 (PDF)",
+    "pdf_page": 21,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "số tổ hợp chập r của n",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 90 (PDF)",
+    "pdf_page": 90,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "hệ số tổ hợp",
+    "source_id": "bib-nguyenducnghia-2006",
+    "page": "tr. 22 (PDF)",
+    "pdf_page": 22,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "hệ số nhị thức",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 317 (PDF, bản dịch Rosen)",
+    "pdf_page": 317,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "số tổ hợp chập r của n",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 317 (PDF, bản dịch Rosen)",
+    "pdf_page": 317,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "binomial-theorem",
+  "letter": "B",
+  "headword_en": "Binomial theorem",
+  "rosen_ref": "Rosen §6.4",
+  "definition_vi": "Định lý nhị thức là đẳng thức khai triển lũy thừa của một tổng thành tổng các đơn thức, phát biểu rằng với mọi số nguyên không âm $$n$$, ta có $$\\displaystyle (x+y)^n = \\sum_{k=0}^{n} \\binom{n}{k} x^{n-k} y^{k}$$, trong đó $$\\binom{n}{k}$$ là hệ số nhị thức. Các số $$\\binom{n}{k}$$ với $$0 \\leq k \\leq n$$ được gọi là các hệ số trong khai triển.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "định lý nhị thức",
+    "source_id": "bib-nguyenhoangthach-2020",
+    "page": "tr. 47 (PDF)",
+    "pdf_page": 47,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "định lý nhị thức",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 89 (PDF)",
+    "pdf_page": 89,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "công thức nhị thức",
+    "source_id": "bib-nguyenhoangthach-2020",
+    "page": "tr. 23 (PDF)",
+    "pdf_page": 23,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "công thức Newton",
+    "source_id": "bib-nguyenhoangthach-2020",
+    "page": "tr. 23 (PDF)",
+    "pdf_page": 23,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "khai triển nhị thức Newton",
+    "source_id": "bib-nguyenhoangthach-2020",
+    "page": "tr. 23 (PDF)",
+    "pdf_page": 23,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "khai triển nhị thức",
+    "source_id": "bib-nguyenducnghia-2006",
+    "page": "tr. 39 (PDF)",
+    "pdf_page": 39,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "định lý nhị thức",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 320 (PDF, bản dịch Rosen)",
+    "pdf_page": 320,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "công thức nhị thức",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 321 (PDF, bản dịch Rosen)",
+    "pdf_page": 321,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "khai triển nhị thức",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 317 (PDF, bản dịch Rosen)",
+    "pdf_page": 317,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "bipartite-graph",
+  "letter": "B",
+  "headword_en": "Bipartite graph",
+  "rosen_ref": "Rosen §10.2",
+  "definition_vi": "Đồ thị hai phần là đồ thị $$G$$ mà tập đỉnh $$V(G)$$ phân hoạch được thành hai tập rời nhau $$V_1$$ và $$V_2$$ (ký hiệu $$G = (V_1, V_2, E)$$) sao cho mỗi cạnh của $$G$$ nối một đỉnh thuộc $$V_1$$ với một đỉnh thuộc $$V_2$$.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "đồ thị hai phần",
+    "source_id": "bib-nguyenhoangthach-2020",
+    "page": "tr. 67 (PDF)",
+    "pdf_page": 67,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "đồ thị hai phần",
+    "source_id": "bib-leanhvinh-2020",
+    "page": "tr. 14 (PDF)",
+    "pdf_page": 14,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "đồ thị hai phần",
+    "source_id": "bib-hoangchithanh-2007",
+    "page": "tr. 60 (PDF)",
+    "pdf_page": 60,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "đồ thị hai phần",
+    "source_id": "bib-ngodactan-2004",
+    "page": "tr. 216 (PDF)",
+    "pdf_page": 216,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "đồ thị phân đôi",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 160 (PDF)",
+    "pdf_page": 160,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "đồ thị hai phía",
+    "source_id": "bib-nguyenducnghia-2006",
+    "page": "tr. 160 (PDF)",
+    "pdf_page": 160,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "đồ thị phân đôi",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 510 (PDF, bản dịch Rosen)",
+    "pdf_page": 510,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "đồ thị lưỡng phân",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "bit",
+  "letter": "B",
+  "headword_en": "Bit",
+  "rosen_ref": "Rosen §1.1",
+  "definition_vi": "Một bit là một chữ số nhị phân, nghĩa là nó có giá trị $$0$$ hoặc $$1$$. Bit được dùng để biểu diễn thông tin trong máy tính; chẳng hạn, có thể dùng bit $$1$$ để biểu diễn giá trị chân lý đúng và bit $$0$$ để biểu diễn giá trị chân lý sai.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "bit",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 14 (PDF)",
+    "pdf_page": 14,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "bit",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 76 (PDF)",
+    "pdf_page": 76,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "bit-operation",
+  "letter": "B",
+  "headword_en": "Bit Operation",
+  "rosen_ref": "Rosen §1.1",
+  "definition_vi": "Phép toán bit là một phép toán thực hiện trên một bit hoặc trên nhiều bit. Các phép toán bit trong máy tính tương ứng với các liên từ logic: thay các giá trị chân lý đúng và sai bằng các bit $$1$$ và $$0$$, ta nhận được các phép toán bit tương ứng với các toán tử $$\\wedge$$, $$\\vee$$ và $$\\oplus$$.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "phép toán bit",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 144 (PDF)",
+    "pdf_page": 144,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "phép toán bit",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 14 (PDF)",
+    "pdf_page": 14,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "bit-string",
+  "letter": "B",
+  "headword_en": "Bit String",
+  "rosen_ref": "Rosen §1.1",
+  "definition_vi": "Một xâu bit là một dãy các bit, tức là một dãy hữu hạn các chữ số $$0$$ và $$1$$. Số bit trong dãy được gọi là chiều dài (độ dài) của xâu bit.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "xâu bit",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 76 (PDF)",
+    "pdf_page": 76,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "xâu bit",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 15 (PDF)",
+    "pdf_page": 15,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "xâu bit",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 15 (PDF)",
+    "pdf_page": 15,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "chuỗi bit",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 81 (PDF)",
+    "pdf_page": 81,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "xâu nhị phân",
+    "source_id": "bib-nguyenducnghia-2006",
+    "page": "tr. 28 (PDF)",
+    "pdf_page": 28,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "xâu nhị phân",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 15 (PDF, bản dịch Rosen)",
+    "pdf_page": 15,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "dãy bit",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "bitwise-operation",
+  "letter": "B",
+  "headword_en": "Bitwise Operation",
+  "rosen_ref": "",
+  "definition_vi": "",
+  "see_ref": "bit-operation",
+  "vi_terms": [
+   {
+    "term": "phép toán theo từng bit",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "block",
+  "letter": "B",
+  "headword_en": "Block",
+  "rosen_ref": "Rosen §10.4",
+  "definition_vi": "Một *khối* của đồ thị $$G$$ là một đồ thị con liên thông cực đại của $$G$$ không chứa đỉnh cắt; nói cách khác, đó là một đồ thị con $$B$$ sao cho $$B$$ hoặc là một cầu (một cạnh đơn), hoặc là một đồ thị con $$2$$-liên thông cực đại của $$G$$.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "khối",
+    "source_id": "bib-ngodactan-2004",
+    "page": "tr. 267 (PDF)",
+    "pdf_page": 267,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "đồ thị con 2-liên thông cực đại",
+    "source_id": "bib-ngodactan-2004",
+    "page": "tr. 267 (PDF)",
+    "pdf_page": 267,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "khối",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 3 (PDF, bản dịch Rosen)",
+    "pdf_page": 3,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "thành phần song liên thông",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "block-cipher",
+  "letter": "B",
+  "headword_en": "Block Cipher",
+  "rosen_ref": "Rosen §4.6",
+  "definition_vi": "Mật mã khối là một hệ mật mã mã hóa các khối ký tự có độ dài cố định. Thay vì mã hóa từng ký tự một, mỗi khối gồm một số ký tự được mã hóa cùng nhau thành một khối bản mã có độ dài tương ứng.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "mật mã khối",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": true
+   }
+  ]
+ },
+ {
+  "id": "boolean-algebra",
+  "letter": "B",
+  "headword_en": "Boolean algebra",
+  "rosen_ref": "Rosen §12.1",
+  "definition_vi": "Một *đại số Boole* là một cấu trúc đại số gồm một tập hợp $$B$$ cùng với hai phép toán hai ngôi là phép tuyển $$\\vee$$ và phép hội $$\\wedge$$, một phép toán một ngôi lấy phần bù $$\\overline{\\phantom{x}}$$, và hai phần tử phân biệt $$0$$ và $$1$$, ký hiệu là $$(B, \\vee, \\wedge, \\overline{\\phantom{x}}, 0, 1)$$. Các phép toán này thỏa mãn các luật đồng nhất, luật phần bù, luật kết hợp, luật giao hoán và luật phân phối.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "đại số Boole",
+    "source_id": "",
+    "page": "",
+    "pdf_page": null,
+    "verified": false,
+    "recommended": true
+   },
+   {
+    "term": "đại số Boolean",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "boolean-expression",
+  "letter": "B",
+  "headword_en": "Boolean Expression",
+  "rosen_ref": "Rosen §12.1",
+  "definition_vi": "Biểu thức Boole theo các biến $$x_1, x_2, \\ldots, x_n$$ được định nghĩa đệ quy như sau: $$0$$, $$1$$, $$x_1$$, $$x_2$$, $$\\ldots$$, $$x_n$$ là các biểu thức Boole; và nếu $$E_1$$ và $$E_2$$ là các biểu thức Boole thì $$\\overline{E_1}$$, $$(E_1 E_2)$$ và $$(E_1 + E_2)$$ cũng là các biểu thức Boole. Mỗi biểu thức Boole theo $$n$$ biến biểu diễn một hàm Boole $$F : B^n \\to B$$, trong đó $$B = \\{0, 1\\}$$.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "biểu thức Boole",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 713 (PDF)",
+    "pdf_page": 713,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "biểu thức Boolean",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "boolean-function",
+  "letter": "B",
+  "headword_en": "Boolean function",
+  "rosen_ref": "Rosen §12.1",
+  "definition_vi": "Một *hàm Boole* $$n$$ biến là một ánh xạ $$f : \\{0,1\\}^n \\to \\{0,1\\}$$ gán cho mỗi bộ $$n$$ giá trị Boole một giá trị trong $$\\{0,1\\}$$, ký hiệu $$f(x_1, x_2, \\ldots, x_n)$$, trong đó mỗi biến $$x_i$$ nhận giá trị trong $$\\{0,1\\}$$.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "hàm đại số lôgic",
+    "source_id": "bib-nguyenducnghia-2006",
+    "page": "tr. 266 (PDF)",
+    "pdf_page": 266,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "hàm Boole",
+    "source_id": "bib-ngodactan-2004",
+    "page": "tr. 118 (PDF)",
+    "pdf_page": 118,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "hàm Boole",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 713 (PDF, bản dịch Rosen)",
+    "pdf_page": 713,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "hàm Boolean",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "boolean-product",
+  "letter": "B",
+  "headword_en": "Boolean Product",
+  "rosen_ref": "Rosen §2.6",
+  "definition_vi": "Tích Boole của hai ma trận không-một $$A = [a_{ij}]$$ cỡ $$m \\times k$$ và $$B = [b_{ij}]$$ cỡ $$k \\times n$$, ký hiệu là $$A \\odot B$$, là ma trận không-một $$C = [c_{ij}]$$ cỡ $$m \\times n$$ với phần tử $$c_{ij} = (a_{i1} \\wedge b_{1j}) \\vee (a_{i2} \\wedge b_{2j}) \\vee \\cdots \\vee (a_{ik} \\wedge b_{kj})$$, trong đó $$\\vee$$ là tổng Boole và $$\\wedge$$ là tích Boole trên tập $$\\{0, 1\\}$$. Phép tính này tương tự nhân ma trận thông thường nhưng thay phép cộng bằng $$\\vee$$ và phép nhân bằng $$\\wedge$$.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "tích Boole",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 191 (PDF)",
+    "pdf_page": 191,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "Tích Boole",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 191 (PDF, bản dịch Rosen)",
+    "pdf_page": 191,
+    "verified": true,
+    "recommended": true
+   }
+  ]
+ },
+ {
+  "id": "boolean-sum",
+  "letter": "B",
+  "headword_en": "Boolean Sum",
+  "rosen_ref": "Rosen §12.1",
+  "definition_vi": "Tổng Boole của hai phần tử $$x$$ và $$y$$ trong đại số Boole $$\\{0,1\\}$$, ký hiệu $$x + y$$ (hoặc OR), nhận giá trị $$1$$ nếu ít nhất một trong hai phần tử bằng $$1$$ và nhận giá trị $$0$$ trong trường hợp ngược lại. Như vậy $$1+1=1$$, $$1+0=1$$, $$0+1=1$$ và $$0+0=0$$.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "tổng Boole",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 712 (PDF)",
+    "pdf_page": 712,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "Tổng Boole",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 712 (PDF, bản dịch Rosen)",
+    "pdf_page": 712,
+    "verified": true,
+    "recommended": true
+   }
+  ]
+ },
+ {
+  "id": "boolean-variable",
+  "letter": "B",
+  "headword_en": "Boolean Variable",
+  "rosen_ref": "Rosen §12.1",
+  "definition_vi": "Biến Boole là một biến $$x$$ chỉ nhận giá trị trong tập $$B = \\{0, 1\\}$$ (ký hiệu $$1$$ cho giá trị đúng và $$0$$ cho giá trị sai). Các biến Boole kết hợp với các phép toán Boole tạo thành biểu thức Boole.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "biến Boole",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 713 (PDF)",
+    "pdf_page": 713,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "biến logic",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 14 (PDF)",
+    "pdf_page": 14,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "bound",
+  "letter": "B",
+  "headword_en": "Bound",
+  "rosen_ref": "Rosen §9.6",
+  "definition_vi": "Cho một tập con $$A$$ của một tập sắp thứ tự bộ phận $$(X, \\preceq)$$. Một phần tử $$x \\in X$$ được gọi là một cận trên của $$A$$ nếu $$a \\preceq x$$ với mọi $$a \\in A$$, và được gọi là một cận dưới của $$A$$ nếu $$x \\preceq a$$ với mọi $$a \\in A$$.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "chặn",
+    "source_id": "bib-leanhvinh-2020",
+    "page": "tr. 135 (PDF)",
+    "pdf_page": 135,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "chặn trên",
+    "source_id": "bib-leanhvinh-2020",
+    "page": "tr. 135 (PDF)",
+    "pdf_page": 135,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "chặn dưới",
+    "source_id": "bib-leanhvinh-2020",
+    "page": "tr. 95 (PDF)",
+    "pdf_page": 95,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "cận trên",
+    "source_id": "bib-nguyenducnghia-2006",
+    "page": "tr. 123 (PDF)",
+    "pdf_page": 123,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "cận dưới",
+    "source_id": "bib-nguyenducnghia-2006",
+    "page": "tr. 120 (PDF)",
+    "pdf_page": 120,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "cận",
+    "source_id": "bib-ngodactan-2004",
+    "page": "tr. 164 (PDF)",
+    "pdf_page": 164,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "cận",
+    "source_id": "bib-ngodactan-2004",
+    "page": "tr. 22 (PDF)",
+    "pdf_page": 22,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "cận dưới",
+    "source_id": "bib-ngodactan-2004",
+    "page": "tr. 164 (PDF)",
+    "pdf_page": 164,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "chặn",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 865 (PDF, bản dịch Rosen)",
+    "pdf_page": 865,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "cận trên",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 634 (PDF, bản dịch Rosen)",
+    "pdf_page": 634,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "cận dưới",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 667 (PDF, bản dịch Rosen)",
+    "pdf_page": 667,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "cận",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 3 (PDF, bản dịch Rosen)",
+    "pdf_page": 3,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "bound-variable",
+  "letter": "B",
+  "headword_en": "Bound Variable",
+  "rosen_ref": "Rosen §1.4",
+  "definition_vi": "Biến ràng buộc là một biến trong hàm mệnh đề được gắn (ràng buộc) bởi một lượng từ hoặc được gán một giá trị cụ thể, do đó nằm trong phạm vi tác động của lượng từ đó. Chẳng hạn, trong biểu thức $$\\forall x\\, P(x)$$ biến $$x$$ là biến ràng buộc, trái ngược với biến tự do không bị bất kỳ lượng từ nào ràng buộc.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "biến bị ràng buộc",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 50 (PDF)",
+    "pdf_page": 50,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "biến bị ràng buộc",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 39 (PDF)",
+    "pdf_page": 39,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "biến ràng buộc",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": true
+   },
+   {
+    "term": "biến buộc",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "boundary",
+  "letter": "B",
+  "headword_en": "Boundary",
+  "rosen_ref": "Rosen §10.7",
+  "definition_vi": "Trong một biểu diễn phẳng của đồ thị $$G$$, biên của miền $$R$$ là một chu trình đóng (closed walk) gồm các cạnh và đỉnh bao quanh miền $$R$$; nói chung chu trình này có thể đi qua một cạnh hai lần (chẳng hạn khi cạnh đó là một cầu), và trong đồ thị $$2$$-liên thông thì biên là một chu trình đơn.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "biên của miền",
+    "source_id": "bib-nguyenhoangthach-2020",
+    "page": "tr. 79 (PDF)",
+    "pdf_page": 79,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "cạnh biên",
+    "source_id": "bib-nguyenhoangthach-2020",
+    "page": "tr. 80 (PDF)",
+    "pdf_page": 80,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "biên của diện",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 232 (PDF)",
+    "pdf_page": 232,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "biên của miền",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 231 (PDF)",
+    "pdf_page": 231,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "biên của miền",
+    "source_id": "bib-ngodactan-2004",
+    "page": "tr. 208 (PDF)",
+    "pdf_page": 208,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "biên",
+    "source_id": "bib-ngodactan-2004",
+    "page": "tr. 214 (PDF)",
+    "pdf_page": 214,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "biên",
+    "source_id": "bib-hoangchithanh-2007",
+    "page": "tr. 116 (PDF)",
+    "pdf_page": 116,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "đường biên",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 235 (PDF)",
+    "pdf_page": 235,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "biên của miền",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 586 (PDF, bản dịch Rosen)",
+    "pdf_page": 586,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "biên",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 4 (PDF, bản dịch Rosen)",
+    "pdf_page": 4,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "breadth-first-search",
+  "letter": "B",
+  "headword_en": "Breadth-first search",
+  "rosen_ref": "Rosen §11.4",
+  "definition_vi": "Duyệt theo chiều rộng là phép duyệt đồ thị xây dựng một cây khung bằng cách bắt đầu từ một đỉnh gốc $$r$$, thăm tất cả các đỉnh ở khoảng cách $$1$$ tới $$r$$, rồi đến tất cả các đỉnh ở khoảng cách $$2$$, và cứ tiếp tục theo từng mức. Phép duyệt dùng một hàng đợi để lưu các đỉnh chờ được mở rộng.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "duyệt theo chiều rộng",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 178 (PDF)",
+    "pdf_page": 178,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "duyệt đồ thị theo chiều rộng",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 178 (PDF)",
+    "pdf_page": 178,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "tìm kiếm theo chiều rộng",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": false
+   },
+   {
+    "term": "tìm kiếm theo chiều rộng",
+    "source_id": "bib-nguyenducnghia-2006",
+    "page": "tr. 180 (PDF)",
+    "pdf_page": 180,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "duyệt theo chiều rộng",
+    "source_id": "bib-hoangchithanh-2007",
+    "page": "tr. 72 (PDF)",
+    "pdf_page": 72,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "duyệt theo bề rộng trước",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": false
+   },
+   {
+    "term": "thuật toán loang",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "bridge",
+  "letter": "B",
+  "headword_en": "Bridge",
+  "rosen_ref": "Rosen §10.4",
+  "definition_vi": "Cầu của một đồ thị liên thông là một cạnh mà việc xoá nó làm cho đồ thị con thu được không liên thông (có nhiều hơn một thành phần liên thông). Nói cách khác, cầu là cạnh $$e$$ sao cho $$G - e$$ có nhiều thành phần liên thông hơn $$G$$.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "cầu",
+    "source_id": "bib-leanhvinh-2020",
+    "page": "tr. 25 (PDF)",
+    "pdf_page": 25,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "cạnh cầu",
+    "source_id": "bib-leanhvinh-2020",
+    "page": "tr. 25 (PDF)",
+    "pdf_page": 25,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "cạnh cắt",
+    "source_id": "bib-nguyenhoangthach-2020",
+    "page": "tr. 75 (PDF)",
+    "pdf_page": 75,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "cầu",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 14 (PDF, bản dịch Rosen)",
+    "pdf_page": 14,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "cạnh cắt",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 540 (PDF, bản dịch Rosen)",
+    "pdf_page": 540,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "cantor-diagonalization-argument",
+  "letter": "C",
+  "headword_en": "Cantor Diagonalization Argument",
+  "rosen_ref": "Rosen §2.5",
+  "definition_vi": "Lập luận đường chéo của Cantor là kỹ thuật chứng minh một tập hợp là không đếm được bằng phản chứng: giả sử tập đó đếm được nên có thể liệt kê các phần tử thành dãy, rồi xây dựng một phần tử mới khác phần tử thứ $$n$$ trong dãy ở thành phần thứ $$n$$ (chẳng hạn ở chữ số thứ $$n$$ của khai triển thập phân), nên phần tử mới này không có mặt trong dãy, dẫn tới mâu thuẫn. Cantor dùng lập luận này để chứng minh tập các số thực $$\\mathbb{R}$$ là không đếm được.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "lập luận đường chéo của Cantor",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": true
+   },
+   {
+    "term": "lập luận cắt đường chéo",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": false
+   },
+   {
+    "term": "phương pháp đường chéo",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "cardinality",
+  "letter": "C",
+  "headword_en": "Cardinality",
+  "rosen_ref": "Rosen §2.5",
+  "definition_vi": "Lực lượng của một tập hợp $$A$$, ký hiệu $$|A|$$, là số phần tử của $$A$$. Hai tập hợp $$A$$ và $$B$$ được gọi là đồng lực lượng (có cùng lực lượng) khi tồn tại một song ánh từ $$A$$ vào $$B$$.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "lực lượng",
+    "source_id": "bib-leanhvinh-2020",
+    "page": "tr. 192 (PDF)",
+    "pdf_page": 192,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "lực lượng",
+    "source_id": "bib-nguyenhoangthach-2020",
+    "page": "tr. 75 (PDF)",
+    "pdf_page": 75,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "lực lượng",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 76 (PDF)",
+    "pdf_page": 76,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "lực lượng của tập hợp",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 76 (PDF)",
+    "pdf_page": 76,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "số phần tử",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 76 (PDF)",
+    "pdf_page": 76,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "đồng lực lượng",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 78 (PDF)",
+    "pdf_page": 78,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "lực lượng",
+    "source_id": "bib-hoangchithanh-2007",
+    "page": "tr. 63 (PDF)",
+    "pdf_page": 63,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "lực lượng",
+    "source_id": "bib-nguyenducnghia-2006",
+    "page": "tr. 73 (PDF)",
+    "pdf_page": 73,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "lực lượng",
+    "source_id": "bib-ngodactan-2004",
+    "page": "tr. 33 (PDF)",
+    "pdf_page": 33,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "lực lượng bằng nhau",
+    "source_id": "bib-ngodactan-2004",
+    "page": "tr. 25 (PDF)",
+    "pdf_page": 25,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "bản số",
+    "source_id": "bib-ngodactan-2004",
+    "page": "tr. 25 (PDF)",
+    "pdf_page": 25,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "số phần tử",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 54 (PDF, bản dịch Rosen)",
+    "pdf_page": 54,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "bản số",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 58 (PDF, bản dịch Rosen)",
+    "pdf_page": 58,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "carmichael-number",
+  "letter": "C",
+  "headword_en": "Carmichael Number",
+  "rosen_ref": "Rosen §3.5",
+  "definition_vi": "Số Carmichael là một hợp số $$n$$ sao cho $$n$$ là số giả nguyên tố theo mọi cơ sở nguyên tố cùng nhau với $$n$$.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "số Carmichael",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 206 (PDF)",
+    "pdf_page": 206,
+    "verified": true,
+    "recommended": true
+   }
+  ]
+ },
+ {
+  "id": "carry",
+  "letter": "C",
+  "headword_en": "Carry",
+  "rosen_ref": "Rosen §4.2",
+  "definition_vi": "Số nhớ là bit phụ, ký hiệu $$c_j$$, sinh ra khi cộng hai số nguyên trong khai triển nhị phân và được chuyển sang vị trí kế tiếp bên trái. Khi cộng cặp bit thứ $$j$$ là $$a_j$$ và $$b_j$$ cùng với số nhớ trước đó $$c_{j-1}$$, tổng $$a_j + b_j + c_{j-1}$$ cho bit tổng $$s_j$$ và số nhớ mới $$c_j$$ thỏa $$a_j + b_j + c_{j-1} = 2 c_j + s_j$$, trong đó $$c_j \\in \\{0, 1\\}$$.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "số nhớ",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 176 (PDF)",
+    "pdf_page": 176,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "số nhớ",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 145 (PDF)",
+    "pdf_page": 145,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "có nhớ",
+    "source_id": "bib-nguyenducnghia-2006",
+    "page": "tr. 93 (PDF)",
+    "pdf_page": 93,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "nhớ",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 43 (PDF, bản dịch Rosen)",
+    "pdf_page": 43,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "có nhớ",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 176 (PDF, bản dịch Rosen)",
+    "pdf_page": 176,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "cartesian-product",
+  "letter": "C",
+  "headword_en": "Cartesian Product",
+  "rosen_ref": "Rosen §2.1",
+  "definition_vi": "Tích Đềcác của hai tập hợp $$A$$ và $$B$$, ký hiệu $$A \\times B$$, là tập hợp tất cả các cặp có thứ tự $$(a, b)$$ với $$a \\in A$$ và $$b \\in B$$, tức là $$A \\times B = \\{(a, b) : a \\in A \\land b \\in B\\}$$. Mở rộng cho $$n$$ tập hợp, tích Đềcác $$A_1 \\times A_2 \\times \\cdots \\times A_n$$ là tập hợp các bộ có thứ tự $$(a_1, a_2, \\ldots, a_n)$$ với $$a_i \\in A_i$$ với mọi $$i = 1, 2, \\ldots, n$$.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "tích Đề các",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 60 (PDF)",
+    "pdf_page": 60,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "tích Đề các",
+    "source_id": "bib-ngodactan-2004",
+    "page": "tr. 27 (PDF)",
+    "pdf_page": 27,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "tích Đêcac",
+    "source_id": "bib-nguyenducnghia-2006",
+    "page": "tr. 13 (PDF)",
+    "pdf_page": 13,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "tích Descartes",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 76 (PDF)",
+    "pdf_page": 76,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "tích Descartes",
+    "source_id": "bib-nguyenhoangthach-2020",
+    "page": "tr. 26 (PDF)",
+    "pdf_page": 26,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "Tích Đềcác",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": true
+   }
+  ]
+ },
+ {
+  "id": "ceiling-function",
+  "letter": "C",
+  "headword_en": "Ceiling Function",
+  "rosen_ref": "Rosen §2.3",
+  "definition_vi": "Hàm trần là hàm gán cho mỗi số thực $$x$$ số nguyên nhỏ nhất lớn hơn hoặc bằng $$x$$, ký hiệu $$\\lceil x \\rceil$$. Như vậy $$\\lceil x \\rceil$$ là số nguyên $$n$$ duy nhất thỏa mãn $$n - 1 < x \\leq n$$.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "hàm trần",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 86 (PDF)",
+    "pdf_page": 86,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "hàm trần",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 91 (PDF)",
+    "pdf_page": 91,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "Hàm trần",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 91 (PDF, bản dịch Rosen)",
+    "pdf_page": 91,
+    "verified": true,
+    "recommended": true
+   }
+  ]
+ },
+ {
+  "id": "centre",
+  "letter": "C",
+  "headword_en": "Centre",
+  "rosen_ref": "Rosen §10.4",
+  "definition_vi": "Tâm của một đồ thị liên thông $$G$$, ký hiệu $$C(G)$$, là tập hợp các đỉnh có độ lệch tâm nhỏ nhất, nghĩa là các đỉnh $$v$$ với $$e(v)$$ bằng bán kính $$r(G) = \\min_{u \\in V(G)} e(u)$$, trong đó độ lệch tâm $$e(v) = \\max_{u \\in V(G)} \\mathrm{dist}_G(v, u)$$. Mỗi đỉnh như vậy được gọi là đỉnh tâm của $$G$$.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "tâm của đồ thị",
+    "source_id": "bib-hoangchithanh-2007",
+    "page": "tr. 100 (PDF)",
+    "pdf_page": 100,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "trung tâm",
+    "source_id": "bib-leanhvinh-2020",
+    "page": "tr. 43 (PDF)",
+    "pdf_page": 43,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "đỉnh tâm",
+    "source_id": "bib-ngodactan-2004",
+    "page": "tr. 216 (PDF)",
+    "pdf_page": 216,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "tâm",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 58 (PDF, bản dịch Rosen)",
+    "pdf_page": 58,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "trung tâm",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 139 (PDF, bản dịch Rosen)",
+    "pdf_page": 139,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "character-cipher",
+  "letter": "C",
+  "headword_en": "Character Cipher",
+  "rosen_ref": "Rosen §4.6",
+  "definition_vi": "Mật mã ký tự là một loại mật mã mã hóa thông điệp bằng cách mã hóa từng ký tự một. Mỗi ký tự của bản rõ được thay thế riêng lẻ bởi một ký tự khác theo một quy tắc cố định, độc lập với các ký tự còn lại.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "mật mã ký tự",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": true
+   },
+   {
+    "term": "mật mã",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 163 (PDF)",
+    "pdf_page": 163,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "mật mã của Caesar",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 164 (PDF)",
+    "pdf_page": 164,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "mật mã học",
+    "source_id": "bib-hoangchithanh-2007",
+    "page": "tr. 146 (PDF)",
+    "pdf_page": 146,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "mật mã học",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 163 (PDF, bản dịch Rosen)",
+    "pdf_page": 163,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "characteristic-polynomial",
+  "letter": "C",
+  "headword_en": "Characteristic Polynomial",
+  "rosen_ref": "Rosen §8.2",
+  "definition_vi": "Đa thức đặc trưng của một hệ thức truy hồi tuyến tính thuần nhất hệ số hằng bậc $$k$$, $$a_n = c_1 a_{n-1} + c_2 a_{n-2} + \\dots + c_k a_{n-k}$$, là đa thức $$r^k - c_1 r^{k-1} - c_2 r^{k-2} - \\dots - c_k$$ (ký hiệu các nghiệm của nó là các nghiệm đặc trưng). Tổng quát hơn, đa thức đặc trưng của một ma trận vuông $$A$$ là $$\\det(A - \\lambda I)$$.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "đa thức đặc trưng",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 99 (PDF)",
+    "pdf_page": 99,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "đa thức đặc trưng",
+    "source_id": "bib-leanhvinh-2020",
+    "page": "tr. 58 (PDF)",
+    "pdf_page": 58,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "đa thức đặc trưng",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 392 (PDF)",
+    "pdf_page": 392,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "characteristic-root",
+  "letter": "C",
+  "headword_en": "Characteristic Root",
+  "rosen_ref": "Rosen §8.2",
+  "definition_vi": "Nghiệm đặc trưng của một hệ thức truy hồi tuyến tính thuần nhất hệ số hằng $$a_n = c_1 a_{n-1} + c_2 a_{n-2} + \\cdots + c_k a_{n-k}$$ là một nghiệm $$r$$ của phương trình đặc trưng $$r^k - c_1 r^{k-1} - c_2 r^{k-2} - \\cdots - c_k = 0$$ tương ứng. Các nghiệm đặc trưng được dùng để xây dựng nghiệm tổng quát của hệ thức truy hồi.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "nghiệm đặc trưng",
+    "source_id": "bib-nguyenducnghia-2006",
+    "page": "tr. 35 (PDF)",
+    "pdf_page": 35,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "nghiệm đặc trưng",
+    "source_id": "bib-nguyenhoangthach-2020",
+    "page": "tr. 41 (PDF)",
+    "pdf_page": 41,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "nghiệm đặc trưng",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 98 (PDF)",
+    "pdf_page": 98,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "nghiệm đặc trưng",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 388 (PDF)",
+    "pdf_page": 388,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "child",
+  "letter": "C",
+  "headword_en": "Child",
+  "rosen_ref": "Rosen §10.1",
+  "definition_vi": "Trong một cây có gốc, đỉnh con (con) của một đỉnh $$v$$ là đỉnh $$u$$ kề với $$v$$ sao cho $$v$$ là đỉnh nằm trên đường đi duy nhất từ gốc tới $$u$$, tức $$v$$ là cha của $$u$$. Mỗi đỉnh khác gốc đều có đúng một cha và là con của cha đó.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "đỉnh con",
+    "source_id": "bib-nguyenhoangthach-2020",
+    "page": "tr. 84 (PDF)",
+    "pdf_page": 84,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "đỉnh con",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 252 (PDF)",
+    "pdf_page": 252,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "đỉnh con",
+    "source_id": "bib-hoangchithanh-2007",
+    "page": "tr. 137 (PDF)",
+    "pdf_page": 137,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "đỉnh con",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 646 (PDF)",
+    "pdf_page": 646,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "con",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 625 (PDF)",
+    "pdf_page": 625,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "con",
+    "source_id": "bib-nguyenhoangthach-2020",
+    "page": "tr. 85 (PDF)",
+    "pdf_page": 85,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "chinese-postman-problem",
+  "letter": "C",
+  "headword_en": "Chinese Postman Problem",
+  "rosen_ref": "Rosen §10.5",
+  "definition_vi": "Bài toán người đưa thư Trung Hoa là bài toán tìm một chu trình khép kín có tổng trọng số nhỏ nhất trong một đồ thị liên thông có trọng số, sao cho chu trình đó đi qua mỗi cạnh ít nhất một lần rồi trở về đỉnh xuất phát. Nếu đồ thị có chu trình Euler thì lời giải tối ưu chính là chu trình Euler đó, vì khi đó mỗi cạnh được đi qua đúng một lần.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "bài toán người phát thư Trung Hoa",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 186 (PDF)",
+    "pdf_page": 186,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "bài toán người đưa thư Trung Quốc",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 618 (PDF)",
+    "pdf_page": 618,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "Bài toán người đưa thư Trung Hoa",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": true
+   }
+  ]
+ }
+]
+hook: PostToolUse
+hook: PostToolUse Completed
+codex
+The raw batch is long enough that the terminal output was truncated, so I’m switching to a compact structured view with `jq`: IDs, headwords, stubs, and term lists only.
+hook: PreToolUse
+hook: PreToolUse Completed
+exec
+/bin/bash -lc "jq -r '.[] | {id, headword_en, see_ref, vi_terms: [.vi_terms[] | {term, recommended}]} | @json' workflow/loop/review/batch-2.json" in /home/ubuntu/DM-Concepts
+ succeeded in 0ms:
+{"id":"bijection","headword_en":"Bijection","see_ref":"","vi_terms":[{"term":"song ánh","recommended":true},{"term":"song ánh","recommended":false},{"term":"song ánh","recommended":false},{"term":"song ánh","recommended":false},{"term":"song ánh","recommended":false},{"term":"song ánh","recommended":false},{"term":"tương ứng một-một","recommended":false},{"term":"tương ứng một-một","recommended":false},{"term":"tương ứng 1-1","recommended":false},{"term":"tương ứng 1-1","recommended":false},{"term":"tương ứng 1-1","recommended":false},{"term":"song ánh","recommended":false},{"term":"tương ứng một-một","recommended":false}]}
+{"id":"binary","headword_en":"Binary","see_ref":"","vi_terms":[{"term":"biểu diễn cơ số 2","recommended":false},{"term":"khai triển nhị phân","recommended":false},{"term":"khai triển nhị phân","recommended":false},{"term":"biểu diễn nhị phân","recommended":false},{"term":"biểu diễn nhị phân","recommended":false},{"term":"biểu diễn nhị phân","recommended":false},{"term":"Hệ cơ số $2$ (nhị phân","recommended":false},{"term":"Hệ cơ số 2 (nhị phân)","recommended":true},{"term":"hệ nhị phân","recommended":false}]}
+{"id":"binary-operator","headword_en":"Binary Operator","see_ref":"","vi_terms":[{"term":"toán tử logic","recommended":false},{"term":"toán tử","recommended":false},{"term":"toán tử logic","recommended":false},{"term":"toán tử hai ngôi","recommended":true},{"term":"toán tử","recommended":false}]}
+{"id":"binary-relation","headword_en":"Binary relation","see_ref":"","vi_terms":[{"term":"quan hệ hai ngôi","recommended":true},{"term":"quan hệ hai ngôi","recommended":false},{"term":"quan hệ 2 ngôi","recommended":false},{"term":"quan hệ hai ngôi","recommended":false},{"term":"quan hệ hai ngôi","recommended":false},{"term":"quan hệ hai ngôi","recommended":false},{"term":"quan hệ nhị nguyên","recommended":false},{"term":"quan hệ","recommended":false},{"term":"quan hệ nhị phân","recommended":false}]}
+{"id":"binary-representation","headword_en":"Binary Representation","see_ref":"binary","vi_terms":[{"term":"biểu diễn nhị phân","recommended":false}]}
+{"id":"binary-search-algorithm","headword_en":"Binary Search Algorithm","see_ref":"","vi_terms":[{"term":"thuật toán tìm kiếm nhị phân","recommended":true},{"term":"thuật toán tìm kiếm nhị phân","recommended":false}]}
+{"id":"binary-search-tree","headword_en":"Binary search tree","see_ref":"","vi_terms":[{"term":"cây tìm kiếm nhị phân","recommended":true},{"term":"cây nhị phân tìm kiếm","recommended":false}]}
+{"id":"binary-tree","headword_en":"Binary tree","see_ref":"","vi_terms":[{"term":"cây nhị phân","recommended":true},{"term":"cây nhị phân","recommended":false},{"term":"cây nhị phân","recommended":false},{"term":"cây nhị phân","recommended":false}]}
+{"id":"binomial-coefficient","headword_en":"Binomial coefficient","see_ref":"","vi_terms":[{"term":"hệ số nhị thức","recommended":true},{"term":"số tổ hợp chập k của n","recommended":false},{"term":"tổ hợp chập k của n","recommended":false},{"term":"số tổ hợp chập r của n","recommended":false},{"term":"hệ số tổ hợp","recommended":false},{"term":"hệ số nhị thức","recommended":false},{"term":"số tổ hợp chập r của n","recommended":false}]}
+{"id":"binomial-theorem","headword_en":"Binomial theorem","see_ref":"","vi_terms":[{"term":"định lý nhị thức","recommended":true},{"term":"định lý nhị thức","recommended":false},{"term":"công thức nhị thức","recommended":false},{"term":"công thức Newton","recommended":false},{"term":"khai triển nhị thức Newton","recommended":false},{"term":"khai triển nhị thức","recommended":false},{"term":"định lý nhị thức","recommended":false},{"term":"công thức nhị thức","recommended":false},{"term":"khai triển nhị thức","recommended":false}]}
+{"id":"bipartite-graph","headword_en":"Bipartite graph","see_ref":"","vi_terms":[{"term":"đồ thị hai phần","recommended":true},{"term":"đồ thị hai phần","recommended":false},{"term":"đồ thị hai phần","recommended":false},{"term":"đồ thị hai phần","recommended":false},{"term":"đồ thị phân đôi","recommended":false},{"term":"đồ thị hai phía","recommended":false},{"term":"đồ thị phân đôi","recommended":false},{"term":"đồ thị lưỡng phân","recommended":false}]}
+{"id":"bit","headword_en":"Bit","see_ref":"","vi_terms":[{"term":"bit","recommended":true},{"term":"bit","recommended":false}]}
+{"id":"bit-operation","headword_en":"Bit Operation","see_ref":"","vi_terms":[{"term":"phép toán bit","recommended":true},{"term":"phép toán bit","recommended":false}]}
+{"id":"bit-string","headword_en":"Bit String","see_ref":"","vi_terms":[{"term":"xâu bit","recommended":true},{"term":"xâu bit","recommended":false},{"term":"xâu bit","recommended":false},{"term":"chuỗi bit","recommended":false},{"term":"xâu nhị phân","recommended":false},{"term":"xâu nhị phân","recommended":false},{"term":"dãy bit","recommended":false}]}
+{"id":"bitwise-operation","headword_en":"Bitwise Operation","see_ref":"bit-operation","vi_terms":[{"term":"phép toán theo từng bit","recommended":false}]}
+{"id":"block","headword_en":"Block","see_ref":"","vi_terms":[{"term":"khối","recommended":true},{"term":"đồ thị con 2-liên thông cực đại","recommended":false},{"term":"khối","recommended":false},{"term":"thành phần song liên thông","recommended":false}]}
+{"id":"block-cipher","headword_en":"Block Cipher","see_ref":"","vi_terms":[{"term":"mật mã khối","recommended":true}]}
+{"id":"boolean-algebra","headword_en":"Boolean algebra","see_ref":"","vi_terms":[{"term":"đại số Boole","recommended":true},{"term":"đại số Boolean","recommended":false}]}
+{"id":"boolean-expression","headword_en":"Boolean Expression","see_ref":"","vi_terms":[{"term":"biểu thức Boole","recommended":true},{"term":"biểu thức Boolean","recommended":false}]}
+{"id":"boolean-function","headword_en":"Boolean function","see_ref":"","vi_terms":[{"term":"hàm đại số lôgic","recommended":false},{"term":"hàm Boole","recommended":true},{"term":"hàm Boole","recommended":false},{"term":"hàm Boolean","recommended":false}]}
+{"id":"boolean-product","headword_en":"Boolean Product","see_ref":"","vi_terms":[{"term":"tích Boole","recommended":false},{"term":"Tích Boole","recommended":true}]}
+{"id":"boolean-sum","headword_en":"Boolean Sum","see_ref":"","vi_terms":[{"term":"tổng Boole","recommended":false},{"term":"Tổng Boole","recommended":true}]}
+{"id":"boolean-variable","headword_en":"Boolean Variable","see_ref":"","vi_terms":[{"term":"biến Boole","recommended":true},{"term":"biến logic","recommended":false}]}
+{"id":"bound","headword_en":"Bound","see_ref":"","vi_terms":[{"term":"chặn","recommended":false},{"term":"chặn trên","recommended":false},{"term":"chặn dưới","recommended":false},{"term":"cận trên","recommended":false},{"term":"cận dưới","recommended":false},{"term":"cận","recommended":true},{"term":"cận","recommended":false},{"term":"cận dưới","recommended":false},{"term":"chặn","recommended":false},{"term":"cận trên","recommended":false},{"term":"cận dưới","recommended":false},{"term":"cận","recommended":false}]}
+{"id":"bound-variable","headword_en":"Bound Variable","see_ref":"","vi_terms":[{"term":"biến bị ràng buộc","recommended":false},{"term":"biến bị ràng buộc","recommended":false},{"term":"biến ràng buộc","recommended":true},{"term":"biến buộc","recommended":false}]}
+{"id":"boundary","headword_en":"Boundary","see_ref":"","vi_terms":[{"term":"biên của miền","recommended":true},{"term":"cạnh biên","recommended":false},{"term":"biên của diện","recommended":false},{"term":"biên của miền","recommended":false},{"term":"biên của miền","recommended":false},{"term":"biên","recommended":false},{"term":"biên","recommended":false},{"term":"đường biên","recommended":false},{"term":"biên của miền","recommended":false},{"term":"biên","recommended":false}]}
+{"id":"breadth-first-search","headword_en":"Breadth-first search","see_ref":"","vi_terms":[{"term":"duyệt theo chiều rộng","recommended":true},{"term":"duyệt đồ thị theo chiều rộng","recommended":false},{"term":"tìm kiếm theo chiều rộng","recommended":false},{"term":"tìm kiếm theo chiều rộng","recommended":false},{"term":"duyệt theo chiều rộng","recommended":false},{"term":"duyệt theo bề rộng trước","recommended":false},{"term":"thuật toán loang","recommended":false}]}
+{"id":"bridge","headword_en":"Bridge","see_ref":"","vi_terms":[{"term":"cầu","recommended":true},{"term":"cạnh cầu","recommended":false},{"term":"cạnh cắt","recommended":false},{"term":"cầu","recommended":false},{"term":"cạnh cắt","recommended":false}]}
+{"id":"cantor-diagonalization-argument","headword_en":"Cantor Diagonalization Argument","see_ref":"","vi_terms":[{"term":"lập luận đường chéo của Cantor","recommended":true},{"term":"lập luận cắt đường chéo","recommended":false},{"term":"phương pháp đường chéo","recommended":false}]}
+{"id":"cardinality","headword_en":"Cardinality","see_ref":"","vi_terms":[{"term":"lực lượng","recommended":true},{"term":"lực lượng","recommended":false},{"term":"lực lượng","recommended":false},{"term":"lực lượng của tập hợp","recommended":false},{"term":"số phần tử","recommended":false},{"term":"đồng lực lượng","recommended":false},{"term":"lực lượng","recommended":false},{"term":"lực lượng","recommended":false},{"term":"lực lượng","recommended":false},{"term":"lực lượng bằng nhau","recommended":false},{"term":"bản số","recommended":false},{"term":"số phần tử","recommended":false},{"term":"bản số","recommended":false}]}
+{"id":"carmichael-number","headword_en":"Carmichael Number","see_ref":"","vi_terms":[{"term":"số Carmichael","recommended":true}]}
+{"id":"carry","headword_en":"Carry","see_ref":"","vi_terms":[{"term":"số nhớ","recommended":false},{"term":"số nhớ","recommended":false},{"term":"có nhớ","recommended":false},{"term":"nhớ","recommended":true},{"term":"có nhớ","recommended":false}]}
+{"id":"cartesian-product","headword_en":"Cartesian Product","see_ref":"","vi_terms":[{"term":"tích Đề các","recommended":false},{"term":"tích Đề các","recommended":false},{"term":"tích Đêcac","recommended":false},{"term":"tích Descartes","recommended":false},{"term":"tích Descartes","recommended":false},{"term":"Tích Đềcác","recommended":true}]}
+{"id":"ceiling-function","headword_en":"Ceiling Function","see_ref":"","vi_terms":[{"term":"hàm trần","recommended":false},{"term":"hàm trần","recommended":false},{"term":"Hàm trần","recommended":true}]}
+{"id":"centre","headword_en":"Centre","see_ref":"","vi_terms":[{"term":"tâm của đồ thị","recommended":false},{"term":"trung tâm","recommended":false},{"term":"đỉnh tâm","recommended":false},{"term":"tâm","recommended":true},{"term":"trung tâm","recommended":false}]}
+{"id":"character-cipher","headword_en":"Character Cipher","see_ref":"","vi_terms":[{"term":"mật mã ký tự","recommended":true},{"term":"mật mã","recommended":false},{"term":"mật mã của Caesar","recommended":false},{"term":"mật mã học","recommended":false},{"term":"mật mã học","recommended":false}]}
+{"id":"characteristic-polynomial","headword_en":"Characteristic Polynomial","see_ref":"","vi_terms":[{"term":"đa thức đặc trưng","recommended":true},{"term":"đa thức đặc trưng","recommended":false},{"term":"đa thức đặc trưng","recommended":false}]}
+{"id":"characteristic-root","headword_en":"Characteristic Root","see_ref":"","vi_terms":[{"term":"nghiệm đặc trưng","recommended":true},{"term":"nghiệm đặc trưng","recommended":false},{"term":"nghiệm đặc trưng","recommended":false},{"term":"nghiệm đặc trưng","recommended":false}]}
+{"id":"child","headword_en":"Child","see_ref":"","vi_terms":[{"term":"đỉnh con","recommended":true},{"term":"đỉnh con","recommended":false},{"term":"đỉnh con","recommended":false},{"term":"đỉnh con","recommended":false},{"term":"con","recommended":false},{"term":"con","recommended":false}]}
+{"id":"chinese-postman-problem","headword_en":"Chinese Postman Problem","see_ref":"","vi_terms":[{"term":"bài toán người phát thư Trung Hoa","recommended":false},{"term":"bài toán người đưa thư Trung Quốc","recommended":false},{"term":"Bài toán người đưa thư Trung Hoa","recommended":true}]}
+
+hook: PostToolUse
+hook: PostToolUse Completed
+codex
+I found the batch contains one cross-reference stub in the compact view (`binary-representation`) and one more (`bitwise-operation`), so I’ll exclude those from the reviewed count and evidence checks.
+hook: PreToolUse
+hook: PreToolUse Completed
+exec
+/bin/bash -lc "jq '[.[] | select(.see_ref == \"\")] | length' workflow/loop/review/batch-2.json" in /home/ubuntu/DM-Concepts
+ succeeded in 0ms:
+38
+
+hook: PostToolUse
+hook: PostToolUse Completed
+codex
+I’m checking the definitions for entries where the English word is overloaded (`block`, `bound`, `boundary`, `character cipher`, etc.) before searching; the correct Vietnamese variant depends on that local meaning.
+hook: PreToolUse
+hook: PreToolUse Completed
+exec
+/bin/bash -lc "jq -r '.[] | select(.see_ref == \"\") | [.id,.headword_en,.definition_vi] | @tsv' workflow/loop/review/batch-2.json" in /home/ubuntu/DM-Concepts
+ succeeded in 0ms:
+bijection	Bijection	Song ánh là một ánh xạ $$f : A \\to B$$ vừa đơn ánh vừa toàn ánh, nghĩa là mỗi phần tử của tập đích $$B$$ là ảnh của đúng một phần tử của tập nguồn $$A$$. Khi đó $$f$$ có ánh xạ ngược $$f^{-1} : B \\to A$$.
+binary	Binary	Hệ nhị phân (hệ cơ số $$2$$) là hệ đếm dùng cơ số $$b = 2$$ với hai chữ số $$0$$ và $$1$$. Mỗi số nguyên không âm $$n$$ có duy nhất một khai triển nhị phân $$n = a_{k-1} 2^{k-1} + \\dots + a_1 2^1 + a_0 2^0$$, trong đó mỗi chữ số $$a_i \\in \\{0, 1\\}$$, ký hiệu $$(a_{k-1} \\dots a_1 a_0)_2$$.
+binary-operator	Binary Operator	Toán tử hai ngôi là một toán tử logic tác động lên hai toán hạng, tức là kết hợp hai mệnh đề $$p$$ và $$q$$ để tạo thành một mệnh đề phức hợp mới. Các toán tử hai ngôi cơ bản trong logic mệnh đề gồm hội (ký hiệu $$\\wedge$$), tuyển (ký hiệu $$\\vee$$), tuyển loại trừ (ký hiệu $$\\oplus$$), kéo theo (ký hiệu $$\\rightarrow$$) và tương đương (ký hiệu $$\\leftrightarrow$$).
+binary-relation	Binary relation	Một *quan hệ hai ngôi* từ tập $$A$$ đến tập $$B$$ là một tập con của tích Descartes $$A \\times B$$, tức là một tập hợp các cặp có thứ tự $$(a, b)$$ với $$a \\in A$$ và $$b \\in B$$; ký hiệu $$R \\subseteq A \\times B$$, và ta viết $$a \\mathrel{R} b$$ khi $$(a, b) \\in R$$. Khi $$A = B$$, ta nói $$R$$ là một quan hệ hai ngôi trên tập $$A$$.
+binary-search-algorithm	Binary Search Algorithm	Thuật toán tìm kiếm nhị phân là một thủ tục để tìm kiếm một phần tử trong một bảng kê đã được sắp thứ tự bằng cách liên tiếp chia đôi khoảng tìm kiếm. Tại mỗi bước, thuật toán so sánh phần tử cần tìm với phần tử ở giữa khoảng còn lại để loại bỏ một nửa số phần tử, cho tới khi khoảng tìm kiếm chỉ còn một phần tử.
+binary-search-tree	Binary search tree	Một cây tìm kiếm nhị phân là một cây nhị phân trong đó mỗi đỉnh được gán một khóa sao cho khóa của mỗi đỉnh lớn hơn mọi khóa thuộc cây con bên trái của nó và nhỏ hơn mọi khóa thuộc cây con bên phải của nó (cây tìm kiếm nhị phân thường được ký hiệu $$T$$).
+binary-tree	Binary tree	Cây nhị phân là một cây có gốc trong đó mỗi đỉnh có không quá hai con, và mỗi con được phân biệt là con trái hoặc con phải. Một cây nhị phân thường được ký hiệu là $$T$$.
+binomial-coefficient	Binomial coefficient	Hệ số nhị thức, ký hiệu $$\\binom{n}{k}$$, là số tập con gồm $$k$$ phần tử của một tập hợp gồm $$n$$ phần tử, với $$n$$ và $$k$$ là các số nguyên thỏa $$0 \\leq k \\leq n$$. Giá trị này được tính bởi công thức $$\\displaystyle \\binom{n}{k} = \\frac{n!}{k!\\,(n-k)!}$$.
+binomial-theorem	Binomial theorem	Định lý nhị thức là đẳng thức khai triển lũy thừa của một tổng thành tổng các đơn thức, phát biểu rằng với mọi số nguyên không âm $$n$$, ta có $$\\displaystyle (x+y)^n = \\sum_{k=0}^{n} \\binom{n}{k} x^{n-k} y^{k}$$, trong đó $$\\binom{n}{k}$$ là hệ số nhị thức. Các số $$\\binom{n}{k}$$ với $$0 \\leq k \\leq n$$ được gọi là các hệ số trong khai triển.
+bipartite-graph	Bipartite graph	Đồ thị hai phần là đồ thị $$G$$ mà tập đỉnh $$V(G)$$ phân hoạch được thành hai tập rời nhau $$V_1$$ và $$V_2$$ (ký hiệu $$G = (V_1, V_2, E)$$) sao cho mỗi cạnh của $$G$$ nối một đỉnh thuộc $$V_1$$ với một đỉnh thuộc $$V_2$$.
+bit	Bit	Một bit là một chữ số nhị phân, nghĩa là nó có giá trị $$0$$ hoặc $$1$$. Bit được dùng để biểu diễn thông tin trong máy tính; chẳng hạn, có thể dùng bit $$1$$ để biểu diễn giá trị chân lý đúng và bit $$0$$ để biểu diễn giá trị chân lý sai.
+bit-operation	Bit Operation	Phép toán bit là một phép toán thực hiện trên một bit hoặc trên nhiều bit. Các phép toán bit trong máy tính tương ứng với các liên từ logic: thay các giá trị chân lý đúng và sai bằng các bit $$1$$ và $$0$$, ta nhận được các phép toán bit tương ứng với các toán tử $$\\wedge$$, $$\\vee$$ và $$\\oplus$$.
+bit-string	Bit String	Một xâu bit là một dãy các bit, tức là một dãy hữu hạn các chữ số $$0$$ và $$1$$. Số bit trong dãy được gọi là chiều dài (độ dài) của xâu bit.
+block	Block	Một *khối* của đồ thị $$G$$ là một đồ thị con liên thông cực đại của $$G$$ không chứa đỉnh cắt; nói cách khác, đó là một đồ thị con $$B$$ sao cho $$B$$ hoặc là một cầu (một cạnh đơn), hoặc là một đồ thị con $$2$$-liên thông cực đại của $$G$$.
+block-cipher	Block Cipher	Mật mã khối là một hệ mật mã mã hóa các khối ký tự có độ dài cố định. Thay vì mã hóa từng ký tự một, mỗi khối gồm một số ký tự được mã hóa cùng nhau thành một khối bản mã có độ dài tương ứng.
+boolean-algebra	Boolean algebra	Một *đại số Boole* là một cấu trúc đại số gồm một tập hợp $$B$$ cùng với hai phép toán hai ngôi là phép tuyển $$\\vee$$ và phép hội $$\\wedge$$, một phép toán một ngôi lấy phần bù $$\\overline{\\phantom{x}}$$, và hai phần tử phân biệt $$0$$ và $$1$$, ký hiệu là $$(B, \\vee, \\wedge, \\overline{\\phantom{x}}, 0, 1)$$. Các phép toán này thỏa mãn các luật đồng nhất, luật phần bù, luật kết hợp, luật giao hoán và luật phân phối.
+boolean-expression	Boolean Expression	Biểu thức Boole theo các biến $$x_1, x_2, \\ldots, x_n$$ được định nghĩa đệ quy như sau: $$0$$, $$1$$, $$x_1$$, $$x_2$$, $$\\ldots$$, $$x_n$$ là các biểu thức Boole; và nếu $$E_1$$ và $$E_2$$ là các biểu thức Boole thì $$\\overline{E_1}$$, $$(E_1 E_2)$$ và $$(E_1 + E_2)$$ cũng là các biểu thức Boole. Mỗi biểu thức Boole theo $$n$$ biến biểu diễn một hàm Boole $$F : B^n \\to B$$, trong đó $$B = \\{0, 1\\}$$.
+boolean-function	Boolean function	Một *hàm Boole* $$n$$ biến là một ánh xạ $$f : \\{0,1\\}^n \\to \\{0,1\\}$$ gán cho mỗi bộ $$n$$ giá trị Boole một giá trị trong $$\\{0,1\\}$$, ký hiệu $$f(x_1, x_2, \\ldots, x_n)$$, trong đó mỗi biến $$x_i$$ nhận giá trị trong $$\\{0,1\\}$$.
+boolean-product	Boolean Product	Tích Boole của hai ma trận không-một $$A = [a_{ij}]$$ cỡ $$m \\times k$$ và $$B = [b_{ij}]$$ cỡ $$k \\times n$$, ký hiệu là $$A \\odot B$$, là ma trận không-một $$C = [c_{ij}]$$ cỡ $$m \\times n$$ với phần tử $$c_{ij} = (a_{i1} \\wedge b_{1j}) \\vee (a_{i2} \\wedge b_{2j}) \\vee \\cdots \\vee (a_{ik} \\wedge b_{kj})$$, trong đó $$\\vee$$ là tổng Boole và $$\\wedge$$ là tích Boole trên tập $$\\{0, 1\\}$$. Phép tính này tương tự nhân ma trận thông thường nhưng thay phép cộng bằng $$\\vee$$ và phép nhân bằng $$\\wedge$$.
+boolean-sum	Boolean Sum	Tổng Boole của hai phần tử $$x$$ và $$y$$ trong đại số Boole $$\\{0,1\\}$$, ký hiệu $$x + y$$ (hoặc OR), nhận giá trị $$1$$ nếu ít nhất một trong hai phần tử bằng $$1$$ và nhận giá trị $$0$$ trong trường hợp ngược lại. Như vậy $$1+1=1$$, $$1+0=1$$, $$0+1=1$$ và $$0+0=0$$.
+boolean-variable	Boolean Variable	Biến Boole là một biến $$x$$ chỉ nhận giá trị trong tập $$B = \\{0, 1\\}$$ (ký hiệu $$1$$ cho giá trị đúng và $$0$$ cho giá trị sai). Các biến Boole kết hợp với các phép toán Boole tạo thành biểu thức Boole.
+bound	Bound	Cho một tập con $$A$$ của một tập sắp thứ tự bộ phận $$(X, \\preceq)$$. Một phần tử $$x \\in X$$ được gọi là một cận trên của $$A$$ nếu $$a \\preceq x$$ với mọi $$a \\in A$$, và được gọi là một cận dưới của $$A$$ nếu $$x \\preceq a$$ với mọi $$a \\in A$$.
+bound-variable	Bound Variable	Biến ràng buộc là một biến trong hàm mệnh đề được gắn (ràng buộc) bởi một lượng từ hoặc được gán một giá trị cụ thể, do đó nằm trong phạm vi tác động của lượng từ đó. Chẳng hạn, trong biểu thức $$\\forall x\\, P(x)$$ biến $$x$$ là biến ràng buộc, trái ngược với biến tự do không bị bất kỳ lượng từ nào ràng buộc.
+boundary	Boundary	Trong một biểu diễn phẳng của đồ thị $$G$$, biên của miền $$R$$ là một chu trình đóng (closed walk) gồm các cạnh và đỉnh bao quanh miền $$R$$; nói chung chu trình này có thể đi qua một cạnh hai lần (chẳng hạn khi cạnh đó là một cầu), và trong đồ thị $$2$$-liên thông thì biên là một chu trình đơn.
+breadth-first-search	Breadth-first search	Duyệt theo chiều rộng là phép duyệt đồ thị xây dựng một cây khung bằng cách bắt đầu từ một đỉnh gốc $$r$$, thăm tất cả các đỉnh ở khoảng cách $$1$$ tới $$r$$, rồi đến tất cả các đỉnh ở khoảng cách $$2$$, và cứ tiếp tục theo từng mức. Phép duyệt dùng một hàng đợi để lưu các đỉnh chờ được mở rộng.
+bridge	Bridge	Cầu của một đồ thị liên thông là một cạnh mà việc xoá nó làm cho đồ thị con thu được không liên thông (có nhiều hơn một thành phần liên thông). Nói cách khác, cầu là cạnh $$e$$ sao cho $$G - e$$ có nhiều thành phần liên thông hơn $$G$$.
+cantor-diagonalization-argument	Cantor Diagonalization Argument	Lập luận đường chéo của Cantor là kỹ thuật chứng minh một tập hợp là không đếm được bằng phản chứng: giả sử tập đó đếm được nên có thể liệt kê các phần tử thành dãy, rồi xây dựng một phần tử mới khác phần tử thứ $$n$$ trong dãy ở thành phần thứ $$n$$ (chẳng hạn ở chữ số thứ $$n$$ của khai triển thập phân), nên phần tử mới này không có mặt trong dãy, dẫn tới mâu thuẫn. Cantor dùng lập luận này để chứng minh tập các số thực $$\\mathbb{R}$$ là không đếm được.
+cardinality	Cardinality	Lực lượng của một tập hợp $$A$$, ký hiệu $$|A|$$, là số phần tử của $$A$$. Hai tập hợp $$A$$ và $$B$$ được gọi là đồng lực lượng (có cùng lực lượng) khi tồn tại một song ánh từ $$A$$ vào $$B$$.
+carmichael-number	Carmichael Number	Số Carmichael là một hợp số $$n$$ sao cho $$n$$ là số giả nguyên tố theo mọi cơ sở nguyên tố cùng nhau với $$n$$.
+carry	Carry	Số nhớ là bit phụ, ký hiệu $$c_j$$, sinh ra khi cộng hai số nguyên trong khai triển nhị phân và được chuyển sang vị trí kế tiếp bên trái. Khi cộng cặp bit thứ $$j$$ là $$a_j$$ và $$b_j$$ cùng với số nhớ trước đó $$c_{j-1}$$, tổng $$a_j + b_j + c_{j-1}$$ cho bit tổng $$s_j$$ và số nhớ mới $$c_j$$ thỏa $$a_j + b_j + c_{j-1} = 2 c_j + s_j$$, trong đó $$c_j \\in \\{0, 1\\}$$.
+cartesian-product	Cartesian Product	Tích Đềcác của hai tập hợp $$A$$ và $$B$$, ký hiệu $$A \\times B$$, là tập hợp tất cả các cặp có thứ tự $$(a, b)$$ với $$a \\in A$$ và $$b \\in B$$, tức là $$A \\times B = \\{(a, b) : a \\in A \\land b \\in B\\}$$. Mở rộng cho $$n$$ tập hợp, tích Đềcác $$A_1 \\times A_2 \\times \\cdots \\times A_n$$ là tập hợp các bộ có thứ tự $$(a_1, a_2, \\ldots, a_n)$$ với $$a_i \\in A_i$$ với mọi $$i = 1, 2, \\ldots, n$$.
+ceiling-function	Ceiling Function	Hàm trần là hàm gán cho mỗi số thực $$x$$ số nguyên nhỏ nhất lớn hơn hoặc bằng $$x$$, ký hiệu $$\\lceil x \\rceil$$. Như vậy $$\\lceil x \\rceil$$ là số nguyên $$n$$ duy nhất thỏa mãn $$n - 1 < x \\leq n$$.
+centre	Centre	Tâm của một đồ thị liên thông $$G$$, ký hiệu $$C(G)$$, là tập hợp các đỉnh có độ lệch tâm nhỏ nhất, nghĩa là các đỉnh $$v$$ với $$e(v)$$ bằng bán kính $$r(G) = \\min_{u \\in V(G)} e(u)$$, trong đó độ lệch tâm $$e(v) = \\max_{u \\in V(G)} \\mathrm{dist}_G(v, u)$$. Mỗi đỉnh như vậy được gọi là đỉnh tâm của $$G$$.
+character-cipher	Character Cipher	Mật mã ký tự là một loại mật mã mã hóa thông điệp bằng cách mã hóa từng ký tự một. Mỗi ký tự của bản rõ được thay thế riêng lẻ bởi một ký tự khác theo một quy tắc cố định, độc lập với các ký tự còn lại.
+characteristic-polynomial	Characteristic Polynomial	Đa thức đặc trưng của một hệ thức truy hồi tuyến tính thuần nhất hệ số hằng bậc $$k$$, $$a_n = c_1 a_{n-1} + c_2 a_{n-2} + \\dots + c_k a_{n-k}$$, là đa thức $$r^k - c_1 r^{k-1} - c_2 r^{k-2} - \\dots - c_k$$ (ký hiệu các nghiệm của nó là các nghiệm đặc trưng). Tổng quát hơn, đa thức đặc trưng của một ma trận vuông $$A$$ là $$\\det(A - \\lambda I)$$.
+characteristic-root	Characteristic Root	Nghiệm đặc trưng của một hệ thức truy hồi tuyến tính thuần nhất hệ số hằng $$a_n = c_1 a_{n-1} + c_2 a_{n-2} + \\cdots + c_k a_{n-k}$$ là một nghiệm $$r$$ của phương trình đặc trưng $$r^k - c_1 r^{k-1} - c_2 r^{k-2} - \\cdots - c_k = 0$$ tương ứng. Các nghiệm đặc trưng được dùng để xây dựng nghiệm tổng quát của hệ thức truy hồi.
+child	Child	Trong một cây có gốc, đỉnh con (con) của một đỉnh $$v$$ là đỉnh $$u$$ kề với $$v$$ sao cho $$v$$ là đỉnh nằm trên đường đi duy nhất từ gốc tới $$u$$, tức $$v$$ là cha của $$u$$. Mỗi đỉnh khác gốc đều có đúng một cha và là con của cha đó.
+chinese-postman-problem	Chinese Postman Problem	Bài toán người đưa thư Trung Hoa là bài toán tìm một chu trình khép kín có tổng trọng số nhỏ nhất trong một đồ thị liên thông có trọng số, sao cho chu trình đó đi qua mỗi cạnh ít nhất một lần rồi trở về đỉnh xuất phát. Nếu đồ thị có chu trình Euler thì lời giải tối ưu chính là chu trình Euler đó, vì khi đó mỗi cạnh được đi qua đúng một lần.
+
+hook: PostToolUse
+hook: PostToolUse Completed
+web search: 
+web search: "song ánh" "bijection" "Toán rời rạc" filetype:pdf
+web search: 
+web search: "thuật toán tìm kiếm nhị phân" "tìm kiếm nhị phân" "Toán rời rạc"
+web search: 
+web search: "định lý nhị thức" "công thức Newton" "Toán rời rạc" filetype:pdf
+web search: 
+web search: "khối" "đồ thị con" "đỉnh cắt" "2-liên thông" "Toán rời rạc"
+web search: 
+web search: "cận trên" "cận dưới" "tập sắp thứ tự" "Toán rời rạc"
+web search: 
+web search: "biến ràng buộc" "biến tự do" "lượng từ"
+web search: 
+web search: "biên của miền" "đồ thị phẳng" "chu trình" "Toán rời rạc"
+web search: 
+web search: "duyệt theo chiều rộng" "tìm kiếm theo chiều rộng" "BFS" "Toán rời rạc"
+web search: 
+web search: "lập luận đường chéo" "Cantor" "phương pháp đường chéo"
+web search: 
+web search: "số nhớ" "nhớ" "carry" "hệ nhị phân" "Toán rời rạc"
+web search: 
+web search: "nhớ (carry)" "hệ b-phân"
+web search: 
+web search: "mật mã ký tự" "character cipher"
+web search: 
+web search: "bài toán người đưa thư Trung Hoa" "Chinese Postman Problem"
+web search: 
+web search: "tích Boolean" "tổng Boolean" "ma trận"
+web search: 
+web search: "đại số Bool" "Toán rời rạc"
+codex
+I have enough snippet evidence for the likely issues and I’m not opening any result pages. I’m going to write only entries where the snippets support a missing Vietnamese variant or a nonstandard recommended term.
+hook: PreToolUse
+hook: PreToolUse Completed
+exec
+/bin/bash -lc 'ls -l workflow/loop/review/findings-2.json 2>/dev/null || true' in /home/ubuntu/DM-Concepts
+ succeeded in 0ms:
+hook: PostToolUse
+hook: PostToolUse Completed
+codex
+The findings file does not exist yet, so I’ll add it as a new JSON file. The entries below are intentionally limited to snippet-backed findings; entries with only “looks fine” evidence are omitted.
+apply patch
+patch: completed
+/home/ubuntu/DM-Concepts/workflow/loop/review/findings-2.json
+diff --git a/workflow/loop/review/findings-2.json b/workflow/loop/review/findings-2.json
+new file mode 100644
+index 0000000000000000000000000000000000000000..1405ed21f5c8e6d11115cfb1ff8d3326692b5b06
+--- /dev/null
++++ b/workflow/loop/review/findings-2.json
+@@ -0,0 +1 @@
++{"loop":2,"reviewed":38,"findings":[{"id":"binary","commonality":{"verdict":"uncommon","better_term":"hệ nhị phân","source":"https://www.studocu.vn/vn/document/truong-dai-hoc-dai-nam/toan-ung-dung/toan-roi-rac-tich/72388548"},"missing_variants":[{"term":"hệ đếm nhị phân","source":"https://www.studocu.vn/vn/document/truong-dai-hoc-dai-nam/toan-ung-dung/toan-roi-rac-tich/72388548"}]},{"id":"binary-search-algorithm","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"tìm kiếm nhị phân","source":"https://ipe.iuh.edu.vn/uploads/2020/06/6.-De-cuong-on-tap-Co-so-tin-hoc.pdf"}]},{"id":"bit-operation","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"phép toán với bit","source":"https://wiki.vnoi.info/algo/basic/bitwise-operators.md"},{"term":"phép toán thao tác bit","source":"https://cuuduongthancong.com/dlf/407593/kien-truc-may-tinh-va-hop-ngu/pham-tuan-son/cacthaotacxulybit.pdf"}]},{"id":"bit-string","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"chuỗi nhị phân","source":"https://www.scribd.com/document/777698242/Logic-and-Proofs"}]},{"id":"block-cipher","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"mã khối","source":"https://users.soict.hust.edu.vn/vannk/AntoanThongtin/MatMaKhoi-KhoaDX.pdf"}]},{"id":"boolean-function","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"hàm Bool","source":"https://s3.cloud.cmctelecom.vn/tvu/IT/110003_ToanRoiRac/Slide/Chuong4_v1.0.pdf"}]},{"id":"boolean-product","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"tích Boolean","source":"https://www.studocu.vn/vn/document/truong-dai-hoc-kinh-te-thanh-pho-ho-chi-minh/toan-danh-cho-tin-hoc/13-dgafgsdhsfhsfhfhgfhfg/81880315"}]},{"id":"boolean-sum","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"tổng Boolean","source":"https://www.studocu.vn/vn/document/truong-dai-hoc-kinh-te-thanh-pho-ho-chi-minh/toan-danh-cho-tin-hoc/13-dgafgsdhsfhsfhfhgfhfg/81880315"}]},{"id":"boolean-variable","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"biến Boolean","source":"https://www.studocu.vn/vn/document/truong-dai-hoc-cong-nghe-dai-hoc-quoc-gia-ha-noi/toan-roi-rac/week2/119886597"}]},{"id":"bound-variable","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"biến lượng tử","source":"https://novaspro.vn/upload/files/tailieu/GT-tri-tue-nhan-tao-1.pdf"}]},{"id":"breadth-first-search","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"duyệt theo bề rộng","source":"https://www.scribd.com/presentation/848262223/C4-Cay"}]}]}
+
+diff --git a/workflow/loop/review/findings-2.json b/workflow/loop/review/findings-2.json
+new file mode 100644
+index 0000000000000000000000000000000000000000..1405ed21f5c8e6d11115cfb1ff8d3326692b5b06
+--- /dev/null
++++ b/workflow/loop/review/findings-2.json
+@@ -0,0 +1 @@
++{"loop":2,"reviewed":38,"findings":[{"id":"binary","commonality":{"verdict":"uncommon","better_term":"hệ nhị phân","source":"https://www.studocu.vn/vn/document/truong-dai-hoc-dai-nam/toan-ung-dung/toan-roi-rac-tich/72388548"},"missing_variants":[{"term":"hệ đếm nhị phân","source":"https://www.studocu.vn/vn/document/truong-dai-hoc-dai-nam/toan-ung-dung/toan-roi-rac-tich/72388548"}]},{"id":"binary-search-algorithm","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"tìm kiếm nhị phân","source":"https://ipe.iuh.edu.vn/uploads/2020/06/6.-De-cuong-on-tap-Co-so-tin-hoc.pdf"}]},{"id":"bit-operation","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"phép toán với bit","source":"https://wiki.vnoi.info/algo/basic/bitwise-operators.md"},{"term":"phép toán thao tác bit","source":"https://cuuduongthancong.com/dlf/407593/kien-truc-may-tinh-va-hop-ngu/pham-tuan-son/cacthaotacxulybit.pdf"}]},{"id":"bit-string","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"chuỗi nhị phân","source":"https://www.scribd.com/document/777698242/Logic-and-Proofs"}]},{"id":"block-cipher","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"mã khối","source":"https://users.soict.hust.edu.vn/vannk/AntoanThongtin/MatMaKhoi-KhoaDX.pdf"}]},{"id":"boolean-function","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"hàm Bool","source":"https://s3.cloud.cmctelecom.vn/tvu/IT/110003_ToanRoiRac/Slide/Chuong4_v1.0.pdf"}]},{"id":"boolean-product","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"tích Boolean","source":"https://www.studocu.vn/vn/document/truong-dai-hoc-kinh-te-thanh-pho-ho-chi-minh/toan-danh-cho-tin-hoc/13-dgafgsdhsfhsfhfhgfhfg/81880315"}]},{"id":"boolean-sum","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"tổng Boolean","source":"https://www.studocu.vn/vn/document/truong-dai-hoc-kinh-te-thanh-pho-ho-chi-minh/toan-danh-cho-tin-hoc/13-dgafgsdhsfhsfhfhgfhfg/81880315"}]},{"id":"boolean-variable","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"biến Boolean","source":"https://www.studocu.vn/vn/document/truong-dai-hoc-cong-nghe-dai-hoc-quoc-gia-ha-noi/toan-roi-rac/week2/119886597"}]},{"id":"bound-variable","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"biến lượng tử","source":"https://novaspro.vn/upload/files/tailieu/GT-tri-tue-nhan-tao-1.pdf"}]},{"id":"breadth-first-search","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"duyệt theo bề rộng","source":"https://www.scribd.com/presentation/848262223/C4-Cay"}]}]}
+
+codex
+The JSON has been written. I’ll run a narrow validation now: parse it with `jq` and confirm the reviewed count and number of emitted findings.
+hook: PreToolUse
+hook: PreToolUse Completed
+exec
+/bin/bash -lc "jq '{loop, reviewed, findings_count:(.findings|length)}' workflow/loop/review/findings-2.json" in /home/ubuntu/DM-Concepts
+ succeeded in 0ms:
+{
+  "loop": 2,
+  "reviewed": 38,
+  "findings_count": 11
+}
+
+hook: PostToolUse
+hook: PostToolUse Completed
+diff --git a/workflow/loop/review/findings-2.json b/workflow/loop/review/findings-2.json
+new file mode 100644
+index 0000000000000000000000000000000000000000..1405ed21f5c8e6d11115cfb1ff8d3326692b5b06
+--- /dev/null
++++ b/workflow/loop/review/findings-2.json
+@@ -0,0 +1 @@
++{"loop":2,"reviewed":38,"findings":[{"id":"binary","commonality":{"verdict":"uncommon","better_term":"hệ nhị phân","source":"https://www.studocu.vn/vn/document/truong-dai-hoc-dai-nam/toan-ung-dung/toan-roi-rac-tich/72388548"},"missing_variants":[{"term":"hệ đếm nhị phân","source":"https://www.studocu.vn/vn/document/truong-dai-hoc-dai-nam/toan-ung-dung/toan-roi-rac-tich/72388548"}]},{"id":"binary-search-algorithm","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"tìm kiếm nhị phân","source":"https://ipe.iuh.edu.vn/uploads/2020/06/6.-De-cuong-on-tap-Co-so-tin-hoc.pdf"}]},{"id":"bit-operation","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"phép toán với bit","source":"https://wiki.vnoi.info/algo/basic/bitwise-operators.md"},{"term":"phép toán thao tác bit","source":"https://cuuduongthancong.com/dlf/407593/kien-truc-may-tinh-va-hop-ngu/pham-tuan-son/cacthaotacxulybit.pdf"}]},{"id":"bit-string","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"chuỗi nhị phân","source":"https://www.scribd.com/document/777698242/Logic-and-Proofs"}]},{"id":"block-cipher","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"mã khối","source":"https://users.soict.hust.edu.vn/vannk/AntoanThongtin/MatMaKhoi-KhoaDX.pdf"}]},{"id":"boolean-function","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"hàm Bool","source":"https://s3.cloud.cmctelecom.vn/tvu/IT/110003_ToanRoiRac/Slide/Chuong4_v1.0.pdf"}]},{"id":"boolean-product","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"tích Boolean","source":"https://www.studocu.vn/vn/document/truong-dai-hoc-kinh-te-thanh-pho-ho-chi-minh/toan-danh-cho-tin-hoc/13-dgafgsdhsfhsfhfhgfhfg/81880315"}]},{"id":"boolean-sum","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"tổng Boolean","source":"https://www.studocu.vn/vn/document/truong-dai-hoc-kinh-te-thanh-pho-ho-chi-minh/toan-danh-cho-tin-hoc/13-dgafgsdhsfhsfhfhgfhfg/81880315"}]},{"id":"boolean-variable","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"biến Boolean","source":"https://www.studocu.vn/vn/document/truong-dai-hoc-cong-nghe-dai-hoc-quoc-gia-ha-noi/toan-roi-rac/week2/119886597"}]},{"id":"bound-variable","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"biến lượng tử","source":"https://novaspro.vn/upload/files/tailieu/GT-tri-tue-nhan-tao-1.pdf"}]},{"id":"breadth-first-search","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"duyệt theo bề rộng","source":"https://www.scribd.com/presentation/848262223/C4-Cay"}]}]}
+
+codex
+WROTE findings-2.json
+===CODEX_REVIEW_DONE===
+diff --git a/workflow/loop/review/findings-2.json b/workflow/loop/review/findings-2.json
+new file mode 100644
+index 0000000000000000000000000000000000000000..1405ed21f5c8e6d11115cfb1ff8d3326692b5b06
+--- /dev/null
++++ b/workflow/loop/review/findings-2.json
+@@ -0,0 +1 @@
++{"loop":2,"reviewed":38,"findings":[{"id":"binary","commonality":{"verdict":"uncommon","better_term":"hệ nhị phân","source":"https://www.studocu.vn/vn/document/truong-dai-hoc-dai-nam/toan-ung-dung/toan-roi-rac-tich/72388548"},"missing_variants":[{"term":"hệ đếm nhị phân","source":"https://www.studocu.vn/vn/document/truong-dai-hoc-dai-nam/toan-ung-dung/toan-roi-rac-tich/72388548"}]},{"id":"binary-search-algorithm","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"tìm kiếm nhị phân","source":"https://ipe.iuh.edu.vn/uploads/2020/06/6.-De-cuong-on-tap-Co-so-tin-hoc.pdf"}]},{"id":"bit-operation","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"phép toán với bit","source":"https://wiki.vnoi.info/algo/basic/bitwise-operators.md"},{"term":"phép toán thao tác bit","source":"https://cuuduongthancong.com/dlf/407593/kien-truc-may-tinh-va-hop-ngu/pham-tuan-son/cacthaotacxulybit.pdf"}]},{"id":"bit-string","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"chuỗi nhị phân","source":"https://www.scribd.com/document/777698242/Logic-and-Proofs"}]},{"id":"block-cipher","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"mã khối","source":"https://users.soict.hust.edu.vn/vannk/AntoanThongtin/MatMaKhoi-KhoaDX.pdf"}]},{"id":"boolean-function","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"hàm Bool","source":"https://s3.cloud.cmctelecom.vn/tvu/IT/110003_ToanRoiRac/Slide/Chuong4_v1.0.pdf"}]},{"id":"boolean-product","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"tích Boolean","source":"https://www.studocu.vn/vn/document/truong-dai-hoc-kinh-te-thanh-pho-ho-chi-minh/toan-danh-cho-tin-hoc/13-dgafgsdhsfhsfhfhgfhfg/81880315"}]},{"id":"boolean-sum","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"tổng Boolean","source":"https://www.studocu.vn/vn/document/truong-dai-hoc-kinh-te-thanh-pho-ho-chi-minh/toan-danh-cho-tin-hoc/13-dgafgsdhsfhsfhfhgfhfg/81880315"}]},{"id":"boolean-variable","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"biến Boolean","source":"https://www.studocu.vn/vn/document/truong-dai-hoc-cong-nghe-dai-hoc-quoc-gia-ha-noi/toan-roi-rac/week2/119886597"}]},{"id":"bound-variable","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"biến lượng tử","source":"https://novaspro.vn/upload/files/tailieu/GT-tri-tue-nhan-tao-1.pdf"}]},{"id":"breadth-first-search","commonality":{"verdict":"common","better_term":"","source":""},"missing_variants":[{"term":"duyệt theo bề rộng","source":"https://www.scribd.com/presentation/848262223/C4-Cay"}]}]}
+
+tokens used
+258,096
+WROTE findings-2.json
+===CODEX_REVIEW_DONE===

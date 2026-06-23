@@ -1,0 +1,2902 @@
+OpenAI Codex v0.141.0
+--------
+workdir: /home/ubuntu/DM-Concepts
+model: gpt-5.5
+provider: openai
+approval: never
+sandbox: danger-full-access
+reasoning effort: xhigh
+reasoning summaries: none
+session id: 019ef290-27a2-7371-a34f-e8ecff568d79
+--------
+user
+You are a meticulous bilingual (English-Vietnamese) discrete-mathematics dictionary reviewer.
+Working directory: /home/ubuntu/DM-Concepts. Do NOT modify any dictionary file. Be evidence-based; NEVER invent a translation or a source.
+
+Read this batch of entries:
+  cat workflow/loop/review/batch-8.json
+It is a JSON array; each entry has: id, headword_en, definition_vi (Vietnamese), vi_terms (array of {term, recommended, ...}), see_ref.
+If see_ref is non-empty the entry is a cross-reference stub: SKIP it.
+
+For EACH non-stub entry, use WEB SEARCH (prefer authoritative Vietnamese sources: university lecture notes / giáo trình, published textbooks, standard references) to check TWO things:
+
+(A) COMMONALITY of the recommended Vietnamese term (the vi_term with recommended=true): is it the common/standard rendering of this English concept in Vietnamese discrete mathematics? If it is uncommon and a clearly MORE standard term exists, report verdict "uncommon" with the better term and a source URL. Otherwise verdict "common" (or "unsure").
+
+(B) ALTERNATIVE TRANSLATIONS: any additional valid Vietnamese translation of the English concept that is NOT already among the entry's existing vi_terms. Example: 'independent set' = 'tập độc lập' AND 'tập ổn định' (internal stable set). List each missing variant with a brief source (URL or book).
+
+Efficiency (IMPORTANT - your context is limited): use web SEARCH RESULT SNIPPETS only; do NOT open or fetch full web pages or PDF files (fetching large pages overflows your context and the run fails). At most 1-2 lightweight searches per entry; skip entries that are clearly fine.
+
+WRITE your result as a JSON file to workflow/loop/review/findings-8.json (use your file-writing tool), exactly this shape:
+{"loop":8,"reviewed":<int>,"findings":[{"id":"<id>","commonality":{"verdict":"common|uncommon|unsure","better_term":"<term or empty>","source":"<url or empty>"},"missing_variants":[{"term":"<vi term>","source":"<url or book>"}]}]}
+Include ONLY entries that have at least one finding (an uncommon verdict OR a missing variant). Valid JSON only (no comments, no trailing commas).
+
+After writing the file, print on its own line:  WROTE findings-8.json
+Then print the final marker line:  ===CODEX_REVIEW_DONE===
+
+hook: SessionStart
+hook: SessionStart Completed
+codex
+I’ll use the `source-research` skill for the web-snippet evidence workflow, then inspect the batch and write only `workflow/loop/review/findings-8.json`. I’ll keep the web work to search snippets as requested and skip cross-reference stubs.
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+exec
+/bin/bash -lc "sed -n '1,220p' /home/ubuntu/.codex/skills/source-research/SKILL.md" in /home/ubuntu/DM-Concepts
+ succeeded in 0ms:
+---
+name: "source-research"
+description: "General web and source-gathering research workflow for current-information synthesis."
+metadata:
+  short-description: "General web and source-gathering research workflow for current-information synthesis."
+---
+
+<!-- Managed by ai-agents-skills. Generated target: codex. Install mode: reference. -->
+
+# source-research
+
+This is a thin adapter for agents that cannot load symlinked skills.
+
+Canonical skill source:
+
+- `~/ai-agents-skills/canonical/skills/source-research/SKILL.md`
+
+Before using this skill, read the canonical source file above and follow
+its instructions. Related reference files live next to that source file
+in the same skill directory.
+
+
+hook: PostToolUse
+exec
+/bin/bash -lc "sed -n '1,220p' /home/ubuntu/.codex/instructions/research-quick-actions.md" in /home/ubuntu/DM-Concepts
+ succeeded in 0ms:
+<!-- Managed by ai-agents-skills. Generated target: codex. Source: instruction-doc:research-quick-actions.md. -->
+
+# Research Quick Actions
+
+Use these as routing notes, not as shell commands to run blindly.
+
+| Intent | Preferred skill |
+|---|---|
+| Scope nontrivial research | `research-briefing` |
+| Source-preserving research | `deep-research-workflow` |
+| Current source gathering | `source-research` |
+| Paper library lookup | `zotero` |
+| External paper retrieval fallback | `getscipapers-requester` |
+| Ebook lookup | `calibre` |
+| Document parsing | `docling` |
+| Database lookup | `database-lookup` |
+| Draft research review | `research-report-reviewer` |
+| Final evidence check | `research-verification-gate` |
+| TikZ figures | `tikz-draw` |
+| Sage or graph computation | `sagemath` or `graph-verifier` |
+| Multi-agent research | `agent-group-discuss` or `prose` |
+
+For paper and book retrieval, check local library workflows before external
+retrieval unless the user explicitly requests otherwise.
+
+## Recommend a Template
+
+When scoping or mentioning a task, recommend the matching workflow template if
+one fits, and offer to install the relevant artifact profile
+(`workflow-templates`, `serious-research`, or `cross-provider-delegation`).
+Templates are guidance runbooks; pair them with the backing skills they list.
+
+| Task | Template |
+|---|---|
+| Continuous / autonomous research until a stop condition | `autonomous-research-loop-runbook` |
+| Multi-phase research run (scope -> search -> analyze -> verify -> deliver) | `research-workflow-runbook` |
+| Pre-research scoping | `research-scope-brief` |
+| Final research report | `deep-research-report` |
+| Review a paper, proof, or code across agent families | `cross-agent-adversarial-review` |
+| Validate a delegated research output | `evidence-synthesis-critique` |
+| Pre-delivery research evidence check | `research-verification-checklist` |
+| Build / implement in a bounded, verified loop | `engineering-delivery-loop-runbook` |
+| Record a decision (rationale, alternatives, reversibility) | `reversible-decision-memo` |
+| Formalize an informal proof in Lean | `informal-to-lean-formalization-runbook` |
+| Spec / plan / checklist | `spec`, `tasks-plan`, `tasks-todo` |
+| Cross-provider or manager-worker delegation | `cross-provider-research-panel`, `hierarchical-agent-delegation` |
+
+hook: PostToolUse
+hook: PostToolUse Completed
+hook: PostToolUse Completed
+codex
+Docs/helpers checked so far: the Codex research quick-actions map and the source-research adapter. The adapter points to the canonical skill, so I’m reading that before touching the batch.
+hook: PreToolUse
+hook: PreToolUse Completed
+exec
+/bin/bash -lc "sed -n '1,260p' /home/ubuntu/ai-agents-skills/canonical/skills/source-research/SKILL.md" in /home/ubuntu/DM-Concepts
+ succeeded in 0ms:
+---
+name: source-research
+description: Use when the user wants research, source gathering, current-information lookups, cross-source synthesis, or extraction from URLs/PDFs/videos using web search, page inspection, local tools, and sub-agents.
+metadata:
+  short-description: Source-gathering research workflow
+---
+
+# Source Research
+
+Use this as the default source-gathering research router.
+
+## Supporting files
+
+Open these only when relevant:
+
+- `references/specialist-subagents.md` for focused single-specialist delegation briefs imported from the local Claude setup
+
+## Legacy tool mapping
+
+- legacy `web_search` -> Codex `web.search_query`
+- legacy `web_fetch` -> Codex `web.open`
+- legacy task/session spawning -> Codex `spawn_agent`
+- legacy `exec` -> Codex `functions.exec_command`
+
+## Live workspace routing
+
+- Generic paper, article, preprint, DOI, ISBN, and book retrieval or sharing requests route to `zotero` first.
+- Explicit Calibre-library ebook operations route to `calibre`.
+- External paper or book retrieval routes to `getscipapers-requester` only
+  after the relevant local-library workflow does not satisfy the request, or
+  after the user explicitly says not to check/use the library. The word
+  "download" alone is not an outside-library opt-out.
+- Multi-agent discussion/review/research routes to `agent-group-discuss` by default and `prose` for more structured workflows.
+- Annotated paper review routes to `annotated-review` only when the user explicitly asks for both annotation and review.
+- Review-only paper tasks route to `paper-review`.
+- Topic/news digests route to `research-digest-wrapper` or `rss-news-digest`.
+- Digest-to-paper extraction routes to `digest-bridge`.
+- Explicit phased deep research with structured source handoff routes to `deep-research-workflow`.
+- Writing, report, review, digest, or final-answer workflows must load
+  `writing-style-settings.md`; math or LaTeX writing must also load
+  `math-manuscript-style.md`.
+- Explicit TikZ drawing, refactoring, extraction, compile, or diagram-review requests route to `tikz-draw`.
+- Small graph-theoretic verification routes to `graph-verifier`.
+- Mathematical research tasks that need heavy graph-theoretic, combinatorial, algebraic, or spectral computation route to `sagemath`.
+
+## Default workflow
+
+1. If the request is current, says "latest", "today", "verify", or otherwise depends on recent facts, browse first.
+2. Start with focused search queries, not long prompts.
+3. Open the best primary sources, not just search snippets.
+4. Extract only the parts needed for the answer.
+5. Synthesize after evidence collection, not before.
+6. Cite concrete sources and dates whenever the answer depends on live or specific facts.
+7. For writing-producing outputs, record or surface `style_profile_ref`,
+   `active_overlays`, `active_requirement_ids`, and `style_applied`; do not
+   treat a bare `style_applied: true` assertion as sufficient evidence.
+
+## Research heuristics
+
+- Prefer primary sources: official docs, vendor pages, papers, standards, government sites.
+- Use domain filters when the source class is obvious.
+- For PDFs, use `web.open` and `web.screenshot` when needed.
+- For local files, use `functions.exec_command` instead of browsing.
+- Separate sourced facts from your own inference.
+- Prefer `deep-research-workflow` over this skill when the user explicitly wants phased search -> analysis -> writing with source preservation across stages.
+- Prefer `tikz-draw` for explicit TikZ or structural-diagram requests, including research-derived figures that already have a narrowed brief.
+- If a research task needs a diagram, keep the research in `deep-research-workflow` first and hand off to `tikz-draw` only after analysis identifies a concrete figure worth generating.
+- For literature retrieval requests, check the relevant local library workflow before browsing or external download.
+- For review tasks that need a paper/book, use the lookup order `zotero` -> `calibre` -> online fallback.
+- For digest follow-up, use `digest-bridge` to extract identifiers before bulk paper retrieval.
+- For explicit Calibre ebook-library workflows, prefer `calibre` over improvised filesystem search.
+- For mathematical verification, prefer local Python for small checks and route to `sagemath` when the computation needs SageMath-native capabilities.
+- Never use `curl`, `wget`, ad hoc browser fetches, or direct publisher-site HTTP requests as a substitute for the library tools on paper/book retrieval tasks.
+- When a lookup returns multiple plausible paper/book matches, show a numbered
+  list with title, authors, and year when available, then wait for the user's
+  chosen index before `--best`, `--index`, add, attach, send, review, or external
+  retrieval.
+
+## Parallelism
+
+If the task has distinct independent threads, spawn sub-agents in parallel.
+
+Good candidates:
+- source discovery vs synthesis plan
+- product A vs product B
+- multiple independent subtopics
+
+Do not spawn agents for the immediate blocking step if local work is faster.
+Ask for explicit confirmation before spawning subagents unless the user already
+requested multi-agent work, approved a workflow that includes subagents, or gave
+an explicit budget/depth instruction that makes parallel delegation expected.
+
+## Focused specialist delegation
+
+When the task needs one narrow specialist rather than a full panel, reuse the
+briefs in `references/specialist-subagents.md`.
+
+Good matches:
+
+- literature survey or citation hunting -> `literature-scout`
+- small-case exploration or counterexample search -> `math-explorer`
+- single-reviewer manuscript critique -> `paper-reviewer`
+- adversarial checking of one proof/lemma -> `proof-checker`
+
+## Route to narrower skills
+
+- Use `zotero` for generic paper, DOI, ISBN, book, and paper-library retrieval or sharing requests, including "find/get/send/share this paper or book".
+- Use `docling` for local parsing, conversion, chunking, and structure-aware analysis of PDFs, office documents, HTML, and image-backed documents.
+- Use `get-available-resources` before heavy local parsing or compute when resource constraints may materially affect the approach.
+- Use `database-lookup` for structured public scientific, regulatory, and economic database queries.
+- Use `paper-lookup` for external literature metadata/discovery after the library-first workflow and before external retrieval.
+- Use `deep-research-workflow` for single-agent phased deep research that needs explicit source handoff across search, analysis, and final writing.
+- Use `tikz-draw` for explicit TikZ figure generation, refactoring, extraction, compile, or review work, especially when the output should follow a structure-first brief -> spec -> render flow.
+- Use `calibre` for explicit Calibre library operations: ebook search/get by ID, sending Calibre-managed books, add/update, tags, shelves, sync, remove, convert, export, doctor, and clean.
+- Use `getscipapers-requester` only for external retrieval or DOI/ISBN
+  resolution after Zotero does not satisfy the request, or when the user
+  explicitly says not to check/use the library and wants outside retrieval. For
+  review tasks that need a document, check `calibre` after `zotero` and before
+  this fallback.
+- If an externally retrieved book file should be added to the ebook library, hand off to `calibre` for the final add/update step.
+- Use `annotated-review` only for annotate+review paper flows.
+- Use `paper-review` for single-agent review-only paper flows such as review, critique, hard review, or issue-finding requests.
+- Use `agent-group-discuss` for conversational multi-agent discussion, review, or research panels.
+- Use `prose` when the user wants explicit multi-agent research-and-synthesis orchestration.
+- Use `research-digest-wrapper` and `rss-news-digest` for tracked-topic and RSS-based research updates.
+- Use `graph-verifier` for lightweight graph sanity checks before escalating to SageMath.
+- Use `digest-bridge` to turn digest results into identifiers and manifests for retrieval.
+- Use `sagemath` for graph invariants, algebraic checks, spectral computations, exhaustive counterexample search, and other math tasks beyond lightweight local tooling.
+
+hook: PostToolUse
+hook: PostToolUse Completed
+codex
+Docs/Helpers Checked:
+- `/home/ubuntu/.codex/instructions/research-quick-actions.md`
+- `/home/ubuntu/.codex/skills/source-research/SKILL.md`
+- `/home/ubuntu/ai-agents-skills/canonical/skills/source-research/SKILL.md`
+
+Plan:
+1. Inspect `workflow/loop/review/batch-8.json` and identify non-stub entries.
+2. For each non-stub entry, run at most 1-2 lightweight web searches and use only search-result snippets/URLs.
+3. Record only evidence-backed findings: uncommon recommended term or missing Vietnamese variants.
+4. Write valid JSON to `workflow/loop/review/findings-8.json`, then print the requested marker lines.
+hook: PreToolUse
+hook: PreToolUse Completed
+exec
+/bin/bash -lc "sed -n '1,240p' workflow/loop/review/batch-8.json" in /home/ubuntu/DM-Concepts
+ succeeded in 0ms:
+[
+ {
+  "id": "grid-graph",
+  "letter": "G",
+  "headword_en": "Grid graph",
+  "rosen_ref": "Rosen §10.2",
+  "definition_vi": "Đồ thị lưới là đồ thị đơn vô hướng mà tập đỉnh gồm các điểm của một lưới chữ nhật $$m \\times n$$ trong mặt phẳng, trong đó hai đỉnh kề nhau khi và chỉ khi chúng cách nhau đúng một đơn vị theo phương ngang hoặc phương dọc. (Lưu ý: trong nguồn tiếng Việt duy nhất chứng thực tên này, ký hiệu $$L_n$$ lại chỉ một đối tượng khác — đồ thị quân xe trên $$[n]^2$$; xem ghi chú.)",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "đồ thị lưới",
+    "source_id": "bib-leanhvinh-2020",
+    "page": "tr. 216 (PDF)",
+    "pdf_page": 216,
+    "verified": true,
+    "recommended": true
+   }
+  ]
+ },
+ {
+  "id": "group",
+  "letter": "G",
+  "headword_en": "Group",
+  "rosen_ref": "Rosen §9.6",
+  "definition_vi": "Một \\emph{nhóm} là một tập hợp $$G$$ cùng với một phép toán hai ngôi $$\\ast$$ trên $$G$$, ký hiệu $$(G, \\ast)$$, thỏa mãn ba điều kiện: phép toán $$\\ast$$ có tính kết hợp, tồn tại phần tử đơn vị $$e \\in G$$ sao cho $$e \\ast a = a \\ast e = a$$ với mọi $$a \\in G$$, và mỗi phần tử $$a \\in G$$ đều có phần tử nghịch đảo $$a' \\in G$$ sao cho $$a \\ast a' = a' \\ast a = e$$.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "nhóm",
+    "source_id": "bib-ngodactan-2004",
+    "page": "tr. 140 (PDF)",
+    "pdf_page": 140,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "nhóm giao hoán",
+    "source_id": "bib-hoangchithanh-2007",
+    "page": "tr. 25 (PDF)",
+    "pdf_page": 25,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "nhóm",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 19 (PDF, bản dịch Rosen)",
+    "pdf_page": 19,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "growth-rate",
+  "letter": "G",
+  "headword_en": "Growth Rate",
+  "rosen_ref": "Rosen §3.2",
+  "definition_vi": "Tốc độ tăng trưởng của một hàm $$f$$ là mức độ tăng của giá trị $$f(n)$$ khi đối số $$n$$ tiến ra vô cùng, dùng để so sánh các hàm với nhau, đặc biệt là thời gian tính của thuật toán. Hai hàm $$f$$ và $$g$$ được xem là có cùng tốc độ tăng trưởng nếu $$f(n) = O(g(n))$$ và $$g(n) = O(f(n))$$.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "tốc độ tăng",
+    "source_id": "bib-nguyenducnghia-2006",
+    "page": "tr. 84 (PDF)",
+    "pdf_page": 84,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "độ tăng của hàm",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 966 (PDF)",
+    "pdf_page": 966,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "tốc độ tăng trưởng",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": true
+   }
+  ]
+ },
+ {
+  "id": "half-adder",
+  "letter": "H",
+  "headword_en": "Half adder",
+  "rosen_ref": "Rosen §12.3",
+  "definition_vi": "Mạch cộng bán phần là mạch logic tổ hợp nhận hai bit đầu vào $$x$$ và $$y$$, rồi tạo ra bit tổng $$s$$ và bit nhớ $$c$$. Bit tổng được tính bằng một cổng XOR, ký hiệu $$s = x \\oplus y$$, và bit nhớ được tính bằng một cổng AND, ký hiệu $$c = x \\wedge y$$.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "mạch cộng bán phần",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": true
+   }
+  ]
+ },
+ {
+  "id": "hamilton-circuit",
+  "letter": "H",
+  "headword_en": "Hamilton Circuit",
+  "rosen_ref": "",
+  "definition_vi": "",
+  "see_ref": "hamiltonian-cycle",
+  "vi_terms": []
+ },
+ {
+  "id": "hamilton-path",
+  "letter": "H",
+  "headword_en": "Hamilton Path",
+  "rosen_ref": "",
+  "definition_vi": "",
+  "see_ref": "hamiltonian-path",
+  "vi_terms": []
+ },
+ {
+  "id": "hamiltonian-cycle",
+  "letter": "H",
+  "headword_en": "Hamiltonian cycle",
+  "rosen_ref": "Rosen §10.5",
+  "definition_vi": "Chu trình Hamilton của một đồ thị $$G$$ là một chu trình đơn đi qua mỗi đỉnh của $$G$$ đúng một lần rồi quay về đỉnh xuất phát.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "chu trình Hamilton",
+    "source_id": "bib-leanhvinh-2020",
+    "page": "tr. 21 (PDF)",
+    "pdf_page": 21,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "chu trình Hamilton",
+    "source_id": "bib-hoangchithanh-2007",
+    "page": "tr. 82 (PDF)",
+    "pdf_page": 82,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "chu trình Hamilton",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 556 (PDF, bản dịch Rosen)",
+    "pdf_page": 556,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "hamiltonian-graph",
+  "letter": "H",
+  "headword_en": "Hamiltonian graph",
+  "rosen_ref": "Rosen §10.5",
+  "definition_vi": "Đồ thị Hamilton là đồ thị $$G$$ chứa một chu trình Hamilton, tức là một chu trình đi qua mỗi đỉnh của $$G$$ đúng một lần.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "đồ thị Hamilton",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 188 (PDF)",
+    "pdf_page": 188,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "đồ thị Hamilton",
+    "source_id": "bib-nguyenducnghia-2006",
+    "page": "tr. 194 (PDF)",
+    "pdf_page": 194,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "đồ thị Hamilton",
+    "source_id": "bib-ngodactan-2004",
+    "page": "tr. 202 (PDF)",
+    "pdf_page": 202,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "đồ thị nửa Hamilton",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 189 (PDF)",
+    "pdf_page": 189,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "đồ thị nửa Hamilton",
+    "source_id": "bib-ngodactan-2004",
+    "page": "tr. 202 (PDF)",
+    "pdf_page": 202,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "hamiltonian-path",
+  "letter": "H",
+  "headword_en": "Hamiltonian path",
+  "rosen_ref": "Rosen §10.5",
+  "definition_vi": "Một \\emph{đường đi Hamilton} của đồ thị $$G$$ là một đường đi đơn đi qua mỗi đỉnh của $$G$$ đúng một lần.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "đường đi Hamilton",
+    "source_id": "bib-leanhvinh-2020",
+    "page": "tr. 21 (PDF)",
+    "pdf_page": 21,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "đường đi Hamilton",
+    "source_id": "bib-nguyenhoangthach-2020",
+    "page": "tr. 78 (PDF)",
+    "pdf_page": 78,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "đường đi Hamilton",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 189 (PDF)",
+    "pdf_page": 189,
+    "verified": true,
+    "recommended": false
+   },
+   {
+
+hook: PostToolUse
+hook: PostToolUse Completed
+codex
+I’ve got the first part of the batch: it contains graph theory, algebra, algorithms, and logic-circuit terms, with two Hamilton cross-reference stubs to skip. I’m continuing the batch read before searching so the output count is accurate.
+hook: PreToolUse
+hook: PreToolUse Completed
+exec
+/bin/bash -lc "sed -n '241,520p' workflow/loop/review/batch-8.json" in /home/ubuntu/DM-Concepts
+ succeeded in 0ms:
+    "term": "đường đi Hamilton",
+    "source_id": "bib-nguyenducnghia-2006",
+    "page": "tr. 223 (PDF)",
+    "pdf_page": 223,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "đường đi Hamilton",
+    "source_id": "bib-hoangchithanh-2007",
+    "page": "tr. 82 (PDF)",
+    "pdf_page": 82,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "đường Hamilton",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 192 (PDF)",
+    "pdf_page": 192,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "đường Hamilton",
+    "source_id": "bib-hoangchithanh-2007",
+    "page": "tr. 82 (PDF)",
+    "pdf_page": 82,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "đường Hamilton",
+    "source_id": "bib-ngodactan-2004",
+    "page": "tr. 202 (PDF)",
+    "pdf_page": 202,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "đường đi Hamilton",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 556 (PDF, bản dịch Rosen)",
+    "pdf_page": 556,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "handshake-theorem",
+  "letter": "H",
+  "headword_en": "Handshake theorem",
+  "rosen_ref": "Rosen §10.2",
+  "definition_vi": "Định lý bắt tay khẳng định rằng trong một đồ thị vô hướng $$G = (V, E)$$, tổng bậc của tất cả các đỉnh bằng hai lần số cạnh, ký hiệu $$\\sum_{v \\in V(G)} \\deg_G(v) = 2|E(G)|$$. Hệ quả là số đỉnh có bậc lẻ trong $$G$$ luôn là một số chẵn.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "định lý bắt tay",
+    "source_id": "bib-leanhvinh-2020",
+    "page": "tr. 11 (PDF)",
+    "pdf_page": 11,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "bổ đề bắt tay",
+    "source_id": "bib-nguyenhoangthach-2020",
+    "page": "tr. 64 (PDF)",
+    "pdf_page": 64,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "bổ đề bắt tay",
+    "source_id": "bib-ngodactan-2004",
+    "page": "tr. 335 (PDF)",
+    "pdf_page": 335,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "harmonic-series",
+  "letter": "H",
+  "headword_en": "Harmonic series",
+  "rosen_ref": "Rosen §2.4",
+  "definition_vi": "Số điều hòa thứ $$n$$, ký hiệu $$H_n$$, là tổng hữu hạn $$H_n = 1 + \\frac{1}{2} + \\frac{1}{3} + \\cdots + \\frac{1}{n} = \\sum_{k=1}^{n} \\frac{1}{k}$$ của các nghịch đảo của $$n$$ số nguyên dương đầu tiên. Chuỗi điều hòa là tổng vô hạn $$\\sum_{k=1}^{\\infty} \\frac{1}{k}$$ tương ứng.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "số điều hòa",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 69 (PDF)",
+    "pdf_page": 69,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "số điều hoà",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 150 (PDF)",
+    "pdf_page": 150,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "số điều hòa",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 235 (PDF, bản dịch Rosen)",
+    "pdf_page": 235,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "số điều hoà",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 119 (PDF, bản dịch Rosen)",
+    "pdf_page": 119,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "hasse-diagram",
+  "letter": "H",
+  "headword_en": "Hasse diagram",
+  "rosen_ref": "Rosen §9.6",
+  "definition_vi": "\\emph{Biểu đồ Hasse} của một tập hữu hạn được sắp thứ tự bộ phận $$(S, \\preceq)$$ là một hình vẽ trong đó mỗi phần tử của $$S$$ được biểu diễn bằng một đỉnh và có một đoạn thẳng đi lên từ $$a$$ tới $$b$$ khi và chỉ khi $$b$$ phủ $$a$$. Ở đây $$b$$ phủ $$a$$ nghĩa là $$a \\prec b$$ và không tồn tại phần tử $$c$$ nào với $$a \\prec c \\prec b$$. Các cạnh suy ra từ tính phản xạ và tính bắc cầu đều được lược bỏ.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "biểu đồ Hasse",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 122 (PDF)",
+    "pdf_page": 122,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "sơ đồ Hasse",
+    "source_id": "bib-ngodactan-2004",
+    "page": "tr. 165 (PDF)",
+    "pdf_page": 165,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "head-of-an-arc",
+  "letter": "H",
+  "headword_en": "Head of an arc",
+  "rosen_ref": "",
+  "definition_vi": "",
+  "see_ref": "terminal-vertex",
+  "vi_terms": [
+   {
+    "term": "đỉnh cuối",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": false
+   },
+   {
+    "term": "đỉnh cuối của cung",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "height",
+  "letter": "H",
+  "headword_en": "Height",
+  "rosen_ref": "",
+  "definition_vi": "",
+  "see_ref": "height-of-a-tree",
+  "vi_terms": [
+   {
+    "term": "Độ cao",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": false
+   },
+   {
+    "term": "chiều cao",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "height-of-a-tree",
+  "letter": "H",
+  "headword_en": "Height of a tree",
+  "rosen_ref": "Rosen §11.1",
+  "definition_vi": "Chiều cao của một cây có gốc $$T$$, ký hiệu $$h$$, là giá trị lớn nhất trong các mức của các đỉnh của $$T$$, tức là độ dài của một đường đi dài nhất từ gốc đến một lá.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "chiều cao của cây",
+    "source_id": "bib-nguyenhoangthach-2020",
+    "page": "tr. 85 (PDF)",
+    "pdf_page": 85,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "chiều cao của cây",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 252 (PDF)",
+    "pdf_page": 252,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "chiều cao của cây",
+    "source_id": "bib-hoangchithanh-2007",
+    "page": "tr. 137 (PDF)",
+    "pdf_page": 137,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "chiều cao",
+    "source_id": "bib-nguyenhoangthach-2020",
+    "page": "tr. 85 (PDF)",
+    "pdf_page": 85,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "chiều cao",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 252 (PDF)",
+    "pdf_page": 252,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "chiều cao",
+    "source_id": "bib-hoangchithanh-2007",
+    "page": "tr. 138 (PDF)",
+    "pdf_page": 138,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "chiều cao của cây",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 642 (PDF, bản dịch Rosen)",
+    "pdf_page": 642,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "chiều cao",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 312 (PDF, bản dịch Rosen)",
+    "pdf_page": 312,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "hexadecimal",
+  "letter": "H",
+
+hook: PostToolUse
+hook: PostToolUse Completed
+codex
+Most entries already have local source IDs for standard terms; the higher-risk ones are the unverified recommended terms and any English headword where the Vietnamese entry names a related but narrower concept. I’m reading the tail now, then I’ll search only where a finding is plausible.
+hook: PreToolUse
+hook: PreToolUse Completed
+exec
+/bin/bash -lc "sed -n '521,760p' workflow/loop/review/batch-8.json" in /home/ubuntu/DM-Concepts
+ succeeded in 0ms:
+  "headword_en": "Hexadecimal",
+  "rosen_ref": "Rosen §3.6",
+  "definition_vi": "Hệ thập lục phân (hệ cơ số 16) là hệ đếm biểu diễn số nguyên theo cơ số $$16$$, dùng $$16$$ ký số $$0,1,2,3,4,5,6,7,8,9,A,B,C,D,E,F$$, trong đó $$A,B,\\dots,F$$ tương ứng với các giá trị từ $$10$$ đến $$15$$. Mỗi số nguyên không âm $$n$$ có khai triển duy nhất dạng $$n=\\sum_{i=0}^{k-1} a_i\\,16^i$$ với $$0\\leq a_i\\leq 15$$, ký hiệu $$(a_{k-1}\\dots a_1 a_0)_{16}$$.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "thập lục phân",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 82 (PDF)",
+    "pdf_page": 82,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "thập lục phân",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 174 (PDF)",
+    "pdf_page": 174,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "Hệ cơ số $16$ (hệ thập lục phân",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": false
+   },
+   {
+    "term": "Hệ cơ số 16 (hệ thập lục phân)",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": true
+   }
+  ]
+ },
+ {
+  "id": "hexadecimal-representation",
+  "letter": "H",
+  "headword_en": "Hexadecimal Representation",
+  "rosen_ref": "",
+  "definition_vi": "",
+  "see_ref": "hexadecimal",
+  "vi_terms": []
+ },
+ {
+  "id": "homeomorphic",
+  "letter": "H",
+  "headword_en": "Homeomorphic",
+  "rosen_ref": "",
+  "definition_vi": "",
+  "see_ref": "homeomorphic-graphs",
+  "vi_terms": [
+   {
+    "term": "đồng phôi",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": false
+   },
+   {
+    "term": "đồng cấu",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "homeomorphic-graphs",
+  "letter": "H",
+  "headword_en": "Homeomorphic graphs",
+  "rosen_ref": "Rosen §10.7",
+  "definition_vi": "Một \\emph{phép chia cạnh} của đồ thị $$G$$ là phép toán thêm một đỉnh mới $$w$$ và thay cạnh $$uv \\in E(G)$$ bằng hai cạnh mới $$uw$$ và $$wv$$. Hai đồ thị $$G_1$$ và $$G_2$$ được gọi là \\emph{đồng phôi} với nhau nếu cả $$G_1$$ và $$G_2$$ đều có thể thu được từ cùng một đồ thị $$G$$ bằng một dãy các phép chia cạnh.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "đồng phôi",
+    "source_id": "bib-nguyenhoangthach-2020",
+    "page": "tr. 81 (PDF)",
+    "pdf_page": 81,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "đồng cấu",
+    "source_id": "bib-nguyenducnghia-2006",
+    "page": "tr. 161 (PDF)",
+    "pdf_page": 161,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "đồng phôi",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 587 (PDF, bản dịch Rosen)",
+    "pdf_page": 587,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "homogeneous-recurrence-relation",
+  "letter": "H",
+  "headword_en": "Homogeneous recurrence relation",
+  "rosen_ref": "Rosen §8.2",
+  "definition_vi": "Một hệ thức truy hồi tuyến tính thuần nhất bậc $$k$$ với hệ số hằng số là một hệ thức biểu diễn số hạng $$a_n$$ dưới dạng một tổ hợp tuyến tính cố định của $$k$$ số hạng liền trước, $$a_n = c_1 a_{n-1} + c_2 a_{n-2} + \\dots + c_k a_{n-k}$$, trong đó $$c_1, c_2, \\dots, c_k$$ là các số thực với $$c_k \\neq 0$$. Hệ thức được gọi là thuần nhất vì không có số hạng nào độc lập với dãy, và được gọi là tuyến tính vì mỗi $$a_{n-i}$$ chỉ xuất hiện với bậc nhất.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "quan hệ truy hồi tuyến tính thuần nhất",
+    "source_id": "bib-nguyenhoangthach-2020",
+    "page": "tr. 40 (PDF)",
+    "pdf_page": 40,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "hệ thức truy hồi tuyến tính thuần nhất",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 98 (PDF)",
+    "pdf_page": 98,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "công thức truy hồi tuyến tính thuần nhất",
+    "source_id": "bib-nguyenducnghia-2006",
+    "page": "tr. 34 (PDF)",
+    "pdf_page": 34,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "phép truy toán tuyến tính thuần nhất",
+    "source_id": "bib-ngodactan-2004",
+    "page": "tr. 79 (PDF)",
+    "pdf_page": 79,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "hệ thức truy hồi tuyến tính thuần nhất",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 387 (PDF, bản dịch Rosen)",
+    "pdf_page": 387,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "homomorphism",
+  "letter": "H",
+  "headword_en": "Homomorphism",
+  "rosen_ref": "Rosen §9.6",
+  "definition_vi": "Một đồng cấu giữa hai cấu trúc đại số cùng kiểu $$A$$ và $$B$$ là một ánh xạ $$f\\colon A \\to B$$ bảo toàn phép toán, nghĩa là $$f(a * b) = f(a) \\circ f(b)$$ với mọi $$a, b \\in A$$, trong đó $$*$$ và $$\\circ$$ lần lượt là phép toán trên $$A$$ và trên $$B$$.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "đồng cấu",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 124 (PDF)",
+    "pdf_page": 124,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "đồng cấu dàn",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 125 (PDF)",
+    "pdf_page": 125,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "huffman-coding",
+  "letter": "H",
+  "headword_en": "Huffman coding",
+  "rosen_ref": "Rosen §11.2",
+  "definition_vi": "\\emph{Thuật toán Huffman} là thuật toán tham lam xây dựng một cây mã tiền tố tối ưu cho một tập ký hiệu $$A$$, trong đó mỗi ký hiệu $$x \\in A$$ có tần suất $$\\varphi(x)$$: thuật toán khởi tạo một rừng gồm các cây một đỉnh được gán nhãn $$\\varphi(x)$$, rồi lặp lại việc chọn hai cây có gốc mang nhãn nhỏ nhất, gộp chúng dưới một đỉnh mới mang nhãn bằng tổng hai nhãn đó và nối bằng hai cạnh nhãn $$0$$, $$1$$ thành một cây nhị phân, cho đến khi chỉ còn một cây. Cây nhị phân thu được làm cực tiểu độ dài kỳ vọng của mã bản tin.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "thuật toán Huffman",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 258 (PDF)",
+    "pdf_page": 258,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "thuật toán Huffman",
+    "source_id": "bib-hoangchithanh-2007",
+    "page": "tr. 144 (PDF)",
+    "pdf_page": 144,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "bộ mã Huffman",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 257 (PDF)",
+    "pdf_page": 257,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "bộ mã Huffman",
+    "source_id": "bib-hoangchithanh-2007",
+    "page": "tr. 143 (PDF)",
+    "pdf_page": 143,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "cây mã Huffman",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 256 (PDF)",
+    "pdf_page": 256,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "cây mã Huffman",
+    "source_id": "bib-hoangchithanh-2007",
+    "page": "tr. 151 (PDF)",
+    "pdf_page": 151,
+    "verified": true,
+    "recommended": false
+   }
+
+hook: PostToolUse
+hook: PostToolUse Completed
+hook: PreToolUse
+hook: PreToolUse Completed
+exec
+/bin/bash -lc "sed -n '761,980p' workflow/loop/review/batch-8.json" in /home/ubuntu/DM-Concepts
+ succeeded in 0ms:
+  ]
+ },
+ {
+  "id": "hypercube",
+  "letter": "H",
+  "headword_en": "Hypercube",
+  "rosen_ref": "Rosen §10.2",
+  "definition_vi": "Đồ thị lập phương $$Q_n$$, với $$n \\geq 1$$, là đồ thị có $$2^n$$ đỉnh, mỗi đỉnh tương ứng với một xâu nhị phân độ dài $$n$$, trong đó hai đỉnh kề nhau khi và chỉ khi hai xâu nhị phân tương ứng khác nhau đúng tại một bit.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "đồ thị lập phương",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 160 (PDF)",
+    "pdf_page": 160,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "đồ thị siêu lập phương",
+    "source_id": "bib-leanhvinh-2020",
+    "page": "tr. 58 (PDF)",
+    "pdf_page": 58,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "siêu khối",
+    "source_id": "bib-nguyenhoangthach-2020",
+    "page": "tr. 67 (PDF)",
+    "pdf_page": 67,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "đồ thị lập phương",
+    "source_id": "bib-nguyenducnghia-2006",
+    "page": "tr. 159 (PDF)",
+    "pdf_page": 159,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "siêu khối",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 513 (PDF, bản dịch Rosen)",
+    "pdf_page": 513,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "mạng kiểu siêu khối",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 162 (PDF)",
+    "pdf_page": 162,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "siêu lập phương",
+    "source_id": "bib-leanhvinh-2020",
+    "page": "tr. 222 (PDF)",
+    "pdf_page": 222,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "hypergraph",
+  "letter": "H",
+  "headword_en": "Hypergraph",
+  "rosen_ref": "Rosen §10.1",
+  "definition_vi": "Một \\emph{siêu đồ thị} là sự tổng quát hóa của đồ thị, gồm một tập đỉnh $$V$$ cùng với một tập siêu cạnh $$E$$, ký hiệu $$H = (V, E)$$, trong đó mỗi siêu cạnh là một tập con khác rỗng tùy ý của $$V$$. Như vậy, mỗi siêu cạnh có thể chứa số đỉnh tùy ý, khác với cạnh của đồ thị thông thường vốn chỉ nối đúng hai đỉnh.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "siêu đồ thị",
+    "source_id": "bib-leanhvinh-2020",
+    "page": "tr. 147 (PDF)",
+    "pdf_page": 147,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "siêu đồ thị",
+    "source_id": "bib-ngodactan-2004",
+    "page": "tr. 306 (PDF)",
+    "pdf_page": 306,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "hypothetical-syllogism",
+  "letter": "H",
+  "headword_en": "Hypothetical Syllogism",
+  "rosen_ref": "Rosen §1.6",
+  "definition_vi": "Tam đoạn luận giả định là quy tắc suy diễn cho phép từ hai phép kéo theo $$p \\to q$$ và $$q \\to r$$ suy ra phép kéo theo $$p \\to r$$. Quy tắc này dựa trên hằng đúng (tautology) $$((p \\to q) \\land (q \\to r)) \\to (p \\to r)$$, nên đôi khi còn gọi là quy tắc bắc cầu của phép kéo theo.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "Tam đoạn luận",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 33 (PDF)",
+    "pdf_page": 33,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "tam đoạn luận giả định",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 212 (PDF)",
+    "pdf_page": 212,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "Tam đoạn luận giả định",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 212 (PDF, bản dịch Rosen)",
+    "pdf_page": 212,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "Tam đoạn luận",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 212 (PDF, bản dịch Rosen)",
+    "pdf_page": 212,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "identity-function",
+  "letter": "I",
+  "headword_en": "Identity Function",
+  "rosen_ref": "Rosen §2.3",
+  "definition_vi": "Hàm đồng nhất trên tập $$A$$, ký hiệu $$\\iota_A$$, là hàm từ $$A$$ vào chính nó gán mỗi phần tử cho chính nó, nghĩa là $$\\iota_A(x) = x$$ với mọi $$x \\in A$$. Hàm đồng nhất là một song ánh và là phần tử trung hòa đối với phép hợp thành hàm.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "hàm đồng nhất",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 87 (PDF)",
+    "pdf_page": 87,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "Hàm đồng nhất",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 90 (PDF, bản dịch Rosen)",
+    "pdf_page": 90,
+    "verified": true,
+    "recommended": true
+   }
+  ]
+ },
+ {
+  "id": "identity-matrix",
+  "letter": "I",
+  "headword_en": "Identity Matrix",
+  "rosen_ref": "Rosen §2.6",
+  "definition_vi": "Ma trận đơn vị cấp $$n$$ là ma trận vuông $$n \\times n$$ có các phần tử trên đường chéo chính đều bằng $$1$$ và mọi phần tử còn lại đều bằng $$0$$.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "ma trận đơn vị",
+    "source_id": "bib-leanhvinh-2020",
+    "page": "tr. 207 (PDF)",
+    "pdf_page": 207,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "ma trận đơn vị",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 189 (PDF)",
+    "pdf_page": 189,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "ma trận đơn vị",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 199 (PDF)",
+    "pdf_page": 199,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "ma trận đồng nhất",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 189 (PDF)",
+    "pdf_page": 189,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "image",
+  "letter": "I",
+  "headword_en": "Image",
+  "rosen_ref": "Rosen §2.3",
+  "definition_vi": "Ảnh của một phần tử $$a$$ qua hàm $$f : A \\to B$$ là phần tử $$b \\in B$$ được $$f$$ gán cho $$a$$, ký hiệu $$b = f(a)$$. Ảnh của một tập con $$S \\subseteq A$$ qua $$f$$, ký hiệu $$f(S)$$, là tập tất cả các ảnh của các phần tử thuộc $$S$$, tức là $$f(S) = \\{\\, f(a) : a \\in S \\,\\}$$.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "ảnh",
+    "source_id": "bib-nguyenhoangthach-2020",
+    "page": "tr. 21 (PDF)",
+    "pdf_page": 21,
+    "verified": true,
+    "recommended": true
+   },
+
+hook: PostToolUse
+hook: PostToolUse Completed
+codex
+The non-stub batch size is modest and several entries are already multiply attested inside the dictionary. I’ll still run targeted searches for entries with likely alternate wording, especially `growth-rate`, `half-adder`, `harmonic-series`, `hexadecimal`, `Huffman coding`, and core function/matrix terms.
+hook: PreToolUse
+hook: PreToolUse Completed
+exec
+/bin/bash -lc "sed -n '981,1160p' workflow/loop/review/batch-8.json" in /home/ubuntu/DM-Concepts
+ succeeded in 0ms:
+   {
+    "term": "ảnh",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 82 (PDF)",
+    "pdf_page": 82,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "ảnh",
+    "source_id": "bib-ngodactan-2004",
+    "page": "tr. 41 (PDF)",
+    "pdf_page": 41,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "ảnh",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 82 (PDF)",
+    "pdf_page": 82,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "implement",
+  "letter": "I",
+  "headword_en": "Implement",
+  "rosen_ref": "Rosen §3.1",
+  "definition_vi": "Cài đặt một thuật toán, ký hiệu chung là biến đổi mô tả của thuật toán thành một chương trình chạy được trên máy tính bằng một ngôn ngữ lập trình cụ thể. Việc cài đặt giữ nguyên các bước và tính đúng đắn của thuật toán, đồng thời quy định chi tiết cách biểu diễn dữ liệu và thực hiện từng câu lệnh trên máy.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "cài đặt",
+    "source_id": "bib-nguyenducnghia-2006",
+    "page": "tr. 83 (PDF)",
+    "pdf_page": 83,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "cài đặt",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 132 (PDF)",
+    "pdf_page": 132,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "cài đặt",
+    "source_id": "bib-hoangchithanh-2007",
+    "page": "tr. 4 (PDF)",
+    "pdf_page": 4,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "implicant",
+  "letter": "I",
+  "headword_en": "Implicant",
+  "rosen_ref": "Rosen §12.4",
+  "definition_vi": "Nguyên nhân của một hàm Boole $$f$$ là một tích các tục biến (một hội sơ cấp) mà từ đó suy ra $$f$$, nghĩa là tại mọi bộ giá trị làm cho tích đó bằng $$1$$ thì $$f$$ cũng nhận giá trị $$1$$. Nói cách khác, nếu ký hiệu tích các tục biến là $$g$$ thì $$g$$ là một nguyên nhân của $$f$$ khi và chỉ khi phép kéo theo $$g \\rightarrow f$$ luôn nhận giá trị $$1$$.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "nguyên nhân",
+    "source_id": "bib-nguyenducnghia-2006",
+    "page": "tr. 274 (PDF)",
+    "pdf_page": 274,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "nguyên nhân",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 145 (PDF, bản dịch Rosen)",
+    "pdf_page": 145,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "implication",
+  "letter": "I",
+  "headword_en": "Implication",
+  "rosen_ref": "Rosen §1.1",
+  "definition_vi": "Phép kéo theo của hai mệnh đề $$p$$ và $$q$$, ký hiệu $$p \\rightarrow q$$, là mệnh đề có giá trị chân lý sai khi $$p$$ đúng và $$q$$ sai, và đúng trong mọi trường hợp còn lại. Trong $$p \\rightarrow q$$, mệnh đề $$p$$ được gọi là giả thiết và $$q$$ được gọi là kết luận.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "phép kéo theo",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 18 (PDF)",
+    "pdf_page": 18,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "hàm kéo theo",
+    "source_id": "bib-nguyenducnghia-2006",
+    "page": "tr. 267 (PDF)",
+    "pdf_page": 267,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "mệnh đề kéo theo",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 10 (PDF)",
+    "pdf_page": 10,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "kéo theo",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 10 (PDF, bản dịch Rosen)",
+    "pdf_page": 10,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "phép kéo theo",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 10 (PDF, bản dịch Rosen)",
+    "pdf_page": 10,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "in-degree",
+  "letter": "I",
+  "headword_en": "In-Degree",
+  "rosen_ref": "",
+  "definition_vi": "",
+  "see_ref": "indegree",
+  "vi_terms": [
+   {
+    "term": "Bậc vào",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": false
+   },
+   {
+    "term": "bán bậc vào",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "incidence-matrix",
+  "letter": "I",
+  "headword_en": "incidence matrix",
+  "rosen_ref": "Rosen §10.3",
+  "definition_vi": "Ma trận liên thuộc của đồ thị $$G$$ với tập đỉnh $$V(G) = \\{v_1, v_2, \\ldots, v_n\\}$$ và tập cạnh $$E(G) = \\{e_1, e_2, \\ldots, e_m\\}$$, ký hiệu $$M = (m_{ij})$$, là ma trận cỡ $$n \\times m$$ trong đó $$m_{ij} = 1$$ nếu đỉnh $$v_i$$ liên thuộc với cạnh $$e_j$$ và $$m_{ij} = 0$$ trong trường hợp ngược lại.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "ma trận liên thuộc",
+    "source_id": "bib-leanhvinh-2020",
+    "page": "tr. 54 (PDF)",
+    "pdf_page": 54,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "ma trận liên thuộc",
+
+hook: PostToolUse
+hook: PostToolUse Completed
+hook: PreToolUse
+hook: PreToolUse Completed
+exec
+/bin/bash -lc "sed -n '1161,1320p' workflow/loop/review/batch-8.json" in /home/ubuntu/DM-Concepts
+ succeeded in 0ms:
+    "source_id": "bib-nguyenhoangthach-2020",
+    "page": "tr. 67 (PDF)",
+    "pdf_page": 67,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "ma trận liên thuộc",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 164 (PDF)",
+    "pdf_page": 164,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "ma trận liên thuộc",
+    "source_id": "bib-hoangchithanh-2007",
+    "page": "tr. 20 (PDF)",
+    "pdf_page": 20,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "ma trận liên thuộc",
+    "source_id": "bib-nguyenducnghia-2006",
+    "page": "tr. 171 (PDF)",
+    "pdf_page": 171,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "ma trận liên thuộc",
+    "source_id": "bib-ngodactan-2004",
+    "page": "tr. 220 (PDF)",
+    "pdf_page": 220,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "ma trận liên thuộc đỉnh-cạnh",
+    "source_id": "bib-nguyenducnghia-2006",
+    "page": "tr. 171 (PDF)",
+    "pdf_page": 171,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "ma trận liên thuộc",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 523 (PDF, bản dịch Rosen)",
+    "pdf_page": 523,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "incident",
+  "letter": "I",
+  "headword_en": "Incident",
+  "rosen_ref": "Rosen §10.2",
+  "definition_vi": "Một cạnh $$e = \\{u, v\\}$$ được gọi là liên thuộc với hai đỉnh $$u$$ và $$v$$; ngược lại, mỗi đỉnh $$u$$ và $$v$$ cũng được gọi là liên thuộc với cạnh $$e$$. Hai đỉnh $$u$$ và $$v$$ này được gọi là các đầu mút của cạnh $$e$$.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "liên thuộc",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 157 (PDF)",
+    "pdf_page": 157,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "liên thuộc",
+    "source_id": "bib-ngodactan-2004",
+    "page": "tr. 186 (PDF)",
+    "pdf_page": 186,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "liên thuộc",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 505 (PDF)",
+    "pdf_page": 505,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "inclusion-exclusion-principle",
+  "letter": "I",
+  "headword_en": "Inclusion-Exclusion Principle",
+  "rosen_ref": "Rosen §7.5",
+  "definition_vi": "Nguyên lý bù trừ là công thức đếm số phần tử của hợp các tập hữu hạn $$A_1, A_2, \\ldots, A_n$$ bằng cách cộng kích thước của từng tập, rồi trừ kích thước của các giao từng cặp, cộng lại các giao bộ ba, và tiếp tục đan dấu cho đến giao của cả $$n$$ tập, ký hiệu $$\\left| \\bigcup_{i=1}^{n} A_i \\right|$$. Với hai tập, công thức là $$|A_1 \\cup A_2| = |A_1| + |A_2| - |A_1 \\cap A_2|$$.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "nguyên lý bù trừ",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 84 (PDF)",
+    "pdf_page": 84,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "nguyên lý bù trừ",
+    "source_id": "bib-nguyenhoangthach-2020",
+    "page": "tr. 55 (PDF)",
+    "pdf_page": 55,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "nguyên lý bù trừ",
+    "source_id": "bib-nguyenducnghia-2006",
+    "page": "tr. 27 (PDF)",
+    "pdf_page": 27,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "nguyên lý bù trừ",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 410 (PDF)",
+    "pdf_page": 410,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "nguyên lý bao hàm và loại trừ",
+    "source_id": "bib-ngodactan-2004",
+    "page": "tr. 109 (PDF)",
+    "pdf_page": 109,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "Nguyên lý bù trừ",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 77 (PDF, bản dịch Rosen)",
+    "pdf_page": 77,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "Đếm mỗi phần tử trong tập hợp đang xét nhiều hơn một lần, không nhận ra rằng cần sử dụng nguyên tắc bù-trừ",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "incomparable",
+  "letter": "I",
+  "headword_en": "Incomparable",
+
+hook: PostToolUse
+hook: PostToolUse Completed
+hook: PreToolUse
+hook: PreToolUse Completed
+exec
+/bin/bash -lc "sed -n '1321,1480p' workflow/loop/review/batch-8.json" in /home/ubuntu/DM-Concepts
+ succeeded in 0ms:
+  "rosen_ref": "Rosen §9.6",
+  "definition_vi": "Hai phần tử $$a$$ và $$b$$ của một tập có thứ tự bộ phận $$(S, \\preceq)$$ được gọi là không so sánh được nếu cả $$a \\preceq b$$ lẫn $$b \\preceq a$$ đều không xảy ra. Nói cách khác, $$a$$ và $$b$$ không so sánh được khi chúng không so sánh được với nhau theo quan hệ thứ tự bộ phận $$\\preceq$$.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "không so sánh được",
+    "source_id": "bib-ngodactan-2004",
+    "page": "tr. 164 (PDF)",
+    "pdf_page": 164,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "không so sánh được",
+    "source_id": "bib-ngodactan-2004",
+    "page": "tr. 274 (PDF)",
+    "pdf_page": 274,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "increasing",
+  "letter": "I",
+  "headword_en": "Increasing",
+  "rosen_ref": "Rosen §2.3",
+  "definition_vi": "Hàm $$f$$ từ tập số thực vào tập số thực được gọi là tăng nếu với mọi $$x$$ và $$y$$ thuộc miền xác định mà $$x < y$$ thì $$f(x) \\leq f(y)$$. Nếu điều kiện mạnh hơn $$f(x) < f(y)$$ luôn đúng khi $$x < y$$, ta nói $$f$$ tăng thực sự (ký hiệu $$x < y \\implies f(x) < f(y)$$).",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "hàm tăng",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 101 (PDF)",
+    "pdf_page": 101,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "hàm tăng",
+    "source_id": "bib-nguyenducnghia-2006",
+    "page": "tr. 86 (PDF)",
+    "pdf_page": 86,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "dãy tăng",
+    "source_id": "bib-nguyenducnghia-2006",
+    "page": "tr. 62 (PDF)",
+    "pdf_page": 62,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "thực sự tăng",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 85 (PDF)",
+    "pdf_page": 85,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "tăng",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 33 (PDF, bản dịch Rosen)",
+    "pdf_page": 33,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "hàm tăng",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 400 (PDF, bản dịch Rosen)",
+    "pdf_page": 400,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "indegree",
+  "letter": "I",
+  "headword_en": "indegree",
+  "rosen_ref": "Rosen §10.2",
+  "definition_vi": "Bậc vào của một đỉnh $$v$$ trong đồ thị có hướng $$G$$ là số cạnh nhận $$v$$ làm đỉnh cuối, ký hiệu $$\\deg^{-}(v)$$.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "bậc vào",
+    "source_id": "bib-leanhvinh-2020",
+    "page": "tr. 256 (PDF)",
+    "pdf_page": 256,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "bậc vào của đỉnh",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 226 (PDF)",
+    "pdf_page": 226,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "bậc vào",
+    "source_id": "bib-hoangchithanh-2007",
+    "page": "tr. 49 (PDF)",
+    "pdf_page": 49,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "bán bậc vào",
+    "source_id": "bib-nguyenducnghia-2006",
+    "page": "tr. 155 (PDF)",
+    "pdf_page": 155,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "bậc vào",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 516 (PDF, bản dịch Rosen)",
+    "pdf_page": 516,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "independent-events",
+  "letter": "I",
+  "headword_en": "Independent Events",
+  "rosen_ref": "Rosen §6.2",
+  "definition_vi": "Hai biến cố $$E$$ và $$F$$ được gọi là độc lập nếu $$p(E \\cap F) = p(E)p(F)$$. Nói cách khác, hai biến cố là độc lập khi xác suất xảy ra đồng thời của chúng bằng tích các xác suất riêng lẻ.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "biến cố độc lập",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": true
+   },
+   {
+    "term": "biến cố độc lập",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": false
+   },
+   {
+    "term": "biến cố",
+    "source_id": "bib-leanhvinh-2020",
+    "page": "tr. 157 (PDF)",
+    "pdf_page": 157,
+    "verified": true,
+
+hook: PostToolUse
+hook: PostToolUse Completed
+hook: PreToolUse
+hook: PreToolUse Completed
+exec
+/bin/bash -lc "sed -n '1481,1640p' workflow/loop/review/batch-8.json" in /home/ubuntu/DM-Concepts
+ succeeded in 0ms:
+    "recommended": false
+   },
+   {
+    "term": "biến cố",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 290 (PDF, bản dịch Rosen)",
+    "pdf_page": 290,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "independent-random-variables",
+  "letter": "I",
+  "headword_en": "Independent Random Variables",
+  "rosen_ref": "Rosen §7.4",
+  "definition_vi": "Hai biến ngẫu nhiên $$X$$ và $$Y$$ được gọi là độc lập nếu phân phối đồng thời của chúng phân tích thành tích của các phân phối lề. Nói cách khác, $$X$$ và $$Y$$ độc lập khi $$p(X = r_1 \\text{ và } Y = r_2) = p(X = r_1) \\cdot p(Y = r_2)$$ với mọi giá trị $$r_1$$ của $$X$$ và mọi giá trị $$r_2$$ của $$Y$$.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "biến ngẫu nhiên độc lập",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": true
+   },
+   {
+    "term": "biến ngẫu nhiên",
+    "source_id": "bib-leanhvinh-2020",
+    "page": "tr. 156 (PDF)",
+    "pdf_page": 156,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ }
+]
+hook: PostToolUse
+hook: PostToolUse Completed
+codex
+I’m going to count the non-stub entries with `jq` and then search in small groups. The JSON output will include only entries with actual findings, so standard terms with no missing variant will be omitted.
+hook: PreToolUse
+hook: PreToolUse Completed
+exec
+/bin/bash -lc "jq '[.[] | select(.see_ref == \"\")] | length' workflow/loop/review/batch-8.json" in /home/ubuntu/DM-Concepts
+ succeeded in 0ms:
+33
+
+hook: PostToolUse
+hook: PostToolUse Completed
+web search: 
+web search: "half adder" "mạch cộng" "bán" tiếng Việt
+web search: 
+web search: "growth rate" "tốc độ tăng trưởng" thuật toán tiếng Việt
+web search: 
+web search: "độ tăng của hàm" toán rời rạc
+web search: 
+web search: "grid graph" "đồ thị lưới"
+web search: 
+web search: "nhóm" "group" "đại số" "phần tử đơn vị" tiếng Việt
+web search: 
+web search: "Huffman coding" "mã hóa Huffman" tiếng Việt
+web search: 
+web search: "identity function" "hàm đồng nhất" tiếng Việt
+web search: 
+web search: "hexadecimal" "hệ thập lục phân" "hệ cơ số 16" tiếng Việt
+web search: 
+web search: "nguyên lý cộng trừ" "toán rời rạc"
+web search: 
+web search: "increasing function" "hàm tăng" "đồng biến" tiếng Việt
+web search: 
+web search: "independent events" "biến cố độc lập" tiếng Việt xác suất
+web search: 
+web search: "implicant" "nguyên nhân" "hàm Boole" tiếng Việt
+web search: 
+web search: "chu trình Hamilton" "đường đi Hamilton" "đồ thị Hamilton" "toán rời rạc"
+web search: 
+web search: "chiều cao của cây" "height of a tree" "toán rời rạc"
+web search: 
+web search: "hệ thức truy hồi tuyến tính thuần nhất" "homogeneous recurrence relation"
+codex
+I have enough snippet evidence now. The findings are mostly missing alternate Vietnamese renderings; only two entries look like the recommended term is not the best rendering of the English headword: `harmonic-series` and `huffman-coding`. I’m going to write the JSON and validate it locally.
+hook: PreToolUse
+hook: PreToolUse Completed
+exec
+/bin/bash -lc "test -e workflow/loop/review/findings-8.json && sed -n '1,200p' workflow/loop/review/findings-8.json || true" in /home/ubuntu/DM-Concepts
+ succeeded in 0ms:
+hook: PostToolUse
+hook: PostToolUse Completed
+web search: 
+web search: "implement" "hiện thực" "cài đặt" thuật toán tiếng Việt
+codex
+I’m writing only the findings file now. I’m keeping the entries with no evidence-backed issue out of the JSON, as requested.
+apply patch
+patch: completed
+/home/ubuntu/DM-Concepts/workflow/loop/review/findings-8.json
+diff --git a/workflow/loop/review/findings-8.json b/workflow/loop/review/findings-8.json
+new file mode 100644
+index 0000000000000000000000000000000000000000..534bb7730c1c549b8852d8897ace0185a87520bd
+--- /dev/null
++++ b/workflow/loop/review/findings-8.json
+@@ -0,0 +1,228 @@
++{
++  "loop": 8,
++  "reviewed": 33,
++  "findings": [
++    {
++      "id": "half-adder",
++      "commonality": {
++        "verdict": "common",
++        "better_term": "",
++        "source": ""
++      },
++      "missing_variants": [
++        {
++          "term": "bộ cộng bán phần",
++          "source": "https://tratu.soha.vn/dict/en_vn/Adder"
++        },
++        {
++          "term": "mạch bán cộng",
++          "source": "https://cuuduongthancong.com/dlf/12484080/dien-tu-cho-cntt/nguyen-thi-thanh-nga/dien-tu-so---v2.pdf"
++        },
++        {
++          "term": "bộ bán cộng",
++          "source": "https://luanvan.net.vn/luan-van/de-tai-su-dung-fpga-de-thiet-ke-mo-hinh-software-defined-radio-cho-he-do-thu-kenh-mimo-24130/"
++        },
++        {
++          "term": "bộ bán tổng",
++          "source": "https://cuuduongthancong.com/dlf/12484080/dien-tu-cho-cntt/nguyen-thi-thanh-nga/dien-tu-so---v2.pdf"
++        }
++      ]
++    },
++    {
++      "id": "harmonic-series",
++      "commonality": {
++        "verdict": "uncommon",
++        "better_term": "chuỗi điều hòa",
++        "source": "https://vi.wikipedia.org/wiki/Chu%E1%BB%97i_%C4%91i%E1%BB%81u_h%C3%B2a"
++      },
++      "missing_variants": [
++        {
++          "term": "chuỗi điều hòa",
++          "source": "https://vi.wikipedia.org/wiki/Chu%E1%BB%97i_%C4%91i%E1%BB%81u_h%C3%B2a"
++        }
++      ]
++    },
++    {
++      "id": "hexadecimal",
++      "commonality": {
++        "verdict": "common",
++        "better_term": "",
++        "source": ""
++      },
++      "missing_variants": [
++        {
++          "term": "hệ đếm cơ số 16",
++          "source": "https://vi.wikipedia.org/wiki/H%E1%BB%87_th%E1%BA%ADp_l%E1%BB%A5c_ph%C3%A2n"
++        },
++        {
++          "term": "thập lục",
++          "source": "https://vi.wikipedia.org/wiki/H%E1%BB%87_th%E1%BA%ADp_l%E1%BB%A5c_ph%C3%A2n"
++        }
++      ]
++    },
++    {
++      "id": "homomorphism",
++      "commonality": {
++        "verdict": "common",
++        "better_term": "",
++        "source": ""
++      },
++      "missing_variants": [
++        {
++          "term": "phép đồng cấu",
++          "source": "https://vi.wikipedia.org/wiki/Ph%C3%A9p_%C4%91%E1%BB%93ng_c%E1%BA%A5u"
++        }
++      ]
++    },
++    {
++      "id": "huffman-coding",
++      "commonality": {
++        "verdict": "uncommon",
++        "better_term": "mã hóa Huffman",
++        "source": "https://vi.wikipedia.org/wiki/M%C3%A3_h%C3%B3a_Huffman"
++      },
++      "missing_variants": [
++        {
++          "term": "mã hóa Huffman",
++          "source": "https://vi.wikipedia.org/wiki/M%C3%A3_h%C3%B3a_Huffman"
++        },
++        {
++          "term": "mã Huffman",
++          "source": "https://vi.wikipedia.org/wiki/M%C3%A3_h%C3%B3a_Huffman"
++        },
++        {
++          "term": "mã hoá Huffman",
++          "source": "https://www.studocu.vn/vn/document/truong-dai-hoc-cong-nghiep-tp-ho-chi-minh/graduation-report/bao-cao-khoa-luan-tot-nghiep/92274924"
++        }
++      ]
++    },
++    {
++      "id": "identity-function",
++      "commonality": {
++        "verdict": "common",
++        "better_term": "",
++        "source": ""
++      },
++      "missing_variants": [
++        {
++          "term": "ánh xạ đồng nhất",
++          "source": "https://vi.wikipedia.org/wiki/H%C3%A0m_%C4%91%E1%BB%93ng_nh%E1%BA%A5t"
++        },
++        {
++          "term": "phép biến đổi đồng nhất",
++          "source": "https://vi.wikipedia.org/wiki/H%C3%A0m_%C4%91%E1%BB%93ng_nh%E1%BA%A5t"
++        }
++      ]
++    },
++    {
++      "id": "image",
++      "commonality": {
++        "verdict": "common",
++        "better_term": "",
++        "source": ""
++      },
++      "missing_variants": [
++        {
++          "term": "tập ảnh",
++          "source": "https://dictionary.langeek.co/en-VI/word/93735?entry=image"
++        }
++      ]
++    },
++    {
++      "id": "implement",
++      "commonality": {
++        "verdict": "common",
++        "better_term": "",
++        "source": ""
++      },
++      "missing_variants": [
++        {
++          "term": "hiện thực",
++          "source": "https://chidokun.github.io/2021/07/prim-algorithm-implement/"
++        },
++        {
++          "term": "hiện thực thuật toán",
++          "source": "https://chidokun.github.io/2021/07/prim-algorithm-implement/"
++        }
++      ]
++    },
++    {
++      "id": "implicant",
++      "commonality": {
++        "verdict": "common",
++        "better_term": "",
++        "source": ""
++      },
++      "missing_variants": [
++        {
++          "term": "tích cơ bản",
++          "source": "https://www.researchgate.net/publication/335929429_TOAN_ROI_RAC_NGUYEN_DINH_CUONG_BO_MON_KY_THUAT_PHAN_MEM_KHOA_CNTT-DHNT"
++        }
++      ]
++    },
++    {
++      "id": "inclusion-exclusion-principle",
++      "commonality": {
++        "verdict": "common",
++        "better_term": "",
++        "source": ""
++      },
++      "missing_variants": [
++        {
++          "term": "nguyên lý bao hàm-loại trừ",
++          "source": "https://vi.wikipedia.org/wiki/Nguy%C3%AAn_l%C3%BD_bao_h%C3%A0m-lo%E1%BA%A1i_tr%E1%BB%AB"
++        },
++        {
++          "term": "công thức bao hàm loại trừ",
++          "source": "https://github.com/tmsanghoclaptrinh/tmsang-hoc-thuat-toan/blob/main/To%C3%A1n%20h%E1%BB%8Dc%20trong%20l%E1%BA%ADp%20tr%C3%ACnh%20thi%20%C4%91%E1%BA%A5u/README.md"
++        }
++      ]
++    },
++    {
++      "id": "increasing",
++      "commonality": {
++        "verdict": "common",
++        "better_term": "",
++        "source": ""
++      },
++      "missing_variants": [
++        {
++          "term": "đồng biến",
++          "source": "https://monkey.edu.vn/ba-me-can-biet/giao-duc/kien-thuc-co-ban/ham-so-dong-bien-tren-r"
++        },
++        {
++          "term": "tăng đơn điệu",
++          "source": "https://tratu.soha.vn/dict/en_vn/Increasing"
++        }
++      ]
++    },
++    {
++      "id": "independent-events",
++      "commonality": {
++        "verdict": "common",
++        "better_term": "",
++        "source": ""
++      },
++      "missing_variants": [
++        {
++          "term": "các biến cố độc lập",
++          "source": "https://vi.khanacademy.org/math/xac-suat-thong-ke/x571ba75ccf6d1ccb%3Axac-suat-1-tk-xs-1/x571ba75ccf6d1ccb%3Aquy-tac-tinh-xac-suat-tk-xs-1/v/compound-probability-of-independent-events"
++        }
++      ]
++    },
++    {
++      "id": "independent-random-variables",
++      "commonality": {
++        "verdict": "common",
++        "better_term": "",
++        "source": ""
++      },
++      "missing_variants": [
++        {
++          "term": "các biến ngẫu nhiên độc lập",
++          "source": "https://www.researchgate.net/publication/398769106_Luat_so_lon_cho_day_bien_ngau_nhien_mo_phu_thuoc_am_doi_mot"
++        }
++      ]
++    }
++  ]
++}
+
+diff --git a/workflow/loop/review/findings-8.json b/workflow/loop/review/findings-8.json
+new file mode 100644
+index 0000000000000000000000000000000000000000..534bb7730c1c549b8852d8897ace0185a87520bd
+--- /dev/null
++++ b/workflow/loop/review/findings-8.json
+@@ -0,0 +1,228 @@
++{
++  "loop": 8,
++  "reviewed": 33,
++  "findings": [
++    {
++      "id": "half-adder",
++      "commonality": {
++        "verdict": "common",
++        "better_term": "",
++        "source": ""
++      },
++      "missing_variants": [
++        {
++          "term": "bộ cộng bán phần",
++          "source": "https://tratu.soha.vn/dict/en_vn/Adder"
++        },
++        {
++          "term": "mạch bán cộng",
++          "source": "https://cuuduongthancong.com/dlf/12484080/dien-tu-cho-cntt/nguyen-thi-thanh-nga/dien-tu-so---v2.pdf"
++        },
++        {
++          "term": "bộ bán cộng",
++          "source": "https://luanvan.net.vn/luan-van/de-tai-su-dung-fpga-de-thiet-ke-mo-hinh-software-defined-radio-cho-he-do-thu-kenh-mimo-24130/"
++        },
++        {
++          "term": "bộ bán tổng",
++          "source": "https://cuuduongthancong.com/dlf/12484080/dien-tu-cho-cntt/nguyen-thi-thanh-nga/dien-tu-so---v2.pdf"
++        }
++      ]
++    },
++    {
++      "id": "harmonic-series",
++      "commonality": {
++        "verdict": "uncommon",
++        "better_term": "chuỗi điều hòa",
++        "source": "https://vi.wikipedia.org/wiki/Chu%E1%BB%97i_%C4%91i%E1%BB%81u_h%C3%B2a"
++      },
++      "missing_variants": [
++        {
++          "term": "chuỗi điều hòa",
++          "source": "https://vi.wikipedia.org/wiki/Chu%E1%BB%97i_%C4%91i%E1%BB%81u_h%C3%B2a"
++        }
++      ]
++    },
++    {
++      "id": "hexadecimal",
++      "commonality": {
++        "verdict": "common",
++        "better_term": "",
++        "source": ""
++      },
++      "missing_variants": [
++        {
++          "term": "hệ đếm cơ số 16",
++          "source": "https://vi.wikipedia.org/wiki/H%E1%BB%87_th%E1%BA%ADp_l%E1%BB%A5c_ph%C3%A2n"
++        },
++        {
++          "term": "thập lục",
++          "source": "https://vi.wikipedia.org/wiki/H%E1%BB%87_th%E1%BA%ADp_l%E1%BB%A5c_ph%C3%A2n"
++        }
++      ]
++    },
++    {
++      "id": "homomorphism",
++      "commonality": {
++        "verdict": "common",
++        "better_term": "",
++        "source": ""
++      },
++      "missing_variants": [
++        {
++          "term": "phép đồng cấu",
++          "source": "https://vi.wikipedia.org/wiki/Ph%C3%A9p_%C4%91%E1%BB%93ng_c%E1%BA%A5u"
++        }
++      ]
++    },
++    {
++      "id": "huffman-coding",
++      "commonality": {
++        "verdict": "uncommon",
++        "better_term": "mã hóa Huffman",
++        "source": "https://vi.wikipedia.org/wiki/M%C3%A3_h%C3%B3a_Huffman"
++      },
++      "missing_variants": [
++        {
++          "term": "mã hóa Huffman",
++          "source": "https://vi.wikipedia.org/wiki/M%C3%A3_h%C3%B3a_Huffman"
++        },
++        {
++          "term": "mã Huffman",
++          "source": "https://vi.wikipedia.org/wiki/M%C3%A3_h%C3%B3a_Huffman"
++        },
++        {
++          "term": "mã hoá Huffman",
++          "source": "https://www.studocu.vn/vn/document/truong-dai-hoc-cong-nghiep-tp-ho-chi-minh/graduation-report/bao-cao-khoa-luan-tot-nghiep/92274924"
++        }
++      ]
++    },
++    {
++      "id": "identity-function",
++      "commonality": {
++        "verdict": "common",
++        "better_term": "",
++        "source": ""
++      },
++      "missing_variants": [
++        {
++          "term": "ánh xạ đồng nhất",
++          "source": "https://vi.wikipedia.org/wiki/H%C3%A0m_%C4%91%E1%BB%93ng_nh%E1%BA%A5t"
++        },
++        {
++          "term": "phép biến đổi đồng nhất",
++          "source": "https://vi.wikipedia.org/wiki/H%C3%A0m_%C4%91%E1%BB%93ng_nh%E1%BA%A5t"
++        }
++      ]
++    },
++    {
++      "id": "image",
++      "commonality": {
++        "verdict": "common",
++        "better_term": "",
++        "source": ""
++      },
++      "missing_variants": [
++        {
++          "term": "tập ảnh",
++          "source": "https://dictionary.langeek.co/en-VI/word/93735?entry=image"
++        }
++      ]
++    },
++    {
++      "id": "implement",
++      "commonality": {
++        "verdict": "common",
++        "better_term": "",
++        "source": ""
++      },
++      "missing_variants": [
++        {
++          "term": "hiện thực",
++          "source": "https://chidokun.github.io/2021/07/prim-algorithm-implement/"
++        },
++        {
++          "term": "hiện thực thuật toán",
++          "source": "https://chidokun.github.io/2021/07/prim-algorithm-implement/"
++        }
++      ]
++    },
++    {
++      "id": "implicant",
++      "commonality": {
++        "verdict": "common",
++        "better_term": "",
++        "source": ""
++      },
++      "missing_variants": [
++        {
++          "term": "tích cơ bản",
++          "source": "https://www.researchgate.net/publication/335929429_TOAN_ROI_RAC_NGUYEN_DINH_CUONG_BO_MON_KY_THUAT_PHAN_MEM_KHOA_CNTT-DHNT"
++        }
++      ]
++    },
++    {
++      "id": "inclusion-exclusion-principle",
++      "commonality": {
++        "verdict": "common",
++        "better_term": "",
++        "source": ""
++      },
++      "missing_variants": [
++        {
++          "term": "nguyên lý bao hàm-loại trừ",
++          "source": "https://vi.wikipedia.org/wiki/Nguy%C3%AAn_l%C3%BD_bao_h%C3%A0m-lo%E1%BA%A1i_tr%E1%BB%AB"
++        },
++        {
++          "term": "công thức bao hàm loại trừ",
++          "source": "https://github.com/tmsanghoclaptrinh/tmsang-hoc-thuat-toan/blob/main/To%C3%A1n%20h%E1%BB%8Dc%20trong%20l%E1%BA%ADp%20tr%C3%ACnh%20thi%20%C4%91%E1%BA%A5u/README.md"
++        }
++      ]
++    },
++    {
++      "id": "increasing",
++      "commonality": {
++        "verdict": "common",
++        "better_term": "",
++        "source": ""
++      },
++      "missing_variants": [
++        {
++          "term": "đồng biến",
++          "source": "https://monkey.edu.vn/ba-me-can-biet/giao-duc/kien-thuc-co-ban/ham-so-dong-bien-tren-r"
++        },
++        {
++          "term": "tăng đơn điệu",
++          "source": "https://tratu.soha.vn/dict/en_vn/Increasing"
++        }
++      ]
++    },
++    {
++      "id": "independent-events",
++      "commonality": {
++        "verdict": "common",
++        "better_term": "",
++        "source": ""
++      },
++      "missing_variants": [
++        {
++          "term": "các biến cố độc lập",
++          "source": "https://vi.khanacademy.org/math/xac-suat-thong-ke/x571ba75ccf6d1ccb%3Axac-suat-1-tk-xs-1/x571ba75ccf6d1ccb%3Aquy-tac-tinh-xac-suat-tk-xs-1/v/compound-probability-of-independent-events"
++        }
++      ]
++    },
++    {
++      "id": "independent-random-variables",
++      "commonality": {
++        "verdict": "common",
++        "better_term": "",
++        "source": ""
++      },
++      "missing_variants": [
++        {
++          "term": "các biến ngẫu nhiên độc lập",
++          "source": "https://www.researchgate.net/publication/398769106_Luat_so_lon_cho_day_bien_ngau_nhien_mo_phu_thuoc_am_doi_mot"
++        }
++      ]
++    }
++  ]
++}
+
+codex
+The file has been written. I’m doing a JSON parse check and a quick structural count before the final marker.
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+exec
+/bin/bash -lc 'jq empty workflow/loop/review/findings-8.json' in /home/ubuntu/DM-Concepts
+ succeeded in 0ms:
+hook: PostToolUse
+exec
+/bin/bash -lc "jq '{loop, reviewed, finding_count: (.findings|length), ids: [.findings[].id]}' workflow/loop/review/findings-8.json" in /home/ubuntu/DM-Concepts
+ succeeded in 0ms:
+{
+  "loop": 8,
+  "reviewed": 33,
+  "finding_count": 13,
+  "ids": [
+    "half-adder",
+    "harmonic-series",
+    "hexadecimal",
+    "homomorphism",
+    "huffman-coding",
+    "identity-function",
+    "image",
+    "implement",
+    "implicant",
+    "inclusion-exclusion-principle",
+    "increasing",
+    "independent-events",
+    "independent-random-variables"
+  ]
+}
+
+hook: PostToolUse
+hook: PostToolUse Completed
+hook: PostToolUse Completed
+diff --git a/workflow/loop/review/findings-8.json b/workflow/loop/review/findings-8.json
+new file mode 100644
+index 0000000000000000000000000000000000000000..534bb7730c1c549b8852d8897ace0185a87520bd
+--- /dev/null
++++ b/workflow/loop/review/findings-8.json
+@@ -0,0 +1,228 @@
++{
++  "loop": 8,
++  "reviewed": 33,
++  "findings": [
++    {
++      "id": "half-adder",
++      "commonality": {
++        "verdict": "common",
++        "better_term": "",
++        "source": ""
++      },
++      "missing_variants": [
++        {
++          "term": "bộ cộng bán phần",
++          "source": "https://tratu.soha.vn/dict/en_vn/Adder"
++        },
++        {
++          "term": "mạch bán cộng",
++          "source": "https://cuuduongthancong.com/dlf/12484080/dien-tu-cho-cntt/nguyen-thi-thanh-nga/dien-tu-so---v2.pdf"
++        },
++        {
++          "term": "bộ bán cộng",
++          "source": "https://luanvan.net.vn/luan-van/de-tai-su-dung-fpga-de-thiet-ke-mo-hinh-software-defined-radio-cho-he-do-thu-kenh-mimo-24130/"
++        },
++        {
++          "term": "bộ bán tổng",
++          "source": "https://cuuduongthancong.com/dlf/12484080/dien-tu-cho-cntt/nguyen-thi-thanh-nga/dien-tu-so---v2.pdf"
++        }
++      ]
++    },
++    {
++      "id": "harmonic-series",
++      "commonality": {
++        "verdict": "uncommon",
++        "better_term": "chuỗi điều hòa",
++        "source": "https://vi.wikipedia.org/wiki/Chu%E1%BB%97i_%C4%91i%E1%BB%81u_h%C3%B2a"
++      },
++      "missing_variants": [
++        {
++          "term": "chuỗi điều hòa",
++          "source": "https://vi.wikipedia.org/wiki/Chu%E1%BB%97i_%C4%91i%E1%BB%81u_h%C3%B2a"
++        }
++      ]
++    },
++    {
++      "id": "hexadecimal",
++      "commonality": {
++        "verdict": "common",
++        "better_term": "",
++        "source": ""
++      },
++      "missing_variants": [
++        {
++          "term": "hệ đếm cơ số 16",
++          "source": "https://vi.wikipedia.org/wiki/H%E1%BB%87_th%E1%BA%ADp_l%E1%BB%A5c_ph%C3%A2n"
++        },
++        {
++          "term": "thập lục",
++          "source": "https://vi.wikipedia.org/wiki/H%E1%BB%87_th%E1%BA%ADp_l%E1%BB%A5c_ph%C3%A2n"
++        }
++      ]
++    },
++    {
++      "id": "homomorphism",
++      "commonality": {
++        "verdict": "common",
++        "better_term": "",
++        "source": ""
++      },
++      "missing_variants": [
++        {
++          "term": "phép đồng cấu",
++          "source": "https://vi.wikipedia.org/wiki/Ph%C3%A9p_%C4%91%E1%BB%93ng_c%E1%BA%A5u"
++        }
++      ]
++    },
++    {
++      "id": "huffman-coding",
++      "commonality": {
++        "verdict": "uncommon",
++        "better_term": "mã hóa Huffman",
++        "source": "https://vi.wikipedia.org/wiki/M%C3%A3_h%C3%B3a_Huffman"
++      },
++      "missing_variants": [
++        {
++          "term": "mã hóa Huffman",
++          "source": "https://vi.wikipedia.org/wiki/M%C3%A3_h%C3%B3a_Huffman"
++        },
++        {
++          "term": "mã Huffman",
++          "source": "https://vi.wikipedia.org/wiki/M%C3%A3_h%C3%B3a_Huffman"
++        },
++        {
++          "term": "mã hoá Huffman",
++          "source": "https://www.studocu.vn/vn/document/truong-dai-hoc-cong-nghiep-tp-ho-chi-minh/graduation-report/bao-cao-khoa-luan-tot-nghiep/92274924"
++        }
++      ]
++    },
++    {
++      "id": "identity-function",
++      "commonality": {
++        "verdict": "common",
++        "better_term": "",
++        "source": ""
++      },
++      "missing_variants": [
++        {
++          "term": "ánh xạ đồng nhất",
++          "source": "https://vi.wikipedia.org/wiki/H%C3%A0m_%C4%91%E1%BB%93ng_nh%E1%BA%A5t"
++        },
++        {
++          "term": "phép biến đổi đồng nhất",
++          "source": "https://vi.wikipedia.org/wiki/H%C3%A0m_%C4%91%E1%BB%93ng_nh%E1%BA%A5t"
++        }
++      ]
++    },
++    {
++      "id": "image",
++      "commonality": {
++        "verdict": "common",
++        "better_term": "",
++        "source": ""
++      },
++      "missing_variants": [
++        {
++          "term": "tập ảnh",
++          "source": "https://dictionary.langeek.co/en-VI/word/93735?entry=image"
++        }
++      ]
++    },
++    {
++      "id": "implement",
++      "commonality": {
++        "verdict": "common",
++        "better_term": "",
++        "source": ""
++      },
++      "missing_variants": [
++        {
++          "term": "hiện thực",
++          "source": "https://chidokun.github.io/2021/07/prim-algorithm-implement/"
++        },
++        {
++          "term": "hiện thực thuật toán",
++          "source": "https://chidokun.github.io/2021/07/prim-algorithm-implement/"
++        }
++      ]
++    },
++    {
++      "id": "implicant",
++      "commonality": {
++        "verdict": "common",
++        "better_term": "",
++        "source": ""
++      },
++      "missing_variants": [
++        {
++          "term": "tích cơ bản",
++          "source": "https://www.researchgate.net/publication/335929429_TOAN_ROI_RAC_NGUYEN_DINH_CUONG_BO_MON_KY_THUAT_PHAN_MEM_KHOA_CNTT-DHNT"
++        }
++      ]
++    },
++    {
++      "id": "inclusion-exclusion-principle",
++      "commonality": {
++        "verdict": "common",
++        "better_term": "",
++        "source": ""
++      },
++      "missing_variants": [
++        {
++          "term": "nguyên lý bao hàm-loại trừ",
++          "source": "https://vi.wikipedia.org/wiki/Nguy%C3%AAn_l%C3%BD_bao_h%C3%A0m-lo%E1%BA%A1i_tr%E1%BB%AB"
++        },
++        {
++          "term": "công thức bao hàm loại trừ",
++          "source": "https://github.com/tmsanghoclaptrinh/tmsang-hoc-thuat-toan/blob/main/To%C3%A1n%20h%E1%BB%8Dc%20trong%20l%E1%BA%ADp%20tr%C3%ACnh%20thi%20%C4%91%E1%BA%A5u/README.md"
++        }
++      ]
++    },
++    {
++      "id": "increasing",
++      "commonality": {
++        "verdict": "common",
++        "better_term": "",
++        "source": ""
++      },
++      "missing_variants": [
++        {
++          "term": "đồng biến",
++          "source": "https://monkey.edu.vn/ba-me-can-biet/giao-duc/kien-thuc-co-ban/ham-so-dong-bien-tren-r"
++        },
++        {
++          "term": "tăng đơn điệu",
++          "source": "https://tratu.soha.vn/dict/en_vn/Increasing"
++        }
++      ]
++    },
++    {
++      "id": "independent-events",
++      "commonality": {
++        "verdict": "common",
++        "better_term": "",
++        "source": ""
++      },
++      "missing_variants": [
++        {
++          "term": "các biến cố độc lập",
++          "source": "https://vi.khanacademy.org/math/xac-suat-thong-ke/x571ba75ccf6d1ccb%3Axac-suat-1-tk-xs-1/x571ba75ccf6d1ccb%3Aquy-tac-tinh-xac-suat-tk-xs-1/v/compound-probability-of-independent-events"
++        }
++      ]
++    },
++    {
++      "id": "independent-random-variables",
++      "commonality": {
++        "verdict": "common",
++        "better_term": "",
++        "source": ""
++      },
++      "missing_variants": [
++        {
++          "term": "các biến ngẫu nhiên độc lập",
++          "source": "https://www.researchgate.net/publication/398769106_Luat_so_lon_cho_day_bien_ngau_nhien_mo_phu_thuoc_am_doi_mot"
++        }
++      ]
++    }
++  ]
++}
+
+codex
+WROTE findings-8.json
+
+===CODEX_REVIEW_DONE===
+diff --git a/workflow/loop/review/findings-8.json b/workflow/loop/review/findings-8.json
+new file mode 100644
+index 0000000000000000000000000000000000000000..534bb7730c1c549b8852d8897ace0185a87520bd
+--- /dev/null
++++ b/workflow/loop/review/findings-8.json
+@@ -0,0 +1,228 @@
++{
++  "loop": 8,
++  "reviewed": 33,
++  "findings": [
++    {
++      "id": "half-adder",
++      "commonality": {
++        "verdict": "common",
++        "better_term": "",
++        "source": ""
++      },
++      "missing_variants": [
++        {
++          "term": "bộ cộng bán phần",
++          "source": "https://tratu.soha.vn/dict/en_vn/Adder"
++        },
++        {
++          "term": "mạch bán cộng",
++          "source": "https://cuuduongthancong.com/dlf/12484080/dien-tu-cho-cntt/nguyen-thi-thanh-nga/dien-tu-so---v2.pdf"
++        },
++        {
++          "term": "bộ bán cộng",
++          "source": "https://luanvan.net.vn/luan-van/de-tai-su-dung-fpga-de-thiet-ke-mo-hinh-software-defined-radio-cho-he-do-thu-kenh-mimo-24130/"
++        },
++        {
++          "term": "bộ bán tổng",
++          "source": "https://cuuduongthancong.com/dlf/12484080/dien-tu-cho-cntt/nguyen-thi-thanh-nga/dien-tu-so---v2.pdf"
++        }
++      ]
++    },
++    {
++      "id": "harmonic-series",
++      "commonality": {
++        "verdict": "uncommon",
++        "better_term": "chuỗi điều hòa",
++        "source": "https://vi.wikipedia.org/wiki/Chu%E1%BB%97i_%C4%91i%E1%BB%81u_h%C3%B2a"
++      },
++      "missing_variants": [
++        {
++          "term": "chuỗi điều hòa",
++          "source": "https://vi.wikipedia.org/wiki/Chu%E1%BB%97i_%C4%91i%E1%BB%81u_h%C3%B2a"
++        }
++      ]
++    },
++    {
++      "id": "hexadecimal",
++      "commonality": {
++        "verdict": "common",
++        "better_term": "",
++        "source": ""
++      },
++      "missing_variants": [
++        {
++          "term": "hệ đếm cơ số 16",
++          "source": "https://vi.wikipedia.org/wiki/H%E1%BB%87_th%E1%BA%ADp_l%E1%BB%A5c_ph%C3%A2n"
++        },
++        {
++          "term": "thập lục",
++          "source": "https://vi.wikipedia.org/wiki/H%E1%BB%87_th%E1%BA%ADp_l%E1%BB%A5c_ph%C3%A2n"
++        }
++      ]
++    },
++    {
++      "id": "homomorphism",
++      "commonality": {
++        "verdict": "common",
++        "better_term": "",
++        "source": ""
++      },
++      "missing_variants": [
++        {
++          "term": "phép đồng cấu",
++          "source": "https://vi.wikipedia.org/wiki/Ph%C3%A9p_%C4%91%E1%BB%93ng_c%E1%BA%A5u"
++        }
++      ]
++    },
++    {
++      "id": "huffman-coding",
++      "commonality": {
++        "verdict": "uncommon",
++        "better_term": "mã hóa Huffman",
++        "source": "https://vi.wikipedia.org/wiki/M%C3%A3_h%C3%B3a_Huffman"
++      },
++      "missing_variants": [
++        {
++          "term": "mã hóa Huffman",
++          "source": "https://vi.wikipedia.org/wiki/M%C3%A3_h%C3%B3a_Huffman"
++        },
++        {
++          "term": "mã Huffman",
++          "source": "https://vi.wikipedia.org/wiki/M%C3%A3_h%C3%B3a_Huffman"
++        },
++        {
++          "term": "mã hoá Huffman",
++          "source": "https://www.studocu.vn/vn/document/truong-dai-hoc-cong-nghiep-tp-ho-chi-minh/graduation-report/bao-cao-khoa-luan-tot-nghiep/92274924"
++        }
++      ]
++    },
++    {
++      "id": "identity-function",
++      "commonality": {
++        "verdict": "common",
++        "better_term": "",
++        "source": ""
++      },
++      "missing_variants": [
++        {
++          "term": "ánh xạ đồng nhất",
++          "source": "https://vi.wikipedia.org/wiki/H%C3%A0m_%C4%91%E1%BB%93ng_nh%E1%BA%A5t"
++        },
++        {
++          "term": "phép biến đổi đồng nhất",
++          "source": "https://vi.wikipedia.org/wiki/H%C3%A0m_%C4%91%E1%BB%93ng_nh%E1%BA%A5t"
++        }
++      ]
++    },
++    {
++      "id": "image",
++      "commonality": {
++        "verdict": "common",
++        "better_term": "",
++        "source": ""
++      },
++      "missing_variants": [
++        {
++          "term": "tập ảnh",
++          "source": "https://dictionary.langeek.co/en-VI/word/93735?entry=image"
++        }
++      ]
++    },
++    {
++      "id": "implement",
++      "commonality": {
++        "verdict": "common",
++        "better_term": "",
++        "source": ""
++      },
++      "missing_variants": [
++        {
++          "term": "hiện thực",
++          "source": "https://chidokun.github.io/2021/07/prim-algorithm-implement/"
++        },
++        {
++          "term": "hiện thực thuật toán",
++          "source": "https://chidokun.github.io/2021/07/prim-algorithm-implement/"
++        }
++      ]
++    },
++    {
++      "id": "implicant",
++      "commonality": {
++        "verdict": "common",
++        "better_term": "",
++        "source": ""
++      },
++      "missing_variants": [
++        {
++          "term": "tích cơ bản",
++          "source": "https://www.researchgate.net/publication/335929429_TOAN_ROI_RAC_NGUYEN_DINH_CUONG_BO_MON_KY_THUAT_PHAN_MEM_KHOA_CNTT-DHNT"
++        }
++      ]
++    },
++    {
++      "id": "inclusion-exclusion-principle",
++      "commonality": {
++        "verdict": "common",
++        "better_term": "",
++        "source": ""
++      },
++      "missing_variants": [
++        {
++          "term": "nguyên lý bao hàm-loại trừ",
++          "source": "https://vi.wikipedia.org/wiki/Nguy%C3%AAn_l%C3%BD_bao_h%C3%A0m-lo%E1%BA%A1i_tr%E1%BB%AB"
++        },
++        {
++          "term": "công thức bao hàm loại trừ",
++          "source": "https://github.com/tmsanghoclaptrinh/tmsang-hoc-thuat-toan/blob/main/To%C3%A1n%20h%E1%BB%8Dc%20trong%20l%E1%BA%ADp%20tr%C3%ACnh%20thi%20%C4%91%E1%BA%A5u/README.md"
++        }
++      ]
++    },
++    {
++      "id": "increasing",
++      "commonality": {
++        "verdict": "common",
++        "better_term": "",
++        "source": ""
++      },
++      "missing_variants": [
++        {
++          "term": "đồng biến",
++          "source": "https://monkey.edu.vn/ba-me-can-biet/giao-duc/kien-thuc-co-ban/ham-so-dong-bien-tren-r"
++        },
++        {
++          "term": "tăng đơn điệu",
++          "source": "https://tratu.soha.vn/dict/en_vn/Increasing"
++        }
++      ]
++    },
++    {
++      "id": "independent-events",
++      "commonality": {
++        "verdict": "common",
++        "better_term": "",
++        "source": ""
++      },
++      "missing_variants": [
++        {
++          "term": "các biến cố độc lập",
++          "source": "https://vi.khanacademy.org/math/xac-suat-thong-ke/x571ba75ccf6d1ccb%3Axac-suat-1-tk-xs-1/x571ba75ccf6d1ccb%3Aquy-tac-tinh-xac-suat-tk-xs-1/v/compound-probability-of-independent-events"
++        }
++      ]
++    },
++    {
++      "id": "independent-random-variables",
++      "commonality": {
++        "verdict": "common",
++        "better_term": "",
++        "source": ""
++      },
++      "missing_variants": [
++        {
++          "term": "các biến ngẫu nhiên độc lập",
++          "source": "https://www.researchgate.net/publication/398769106_Luat_so_lon_cho_day_bien_ngau_nhien_mo_phu_thuoc_am_doi_mot"
++        }
++      ]
++    }
++  ]
++}
+
+tokens used
+340,937
+WROTE findings-8.json
+
+===CODEX_REVIEW_DONE===

@@ -8,7 +8,7 @@ import os
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 REVIEW = os.path.join(ROOT, "workflow", "loop", "review")
-NLOOPS = 10
+BATCH = 40  # entries per Codex call (77 overflowed Codex's context window)
 CORPUS = {"bib-leanhvinh-2020", "bib-nguyenhoangthach-2020", "bib-nguyenhuudien-2019",
           "bib-hoangchithanh-2007", "bib-nguyenducnghia-2006", "bib-ngodactan-2004",
           "bib-rosen-2003-vi"}
@@ -23,7 +23,8 @@ def main():
     entries.sort(key=lambda e: (e.get("letter", ""), e["headword_en"].lower()))
 
     n = len(entries)
-    size = -(-n // NLOOPS)  # ceil
+    size = BATCH
+    NLOOPS = -(-n // BATCH)  # ceil
     for i in range(NLOOPS):
         chunk = entries[i * size:(i + 1) * size]
         slim = [{

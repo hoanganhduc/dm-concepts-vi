@@ -1,0 +1,806 @@
+OpenAI Codex v0.141.0
+--------
+workdir: /home/ubuntu/DM-Concepts
+model: gpt-5.5
+provider: openai
+approval: never
+sandbox: danger-full-access
+reasoning effort: xhigh
+reasoning summaries: none
+session id: 019ef218-b31b-7762-8f01-8abfe6946f52
+--------
+user
+You are a meticulous bilingual (English-Vietnamese) discrete-mathematics dictionary reviewer.
+Working directory: /home/ubuntu/DM-Concepts. Do NOT modify any file. Be evidence-based; never invent a translation or a source.
+
+Read this batch of entries:
+  cat workflow/loop/review/batch-1.json
+It is a JSON array; each entry has: id, headword_en, definition_vi (Vietnamese), rosen_ref,
+vi_terms (array of {term, source_id, page, pdf_page, verified, recommended}), see_ref.
+If see_ref is non-empty the entry is a cross-reference stub: SKIP it.
+
+For EACH non-stub entry, review THREE things line by line:
+
+(1) CITATION ACCURACY. For each vi_term with verified=true whose source_id starts with 'bib-' and is one of the
+LOCAL-TEXT sources below, verify the Vietnamese term actually appears in that source at/near the cited pdf_page:
+    python3 workflow/scripts/find-term.py "<term>" <source_id> --loose
+LOCAL-TEXT sources: bib-leanhvinh-2020 bib-nguyenhoangthach-2020 bib-nguyenhuudien-2019 bib-hoangchithanh-2007 bib-nguyenducnghia-2006 bib-ngodactan-2004 bib-rosen-2003-vi.
+For any other source_id (e.g. bib-rosen-2019) there is no local text: mark 'no-corpus' and skip the check.
+Report a citation_issue ONLY when find-term returns the term but NOT at/near the cited page, or returns ZERO hits for a verified term.
+
+(2) TERM COMMONALITY. For the recommended Vietnamese term, judge whether it is the common/standard usage in Vietnamese.
+Do a web search; prefer authoritative sources (Vietnamese university lecture notes, published textbooks, well-known references).
+If the recommended term is uncommon and a clearly more standard term exists, report it WITH a source URL.
+
+(3) ALTERNATIVE TRANSLATIONS. Find any additional valid Vietnamese translation of the English concept that is NOT already in vi_terms.
+Example: 'independent set' = 'tập độc lập' AND 'tập ổn định' (internal stable set) - both should be present.
+Use web search + authoritative sources. List each missing variant with a brief source.
+
+Output ONLY entries that have at least one finding (skip clean entries). Print ONE JSON object on its own, then the final marker:
+{"loop":1,"reviewed":<int>,"findings":[{"id":"<id>","citation_issues":["..."],"commonality":{"verdict":"common|uncommon|unsure","better_term":"<term or empty>","sources":["url"]},"missing_variants":[{"term":"<vi term>","source":"<book or url>"}]}]}
+===CODEX_REVIEW_DONE===
+
+Keep the JSON valid (no comments, no trailing commas). Keep findings concise.
+
+hook: SessionStart
+hook: SessionStart Completed
+codex
+I’ll treat this as a read-only evidence review. First I’ll inspect the batch and the `find-term.py` helper/help so the citation checks use the repo’s expected workflow, then I’ll verify local-text citations and run focused web searches for term usage and variants before producing only the requested JSON in the final answer.
+codex
+I’m using the `source-research` skill for the web-backed term evidence, and I’m checking the local helper before relying on its output.
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+exec
+/bin/bash -lc "sed -n '1,220p' /home/ubuntu/.codex/skills/source-research/SKILL.md" in /home/ubuntu/DM-Concepts
+ succeeded in 0ms:
+---
+name: "source-research"
+description: "General web and source-gathering research workflow for current-information synthesis."
+metadata:
+  short-description: "General web and source-gathering research workflow for current-information synthesis."
+---
+
+<!-- Managed by ai-agents-skills. Generated target: codex. Install mode: reference. -->
+
+# source-research
+
+This is a thin adapter for agents that cannot load symlinked skills.
+
+Canonical skill source:
+
+- `~/ai-agents-skills/canonical/skills/source-research/SKILL.md`
+
+Before using this skill, read the canonical source file above and follow
+its instructions. Related reference files live next to that source file
+in the same skill directory.
+
+
+hook: PostToolUse
+exec
+/bin/bash -lc "rg --files -g 'AGENTS.md' -g 'README*' -g '*review*' -g '*workflow*'" in /home/ubuntu/DM-Concepts
+ succeeded in 0ms:
+docs/mat3500-term-review.md
+workflow/scripts/review-prep.py
+workflow/scripts/codex-review-prompt.sh
+README.md
+
+hook: PostToolUse
+exec
+/bin/bash -lc "sed -n '1,240p' workflow/loop/review/batch-1.json" in /home/ubuntu/DM-Concepts
+ succeeded in 0ms:
+[
+ {
+  "id": "absolute-value",
+  "letter": "A",
+  "headword_en": "Absolute Value",
+  "rosen_ref": "Rosen §2.3",
+  "definition_vi": "Giá trị tuyệt đối của một số thực $$x$$, ký hiệu $$|x|$$, được định nghĩa bằng $$x$$ nếu $$x \\geq 0$$ và bằng $$-x$$ nếu $$x < 0$$. Như vậy $$|x|$$ luôn là một số không âm và biểu thị khoảng cách từ $$x$$ đến $$0$$ trên trục số.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "giá trị tuyệt đối",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 225 (PDF)",
+    "pdf_page": 225,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "trị tuyệt đối",
+    "source_id": "bib-leanhvinh-2020",
+    "page": "tr. 245 (PDF)",
+    "pdf_page": 245,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "trị tuyệt đối",
+    "source_id": "bib-nguyenducnghia-2006",
+    "page": "tr. 177 (PDF)",
+    "pdf_page": 177,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "trị tuyệt đối",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 109 (PDF, bản dịch Rosen)",
+    "pdf_page": 109,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "acyclic-graph",
+  "letter": "A",
+  "headword_en": "Acyclic graph",
+  "rosen_ref": "Rosen §10.4",
+  "definition_vi": "Trong một đồ thị vô hướng $$G$$, đồ thị phi chu trình là một đồ thị không chứa chu trình nào. Một đồ thị vô hướng liên thông và phi chu trình chính là một cây, còn một đồ thị vô hướng (không nhất thiết liên thông) phi chu trình là một rừng.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "đồ thị phi chu trình",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 226 (PDF)",
+    "pdf_page": 226,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "phi chu trình",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 226 (PDF)",
+    "pdf_page": 226,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "đồ thị không có chu trình",
+    "source_id": "bib-nguyenducnghia-2006",
+    "page": "tr. 230 (PDF)",
+    "pdf_page": 230,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "không có chu trình",
+    "source_id": "bib-hoangchithanh-2007",
+    "page": "tr. 123 (PDF)",
+    "pdf_page": 123,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "đồ thị không có chu trình",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 621 (PDF, bản dịch Rosen)",
+    "pdf_page": 621,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "không có chu trình",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 550 (PDF, bản dịch Rosen)",
+    "pdf_page": 550,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "addition-rule",
+  "letter": "A",
+  "headword_en": "Addition rule",
+  "rosen_ref": "",
+  "definition_vi": "",
+  "see_ref": "the-sum-rule",
+  "vi_terms": [
+   {
+    "term": "quy tắc cộng",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": false
+   },
+   {
+    "term": "nguyên lý cộng",
+    "source_id": "",
+    "page": "",
+    "pdf_page": 0,
+    "verified": false,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "adjacency-list",
+  "letter": "A",
+  "headword_en": "Adjacency List",
+  "rosen_ref": "Rosen §10.3",
+  "definition_vi": "Danh sách kề của một đồ thị $$G$$ là cách biểu diễn đồ thị bằng cách, với mỗi đỉnh $$v \\in V(G)$$, liệt kê tất cả các đỉnh kề với $$v$$ (ký hiệu danh sách này là $$\\mathrm{Ke}(v)$$). Toàn bộ đồ thị được biểu diễn bởi một mảng gồm các danh sách kề của mọi đỉnh.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "danh sách kề",
+    "source_id": "bib-hoangchithanh-2007",
+    "page": "tr. 10 (PDF)",
+    "pdf_page": 10,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "danh sách kề",
+    "source_id": "bib-nguyenducnghia-2006",
+    "page": "tr. 173 (PDF)",
+    "pdf_page": 173,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "danh sách kề",
+    "source_id": "bib-nguyenhoangthach-2020",
+    "page": "tr. 65 (PDF)",
+    "pdf_page": 65,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "danh sách kề",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 176 (PDF)",
+    "pdf_page": 176,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "danh sách liền kề",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 520 (PDF)",
+    "pdf_page": 520,
+    "verified": true,
+    "recommended": false
+   }
+  ]
+ },
+ {
+  "id": "adjacency-matrix",
+  "letter": "A",
+  "headword_en": "Adjacency matrix",
+  "rosen_ref": "Rosen §10.3",
+  "definition_vi": "Ma trận kề của một đồ thị có tập đỉnh $$\\{v_1, v_2, \\ldots, v_n\\}$$, ký hiệu $$A = [a_{ij}]$$, là ma trận vuông cấp $$n$$ trong đó phần tử $$a_{ij}$$ bằng số cạnh nối đỉnh $$v_i$$ với đỉnh $$v_j$$. Với một đơn đồ thị, $$a_{ij} = 1$$ nếu $$v_i$$ và $$v_j$$ kề nhau và $$a_{ij} = 0$$ nếu ngược lại.",
+  "see_ref": "",
+  "vi_terms": [
+   {
+    "term": "ma trận kề",
+    "source_id": "bib-leanhvinh-2020",
+    "page": "tr. 54 (PDF)",
+    "pdf_page": 54,
+    "verified": true,
+    "recommended": true
+   },
+   {
+    "term": "ma trận kề",
+    "source_id": "bib-nguyenhoangthach-2020",
+    "page": "tr. 66 (PDF)",
+    "pdf_page": 66,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "ma trận liền kề",
+    "source_id": "bib-nguyenhuudien-2019",
+    "page": "tr. 163 (PDF)",
+    "pdf_page": 163,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "ma trận kề",
+    "source_id": "bib-hoangchithanh-2007",
+    "page": "tr. 9 (PDF)",
+    "pdf_page": 9,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "ma trận kề",
+    "source_id": "bib-nguyenducnghia-2006",
+    "page": "tr. 169 (PDF)",
+    "pdf_page": 169,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "ma trận kề",
+    "source_id": "bib-ngodactan-2004",
+    "page": "tr. 220 (PDF)",
+    "pdf_page": 220,
+    "verified": true,
+    "recommended": false
+   },
+   {
+    "term": "ma trận kề",
+    "source_id": "bib-rosen-2003-vi",
+    "page": "tr. 531 (PDF, bản dịch Rosen)",
+    "pdf_page": 531,
+    "verified": true,
+    "recommended": false
+
+hook: PostToolUse
+hook: PostToolUse Completed
+hook: PostToolUse Completed
+hook: PostToolUse Completed
+exec
+/bin/bash -lc 'python3 workflow/scripts/find-term.py --help' in /home/ubuntu/DM-Concepts
+ succeeded in 0ms:
+{
+ "term": "--help",
+ "loose": false,
+ "hits": 0,
+ "results": []
+}
+
+hook: PostToolUse
+hook: PostToolUse Completed
+codex
+I found the source-research adapter points to its canonical skill, and `find-term.py` does not expose a normal `--help`; it treats arguments literally. I’m opening the canonical skill and the local review docs next, then I’ll run the helper with real terms.
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+exec
+/bin/bash -lc "sed -n '1,260p' /home/ubuntu/ai-agents-skills/canonical/skills/source-research/SKILL.md" in /home/ubuntu/DM-Concepts
+ succeeded in 0ms:
+---
+name: source-research
+description: Use when the user wants research, source gathering, current-information lookups, cross-source synthesis, or extraction from URLs/PDFs/videos using web search, page inspection, local tools, and sub-agents.
+metadata:
+  short-description: Source-gathering research workflow
+---
+
+# Source Research
+
+Use this as the default source-gathering research router.
+
+## Supporting files
+
+Open these only when relevant:
+
+- `references/specialist-subagents.md` for focused single-specialist delegation briefs imported from the local Claude setup
+
+## Legacy tool mapping
+
+- legacy `web_search` -> Codex `web.search_query`
+- legacy `web_fetch` -> Codex `web.open`
+- legacy task/session spawning -> Codex `spawn_agent`
+- legacy `exec` -> Codex `functions.exec_command`
+
+## Live workspace routing
+
+- Generic paper, article, preprint, DOI, ISBN, and book retrieval or sharing requests route to `zotero` first.
+- Explicit Calibre-library ebook operations route to `calibre`.
+- External paper or book retrieval routes to `getscipapers-requester` only
+  after the relevant local-library workflow does not satisfy the request, or
+  after the user explicitly says not to check/use the library. The word
+  "download" alone is not an outside-library opt-out.
+- Multi-agent discussion/review/research routes to `agent-group-discuss` by default and `prose` for more structured workflows.
+- Annotated paper review routes to `annotated-review` only when the user explicitly asks for both annotation and review.
+- Review-only paper tasks route to `paper-review`.
+- Topic/news digests route to `research-digest-wrapper` or `rss-news-digest`.
+- Digest-to-paper extraction routes to `digest-bridge`.
+- Explicit phased deep research with structured source handoff routes to `deep-research-workflow`.
+- Writing, report, review, digest, or final-answer workflows must load
+  `writing-style-settings.md`; math or LaTeX writing must also load
+  `math-manuscript-style.md`.
+- Explicit TikZ drawing, refactoring, extraction, compile, or diagram-review requests route to `tikz-draw`.
+- Small graph-theoretic verification routes to `graph-verifier`.
+- Mathematical research tasks that need heavy graph-theoretic, combinatorial, algebraic, or spectral computation route to `sagemath`.
+
+## Default workflow
+
+1. If the request is current, says "latest", "today", "verify", or otherwise depends on recent facts, browse first.
+2. Start with focused search queries, not long prompts.
+3. Open the best primary sources, not just search snippets.
+4. Extract only the parts needed for the answer.
+5. Synthesize after evidence collection, not before.
+6. Cite concrete sources and dates whenever the answer depends on live or specific facts.
+7. For writing-producing outputs, record or surface `style_profile_ref`,
+   `active_overlays`, `active_requirement_ids`, and `style_applied`; do not
+   treat a bare `style_applied: true` assertion as sufficient evidence.
+
+## Research heuristics
+
+- Prefer primary sources: official docs, vendor pages, papers, standards, government sites.
+- Use domain filters when the source class is obvious.
+- For PDFs, use `web.open` and `web.screenshot` when needed.
+- For local files, use `functions.exec_command` instead of browsing.
+- Separate sourced facts from your own inference.
+- Prefer `deep-research-workflow` over this skill when the user explicitly wants phased search -> analysis -> writing with source preservation across stages.
+- Prefer `tikz-draw` for explicit TikZ or structural-diagram requests, including research-derived figures that already have a narrowed brief.
+- If a research task needs a diagram, keep the research in `deep-research-workflow` first and hand off to `tikz-draw` only after analysis identifies a concrete figure worth generating.
+- For literature retrieval requests, check the relevant local library workflow before browsing or external download.
+- For review tasks that need a paper/book, use the lookup order `zotero` -> `calibre` -> online fallback.
+- For digest follow-up, use `digest-bridge` to extract identifiers before bulk paper retrieval.
+- For explicit Calibre ebook-library workflows, prefer `calibre` over improvised filesystem search.
+- For mathematical verification, prefer local Python for small checks and route to `sagemath` when the computation needs SageMath-native capabilities.
+- Never use `curl`, `wget`, ad hoc browser fetches, or direct publisher-site HTTP requests as a substitute for the library tools on paper/book retrieval tasks.
+- When a lookup returns multiple plausible paper/book matches, show a numbered
+  list with title, authors, and year when available, then wait for the user's
+  chosen index before `--best`, `--index`, add, attach, send, review, or external
+  retrieval.
+
+## Parallelism
+
+If the task has distinct independent threads, spawn sub-agents in parallel.
+
+Good candidates:
+- source discovery vs synthesis plan
+- product A vs product B
+- multiple independent subtopics
+
+Do not spawn agents for the immediate blocking step if local work is faster.
+Ask for explicit confirmation before spawning subagents unless the user already
+requested multi-agent work, approved a workflow that includes subagents, or gave
+an explicit budget/depth instruction that makes parallel delegation expected.
+
+## Focused specialist delegation
+
+When the task needs one narrow specialist rather than a full panel, reuse the
+briefs in `references/specialist-subagents.md`.
+
+Good matches:
+
+- literature survey or citation hunting -> `literature-scout`
+- small-case exploration or counterexample search -> `math-explorer`
+- single-reviewer manuscript critique -> `paper-reviewer`
+- adversarial checking of one proof/lemma -> `proof-checker`
+
+## Route to narrower skills
+
+- Use `zotero` for generic paper, DOI, ISBN, book, and paper-library retrieval or sharing requests, including "find/get/send/share this paper or book".
+- Use `docling` for local parsing, conversion, chunking, and structure-aware analysis of PDFs, office documents, HTML, and image-backed documents.
+- Use `get-available-resources` before heavy local parsing or compute when resource constraints may materially affect the approach.
+- Use `database-lookup` for structured public scientific, regulatory, and economic database queries.
+- Use `paper-lookup` for external literature metadata/discovery after the library-first workflow and before external retrieval.
+- Use `deep-research-workflow` for single-agent phased deep research that needs explicit source handoff across search, analysis, and final writing.
+- Use `tikz-draw` for explicit TikZ figure generation, refactoring, extraction, compile, or review work, especially when the output should follow a structure-first brief -> spec -> render flow.
+- Use `calibre` for explicit Calibre library operations: ebook search/get by ID, sending Calibre-managed books, add/update, tags, shelves, sync, remove, convert, export, doctor, and clean.
+- Use `getscipapers-requester` only for external retrieval or DOI/ISBN
+  resolution after Zotero does not satisfy the request, or when the user
+  explicitly says not to check/use the library and wants outside retrieval. For
+  review tasks that need a document, check `calibre` after `zotero` and before
+  this fallback.
+- If an externally retrieved book file should be added to the ebook library, hand off to `calibre` for the final add/update step.
+- Use `annotated-review` only for annotate+review paper flows.
+- Use `paper-review` for single-agent review-only paper flows such as review, critique, hard review, or issue-finding requests.
+- Use `agent-group-discuss` for conversational multi-agent discussion, review, or research panels.
+- Use `prose` when the user wants explicit multi-agent research-and-synthesis orchestration.
+- Use `research-digest-wrapper` and `rss-news-digest` for tracked-topic and RSS-based research updates.
+- Use `graph-verifier` for lightweight graph sanity checks before escalating to SageMath.
+- Use `digest-bridge` to turn digest results into identifiers and manifests for retrieval.
+- Use `sagemath` for graph invariants, algebraic checks, spectral computations, exhaustive counterexample search, and other math tasks beyond lightweight local tooling.
+
+hook: PostToolUse
+hook: PreToolUse Completed
+exec
+/bin/bash -lc "sed -n '1,240p' README.md" in /home/ubuntu/DM-Concepts
+exec
+/bin/bash -lc "sed -n '1,240p' docs/mat3500-term-review.md" in /home/ubuntu/DM-Concepts
+ succeeded in 0ms:
+# Một số thuật ngữ trong Toán rời rạc
+
+*Selected Terms in Discrete Mathematics — An English–Vietnamese Annotated Lexicon*
+
+Một cuốn **sách mở** viết bằng [PreTeXt](https://pretextbook.org/) (theo khuôn của
+*[Discrete Mathematics: An Open Introduction](https://github.com/oscarlevin/discrete-book/)*
+— Oscar Levin), tập hợp các định nghĩa và khái niệm quen thuộc trong toán rời rạc
+và lý thuyết đồ thị.
+
+## Ý tưởng
+
+- Tổ chức theo **bảng chữ cái tiếng Anh**: mỗi chương là một chữ cái `A`, `B`, `C`, …
+- Mỗi **mục từ** lấy một khái niệm/ký hiệu tiếng Anh (chủ yếu từ *Rosen — Discrete
+  Mathematics and Its Applications*), nêu **định nghĩa bằng tiếng Việt**, liệt kê
+  **mọi** thuật ngữ tiếng Việt tương ứng đã tìm thấy — mỗi biến thể kèm **trích dẫn**
+  chính xác tới nguồn tiếng Việt.
+- Nguồn thuật ngữ tiếng Việt: tổng hợp từ các sách toán rời rạc & lý thuyết đồ thị
+  trong thư viện Zotero.
+- **Bản HTML tối ưu tra cứu**: tìm kiếm toàn văn, trang lọc-khi-gõ, tìm **không
+  phân biệt dấu** (gõ `so mau` ra `số màu`), tra được từ **cả hai chiều** Anh ↔ Việt.
+
+## Trạng thái
+
+🚧 Giai đoạn lập kế hoạch. Xem **[`docs/PLAN.md`](docs/PLAN.md)** để biết toàn bộ
+thiết kế: mô hình mục từ, ánh xạ PreTeXt, kiến trúc sản xuất nhiều-agent, và lộ trình.
+
+## Giấy phép
+
+CC BY-SA 4.0 — xem [`LICENSE`](LICENSE).
+
+ succeeded in 0ms:
+# 33 thuật ngữ lệch dịch — sách ↔ MAT3500 (cần bạn duyệt)
+
+Quy ước: `A → B` nghĩa là đề xuất đổi 'recommended' của sách từ A sang B (theo bài giảng).
+Đánh dấu ✔ cạnh từ bạn muốn đổi; bỏ trống nếu giữ nguyên sách.
+
+## ❗ Bản dịch khác (sách nên xem lại / bổ sung biến thể)
+- **ancestors** — sách: `tổ tiên` · bài giảng: Các đỉnh tổ tiên
+- **karnaugh maps** — sách: `bìa Karnaugh` · bài giảng: Phương pháp sơ đồ Karnaugh
+- **knight's tour** — sách: `hành trình của con mã` · bài giảng: Đường đi tuần của quân mã
+- **least common multiple** — sách: `bội số chung nhỏ nhất` · bài giảng: Bội chung nhỏ nhất
+- **maximum matching** — sách: `cặp ghép lớn nhất` · bài giảng: ghép cặp cực đại
+- **neighborhood** — sách: `lân cận` · bài giảng: tập láng giềng
+- **one-to-one function** — sách: `đơn ánh` · bài giảng: hàm một-một
+- **optimization problems** — sách: `bài toán tối ưu` · bài giảng: Các bài toán tối ưu
+- **ordered pair** — sách: `cặp có thứ tự` · bài giảng: cặp sắp thứ tự
+- **perfect matching** — sách: `cặp ghép hoàn hảo` · bài giảng: ghép cặp hoàn hảo
+- **prime numbers** — sách: `số nguyên tố` · bài giảng: các số nguyên tố
+- **regular graph** — sách: `đồ thị đều bậc k` · bài giảng: đồ thị chính quy
+## ⚠️ Sách khuyến nghị thuật ngữ khác với bài giảng
+- **articulation point** — sách khuyến nghị: `đỉnh cắt` · bài giảng dùng: điểm khớp
+- **circuit** — sách khuyến nghị: `chu trình đơn` · bài giảng dùng: mạch
+- **cycle** — sách khuyến nghị: `đồ thị vòng` · bài giảng dùng: chu trình
+- **edge connectivity** — sách khuyến nghị: `độ liên thông cạnh` · bài giảng dùng: Số liên thông cạnh
+- **function** — sách khuyến nghị: `hàm số` · bài giảng dùng: hàm
+- **integers** — sách khuyến nghị: `số nguyên` · bài giảng dùng: Tập số nguyên
+- **leaf** — sách khuyến nghị: `lá` · bài giảng dùng: đỉnh lá
+- **matching** — sách khuyến nghị: `cặp ghép` · bài giảng dùng: ghép cặp
+- **minimum spanning tree** — sách khuyến nghị: `cây bao trùm nhỏ nhất` · bài giảng dùng: cây khung nhỏ nhất
+- **natural numbers** — sách khuyến nghị: `số tự nhiên` · bài giảng dùng: Tập số tự nhiên
+- **negation** — sách khuyến nghị: `mệnh đề phủ định` · bài giảng dùng: Phủ định
+- **node** — sách khuyến nghị: `đỉnh` · bài giảng dùng: nút
+- **odd cycle** — sách khuyến nghị: `chu trình độ dài lẻ` · bài giảng dùng: chu trình lẻ
+- **permutation** — sách khuyến nghị: `chỉnh hợp` · bài giảng dùng: hoán vị
+- **quotient** — sách khuyến nghị: `thương số` · bài giảng dùng: thương
+- **recurrence relation** — sách khuyến nghị: `quan hệ truy hồi` · bài giảng dùng: hệ thức truy hồi
+- **relation** — sách khuyến nghị: `quan hệ hai ngôi` · bài giảng dùng: quan hệ
+- **sequence** — sách khuyến nghị: `dãy số` · bài giảng dùng: dãy
+- **spanning tree** — sách khuyến nghị: `cây bao trùm` · bài giảng dùng: cây khung
+- **venn diagram** — sách khuyến nghị: `sơ đồ Venn` · bài giảng dùng: giản đồ Venn
+- **vertex connectivity** — sách khuyến nghị: `độ liên thông đỉnh` · bài giảng dùng: Số liên thông đỉnh
+## ❌ Thuật ngữ bài giảng chưa có trong sách
+
+hook: PostToolUse
+hook: PostToolUse
+hook: PostToolUse Completed
+exec
+/bin/bash -lc "sed -n '1,260p' workflow/scripts/find-term.py" in /home/ubuntu/DM-Concepts
+ succeeded in 0ms:
+#!/usr/bin/env python3
+"""Find a Vietnamese term in the local source corpus, with page numbers.
+
+Used by the Vietnamese Term Miner agents to produce *verifiable* citations:
+each hit reports the source biblio_id, the PDF page, and a text snippet (the
+evidence). Corpus files live in workflow/corpus/<biblio_id>.txt (gitignored,
+built from text-layer PDFs by the triage step) with "@@PAGE n@@" markers.
+
+Usage:
+  find-term.py "sắc số"                 # search all sources
+  find-term.py "sắc số" bib-ngodactan-2004
+  find-term.py "so mau" --loose         # diacritics-insensitive (extraction-robust)
+"""
+import glob
+import json
+import os
+import re
+import sys
+import unicodedata
+
+CORPUS = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "corpus")
+PAGE_RE = re.compile(r"@@PAGE (\d+)@@")
+# Reference-only / partially-OCR'd sources excluded from "search all"; still
+# searchable when requested by exact biblio_id (e.g. the dedicated Rosen pass).
+EXCLUDE_DEFAULT = {"bib-rosen-2003-vi"}
+
+
+def strip(s):
+    s = unicodedata.normalize("NFD", s)
+    s = "".join(c for c in s if unicodedata.category(c) != "Mn")
+    return s.replace("đ", "d").replace("Đ", "D").lower()
+
+
+def search(term, bid=None, loose=False):
+    needle = strip(term) if loose else term.lower()
+    files = sorted(glob.glob(os.path.join(CORPUS, (bid or "*") + ".txt")))
+    out = []
+    for f in files:
+        source_id = os.path.basename(f)[:-4]
+        if bid is None and source_id in EXCLUDE_DEFAULT:
+            continue
+        page = 0
+        with open(f, encoding="utf-8") as fh:
+            for line in fh:
+                m = PAGE_RE.match(line.strip())
+                if m:
+                    page = int(m.group(1))
+                    continue
+                hay = strip(line) if loose else line.lower()
+                if needle in hay:
+                    out.append({
+                        "source_id": source_id,
+                        "pdf_page": page,
+                        "snippet": " ".join(line.split())[:220],
+                    })
+    return out
+
+
+def main():
+    args = [a for a in sys.argv[1:] if a != "--loose"]
+    loose = "--loose" in sys.argv
+    if not args:
+        sys.exit("usage: find-term.py <term> [biblio_id] [--loose]")
+    term = args[0]
+    bid = args[1] if len(args) > 1 else None
+    res = search(term, bid, loose)
+    print(json.dumps({"term": term, "loose": loose, "hits": len(res),
+                      "results": res[:40]}, ensure_ascii=False, indent=1))
+
+
+if __name__ == "__main__":
+    main()
+
+hook: PostToolUse
+hook: PostToolUse Completed
+hook: PostToolUse Completed
+hook: PostToolUse Completed
+codex
+Docs/helper coverage so far: repo README, the term-review note, the source-research skill, and the `find-term.py` source. The helper searches `workflow/corpus/<source_id>.txt` and returns PDF pages plus snippets; I’ll treat “near” as the cited PDF page or an immediately adjacent page unless the snippet clearly shows the same local section.
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse Completed
+hook: PreToolUse
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+exec
+/bin/bash -lc "sed -n '1,240p' workflow/scripts/codex-review-prompt.sh" in /home/ubuntu/DM-Concepts
+ succeeded in 0ms:
+#!/usr/bin/env bash
+# Emit the Codex review prompt for loop <i>. Usage: codex-review-prompt.sh <i>
+i="${1:?usage: codex-review-prompt.sh <loop-number>}"
+cat <<EOF
+You are a meticulous bilingual (English-Vietnamese) discrete-mathematics dictionary reviewer.
+Working directory: /home/ubuntu/DM-Concepts. Do NOT modify any file. Be evidence-based; never invent a translation or a source.
+
+Read this batch of entries:
+  cat workflow/loop/review/batch-${i}.json
+It is a JSON array; each entry has: id, headword_en, definition_vi (Vietnamese), rosen_ref,
+vi_terms (array of {term, source_id, page, pdf_page, verified, recommended}), see_ref.
+If see_ref is non-empty the entry is a cross-reference stub: SKIP it.
+
+For EACH non-stub entry, review THREE things line by line:
+
+(1) CITATION ACCURACY. For each vi_term with verified=true whose source_id starts with 'bib-' and is one of the
+LOCAL-TEXT sources below, verify the Vietnamese term actually appears in that source at/near the cited pdf_page:
+    python3 workflow/scripts/find-term.py "<term>" <source_id> --loose
+LOCAL-TEXT sources: bib-leanhvinh-2020 bib-nguyenhoangthach-2020 bib-nguyenhuudien-2019 bib-hoangchithanh-2007 bib-nguyenducnghia-2006 bib-ngodactan-2004 bib-rosen-2003-vi.
+For any other source_id (e.g. bib-rosen-2019) there is no local text: mark 'no-corpus' and skip the check.
+Report a citation_issue ONLY when find-term returns the term but NOT at/near the cited page, or returns ZERO hits for a verified term.
+
+(2) TERM COMMONALITY. For the recommended Vietnamese term, judge whether it is the common/standard usage in Vietnamese.
+Do a web search; prefer authoritative sources (Vietnamese university lecture notes, published textbooks, well-known references).
+If the recommended term is uncommon and a clearly more standard term exists, report it WITH a source URL.
+
+(3) ALTERNATIVE TRANSLATIONS. Find any additional valid Vietnamese translation of the English concept that is NOT already in vi_terms.
+Example: 'independent set' = 'tập độc lập' AND 'tập ổn định' (internal stable set) - both should be present.
+Use web search + authoritative sources. List each missing variant with a brief source.
+
+Output ONLY entries that have at least one finding (skip clean entries). Print ONE JSON object on its own, then the final marker:
+{"loop":${i},"reviewed":<int>,"findings":[{"id":"<id>","citation_issues":["..."],"commonality":{"verdict":"common|uncommon|unsure","better_term":"<term or empty>","sources":["url"]},"missing_variants":[{"term":"<vi term>","source":"<book or url>"}]}]}
+===CODEX_REVIEW_DONE===
+
+Keep the JSON valid (no comments, no trailing commas). Keep findings concise.
+EOF
+
+hook: PostToolUse
+hook: PreToolUse Completed
+exec
+/bin/bash -lc "jq -r '.[] | [.id, .headword_en, (.see_ref // \"\"), ((.vi_terms[]? | select(.recommended==true) | .term) // \"\")] | @tsv' workflow/loop/review/batch-1.json" in /home/ubuntu/DM-Concepts
+ succeeded in 0ms:
+absolute-value	Absolute Value		giá trị tuyệt đối
+acyclic-graph	Acyclic graph		đồ thị phi chu trình
+addition-rule	Addition rule	the-sum-rule	
+adjacency-list	Adjacency List		danh sách kề
+adjacency-matrix	Adjacency matrix		ma trận kề
+adjacent	Adjacent		liền kề
+adjacent-vertices	Adjacent vertices		kề nhau
+algorithm	Algorithm		thuật toán
+algorithm-analysis	Algorithm Analysis		Phân tích thuật toán
+alphabet	Alphabet		bảng chữ cái
+alphabetical-order	Alphabetical Order		thứ tự bảng chữ cái
+ancestor	Ancestor		tổ tiên
+and-gate	And Gate		Cổng AND
+antichain	Antichain		phản xích
+antisymmetric	Antisymmetric	antisymmetric-relation	
+antisymmetric-relation	Antisymmetric relation		phản xứng
+arborescence	Arborescence	rooted-tree	
+arc	Arc	directed-edge	
+argument	Argument	logical-argument	
+argument-form	Argument Form		dạng suy luận
+arithmetic-progression	Arithmetic progression		cấp số cộng
+articulation-point	Articulation point	cut-vertex	
+assignment	Assignment		Phép gán
+associated-homogeneous-recurrence-relation	Associated Homogeneous Recurrence Relation		hệ thức truy hồi thuần nhất tương ứng
+association-rule	Association Rule		luật kết hợp
+asymptotic-estimate	Asymptotic Estimate		đánh giá tiệm cận
+asymptotic-notation	Asymptotic notation		ký hiệu ô lớn
+atomic-proposition	Atomic Proposition		mệnh đề nguyên tử
+automorphism	Automorphism		tự đẳng cấu
+average-degree	Average degree		bậc trung bình
+average-case-complexity	Average-Case Complexity		Độ phức tạp trường hợp trung bình
+axiom	Axiom		Tiên đề
+backtracking	Backtracking		kỹ thuật quay lui
+balanced-tree	Balanced Tree		cây cân bằng
+ball	Ball		hình cầu
+base	Base		hệ cơ số
+basis-step	Basis Step		Bước cơ sở
+bernoulli-trial	Bernoulli Trial		phép thử Bernoulli
+best-case-complexity	Best-Case Complexity		Độ phức tạp trường hợp tốt nhất
+bi-implication	Bi-Implication		tương đương
+bijection	Bijection		song ánh
+binary	Binary		Hệ cơ số 2 (nhị phân)
+binary-operator	Binary Operator		toán tử hai ngôi
+binary-relation	Binary relation		quan hệ hai ngôi
+binary-representation	Binary Representation	binary	
+binary-search-algorithm	Binary Search Algorithm		thuật toán tìm kiếm nhị phân
+binary-search-tree	Binary search tree		cây tìm kiếm nhị phân
+binary-tree	Binary tree		cây nhị phân
+binomial-coefficient	Binomial coefficient		hệ số nhị thức
+binomial-theorem	Binomial theorem		định lý nhị thức
+bipartite-graph	Bipartite graph		đồ thị hai phần
+bit	Bit		bit
+bit-operation	Bit Operation		phép toán bit
+bit-string	Bit String		xâu bit
+bitwise-operation	Bitwise Operation	bit-operation	
+block	Block		khối
+block-cipher	Block Cipher		mật mã khối
+boolean-algebra	Boolean algebra		đại số Boole
+boolean-expression	Boolean Expression		biểu thức Boole
+boolean-function	Boolean function		hàm Boole
+boolean-product	Boolean Product		Tích Boole
+boolean-sum	Boolean Sum		Tổng Boole
+boolean-variable	Boolean Variable		biến Boole
+bound	Bound		cận
+bound-variable	Bound Variable		biến ràng buộc
+boundary	Boundary		biên của miền
+breadth-first-search	Breadth-first search		duyệt theo chiều rộng
+bridge	Bridge		cầu
+cantor-diagonalization-argument	Cantor Diagonalization Argument		lập luận đường chéo của Cantor
+cardinality	Cardinality		lực lượng
+carmichael-number	Carmichael Number		số Carmichael
+carry	Carry		nhớ
+cartesian-product	Cartesian Product		Tích Đềcác
+ceiling-function	Ceiling Function		Hàm trần
+centre	Centre		tâm
+character-cipher	Character Cipher		mật mã ký tự
+characteristic-polynomial	Characteristic Polynomial		đa thức đặc trưng
+
+hook: PostToolUse
+exec
+/bin/bash -lc "jq 'length' workflow/loop/review/batch-1.json" in /home/ubuntu/DM-Concepts
+ succeeded in 0ms:
+77
+
+hook: PostToolUse
+hook: PostToolUse Completed
+exec
+/bin/bash -lc "jq -c '[.[] | select((.see_ref // \"\") == \"\") | {id, headword_en, recommended:([.vi_terms[] | select(.recommended==true) | .term]), terms:.vi_terms}]' workflow/loop/review/batch-1.json" in /home/ubuntu/DM-Concepts
+ succeeded in 0ms:
+[{"id":"absolute-value","headword_en":"Absolute Value","recommended":["giá trị tuyệt đối"],"terms":[{"term":"giá trị tuyệt đối","source_id":"bib-rosen-2003-vi","page":"tr. 225 (PDF)","pdf_page":225,"verified":true,"recommended":true},{"term":"trị tuyệt đối","source_id":"bib-leanhvinh-2020","page":"tr. 245 (PDF)","pdf_page":245,"verified":true,"recommended":false},{"term":"trị tuyệt đối","source_id":"bib-nguyenducnghia-2006","page":"tr. 177 (PDF)","pdf_page":177,"verified":true,"recommended":false},{"term":"trị tuyệt đối","source_id":"bib-rosen-2003-vi","page":"tr. 109 (PDF, bản dịch Rosen)","pdf_page":109,"verified":true,"recommended":false}]},{"id":"acyclic-graph","headword_en":"Acyclic graph","recommended":["đồ thị phi chu trình"],"terms":[{"term":"đồ thị phi chu trình","source_id":"bib-nguyenhuudien-2019","page":"tr. 226 (PDF)","pdf_page":226,"verified":true,"recommended":true},{"term":"phi chu trình","source_id":"bib-nguyenhuudien-2019","page":"tr. 226 (PDF)","pdf_page":226,"verified":true,"recommended":false},{"term":"đồ thị không có chu trình","source_id":"bib-nguyenducnghia-2006","page":"tr. 230 (PDF)","pdf_page":230,"verified":true,"recommended":false},{"term":"không có chu trình","source_id":"bib-hoangchithanh-2007","page":"tr. 123 (PDF)","pdf_page":123,"verified":true,"recommended":false},{"term":"đồ thị không có chu trình","source_id":"bib-rosen-2003-vi","page":"tr. 621 (PDF, bản dịch Rosen)","pdf_page":621,"verified":true,"recommended":false},{"term":"không có chu trình","source_id":"bib-rosen-2003-vi","page":"tr. 550 (PDF, bản dịch Rosen)","pdf_page":550,"verified":true,"recommended":false}]},{"id":"adjacency-list","headword_en":"Adjacency List","recommended":["danh sách kề"],"terms":[{"term":"danh sách kề","source_id":"bib-hoangchithanh-2007","page":"tr. 10 (PDF)","pdf_page":10,"verified":true,"recommended":true},{"term":"danh sách kề","source_id":"bib-nguyenducnghia-2006","page":"tr. 173 (PDF)","pdf_page":173,"verified":true,"recommended":false},{"term":"danh sách kề","source_id":"bib-nguyenhoangthach-2020","page":"tr. 65 (PDF)","pdf_page":65,"verified":true,"recommended":false},{"term":"danh sách kề","source_id":"bib-nguyenhuudien-2019","page":"tr. 176 (PDF)","pdf_page":176,"verified":true,"recommended":false},{"term":"danh sách liền kề","source_id":"bib-rosen-2003-vi","page":"tr. 520 (PDF)","pdf_page":520,"verified":true,"recommended":false}]},{"id":"adjacency-matrix","headword_en":"Adjacency matrix","recommended":["ma trận kề"],"terms":[{"term":"ma trận kề","source_id":"bib-leanhvinh-2020","page":"tr. 54 (PDF)","pdf_page":54,"verified":true,"recommended":true},{"term":"ma trận kề","source_id":"bib-nguyenhoangthach-2020","page":"tr. 66 (PDF)","pdf_page":66,"verified":true,"recommended":false},{"term":"ma trận liền kề","source_id":"bib-nguyenhuudien-2019","page":"tr. 163 (PDF)","pdf_page":163,"verified":true,"recommended":false},{"term":"ma trận kề","source_id":"bib-hoangchithanh-2007","page":"tr. 9 (PDF)","pdf_page":9,"verified":true,"recommended":false},{"term":"ma trận kề","source_id":"bib-nguyenducnghia-2006","page":"tr. 169 (PDF)","pdf_page":169,"verified":true,"recommended":false},{"term":"ma trận kề","source_id":"bib-ngodactan-2004","page":"tr. 220 (PDF)","pdf_page":220,"verified":true,"recommended":false},{"term":"ma trận kề","source_id":"bib-rosen-2003-vi","page":"tr. 531 (PDF, bản dịch Rosen)","pdf_page":531,"verified":true,"recommended":false}]},{"id":"adjacent","headword_en":"Adjacent","recommended":["liền kề"],"terms":[{"term":"liền kề","source_id":"bib-nguyenhuudien-2019","page":"tr. 157 (PDF)","pdf_page":157,"verified":true,"recommended":true},{"term":"liền kề","source_id":"bib-rosen-2003-vi","page":"tr. 594 (PDF)","pdf_page":594,"verified":true,"recommended":false},{"term":"kề nhau","source_id":"bib-leanhvinh-2020","page":"tr. 9 (PDF)","pdf_page":9,"verified":true,"recommended":false},{"term":"kề nhau","source_id":"bib-nguyenhoangthach-2020","page":"tr. 63 (PDF)","pdf_page":63,"verified":true,"recommended":false},{"term":"kề nhau","source_id":"bib-ngodactan-2004","page":"tr. 186 (PDF)","pdf_page":186,"verified":true,"recommended":false},{"term":"kề nhau","source_id":"bib-hoangchithanh-2007","page":"tr. 8 (PDF)","pdf_page":8,"verified":true,"recommended":false},{"term":"kề nhau","source_id":"bib-nguyenducnghia-2006","page":"tr. 159 (PDF)","pdf_page":159,"verified":true,"recommended":false},{"term":"kề nhau","source_id":"bib-rosen-2003-vi","page":"tr. 604 (PDF, bản dịch Rosen)","pdf_page":604,"verified":true,"recommended":false}]},{"id":"adjacent-vertices","headword_en":"Adjacent vertices","recommended":["kề nhau"],"terms":[{"term":"kề nhau","source_id":"bib-leanhvinh-2020","page":"tr. 9 (PDF)","pdf_page":9,"verified":true,"recommended":true},{"term":"kề nhau","source_id":"bib-nguyenhoangthach-2020","page":"tr. 63 (PDF)","pdf_page":63,"verified":true,"recommended":false},{"term":"liền kề","source_id":"bib-nguyenhuudien-2019","page":"tr. 157 (PDF)","pdf_page":157,"verified":true,"recommended":false},{"term":"kề nhau","source_id":"bib-nguyenhuudien-2019","page":"tr. 160 (PDF)","pdf_page":160,"verified":true,"recommended":false},{"term":"đỉnh kề","source_id":"bib-hoangchithanh-2007","page":"tr. 8 (PDF)","pdf_page":8,"verified":true,"recommended":false},{"term":"kề nhau","source_id":"bib-hoangchithanh-2007","page":"tr. 17 (PDF)","pdf_page":17,"verified":true,"recommended":false},{"term":"kề nhau","source_id":"bib-nguyenducnghia-2006","page":"tr. 159 (PDF)","pdf_page":159,"verified":true,"recommended":false},{"term":"kề nhau","source_id":"bib-ngodactan-2004","page":"tr. 186 (PDF)","pdf_page":186,"verified":true,"recommended":false},{"term":"kề nhau","source_id":"bib-rosen-2003-vi","page":"tr. 604 (PDF, bản dịch Rosen)","pdf_page":604,"verified":true,"recommended":false},{"term":"liền kề","source_id":"bib-rosen-2003-vi","page":"tr. 528 (PDF, bản dịch Rosen)","pdf_page":528,"verified":true,"recommended":false}]},{"id":"algorithm","headword_en":"Algorithm","recommended":["thuật toán"],"terms":[{"term":"thuật toán","source_id":"bib-leanhvinh-2020","page":"tr. 34 (PDF)","pdf_page":34,"verified":true,"recommended":false},{"term":"thuật toán","source_id":"bib-nguyenhoangthach-2020","page":"tr. 91 (PDF)","pdf_page":91,"verified":true,"recommended":false},{"term":"thuật toán","source_id":"bib-nguyenhuudien-2019","page":"tr. 132 (PDF)","pdf_page":132,"verified":true,"recommended":true},{"term":"thuật toán","source_id":"bib-hoangchithanh-2007","page":"tr. 5 (PDF)","pdf_page":5,"verified":true,"recommended":false},{"term":"thuật toán","source_id":"bib-nguyenducnghia-2006","page":"tr. 77 (PDF)","pdf_page":77,"verified":true,"recommended":false},{"term":"thuật toán","source_id":"bib-rosen-2003-vi","page":"tr. 5 (PDF, bản dịch Rosen)","pdf_page":5,"verified":true,"recommended":false}]},{"id":"algorithm-analysis","headword_en":"Algorithm Analysis","recommended":["Phân tích thuật toán"],"terms":[{"term":"phân tích thuật toán","source_id":"bib-nguyenducnghia-2006","page":"tr. 83 (PDF)","pdf_page":83,"verified":true,"recommended":false},{"term":"phân tích thuật toán","source_id":"bib-nguyenducnghia-2006","page":"tr. 89 (PDF)","pdf_page":89,"verified":true,"recommended":false},{"term":"phân tích các thuật toán","source_id":"bib-nguyenhuudien-2019","page":"tr. 138 (PDF)","pdf_page":138,"verified":true,"recommended":false},{"term":"phân tích các thuật toán","source_id":"bib-rosen-2003-vi","page":"tr. 5 (PDF)","pdf_page":5,"verified":true,"recommended":false},{"term":"Phân tích thuật toán","source_id":"","page":"","pdf_page":0,"verified":false,"recommended":true}]},{"id":"alphabet","headword_en":"Alphabet","recommended":["bảng chữ cái"],"terms":[{"term":"bảng chữ cái","source_id":"bib-nguyenhuudien-2019","page":"tr. 91 (PDF)","pdf_page":91,"verified":true,"recommended":true},{"term":"bảng chữ cái","source_id":"bib-rosen-2003-vi","page":"tr. 107 (PDF)","pdf_page":107,"verified":true,"recommended":false},{"term":"bảng chữ cái","source_id":"bib-nguyenducnghia-2006","page":"tr. 11 (PDF)","pdf_page":11,"verified":true,"recommended":false}]},{"id":"alphabetical-order","headword_en":"Alphabetical Order","recommended":["thứ tự bảng chữ cái"],"terms":[{"term":"thứ tự bảng chữ cái","source_id":"bib-rosen-2003-vi","page":"tr. 136 (PDF)","pdf_page":136,"verified":true,"recommended":true}]},{"id":"ancestor","headword_en":"Ancestor","recommended":["tổ tiên"],"terms":[{"term":"tổ tiên","source_id":"bib-nguyenhoangthach-2020","page":"tr. 84 (PDF)","pdf_page":84,"verified":true,"recommended":true},{"term":"tổ tiên","source_id":"bib-nguyenhuudien-2019","page":"tr. 252 (PDF)","pdf_page":252,"verified":true,"recommended":false},{"term":"tổ tiên","source_id":"bib-hoangchithanh-2007","page":"tr. 138 (PDF)","pdf_page":138,"verified":true,"recommended":false},{"term":"tổ tiên","source_id":"bib-rosen-2003-vi","page":"tr. 622 (PDF, bản dịch Rosen)","pdf_page":622,"verified":true,"recommended":false},{"term":"đỉnh tổ tiên","source_id":"","page":"","pdf_page":0,"verified":false,"recommended":false}]},{"id":"and-gate","headword_en":"And Gate","recommended":["Cổng AND"],"terms":[{"term":"cổng AND","source_id":"bib-rosen-2003-vi","page":"tr. 728 (PDF)","pdf_page":728,"verified":true,"recommended":false},{"term":"Cổng AND","source_id":"bib-rosen-2003-vi","page":"tr. 728 (PDF, bản dịch Rosen)","pdf_page":728,"verified":true,"recommended":true}]},{"id":"antichain","headword_en":"Antichain","recommended":["phản xích"],"terms":[{"term":"phản xích","source_id":"bib-ngodactan-2004","page":"tr. 274 (PDF)","pdf_page":274,"verified":true,"recommended":true}]},{"id":"antisymmetric-relation","headword_en":"Antisymmetric relation","recommended":["phản xứng"],"terms":[{"term":"phản xứng","source_id":"bib-nguyenhuudien-2019","page":"tr. 110 (PDF)","pdf_page":110,"verified":true,"recommended":true},{"term":"phản đối xứng","source_id":"bib-nguyenhuudien-2019","page":"tr. 111 (PDF)","pdf_page":111,"verified":true,"recommended":false},{"term":"phản đối xứng","source_id":"bib-ngodactan-2004","page":"tr. 163 (PDF)","pdf_page":163,"verified":true,"recommended":false},{"term":"phản đối xứng","source_id":"bib-rosen-2003-vi","page":"tr. 429 (PDF, bản dịch Rosen)","pdf_page":429,"verified":true,"recommended":false}]},{"id":"argument-form","headword_en":"Argument Form","recommended":["dạng suy luận"],"terms":[{"term":"dạng suy luận","source_id":"","page":"","pdf_page":0,"verified":false,"recommended":true},{"term":"dạng của suy luận","source_id":"bib-rosen-2003-vi","page":"tr. 209 (PDF)","pdf_page":209,"verified":true,"recommended":false},{"term":"suy luận","source_id":"bib-nguyenhuudien-2019","page":"tr. 28 (PDF)","pdf_page":28,"verified":true,"recommended":false},{"term":"suy luận","source_id":"bib-rosen-2003-vi","page":"tr. 5 (PDF, bản dịch Rosen)","pdf_page":5,"verified":true,"recommended":false}]},{"id":"arithmetic-progression","headword_en":"Arithmetic progression","recommended":["cấp số cộng"],"terms":[{"term":"cấp số cộng","source_id":"bib-ngodactan-2004","page":"tr. 318 (PDF)","pdf_page":318,"verified":true,"recommended":true},{"term":"cấp số cộng","source_id":"bib-rosen-2003-vi","page":"tr. 282 (PDF)","pdf_page":282,"verified":true,"recommended":false}]},{"id":"assignment","headword_en":"Assignment","recommended":["Phép gán"],"terms":[{"term":"phép gán","source_id":"bib-nguyenducnghia-2006","page":"tr. 80 (PDF)","pdf_page":80,"verified":true,"recommended":false},{"term":"câu lệnh gán","source_id":"bib-nguyenducnghia-2006","page":"tr. 80 (PDF)","pdf_page":80,"verified":true,"recommended":false},{"term":"lệnh gán","source_id":"bib-ngodactan-2004","page":"tr. 224 (PDF)","pdf_page":224,"verified":true,"recommended":false},{"term":"phép gán","source_id":"bib-rosen-2003-vi","page":"tr. 12 (PDF)","pdf_page":12,"verified":true,"recommended":false},{"term":"Phép gán","source_id":"bib-rosen-2003-vi","page":"tr. 12 (PDF, bản dịch Rosen)","pdf_page":12,"verified":true,"recommended":true},{"term":"câu lệnh gán","source_id":"bib-rosen-2003-vi","page":"tr. 12 (PDF, bản dịch Rosen)","pdf_page":12,"verified":true,"recommended":false},{"term":"lệnh gán","source_id":"bib-rosen-2003-vi","page":"tr. 12 (PDF, bản dịch Rosen)","pdf_page":12,"verified":true,"recommended":false}]},{"id":"associated-homogeneous-recurrence-relation","headword_en":"Associated Homogeneous Recurrence Relation","recommended":["hệ thức truy hồi thuần nhất tương ứng"],"terms":[{"term":"hệ thức truy hồi tuyến tính thuần nhất tương ứng","source_id":"bib-rosen-2003-vi","page":"tr. 395 (PDF)","pdf_page":395,"verified":true,"recommended":false},{"term":"quan hệ truy hồi thuần nhất liên kết","source_id":"bib-nguyenhoangthach-2020","page":"tr. 44 (PDF)","pdf_page":44,"verified":true,"recommended":false},{"term":"hệ thức truy hồi thuần nhất tương ứng","source_id":"","page":"","pdf_page":0,"verified":false,"recommended":true}]},{"id":"association-rule","headword_en":"Association Rule","recommended":["luật kết hợp"],"terms":[{"term":"luật kết hợp","source_id":"","page":"","pdf_page":0,"verified":false,"recommended":true}]},{"id":"asymptotic-estimate","headword_en":"Asymptotic Estimate","recommended":["đánh giá tiệm cận"],"terms":[{"term":"đánh giá big-O","source_id":"bib-nguyenhuudien-2019","page":"tr. 150 (PDF)","pdf_page":150,"verified":true,"recommended":false},{"term":"đánh giá big-O","source_id":"bib-rosen-2003-vi","page":"tr. 113 (PDF)","pdf_page":113,"verified":true,"recommended":false},{"term":"đánh giá tiệm cận","source_id":"","page":"","pdf_page":0,"verified":false,"recommended":true}]},{"id":"asymptotic-notation","headword_en":"Asymptotic notation","recommended":["ký hiệu ô lớn"],"terms":[{"term":"big-O","source_id":"bib-nguyenhuudien-2019","page":"tr. 138 (PDF)","pdf_page":138,"verified":true,"recommended":false},{"term":"quan hệ big-O","source_id":"bib-nguyenhuudien-2019","page":"tr. 138 (PDF)","pdf_page":138,"verified":true,"recommended":false},{"term":"đánh giá big-O","source_id":"bib-nguyenhuudien-2019","page":"tr. 150 (PDF)","pdf_page":150,"verified":true,"recommended":false},{"term":"ký hiệu ô lớn","source_id":"bib-nguyenducnghia-2006","page":"tr. 85 (PDF)","pdf_page":85,"verified":true,"recommended":true},{"term":"ký hiệu Ômêga","source_id":"bib-nguyenducnghia-2006","page":"tr. 85 (PDF)","pdf_page":85,"verified":true,"recommended":false},{"term":"ký hiệu têta","source_id":"bib-nguyenducnghia-2006","page":"tr. 85 (PDF)","pdf_page":85,"verified":true,"recommended":false},{"term":"big-O","source_id":"bib-rosen-2003-vi","page":"tr. 108 (PDF, bản dịch Rosen)","pdf_page":108,"verified":true,"recommended":false},{"term":"đánh giá big-O","source_id":"bib-rosen-2003-vi","page":"tr. 113 (PDF, bản dịch Rosen)","pdf_page":113,"verified":true,"recommended":false}]},{"id":"atomic-proposition","headword_en":"Atomic Proposition","recommended":["mệnh đề nguyên tử"],"terms":[{"term":"mệnh đề sơ cấp","source_id":"bib-nguyenhuudien-2019","page":"tr. 15 (PDF)","pdf_page":15,"verified":true,"recommended":false},{"term":"mệnh đề nguyên tử","source_id":"bib-rosen-2003-vi","page":"tr. 855 (PDF)","pdf_page":855,"verified":true,"recommended":true}]},{"id":"automorphism","headword_en":"Automorphism","recommended":["tự đẳng cấu"],"terms":[{"term":"tự đẳng cấu","source_id":"bib-leanhvinh-2020","page":"tr. 37 (PDF)","pdf_page":37,"verified":true,"recommended":true},{"term":"tự đẳng cấu","source_id":"bib-ngodactan-2004","page":"tr. 140 (PDF)","pdf_page":140,"verified":true,"recommended":false}]},{"id":"average-degree","headword_en":"Average degree","recommended":["bậc trung bình"],"terms":[{"term":"bậc trung bình","source_id":"bib-leanhvinh-2020","page":"tr. 153 (PDF)","pdf_page":153,"verified":true,"recommended":true},{"term":"bậc trung bình của đồ thị","source_id":"bib-leanhvinh-2020","page":"tr. 195 (PDF)","pdf_page":195,"verified":true,"recommended":false}]},{"id":"average-case-complexity","headword_en":"Average-Case Complexity","recommended":["Độ phức tạp trường hợp trung bình"],"terms":[{"term":"độ phức tạp thời gian trong trường hợp trung bình","source_id":"bib-rosen-2003-vi","page":"tr. 150 (PDF)","pdf_page":150,"verified":true,"recommended":false},{"term":"trường hợp trung bình","source_id":"bib-rosen-2003-vi","page":"tr. 144 (PDF)","pdf_page":144,"verified":true,"recommended":false},{"term":"thời gian tính trung bình","source_id":"bib-nguyenducnghia-2006","page":"tr. 86 (PDF)","pdf_page":86,"verified":true,"recommended":false},{"term":"Độ phức tạp trường hợp trung bình","source_id":"","page":"","pdf_page":0,"verified":false,"recommended":true}]},{"id":"axiom","headword_en":"Axiom","recommended":["Tiên đề"],"terms":[{"term":"tiên đề","source_id":"bib-nguyenhuudien-2019","page":"tr. 28 (PDF)","pdf_page":28,"verified":true,"recommended":false},{"term":"tiên đề","source_id":"bib-ngodactan-2004","page":"tr. 166 (PDF)","pdf_page":166,"verified":true,"recommended":false},{"term":"tiên đề","source_id":"bib-rosen-2003-vi","page":"tr. 209 (PDF)","pdf_page":209,"verified":true,"recommended":false},{"term":"Tiên đề","source_id":"bib-rosen-2003-vi","page":"tr. 129 (PDF, bản dịch Rosen)","pdf_page":129,"verified":true,"recommended":true}]},{"id":"backtracking","headword_en":"Backtracking","recommended":["kỹ thuật quay lui"],"terms":[{"term":"kỹ thuật quay lui","source_id":"bib-rosen-2003-vi","page":"tr. 683 (PDF)","pdf_page":683,"verified":true,"recommended":true},{"term":"thuật toán quay lui","source_id":"bib-nguyenducnghia-2006","page":"tr. 100 (PDF)","pdf_page":100,"verified":true,"recommended":false}]},{"id":"balanced-tree","headword_en":"Balanced Tree","recommended":["cây cân bằng"],"terms":[{"term":"cây cân bằng","source_id":"bib-nguyenhoangthach-2020","page":"tr. 85 (PDF)","pdf_page":85,"verified":true,"recommended":true}]},{"id":"ball","headword_en":"Ball","recommended":["hình cầu"],"terms":[{"term":"hình cầu","source_id":"bib-leanhvinh-2020","page":"tr. 190 (PDF)","pdf_page":190,"verified":true,"recommended":true},{"term":"hình cầu","source_id":"bib-ngodactan-2004","page":"tr. 317 (PDF)","pdf_page":317,"verified":true,"recommended":false}]},{"id":"base","headword_en":"Base","recommended":["hệ cơ số"],"terms":[{"term":"cơ số","source_id":"bib-nguyenhuudien-2019","page":"tr. 143 (PDF)","pdf_page":143,"verified":true,"recommended":false},{"term":"cơ số","source_id":"bib-rosen-2003-vi","page":"tr. 174 (PDF)","pdf_page":174,"verified":true,"recommended":false},{"term":"hệ cơ số","source_id":"","page":"","pdf_page":0,"verified":false,"recommended":true}]},{"id":"basis-step","headword_en":"Basis Step","recommended":["Bước cơ sở"],"terms":[{"term":"Bước cơ sở","source_id":"bib-nguyenhuudien-2019","page":"tr. 62 (PDF)","pdf_page":62,"verified":true,"recommended":true},{"term":"Bước cơ sở","source_id":"bib-rosen-2003-vi","page":"tr. 230 (PDF)","pdf_page":230,"verified":true,"recommended":false},{"term":"Trường hợp cơ sở","source_id":"bib-leanhvinh-2020","page":"tr. 16 (PDF)","pdf_page":16,"verified":true,"recommended":false}]},{"id":"bernoulli-trial","headword_en":"Bernoulli Trial","recommended":["phép thử Bernoulli"],"terms":[{"term":"phép thử Bernoulli","source_id":"","page":"","pdf_page":0,"verified":false,"recommended":true}]},{"id":"best-case-complexity","headword_en":"Best-Case Complexity","recommended":["Độ phức tạp trường hợp tốt nhất"],"terms":[{"term":"thời gian tính tốt nhất","source_id":"bib-nguyenducnghia-2006","page":"tr. 86 (PDF)","pdf_page":86,"verified":true,"recommended":false},{"term":"trường hợp tốt nhất","source_id":"bib-rosen-2003-vi","page":"tr. 199 (PDF)","pdf_page":199,"verified":true,"recommended":false},{"term":"Độ phức tạp trường hợp tốt nhất","source_id":"","page":"","pdf_page":0,"verified":false,"recommended":true}]},{"id":"bi-implication","headword_en":"Bi-Implication","recommended":["tương đương"],"terms":[{"term":"phép tương đương","source_id":"bib-nguyenhuudien-2019","page":"tr. 19 (PDF)","pdf_page":19,"verified":true,"recommended":false},{"term":"tương đương","source_id":"bib-rosen-2003-vi","page":"tr. 13 (PDF)","pdf_page":13,"verified":true,"recommended":true},{"term":"phép tương đương","source_id":"bib-rosen-2003-vi","page":"tr. 13 (PDF, bản dịch Rosen)","pdf_page":13,"verified":true,"recommended":false}]},{"id":"bijection","headword_en":"Bijection","recommended":["song ánh"],"terms":[{"term":"song ánh","source_id":"bib-leanhvinh-2020","page":"tr. 12 (PDF)","pdf_page":12,"verified":true,"recommended":true},{"term":"song ánh","source_id":"bib-nguyenhoangthach-2020","page":"tr. 73 (PDF)","pdf_page":73,"verified":true,"recommended":false},{"term":"song ánh","source_id":"bib-nguyenhuudien-2019","page":"tr. 78 (PDF)","pdf_page":78,"verified":true,"recommended":false},{"term":"song ánh","source_id":"bib-hoangchithanh-2007","page":"tr. 8 (PDF)","pdf_page":8,"verified":true,"recommended":false},{"term":"song ánh","source_id":"bib-nguyenducnghia-2006","page":"tr. 19 (PDF)","pdf_page":19,"verified":true,"recommended":false},{"term":"song ánh","source_id":"bib-ngodactan-2004","page":"tr. 37 (PDF)","pdf_page":37,"verified":true,"recommended":false},{"term":"tương ứng một-một","source_id":"bib-nguyenhuudien-2019","page":"tr. 82 (PDF)","pdf_page":82,"verified":true,"recommended":false},{"term":"tương ứng một-một","source_id":"bib-ngodactan-2004","page":"tr. 25 (PDF)","pdf_page":25,"verified":true,"recommended":false},{"term":"tương ứng 1-1","source_id":"bib-nguyenhoangthach-2020","page":"tr. 16 (PDF)","pdf_page":16,"verified":true,"recommended":false},{"term":"tương ứng 1-1","source_id":"bib-nguyenhuudien-2019","page":"tr. 96 (PDF)","pdf_page":96,"verified":true,"recommended":false},{"term":"tương ứng 1-1","source_id":"bib-nguyenducnghia-2006","page":"tr. 115 (PDF)","pdf_page":115,"verified":true,"recommended":false},{"term":"song ánh","source_id":"bib-rosen-2003-vi","page":"tr. 86 (PDF, bản dịch Rosen)","pdf_page":86,"verified":true,"recommended":false},{"term":"tương ứng một-một","source_id":"bib-rosen-2003-vi","page":"tr. 504 (PDF, bản dịch Rosen)","pdf_page":504,"verified":true,"recommended":false}]},{"id":"binary","headword_en":"Binary","recommended":["Hệ cơ số 2 (nhị phân)"],"terms":[{"term":"biểu diễn cơ số 2","source_id":"bib-rosen-2003-vi","page":"tr. 130 (PDF)","pdf_page":130,"verified":true,"recommended":false},{"term":"khai triển nhị phân","source_id":"bib-rosen-2003-vi","page":"tr. 130 (PDF)","pdf_page":130,"verified":true,"recommended":false},{"term":"khai triển nhị phân","source_id":"bib-nguyenhuudien-2019","page":"tr. 144 (PDF)","pdf_page":144,"verified":true,"recommended":false},{"term":"biểu diễn nhị phân","source_id":"bib-nguyenducnghia-2006","page":"tr. 93 (PDF)","pdf_page":93,"verified":true,"recommended":false},{"term":"biểu diễn nhị phân","source_id":"bib-hoangchithanh-2007","page":"tr. 27 (PDF)","pdf_page":27,"verified":true,"recommended":false},{"term":"biểu diễn nhị phân","source_id":"bib-rosen-2003-vi","page":"tr. 14 (PDF, bản dịch Rosen)","pdf_page":14,"verified":true,"recommended":false},{"term":"Hệ cơ số $2$ (nhị phân","source_id":"","page":"","pdf_page":0,"verified":false,"recommended":false},{"term":"Hệ cơ số 2 (nhị phân)","source_id":"","page":"","pdf_page":0,"verified":false,"recommended":true}]},{"id":"binary-operator","headword_en":"Binary Operator","recommended":["toán tử hai ngôi"],"terms":[{"term":"toán tử logic","source_id":"bib-nguyenhuudien-2019","page":"tr. 19 (PDF)","pdf_page":19,"verified":true,"recommended":false},{"term":"toán tử","source_id":"bib-ngodactan-2004","page":"tr. 224 (PDF)","pdf_page":224,"verified":true,"recommended":false},{"term":"toán tử logic","source_id":"bib-rosen-2003-vi","page":"tr. 7 (PDF)","pdf_page":7,"verified":true,"recommended":false},{"term":"toán tử hai ngôi","source_id":"bib-rosen-2003-vi","page":"tr. 658 (PDF, bản dịch Rosen)","pdf_page":658,"verified":true,"recommended":true},{"term":"toán tử","source_id":"bib-rosen-2003-vi","page":"tr. 7 (PDF, bản dịch Rosen)","pdf_page":7,"verified":true,"recommended":false}]},{"id":"binary-relation","headword_en":"Binary relation","recommended":["quan hệ hai ngôi"],"terms":[{"term":"quan hệ hai ngôi","source_id":"bib-nguyenhoangthach-2020","page":"tr. 74 (PDF)","pdf_page":74,"verified":true,"recommended":true},{"term":"quan hệ hai ngôi","source_id":"bib-nguyenhuudien-2019","page":"tr. 106 (PDF)","pdf_page":106,"verified":true,"recommended":false},{"term":"quan hệ 2 ngôi","source_id":"bib-nguyenhuudien-2019","page":"tr. 108 (PDF)","pdf_page":108,"verified":true,"recommended":false},{"term":"quan hệ hai ngôi","source_id":"bib-nguyenducnghia-2006","page":"tr. 14 (PDF)","pdf_page":14,"verified":true,"recommended":false},{"term":"quan hệ hai ngôi","source_id":"bib-ngodactan-2004","page":"tr. 185 (PDF)","pdf_page":185,"verified":true,"recommended":false},{"term":"quan hệ hai ngôi","source_id":"bib-rosen-2003-vi","page":"tr. 424 (PDF, bản dịch Rosen)","pdf_page":424,"verified":true,"recommended":false},{"term":"quan hệ nhị nguyên","source_id":"bib-hoangchithanh-2007","page":"tr. 6 (PDF)","pdf_page":6,"verified":true,"recommended":false},{"term":"quan hệ","source_id":"bib-leanhvinh-2020","page":"tr. 17 (PDF)","pdf_page":17,"verified":true,"recommended":false}]},{"id":"binary-search-algorithm","headword_en":"Binary Search Algorithm","recommended":["thuật toán tìm kiếm nhị phân"],"terms":[{"term":"thuật toán tìm kiếm nhị phân","source_id":"bib-nguyenhuudien-2019","page":"tr. 134 (PDF)","pdf_page":134,"verified":true,"recommended":true},{"term":"thuật toán tìm kiếm nhị phân","source_id":"bib-rosen-2003-vi","page":"tr. 139 (PDF)","pdf_page":139,"verified":true,"recommended":false}]},{"id":"binary-search-tree","headword_en":"Binary search tree","recommended":["cây tìm kiếm nhị phân"],"terms":[{"term":"cây tìm kiếm nhị phân","source_id":"bib-rosen-2003-vi","page":"tr. 638 (PDF)","pdf_page":638,"verified":true,"recommended":true}]},{"id":"binary-tree","headword_en":"Binary tree","recommended":["cây nhị phân"],"terms":[{"term":"cây nhị phân","source_id":"bib-nguyenhoangthach-2020","page":"tr. 85 (PDF)","pdf_page":85,"verified":true,"recommended":true},{"term":"cây nhị phân","source_id":"bib-nguyenhuudien-2019","page":"tr. 254 (PDF)","pdf_page":254,"verified":true,"recommended":false},{"term":"cây nhị phân","source_id":"bib-hoangchithanh-2007","page":"tr. 140 (PDF)","pdf_page":140,"verified":true,"recommended":false},{"term":"cây nhị phân","source_id":"bib-rosen-2003-vi","page":"tr. 624 (PDF, bản dịch Rosen)","pdf_page":624,"verified":true,"recommended":false}]},{"id":"binomial-coefficient","headword_en":"Binomial coefficient","recommended":["hệ số nhị thức"],"terms":[{"term":"hệ số nhị thức","source_id":"bib-nguyenhoangthach-2020","page":"tr. 24 (PDF)","pdf_page":24,"verified":true,"recommended":true},{"term":"số tổ hợp chập k của n","source_id":"bib-nguyenhoangthach-2020","page":"tr. 21 (PDF)","pdf_page":21,"verified":true,"recommended":false},{"term":"tổ hợp chập k của n","source_id":"bib-nguyenhoangthach-2020","page":"tr. 21 (PDF)","pdf_page":21,"verified":true,"recommended":false},{"term":"số tổ hợp chập r của n","source_id":"bib-nguyenhuudien-2019","page":"tr. 90 (PDF)","pdf_page":90,"verified":true,"recommended":false},{"term":"hệ số tổ hợp","source_id":"bib-nguyenducnghia-2006","page":"tr. 22 (PDF)","pdf_page":22,"verified":true,"recommended":false},{"term":"hệ số nhị thức","source_id":"bib-rosen-2003-vi","page":"tr. 317 (PDF, bản dịch Rosen)","pdf_page":317,"verified":true,"recommended":false},{"term":"số tổ hợp chập r của n","source_id":"bib-rosen-2003-vi","page":"tr. 317 (PDF, bản dịch Rosen)","pdf_page":317,"verified":true,"recommended":false}]},{"id":"binomial-theorem","headword_en":"Binomial theorem","recommended":["định lý nhị thức"],"terms":[{"term":"định lý nhị thức","source_id":"bib-nguyenhoangthach-2020","page":"tr. 47 (PDF)","pdf_page":47,"verified":true,"recommended":true},{"term":"định lý nhị thức","source_id":"bib-nguyenhuudien-2019","page":"tr. 89 (PDF)","pdf_page":89,"verified":true,"recommended":false},{"term":"công thức nhị thức","source_id":"bib-nguyenhoangthach-2020","page":"tr. 23 (PDF)","pdf_page":23,"verified":true,"recommended":false},{"term":"công thức Newton","source_id":"bib-nguyenhoangthach-2020","page":"tr. 23 (PDF)","pdf_page":23,"verified":true,"recommended":false},{"term":"khai triển nhị thức Newton","source_id":"bib-nguyenhoangthach-2020","page":"tr. 23 (PDF)","pdf_page":23,"verified":true,"recommended":false},{"term":"khai triển nhị thức","source_id":"bib-nguyenducnghia-2006","page":"tr. 39 (PDF)","pdf_page":39,"verified":true,"recommended":false},{"term":"định lý nhị thức","source_id":"bib-rosen-2003-vi","page":"tr. 320 (PDF, bản dịch Rosen)","pdf_page":320,"verified":true,"recommended":false},{"term":"công thức nhị thức","source_id":"bib-rosen-2003-vi","page":"tr. 321 (PDF, bản dịch Rosen)","pdf_page":321,"verified":true,"recommended":false},{"term":"khai triển nhị thức","source_id":"bib-rosen-2003-vi","page":"tr. 317 (PDF, bản dịch Rosen)","pdf_page":317,"verified":true,"recommended":false}]},{"id":"bipartite-graph","headword_en":"Bipartite graph","recommended":["đồ thị hai phần"],"terms":[{"term":"đồ thị hai phần","source_id":"bib-nguyenhoangthach-2020","page":"tr. 67 (PDF)","pdf_page":67,"verified":true,"recommended":true},{"term":"đồ thị hai phần","source_id":"bib-leanhvinh-2020","page":"tr. 14 (PDF)","pdf_page":14,"verified":true,"recommended":false},{"term":"đồ thị hai phần","source_id":"bib-hoangchithanh-2007","page":"tr. 60 (PDF)","pdf_page":60,"verified":true,"recommended":false},{"term":"đồ thị hai phần","source_id":"bib-ngodactan-2004","page":"tr. 216 (PDF)","pdf_page":216,"verified":true,"recommended":false},{"term":"đồ thị phân đôi","source_id":"bib-nguyenhuudien-2019","page":"tr. 160 (PDF)","pdf_page":160,"verified":true,"recommended":false},{"term":"đồ thị hai phía","source_id":"bib-nguyenducnghia-2006","page":"tr. 160 (PDF)","pdf_page":160,"verified":true,"recommended":false},{"term":"đồ thị phân đôi","source_id":"bib-rosen-2003-vi","page":"tr. 510 (PDF, bản dịch Rosen)","pdf_page":510,"verified":true,"recommended":false}]},{"id":"bit","headword_en":"Bit","recommended":["bit"],"terms":[{"term":"bit","source_id":"bib-rosen-2003-vi","page":"tr. 14 (PDF)","pdf_page":14,"verified":true,"recommended":true},{"term":"bit","source_id":"bib-nguyenhuudien-2019","page":"tr. 76 (PDF)","pdf_page":76,"verified":true,"recommended":false}]},{"id":"bit-operation","headword_en":"Bit Operation","recommended":["phép toán bit"],"terms":[{"term":"phép toán bit","source_id":"bib-nguyenhuudien-2019","page":"tr. 144 (PDF)","pdf_page":144,"verified":true,"recommended":true},{"term":"phép toán bit","source_id":"bib-rosen-2003-vi","page":"tr. 14 (PDF)","pdf_page":14,"verified":true,"recommended":false}]},{"id":"bit-string","headword_en":"Bit String","recommended":["xâu bit"],"terms":[{"term":"xâu bit","source_id":"bib-nguyenhuudien-2019","page":"tr. 76 (PDF)","pdf_page":76,"verified":true,"recommended":true},{"term":"xâu bit","source_id":"bib-rosen-2003-vi","page":"tr. 15 (PDF)","pdf_page":15,"verified":true,"recommended":false},{"term":"xâu bit","source_id":"bib-rosen-2003-vi","page":"tr. 15 (PDF)","pdf_page":15,"verified":true,"recommended":false},{"term":"chuỗi bit","source_id":"bib-nguyenhuudien-2019","page":"tr. 81 (PDF)","pdf_page":81,"verified":true,"recommended":false},{"term":"xâu nhị phân","source_id":"bib-nguyenducnghia-2006","page":"tr. 28 (PDF)","pdf_page":28,"verified":true,"recommended":false},{"term":"xâu nhị phân","source_id":"bib-rosen-2003-vi","page":"tr. 15 (PDF, bản dịch Rosen)","pdf_page":15,"verified":true,"recommended":false}]},{"id":"block","headword_en":"Block","recommended":["khối"],"terms":[{"term":"khối","source_id":"bib-ngodactan-2004","page":"tr. 267 (PDF)","pdf_page":267,"verified":true,"recommended":true},{"term":"đồ thị con 2-liên thông cực đại","source_id":"bib-ngodactan-2004","page":"tr. 267 (PDF)","pdf_page":267,"verified":true,"recommended":false},{"term":"khối","source_id":"bib-rosen-2003-vi","page":"tr. 3 (PDF, bản dịch Rosen)","pdf_page":3,"verified":true,"recommended":false}]},{"id":"block-cipher","headword_en":"Block Cipher","recommended":["mật mã khối"],"terms":[{"term":"mật mã khối","source_id":"","page":"","pdf_page":0,"verified":false,"recommended":true}]},{"id":"boolean-algebra","headword_en":"Boolean algebra","recommended":["đại số Boole"],"terms":[{"term":"đại số Boole","source_id":"","page":"","pdf_page":null,"verified":false,"recommended":true}]},{"id":"boolean-expression","headword_en":"Boolean Expression","recommended":["biểu thức Boole"],"terms":[{"term":"biểu thức Boole","source_id":"bib-rosen-2003-vi","page":"tr. 713 (PDF)","pdf_page":713,"verified":true,"recommended":true}]},{"id":"boolean-function","headword_en":"Boolean function","recommended":["hàm Boole"],"terms":[{"term":"hàm đại số lôgic","source_id":"bib-nguyenducnghia-2006","page":"tr. 266 (PDF)","pdf_page":266,"verified":true,"recommended":false},{"term":"hàm Boole","source_id":"bib-ngodactan-2004","page":"tr. 118 (PDF)","pdf_page":118,"verified":true,"recommended":true},{"term":"hàm Boole","source_id":"bib-rosen-2003-vi","page":"tr. 713 (PDF, bản dịch Rosen)","pdf_page":713,"verified":true,"recommended":false}]},{"id":"boolean-product","headword_en":"Boolean Product","recommended":["Tích Boole"],"terms":[{"term":"tích Boole","source_id":"bib-rosen-2003-vi","page":"tr. 191 (PDF)","pdf_page":191,"verified":true,"recommended":false},{"term":"Tích Boole","source_id":"bib-rosen-2003-vi","page":"tr. 191 (PDF, bản dịch Rosen)","pdf_page":191,"verified":true,"recommended":true}]},{"id":"boolean-sum","headword_en":"Boolean Sum","recommended":["Tổng Boole"],"terms":[{"term":"tổng Boole","source_id":"bib-rosen-2003-vi","page":"tr. 712 (PDF)","pdf_page":712,"verified":true,"recommended":false},{"term":"Tổng Boole","source_id":"bib-rosen-2003-vi","page":"tr. 712 (PDF, bản dịch Rosen)","pdf_page":712,"verified":true,"recommended":true}]},{"id":"boolean-variable","headword_en":"Boolean Variable","recommended":["biến Boole"],"terms":[{"term":"biến Boole","source_id":"bib-rosen-2003-vi","page":"tr. 713 (PDF)","pdf_page":713,"verified":true,"recommended":true},{"term":"biến logic","source_id":"bib-nguyenhuudien-2019","page":"tr. 14 (PDF)","pdf_page":14,"verified":true,"recommended":false}]},{"id":"bound","headword_en":"Bound","recommended":["cận"],"terms":[{"term":"chặn","source_id":"bib-leanhvinh-2020","page":"tr. 135 (PDF)","pdf_page":135,"verified":true,"recommended":false},{"term":"chặn trên","source_id":"bib-leanhvinh-2020","page":"tr. 135 (PDF)","pdf_page":135,"verified":true,"recommended":false},{"term":"chặn dưới","source_id":"bib-leanhvinh-2020","page":"tr. 95 (PDF)","pdf_page":95,"verified":true,"recommended":false},{"term":"cận trên","source_id":"bib-nguyenducnghia-2006","page":"tr. 123 (PDF)","pdf_page":123,"verified":true,"recommended":false},{"term":"cận dưới","source_id":"bib-nguyenducnghia-2006","page":"tr. 120 (PDF)","pdf_page":120,"verified":true,"recommended":false},{"term":"cận","source_id":"bib-ngodactan-2004","page":"tr. 164 (PDF)","pdf_page":164,"verified":true,"recommended":true},{"term":"cận","source_id":"bib-ngodactan-2004","page":"tr. 22 (PDF)","pdf_page":22,"verified":true,"recommended":false},{"term":"cận dưới","source_id":"bib-ngodactan-2004","page":"tr. 164 (PDF)","pdf_page":164,"verified":true,"recommended":false},{"term":"chặn","source_id":"bib-rosen-2003-vi","page":"tr. 865 (PDF, bản dịch Rosen)","pdf_page":865,"verified":true,"recommended":false},{"term":"cận trên","source_id":"bib-rosen-2003-vi","page":"tr. 634 (PDF, bản dịch Rosen)","pdf_page":634,"verified":true,"recommended":false},{"term":"cận dưới","source_id":"bib-rosen-2003-vi","page":"tr. 667 (PDF, bản dịch Rosen)","pdf_page":667,"verified":true,"recommended":false},{"term":"cận","source_id":"bib-rosen-2003-vi","page":"tr. 3 (PDF, bản dịch Rosen)","pdf_page":3,"verified":true,"recommended":false}]},{"id":"bound-variable","headword_en":"Bound Variable","recommended":["biến ràng buộc"],"terms":[{"term":"biến bị ràng buộc","source_id":"bib-nguyenhuudien-2019","page":"tr. 50 (PDF)","pdf_page":50,"verified":true,"recommended":false},{"term":"biến bị ràng buộc","source_id":"bib-rosen-2003-vi","page":"tr. 39 (PDF)","pdf_page":39,"verified":true,"recommended":false},{"term":"biến ràng buộc","source_id":"","page":"","pdf_page":0,"verified":false,"recommended":true}]},{"id":"boundary","headword_en":"Boundary","recommended":["biên của miền"],"terms":[{"term":"biên của miền","source_id":"bib-nguyenhoangthach-2020","page":"tr. 79 (PDF)","pdf_page":79,"verified":true,"recommended":true},{"term":"cạnh biên","source_id":"bib-nguyenhoangthach-2020","page":"tr. 80 (PDF)","pdf_page":80,"verified":true,"recommended":false},{"term":"biên của diện","source_id":"bib-nguyenhuudien-2019","page":"tr. 232 (PDF)","pdf_page":232,"verified":true,"recommended":false},{"term":"biên của miền","source_id":"bib-nguyenhuudien-2019","page":"tr. 231 (PDF)","pdf_page":231,"verified":true,"recommended":false},{"term":"biên của miền","source_id":"bib-ngodactan-2004","page":"tr. 208 (PDF)","pdf_page":208,"verified":true,"recommended":false},{"term":"biên","source_id":"bib-ngodactan-2004","page":"tr. 214 (PDF)","pdf_page":214,"verified":true,"recommended":false},{"term":"biên","source_id":"bib-hoangchithanh-2007","page":"tr. 116 (PDF)","pdf_page":116,"verified":true,"recommended":false},{"term":"đường biên","source_id":"bib-nguyenhuudien-2019","page":"tr. 235 (PDF)","pdf_page":235,"verified":true,"recommended":false},{"term":"biên của miền","source_id":"bib-rosen-2003-vi","page":"tr. 586 (PDF, bản dịch Rosen)","pdf_page":586,"verified":true,"recommended":false},{"term":"biên","source_id":"bib-rosen-2003-vi","page":"tr. 4 (PDF, bản dịch Rosen)","pdf_page":4,"verified":true,"recommended":false}]},{"id":"breadth-first-search","headword_en":"Breadth-first search","recommended":["duyệt theo chiều rộng"],"terms":[{"term":"duyệt theo chiều rộng","source_id":"bib-nguyenhuudien-2019","page":"tr. 178 (PDF)","pdf_page":178,"verified":true,"recommended":true},{"term":"duyệt đồ thị theo chiều rộng","source_id":"bib-nguyenhuudien-2019","page":"tr. 178 (PDF)","pdf_page":178,"verified":true,"recommended":false},{"term":"tìm kiếm theo chiều rộng","source_id":"bib-nguyenhoangthach-2020","page":"tr. 88 (PDF)","pdf_page":88,"verified":true,"recommended":false},{"term":"tìm kiếm theo chiều rộng","source_id":"bib-nguyenducnghia-2006","page":"tr. 180 (PDF)","pdf_page":180,"verified":true,"recommended":false},{"term":"duyệt theo chiều rộng","source_id":"bib-hoangchithanh-2007","page":"tr. 72 (PDF)","pdf_page":72,"verified":true,"recommended":false}]},{"id":"bridge","headword_en":"Bridge","recommended":["cầu"],"terms":[{"term":"cầu","source_id":"bib-leanhvinh-2020","page":"tr. 25 (PDF)","pdf_page":25,"verified":true,"recommended":true},{"term":"cạnh cầu","source_id":"bib-leanhvinh-2020","page":"tr. 25 (PDF)","pdf_page":25,"verified":true,"recommended":false},{"term":"cạnh cắt","source_id":"bib-nguyenhoangthach-2020","page":"tr. 75 (PDF)","pdf_page":75,"verified":true,"recommended":false},{"term":"cầu","source_id":"bib-rosen-2003-vi","page":"tr. 14 (PDF, bản dịch Rosen)","pdf_page":14,"verified":true,"recommended":false},{"term":"cạnh cắt","source_id":"bib-rosen-2003-vi","page":"tr. 540 (PDF, bản dịch Rosen)","pdf_page":540,"verified":true,"recommended":false}]},{"id":"cantor-diagonalization-argument","headword_en":"Cantor Diagonalization Argument","recommended":["lập luận đường chéo của Cantor"],"terms":[{"term":"lập luận đường chéo của Cantor","source_id":"","page":"","pdf_page":0,"verified":false,"recommended":true}]},{"id":"cardinality","headword_en":"Cardinality","recommended":["lực lượng"],"terms":[{"term":"lực lượng","source_id":"bib-leanhvinh-2020","page":"tr. 192 (PDF)","pdf_page":192,"verified":true,"recommended":true},{"term":"lực lượng","source_id":"bib-nguyenhoangthach-2020","page":"tr. 75 (PDF)","pdf_page":75,"verified":true,"recommended":false},{"term":"lực lượng","source_id":"bib-nguyenhuudien-2019","page":"tr. 76 (PDF)","pdf_page":76,"verified":true,"recommended":false},{"term":"lực lượng của tập hợp","source_id":"bib-nguyenhuudien-2019","page":"tr. 76 (PDF)","pdf_page":76,"verified":true,"recommended":false},{"term":"số phần tử","source_id":"bib-nguyenhuudien-2019","page":"tr. 76 (PDF)","pdf_page":76,"verified":true,"recommended":false},{"term":"đồng lực lượng","source_id":"bib-nguyenhuudien-2019","page":"tr. 78 (PDF)","pdf_page":78,"verified":true,"recommended":false},{"term":"lực lượng","source_id":"bib-hoangchithanh-2007","page":"tr. 63 (PDF)","pdf_page":63,"verified":true,"recommended":false},{"term":"lực lượng","source_id":"bib-nguyenducnghia-2006","page":"tr. 73 (PDF)","pdf_page":73,"verified":true,"recommended":false},{"term":"lực lượng","source_id":"bib-ngodactan-2004","page":"tr. 33 (PDF)","pdf_page":33,"verified":true,"recommended":false},{"term":"lực lượng bằng nhau","source_id":"bib-ngodactan-2004","page":"tr. 25 (PDF)","pdf_page":25,"verified":true,"recommended":false},{"term":"bản số","source_id":"bib-ngodactan-2004","page":"tr. 25 (PDF)","pdf_page":25,"verified":true,"recommended":false},{"term":"số phần tử","source_id":"bib-rosen-2003-vi","page":"tr. 54 (PDF, bản dịch Rosen)","pdf_page":54,"verified":true,"recommended":false},{"term":"bản số","source_id":"bib-rosen-2003-vi","page":"tr. 58 (PDF, bản dịch Rosen)","pdf_page":58,"verified":true,"recommended":false}]},{"id":"carmichael-number","headword_en":"Carmichael Number","recommended":["số Carmichael"],"terms":[{"term":"số Carmichael","source_id":"bib-rosen-2003-vi","page":"tr. 206 (PDF)","pdf_page":206,"verified":true,"recommended":true}]},{"id":"carry","headword_en":"Carry","recommended":["nhớ"],"terms":[{"term":"số nhớ","source_id":"bib-rosen-2003-vi","page":"tr. 176 (PDF)","pdf_page":176,"verified":true,"recommended":false},{"term":"số nhớ","source_id":"bib-nguyenhuudien-2019","page":"tr. 145 (PDF)","pdf_page":145,"verified":true,"recommended":false},{"term":"có nhớ","source_id":"bib-nguyenducnghia-2006","page":"tr. 93 (PDF)","pdf_page":93,"verified":true,"recommended":false},{"term":"nhớ","source_id":"bib-rosen-2003-vi","page":"tr. 43 (PDF, bản dịch Rosen)","pdf_page":43,"verified":true,"recommended":true},{"term":"có nhớ","source_id":"bib-rosen-2003-vi","page":"tr. 176 (PDF, bản dịch Rosen)","pdf_page":176,"verified":true,"recommended":false}]},{"id":"cartesian-product","headword_en":"Cartesian Product","recommended":["Tích Đềcác"],"terms":[{"term":"tích Đề các","source_id":"bib-rosen-2003-vi","page":"tr. 60 (PDF)","pdf_page":60,"verified":true,"recommended":false},{"term":"tích Đề các","source_id":"bib-ngodactan-2004","page":"tr. 27 (PDF)","pdf_page":27,"verified":true,"recommended":false},{"term":"tích Đêcac","source_id":"bib-nguyenducnghia-2006","page":"tr. 13 (PDF)","pdf_page":13,"verified":true,"recommended":false},{"term":"tích Descartes","source_id":"bib-nguyenhuudien-2019","page":"tr. 76 (PDF)","pdf_page":76,"verified":true,"recommended":false},{"term":"tích Descartes","source_id":"bib-nguyenhoangthach-2020","page":"tr. 26 (PDF)","pdf_page":26,"verified":true,"recommended":false},{"term":"Tích Đềcác","source_id":"","page":"","pdf_page":0,"verified":false,"recommended":true}]},{"id":"ceiling-function","headword_en":"Ceiling Function","recommended":["Hàm trần"],"terms":[{"term":"hàm trần","source_id":"bib-nguyenhuudien-2019","page":"tr. 86 (PDF)","pdf_page":86,"verified":true,"recommended":false},{"term":"hàm trần","source_id":"bib-rosen-2003-vi","page":"tr. 91 (PDF)","pdf_page":91,"verified":true,"recommended":false},{"term":"Hàm trần","source_id":"bib-rosen-2003-vi","page":"tr. 91 (PDF, bản dịch Rosen)","pdf_page":91,"verified":true,"recommended":true}]},{"id":"centre","headword_en":"Centre","recommended":["tâm"],"terms":[{"term":"tâm của đồ thị","source_id":"bib-hoangchithanh-2007","page":"tr. 100 (PDF)","pdf_page":100,"verified":true,"recommended":false},{"term":"trung tâm","source_id":"bib-leanhvinh-2020","page":"tr. 43 (PDF)","pdf_page":43,"verified":true,"recommended":false},{"term":"đỉnh tâm","source_id":"bib-ngodactan-2004","page":"tr. 216 (PDF)","pdf_page":216,"verified":true,"recommended":false},{"term":"tâm","source_id":"bib-rosen-2003-vi","page":"tr. 58 (PDF, bản dịch Rosen)","pdf_page":58,"verified":true,"recommended":true},{"term":"trung tâm","source_id":"bib-rosen-2003-vi","page":"tr. 139 (PDF, bản dịch Rosen)","pdf_page":139,"verified":true,"recommended":false}]},{"id":"character-cipher","headword_en":"Character Cipher","recommended":["mật mã ký tự"],"terms":[{"term":"mật mã ký tự","source_id":"","page":"","pdf_page":0,"verified":false,"recommended":true},{"term":"mật mã","source_id":"bib-rosen-2003-vi","page":"tr. 163 (PDF)","pdf_page":163,"verified":true,"recommended":false},{"term":"mật mã của Caesar","source_id":"bib-rosen-2003-vi","page":"tr. 164 (PDF)","pdf_page":164,"verified":true,"recommended":false},{"term":"mật mã học","source_id":"bib-hoangchithanh-2007","page":"tr. 146 (PDF)","pdf_page":146,"verified":true,"recommended":false},{"term":"mật mã học","source_id":"bib-rosen-2003-vi","page":"tr. 163 (PDF, bản dịch Rosen)","pdf_page":163,"verified":true,"recommended":false}]},{"id":"characteristic-polynomial","headword_en":"Characteristic Polynomial","recommended":["đa thức đặc trưng"],"terms":[{"term":"đa thức đặc trưng","source_id":"bib-nguyenhuudien-2019","page":"tr. 99 (PDF)","pdf_page":99,"verified":true,"recommended":true},{"term":"đa thức đặc trưng","source_id":"bib-leanhvinh-2020","page":"tr. 58 (PDF)","pdf_page":58,"verified":true,"recommended":false},{"term":"đa thức đặc trưng","source_id":"bib-rosen-2003-vi","page":"tr. 392 (PDF)","pdf_page":392,"verified":true,"recommended":false}]}]
+
+hook: PostToolUse Completed
+hook: PostToolUse
+hook: PostToolUse Completed
+hook: PostToolUse Completed

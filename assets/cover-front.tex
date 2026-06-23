@@ -1,0 +1,52 @@
+% Front cover for "Một số thuật ngữ trong Toán rời rạc". Compile with xelatex.
+\documentclass[11pt]{article}
+\usepackage[paperwidth=8.5in,paperheight=11in,margin=0pt]{geometry}
+\usepackage{fontspec}
+\setmainfont{TeX Gyre Termes}
+\usepackage{tikz}
+\usepackage{xcolor}
+\definecolor{ink}{HTML}{0F2A43}
+\definecolor{accent}{HTML}{2C7A7B}
+\definecolor{gold}{HTML}{C9A227}
+\definecolor{paper}{HTML}{F6F8FA}
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\begin{document}
+\begin{tikzpicture}[x=1in,y=1in]
+  % background
+  \fill[paper] (0,0) rectangle (8.5,11);
+  % top ink band + accent rule
+  \fill[ink] (0,7.5) rectangle (8.5,11);
+  \fill[accent] (0,7.36) rectangle (8.5,7.5);
+  \fill[gold]   (0,7.30) rectangle (8.5,7.34);
+  % title
+  \node[anchor=west, text=white, align=left] at (0.85,9.85)
+    {\fontsize{31}{36}\selectfont Một số thuật ngữ};
+  \node[anchor=west, text=white, align=left] at (0.85,9.15)
+    {\fontsize{31}{36}\selectfont trong Toán rời rạc};
+  \node[anchor=west, text=gold] at (0.85,8.45)
+    {\fontsize{16}{19}\selectfont\itshape Từ điển chú giải Anh\,–\,Việt};
+  \node[anchor=west, text=paper] at (0.85,8.02)
+    {\fontsize{11}{13}\selectfont Selected Terms in Discrete Mathematics};
+  % Petersen-graph motif
+  \begin{scope}[shift={(4.25,4.45)}]
+    \foreach \i in {0,...,4} {
+      \coordinate (O\i) at ({90+72*\i}:1.75);
+      \coordinate (I\i) at ({90+72*\i}:0.9);
+    }
+    \draw[accent, line width=1.1pt] (O0)--(O1)--(O2)--(O3)--(O4)--cycle;
+    \foreach \i in {0,...,4} \draw[accent!75, line width=0.9pt] (O\i)--(I\i);
+    \draw[accent!75, line width=0.9pt] (I0)--(I2)--(I4)--(I1)--(I3)--cycle;
+    \foreach \i in {0,...,4} {
+      \fill[ink] (O\i) circle (3.2pt);
+      \fill[gold] (I\i) circle (3.0pt);
+    }
+  \end{scope}
+  % bottom band
+  \fill[accent] (0,1.5) rectangle (8.5,1.56);
+  \node[anchor=west, text=ink] at (0.85,1.12)
+    {\fontsize{14}{16}\selectfont Duc A. Hoang};
+  \node[anchor=west, text=ink!72] at (0.85,0.74)
+    {\fontsize{10}{12}\selectfont VNU University of Science \;\textbullet\; 2026 \;\textbullet\; CC BY-SA 4.0};
+\end{tikzpicture}
+\end{document}

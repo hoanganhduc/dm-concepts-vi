@@ -2,51 +2,12 @@
 
 Review (Codex 20 batch + audit toàn cục) phát hiện thuật ngữ **recommended** không tuân thủ chính sách "recommended phải là thuật ngữ có trích dẫn từ nguồn không-phải-tham-khảo, ưu tiên nguồn mới". Các mục được chia 4 nhóm theo rủi ro.
 
-## Nhóm 1 — RE-POINT (39): cùng thuật ngữ, chỉ gắn lại trích dẫn (AN TOÀN)
+## Nhóm 1 — RE-POINT (0): cùng thuật ngữ, chỉ gắn lại trích dẫn (AN TOÀN)
 
 Thuật ngữ recommended **không đổi**; chỉ chuyển nhãn recommended sang một trích dẫn từ nguồn không-phải-Rosen-2003 đã có sẵn trong mục. Khuyến nghị: **áp dụng tự động**.
 
 | id | thuật ngữ (giữ nguyên) | gắn trích dẫn |
 |---|---|---|
-| algorithm-analysis | Phân tích thuật toán | bib-nguyenducnghia-2006 |
-| assignment | Phép gán | bib-nguyenducnghia-2006 |
-| axiom | Tiên đề | bib-nguyenhuudien-2019 |
-| bit | bit | bib-nguyenhuudien-2019 |
-| cartesian-product | Tích Đềcác | bib-nguyenducnghia-2006 |
-| ceiling-function | Hàm trần | bib-nguyenhuudien-2019 |
-| coefficient | hệ số | bib-nguyenhuudien-2019 |
-| compound-proposition | Mệnh đề phức hợp | bib-nguyenhuudien-2019 |
-| conjecture | Giả thuyết | bib-leanhvinh-2020 |
-| conjunction | Hội | bib-nguyenducnghia-2006 |
-| digit | chữ số | bib-nguyenhoangthach-2020 |
-| direct-proof | Chứng minh trực tiếp | bib-nguyenhuudien-2019 |
-| disjoint | rời nhau | bib-nguyenhuudien-2019 |
-| disjunction | Tuyển | bib-nguyenducnghia-2006 |
-| decryption | giải mã | bib-nguyenducnghia-2006 |
-| edge-chromatic-number | Sắc số cạnh | bib-leanhvinh-2020 |
-| empty-set | Tập hợp rỗng | bib-nguyenhuudien-2019 |
-| flowchart | Sơ đồ khối | bib-hoangchithanh-2007 |
-| greatest-lower-bound | chặn dưới lớn nhất | bib-nguyenhuudien-2019 |
-| inclusion-exclusion-principle | Nguyên lý bù trừ | bib-nguyenhuudien-2019 |
-| indirect-proof | Chứng minh gián tiếp | bib-nguyenhuudien-2019 |
-| inorder-traversal | trung thứ tự | bib-nguyenhuudien-2019 |
-| irrational-number | số vô tỷ | bib-ngodactan-2004 |
-| logarithm | lôgarit | bib-nguyenhuudien-2019 |
-| multiple | bội | bib-leanhvinh-2020 |
-| number-theory | Lý thuyết số | bib-ngodactan-2004 |
-| power-set | tập lũy thừa | bib-ngodactan-2004 |
-| parent | Đỉnh cha | bib-nguyenhoangthach-2020 |
-| power | lũy thừa | bib-nguyenhuudien-2019 |
-| proof | Chứng minh | bib-nguyenhuudien-2019 |
-| pseudocode | Giả mã | bib-nguyenhuudien-2019 |
-| spanning-subgraph | đồ thị con bao trùm | bib-ngodactan-2004 |
-| symmetric-difference | Hiệu đối xứng | bib-nguyenducnghia-2006 |
-| sorting | sắp xếp | bib-leanhvinh-2020 |
-| term | số hạng | bib-nguyenhoangthach-2020 |
-| the-pigeonhole-principle | Nguyên lý chuồng bồ câu | bib-ngodactan-2004 |
-| the-product-rule | Quy tắc nhân | bib-nguyenhoangthach-2020 |
-| union-of-sets | hợp của hai tập hợp | bib-nguyenhoangthach-2020 |
-| variable | biến | bib-nguyenhuudien-2019 |
 
 ## Nhóm 2 — SỬA NGỮ NGHĨA / cải thiện rõ ràng (2): đã xác minh thủ công
 
@@ -55,7 +16,7 @@ Thuật ngữ recommended **không đổi**; chỉ chuyển nhãn recommended sa
 | geodesic | khoảng cách | **đường đi ngắn nhất** | bib-nguyenhuudien-2019 | Headword là *shortest path*; "khoảng cách" = độ dài (distance). Biến thể có trích dẫn khớp khái niệm. |
 | conditional-statement | Cấu trúc điều kiện | **Phép kéo theo** | bib-nguyenhuudien-2019 | "Cấu trúc điều kiện" là dịch máy (giống lập trình); dùng biến thể có trích dẫn nguồn-thật gần nghĩa nhất. |
 
-## Nhóm 3 — ĐỔI THUẬT NGỮ (73): cần bạn duyệt từng mục
+## Nhóm 3 — ĐỔI THUẬT NGỮ (69): cần bạn duyệt từng mục
 
 Recommended hiện tại khác mọi biến thể có trích dẫn. Một số là dịch máy nên thay; một số ứng viên lại **sai/hẹp nghĩa** (vd `propositional-function` "hàm mệnh đề" vs ứng viên "vị từ"=predicate). KHÔNG áp dụng hàng loạt.
 
@@ -68,7 +29,7 @@ Recommended hiện tại khác mọi biến thể có trích dẫn. Một số l
 | average-case-complexity | Độ phức tạp trường hợp trung bình | uncited | thời gian tính trung bình (bib-nguyenducnghia-2006) |
 | backtracking | kỹ thuật quay lui | Rosen-2003 | thuật toán quay lui (bib-nguyenducnghia-2006) |
 | best-case-complexity | Độ phức tạp trường hợp tốt nhất | uncited | thời gian tính tốt nhất (bib-nguyenducnghia-2006) |
-| bi-implication | tương đương | Rosen-2003 | phép tương đương (bib-nguyenhuudien-2019) |
+| bi-implication | Mệnh đề tương đương | uncited | phép tương đương (bib-nguyenhuudien-2019) |
 | binary-operator | toán tử hai ngôi | Rosen-2003 | toán tử logic (bib-nguyenhuudien-2019); toán tử (bib-ngodactan-2004) |
 | binary | Hệ cơ số 2 (nhị phân) | uncited | khai triển nhị phân (bib-nguyenhuudien-2019); biểu diễn nhị phân (bib-nguyenducnghia-2006); biểu diễn nhị phân (bib-hoangchithanh-2007) |
 | boolean-variable | biến Boole | Rosen-2003 | biến logic (bib-nguyenhuudien-2019) |
@@ -76,8 +37,7 @@ Recommended hiện tại khác mọi biến thể có trích dẫn. Một số l
 | carry | nhớ | Rosen-2003 | số nhớ (bib-nguyenhuudien-2019); có nhớ (bib-nguyenducnghia-2006) |
 | centre | tâm | Rosen-2003 | tâm của đồ thị (bib-hoangchithanh-2007); trung tâm (bib-leanhvinh-2020); đỉnh tâm (bib-ngodactan-2004) |
 | chinese-postman-problem | Bài toán người đưa thư Trung Hoa | uncited | bài toán người phát thư Trung Hoa (bib-nguyenhuudien-2019) |
-| conditional-statement | Cấu trúc điều kiện | uncited | Phép kéo theo (bib-nguyenhuudien-2019) |
-| congruence | phương trình đồng dư | Rosen-2003 | quan hệ đồng dư (bib-nguyenhuudien-2019); phép đồng dư (bib-nguyenhuudien-2019) |
+| conditional-statement | Mệnh đề điều kiện | uncited | Phép kéo theo (bib-nguyenhuudien-2019) |
 | conjunctive-normal-form | dạng hội chuẩn tắc | Rosen-2003 | dạng chuẩn tắc hội (bib-nguyenhuudien-2019); dạng chính tắc hội (bib-nguyenhuudien-2019); dạng hội chuẩn tắc hoàn toàn (bib-nguyenducnghia-2006) |
 | contradiction | mâu thuẫn | Rosen-2003 | hằng sai (bib-nguyenhuudien-2019) |
 | converse | mệnh đề đảo | Rosen-2003 | mệnh đề ngược lại (bib-hoangchithanh-2007); điều ngược lại (bib-nguyenducnghia-2006) |
@@ -88,7 +48,6 @@ Recommended hiện tại khác mọi biến thể có trích dẫn. Một số l
 | difference | Hiệu | Rosen-2003 | hiệu của tập (bib-nguyenducnghia-2006) |
 | directed-acyclic-graph | đồ thị có hướng không có chu trình | uncited | đồ thị định hướng phi chu trình (bib-hoangchithanh-2007); đồ thị định hướng phi chu trình (bib-nguyenhuudien-2019) |
 | disjunctive-syllogism | Tam đoạn luận tuyển | Rosen-2003 | Tam đoạn luận rời (bib-nguyenhuudien-2019) |
-| dual | Đối ngẫu | Rosen-2003 | đồ thị đối ngẫu (bib-nguyenhuudien-2019); đồ thị đối ngẫu (bib-nguyenhoangthach-2020); đồ thị đối ngẫu (bib-ngodactan-2004) |
 | duality-principle | Nguyên lý đối ngẫu | Rosen-2003 | luật đối ngẫu (bib-nguyenducnghia-2006) |
 | even | chẵn | Rosen-2003 | số chẵn (bib-nguyenhuudien-2019); số nguyên chẵn (bib-nguyenhuudien-2019); số chẵn (bib-nguyenhoangthach-2020) |
 | factorial-sequence | Dãy giai thừa | uncited | n giai thừa (bib-nguyenhoangthach-2020); hàm giai thừa (bib-ngodactan-2004) |
@@ -110,7 +69,6 @@ Recommended hiện tại khác mọi biến thể có trích dẫn. Một số l
 | pairwise-relatively-prime | đôi một nguyên tố cùng nhau | Rosen-2003 | nguyên tố cùng nhau đôi một (bib-nguyenhoangthach-2020) |
 | partial-fraction-decomposition | Phân tích thành phân số riêng | uncited | phân thức đơn giản (bib-ngodactan-2004); phép tách phân thức (bib-nguyenducnghia-2006) |
 | postorder-traversal | hậu thứ tự | Rosen-2003 | duyệt theo thứ tự sau (bib-hoangchithanh-2007); duyệt theo thứ tự sau (bib-nguyenhuudien-2019) |
-| product | Tích | Rosen-2003 | Tích Descartes (bib-nguyenhuudien-2019); Tích Descartes (bib-nguyenhoangthach-2020); Tích Đề các (bib-ngodactan-2004) |
 | proof-by-contraposition | Chứng minh phản đảo | uncited | mệnh đề phản đảo (bib-nguyenhuudien-2019) |
 | propositional-function | hàm mệnh đề | Rosen-2003 | vị từ (bib-nguyenhuudien-2019) |
 | real-numbers | Tập số thực | uncited | tập hợp các số thực (bib-nguyenhuudien-2019); số thực (bib-nguyenhoangthach-2020) |
@@ -129,7 +87,6 @@ Recommended hiện tại khác mọi biến thể có trích dẫn. Một số l
 | the-generalized-pigeonhole-principle | Nguyên lý chuồng bồ câu tổng quát | uncited | Nguyên lý Dirichlet tổng quát (bib-nguyenducnghia-2006); Nguyên lý Dirichlet tổng quát (bib-nguyenhuudien-2019); Nguyên lý Dirichlet mở rộng (bib-ngodactan-2004) |
 | time-complexity | Độ phức tạp theo thời gian | uncited | độ phức tạp thời gian (bib-nguyenhuudien-2019) |
 | traveling-salesman-problem | Bài toán người giao hàng | uncited | Bài toán người du lịch (bib-nguyenducnghia-2006) |
-| union | Hợp | Rosen-2003 | đồ thị hợp (bib-nguyenhoangthach-2020); hợp của hai đồ thị (bib-ngodactan-2004) |
 | universal-generalization | Tổng quát hóa phổ quát | uncited | tổng quát hóa phổ dụng (bib-nguyenhuudien-2019); tổng quát hóa phổ dụng (bib-nguyenhuudien-2019) |
 | universal-instantiation | Khởi tạo phổ quát | uncited | đặc biệt hóa phổ dụng (bib-nguyenhuudien-2019) |
 | valid-inference-rule | quy tắc suy luận lôgic hợp lý | uncited | quy tắc suy diễn (bib-nguyenhuudien-2019); qui tắc suy diễn hợp lý (bib-nguyenhuudien-2019); luật suy diễn (bib-nguyenhuudien-2019) |

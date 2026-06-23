@@ -1096,7 +1096,7 @@ entries:
   - term: số nhớ
     source_id: bib-nguyenhuudien-2019
     page: tr. 145 (PDF)
-    recommended: false
+    recommended: true
     verified: true
     pdf_page: 145
     snippet: Ở đây s0 là bit phải cùng trong khai triển nhị phân của a + b, c0 là số nhớ, nó có thể bằng
@@ -1111,7 +1111,7 @@ entries:
   - term: nhớ
     source_id: bib-rosen-2003-vi
     page: tr. 43 (PDF, bản dịch Rosen)
-    recommended: true
+    recommended: false
     verified: true
     pdf_page: 43
     snippet: 'Giải : Ta hãy nhớ lại rằng, định nghĩa của giới hạn :'
@@ -1269,7 +1269,9 @@ entries:
     verified: true
     pdf_page: 139
     snippet: Mô tả thuật toán tìm số cực đại, số trung tâm, số trung bình và số
-  see_also: []
+  see_also:
+  - eccentricity
+  - diameter
   status: draft
   see_ref: ''
   notes: Tâm gắn với khái niệm độ lệch tâm và bán kính. Lê Anh Vịnh (2020) gọi là "trung tâm" và xem nó
@@ -2597,52 +2599,29 @@ entries:
   headword_en: Cover
   notation: ''
   rosen_ref: Rosen §10.2
-  definition_vi: Bao phủ của một đồ thị $$G$$ là một tập con các đỉnh hoặc các cạnh sao cho mọi cạnh (tương
-    ứng, mọi đỉnh) của $$G$$ đều có ít nhất một đầu mút (tương ứng, được kề bởi một cạnh) thuộc tập đó.
-    Một tập phủ đỉnh là tập $$C \subseteq V(G)$$ sao cho mỗi cạnh của $$G$$ có ít nhất một đầu mút thuộc
-    $$C$$, còn một tập phủ cạnh là tập $$C \subseteq E(G)$$ sao cho mỗi đỉnh của $$G$$ là đầu mút của
-    một cạnh nào đó trong $$C$$.
-  example_vi: Trong đồ thị đầy đủ $$K_n$$, tập gồm $$n-1$$ đỉnh bất kỳ là một tập phủ đỉnh, vì mọi cạnh
-    đều có đầu mút nằm trong tập này.
+  definition_vi: Trong lý thuyết đồ thị, \emph{phủ} (cover) của một đồ thị là một tập đỉnh hoặc tập cạnh
+    "chạm" tới mọi cạnh hoặc mọi đỉnh của đồ thị. Có hai loại chính; mục này chỉ nêu ý niệm chung, các
+    trường hợp cụ thể được trình bày ở những mục riêng (xem mục Xem thêm).
+  example_vi: 'Hai loại phủ thường gặp: phủ đỉnh — tập đỉnh sao cho mọi cạnh có ít nhất một đầu mút trong
+    tập; và phủ cạnh — tập cạnh sao cho mọi đỉnh là đầu mút của một cạnh trong tập.'
   vi_terms:
-  - term: tập phủ đỉnh
-    source_id: bib-leanhvinh-2020
-    page: tr. 80 (PDF)
-    recommended: false
-    verified: true
-    pdf_page: 80
-    snippet: và chỉ khi V(G)\J là tập phủ đỉnh.
-  - term: tập phủ cạnh
-    source_id: bib-leanhvinh-2020
-    page: tr. 80 (PDF)
-    recommended: false
-    verified: true
-    pdf_page: 80
-    snippet: Tap phủ cạnh là một tập C C E(G) sao cho mỗi đính của G là đầu mút của một cạnh nào đó trong
-      C.
-  - term: phủ đỉnh
-    source_id: bib-nguyenducnghia-2006
-    page: tr. 263 (PDF)
-    recommended: false
-    verified: true
-    pdf_page: 263
-    snippet: Một tập con các đính của đồ thị S được gọi là phủ đỉnh nếu như mỗi cạnh của đồ thị có ít
-      nhất một đầu mút trong S.
-  - term: bao phủ
+  - term: phủ
     source_id: ''
     page: ''
     recommended: true
     verified: false
     pdf_page: 0
     snippet: ''
-  - term: tập phủ
+  - term: bao phủ
     source_id: ''
     page: ''
     recommended: false
     verified: false
     pdf_page: 0
     snippet: ''
-  see_also: []
+  see_also:
+  - vertex-cover
+  - edge-cover
   status: draft
   see_ref: ''
   notes: Trong giáo trình MAT3500 dùng "bao phủ". Các tài liệu khác dùng "tập phủ đỉnh" (vertex cover)

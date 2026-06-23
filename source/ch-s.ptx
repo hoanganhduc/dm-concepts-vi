@@ -335,7 +335,7 @@
     </statement>
   </definition>
   <definition xml:id="def-separating-set-of-edges">
-    <title>Separating Set Of Edges — tập cạnh phân tách</title>
+    <title>Separating Set Of Edges — lát cắt cạnh</title>
     <idx><h>separating set of edges</h></idx>
     <idx><h>lát cắt cạnh</h></idx>
     <idx><h>tập cạnh phân tách</h></idx>
@@ -343,8 +343,8 @@
       <p>Tập cạnh phân tách (hay lát cắt cạnh) của đồ thị liên thông <m>G</m> là một tập cạnh <m>F \subseteq E(G)</m> sao cho đồ thị <m>G - F</m> thu được bằng cách xóa mọi cạnh trong <m>F</m> là không liên thông. Số cạnh nhỏ nhất trong một tập cạnh phân tách của <m>G</m> được gọi là số liên thông cạnh, ký hiệu <m>\lambda(G)</m> (theo <xref ref="bib-rosen-2019" />, Rosen §10.4).</p>
       <p>Thuật ngữ tiếng Việt tương ứng:</p>
       <ul>
-        <li><p><term>tập cạnh phân tách</term> <em>(thuật ngữ chuẩn; chưa truy được trong kho văn bản)</em> — cách dùng phổ biến.</p></li>
-        <li><p><term>lát cắt cạnh</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 75 (PDF)).</p></li>
+        <li><p><term>lát cắt cạnh</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 75 (PDF)) — cách dùng phổ biến.</p></li>
+        <li><p><term>tập cạnh phân tách</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
       </ul>
       <p>Ví dụ: Trong đồ thị chu trình <m>C_4</m> với các đỉnh <m>1,2,3,4</m>, tập gồm hai cạnh <m>\{12, 34\}</m> là một tập cạnh phân tách, vì xóa hai cạnh này làm <m>C_4</m> trở nên không liên thông.</p>
     </statement>
@@ -388,24 +388,24 @@
     </statement>
   </definition>
   <definition xml:id="def-simplification">
-    <title>Simplification — Rút gọn</title>
-    <idx><h>simplification</h></idx>
+    <title>Simplification (rule of inference) — Quy tắc rút gọn</title>
+    <idx><h>simplification (rule of inference)</h></idx>
     <idx><h>Luật rút gọn</h></idx>
     <idx><h>Qui tắc rút gọn</h></idx>
     <idx><h>Quy tắc rút gọn</h></idx>
     <idx><h>Rút gọn</h></idx>
     <notation>
       <usage><m>(p \wedge q) \to p</m></usage>
-      <description>Rút gọn</description>
+      <description>Quy tắc rút gọn</description>
     </notation>
     <statement>
       <p>Quy tắc rút gọn là một quy tắc suy luận trong logic mệnh đề, cho phép từ liên kết <m>p \wedge q</m> suy ra mệnh đề <m>p</m> (ký hiệu <m>(p \wedge q) \to p</m>). Quy tắc này dựa trên hằng đúng <m>(p \wedge q) \to p</m> (theo <xref ref="bib-rosen-2019" />, Rosen §1.6).</p>
       <p>Thuật ngữ tiếng Việt tương ứng:</p>
       <ul>
-        <li><p><term>Rút gọn</term> <xref ref="bib-rosen-2003-vi" /> (tr. 262 (PDF, bản dịch Rosen)) — cách dùng phổ biến.</p></li>
+        <li><p><term>Quy tắc rút gọn</term> <em>(thuật ngữ chuẩn; chưa truy được trong kho văn bản)</em> — cách dùng phổ biến.</p></li>
         <li><p><term>Luật rút gọn</term> <xref ref="bib-rosen-2003-vi" /> (tr. 211 (PDF)).</p></li>
         <li><p><term>Qui tắc rút gọn</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 31 (PDF)).</p></li>
-        <li><p><term>Quy tắc rút gọn</term> <xref ref="bib-rosen-2003-vi" /> (tr. 212 (PDF)).</p></li>
+        <li><p><term>Rút gọn</term> <xref ref="bib-rosen-2003-vi" /> (tr. 262 (PDF, bản dịch Rosen)).</p></li>
       </ul>
       <p>Ví dụ: Từ tiền đề "Hôm nay trời lạnh và trời mưa", tức <m>p \wedge q</m> với <m>p</m> là "trời lạnh" và <m>q</m> là "trời mưa", quy tắc rút gọn cho phép kết luận <m>p</m>: "Hôm nay trời lạnh".</p>
     </statement>
@@ -445,7 +445,7 @@
     </statement>
   </definition>
   <definition xml:id="def-space-complexity">
-    <title>Space Complexity — Độ phức tạp theo không gian</title>
+    <title>Space Complexity — độ phức tạp không gian</title>
     <idx><h>space complexity</h></idx>
     <idx><h>Độ phức tạp theo không gian</h></idx>
     <idx><h>độ phức tạp bộ nhớ</h></idx>
@@ -455,9 +455,9 @@
       <p>Độ phức tạp theo không gian của một thuật toán là số đo lượng bộ nhớ (không gian lưu trữ) mà thuật toán cần dùng để giải một bài toán, thường được biểu diễn theo kích thước <m>n</m> của dữ liệu vào. Phép phân tích này cho biết bộ nhớ đòi hỏi tăng nhanh như thế nào khi <m>n</m> tăng và gắn liền với các cấu trúc dữ liệu được dùng để cài đặt thuật toán (theo <xref ref="bib-rosen-2019" />, Rosen §3.3).</p>
       <p>Thuật ngữ tiếng Việt tương ứng:</p>
       <ul>
-        <li><p><term>Độ phức tạp theo không gian</term> <em>(thuật ngữ chuẩn; chưa truy được trong kho văn bản)</em> — cách dùng phổ biến.</p></li>
+        <li><p><term>độ phức tạp không gian</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 136 (PDF)); <xref ref="bib-rosen-2003-vi" /> (tr. 141 (PDF)) — cách dùng phổ biến.</p></li>
+        <li><p><term>Độ phức tạp theo không gian</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
         <li><p><term>độ phức tạp bộ nhớ</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
-        <li><p><term>độ phức tạp không gian</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 136 (PDF)); <xref ref="bib-rosen-2003-vi" /> (tr. 141 (PDF)).</p></li>
         <li><p><term>độ phức tạp về không gian</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
       </ul>
       <p>Ví dụ: Một thuật toán chỉ dùng một số hữu hạn biến phụ ngoài mảng dữ liệu vào kích thước <m>n</m> có độ phức tạp theo không gian <m>O(1)</m> (không kể chỗ chứa dữ liệu vào), trong khi một thuật toán tạo thêm một bản sao của mảng có độ phức tạp theo không gian <m>O(n)</m>.</p>
@@ -610,6 +610,7 @@
         <li><p><term>quy nạp mạnh</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
       </ul>
       <p>Ví dụ: Để chứng minh mọi số nguyên <m>n \geq 2</m> đều viết được thành tích các số nguyên tố, ta dùng quy nạp toán học mạnh: giả sử mọi số nguyên từ <m>2</m> đến <m>k</m> đều có phân tích như vậy, rồi suy ra điều đó cho <m>k+1</m> bằng cách tách <m>k+1</m> thành tích hai thừa số nhỏ hơn nếu <m>k+1</m> là hợp số.</p>
+      <p>Xem thêm <xref ref="def-the-second-principle-of-mathematical-induction" text="title" />, <xref ref="def-mathematical-induction" text="title" />, <xref ref="def-weak-mathematical-induction" text="title" />.</p>
     </statement>
   </definition>
   <definition xml:id="def-strongly-connected-component">
@@ -649,19 +650,21 @@
     </statement>
   </definition>
   <definition xml:id="def-subdivision">
-    <title>Subdivision — phép phân chia</title>
+    <title>Subdivision — phép phân chia cạnh</title>
     <idx><h>subdivision</h></idx>
     <idx><h>chia cạnh</h></idx>
     <idx><h>phép chia cạnh</h></idx>
     <idx><h>phép phân chia</h></idx>
+    <idx><h>phép phân chia cạnh</h></idx>
     <idx><h>phép phân chia sơ cấp</h></idx>
     <statement>
       <p>Phép phân chia (sơ cấp) một cạnh của đồ thị là phép toán xoá một cạnh <m>uv</m> của đồ thị <m>G</m>, thêm một đỉnh mới <m>w</m>, rồi thêm hai cạnh <m>uw</m> và <m>wv</m>. Đồ thị nhận được từ <m>G</m> bằng một dãy các phép phân chia như vậy được gọi là một phân chia của <m>G</m>, và hai đồ thị cùng nhận được từ một đồ thị nào đó nhờ các phép phân chia thì được gọi là đồng phôi với nhau (theo <xref ref="bib-rosen-2019" />, Rosen §10.7).</p>
       <p>Thuật ngữ tiếng Việt tương ứng:</p>
       <ul>
-        <li><p><term>phép phân chia</term> <xref ref="bib-rosen-2003-vi" /> (tr. 587 (PDF, bản dịch Rosen)) — cách dùng phổ biến.</p></li>
+        <li><p><term>phép phân chia cạnh</term> <em>(thuật ngữ chuẩn; chưa truy được trong kho văn bản)</em> — cách dùng phổ biến.</p></li>
         <li><p><term>chia cạnh</term> <xref ref="bib-hoangchithanh-2007" /> (tr. 119 (PDF)); <xref ref="bib-nguyenhuudien-2019" /> (tr. 234 (PDF)).</p></li>
         <li><p><term>phép chia cạnh</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 81 (PDF)); <xref ref="bib-nguyenducnghia-2006" /> (tr. 161 (PDF)).</p></li>
+        <li><p><term>phép phân chia</term> <xref ref="bib-rosen-2003-vi" /> (tr. 587 (PDF, bản dịch Rosen)).</p></li>
         <li><p><term>phép phân chia sơ cấp</term> <xref ref="bib-rosen-2003-vi" /> (tr. 587 (PDF)).</p></li>
       </ul>
       <p>Ví dụ: Phân chia cạnh <m>uv</m> của một tam giác <m>K_3</m> (chèn một đỉnh <m>w</m> vào giữa <m>u</m> và <m>v</m>) cho ta chu trình <m>C_4</m>. Vì <m>K_3</m> và <m>C_4</m> cùng nhận được từ <m>K_3</m> bằng các phép phân chia nên chúng đồng phôi với nhau.</p>
@@ -1055,5 +1058,28 @@
     <idx><h>symmetric</h></idx>
     <idx><h>quan hệ đối xứng</h></idx>
     <statement><p><term>Symmetric</term> (quan hệ đối xứng). Xem <xref ref="def-symmetric-relation" text="title" />.</p></statement>
+  </definition>
+  <definition xml:id="def-set-difference">
+    <title>Set Difference — hiệu của hai tập hợp</title>
+    <idx><h>set difference</h></idx>
+    <idx><h>Hiệu</h></idx>
+    <idx><h>hiệu của hai tập hợp</h></idx>
+    <idx><h>hiệu của tập</h></idx>
+    <idx><h>phần bù tương đối</h></idx>
+    <notation>
+      <usage><m>A - B</m></usage>
+      <description>hiệu của hai tập hợp</description>
+    </notation>
+    <statement>
+      <p>Hiệu của hai tập hợp <m>A</m> và <m>B</m>, ký hiệu <m>A - B</m> (hoặc <m>A \setminus B</m>), là tập hợp gồm các phần tử thuộc <m>A</m> nhưng không thuộc <m>B</m>; nghĩa là <m>A - B = \{x : x \in A \wedge x \notin B\}</m> (theo <xref ref="bib-rosen-2019" />, Rosen §2.2).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>hiệu của hai tập hợp</term> <xref ref="bib-rosen-2003-vi" /> (tr. 78 (PDF)) — cách dùng phổ biến.</p></li>
+        <li><p><term>Hiệu</term> <xref ref="bib-rosen-2003-vi" /> (tr. 3 (PDF, bản dịch Rosen)).</p></li>
+        <li><p><term>hiệu của tập</term> <xref ref="bib-nguyenducnghia-2006" /> (tr. 12 (PDF)); <xref ref="bib-rosen-2003-vi" /> (tr. 66 (PDF, bản dịch Rosen)).</p></li>
+        <li><p><term>phần bù tương đối</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
+      </ul>
+      <p>Ví dụ: Với <m>A = \{1, 2, 3, 5\}</m> và <m>B = \{2, 4, 5\}</m> thì <m>A - B = \{1, 3\}</m> và <m>B - A = \{4\}</m>. Nói chung <m>A - B \neq B - A</m>.</p>
+    </statement>
   </definition>
 </chapter>

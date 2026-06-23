@@ -295,22 +295,22 @@
     </statement>
   </definition>
   <definition xml:id="def-carry">
-    <title>Carry — nhớ</title>
+    <title>Carry — số nhớ</title>
     <idx><h>carry</h></idx>
     <idx><h>có nhớ</h></idx>
     <idx><h>nhớ</h></idx>
     <idx><h>số nhớ</h></idx>
     <notation>
       <usage><m>c_j</m></usage>
-      <description>nhớ</description>
+      <description>số nhớ</description>
     </notation>
     <statement>
       <p>Số nhớ là bit phụ, ký hiệu <m>c_j</m>, sinh ra khi cộng hai số nguyên trong khai triển nhị phân và được chuyển sang vị trí kế tiếp bên trái. Khi cộng cặp bit thứ <m>j</m> là <m>a_j</m> và <m>b_j</m> cùng với số nhớ trước đó <m>c_{j-1}</m>, tổng <m>a_j + b_j + c_{j-1}</m> cho bit tổng <m>s_j</m> và số nhớ mới <m>c_j</m> thỏa <m>a_j + b_j + c_{j-1} = 2 c_j + s_j</m>, trong đó <m>c_j \in \{0, 1\}</m> (theo <xref ref="bib-rosen-2019" />, Rosen §4.2).</p>
       <p>Thuật ngữ tiếng Việt tương ứng:</p>
       <ul>
-        <li><p><term>nhớ</term> <xref ref="bib-rosen-2003-vi" /> (tr. 43 (PDF, bản dịch Rosen)) — cách dùng phổ biến.</p></li>
+        <li><p><term>số nhớ</term> <xref ref="bib-rosen-2003-vi" /> (tr. 176 (PDF)); <xref ref="bib-nguyenhuudien-2019" /> (tr. 145 (PDF)) — cách dùng phổ biến.</p></li>
         <li><p><term>có nhớ</term> <xref ref="bib-nguyenducnghia-2006" /> (tr. 93 (PDF)); <xref ref="bib-rosen-2003-vi" /> (tr. 176 (PDF, bản dịch Rosen)).</p></li>
-        <li><p><term>số nhớ</term> <xref ref="bib-rosen-2003-vi" /> (tr. 176 (PDF)); <xref ref="bib-nguyenhuudien-2019" /> (tr. 145 (PDF)).</p></li>
+        <li><p><term>nhớ</term> <xref ref="bib-rosen-2003-vi" /> (tr. 43 (PDF, bản dịch Rosen)).</p></li>
       </ul>
       <p>Ví dụ: Khi cộng <m>a = (1 1)_2</m> và <m>b = (0 1)_2</m>, ở vị trí phải nhất ta có <m>1 + 1 = (1 0)_2</m>, nên bit tổng là <m>0</m> và số nhớ là <m>c_0 = 1</m>. Cộng tiếp <m>1 + 0 + 1 = (1 0)_2</m>, cho bit tổng <m>0</m> và số nhớ <m>c_1 = 1</m>, dẫn đến <m>a + b = (1 0 0)_2</m>.</p>
     </statement>
@@ -375,6 +375,7 @@
         <li><p><term>đỉnh tâm</term> <xref ref="bib-ngodactan-2004" /> (tr. 216 (PDF)).</p></li>
       </ul>
       <p>Ví dụ: Với đường đi <m>P_n</m> có <m>n</m> đỉnh, tâm gồm đúng một đỉnh ở giữa khi <m>n</m> lẻ và gồm hai đỉnh ở giữa khi <m>n</m> chẵn. Mọi cây đều có tâm gồm một đỉnh hoặc hai đỉnh kề nhau.</p>
+      <p>Xem thêm <xref ref="def-eccentricity" text="title" />, <xref ref="def-diameter" text="title" />.</p>
     </statement>
   </definition>
   <definition xml:id="def-characteristic-polynomial">
@@ -860,24 +861,19 @@
     </statement>
   </definition>
   <definition xml:id="def-cover">
-    <title>Cover — bao phủ</title>
+    <title>Cover — phủ</title>
     <idx><h>cover</h></idx>
     <idx><h>bao phủ</h></idx>
-    <idx><h>phủ đỉnh</h></idx>
-    <idx><h>tập phủ</h></idx>
-    <idx><h>tập phủ cạnh</h></idx>
-    <idx><h>tập phủ đỉnh</h></idx>
+    <idx><h>phủ</h></idx>
     <statement>
-      <p>Bao phủ của một đồ thị <m>G</m> là một tập con các đỉnh hoặc các cạnh sao cho mọi cạnh (tương ứng, mọi đỉnh) của <m>G</m> đều có ít nhất một đầu mút (tương ứng, được kề bởi một cạnh) thuộc tập đó. Một tập phủ đỉnh là tập <m>C \subseteq V(G)</m> sao cho mỗi cạnh của <m>G</m> có ít nhất một đầu mút thuộc <m>C</m>, còn một tập phủ cạnh là tập <m>C \subseteq E(G)</m> sao cho mỗi đỉnh của <m>G</m> là đầu mút của một cạnh nào đó trong <m>C</m> (theo <xref ref="bib-rosen-2019" />, Rosen §10.2).</p>
+      <p>Trong lý thuyết đồ thị, <em>phủ</em> (cover) của một đồ thị là một tập đỉnh hoặc tập cạnh "chạm" tới mọi cạnh hoặc mọi đỉnh của đồ thị. Có hai loại chính; mục này chỉ nêu ý niệm chung, các trường hợp cụ thể được trình bày ở những mục riêng (xem mục Xem thêm) (theo <xref ref="bib-rosen-2019" />, Rosen §10.2).</p>
       <p>Thuật ngữ tiếng Việt tương ứng:</p>
       <ul>
-        <li><p><term>bao phủ</term> <em>(thuật ngữ chuẩn; chưa truy được trong kho văn bản)</em> — cách dùng phổ biến.</p></li>
-        <li><p><term>phủ đỉnh</term> <xref ref="bib-nguyenducnghia-2006" /> (tr. 263 (PDF)).</p></li>
-        <li><p><term>tập phủ</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
-        <li><p><term>tập phủ cạnh</term> <xref ref="bib-leanhvinh-2020" /> (tr. 80 (PDF)).</p></li>
-        <li><p><term>tập phủ đỉnh</term> <xref ref="bib-leanhvinh-2020" /> (tr. 80 (PDF)).</p></li>
+        <li><p><term>phủ</term> <em>(thuật ngữ chuẩn; chưa truy được trong kho văn bản)</em> — cách dùng phổ biến.</p></li>
+        <li><p><term>bao phủ</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
       </ul>
-      <p>Ví dụ: Trong đồ thị đầy đủ <m>K_n</m>, tập gồm <m>n-1</m> đỉnh bất kỳ là một tập phủ đỉnh, vì mọi cạnh đều có đầu mút nằm trong tập này.</p>
+      <p>Ví dụ: Hai loại phủ thường gặp: phủ đỉnh — tập đỉnh sao cho mọi cạnh có ít nhất một đầu mút trong tập; và phủ cạnh — tập cạnh sao cho mọi đỉnh là đầu mút của một cạnh trong tập.</p>
+      <p>Xem thêm <xref ref="def-vertex-cover" text="title" />, <xref ref="def-edge-cover" text="title" />.</p>
     </statement>
   </definition>
   <definition xml:id="def-cut-edge">

@@ -6,5 +6,9 @@
     <target name="web" format="html" />
     <!-- xelatex is required for Vietnamese (Unicode) text in the PDF. -->
     <target name="print" format="pdf" latex-engine="xelatex" />
+    <!-- LaTeX source only: build-print.sh embeds the cover (pdfpages) and drops
+         the title pages in the .tex, then compiles, so the PDF keeps working
+         cross-reference links (post-build PDF merging strips named destinations). -->
+    <target name="latex" format="latex" latex-engine="xelatex" />
   </targets>
 </project>

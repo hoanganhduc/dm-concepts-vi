@@ -1,22 +1,20 @@
-name: Build and deploy book
+name: Build and deploy book to gh-pages
 
 on:
   push:
     branches: [main]
   workflow_dispatch:
 
-# Allow the workflow to publish to GitHub Pages.
+# Pushing the built site to the gh-pages branch needs write access to the repo.
 permissions:
-  contents: read
-  pages: write
-  id-token: write
+  contents: write
 
 concurrency:
-  group: pages
+  group: gh-pages
   cancel-in-progress: false
 
 jobs:
-  build:
+  build-deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -28,6 +26,11 @@ jobs:
       - name: Install PreTeXt + deps
         run: pip install pretext pyyaml
 
+      - name: Install Vietnamese locale
+        # PreTeXt ships no vi locale; install ours so structural labels render
+        # in Vietnamese. The script fetches PreTeXt's core on first run.
+        run: bash workflow/scripts/install-vi-locale.sh
+
       - name: Validate entry data (build-gate)
         run: python3 workflow/scripts/validate-entry.py
 
@@ -35,22 +38,19 @@ jobs:
         run: pretext build web
 
       - name: Build quick-lookup search index
+        # entries.json is gitignored, so regenerate it from data/terms/*.yaml.
         run: python3 workflow/scripts/build-search-index.py
 
       - name: Bundle quick-lookup page into the site
-        run: cp assets/search/tra-cuu.html assets/search/lookup.js assets/search/entries.json output/web/
+        run: |
+          cp assets/search/tra-cuu.html assets/search/lookup.js assets/search/entries.json output/web/
+          # Stop GitHub Pages' Jekyll from dropping PreTeXt's _static/ directory.
+          touch output/web/.nojekyll
 
-      - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v3
+      - name: Deploy to gh-pages branch
+        uses: peaceiris/actions-gh-pages@v4
         with:
-          path: output/web
-
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - id: deployment
-        uses: actions/deploy-pages@v4
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./output/web
+          publish_branch: gh-pages
+          force_orphan: true

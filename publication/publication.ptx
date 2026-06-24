@@ -5,6 +5,13 @@
     <tableofcontents level="2" />
   </common>
 
+  <!-- Number definitions per chapter as 1.1, 1.2, … (one division level: the
+       chapter). Without this, blocks number as 1.0.1 because entries sit
+       directly in the chapter with no section. -->
+  <numbering>
+    <blocks level="1" />
+  </numbering>
+
   <source>
     <directories external="../assets" generated="../generated-assets" />
   </source>
@@ -19,6 +26,11 @@
   </latex>
 
   <html>
+    <!-- Boxed definition styling (coloured heading bar + border), the look of
+         the Discrete Mathematics book this lexicon is modelled on. The modern
+         theme builder needs an SCSS toolchain; the "oscarlevin" style keeps the
+         boxed look via the pre-built denver theme (a harmless deprecation note). -->
+    <css colors="blue_grey" style="oscarlevin" />
     <!-- Native full-text search of the web output (lookup layer 1, see docs/PLAN.md §5). -->
     <search variant="default" />
     <!-- Focused, expandable table of contents to ease browsing a long A–Z lexicon. -->

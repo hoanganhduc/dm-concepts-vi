@@ -1,403 +1,403 @@
 {
- "locked_conventions": [
-  "Math delimiters: every inline mathematical symbol ($$G$$, $$K_n$$, $$\\chi(G)$$, $$\\gcd(a,b)$$, set braces, set-builder, $$J(n,k)$$, $$a\\vee b$$, etc.) is wrapped in $$...$$. Bare unwrapped math is never left in definition_vi or example_vi. Block math uses a ```math fence. Math delimiters wrap SYMBOLS only: a bare Vietnamese word (đồ thị, dàn, đường cong) is never wrapped; the first introduction of a central concept is marked with \\emph{...} OUTSIDE math.",
-  "Inequalities and relations: ASCII '>=', '<=', '!=' are forbidden in finished prose; use $$\\geq$$, $$\\leq$$, $$\\neq$$. Strict $$<$$ / $$>$$ inside $$...$$ is standard LaTeX and acceptable.",
-  "Bipartite rendering is fixed book-wide to 'đồ thị hai phần' (book standard); the variants 'đồ thị hai phía' and 'đồ thị phân đôi' are recorded only as deferred source variants. No bipartite-graph entry occurs in chapter J (join-of-two-graphs's see_also lists complete-bipartite-graph as a cross-chapter forward reference only), so the convention is not exercised here.",
-  "Exactly one vi_term per entry has recommended=true. The recommended term is, whenever possible, a verified=true term backed by source_id + pdf_page + page + snippet, attested in a 2019-2020 source where the concept exists there; newest citations are listed first. EVERY variant from ALL sources (old and new) is still recorded. A recommended term may be verified=false only when NO corpus source attests any candidate (standard-but-unattested terminology); in that case the unverified status is surfaced explicitly in notes (here: jordan-curve-theorem, jacobi-symbol, johnsons-algorithm).",
-  "Citation hygiene: every verified=true vi_term carries source_id, pdf_page, page, and a quoted snippet whose surface form contains the term string (OCR sources may show diacritic-mangled forms; the snippet field stores the verbatim OCR bytes returned by find-term, and any normalization is explained in notes). vi_terms with verified=false AND page=\"\" are dropped, except a single recommended standard term retained to keep the required vi_terms field non-empty and preserve the single-recommendation invariant. Diacritics-insensitive (--loose) search confirms hits/0-hits on the OCR sources (bib-leanhvinh-2020, bib-hoangchithanh-2007, bib-ngodactan-2004).",
-  "Examples are self-contained: an example_vi never relies on a derived quantity the definition_vi did not introduce.",
-  "No synonym glosses inside the definition; variants live in vi_terms/notes. The English equivalent is carried by headword_en, not by a parenthetical inside definition_vi.",
-  "see_also lists kebab ids only. Same-chapter (J) ids would be direct links; this chapter has no J->J links, so every see_also id is a cross-chapter forward reference to be created in its own chapter.",
-  "Notation field carries a bare symbolic token (G_1 + G_2, a \\vee b, J(n, k), \\left(\\tfrac{a}{n}\\right)), NOT wrapped in $$...$$ and NOT mixed with Vietnamese prose. Chapter-wide editorial notes are written in English."
- ],
- "deferred_note": "Applied the panel's clearly-correct fixes and kept ALL 6 chapter-J entries. HIGH FIX: (1) johnsons-algorithm had an empty example_vi (only entry in the chapter without one); added a self-contained 3-vertex weighted-digraph example with one negative edge and no negative cycle, showing a Bellman-Ford potential h(v), the reweighting w'(u,v)=w(u,v)+h(u)-h(v) yielding nonnegative weights (verified by computation: h=(0,-2,0) gives w'=(0,1,4)), and noting Dijkstra is then run from each vertex. MED FIXES: (2) join-lattice removed the synonym gloss '(chặn trên nhỏ nhất)' from the definition body, led the definition with the attested recommended term, and stated the LUB gloss once (economy of expression); trimmed the example to drop the redundant 'join = lcm = least upper bound' restatement. (3) join-of-two-graphs stored the page-190 snippet as verbatim OCR ('két nối', recoverable only via --loose) and promoted the verbatim exact-match page-267 row to recommended=true (clean 'kết nối', no --loose needed), trimming both snippets to the single-line find-term hits; added an OCR note. (4) jacobi-symbol replaced the slightly-imprecise closing gloss 'môđun lẻ hợp số' with 'mọi môđun lẻ dương' (the product formula also covers the prime case r=1). CHAPTER-WIDE CONSISTENCY: standardized \\emph{...} on the first introduction of each headword concept across all six entries (added to join-of-two-graphs, jordan-curve-theorem, johnson-graph; already present in jacobi-symbol, johnsons-algorithm). DEFERRED/HYGIENE: dropped johnsons-algorithm's second verified=false empty-page vi_term ('thuật toán tìm đường đi ngắn nhất giữa mọi cặp đỉnh') per citation hygiene, keeping it only in notes. Did NOT apply the optional/low suggestions that the panel itself marked 'acceptable as-is' or 'no change required' (e.g. adding the empty-product n=1 convention to jacobi-symbol, the 0<=k<=n constraint to johnson-graph, the explicit distance-recovery formula to johnsons-algorithm) since the definitions are correct without them and the additions are not load-bearing. Re-verified the load-bearing corpus evidence with find-term.py: join p190 verbatim OCR 'két nối' (--loose) and p267 exact 'kết nối'; lattice 'chặn trên nhỏ nhất' p120, 'sup( a, b) = a ∨ b' p123, 'cận trên' p164.",
- "final_entries": [
-  {
-   "id": "join-of-two-graphs",
-   "letter": "J",
-   "headword_en": "join of two graphs",
-   "notation": "G_1 + G_2",
-   "rosen_ref": "Rosen §10.2",
-   "definition_vi": "Cho hai đồ thị đơn $$G_1=(V_1,E_1)$$ và $$G_2=(V_2,E_2)$$ có tập đỉnh rời nhau. \\emph{Kết nối của hai đồ thị} $$G_1$$ và $$G_2$$, ký hiệu là $$G_1 + G_2$$, là đồ thị trên tập đỉnh $$V_1 \\cup V_2$$ nhận được từ hợp rời của $$G_1$$ và $$G_2$$ bằng cách thêm vào mọi cạnh $$xy$$ với $$x \\in V_1$$ và $$y \\in V_2$$.",
-   "example_vi": "Kết nối $$K_1 + K_1$$ của hai đồ thị, mỗi đồ thị chỉ gồm một đỉnh, là đồ thị có hai đỉnh và một cạnh nối chúng.",
-   "see_also": [
-    "complete-bipartite-graph"
-   ],
-   "notes": "Recommended term \"kết nối của hai đồ thị\" (ký hiệu $$G_1 + G_2$$) is attested only in bib-ngodactan-2004 (2004), which is the only corpus source that defines THIS concept (join: obtained from the disjoint union by adding every edge between a vertex of $$G_1$$ and a vertex of $$G_2$$). It is defined twice with identical content: original definition at pdf_page 190 (Chapter 6) and a restatement at pdf_page 267; both verified. The index lists it as \"kết nối của hai đồ thị, 190, 267\" (pdf_page 337). No 2019-2020 source attests the join concept, so the recommended term is necessarily from 2004.\n\nOCR / citation note: the exact phrase \"kết nối của hai đồ thị\" returns an exact match at pdf_page 267 (and index pdf_page 337). The earlier definition at pdf_page 190 is recoverable ONLY via --loose because the OCR drops a diacritic and renders \"kết nối\" as \"két nối\" (the page-190 snippet stored here is the verbatim OCR string, including \"két nối\" and the mangled graph names \"G1 và Ơ2\", \"Gi + Ỡ2\"). Because the page-267 hit is an exact, clean, verbatim match without --loose, it is used as the recommended=true row; the page-190 row is retained as a second verified variant. Both snippet fields store the single-line find-term hit verbatim (the page-267 hit truncates at \"...là đồ thị nhận được\"; the fuller page-267 sentence continues \"...bằng cách thêm vào tất cả các cạnh dạng xy với x ≠ y và x ∈ V(G), y ∈ V(H)\").\n\nREJECTED candidates (confirmed by reading the source definitions, NOT the join):\n- \"hợp của hai đồ thị\" / \"Đồ thị hợp\" denotes the disjoint UNION, not the join. In bib-nguyenhoangthach-2020, Định nghĩa 5.23 (pdf_page 72): \"Đồ thị hợp của hai đồ thị G1=(V1,E1) và G2=(V2,E2) là đồ thị G1 ∪ G2 = (V1∪V2, E1∪E2)\" — no cross edges added. Same union sense in bib-ngodactan-2004 (pdf_pages 190, 267) where \"hợp\" ($$G\\cup H$$) is explicitly distinguished from \"kết nối\" ($$G+H$$); the index lists both \"hợp của hai đồ thị\" and \"kết nối của hai đồ thị\" at pages 190, 267 as separate concepts.\n- \"tổng của hai đồ thị\" appears only as an undefined exercise label in bib-ngodactan-2004 (pdf_page 302, \"(b) tổng của hai đồ thị\", listed beside \"(a) hợp của hai đồ thị\"); it is not in the index and has no formal definition. The book's defined \"tổng\" is \"tổng của các nhân tử\" (factor-sum / edge-disjoint decomposition, indexed at pdf_page 278), a different concept. Therefore \"tổng của hai đồ thị\" is not a confirmed denotation of the join and is not recorded as verified.\n- \"phép nối\" (bib-nguyenhuudien-2019, pdf_page 41) refers to logical connectives; \"kết nối\" elsewhere in bib-nguyenhuudien-2019 (pdf_pages 162-172) refers to processor interconnection networks. Neither denotes the graph join. Candidates \"nối hai đồ thị\" and \"phép nối đồ thị\" returned 0 hits.\n\nNote on notation: the source uses $$G_1 + G_2$$ (matching Rosen's $$G_1+G_2$$); the alternative $$G_1 \\vee G_2$$ does not appear in the corpus. The source definition adds the condition $$x \\neq y$$ to the cross edges; since $$V_1$$ and $$V_2$$ are disjoint this is automatic and is omitted from definition_vi without loss.",
-   "vi_terms": [
+  "locked_conventions": [
+    "Math delimiters: every inline mathematical symbol ($$G$$, $$K_n$$, $$\\chi(G)$$, $$\\gcd(a,b)$$, set braces, set-builder, $$J(n,k)$$, $$a\\vee b$$, etc.) is wrapped in $$...$$. Bare unwrapped math is never left in definition_vi or example_vi. Block math uses a ```math fence. Math delimiters wrap SYMBOLS only: a bare Vietnamese word (đồ thị, dàn, đường cong) is never wrapped; the first introduction of a central concept is marked with \\emph{...} OUTSIDE math.",
+    "Inequalities and relations: ASCII '>=', '<=', '!=' are forbidden in finished prose; use $$\\geq$$, $$\\leq$$, $$\\neq$$. Strict $$<$$ / $$>$$ inside $$...$$ is standard LaTeX and acceptable.",
+    "Bipartite rendering is fixed book-wide to 'đồ thị hai phần' (book standard); the variants 'đồ thị hai phía' and 'đồ thị phân đôi' are recorded only as deferred source variants. No bipartite-graph entry occurs in chapter J (join-of-two-graphs's see_also lists complete-bipartite-graph as a cross-chapter forward reference only), so the convention is not exercised here.",
+    "Exactly one vi_term per entry has recommended=true. The recommended term is, whenever possible, a verified=true term backed by source_id + pdf_page + page + snippet, attested in a 2019-2020 source where the concept exists there; newest citations are listed first. EVERY variant from ALL sources (old and new) is still recorded. A recommended term may be verified=false only when NO corpus source attests any candidate (standard-but-unattested terminology); in that case the unverified status is surfaced explicitly in notes (here: jordan-curve-theorem, jacobi-symbol, johnsons-algorithm).",
+    "Citation hygiene: every verified=true vi_term carries source_id, pdf_page, page, and a quoted snippet whose surface form contains the term string (OCR sources may show diacritic-mangled forms; the snippet field stores the verbatim OCR bytes returned by find-term, and any normalization is explained in notes). vi_terms with verified=false AND page=\"\" are dropped, except a single recommended standard term retained to keep the required vi_terms field non-empty and preserve the single-recommendation invariant. Diacritics-insensitive (--loose) search confirms hits/0-hits on the OCR sources (bib-leanhvinh-2020, bib-hoangchithanh-2007, bib-ngodactan-2004).",
+    "Examples are self-contained: an example_vi never relies on a derived quantity the definition_vi did not introduce.",
+    "No synonym glosses inside the definition; variants live in vi_terms/notes. The English equivalent is carried by headword_en, not by a parenthetical inside definition_vi.",
+    "see_also lists kebab ids only. Same-chapter (J) ids would be direct links; this chapter has no J->J links, so every see_also id is a cross-chapter forward reference to be created in its own chapter.",
+    "Notation field carries a bare symbolic token (G_1 + G_2, a \\vee b, J(n, k), \\left(\\tfrac{a}{n}\\right)), NOT wrapped in $$...$$ and NOT mixed with Vietnamese prose. Chapter-wide editorial notes are written in English."
+  ],
+  "deferred_note": "Applied the panel's clearly-correct fixes and kept ALL 6 chapter-J entries. HIGH FIX: (1) johnsons-algorithm had an empty example_vi (only entry in the chapter without one); added a self-contained 3-vertex weighted-digraph example with one negative edge and no negative cycle, showing a Bellman-Ford potential h(v), the reweighting w'(u,v)=w(u,v)+h(u)-h(v) yielding nonnegative weights (verified by computation: h=(0,-2,0) gives w'=(0,1,4)), and noting Dijkstra is then run from each vertex. MED FIXES: (2) join-lattice removed the synonym gloss '(chặn trên nhỏ nhất)' from the definition body, led the definition with the attested recommended term, and stated the LUB gloss once (economy of expression); trimmed the example to drop the redundant 'join = lcm = least upper bound' restatement. (3) join-of-two-graphs stored the page-190 snippet as verbatim OCR ('két nối', recoverable only via --loose) and promoted the verbatim exact-match page-267 row to recommended=true (clean 'kết nối', no --loose needed), trimming both snippets to the single-line find-term hits; added an OCR note. (4) jacobi-symbol replaced the slightly-imprecise closing gloss 'môđun lẻ hợp số' with 'mọi môđun lẻ dương' (the product formula also covers the prime case r=1). CHAPTER-WIDE CONSISTENCY: standardized \\emph{...} on the first introduction of each headword concept across all six entries (added to join-of-two-graphs, jordan-curve-theorem, johnson-graph; already present in jacobi-symbol, johnsons-algorithm). DEFERRED/HYGIENE: dropped johnsons-algorithm's second verified=false empty-page vi_term ('thuật toán tìm đường đi ngắn nhất giữa mọi cặp đỉnh') per citation hygiene, keeping it only in notes. Did NOT apply the optional/low suggestions that the panel itself marked 'acceptable as-is' or 'no change required' (e.g. adding the empty-product n=1 convention to jacobi-symbol, the 0<=k<=n constraint to johnson-graph, the explicit distance-recovery formula to johnsons-algorithm) since the definitions are correct without them and the additions are not load-bearing. Re-verified the load-bearing corpus evidence with find-term.py: join p190 verbatim OCR 'két nối' (--loose) and p267 exact 'kết nối'; lattice 'chặn trên nhỏ nhất' p120, 'sup( a, b) = a ∨ b' p123, 'cận trên' p164.",
+  "final_entries": [
     {
-     "term": "kết nối của hai đồ thị",
-     "verified": true,
-     "recommended": true,
-     "source_id": "bib-ngodactan-2004",
-     "pdf_page": 267,
-     "page": "tr. 267",
-     "snippet": "kết nối của hai đồ thị G và H, ký hiệu là G + H, là đồ thị nhận được"
+      "id": "join-of-two-graphs",
+      "letter": "J",
+      "headword_en": "join of two graphs",
+      "notation": "G_1 + G_2",
+      "rosen_ref": "Rosen §10.2",
+      "definition_vi": "Cho hai đồ thị đơn $$G_1=(V_1,E_1)$$ và $$G_2=(V_2,E_2)$$ có tập đỉnh rời nhau. \\emph{Kết nối của hai đồ thị} $$G_1$$ và $$G_2$$, ký hiệu là $$G_1 + G_2$$, là đồ thị trên tập đỉnh $$V_1 \\cup V_2$$ nhận được từ hợp rời của $$G_1$$ và $$G_2$$ bằng cách thêm vào mọi cạnh $$xy$$ với $$x \\in V_1$$ và $$y \\in V_2$$.",
+      "example_vi": "Kết nối $$K_1 + K_1$$ của hai đồ thị, mỗi đồ thị chỉ gồm một đỉnh, là đồ thị có hai đỉnh và một cạnh nối chúng.",
+      "see_also": [
+        "complete-bipartite-graph"
+      ],
+      "notes": "Recommended term \"kết nối của hai đồ thị\" (ký hiệu $$G_1 + G_2$$) is attested only in bib-ngodactan-2004 (2004), which is the only corpus source that defines THIS concept (join: obtained from the disjoint union by adding every edge between a vertex of $$G_1$$ and a vertex of $$G_2$$). It is defined twice with identical content: original definition at pdf_page 190 (Chapter 6) and a restatement at pdf_page 267; both verified. The index lists it as \"kết nối của hai đồ thị, 190, 267\" (pdf_page 337). No 2019-2020 source attests the join concept, so the recommended term is necessarily from 2004.\n\nOCR / citation note: the exact phrase \"kết nối của hai đồ thị\" returns an exact match at pdf_page 267 (and index pdf_page 337). The earlier definition at pdf_page 190 is recoverable ONLY via --loose because the OCR drops a diacritic and renders \"kết nối\" as \"két nối\" (the page-190 snippet stored here is the verbatim OCR string, including \"két nối\" and the mangled graph names \"G1 và Ơ2\", \"Gi + Ỡ2\"). Because the page-267 hit is an exact, clean, verbatim match without --loose, it is used as the recommended=true row; the page-190 row is retained as a second verified variant. Both snippet fields store the single-line find-term hit verbatim (the page-267 hit truncates at \"...là đồ thị nhận được\"; the fuller page-267 sentence continues \"...bằng cách thêm vào tất cả các cạnh dạng xy với x ≠ y và x ∈ V(G), y ∈ V(H)\").\n\nREJECTED candidates (confirmed by reading the source definitions, NOT the join):\n- \"hợp của hai đồ thị\" / \"Đồ thị hợp\" denotes the disjoint UNION, not the join. In bib-nguyenhoangthach-2020, Định nghĩa 5.23 (pdf_page 72): \"Đồ thị hợp của hai đồ thị G1=(V1,E1) và G2=(V2,E2) là đồ thị G1 ∪ G2 = (V1∪V2, E1∪E2)\" — no cross edges added. Same union sense in bib-ngodactan-2004 (pdf_pages 190, 267) where \"hợp\" ($$G\\cup H$$) is explicitly distinguished from \"kết nối\" ($$G+H$$); the index lists both \"hợp của hai đồ thị\" and \"kết nối của hai đồ thị\" at pages 190, 267 as separate concepts.\n- \"tổng của hai đồ thị\" appears only as an undefined exercise label in bib-ngodactan-2004 (pdf_page 302, \"(b) tổng của hai đồ thị\", listed beside \"(a) hợp của hai đồ thị\"); it is not in the index and has no formal definition. The book's defined \"tổng\" is \"tổng của các nhân tử\" (factor-sum / edge-disjoint decomposition, indexed at pdf_page 278), a different concept. Therefore \"tổng của hai đồ thị\" is not a confirmed denotation of the join and is not recorded as verified.\n- \"phép nối\" (bib-nguyenhuudien-2019, pdf_page 41) refers to logical connectives; \"kết nối\" elsewhere in bib-nguyenhuudien-2019 (pdf_pages 162-172) refers to processor interconnection networks. Neither denotes the graph join. Candidates \"nối hai đồ thị\" and \"phép nối đồ thị\" returned 0 hits.\n\nNote on notation: the source uses $$G_1 + G_2$$ (matching Rosen's $$G_1+G_2$$); the alternative $$G_1 \\vee G_2$$ does not appear in the corpus. The source definition adds the condition $$x \\neq y$$ to the cross edges; since $$V_1$$ and $$V_2$$ are disjoint this is automatic and is omitted from definition_vi without loss.",
+      "vi_terms": [
+        {
+          "term": "kết nối của hai đồ thị",
+          "verified": true,
+          "recommended": true,
+          "source_id": "bib-ngodactan-2004",
+          "pdf_page": 267,
+          "page": "tr. 267",
+          "snippet": "kết nối của hai đồ thị G và H, ký hiệu là G + H, là đồ thị nhận được"
+        },
+        {
+          "term": "kết nối của hai đồ thị",
+          "verified": true,
+          "recommended": false,
+          "source_id": "bib-ngodactan-2004",
+          "pdf_page": 190,
+          "page": "tr. 190",
+          "snippet": "vô hướng, thì két nối của hai đồ thị G1 và Ơ2, ký hiệu là Gi + Ỡ2, là"
+        }
+      ]
     },
     {
-     "term": "kết nối của hai đồ thị",
-     "verified": true,
-     "recommended": false,
-     "source_id": "bib-ngodactan-2004",
-     "pdf_page": 190,
-     "page": "tr. 190",
-     "snippet": "vô hướng, thì két nối của hai đồ thị G1 và Ơ2, ký hiệu là Gi + Ỡ2, là"
+      "id": "join-lattice",
+      "letter": "J",
+      "headword_en": "join (least upper bound in a lattice)",
+      "notation": "a \\vee b",
+      "rosen_ref": "Rosen §9.6",
+      "definition_vi": "Trong một dàn $$(L,\\preceq)$$, \\emph{chặn trên nhỏ nhất} của hai phần tử $$a$$ và $$b$$, ký hiệu $$a\\vee b$$, là phần tử $$\\sup(a,b)$$ thỏa mãn $$a\\preceq a\\vee b$$, $$b\\preceq a\\vee b$$, và $$a\\vee b\\preceq c$$ với mọi chặn trên $$c$$ của cả $$a$$ và $$b$$.",
+      "example_vi": "Trong dàn $$(\\{1,2,3,4,6,12\\},\\mid)$$ gồm các ước của $$12$$ với quan hệ chia hết, ta có $$4\\vee 6=12$$ vì $$12$$ là bội chung nhỏ nhất của $$4$$ và $$6$$.",
+      "notes": "Định nghĩa chính xác của join (chặn trên nhỏ nhất trong dàn) xuất hiện trong bib-nguyenhuudien-2019: trang 120 định nghĩa \"chặn trên\" và \"chặn trên nhỏ nhất\" $$=\\sup(A)$$, còn trang 123 nêu rõ $$a\\vee b=\\sup(a,b)$$ với đúng ba điều kiện của Rosen ($$a\\preceq a\\vee b$$, $$b\\preceq a\\vee b$$, và $$a\\vee b\\preceq c$$ với mọi chặn trên $$c$$). Thuật ngữ chuẩn được chọn là \"chặn trên nhỏ nhất\" (có chứng thực trong nguồn 2019). Trong một dàn, chặn trên nhỏ nhất của hai phần tử luôn tồn tại và là duy nhất; tính duy nhất là hệ quả của tính chất dàn, nên không cần ghi \"duy nhất\" trong câu định nghĩa.\n\nKý hiệu/viết tắt \"sup\" cũng được chứng thực trong cả nguồn 2019 (tr.123: \"phần tử sup( a, b) = a ∨ b\") và nguồn 2004 (bib-ngodactan-2004 dùng \"cận trên\" cho upper bound và \"sup\" cho supremum trong lý thuyết thứ tự). Ứng viên \"cận trên nhỏ nhất\" KHÔNG có chứng thực (0 hit cả thường lẫn --loose); chỉ thành phần \"cận trên\" (= upper bound, một thuật ngữ liên quan nhưng KHÁC, không phải bản thân phép join) được chứng thực trong bib-ngodactan-2004 tr.164, nên ghi nhận \"cận trên\" như biến thể cùng họ thuật ngữ chứ không phải tên gọi thay thế cho $$a\\vee b$$.\n\nỨng viên \"hợp (trong dàn)\" KHÔNG có chứng thực như một thuật ngữ riêng cho join: tìm \"hợp\" chỉ ra các nghĩa khác (\"tập hợp\", \"trường hợp\", \"kết hợp\"); trong dàn các phần tử, nguồn 2019 dùng ký hiệu $$\\vee$$ và gọi qua $$\\sup$$, không gọi là \"hợp\". Vì vậy biến thể không chứng thực \"phép hợp\" / \"hợp (trong dàn)\" chỉ được ghi trong notes, không đưa vào định nghĩa hay vào vi_terms. Lưu ý: trong dàn các tập con, $$A\\vee B=A\\cup B$$ (hợp tập hợp) chỉ là một ví dụ cụ thể, không phải tên gọi tổng quát của phép join. Đã loại các thuật ngữ verified=false/page rỗng (\"cận trên nhỏ nhất\", \"hợp (trong dàn)\", \"supremum\").",
+      "see_also": [
+        "lattice",
+        "partial-order",
+        "upper-bound"
+      ],
+      "vi_terms": [
+        {
+          "term": "chặn trên nhỏ nhất",
+          "verified": true,
+          "recommended": true,
+          "source_id": "bib-nguyenhuudien-2019",
+          "pdf_page": 120,
+          "page": "tr. 120",
+          "snippet": "nếu với mọi a ∈ A ta có : a ≤ x. Chặn trên nhỏ nhất (nếu có), tức là phần tử nhỏ nhất trong"
+        },
+        {
+          "term": "sup",
+          "verified": true,
+          "recommended": false,
+          "source_id": "bib-nguyenhuudien-2019",
+          "pdf_page": 123,
+          "page": "tr. 123",
+          "snippet": "2. Trong dàn ( L, ≤), phần tử sup( a, b) = a ∨ b được đặc trưng bởi 2 tính chất sau:"
+        },
+        {
+          "term": "hợp",
+          "source_id": "",
+          "page": "",
+          "pdf_page": 0,
+          "snippet": "",
+          "verified": false,
+          "recommended": false
+        },
+        {
+          "term": "cận trên",
+          "source_id": "bib-doantamhoe-2009",
+          "page": "",
+          "pdf_page": 17,
+          "snippet": "(với a„ > 0). Số b/a„ chính là cận trên của x, (vì nếu x, > b/a,„ thì",
+          "verified": true,
+          "recommended": false
+        },
+        {
+          "term": "cận trên",
+          "source_id": "bib-doducgiao-2009",
+          "page": "tr. 230",
+          "pdf_page": 231,
+          "snippet": "a) Tìm cận trên và cận dưới của m.",
+          "verified": true,
+          "recommended": false
+        },
+        {
+          "term": "cận trên",
+          "source_id": "bib-vudinhhoa-2010",
+          "page": "",
+          "pdf_page": 41,
+          "snippet": "chỉ cần đánh giá cận trên của số các phần tử của mỗi tập hợp.",
+          "verified": true,
+          "recommended": false
+        }
+      ]
+    },
+    {
+      "id": "jordan-curve-theorem",
+      "letter": "J",
+      "headword_en": "Jordan curve theorem",
+      "notation": "",
+      "rosen_ref": "Rosen §10.7",
+      "definition_vi": "\\emph{Định lý đường cong Jordan} khẳng định rằng mọi đường cong Jordan khép kín $$C$$ trong mặt phẳng (tức là một đường cong liên tục, không tự cắt, có hai điểm đầu mút trùng nhau) chia mặt phẳng thành đúng hai miền: một miền trong bị chặn và một miền ngoài không bị chặn. Đường cong $$C$$ là biên chung của hai miền này.",
+      "example_vi": "Một đường tròn là một đường cong Jordan khép kín: miền trong bị chặn là đĩa mở giới hạn bởi đường tròn, còn miền ngoài không bị chặn là phần mặt phẳng còn lại, và đường tròn là biên chung của cả hai miền.",
+      "notes": "Concept: định lý đường cong Jordan — mọi đường cong Jordan khép kín (đường cong liên tục, không tự cắt, có hai điểm đầu mút trùng nhau) trong mặt phẳng chia mặt phẳng thành đúng hai miền: một miền trong bị chặn và một miền ngoài không bị chặn, mà đường cong là biên chung của chúng.\n\nAttestation summary: Only bib-ngodactan-2004 (2004, OCR) attests any Vietnamese term for this concept. NO 2019-2020 source (bib-leanhvinh-2020, bib-nguyenhoangthach-2020, bib-nguyenhuudien-2019) attests it; OCR sources bib-leanhvinh-2020 and bib-hoangchithanh-2007 returned 0 hits in both normal and --loose runs; text sources bib-nguyenhuudien-2019, bib-nguyenhoangthach-2020, bib-nguyenducnghia-2006 returned 0 hits.\n\nIn bib-ngodactan-2004 (p.210), the concept is defined: \"Một đường cong Jordan trong mặt phẳng là một đường cong liên tục không tự cắt. Một đường cong Jordan vớí các điểm đầu mút trùng nhau được gọi là đường cong Jordan khép kín.\" The theorem itself is stated as the unnamed \"Định lý 6.11. Giả sử c là một đường cong Jordan khép kín trong mặt...\" — the book gives no titled name for the theorem. Index entries on p.337 confirm both \"đường cong Jordan, 210\" and \"đường cong Jordan khép kín, 210\" as headwords.\n\nOCR note: the source spells \"khép kín\" (and once \"khép kin\") — these are OCR renderings of the standard \"khép kín\" (closed). The candidate \"đường cong Jordan khép kín\" therefore matches the source spelling exactly.\n\nRecommended term: \"định lý đường cong Jordan\" is kept as the recommended standard term but verified=false because NO mined source names the theorem — bib-ngodactan-2004 only attests the curve objects (\"đường cong Jordan\", \"đường cong Jordan khép kín\") via the unnamed Định lý 6.11. The candidates \"định lý đường cong Jordan\" and \"định lý Jordan\" returned 0 hits in normal and --loose runs across all sources. The two attested curve-object terms are retained as verified variants since they are the only corpus evidence for this entry.\n\nVerifier note: re-ran find-term.py for both verified terms — \"đường cong Jordan khép kín\" (2 hits, p.210 + index p.337) and \"đường cong Jordan\" (11 hits, p.210 definition) — and confirmed source_id/pdf_page and that snippets denote THIS concept. Confirmed \"định lý đường cong Jordan\" = 0 hits (normal + --loose) and \"định lý Jordan\" = 0 hits (--loose).\n\nVariants recorded: \"đường cong Jordan khép kín\" (closed Jordan curve, the object the theorem is about); \"đường cong Jordan\" (Jordan curve). Unattested theorem-name candidate \"định lý Jordan\" dropped per citation hygiene (verified=false, empty page, not the kept recommended term).\n\nDefinition/example note: definition_vi uses the recommended standard term \"định lý đường cong Jordan\" (marked \\emph{...} at first introduction) and the verified attested object term \"đường cong Jordan khép kín\"; symbol $$C$$ is introduced locally only as a referenceable name for the curve (no standard book notation exists, so the notation field is left empty). The example (a circle) is self-contained and introduces no derived quantity beyond the two regions and common boundary already stated in the definition.",
+      "see_also": [
+        "planar-graph"
+      ],
+      "vi_terms": [
+        {
+          "term": "định lý đường cong Jordan",
+          "verified": false,
+          "recommended": true,
+          "page": "",
+          "snippet": "",
+          "source_id": "",
+          "pdf_page": 0
+        },
+        {
+          "term": "đường cong Jordan khép kín",
+          "verified": true,
+          "recommended": false,
+          "source_id": "bib-ngodactan-2004",
+          "pdf_page": 210,
+          "page": "tr. 210",
+          "snippet": "Đ ịnh lý 6.11. Giả sử c là một đường cong Jordan khép kín trong mặt"
+        },
+        {
+          "term": "đường cong Jordan",
+          "verified": true,
+          "recommended": false,
+          "source_id": "bib-ngodactan-2004",
+          "pdf_page": 210,
+          "page": "tr. 210",
+          "snippet": "Một đường cong Jordan trong mặt phẳng là một đường cong liên"
+        }
+      ]
+    },
+    {
+      "id": "johnson-graph",
+      "letter": "J",
+      "headword_en": "Johnson graph",
+      "notation": "J(n, k)",
+      "definition_vi": "\\emph{Đồ thị Johnson}, ký hiệu $$J(n,k)$$, là đồ thị có các đỉnh là các tập con $$k$$ phần tử của một tập $$n$$ phần tử, trong đó hai đỉnh kề nhau khi và chỉ khi hai tập con tương ứng có chung đúng $$k-1$$ phần tử (tương đương, hiệu đối xứng của chúng có lực lượng bằng $$2$$).",
+      "example_vi": "Trong $$J(4,2)$$, các đỉnh là sáu tập con $$2$$ phần tử của $$\\{1,2,3,4\\}$$; chẳng hạn $$\\{1,2\\}$$ kề với $$\\{1,3\\}$$ vì hai tập này có chung đúng một phần tử, nhưng $$\\{1,2\\}$$ không kề với $$\\{3,4\\}$$ vì chúng không có phần tử chung nào.",
+      "rosen_ref": "Rosen §10.2",
+      "vi_terms": [
+        {
+          "term": "đồ thị Johnson",
+          "verified": false,
+          "recommended": true,
+          "source_id": "",
+          "pdf_page": 0,
+          "page": "",
+          "snippet": ""
+        }
+      ],
+      "notes": "Concept attested in exactly one corpus source, bib-leanhvinh-2020 (2020, graph theory, OCR). The OCR renders \"Đồ\" as \"Dé\" (and \"Ví dụ\" as \"Vi dụ\"), but the snippets preserve \"thị Johnson\" unambiguously; the recommended term is the standard reading \"đồ thị Johnson\". Page 222 (Ví dụ 8.26) defines vertices as the d-element subsets and discusses adjacency (|S∩T|=d-1) and diameter d, matching the Johnson graph J(n,k); page 223 has \"Hình 8.10: Đồ thị Johnson J(2,5)\"; page 245 (Bài tập 8.15) references the case d=2. This source uses notation J(d,l) instead of J(n,k), but it denotes the same concept. The exact phrase \"đồ thị Johnson\" returns 0 hits corpus-wide because the OCR diacritics are mangled; the attestation is recovered via the --loose search ('thị Johnson'/'Johnson'/'J(d'), so a future verifier should not flag the 0 exact-hit count as a fabrication. The variant \"đồ thị Johnson J(n,k)\" merely appends the Rosen notation, is not separately attested (verified=false, empty page/snippet), and was therefore dropped from vi_terms per citation hygiene; it survives only as a notational variant noted here. No 2004-2007 or other 2019-2020 text source (bib-nguyenhoangthach-2020, bib-nguyenhuudien-2019, bib-hoangchithanh-2007, bib-nguyenducnghia-2006, bib-ngodactan-2004) attests this concept; the \"Johnson\" hits in bib-nguyenducnghia-2006 refer to the Johnson scheduling theorem/algorithm (định lý Johnson 1954, thuật toán Johnson) and to the author Johnsonbaugh, NOT the Johnson graph, so they are excluded. The example uses only quantities introduced by the definition (k-element subsets of an n-element set and the shared-(k-1)-elements adjacency rule); the special case n=4, k=2 is self-contained and does not appeal to any derived parameter. The standard Johnson graph requires $$0 \\le k \\le n$$; this is implicit and not restated. see_also is empty: no other same-chapter \"J\" headword is a related Johnson-graph term in this corpus.",
+      "see_also": []
+    },
+    {
+      "id": "jacobi-symbol",
+      "letter": "J",
+      "headword_en": "Jacobi symbol",
+      "notation": "\\left(\\tfrac{a}{n}\\right)",
+      "rosen_ref": "Rosen §4.4",
+      "definition_vi": "Cho số nguyên $$a$$ và số nguyên dương lẻ $$n=p_1^{e_1}\\cdots p_r^{e_r}$$, trong đó $$p_1,\\dots,p_r$$ là các số nguyên tố lẻ phân biệt. \\emph{Ký hiệu Jacobi} của $$a$$ theo $$n$$, ký hiệu $$\\left(\\tfrac{a}{n}\\right)$$, được định nghĩa là tích các ký hiệu Legendre $$\\left(\\tfrac{a}{n}\\right)=\\prod_{i=1}^{r}\\left(\\tfrac{a}{p_i}\\right)^{e_i}$$, mở rộng ký hiệu Legendre sang mọi môđun lẻ dương.",
+      "example_vi": "Với $$a=2$$ và $$n=15=3\\cdot 5$$, ta có $$\\left(\\tfrac{2}{15}\\right)=\\left(\\tfrac{2}{3}\\right)\\left(\\tfrac{2}{5}\\right)=(-1)(-1)=1$$.",
+      "notes": "Khái niệm ký hiệu Jacobi (số học) không xuất hiện trong toàn bộ ngữ liệu tiếng Việt được khai thác, vì cả sáu nguồn đều thuộc lĩnh vực lý thuyết đồ thị và tổ hợp. Các truy vấn \"ký hiệu Jacobi\", \"biểu tượng Jacobi\", \"ký hiệu Legendre\", cũng như chuỗi trần \"Jacobi\" và \"Legendre\" đều cho 0 kết quả ở cả chế độ thường lẫn --loose (kể cả trên hai nguồn OCR bib-leanhvinh-2020 và bib-hoangchithanh-2007). Truy vấn \"thặng dư bậc hai\" (quadratic residue) cho 0 kết quả ở chế độ thường, nhưng ở chế độ --loose có 1 kết quả trong bib-leanhvinh-2020 (tr. 217 PDF: \"đặc trưng thang dư bậc hai của $$F$$\"); đây là đặc trưng thặng dư bậc hai trên trường hữu hạn, không phải ký hiệu Jacobi, nên không chứng thực khái niệm này. Trong ngữ liệu, \"đồng dư\" chỉ xuất hiện ở mức quan hệ tương đương modulo cơ bản (bib-nguyenhuudien-2019, tr. 39/106/110/116 PDF), không có bộ máy ký hiệu Legendre/Jacobi. Do không nguồn nào chứng thực chính khái niệm này, giữ lại một thuật ngữ chuẩn \"ký hiệu Jacobi\" với verified=false, page=\"\" làm thuật ngữ khuyến nghị để vi_terms không rỗng; biến thể \"biểu tượng Jacobi\" cũng được dùng trong một số tài liệu số học tiếng Việt nhưng không có trong ngữ liệu này. Định nghĩa: với số nguyên $$a$$ và số nguyên dương lẻ $$n=p_1^{e_1}\\cdots p_r^{e_r}$$ ($$r\\ge 1$$), ký hiệu Jacobi $$\\left(\\tfrac{a}{n}\\right)$$ là tích các ký hiệu Legendre $$\\prod_{i=1}^{r}\\left(\\tfrac{a}{p_i}\\right)^{e_i}$$; công thức tích này cũng bao trùm trường hợp $$n$$ nguyên tố ($$r=1$$), khi đó ký hiệu Jacobi trùng với ký hiệu Legendre, nên cụm \"mở rộng sang mọi môđun lẻ dương\" chính xác hơn \"môđun lẻ hợp số\".",
+      "see_also": [
+        "quadratic-residue"
+      ],
+      "vi_terms": [
+        {
+          "term": "ký hiệu Jacobi",
+          "verified": false,
+          "recommended": false,
+          "source_id": "",
+          "pdf_page": 0,
+          "page": "",
+          "snippet": ""
+        },
+        {
+          "term": "ký hiệu Jacobi",
+          "source_id": "bib-sierpinski-2012",
+          "page": "",
+          "pdf_page": 13,
+          "snippet": "KÝ HIỆU LEGENDRE VÀ KÝ HIỆU JACOBI",
+          "verified": true,
+          "recommended": true
+        }
+      ]
+    },
+    {
+      "id": "johnsons-algorithm",
+      "letter": "J",
+      "headword_en": "Johnson's algorithm",
+      "notation": "",
+      "rosen_ref": "Rosen §10.6",
+      "definition_vi": "\\emph{Thuật toán Johnson} là thủ tục tìm độ dài đường đi ngắn nhất giữa mọi cặp đỉnh trong một đồ thị có hướng có trọng số $$G = (V, E)$$ mà trọng số cạnh có thể âm nhưng không chứa chu trình có trọng số âm. Thuật toán dùng thuật toán Bellman–Ford để gán cho mỗi đỉnh $$v$$ một thế năng $$h(v)$$, rồi đổi trọng số của mỗi cạnh $$(u, v)$$ từ $$w(u, v)$$ thành $$w'(u, v) = w(u, v) + h(u) - h(v) \\geq 0$$ để mọi trọng số trở thành không âm; sau đó chạy thuật toán Dijkstra từ mỗi đỉnh trên đồ thị đã đổi trọng số và quy đổi kết quả về khoảng cách ban đầu.",
+      "example_vi": "Xét đồ thị có hướng trên ba đỉnh $$\\{1,2,3\\}$$ với các cạnh $$w(1,2)=-2$$, $$w(2,3)=3$$, $$w(1,3)=4$$; đồ thị có một cạnh trọng số âm nhưng không có chu trình trọng số âm. Bellman–Ford cho các thế năng $$h(1)=0$$, $$h(2)=-2$$, $$h(3)=0$$. Khi đó trọng số đổi mới là $$w'(1,2)=-2+0-(-2)=0$$, $$w'(2,3)=3+(-2)-0=1$$ và $$w'(1,3)=4+0-0=4$$, tất cả đều không âm, nên có thể chạy thuật toán Dijkstra từ mỗi đỉnh trên đồ thị đã đổi trọng số.",
+      "notes": "No Vietnamese source in the corpus attests Johnson's shortest-path algorithm (the all-pairs shortest path method that reweights edges via a Bellman-Ford potential and then runs Dijkstra from each vertex). The recommended term \"thuật toán Johnson\" is kept verified=false because every corpus occurrence of \"Johnson\" denotes a DIFFERENT concept: (1) bib-nguyenducnghia-2006 pages 142, 147, 148 (§5.4 \"Bài toán lập lịch gia công trên hai máy. Thuật toán Johnson\") uses \"thuật toán Johnson\" / \"Định lý Johnson (1954)\" for Johnson's 1954 two-machine flow-shop SCHEDULING algorithm (context: \"lịch gia công\" = job scheduling, minimizing makespan), not shortest paths — verified in workflow/corpus/bib-nguyenducnghia-2006.txt lines 6746, 6980, 7013, 7023, 7077; (2) bib-leanhvinh-2020 pages 222-223, 245 uses \"đồ thị Johnson J(d,l)\" for the Johnson GRAPH, an unrelated combinatorial object — verified at workflow/corpus/bib-leanhvinh-2020.txt lines 8186, 8188, 8201, 9146. The all-pairs shortest path material in these books (bib-nguyenducnghia-2006 §6.5 \"Đường đi ngắn nhất giữa tất cả các cặp đỉnh\", page 234; bib-hoangchithanh-2007 pages 97, 101) is taught via \"thuật toán Floyd\" (Floyd–Warshall), never Johnson's reweighting algorithm — confirmed at workflow/corpus/bib-hoangchithanh-2007.txt lines 3594, 3632, 5586. Candidates \"giải thuật Johnson\" and the descriptive \"thuật toán tìm đường đi ngắn nhất giữa mọi cặp đỉnh\" returned 0 hits; the descriptive fallback was dropped from vi_terms per citation hygiene (verified=false, empty page) and is recorded only here. The recommended rendering \"thuật toán Johnson\" follows the corpus naming convention \"thuật toán + [proper name]\" (cf. attested \"thuật toán Floyd\", \"thuật toán Dijkstra\"). OCR sources (bib-leanhvinh-2020, bib-hoangchithanh-2007) were checked with both normal and --loose matching, including OCR-typo forms \"Jonhson\"/\"Jonson\" (the scheduling heading itself is OCR'd as \"Thuật toán Jonhson\"). Example verified by computation: with $$h=(0,-2,0)$$ the reweighting gives $$w'=(0,1,4)$$, all nonnegative; it uses only quantities the definition introduces (an edge-weighted digraph, the potential $$h(v)$$, and the reweighting formula). Note: the see_also id was corrected from \"dijkstras-algorithm\" to \"dijkstra-algorithm\" to match the actual attested entry id in data/terms/entries-d.yaml.",
+      "see_also": [
+        "dijkstra-algorithm",
+        "shortest-path-problem"
+      ],
+      "vi_terms": [
+        {
+          "term": "thuật toán Johnson",
+          "verified": false,
+          "recommended": false,
+          "page": "",
+          "snippet": "",
+          "source_id": "",
+          "pdf_page": 0
+        },
+        {
+          "term": "thuật toán Johnson",
+          "source_id": "bib-nguyenducnghia-2006",
+          "page": "",
+          "pdf_page": 147,
+          "snippet": "Thuật toán JOHNSON",
+          "verified": true,
+          "recommended": true
+        },
+        {
+          "term": "thuật toán Johnson",
+          "source_id": "bib-cormen-2001-vi",
+          "page": "tr. 11",
+          "pdf_page": 9,
+          "snippet": "Thuật toán Johnson cho dé thị thưa 630",
+          "verified": true,
+          "recommended": false
+        }
+      ]
+    },
+    {
+      "id": "join-of-relations",
+      "letter": "J",
+      "headword_en": "join of relations",
+      "notation": "J_p(R, S)",
+      "rosen_ref": "Rosen, Định nghĩa 3, tr. 444 (bản dịch tiếng Việt)",
+      "definition_vi": "Cho $$R$$ là một quan hệ bậc $$m$$ và $$S$$ là một quan hệ bậc $$n$$. Phép kết nối $$J_p(R, S)$$, với $$p \\leq m$$ và $$p \\leq n$$, là phép toán tạo một quan hệ bậc $$m + n - p$$ gồm tất cả các bộ $$(m + n - p)$$ thành phần thu được bằng cách tổ hợp một bộ $$m$$ thành phần của $$R$$ với một bộ $$n$$ thành phần của $$S$$, trong đó $$p$$ thành phần cuối cùng của bộ thuộc $$R$$ trùng với $$p$$ thành phần đầu tiên của bộ thuộc $$S$$.",
+      "example_vi": "Cho quan hệ $$R$$ gồm các bộ $$3$$ thành phần $$(\\text{Giáo viên}, \\text{Môn}, \\text{Phòng})$$ và quan hệ $$S$$ gồm các bộ $$3$$ thành phần $$(\\text{Môn}, \\text{Phòng}, \\text{Giờ})$$. Khi đó phép kết nối $$J_2(R, S)$$ với $$p = 2$$ ghép các bộ trùng nhau ở hai thành phần $$(\\text{Môn}, \\text{Phòng})$$, tạo ra quan hệ gồm các bộ $$4$$ thành phần $$(\\text{Giáo viên}, \\text{Môn}, \\text{Phòng}, \\text{Giờ})$$.",
+      "vi_terms": [
+        {
+          "term": "phép kết nối",
+          "verified": false,
+          "recommended": true,
+          "source_id": "",
+          "page": "",
+          "pdf_page": 0,
+          "snippet": ""
+        },
+        {
+          "term": "phép kết",
+          "source_id": "",
+          "page": "",
+          "pdf_page": 0,
+          "snippet": "",
+          "verified": false,
+          "recommended": false
+        },
+        {
+          "term": "phép hợp",
+          "source_id": "bib-doducgiao-2009",
+          "page": "tr. 22",
+          "pdf_page": 23,
+          "snippet": "Định nghĩa 1 (Phép hợp, nhân phép và lặp)",
+          "verified": true,
+          "recommended": false
+        },
+        {
+          "term": "phép nối",
+          "source_id": "bib-nguyenhuudien-2019",
+          "page": "tr. 41",
+          "pdf_page": 41,
+          "snippet": "Hãy việt lại các mệnh đề sau dưới dạng hình thức trong đó có sử dụng các phép nối.",
+          "verified": true,
+          "recommended": false
+        },
+        {
+          "term": "phép nối",
+          "source_id": "bib-nguyenhuuanh-2007",
+          "page": "",
+          "pdf_page": 7,
+          "snippet": "các phép nối những mệnh đề này thể hiện qua liên từ hoặc trạng từ",
+          "verified": true,
+          "recommended": false
+        },
+        {
+          "term": "phép nối",
+          "source_id": "bib-vovantuandung-2007",
+          "page": "",
+          "pdf_page": 29,
+          "snippet": "phép nôi.",
+          "verified": true,
+          "recommended": false
+        },
+        {
+          "term": "phép kết",
+          "source_id": "bib-nguyenhuuanh-2007",
+          "page": "",
+          "pdf_page": 30,
+          "snippet": "định cho phép kết luận \"Socrate sẽ chết”.",
+          "verified": true,
+          "recommended": false
+        },
+        {
+          "term": "phép hợp",
+          "source_id": "bib-doducgiao-2008",
+          "page": "tr. 33",
+          "pdf_page": 34,
+          "snippet": "a) Phép hợp (ký hiệu t2)",
+          "verified": true,
+          "recommended": false
+        },
+        {
+          "term": "phép hợp",
+          "source_id": "bib-vudinhhoa-2010",
+          "page": "",
+          "pdf_page": 29,
+          "snippet": "2.3.1 Phép hợp",
+          "verified": true,
+          "recommended": false
+        }
+      ],
+      "see_also": [
+        "n-ary-relation",
+        "projection"
+      ],
+      "notes": "Khái niệm thuộc lý thuyết cơ sở dữ liệu quan hệ. Bản dịch tiếng Việt của Rosen (Định nghĩa 3, tr. 444) gọi phép toán này là \"phép hợp\" và ký hiệu toán tử là $$J_p$$; tuy nhiên \"hợp\" ở đây dễ nhầm với phép hợp tập hợp (union), nên thuật ngữ được đề xuất là \"phép kết nối\" theo cách dùng chuẩn trong các tài liệu cơ sở dữ liệu tiếng Việt. Trong kho ngữ liệu các sách toán rời rạc được khảo sát, cụm \"kết nối\" chỉ xuất hiện theo nghĩa phép kết nối (join) của hai đồ thị, không phải nghĩa kết nối quan hệ ở đây; do đó thuật ngữ tiếng Việt đề xuất chưa có dẫn chứng từ kho ngữ liệu ngoài bản dịch Rosen.",
+      "status": "draft"
+    },
+    {
+      "id": "join",
+      "letter": "J",
+      "headword_en": "join",
+      "notation": "",
+      "rosen_ref": "",
+      "definition_vi": "Trong toán rời rạc, \\emph{phép nối} (join) gộp hai đối tượng thành một theo một quy tắc, và mang nhiều nghĩa tùy ngữ cảnh. Mục này chỉ nêu ý niệm chung; các trường hợp cụ thể được trình bày ở những mục riêng (xem mục Xem thêm).",
+      "example_vi": "Một vài ví dụ về phép nối: phép nối $$J_p(R, S)$$ của hai quan hệ trong cơ sở dữ liệu; phép nối của hai đồ thị (nối mọi đỉnh của đồ thị này với mọi đỉnh của đồ thị kia); và cận trên nhỏ nhất (join) của hai phần tử trong một dàn.",
+      "vi_terms": [
+        {
+          "term": "phép nối",
+          "source_id": "bib-nguyenhuudien-2019",
+          "page": "tr. 41",
+          "pdf_page": 41,
+          "snippet": "Hãy việt lại các mệnh đề sau dưới dạng hình thức trong đó có sử dụng các phép nối.",
+          "verified": true,
+          "recommended": true
+        },
+        {
+          "term": "phép nối",
+          "source_id": "bib-nguyenhuuanh-2007",
+          "page": "",
+          "pdf_page": 7,
+          "snippet": "các phép nối những mệnh đề này thể hiện qua liên từ hoặc trạng từ",
+          "verified": true,
+          "recommended": false
+        },
+        {
+          "term": "phép nối",
+          "source_id": "bib-vovantuandung-2007",
+          "page": "",
+          "pdf_page": 29,
+          "snippet": "phép nôi.",
+          "verified": true,
+          "recommended": false
+        }
+      ],
+      "see_also": [
+        "join-of-relations",
+        "join-of-two-graphs",
+        "join-lattice"
+      ],
+      "notes": "",
+      "status": "panel-approved"
     }
-   ]
-  },
-  {
-   "id": "join-lattice",
-   "letter": "J",
-   "headword_en": "join (least upper bound in a lattice)",
-   "notation": "a \\vee b",
-   "rosen_ref": "Rosen §9.6",
-   "definition_vi": "Trong một dàn $$(L,\\preceq)$$, \\emph{chặn trên nhỏ nhất} của hai phần tử $$a$$ và $$b$$, ký hiệu $$a\\vee b$$, là phần tử $$\\sup(a,b)$$ thỏa mãn $$a\\preceq a\\vee b$$, $$b\\preceq a\\vee b$$, và $$a\\vee b\\preceq c$$ với mọi chặn trên $$c$$ của cả $$a$$ và $$b$$.",
-   "example_vi": "Trong dàn $$(\\{1,2,3,4,6,12\\},\\mid)$$ gồm các ước của $$12$$ với quan hệ chia hết, ta có $$4\\vee 6=12$$ vì $$12$$ là bội chung nhỏ nhất của $$4$$ và $$6$$.",
-   "notes": "Định nghĩa chính xác của join (chặn trên nhỏ nhất trong dàn) xuất hiện trong bib-nguyenhuudien-2019: trang 120 định nghĩa \"chặn trên\" và \"chặn trên nhỏ nhất\" $$=\\sup(A)$$, còn trang 123 nêu rõ $$a\\vee b=\\sup(a,b)$$ với đúng ba điều kiện của Rosen ($$a\\preceq a\\vee b$$, $$b\\preceq a\\vee b$$, và $$a\\vee b\\preceq c$$ với mọi chặn trên $$c$$). Thuật ngữ chuẩn được chọn là \"chặn trên nhỏ nhất\" (có chứng thực trong nguồn 2019). Trong một dàn, chặn trên nhỏ nhất của hai phần tử luôn tồn tại và là duy nhất; tính duy nhất là hệ quả của tính chất dàn, nên không cần ghi \"duy nhất\" trong câu định nghĩa.\n\nKý hiệu/viết tắt \"sup\" cũng được chứng thực trong cả nguồn 2019 (tr.123: \"phần tử sup( a, b) = a ∨ b\") và nguồn 2004 (bib-ngodactan-2004 dùng \"cận trên\" cho upper bound và \"sup\" cho supremum trong lý thuyết thứ tự). Ứng viên \"cận trên nhỏ nhất\" KHÔNG có chứng thực (0 hit cả thường lẫn --loose); chỉ thành phần \"cận trên\" (= upper bound, một thuật ngữ liên quan nhưng KHÁC, không phải bản thân phép join) được chứng thực trong bib-ngodactan-2004 tr.164, nên ghi nhận \"cận trên\" như biến thể cùng họ thuật ngữ chứ không phải tên gọi thay thế cho $$a\\vee b$$.\n\nỨng viên \"hợp (trong dàn)\" KHÔNG có chứng thực như một thuật ngữ riêng cho join: tìm \"hợp\" chỉ ra các nghĩa khác (\"tập hợp\", \"trường hợp\", \"kết hợp\"); trong dàn các phần tử, nguồn 2019 dùng ký hiệu $$\\vee$$ và gọi qua $$\\sup$$, không gọi là \"hợp\". Vì vậy biến thể không chứng thực \"phép hợp\" / \"hợp (trong dàn)\" chỉ được ghi trong notes, không đưa vào định nghĩa hay vào vi_terms. Lưu ý: trong dàn các tập con, $$A\\vee B=A\\cup B$$ (hợp tập hợp) chỉ là một ví dụ cụ thể, không phải tên gọi tổng quát của phép join. Đã loại các thuật ngữ verified=false/page rỗng (\"cận trên nhỏ nhất\", \"hợp (trong dàn)\", \"supremum\").",
-   "see_also": [
-    "lattice",
-    "partial-order",
-    "upper-bound"
-   ],
-   "vi_terms": [
-    {
-     "term": "chặn trên nhỏ nhất",
-     "verified": true,
-     "recommended": true,
-     "source_id": "bib-nguyenhuudien-2019",
-     "pdf_page": 120,
-     "page": "tr. 120",
-     "snippet": "nếu với mọi a ∈ A ta có : a ≤ x. Chặn trên nhỏ nhất (nếu có), tức là phần tử nhỏ nhất trong"
-    },
-    {
-     "term": "sup",
-     "verified": true,
-     "recommended": false,
-     "source_id": "bib-nguyenhuudien-2019",
-     "pdf_page": 123,
-     "page": "tr. 123",
-     "snippet": "2. Trong dàn ( L, ≤), phần tử sup( a, b) = a ∨ b được đặc trưng bởi 2 tính chất sau:"
-    },
-    {
-     "term": "hợp",
-     "source_id": "",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": "",
-     "verified": false,
-     "recommended": false
-    },
-    {
-     "term": "cận trên",
-     "source_id": "bib-doantamhoe-2009",
-     "page": "",
-     "pdf_page": 17,
-     "snippet": "(với a„ > 0). Số b/a„ chính là cận trên của x, (vì nếu x, > b/a,„ thì",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "cận trên",
-     "source_id": "bib-doducgiao-2009",
-     "page": "tr. 230",
-     "pdf_page": 231,
-     "snippet": "a) Tìm cận trên và cận dưới của m.",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "cận trên",
-     "source_id": "bib-vudinhhoa-2010",
-     "page": "",
-     "pdf_page": 41,
-     "snippet": "chỉ cần đánh giá cận trên của số các phần tử của mỗi tập hợp.",
-     "verified": true,
-     "recommended": false
-    }
-   ]
-  },
-  {
-   "id": "jordan-curve-theorem",
-   "letter": "J",
-   "headword_en": "Jordan curve theorem",
-   "notation": "",
-   "rosen_ref": "Rosen §10.7",
-   "definition_vi": "\\emph{Định lý đường cong Jordan} khẳng định rằng mọi đường cong Jordan khép kín $$C$$ trong mặt phẳng (tức là một đường cong liên tục, không tự cắt, có hai điểm đầu mút trùng nhau) chia mặt phẳng thành đúng hai miền: một miền trong bị chặn và một miền ngoài không bị chặn. Đường cong $$C$$ là biên chung của hai miền này.",
-   "example_vi": "Một đường tròn là một đường cong Jordan khép kín: miền trong bị chặn là đĩa mở giới hạn bởi đường tròn, còn miền ngoài không bị chặn là phần mặt phẳng còn lại, và đường tròn là biên chung của cả hai miền.",
-   "notes": "Concept: định lý đường cong Jordan — mọi đường cong Jordan khép kín (đường cong liên tục, không tự cắt, có hai điểm đầu mút trùng nhau) trong mặt phẳng chia mặt phẳng thành đúng hai miền: một miền trong bị chặn và một miền ngoài không bị chặn, mà đường cong là biên chung của chúng.\n\nAttestation summary: Only bib-ngodactan-2004 (2004, OCR) attests any Vietnamese term for this concept. NO 2019-2020 source (bib-leanhvinh-2020, bib-nguyenhoangthach-2020, bib-nguyenhuudien-2019) attests it; OCR sources bib-leanhvinh-2020 and bib-hoangchithanh-2007 returned 0 hits in both normal and --loose runs; text sources bib-nguyenhuudien-2019, bib-nguyenhoangthach-2020, bib-nguyenducnghia-2006 returned 0 hits.\n\nIn bib-ngodactan-2004 (p.210), the concept is defined: \"Một đường cong Jordan trong mặt phẳng là một đường cong liên tục không tự cắt. Một đường cong Jordan vớí các điểm đầu mút trùng nhau được gọi là đường cong Jordan khép kín.\" The theorem itself is stated as the unnamed \"Định lý 6.11. Giả sử c là một đường cong Jordan khép kín trong mặt...\" — the book gives no titled name for the theorem. Index entries on p.337 confirm both \"đường cong Jordan, 210\" and \"đường cong Jordan khép kín, 210\" as headwords.\n\nOCR note: the source spells \"khép kín\" (and once \"khép kin\") — these are OCR renderings of the standard \"khép kín\" (closed). The candidate \"đường cong Jordan khép kín\" therefore matches the source spelling exactly.\n\nRecommended term: \"định lý đường cong Jordan\" is kept as the recommended standard term but verified=false because NO mined source names the theorem — bib-ngodactan-2004 only attests the curve objects (\"đường cong Jordan\", \"đường cong Jordan khép kín\") via the unnamed Định lý 6.11. The candidates \"định lý đường cong Jordan\" and \"định lý Jordan\" returned 0 hits in normal and --loose runs across all sources. The two attested curve-object terms are retained as verified variants since they are the only corpus evidence for this entry.\n\nVerifier note: re-ran find-term.py for both verified terms — \"đường cong Jordan khép kín\" (2 hits, p.210 + index p.337) and \"đường cong Jordan\" (11 hits, p.210 definition) — and confirmed source_id/pdf_page and that snippets denote THIS concept. Confirmed \"định lý đường cong Jordan\" = 0 hits (normal + --loose) and \"định lý Jordan\" = 0 hits (--loose).\n\nVariants recorded: \"đường cong Jordan khép kín\" (closed Jordan curve, the object the theorem is about); \"đường cong Jordan\" (Jordan curve). Unattested theorem-name candidate \"định lý Jordan\" dropped per citation hygiene (verified=false, empty page, not the kept recommended term).\n\nDefinition/example note: definition_vi uses the recommended standard term \"định lý đường cong Jordan\" (marked \\emph{...} at first introduction) and the verified attested object term \"đường cong Jordan khép kín\"; symbol $$C$$ is introduced locally only as a referenceable name for the curve (no standard book notation exists, so the notation field is left empty). The example (a circle) is self-contained and introduces no derived quantity beyond the two regions and common boundary already stated in the definition.",
-   "see_also": [
-    "planar-graph"
-   ],
-   "vi_terms": [
-    {
-     "term": "định lý đường cong Jordan",
-     "verified": false,
-     "recommended": true,
-     "page": "",
-     "snippet": "",
-     "source_id": "",
-     "pdf_page": 0
-    },
-    {
-     "term": "đường cong Jordan khép kín",
-     "verified": true,
-     "recommended": false,
-     "source_id": "bib-ngodactan-2004",
-     "pdf_page": 210,
-     "page": "tr. 210",
-     "snippet": "Đ ịnh lý 6.11. Giả sử c là một đường cong Jordan khép kín trong mặt"
-    },
-    {
-     "term": "đường cong Jordan",
-     "verified": true,
-     "recommended": false,
-     "source_id": "bib-ngodactan-2004",
-     "pdf_page": 210,
-     "page": "tr. 210",
-     "snippet": "Một đường cong Jordan trong mặt phẳng là một đường cong liên"
-    }
-   ]
-  },
-  {
-   "id": "johnson-graph",
-   "letter": "J",
-   "headword_en": "Johnson graph",
-   "notation": "J(n, k)",
-   "definition_vi": "\\emph{Đồ thị Johnson}, ký hiệu $$J(n,k)$$, là đồ thị có các đỉnh là các tập con $$k$$ phần tử của một tập $$n$$ phần tử, trong đó hai đỉnh kề nhau khi và chỉ khi hai tập con tương ứng có chung đúng $$k-1$$ phần tử (tương đương, hiệu đối xứng của chúng có lực lượng bằng $$2$$).",
-   "example_vi": "Trong $$J(4,2)$$, các đỉnh là sáu tập con $$2$$ phần tử của $$\\{1,2,3,4\\}$$; chẳng hạn $$\\{1,2\\}$$ kề với $$\\{1,3\\}$$ vì hai tập này có chung đúng một phần tử, nhưng $$\\{1,2\\}$$ không kề với $$\\{3,4\\}$$ vì chúng không có phần tử chung nào.",
-   "rosen_ref": "Rosen §10.2",
-   "vi_terms": [
-    {
-     "term": "đồ thị Johnson",
-     "verified": false,
-     "recommended": true,
-     "source_id": "",
-     "pdf_page": 0,
-     "page": "",
-     "snippet": ""
-    }
-   ],
-   "notes": "Concept attested in exactly one corpus source, bib-leanhvinh-2020 (2020, graph theory, OCR). The OCR renders \"Đồ\" as \"Dé\" (and \"Ví dụ\" as \"Vi dụ\"), but the snippets preserve \"thị Johnson\" unambiguously; the recommended term is the standard reading \"đồ thị Johnson\". Page 222 (Ví dụ 8.26) defines vertices as the d-element subsets and discusses adjacency (|S∩T|=d-1) and diameter d, matching the Johnson graph J(n,k); page 223 has \"Hình 8.10: Đồ thị Johnson J(2,5)\"; page 245 (Bài tập 8.15) references the case d=2. This source uses notation J(d,l) instead of J(n,k), but it denotes the same concept. The exact phrase \"đồ thị Johnson\" returns 0 hits corpus-wide because the OCR diacritics are mangled; the attestation is recovered via the --loose search ('thị Johnson'/'Johnson'/'J(d'), so a future verifier should not flag the 0 exact-hit count as a fabrication. The variant \"đồ thị Johnson J(n,k)\" merely appends the Rosen notation, is not separately attested (verified=false, empty page/snippet), and was therefore dropped from vi_terms per citation hygiene; it survives only as a notational variant noted here. No 2004-2007 or other 2019-2020 text source (bib-nguyenhoangthach-2020, bib-nguyenhuudien-2019, bib-hoangchithanh-2007, bib-nguyenducnghia-2006, bib-ngodactan-2004) attests this concept; the \"Johnson\" hits in bib-nguyenducnghia-2006 refer to the Johnson scheduling theorem/algorithm (định lý Johnson 1954, thuật toán Johnson) and to the author Johnsonbaugh, NOT the Johnson graph, so they are excluded. The example uses only quantities introduced by the definition (k-element subsets of an n-element set and the shared-(k-1)-elements adjacency rule); the special case n=4, k=2 is self-contained and does not appeal to any derived parameter. The standard Johnson graph requires $$0 \\le k \\le n$$; this is implicit and not restated. see_also is empty: no other same-chapter \"J\" headword is a related Johnson-graph term in this corpus.",
-   "see_also": []
-  },
-  {
-   "id": "jacobi-symbol",
-   "letter": "J",
-   "headword_en": "Jacobi symbol",
-   "notation": "\\left(\\tfrac{a}{n}\\right)",
-   "rosen_ref": "Rosen §4.4",
-   "definition_vi": "Cho số nguyên $$a$$ và số nguyên dương lẻ $$n=p_1^{e_1}\\cdots p_r^{e_r}$$, trong đó $$p_1,\\dots,p_r$$ là các số nguyên tố lẻ phân biệt. \\emph{Ký hiệu Jacobi} của $$a$$ theo $$n$$, ký hiệu $$\\left(\\tfrac{a}{n}\\right)$$, được định nghĩa là tích các ký hiệu Legendre $$\\left(\\tfrac{a}{n}\\right)=\\prod_{i=1}^{r}\\left(\\tfrac{a}{p_i}\\right)^{e_i}$$, mở rộng ký hiệu Legendre sang mọi môđun lẻ dương.",
-   "example_vi": "Với $$a=2$$ và $$n=15=3\\cdot 5$$, ta có $$\\left(\\tfrac{2}{15}\\right)=\\left(\\tfrac{2}{3}\\right)\\left(\\tfrac{2}{5}\\right)=(-1)(-1)=1$$.",
-   "notes": "Khái niệm ký hiệu Jacobi (số học) không xuất hiện trong toàn bộ ngữ liệu tiếng Việt được khai thác, vì cả sáu nguồn đều thuộc lĩnh vực lý thuyết đồ thị và tổ hợp. Các truy vấn \"ký hiệu Jacobi\", \"biểu tượng Jacobi\", \"ký hiệu Legendre\", cũng như chuỗi trần \"Jacobi\" và \"Legendre\" đều cho 0 kết quả ở cả chế độ thường lẫn --loose (kể cả trên hai nguồn OCR bib-leanhvinh-2020 và bib-hoangchithanh-2007). Truy vấn \"thặng dư bậc hai\" (quadratic residue) cho 0 kết quả ở chế độ thường, nhưng ở chế độ --loose có 1 kết quả trong bib-leanhvinh-2020 (tr. 217 PDF: \"đặc trưng thang dư bậc hai của $$F$$\"); đây là đặc trưng thặng dư bậc hai trên trường hữu hạn, không phải ký hiệu Jacobi, nên không chứng thực khái niệm này. Trong ngữ liệu, \"đồng dư\" chỉ xuất hiện ở mức quan hệ tương đương modulo cơ bản (bib-nguyenhuudien-2019, tr. 39/106/110/116 PDF), không có bộ máy ký hiệu Legendre/Jacobi. Do không nguồn nào chứng thực chính khái niệm này, giữ lại một thuật ngữ chuẩn \"ký hiệu Jacobi\" với verified=false, page=\"\" làm thuật ngữ khuyến nghị để vi_terms không rỗng; biến thể \"biểu tượng Jacobi\" cũng được dùng trong một số tài liệu số học tiếng Việt nhưng không có trong ngữ liệu này. Định nghĩa: với số nguyên $$a$$ và số nguyên dương lẻ $$n=p_1^{e_1}\\cdots p_r^{e_r}$$ ($$r\\ge 1$$), ký hiệu Jacobi $$\\left(\\tfrac{a}{n}\\right)$$ là tích các ký hiệu Legendre $$\\prod_{i=1}^{r}\\left(\\tfrac{a}{p_i}\\right)^{e_i}$$; công thức tích này cũng bao trùm trường hợp $$n$$ nguyên tố ($$r=1$$), khi đó ký hiệu Jacobi trùng với ký hiệu Legendre, nên cụm \"mở rộng sang mọi môđun lẻ dương\" chính xác hơn \"môđun lẻ hợp số\".",
-   "see_also": [
-    "quadratic-residue"
-   ],
-   "vi_terms": [
-    {
-     "term": "ký hiệu Jacobi",
-     "verified": false,
-     "recommended": false,
-     "source_id": "",
-     "pdf_page": 0,
-     "page": "",
-     "snippet": ""
-    },
-    {
-     "term": "ký hiệu Jacobi",
-     "source_id": "bib-sierpinski-2012",
-     "page": "",
-     "pdf_page": 13,
-     "snippet": "KÝ HIỆU LEGENDRE VÀ KÝ HIỆU JACOBI",
-     "verified": true,
-     "recommended": true
-    }
-   ]
-  },
-  {
-   "id": "johnsons-algorithm",
-   "letter": "J",
-   "headword_en": "Johnson's algorithm",
-   "notation": "",
-   "rosen_ref": "Rosen §10.6",
-   "definition_vi": "\\emph{Thuật toán Johnson} là thủ tục tìm độ dài đường đi ngắn nhất giữa mọi cặp đỉnh trong một đồ thị có hướng có trọng số $$G = (V, E)$$ mà trọng số cạnh có thể âm nhưng không chứa chu trình có trọng số âm. Thuật toán dùng thuật toán Bellman–Ford để gán cho mỗi đỉnh $$v$$ một thế năng $$h(v)$$, rồi đổi trọng số của mỗi cạnh $$(u, v)$$ từ $$w(u, v)$$ thành $$w'(u, v) = w(u, v) + h(u) - h(v) \\geq 0$$ để mọi trọng số trở thành không âm; sau đó chạy thuật toán Dijkstra từ mỗi đỉnh trên đồ thị đã đổi trọng số và quy đổi kết quả về khoảng cách ban đầu.",
-   "example_vi": "Xét đồ thị có hướng trên ba đỉnh $$\\{1,2,3\\}$$ với các cạnh $$w(1,2)=-2$$, $$w(2,3)=3$$, $$w(1,3)=4$$; đồ thị có một cạnh trọng số âm nhưng không có chu trình trọng số âm. Bellman–Ford cho các thế năng $$h(1)=0$$, $$h(2)=-2$$, $$h(3)=0$$. Khi đó trọng số đổi mới là $$w'(1,2)=-2+0-(-2)=0$$, $$w'(2,3)=3+(-2)-0=1$$ và $$w'(1,3)=4+0-0=4$$, tất cả đều không âm, nên có thể chạy thuật toán Dijkstra từ mỗi đỉnh trên đồ thị đã đổi trọng số.",
-   "notes": "No Vietnamese source in the corpus attests Johnson's shortest-path algorithm (the all-pairs shortest path method that reweights edges via a Bellman-Ford potential and then runs Dijkstra from each vertex). The recommended term \"thuật toán Johnson\" is kept verified=false because every corpus occurrence of \"Johnson\" denotes a DIFFERENT concept: (1) bib-nguyenducnghia-2006 pages 142, 147, 148 (§5.4 \"Bài toán lập lịch gia công trên hai máy. Thuật toán Johnson\") uses \"thuật toán Johnson\" / \"Định lý Johnson (1954)\" for Johnson's 1954 two-machine flow-shop SCHEDULING algorithm (context: \"lịch gia công\" = job scheduling, minimizing makespan), not shortest paths — verified in workflow/corpus/bib-nguyenducnghia-2006.txt lines 6746, 6980, 7013, 7023, 7077; (2) bib-leanhvinh-2020 pages 222-223, 245 uses \"đồ thị Johnson J(d,l)\" for the Johnson GRAPH, an unrelated combinatorial object — verified at workflow/corpus/bib-leanhvinh-2020.txt lines 8186, 8188, 8201, 9146. The all-pairs shortest path material in these books (bib-nguyenducnghia-2006 §6.5 \"Đường đi ngắn nhất giữa tất cả các cặp đỉnh\", page 234; bib-hoangchithanh-2007 pages 97, 101) is taught via \"thuật toán Floyd\" (Floyd–Warshall), never Johnson's reweighting algorithm — confirmed at workflow/corpus/bib-hoangchithanh-2007.txt lines 3594, 3632, 5586. Candidates \"giải thuật Johnson\" and the descriptive \"thuật toán tìm đường đi ngắn nhất giữa mọi cặp đỉnh\" returned 0 hits; the descriptive fallback was dropped from vi_terms per citation hygiene (verified=false, empty page) and is recorded only here. The recommended rendering \"thuật toán Johnson\" follows the corpus naming convention \"thuật toán + [proper name]\" (cf. attested \"thuật toán Floyd\", \"thuật toán Dijkstra\"). OCR sources (bib-leanhvinh-2020, bib-hoangchithanh-2007) were checked with both normal and --loose matching, including OCR-typo forms \"Jonhson\"/\"Jonson\" (the scheduling heading itself is OCR'd as \"Thuật toán Jonhson\"). Example verified by computation: with $$h=(0,-2,0)$$ the reweighting gives $$w'=(0,1,4)$$, all nonnegative; it uses only quantities the definition introduces (an edge-weighted digraph, the potential $$h(v)$$, and the reweighting formula). Note: the see_also id was corrected from \"dijkstras-algorithm\" to \"dijkstra-algorithm\" to match the actual attested entry id in data/terms/entries-d.yaml.",
-   "see_also": [
-    "dijkstra-algorithm",
-    "shortest-path-problem"
-   ],
-   "vi_terms": [
-    {
-     "term": "thuật toán Johnson",
-     "verified": false,
-     "recommended": false,
-     "page": "",
-     "snippet": "",
-     "source_id": "",
-     "pdf_page": 0
-    },
-    {
-     "term": "thuật toán Johnson",
-     "source_id": "bib-nguyenducnghia-2006",
-     "page": "",
-     "pdf_page": 147,
-     "snippet": "Thuật toán JOHNSON",
-     "verified": true,
-     "recommended": true
-    },
-    {
-     "term": "thuật toán Johnson",
-     "source_id": "bib-cormen-2001-vi",
-     "page": "tr. 11",
-     "pdf_page": 9,
-     "snippet": "Thuật toán Johnson cho dé thị thưa 630",
-     "verified": true,
-     "recommended": false
-    }
-   ]
-  },
-  {
-   "id": "join-of-relations",
-   "letter": "J",
-   "headword_en": "Join of Relations",
-   "notation": "J_p(R, S)",
-   "rosen_ref": "Rosen, Định nghĩa 3, tr. 444 (bản dịch tiếng Việt)",
-   "definition_vi": "Cho $$R$$ là một quan hệ bậc $$m$$ và $$S$$ là một quan hệ bậc $$n$$. Phép kết nối $$J_p(R, S)$$, với $$p \\leq m$$ và $$p \\leq n$$, là phép toán tạo một quan hệ bậc $$m + n - p$$ gồm tất cả các bộ $$(m + n - p)$$ thành phần thu được bằng cách tổ hợp một bộ $$m$$ thành phần của $$R$$ với một bộ $$n$$ thành phần của $$S$$, trong đó $$p$$ thành phần cuối cùng của bộ thuộc $$R$$ trùng với $$p$$ thành phần đầu tiên của bộ thuộc $$S$$.",
-   "example_vi": "Cho quan hệ $$R$$ gồm các bộ $$3$$ thành phần $$(\\text{Giáo viên}, \\text{Môn}, \\text{Phòng})$$ và quan hệ $$S$$ gồm các bộ $$3$$ thành phần $$(\\text{Môn}, \\text{Phòng}, \\text{Giờ})$$. Khi đó phép kết nối $$J_2(R, S)$$ với $$p = 2$$ ghép các bộ trùng nhau ở hai thành phần $$(\\text{Môn}, \\text{Phòng})$$, tạo ra quan hệ gồm các bộ $$4$$ thành phần $$(\\text{Giáo viên}, \\text{Môn}, \\text{Phòng}, \\text{Giờ})$$.",
-   "vi_terms": [
-    {
-     "term": "phép kết nối",
-     "verified": false,
-     "recommended": true,
-     "source_id": "",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": ""
-    },
-    {
-     "term": "phép kết",
-     "source_id": "",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": "",
-     "verified": false,
-     "recommended": false
-    },
-    {
-     "term": "phép hợp",
-     "source_id": "bib-doducgiao-2009",
-     "page": "tr. 22",
-     "pdf_page": 23,
-     "snippet": "Định nghĩa 1 (Phép hợp, nhân phép và lặp)",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "phép nối",
-     "source_id": "bib-nguyenhuudien-2019",
-     "page": "tr. 41",
-     "pdf_page": 41,
-     "snippet": "Hãy việt lại các mệnh đề sau dưới dạng hình thức trong đó có sử dụng các phép nối.",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "phép nối",
-     "source_id": "bib-nguyenhuuanh-2007",
-     "page": "",
-     "pdf_page": 7,
-     "snippet": "các phép nối những mệnh đề này thể hiện qua liên từ hoặc trạng từ",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "phép nối",
-     "source_id": "bib-vovantuandung-2007",
-     "page": "",
-     "pdf_page": 29,
-     "snippet": "phép nôi.",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "phép kết",
-     "source_id": "bib-nguyenhuuanh-2007",
-     "page": "",
-     "pdf_page": 30,
-     "snippet": "định cho phép kết luận \"Socrate sẽ chết”.",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "phép hợp",
-     "source_id": "bib-doducgiao-2008",
-     "page": "tr. 33",
-     "pdf_page": 34,
-     "snippet": "a) Phép hợp (ký hiệu t2)",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "phép hợp",
-     "source_id": "bib-vudinhhoa-2010",
-     "page": "",
-     "pdf_page": 29,
-     "snippet": "2.3.1 Phép hợp",
-     "verified": true,
-     "recommended": false
-    }
-   ],
-   "see_also": [
-    "n-ary-relation",
-    "projection"
-   ],
-   "notes": "Khái niệm thuộc lý thuyết cơ sở dữ liệu quan hệ. Bản dịch tiếng Việt của Rosen (Định nghĩa 3, tr. 444) gọi phép toán này là \"phép hợp\" và ký hiệu toán tử là $$J_p$$; tuy nhiên \"hợp\" ở đây dễ nhầm với phép hợp tập hợp (union), nên thuật ngữ được đề xuất là \"phép kết nối\" theo cách dùng chuẩn trong các tài liệu cơ sở dữ liệu tiếng Việt. Trong kho ngữ liệu các sách toán rời rạc được khảo sát, cụm \"kết nối\" chỉ xuất hiện theo nghĩa phép kết nối (join) của hai đồ thị, không phải nghĩa kết nối quan hệ ở đây; do đó thuật ngữ tiếng Việt đề xuất chưa có dẫn chứng từ kho ngữ liệu ngoài bản dịch Rosen.",
-   "status": "draft"
-  },
-  {
-   "id": "join",
-   "letter": "J",
-   "headword_en": "Join",
-   "notation": "",
-   "rosen_ref": "",
-   "definition_vi": "Trong toán rời rạc, \\emph{phép nối} (join) gộp hai đối tượng thành một theo một quy tắc, và mang nhiều nghĩa tùy ngữ cảnh. Mục này chỉ nêu ý niệm chung; các trường hợp cụ thể được trình bày ở những mục riêng (xem mục Xem thêm).",
-   "example_vi": "Một vài ví dụ về phép nối: phép nối $$J_p(R, S)$$ của hai quan hệ trong cơ sở dữ liệu; phép nối của hai đồ thị (nối mọi đỉnh của đồ thị này với mọi đỉnh của đồ thị kia); và cận trên nhỏ nhất (join) của hai phần tử trong một dàn.",
-   "vi_terms": [
-    {
-     "term": "phép nối",
-     "source_id": "bib-nguyenhuudien-2019",
-     "page": "tr. 41",
-     "pdf_page": 41,
-     "snippet": "Hãy việt lại các mệnh đề sau dưới dạng hình thức trong đó có sử dụng các phép nối.",
-     "verified": true,
-     "recommended": true
-    },
-    {
-     "term": "phép nối",
-     "source_id": "bib-nguyenhuuanh-2007",
-     "page": "",
-     "pdf_page": 7,
-     "snippet": "các phép nối những mệnh đề này thể hiện qua liên từ hoặc trạng từ",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "phép nối",
-     "source_id": "bib-vovantuandung-2007",
-     "page": "",
-     "pdf_page": 29,
-     "snippet": "phép nôi.",
-     "verified": true,
-     "recommended": false
-    }
-   ],
-   "see_also": [
-    "join-of-relations",
-    "join-of-two-graphs",
-    "join-lattice"
-   ],
-   "notes": "",
-   "status": "panel-approved"
-  }
- ]
+  ]
 }

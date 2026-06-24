@@ -1,320 +1,320 @@
 {
- "locked_conventions": [
-  "Math: every inline math symbol is wrapped in $$...$$ (e.g. $$\\mathbb{Z}$$, $$\\mathbb{Z}_n$$, $$K_n$$, $$\\chi(G)$$, set braces $$\\{0, 1\\}$$, $$\\gcd(a,b)$$, $$[k]$$); block math uses a ```math fence; no bare unwrapped book-prose math; use $$\\geq$$ $$\\leq$$ $$\\neq$$, never ASCII >= <= !=. Verbatim OCR snippets and literal find-term query strings inside notes are left as quoted source text, not wrapped.",
-  "Bipartite is rendered \"đồ thị hai phần\" (book standard); \"đồ thị hai phía\"/\"đồ thị phân đôi\" are listed variants only. Not triggered in chapter Z (no bipartite content).",
-  "Exactly ONE vi_term per entry has recommended=true; attested in a 2019-2020 source where possible; citations ordered newest-first. EVERY variant from ALL sources (old+new) is recorded. A recommended term may be verified=false only if NO source attests a naming phrase for the headword concept (then explained in notes). This clause is applied to integers-modulo-n, whose headword (\"integers modulo n\") has no corpus-attested naming phrase — only the construction phrase \"tập hợp thương\" and the underlying relation are attested.",
-  "Citation hygiene: every verified=true vi_term carries source_id + pdf_page + page + snippet; verified=false non-recommended terms with empty page are dropped, except one standard recommended term kept so vi_terms stays non-empty. Snippets are reproduced verbatim, including source typos (Z_n set typo) and OCR artifacts (\"Bô’ đề Zorn\").",
-  "Examples are self-contained: they instantiate only the quantities the definition introduces; no derived quantity the definition did not introduce.",
-  "No synonym glosses inside the definition prose; the English headword lives in headword_en, and Vietnamese variants live in vi_terms/notes. (Fixed for zero-one-matrix, which previously inlined the English parenthetical and the relation-matrix variant.)",
-  "see_also: kebab-case ids; only same-chapter ids are linked, cross-chapter ids are forward references recorded in notes (text only). No entries-z.yaml file exists yet, so there are currently NO linkable same-chapter Z ids; every chapter-Z see_also is therefore empty, and related concepts are listed as unlinked forward references in notes.",
-  "Registry constraint: bib-rosen-2003-vi is role:reference and is excluded from the default \"search all\" pass; it may NEVER be the recommended/lead term. In chapter Z, bib-rosen-2003-vi attests \"lớp đồng dư theo modun m\" (congruence classes) relevant to integers-modulo-n, but is recorded only as a forward-reference note, never as a vi_term, per this constraint.",
-  "Recommended term must name the HEADWORD concept (general object), not a special case or a construction. For zero-one-matrix this forces \"(0,1)-ma trận\" (faithful general rendering, attested 2006) over the application-specific \"ma trận quan hệ\" (attested 2019); the soft 2019-2020 preference yields to the hard denotation-match requirement, documented in notes."
- ],
- "deferred_note": "Two see_also-target families are deferred forward references with no existing entries (verified by grep across data/ and source/: 0 hits). (1) chapter-C concept congruence-modulo-n has no entry; it is recorded as an unlinked forward reference in integers-modulo-n notes. (2) The Rosen §2.6 cluster ids boolean-product, join-of-zero-one-matrices, meet-of-zero-one-matrices have no entries and no entries-z.yaml file exists; they are recorded as planned/forward references in zero-one-matrix notes, not as linked same-chapter ids. The project-wide id inconsistency partition-of-a-set vs the canonical chapter-P id partition (entries-p.yaml line 251; partition-of-a-set is already used as a see_also id by existing E and Q entries) is noted but NOT auto-fixed here: it is a project-wide normalization that must be applied consistently across entries-e.yaml, entries-q.yaml, and any future references in one pass, not silently per-chapter. Since all chapter-Z see_also arrays are now empty (no linkable same-chapter ids exist), this chapter introduces no new instance of that inconsistency. The recommended-term-via-verified=false path is exercised for integers-modulo-n because the corpus attests no naming phrase for the residue set $$\\mathbb{Z}_n$$ in any minable source.",
- "final_entries": [
-  {
-   "id": "integers-z",
-   "letter": "Z",
-   "headword_en": "Integers (the set Z)",
-   "notation": "\\mathbb{Z} = \\{\\ldots, -2, -1, 0, 1, 2, \\ldots\\}",
-   "rosen_ref": "Rosen §2.1",
-   "definition_vi": "Tập hợp các số nguyên, ký hiệu $$\\mathbb{Z}$$, là tập hợp gồm tất cả các số tự nhiên cùng với các số đối của chúng và số $$0$$, tức là $$\\mathbb{Z} = \\{\\ldots, -2, -1, 0, 1, 2, \\ldots\\}$$.",
-   "example_vi": "Các số $$-3$$, $$0$$ và $$5$$ đều thuộc $$\\mathbb{Z}$$, trong khi $$\\tfrac{1}{2}$$ không thuộc $$\\mathbb{Z}$$.",
-   "see_also": [],
-   "vi_terms": [
+  "locked_conventions": [
+    "Math: every inline math symbol is wrapped in $$...$$ (e.g. $$\\mathbb{Z}$$, $$\\mathbb{Z}_n$$, $$K_n$$, $$\\chi(G)$$, set braces $$\\{0, 1\\}$$, $$\\gcd(a,b)$$, $$[k]$$); block math uses a ```math fence; no bare unwrapped book-prose math; use $$\\geq$$ $$\\leq$$ $$\\neq$$, never ASCII >= <= !=. Verbatim OCR snippets and literal find-term query strings inside notes are left as quoted source text, not wrapped.",
+    "Bipartite is rendered \"đồ thị hai phần\" (book standard); \"đồ thị hai phía\"/\"đồ thị phân đôi\" are listed variants only. Not triggered in chapter Z (no bipartite content).",
+    "Exactly ONE vi_term per entry has recommended=true; attested in a 2019-2020 source where possible; citations ordered newest-first. EVERY variant from ALL sources (old+new) is recorded. A recommended term may be verified=false only if NO source attests a naming phrase for the headword concept (then explained in notes). This clause is applied to integers-modulo-n, whose headword (\"integers modulo n\") has no corpus-attested naming phrase — only the construction phrase \"tập hợp thương\" and the underlying relation are attested.",
+    "Citation hygiene: every verified=true vi_term carries source_id + pdf_page + page + snippet; verified=false non-recommended terms with empty page are dropped, except one standard recommended term kept so vi_terms stays non-empty. Snippets are reproduced verbatim, including source typos (Z_n set typo) and OCR artifacts (\"Bô’ đề Zorn\").",
+    "Examples are self-contained: they instantiate only the quantities the definition introduces; no derived quantity the definition did not introduce.",
+    "No synonym glosses inside the definition prose; the English headword lives in headword_en, and Vietnamese variants live in vi_terms/notes. (Fixed for zero-one-matrix, which previously inlined the English parenthetical and the relation-matrix variant.)",
+    "see_also: kebab-case ids; only same-chapter ids are linked, cross-chapter ids are forward references recorded in notes (text only). No entries-z.yaml file exists yet, so there are currently NO linkable same-chapter Z ids; every chapter-Z see_also is therefore empty, and related concepts are listed as unlinked forward references in notes.",
+    "Registry constraint: bib-rosen-2003-vi is role:reference and is excluded from the default \"search all\" pass; it may NEVER be the recommended/lead term. In chapter Z, bib-rosen-2003-vi attests \"lớp đồng dư theo modun m\" (congruence classes) relevant to integers-modulo-n, but is recorded only as a forward-reference note, never as a vi_term, per this constraint.",
+    "Recommended term must name the HEADWORD concept (general object), not a special case or a construction. For zero-one-matrix this forces \"(0,1)-ma trận\" (faithful general rendering, attested 2006) over the application-specific \"ma trận quan hệ\" (attested 2019); the soft 2019-2020 preference yields to the hard denotation-match requirement, documented in notes."
+  ],
+  "deferred_note": "Two see_also-target families are deferred forward references with no existing entries (verified by grep across data/ and source/: 0 hits). (1) chapter-C concept congruence-modulo-n has no entry; it is recorded as an unlinked forward reference in integers-modulo-n notes. (2) The Rosen §2.6 cluster ids boolean-product, join-of-zero-one-matrices, meet-of-zero-one-matrices have no entries and no entries-z.yaml file exists; they are recorded as planned/forward references in zero-one-matrix notes, not as linked same-chapter ids. The project-wide id inconsistency partition-of-a-set vs the canonical chapter-P id partition (entries-p.yaml line 251; partition-of-a-set is already used as a see_also id by existing E and Q entries) is noted but NOT auto-fixed here: it is a project-wide normalization that must be applied consistently across entries-e.yaml, entries-q.yaml, and any future references in one pass, not silently per-chapter. Since all chapter-Z see_also arrays are now empty (no linkable same-chapter ids exist), this chapter introduces no new instance of that inconsistency. The recommended-term-via-verified=false path is exercised for integers-modulo-n because the corpus attests no naming phrase for the residue set $$\\mathbb{Z}_n$$ in any minable source.",
+  "final_entries": [
     {
-     "term": "tập hợp các số nguyên",
-     "source_id": "bib-nguyenhuudien-2019",
-     "page": "tr. 74",
-     "pdf_page": 74,
-     "snippet": "trong đó N là tập hợp các số tự nhiên, Z là tập hợp các số nguyên, Q là tập hợp các số hữu",
-     "verified": true,
-     "recommended": true
+      "id": "integers-z",
+      "letter": "Z",
+      "headword_en": "integers (the set Z)",
+      "notation": "\\mathbb{Z} = \\{\\ldots, -2, -1, 0, 1, 2, \\ldots\\}",
+      "rosen_ref": "Rosen §2.1",
+      "definition_vi": "Tập hợp các số nguyên, ký hiệu $$\\mathbb{Z}$$, là tập hợp gồm tất cả các số tự nhiên cùng với các số đối của chúng và số $$0$$, tức là $$\\mathbb{Z} = \\{\\ldots, -2, -1, 0, 1, 2, \\ldots\\}$$.",
+      "example_vi": "Các số $$-3$$, $$0$$ và $$5$$ đều thuộc $$\\mathbb{Z}$$, trong khi $$\\tfrac{1}{2}$$ không thuộc $$\\mathbb{Z}$$.",
+      "see_also": [],
+      "vi_terms": [
+        {
+          "term": "tập hợp các số nguyên",
+          "source_id": "bib-nguyenhuudien-2019",
+          "page": "tr. 74",
+          "pdf_page": 74,
+          "snippet": "trong đó N là tập hợp các số tự nhiên, Z là tập hợp các số nguyên, Q là tập hợp các số hữu",
+          "verified": true,
+          "recommended": true
+        },
+        {
+          "term": "tập số nguyên",
+          "source_id": "bib-nguyenhuudien-2019",
+          "page": "tr. 128",
+          "pdf_page": 128,
+          "snippet": "Chứng minh rằng quan hệ R trên các tập số nguyên được xác định aRb khi và chỉ",
+          "verified": true,
+          "recommended": false
+        },
+        {
+          "term": "số nguyên",
+          "source_id": "bib-leanhvinh-2020",
+          "page": "tr. 26",
+          "pdf_page": 25,
+          "snippet": "Chi số liên thông của đồ thị G, kí hiệu bởi x(G), là số nguyên k",
+          "verified": true,
+          "recommended": false
+        },
+        {
+          "term": "tập hợp các số nguyên",
+          "source_id": "bib-nguyenhoangthach-2020",
+          "page": "tr. 53",
+          "pdf_page": 55,
+          "snippet": "Lời giải: Gọi A, B, C lần lượt là các tập hợp các số nguyên dương không",
+          "verified": true,
+          "recommended": false
+        },
+        {
+          "term": "tập số nguyên",
+          "source_id": "bib-nguyenducnghia-2006",
+          "page": "",
+          "pdf_page": 23,
+          "snippet": "a) Chỉ ra rằng các tập A„ Âu, Á,›, A; và A, tạo thành phân hoạch của tập số nguyên",
+          "verified": true,
+          "recommended": false
+        },
+        {
+          "term": "tập số nguyên",
+          "source_id": "bib-nguyenhuyran-2000",
+          "page": "",
+          "pdf_page": 35,
+          "snippet": "N= /0. 1,9,../ - Tạp số nguyên không 4m",
+          "verified": true,
+          "recommended": false
+        },
+        {
+          "term": "tập các số nguyên",
+          "source_id": "bib-hoangchithanh-2011",
+          "page": "",
+          "pdf_page": 45,
+          "snippet": "N là tập các số nguyên không âm. Ham Grundy trên đồ thị G được định nghĩa",
+          "verified": true,
+          "recommended": false
+        },
+        {
+          "term": "tập các số nguyên",
+          "source_id": "bib-leanhvinh-2020",
+          "page": "tr. 74",
+          "pdf_page": 73,
+          "snippet": "Với 1 < i < r, gọi S, là tập các số nguyên s+1 < j < n sao",
+          "verified": true,
+          "recommended": false
+        },
+        {
+          "term": "số nguyên",
+          "source_id": "bib-nguyenhoangthach-2020",
+          "page": "tr. 12",
+          "pdf_page": 14,
+          "snippet": "chọn vị trí X. Từ 8 đến 30 có 23 số nguyên, do đó có 23 cách chọn Y Y . Có 6",
+          "verified": true,
+          "recommended": false
+        },
+        {
+          "term": "số nguyên",
+          "source_id": "bib-nguyenhuudien-2019",
+          "page": "tr. 6",
+          "pdf_page": 6,
+          "snippet": "5.4. Số nguyên và thuật toán . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 141",
+          "verified": true,
+          "recommended": false
+        },
+        {
+          "term": "tập hợp các số nguyên",
+          "source_id": "bib-doducthai-2010",
+          "page": "tr. 33",
+          "pdf_page": 33,
+          "snippet": "của một siêu thị, thì có thể dùng tập hợp các số nguyên không âm",
+          "verified": true,
+          "recommended": false
+        },
+        {
+          "term": "tập các số nguyên",
+          "source_id": "bib-vudinhhoa-2010",
+          "page": "",
+          "pdf_page": 102,
+          "snippet": "thuật toán Eửtlid ở trên, các số zn và n là các dữ liệu lấy từ tập các số nguyên",
+          "verified": true,
+          "recommended": false
+        }
+      ],
+      "notes": "Concept = the full set of integers $$\\mathbb{Z} = \\{\\ldots, -2, -1, 0, 1, 2, \\ldots\\}$$.\n\nRECOMMENDED: \"tập hợp các số nguyên\" — the explicit, fully-spelled standard term, attested in a 2019 source (bib-nguyenhuudien-2019, tr. 74 PDF) with a definitional snippet equating it to $$\\mathbb{Z}$$: \"Z là tập hợp các số nguyên\". The 2019-2020 attestation requirement is satisfied.\n\nVARIANTS (all verified=true, ordered newest-first by source): \"tập số nguyên\" (clipped, nguyenhuudien-2019 tr. 128 PDF); \"tập các số nguyên\" (clipped, omits \"hợp\"; nguyenducnghia-2006 tr. 23 PDF, \"Ký hiệu Z là tập các số nguyên\"); \"số nguyên\" (the lexical ROOT = English \"integer\", recorded from leanhvinh-2020 tr. 25 PDF). Per the panel, \"số nguyên\" denotes the integer number TYPE / an individual integer, not the set $$\\mathbb{Z}$$ itself; it is retained only as the lexical root, and the three set-denoting variants above carry the headword concept.\n\nEXCLUDED non-matches (denote subsets/types, not $$\\mathbb{Z}$$): \"số nguyên dương\" (positive integers), \"số nguyên không âm\" (non-negative integers, nguyenducnghia-2006 tr. 110/122), \"số nguyên tố\" (primes); and the leanhvinh-2020 tr. 73 range use \"tập các số nguyên s+1 < j < n\" (index range, not $$\\mathbb{Z}$$).\n\nThe symbol $$\\mathbb{Z}$$ is used consistently for this set across the Vietnamese corpus, matching Rosen's notation. The definition opens with the recommended term, gives notation via \"ký hiệu $$\\mathbb{Z}$$\", states it formally, and lists the set; the example is self-contained. see_also empty: no other same-chapter Z-terms exist."
     },
     {
-     "term": "tập số nguyên",
-     "source_id": "bib-nguyenhuudien-2019",
-     "page": "tr. 128",
-     "pdf_page": 128,
-     "snippet": "Chứng minh rằng quan hệ R trên các tập số nguyên được xác định aRb khi và chỉ",
-     "verified": true,
-     "recommended": false
+      "id": "integers-modulo-n",
+      "letter": "Z",
+      "headword_en": "integers modulo n (the set Z_n)",
+      "notation": "\\mathbb{Z}_n = \\{[0], [1], [2], \\ldots, [n-1]\\}",
+      "rosen_ref": "Rosen §4.1",
+      "definition_vi": "Với số nguyên dương $$n$$, $$\\mathbb{Z}_n$$ là tập hợp thương của quan hệ đồng dư modulo $$n$$ trên $$\\mathbb{Z}$$, gồm $$n$$ phần tử $$\\mathbb{Z}_n = \\{[0], [1], [2], \\ldots, [n-1]\\}$$, trong đó mỗi phần tử $$[k]$$ là tập hợp tất cả các số nguyên đồng dư với $$k$$ modulo $$n$$. Khi viết gọn $$\\mathbb{Z}_n = \\{0, 1, 2, \\ldots, n-1\\}$$, mỗi số $$k$$ được hiểu là đại diện cho lớp $$[k]$$ của nó.",
+      "example_vi": "Với $$n = 4$$, ta có $$\\mathbb{Z}_4 = \\{[0], [1], [2], [3]\\}$$, trong đó phần tử $$[1]$$ là tập hợp tất cả các số nguyên đồng dư với $$1$$ modulo $$4$$, tức là $$\\{\\ldots, -7, -3, 1, 5, 9, \\ldots\\}$$.",
+      "see_also": [],
+      "vi_terms": [
+        {
+          "term": "số nguyên modulo n",
+          "source_id": "",
+          "page": "",
+          "pdf_page": null,
+          "snippet": "",
+          "verified": false,
+          "recommended": false
+        },
+        {
+          "term": "tập hợp thương $$\\mathbb{Z}_n$$",
+          "source_id": "",
+          "page": "",
+          "pdf_page": 0,
+          "snippet": "",
+          "verified": false,
+          "recommended": false
+        },
+        {
+          "term": "quan hệ đồng dư modulo n trên Z",
+          "source_id": "bib-nguyenhuudien-2019",
+          "page": "tr. 116",
+          "pdf_page": 116,
+          "snippet": "Quan hệ đồng dư modulo n trên Z có tập hợp thương tương ứng, được ký hiệu là Zn , gồm",
+          "verified": true,
+          "recommended": false
+        },
+        {
+          "term": "tập hợp các số nguyên modulo n",
+          "source_id": "",
+          "page": "",
+          "pdf_page": 0,
+          "snippet": "",
+          "verified": false,
+          "recommended": false
+        },
+        {
+          "term": "tập các lớp đồng dư modulo n",
+          "source_id": "",
+          "page": "",
+          "pdf_page": 0,
+          "snippet": "",
+          "verified": false,
+          "recommended": false
+        },
+        {
+          "term": "số nguyên modulo n",
+          "source_id": "bib-cormen-2001-vi",
+          "page": "tr. 904",
+          "pdf_page": 902,
+          "snippet": "nhóm này dựa trên các lớp tương đương của các số nguyên modulo n,",
+          "verified": true,
+          "recommended": true
+        }
+      ],
+      "notes": "Concept = the residue set $$\\mathbb{Z}_n$$, the quotient set of the congruence-modulo-$$n$$ relation on $$\\mathbb{Z}$$, with $$n$$ elements that are congruence classes $$[0], [1], \\ldots, [n-1]$$.\n\nRECOMMENDED (verified=false, by convention): \"số nguyên modulo n\". The corpus attests NO naming noun phrase for the set $$\\mathbb{Z}_n$$ in any minable source; only the CONSTRUCTION phrase (\"tập hợp thương\") and the underlying RELATION are attested. Per the locked convention, when no source attests a naming phrase for the headword, one standard recommended term is kept with verified=false and explained here, rather than promoting the construction phrase to recommended. \"số nguyên modulo n\" is the faithful Vietnamese rendering of the headword \"integers modulo n\"; the embedded-math/construction-phrase concerns the panel raised against the former recommended term \"tập hợp thương $$\\mathbb{Z}_n$$\" are thereby resolved (that term is demoted to a verified=true variant).\n\nVERIFIED VARIANTS (kept with full citations): \"tập hợp thương $$\\mathbb{Z}_n$$\" (the quotient-set construction; bib-nguyenhuudien-2019 tr. 116 PDF) — at corpus line 4969: \"Quan hệ đồng dư modulo n trên Z có tập hợp thương tương ứng, được ký hiệu là Zn , gồm n phần tử\"; and \"quan hệ đồng dư modulo n trên Z\" (names the underlying relation; same page, kept because p.116 ties it directly to the construction of $$\\mathbb{Z}_n$$).\n\nSOURCE TYPO [sic]: the snippet displays \"Zn = {0, 2, ..., n − 1}\" (missing 1) verbatim from the source; the definition_vi correctly writes $$\\{0, 1, 2, \\ldots, n-1\\}$$. The snippet is left verbatim per citation hygiene.\n\nNOTATION CONSISTENCY: the definition now lists $$\\mathbb{Z}_n = \\{[0], [1], \\ldots, [n-1]\\}$$ with class notation and adds a clause stating that in the short form $$\\{0, 1, \\ldots, n-1\\}$$ each $$k$$ represents its class $$[k]$$; the example uses the same class notation.\n\nFORWARD REFERENCES (unlinked, cross-chapter — see_also empty): congruence-modulo-n (chapter C, NO entry exists yet — deferred), equivalence-class (chapter E, exists), quotient-set (chapter Q, exists), and the partition concept (canonical chapter-P id is \"partition\", not \"partition-of-a-set\"). Note: bib-rosen-2003-vi attests \"lớp đồng dư theo modun m\" (congruence classes) but is role:reference and excluded from vi_terms by the registry constraint. The concept does not appear in the graph-theory/combinatorics sources (bib-leanhvinh-2020, bib-nguyenhoangthach-2020, bib-hoangchithanh-2007, bib-ngodactan-2004); OCR sources were searched normally and with --loose with no relevant hits."
     },
     {
-     "term": "số nguyên",
-     "source_id": "bib-leanhvinh-2020",
-     "page": "tr. 26",
-     "pdf_page": 25,
-     "snippet": "Chi số liên thông của đồ thị G, kí hiệu bởi x(G), là số nguyên k",
-     "verified": true,
-     "recommended": false
+      "id": "zorns-lemma",
+      "letter": "Z",
+      "headword_en": "Zorn's lemma",
+      "notation": "",
+      "rosen_ref": "Rosen §9.6",
+      "definition_vi": "Bổ đề Zorn khẳng định rằng nếu $$P$$ là một tập khác rỗng được sắp thứ tự bộ phận sao cho mọi xích (tập con được sắp thứ tự toàn phần) của $$P$$ đều có một chặn trên trong $$P$$, thì $$P$$ chứa ít nhất một phần tử cực đại.",
+      "example_vi": "Trong tập tất cả các lọc trên một tập, được sắp thứ tự bộ phận bởi quan hệ bao hàm $$\\subseteq$$, hợp của một xích các lọc lại là một lọc và là chặn trên của xích đó; theo bổ đề Zorn, mỗi lọc đều nằm trong một lọc cực đại.",
+      "see_also": [],
+      "vi_terms": [
+        {
+          "term": "bổ đề Zorn",
+          "source_id": "",
+          "page": "",
+          "pdf_page": 0,
+          "snippet": "",
+          "verified": false,
+          "recommended": true
+        }
+      ],
+      "notes": "Concept = Zorn's lemma on partially ordered sets.\n\nNONEMPTINESS FIX (panel correctness, med): the definition now states the load-bearing hypothesis that $$P$$ is NONEMPTY (\"khác rỗng\"), matching the standard Rosen/textbook statement: a NONEMPTY poset in which every chain has an upper bound has a maximal element. The chain / upper-bound / maximal-element machinery is otherwise stated correctly.\n\nATTESTATION: only bib-ngodactan-2004 (2004) attests this concept, at PDF page 324, in a filter context: \"Theo Bổ đề Zorn, mỗi lọc đều chứa trong một lọc cực đại\". The OCR renders \"Bổ\" as \"Bô’\", so an exact search for \"bổ đề Zorn\" returns 0 hits while the substring \"đề Zorn\" catches the line; the term value is normalized to \"bổ đề Zorn\" while the snippet preserves the raw OCR \"Bô’ đề Zorn\" for traceability. NO 2019-2020 source attests any candidate (verified across all six corpus sources, including --loose runs on the two OCR sources bib-leanhvinh-2020 and bib-hoangchithanh-2007, both 0 hits). The 2019-2020 preference is soft (\"where possible\"); the recommended term is anchored to the only attesting source, which is policy-compliant.\n\nDROPPED: \"định lý Zorn\" is a genuine alternative rendering but is attested in NO corpus source (verified=false), so it is dropped per citation hygiene. \"đề Zorn\" is not a distinct term — only the truncated OCR substring match.\n\nThe example mirrors the 2004 source's filter context (lọc / lọc cực đại) and is self-contained: it uses only the poset, chain, upper-bound, and maximal-element notions the definition introduces. see_also empty: no other letter-Z entries exist; related concepts (partial order, chain, maximal element) are cross-chapter forward references, not linked."
     },
     {
-     "term": "tập hợp các số nguyên",
-     "source_id": "bib-nguyenhoangthach-2020",
-     "page": "tr. 53",
-     "pdf_page": 55,
-     "snippet": "Lời giải: Gọi A, B, C lần lượt là các tập hợp các số nguyên dương không",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "tập số nguyên",
-     "source_id": "bib-nguyenducnghia-2006",
-     "page": "",
-     "pdf_page": 23,
-     "snippet": "a) Chỉ ra rằng các tập A„ Âu, Á,›, A; và A, tạo thành phân hoạch của tập số nguyên",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "tập số nguyên",
-     "source_id": "bib-nguyenhuyran-2000",
-     "page": "",
-     "pdf_page": 35,
-     "snippet": "N= /0. 1,9,../ - Tạp số nguyên không 4m",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "tập các số nguyên",
-     "source_id": "bib-hoangchithanh-2011",
-     "page": "",
-     "pdf_page": 45,
-     "snippet": "N là tập các số nguyên không âm. Ham Grundy trên đồ thị G được định nghĩa",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "tập các số nguyên",
-     "source_id": "bib-leanhvinh-2020",
-     "page": "tr. 74",
-     "pdf_page": 73,
-     "snippet": "Với 1 < i < r, gọi S, là tập các số nguyên s+1 < j < n sao",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "số nguyên",
-     "source_id": "bib-nguyenhoangthach-2020",
-     "page": "tr. 12",
-     "pdf_page": 14,
-     "snippet": "chọn vị trí X. Từ 8 đến 30 có 23 số nguyên, do đó có 23 cách chọn Y Y . Có 6",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "số nguyên",
-     "source_id": "bib-nguyenhuudien-2019",
-     "page": "tr. 6",
-     "pdf_page": 6,
-     "snippet": "5.4. Số nguyên và thuật toán . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 141",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "tập hợp các số nguyên",
-     "source_id": "bib-doducthai-2010",
-     "page": "tr. 33",
-     "pdf_page": 33,
-     "snippet": "của một siêu thị, thì có thể dùng tập hợp các số nguyên không âm",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "tập các số nguyên",
-     "source_id": "bib-vudinhhoa-2010",
-     "page": "",
-     "pdf_page": 102,
-     "snippet": "thuật toán Eửtlid ở trên, các số zn và n là các dữ liệu lấy từ tập các số nguyên",
-     "verified": true,
-     "recommended": false
+      "id": "zero-one-matrix",
+      "letter": "Z",
+      "headword_en": "zero-one matrix",
+      "notation": "A = [a_{ij}],\\ a_{ij} \\in \\{0, 1\\}",
+      "rosen_ref": "Rosen §2.6",
+      "definition_vi": "Một ma trận $$0$$-$$1$$ là ma trận mà mọi phần tử đều bằng $$0$$ hoặc $$1$$, ký hiệu $$A = [a_{ij}]$$ với $$a_{ij} \\in \\{0, 1\\}$$. Loại ma trận này thường được dùng để biểu diễn các cấu trúc rời rạc như quan hệ và đồ thị; khi biểu diễn một quan hệ $$R$$, ta đặt $$a_{ij} = 1$$ khi và chỉ khi cặp phần tử tương ứng thuộc $$R$$.",
+      "example_vi": "Với tập $$A = \\{1, 2, 3\\}$$, tập $$B = \\{a, b, c\\}$$ và quan hệ $$R = \\{(1, a), (1, b), (1, c)\\}$$, ma trận tương ứng là ma trận $$0$$-$$1$$ cấp $$3 \\times 3$$ có hàng đầu gồm ba số $$1$$ và hai hàng còn lại gồm toàn số $$0$$.",
+      "see_also": [],
+      "vi_terms": [
+        {
+          "term": "(0,1)-ma trận",
+          "source_id": "bib-nguyenducnghia-2006",
+          "page": "",
+          "pdf_page": 168,
+          "snippet": "e„t. Ta gọi ma trận kể của đồ thị Ơ là (0,1)-ma trận",
+          "verified": true,
+          "recommended": true
+        },
+        {
+          "term": "ma trận quan hệ",
+          "source_id": "bib-nguyenhuudien-2019",
+          "page": "tr. 114",
+          "pdf_page": 114,
+          "snippet": "Ma trận quan hệ R ⊆ A × B là MRn×m và phần tử hàng i, cột j là",
+          "verified": true,
+          "recommended": false
+        },
+        {
+          "term": "ma trận biểu diễn của quan hệ",
+          "source_id": "bib-nguyenhuudien-2019",
+          "page": "tr. 108",
+          "pdf_page": 108,
+          "snippet": "Ta gọi ma trận MR là ma trận biểu diễn của quan hệ R.",
+          "verified": true,
+          "recommended": false
+        },
+        {
+          "term": "ma trận 0-1",
+          "source_id": "",
+          "page": "",
+          "pdf_page": 0,
+          "snippet": "",
+          "verified": false,
+          "recommended": false
+        },
+        {
+          "term": "ma trận không-một",
+          "source_id": "",
+          "page": "",
+          "pdf_page": 0,
+          "snippet": "",
+          "verified": false,
+          "recommended": false
+        },
+        {
+          "term": "ma trận nhị phân",
+          "source_id": "",
+          "page": "",
+          "pdf_page": 0,
+          "snippet": "",
+          "verified": false,
+          "recommended": false
+        },
+        {
+          "term": "ma trận quan hệ",
+          "source_id": "bib-doducgiao-2008",
+          "page": "tr. 64",
+          "pdf_page": 65,
+          "snippet": "Ma trận quan hệ ngược: Gia sử A = (ai, a, ..., an}, B= (bị, bạ,..., bạ}.",
+          "verified": true,
+          "recommended": false
+        },
+        {
+          "term": "ma trận quan hệ",
+          "source_id": "bib-vovantuandung-2007",
+          "page": "",
+          "pdf_page": 99,
+          "snippet": "gọi là ma trân quan hệ như sau:",
+          "verified": true,
+          "recommended": false
+        },
+        {
+          "term": "ma trận 0-1",
+          "source_id": "bib-vudinhhoa-2010",
+          "page": "",
+          "pdf_page": 123,
+          "snippet": "Trong trường hợp đồ thị là đồ thị đơn thì ma trận liền kề là ma trận 0-1. Chẳng hạn",
+          "verified": true,
+          "recommended": false
+        }
+      ],
+      "notes": "Concept = a zero-one matrix, i.e. any matrix with every entry in $$\\{0, 1\\}$$ (Rosen §2.6), used mainly to represent relations and graphs.\n\nRECOMMENDED PROMOTION (panel correctness + exposition, high): the recommended term is now \"(0,1)-ma trận\" (nguyenducnghia-2006 tr. 168 PDF, where the adjacency matrix of a graph is stated to be a \"(0,1)-ma trận\"). This is the faithful Vietnamese rendering whose denotation MATCHES the general headword \"zero-one matrix\". The previous recommended term \"ma trận quan hệ\" (relation matrix) names only the SPECIAL CASE in which a 0-1 matrix encodes a relation, so it is demoted to a verified=true variant. The locked 2019-2020 preference is soft (\"where possible\"); here it yields to the hard requirement that the recommended term name the headword concept, so the 2006 direct equivalent is preferred over the 2019 application-specific term. This trade-off is documented explicitly per convention.\n\nSYNONYM-GLOSS FIX (panel exposition, high): the definition no longer contains the English parenthetical \"(zero-one matrix)\" nor inlines \"ma trận quan hệ\" as a synonym; the English headword lives in headword_en and the relation-matrix terminology now lives only in vi_terms/notes.\n\nVERIFIED VARIANTS: \"ma trận quan hệ\" (relation matrix; nguyenhuudien-2019 tr. 114 PDF) and \"ma trận biểu diễn của quan hệ\" (representation matrix of a relation; same source tr. 108 PDF) — both name the relation-representation special case. DROPPED candidate \"ma trận nhị phân\" (binary matrix): 0 hits in any source (normal and --loose), so not listed. \"ma trận kề\" (adjacency matrix) is a distinct special case (graphs) and a separate entry, not a variant of the general concept.\n\nNOTES LANGUAGE: rewritten in English for chapter consistency (the other three Z entries use English).\n\nFORWARD REFERENCES (unlinked — see_also empty): \"matrix\" is a chapter-M cross-reference (entry exists); the Rosen §2.6 cluster boolean-product, join-of-zero-one-matrices, meet-of-zero-one-matrices have NO entries and there is no entries-z.yaml file, so they are PLANNED forward references to not-yet-created same-chapter Z entries, not present linkable ids. Per the convention, only existing same-chapter ids may be linked; since none exist, see_also is empty and these are recorded here as forward references."
     }
-   ],
-   "notes": "Concept = the full set of integers $$\\mathbb{Z} = \\{\\ldots, -2, -1, 0, 1, 2, \\ldots\\}$$.\n\nRECOMMENDED: \"tập hợp các số nguyên\" — the explicit, fully-spelled standard term, attested in a 2019 source (bib-nguyenhuudien-2019, tr. 74 PDF) with a definitional snippet equating it to $$\\mathbb{Z}$$: \"Z là tập hợp các số nguyên\". The 2019-2020 attestation requirement is satisfied.\n\nVARIANTS (all verified=true, ordered newest-first by source): \"tập số nguyên\" (clipped, nguyenhuudien-2019 tr. 128 PDF); \"tập các số nguyên\" (clipped, omits \"hợp\"; nguyenducnghia-2006 tr. 23 PDF, \"Ký hiệu Z là tập các số nguyên\"); \"số nguyên\" (the lexical ROOT = English \"integer\", recorded from leanhvinh-2020 tr. 25 PDF). Per the panel, \"số nguyên\" denotes the integer number TYPE / an individual integer, not the set $$\\mathbb{Z}$$ itself; it is retained only as the lexical root, and the three set-denoting variants above carry the headword concept.\n\nEXCLUDED non-matches (denote subsets/types, not $$\\mathbb{Z}$$): \"số nguyên dương\" (positive integers), \"số nguyên không âm\" (non-negative integers, nguyenducnghia-2006 tr. 110/122), \"số nguyên tố\" (primes); and the leanhvinh-2020 tr. 73 range use \"tập các số nguyên s+1 < j < n\" (index range, not $$\\mathbb{Z}$$).\n\nThe symbol $$\\mathbb{Z}$$ is used consistently for this set across the Vietnamese corpus, matching Rosen's notation. The definition opens with the recommended term, gives notation via \"ký hiệu $$\\mathbb{Z}$$\", states it formally, and lists the set; the example is self-contained. see_also empty: no other same-chapter Z-terms exist."
-  },
-  {
-   "id": "integers-modulo-n",
-   "letter": "Z",
-   "headword_en": "Integers modulo n (the set Z_n)",
-   "notation": "\\mathbb{Z}_n = \\{[0], [1], [2], \\ldots, [n-1]\\}",
-   "rosen_ref": "Rosen §4.1",
-   "definition_vi": "Với số nguyên dương $$n$$, $$\\mathbb{Z}_n$$ là tập hợp thương của quan hệ đồng dư modulo $$n$$ trên $$\\mathbb{Z}$$, gồm $$n$$ phần tử $$\\mathbb{Z}_n = \\{[0], [1], [2], \\ldots, [n-1]\\}$$, trong đó mỗi phần tử $$[k]$$ là tập hợp tất cả các số nguyên đồng dư với $$k$$ modulo $$n$$. Khi viết gọn $$\\mathbb{Z}_n = \\{0, 1, 2, \\ldots, n-1\\}$$, mỗi số $$k$$ được hiểu là đại diện cho lớp $$[k]$$ của nó.",
-   "example_vi": "Với $$n = 4$$, ta có $$\\mathbb{Z}_4 = \\{[0], [1], [2], [3]\\}$$, trong đó phần tử $$[1]$$ là tập hợp tất cả các số nguyên đồng dư với $$1$$ modulo $$4$$, tức là $$\\{\\ldots, -7, -3, 1, 5, 9, \\ldots\\}$$.",
-   "see_also": [],
-   "vi_terms": [
-    {
-     "term": "số nguyên modulo n",
-     "source_id": "",
-     "page": "",
-     "pdf_page": null,
-     "snippet": "",
-     "verified": false,
-     "recommended": false
-    },
-    {
-     "term": "tập hợp thương $$\\mathbb{Z}_n$$",
-     "source_id": "",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": "",
-     "verified": false,
-     "recommended": false
-    },
-    {
-     "term": "quan hệ đồng dư modulo n trên Z",
-     "source_id": "bib-nguyenhuudien-2019",
-     "page": "tr. 116",
-     "pdf_page": 116,
-     "snippet": "Quan hệ đồng dư modulo n trên Z có tập hợp thương tương ứng, được ký hiệu là Zn , gồm",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "tập hợp các số nguyên modulo n",
-     "source_id": "",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": "",
-     "verified": false,
-     "recommended": false
-    },
-    {
-     "term": "tập các lớp đồng dư modulo n",
-     "source_id": "",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": "",
-     "verified": false,
-     "recommended": false
-    },
-    {
-     "term": "số nguyên modulo n",
-     "source_id": "bib-cormen-2001-vi",
-     "page": "tr. 904",
-     "pdf_page": 902,
-     "snippet": "nhóm này dựa trên các lớp tương đương của các số nguyên modulo n,",
-     "verified": true,
-     "recommended": true
-    }
-   ],
-   "notes": "Concept = the residue set $$\\mathbb{Z}_n$$, the quotient set of the congruence-modulo-$$n$$ relation on $$\\mathbb{Z}$$, with $$n$$ elements that are congruence classes $$[0], [1], \\ldots, [n-1]$$.\n\nRECOMMENDED (verified=false, by convention): \"số nguyên modulo n\". The corpus attests NO naming noun phrase for the set $$\\mathbb{Z}_n$$ in any minable source; only the CONSTRUCTION phrase (\"tập hợp thương\") and the underlying RELATION are attested. Per the locked convention, when no source attests a naming phrase for the headword, one standard recommended term is kept with verified=false and explained here, rather than promoting the construction phrase to recommended. \"số nguyên modulo n\" is the faithful Vietnamese rendering of the headword \"integers modulo n\"; the embedded-math/construction-phrase concerns the panel raised against the former recommended term \"tập hợp thương $$\\mathbb{Z}_n$$\" are thereby resolved (that term is demoted to a verified=true variant).\n\nVERIFIED VARIANTS (kept with full citations): \"tập hợp thương $$\\mathbb{Z}_n$$\" (the quotient-set construction; bib-nguyenhuudien-2019 tr. 116 PDF) — at corpus line 4969: \"Quan hệ đồng dư modulo n trên Z có tập hợp thương tương ứng, được ký hiệu là Zn , gồm n phần tử\"; and \"quan hệ đồng dư modulo n trên Z\" (names the underlying relation; same page, kept because p.116 ties it directly to the construction of $$\\mathbb{Z}_n$$).\n\nSOURCE TYPO [sic]: the snippet displays \"Zn = {0, 2, ..., n − 1}\" (missing 1) verbatim from the source; the definition_vi correctly writes $$\\{0, 1, 2, \\ldots, n-1\\}$$. The snippet is left verbatim per citation hygiene.\n\nNOTATION CONSISTENCY: the definition now lists $$\\mathbb{Z}_n = \\{[0], [1], \\ldots, [n-1]\\}$$ with class notation and adds a clause stating that in the short form $$\\{0, 1, \\ldots, n-1\\}$$ each $$k$$ represents its class $$[k]$$; the example uses the same class notation.\n\nFORWARD REFERENCES (unlinked, cross-chapter — see_also empty): congruence-modulo-n (chapter C, NO entry exists yet — deferred), equivalence-class (chapter E, exists), quotient-set (chapter Q, exists), and the partition concept (canonical chapter-P id is \"partition\", not \"partition-of-a-set\"). Note: bib-rosen-2003-vi attests \"lớp đồng dư theo modun m\" (congruence classes) but is role:reference and excluded from vi_terms by the registry constraint. The concept does not appear in the graph-theory/combinatorics sources (bib-leanhvinh-2020, bib-nguyenhoangthach-2020, bib-hoangchithanh-2007, bib-ngodactan-2004); OCR sources were searched normally and with --loose with no relevant hits."
-  },
-  {
-   "id": "zorns-lemma",
-   "letter": "Z",
-   "headword_en": "Zorn's lemma",
-   "notation": "",
-   "rosen_ref": "Rosen §9.6",
-   "definition_vi": "Bổ đề Zorn khẳng định rằng nếu $$P$$ là một tập khác rỗng được sắp thứ tự bộ phận sao cho mọi xích (tập con được sắp thứ tự toàn phần) của $$P$$ đều có một chặn trên trong $$P$$, thì $$P$$ chứa ít nhất một phần tử cực đại.",
-   "example_vi": "Trong tập tất cả các lọc trên một tập, được sắp thứ tự bộ phận bởi quan hệ bao hàm $$\\subseteq$$, hợp của một xích các lọc lại là một lọc và là chặn trên của xích đó; theo bổ đề Zorn, mỗi lọc đều nằm trong một lọc cực đại.",
-   "see_also": [],
-   "vi_terms": [
-    {
-     "term": "bổ đề Zorn",
-     "source_id": "",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": "",
-     "verified": false,
-     "recommended": true
-    }
-   ],
-   "notes": "Concept = Zorn's lemma on partially ordered sets.\n\nNONEMPTINESS FIX (panel correctness, med): the definition now states the load-bearing hypothesis that $$P$$ is NONEMPTY (\"khác rỗng\"), matching the standard Rosen/textbook statement: a NONEMPTY poset in which every chain has an upper bound has a maximal element. The chain / upper-bound / maximal-element machinery is otherwise stated correctly.\n\nATTESTATION: only bib-ngodactan-2004 (2004) attests this concept, at PDF page 324, in a filter context: \"Theo Bổ đề Zorn, mỗi lọc đều chứa trong một lọc cực đại\". The OCR renders \"Bổ\" as \"Bô’\", so an exact search for \"bổ đề Zorn\" returns 0 hits while the substring \"đề Zorn\" catches the line; the term value is normalized to \"bổ đề Zorn\" while the snippet preserves the raw OCR \"Bô’ đề Zorn\" for traceability. NO 2019-2020 source attests any candidate (verified across all six corpus sources, including --loose runs on the two OCR sources bib-leanhvinh-2020 and bib-hoangchithanh-2007, both 0 hits). The 2019-2020 preference is soft (\"where possible\"); the recommended term is anchored to the only attesting source, which is policy-compliant.\n\nDROPPED: \"định lý Zorn\" is a genuine alternative rendering but is attested in NO corpus source (verified=false), so it is dropped per citation hygiene. \"đề Zorn\" is not a distinct term — only the truncated OCR substring match.\n\nThe example mirrors the 2004 source's filter context (lọc / lọc cực đại) and is self-contained: it uses only the poset, chain, upper-bound, and maximal-element notions the definition introduces. see_also empty: no other letter-Z entries exist; related concepts (partial order, chain, maximal element) are cross-chapter forward references, not linked."
-  },
-  {
-   "id": "zero-one-matrix",
-   "letter": "Z",
-   "headword_en": "Zero-one matrix",
-   "notation": "A = [a_{ij}],\\ a_{ij} \\in \\{0, 1\\}",
-   "rosen_ref": "Rosen §2.6",
-   "definition_vi": "Một ma trận $$0$$-$$1$$ là ma trận mà mọi phần tử đều bằng $$0$$ hoặc $$1$$, ký hiệu $$A = [a_{ij}]$$ với $$a_{ij} \\in \\{0, 1\\}$$. Loại ma trận này thường được dùng để biểu diễn các cấu trúc rời rạc như quan hệ và đồ thị; khi biểu diễn một quan hệ $$R$$, ta đặt $$a_{ij} = 1$$ khi và chỉ khi cặp phần tử tương ứng thuộc $$R$$.",
-   "example_vi": "Với tập $$A = \\{1, 2, 3\\}$$, tập $$B = \\{a, b, c\\}$$ và quan hệ $$R = \\{(1, a), (1, b), (1, c)\\}$$, ma trận tương ứng là ma trận $$0$$-$$1$$ cấp $$3 \\times 3$$ có hàng đầu gồm ba số $$1$$ và hai hàng còn lại gồm toàn số $$0$$.",
-   "see_also": [],
-   "vi_terms": [
-    {
-     "term": "(0,1)-ma trận",
-     "source_id": "bib-nguyenducnghia-2006",
-     "page": "",
-     "pdf_page": 168,
-     "snippet": "e„t. Ta gọi ma trận kể của đồ thị Ơ là (0,1)-ma trận",
-     "verified": true,
-     "recommended": true
-    },
-    {
-     "term": "ma trận quan hệ",
-     "source_id": "bib-nguyenhuudien-2019",
-     "page": "tr. 114",
-     "pdf_page": 114,
-     "snippet": "Ma trận quan hệ R ⊆ A × B là MRn×m và phần tử hàng i, cột j là",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "ma trận biểu diễn của quan hệ",
-     "source_id": "bib-nguyenhuudien-2019",
-     "page": "tr. 108",
-     "pdf_page": 108,
-     "snippet": "Ta gọi ma trận MR là ma trận biểu diễn của quan hệ R.",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "ma trận 0-1",
-     "source_id": "",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": "",
-     "verified": false,
-     "recommended": false
-    },
-    {
-     "term": "ma trận không-một",
-     "source_id": "",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": "",
-     "verified": false,
-     "recommended": false
-    },
-    {
-     "term": "ma trận nhị phân",
-     "source_id": "",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": "",
-     "verified": false,
-     "recommended": false
-    },
-    {
-     "term": "ma trận quan hệ",
-     "source_id": "bib-doducgiao-2008",
-     "page": "tr. 64",
-     "pdf_page": 65,
-     "snippet": "Ma trận quan hệ ngược: Gia sử A = (ai, a, ..., an}, B= (bị, bạ,..., bạ}.",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "ma trận quan hệ",
-     "source_id": "bib-vovantuandung-2007",
-     "page": "",
-     "pdf_page": 99,
-     "snippet": "gọi là ma trân quan hệ như sau:",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "ma trận 0-1",
-     "source_id": "bib-vudinhhoa-2010",
-     "page": "",
-     "pdf_page": 123,
-     "snippet": "Trong trường hợp đồ thị là đồ thị đơn thì ma trận liền kề là ma trận 0-1. Chẳng hạn",
-     "verified": true,
-     "recommended": false
-    }
-   ],
-   "notes": "Concept = a zero-one matrix, i.e. any matrix with every entry in $$\\{0, 1\\}$$ (Rosen §2.6), used mainly to represent relations and graphs.\n\nRECOMMENDED PROMOTION (panel correctness + exposition, high): the recommended term is now \"(0,1)-ma trận\" (nguyenducnghia-2006 tr. 168 PDF, where the adjacency matrix of a graph is stated to be a \"(0,1)-ma trận\"). This is the faithful Vietnamese rendering whose denotation MATCHES the general headword \"zero-one matrix\". The previous recommended term \"ma trận quan hệ\" (relation matrix) names only the SPECIAL CASE in which a 0-1 matrix encodes a relation, so it is demoted to a verified=true variant. The locked 2019-2020 preference is soft (\"where possible\"); here it yields to the hard requirement that the recommended term name the headword concept, so the 2006 direct equivalent is preferred over the 2019 application-specific term. This trade-off is documented explicitly per convention.\n\nSYNONYM-GLOSS FIX (panel exposition, high): the definition no longer contains the English parenthetical \"(zero-one matrix)\" nor inlines \"ma trận quan hệ\" as a synonym; the English headword lives in headword_en and the relation-matrix terminology now lives only in vi_terms/notes.\n\nVERIFIED VARIANTS: \"ma trận quan hệ\" (relation matrix; nguyenhuudien-2019 tr. 114 PDF) and \"ma trận biểu diễn của quan hệ\" (representation matrix of a relation; same source tr. 108 PDF) — both name the relation-representation special case. DROPPED candidate \"ma trận nhị phân\" (binary matrix): 0 hits in any source (normal and --loose), so not listed. \"ma trận kề\" (adjacency matrix) is a distinct special case (graphs) and a separate entry, not a variant of the general concept.\n\nNOTES LANGUAGE: rewritten in English for chapter consistency (the other three Z entries use English).\n\nFORWARD REFERENCES (unlinked — see_also empty): \"matrix\" is a chapter-M cross-reference (entry exists); the Rosen §2.6 cluster boolean-product, join-of-zero-one-matrices, meet-of-zero-one-matrices have NO entries and there is no entries-z.yaml file, so they are PLANNED forward references to not-yet-created same-chapter Z entries, not present linkable ids. Per the convention, only existing same-chapter ids may be linked; since none exist, see_also is empty and these are recorded here as forward references."
-  }
- ]
+  ]
 }

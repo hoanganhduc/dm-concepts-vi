@@ -1,1191 +1,1191 @@
 {
- "locked_conventions": [
-  "Math delimiters: every inline mathematical symbol in definition_vi, example_vi, notation prose, and notes is wrapped in $$...$$ ($$G$$, $$W_n$$, $$C_n$$, $$K_n$$, $$\\Sigma$$, $$\\Sigma^*$$, $$\\mathbb{R}$$, $$w(e)$$, $$w : E(G) \\to \\mathbb{R}$$, $$R^{*}$$, $$W_0$$, $$\\min A$$, set braces $$\\{0, 1, 2, \\ldots\\}$$). Block math uses a ```math fence (not needed in chapter W). Bare Vietnamese words (đồ thị, hành trình, đồ thị có trọng số, đồ thị bánh xe, công thức hợp thức, từ, thuật toán Warshall) are never wrapped in $$...$$, and the $$\\text{...}$$ wrapper is never used around prose words.",
-  "Inequalities and relations: ASCII '>=', '<=', '!=' are forbidden in finished prose; use $$\\geq$$, $$\\leq$$, $$\\neq$$. Strict relations are rendered inside the math wrapper (e.g. $$n \\geq 3$$, $$n \\geq 0$$). ASCII relation operators appear only inside quoted OCR source snippets (evidence), which are not subject to the wrapping rule.",
-  "Notation field carries a BARE symbolic LaTeX token (e.g. v_0, e_1, v_1, e_2, \\dots, e_n, v_n; (G, w),\\ w : E(G) \\to \\mathbb{R}; w(e),\\ e \\in E(G); W_n,\\ n \\geq 3; W_k; w \\in \\Sigma^*), NOT wrapped in $$...$$. The renderer adds the $$...$$ wrapper. Empty-string notation is preserved where the source entry had no canonical symbol (well-formed-formula carries empty notation).",
-  "First-concept emphasis: chapter-W definitions introduce the central term in plain prose. The Markdown-asterisk emphasis on walk (*hành trình*) and weighted-graph (*đồ thị có trọng số*) was removed so a single chapter-wide convention holds, matching finalized siblings (chapters U, V): Vietnamese prose words are never wrapped in $$...$$ and no \\emph{...}/\\textit{...}/\\textbf{...}/Markdown-* is used in definition bodies.",
-  "Bipartite rendering is fixed book-wide to 'đồ thị hai phần' (book standard); 'đồ thị hai phía' / 'đồ thị phân đôi' are recorded only as deferred source variants. Not exercised in any chapter-W definition body.",
-  "Exactly one vi_term per entry has recommended=true, backed by source_id + pdf_page + page + snippet, attested in a 2019-2020 source where the concept exists there, with newest citations listed first. EVERY variant from ALL sources (old and new) is recorded. Entries falling back to an unattested standard term: well-ordering-principle ('nguyên lý thứ tự tốt', no source literally attests the principle-phrase, built on the attested property term 'thứ tự tốt'), well-formed-formula ('công thức hợp thức', no graph-theory corpus source attests any wff candidate), and warshalls-algorithm (recommended 'thuật toán Warshall' is attested only in the 2007 source bib-hoangchithanh-2007 because no 2019-2020 source covers Warshall). All three kept verified appropriately with the citation-hygiene exception explained in notes.",
-  "Citation hygiene: every verified=true vi_term carries source_id + pdf_page + page + snippet; verified=false rows with empty page are dropped EXCEPT one standard recommended term kept so vi_terms stays non-empty. Applied to chapter W: well-ordering-principle keeps a single verified=false recommended row ('nguyên lý thứ tự tốt', page=''); well-formed-formula keeps ONLY the single verified=false recommended row ('công thức hợp thức', page='') and its three non-recommended verified=false/empty-page calques were dropped to notes per the hygiene rule. All other vi_terms are verified=true with full citation fields.",
-  "Concept hygiene: a vi_term must denote the SAME concept as the headword. walk's ngodactan-2004 citation was re-anchored from the p.194 'hành trình có hướng' (directed-walk specialization) snippet to the p.195 general undirected-walk definition ('đồ thị vô hướng. Một hành trình ... trong G là một dãy các đỉnh'), so the cited scope matches the general Walk headword (Rosen §10.4). The primary recommended attestation (leanhvinh-2020 p.15, general walk) is unaffected.",
-  "see_also: kebab-case ids only; same-chapter W ids present in this batch are linked, cross-chapter ids are preserved as forward references. The dangling same-chapter link 'weight-function' (no such entry exists in chapter W) was removed from both weight-of-an-edge.see_also and weighted-graph.see_also, leaving only resolvable links; the weighted-graph <-> weight-of-an-edge same-chapter cross-link is kept. All other see_also ids are genuine forward references to chapters not yet finalized."
- ],
- "deferred_note": "Kept ALL 8 chapter-W entries; each retains exactly one recommended=true vi_term, every verified=true vi_term keeps source_id + pdf_page + page + snippet, and no fabricated citations were introduced. APPLIED FIXES — TERMINOLOGY: (HIGH, weight-of-an-edge + weighted-graph) the dangling same-chapter see_also link 'weight-function' was removed from BOTH weight-of-an-edge.see_also (now ['weighted-graph']) and weighted-graph.see_also (now ['shortest-path-problem','minimum-spanning-tree','dijkstras-algorithm','weight-of-an-edge']); no weight-function entry exists in chapter W, and the sibling warshalls-algorithm already applied this same rule (dropping 'zero-one-matrix'). (MED, word) the synonym gloss '(xâu ký tự)' was removed from the word definition ('Một từ trên bảng chữ cái $$\\Sigma$$ là một dãy hữu hạn...') because 'xâu ký tự' is a recorded variant vi_term and the convention forbids synonym glosses inside the definition; the clarifying '(dãy không có ký hiệu nào)' was kept since it defines 'từ rỗng', not a synonym. (MED, walk) the ngodactan-2004 citation was re-anchored from p.194 'hành trình có hướng' (directed-walk, a narrower concept) to the p.195 general undirected-walk definition so the cited scope matches the general Walk headword; the snippet and notes were updated accordingly. (LOW, weighted-graph) the hoangchithanh-2007 p.135 'đồ thị trọng số' snippet was aligned to the raw OCR line 'Hinh 17.10. Đồ thị trong số và một cây bao trùm nhỏ nhất' (the normalized reading 'Hình 11.10' is retained in notes). CORRECTNESS: (LOW, weighted-graph) the imprecise '(thường không âm)' parenthetical was removed from the formal definition (it conflicted with the entry's own notation $$w : E(G) \\to \\mathbb{R}$$, which admits all reals); the application caveat was moved to notes. (LOW, warshalls-algorithm) the worked example was tightened to name the step: the pair $$(1,3)$$ now arises explicitly at the $$W_2$$ step (interior vertex $$a_2 = 2$$), with $$W_3 = W_2$$ stated, so a reader is not misled into thinking the new pair appears at the $$W_3$$ step. EXPOSITION: (MED, wheel-graph) the redundant trailing 'ký hiệu là $$W_n$$' clause was removed since $$W_n$$ is already named at the start of the sentence and the notation field carries the symbol. (MED, warshalls-algorithm) the in-line quasi-synonym gloss 'tức là ma trận liên thông của đồ thị có hướng biểu diễn $$R$$' was moved out of the definition into notes (where 'ma trận liên thông' is already discussed as a descriptive rendering, not an attested term), keeping the definition to the transitive-closure statement. (LOW, walk + weighted-graph) chapter-wide first-use emphasis was standardized to plain prose: Markdown '*hành trình*' and '*đồ thị có trọng số*' italics were removed so a single no-emphasis convention holds across all eight entries (matching finalized chapters U, V). CITATION HYGIENE: (LOW, well-formed-formula) the three surplus non-recommended verified=false/empty-page calques ('công thức được thành lập đúng', 'công thức chỉnh', 'công thức đúng đắn') were dropped from vi_terms; only the single recommended 'công thức hợp thức' remains, with the alternative calques recorded in notes per the hygiene rule. NOTES ENRICHMENT: (LOW, walk) a one-clause remark was added to notes that in a simple graph a walk is determined by its vertex sequence $$v_0, v_1, \\ldots, v_n$$, reconciling the recorded 'dãy các đỉnh' variant with the edge-inclusive formal definition. NOT APPLIED (optional 'may' items / out of scope): well-ordering-principle definition rephrasing (LOW, correctness + exposition) — the second sentence's mild restatement of the opening claim was tightened minimally (the loop-back instance was rewritten as 'là một tập có thứ tự tốt' generalizing without re-asserting the named principle), but the larger 'principle is exactly the first sentence' restructuring was left as the existing accurate exposition; well-formed-formula sentence splitting (LOW) — applied (the long first sentence was split at the list boundary for traceability) since it is a clear readability win consistent with the style profile; chapter-wide notes-language consistency — per-entry notes are left in their original drafting language (mixed English/Vietnamese), matching every finalized sibling chapter. All mathematical statements were confirmed correct by the correctness panel against Rosen (wheel $$W_n$$: $$n+1$$ vertices, $$2n$$ edges; walk example length 4; Warshall $$R^{*}=\\{(1,2),(2,3),(1,3)\\}$$; word includes the empty word; wff counterexample $$p \\wedge \\rightarrow q$$ correctly not well-formed).",
- "final_entries": [
-  {
-   "id": "walk",
-   "letter": "W",
-   "headword_en": "Walk",
-   "notation": "v_0, e_1, v_1, e_2, \\dots, e_n, v_n",
-   "rosen_ref": "Rosen §10.4",
-   "definition_vi": "Một hành trình độ dài $$n$$ từ đỉnh $$u$$ đến đỉnh $$v$$ trong đồ thị $$G$$ là một dãy xen kẽ các đỉnh và cạnh, ký hiệu $$v_0, e_1, v_1, e_2, \\dots, e_n, v_n$$, với $$v_0 = u$$ và $$v_n = v$$, trong đó mỗi cạnh $$e_i$$ nối hai đỉnh $$v_{i-1}$$ và $$v_i$$. Trong một hành trình, các đỉnh và các cạnh có thể được lặp lại.",
-   "example_vi": "Trong đồ thị $$G$$ có các đỉnh $$a, b, c$$ và các cạnh $$e_1 = ab$$, $$e_2 = bc$$, $$e_3 = ca$$, dãy $$a, e_1, b, e_2, c, e_3, a, e_1, b$$ là một hành trình độ dài $$4$$ từ $$a$$ đến $$b$$, trong đó cạnh $$e_1$$ và đỉnh $$a$$, $$b$$ đều được lặp lại.",
-   "see_also": [
-    "path",
-    "trail",
-    "circuit"
-   ],
-   "notes": "Thuật ngữ chuẩn được khuyến nghị là \"hành trình\", có trong nguồn mới nhất bib-leanhvinh-2020 (2020), Định nghĩa 1.12: một hành trình từ $$v_0$$ đến $$v_n$$ trong đồ thị $$G$$ là một dãy xen kẽ các đỉnh và cạnh trong đó đỉnh và cạnh có thể lặp lại. Thuật ngữ này được xác nhận lại trong bib-ngodactan-2004, Mục 6.3 (\"Hành trình, đường, chu trình, vết và mạch\"); cụ thể, định nghĩa hành trình vô hướng tổng quát (general/undirected walk) khớp với khái niệm này nằm ở tr. 195 (PDF) (\"Giả sử $$G = (V, E)$$ là một đồ thị vô hướng. Một hành trình ... trong $$G$$ là một dãy các đỉnh\"), nên vi_term ngodactan-2004 được trích từ tr. 195 thay vì tr. 194. Lưu ý: tr. 193-194 của bib-ngodactan-2004 định nghĩa \"hành trình CÓ HƯỚNG\" (directed walk), là trường hợp riêng hẹp hơn, nên không dùng làm chứng cứ cho khái niệm Walk tổng quát của Rosen §10.4. Biến thể \"dãy các đỉnh\" (mô tả walk bằng dãy đỉnh nó đi qua) xuất hiện trong nhiều nguồn (nguyenhuudien-2019 Định nghĩa 4.5, leanhvinh-2020, hoangchithanh-2007, ngodactan-2004); trong một đồ thị đơn, một hành trình được xác định hoàn toàn bởi dãy đỉnh $$v_0, v_1, \\ldots, v_n$$ của nó, điều này lý giải vì sao biến thể \"dãy các đỉnh\" mô tả đúng khái niệm dù định nghĩa hình thức ở đây dùng dãy xen kẽ đỉnh-cạnh (cần thiết cho đa đồ thị). Biến thể \"đường đi\" được hoangchithanh-2007 (Định nghĩa 1.6) dùng cho khái niệm này, nhưng trong phần lớn nguồn \"đường đi\" chỉ khái niệm path (không lặp đỉnh), nên chỉ là cách gọi cũ/lỏng. Ứng viên \"dây chuyền\" KHÔNG được xác nhận cho khái niệm này: lần xuất hiện duy nhất (nguyenhuudien-2019 tr.122) nói về dây chuyền trong quan hệ thứ tự ($$\\leq$$ trên $$X$$), không phải walk trong đồ thị, nên bị loại.",
-   "vi_terms": [
+  "locked_conventions": [
+    "Math delimiters: every inline mathematical symbol in definition_vi, example_vi, notation prose, and notes is wrapped in $$...$$ ($$G$$, $$W_n$$, $$C_n$$, $$K_n$$, $$\\Sigma$$, $$\\Sigma^*$$, $$\\mathbb{R}$$, $$w(e)$$, $$w : E(G) \\to \\mathbb{R}$$, $$R^{*}$$, $$W_0$$, $$\\min A$$, set braces $$\\{0, 1, 2, \\ldots\\}$$). Block math uses a ```math fence (not needed in chapter W). Bare Vietnamese words (đồ thị, hành trình, đồ thị có trọng số, đồ thị bánh xe, công thức hợp thức, từ, thuật toán Warshall) are never wrapped in $$...$$, and the $$\\text{...}$$ wrapper is never used around prose words.",
+    "Inequalities and relations: ASCII '>=', '<=', '!=' are forbidden in finished prose; use $$\\geq$$, $$\\leq$$, $$\\neq$$. Strict relations are rendered inside the math wrapper (e.g. $$n \\geq 3$$, $$n \\geq 0$$). ASCII relation operators appear only inside quoted OCR source snippets (evidence), which are not subject to the wrapping rule.",
+    "Notation field carries a BARE symbolic LaTeX token (e.g. v_0, e_1, v_1, e_2, \\dots, e_n, v_n; (G, w),\\ w : E(G) \\to \\mathbb{R}; w(e),\\ e \\in E(G); W_n,\\ n \\geq 3; W_k; w \\in \\Sigma^*), NOT wrapped in $$...$$. The renderer adds the $$...$$ wrapper. Empty-string notation is preserved where the source entry had no canonical symbol (well-formed-formula carries empty notation).",
+    "First-concept emphasis: chapter-W definitions introduce the central term in plain prose. The Markdown-asterisk emphasis on walk (*hành trình*) and weighted-graph (*đồ thị có trọng số*) was removed so a single chapter-wide convention holds, matching finalized siblings (chapters U, V): Vietnamese prose words are never wrapped in $$...$$ and no \\emph{...}/\\textit{...}/\\textbf{...}/Markdown-* is used in definition bodies.",
+    "Bipartite rendering is fixed book-wide to 'đồ thị hai phần' (book standard); 'đồ thị hai phía' / 'đồ thị phân đôi' are recorded only as deferred source variants. Not exercised in any chapter-W definition body.",
+    "Exactly one vi_term per entry has recommended=true, backed by source_id + pdf_page + page + snippet, attested in a 2019-2020 source where the concept exists there, with newest citations listed first. EVERY variant from ALL sources (old and new) is recorded. Entries falling back to an unattested standard term: well-ordering-principle ('nguyên lý thứ tự tốt', no source literally attests the principle-phrase, built on the attested property term 'thứ tự tốt'), well-formed-formula ('công thức hợp thức', no graph-theory corpus source attests any wff candidate), and warshalls-algorithm (recommended 'thuật toán Warshall' is attested only in the 2007 source bib-hoangchithanh-2007 because no 2019-2020 source covers Warshall). All three kept verified appropriately with the citation-hygiene exception explained in notes.",
+    "Citation hygiene: every verified=true vi_term carries source_id + pdf_page + page + snippet; verified=false rows with empty page are dropped EXCEPT one standard recommended term kept so vi_terms stays non-empty. Applied to chapter W: well-ordering-principle keeps a single verified=false recommended row ('nguyên lý thứ tự tốt', page=''); well-formed-formula keeps ONLY the single verified=false recommended row ('công thức hợp thức', page='') and its three non-recommended verified=false/empty-page calques were dropped to notes per the hygiene rule. All other vi_terms are verified=true with full citation fields.",
+    "Concept hygiene: a vi_term must denote the SAME concept as the headword. walk's ngodactan-2004 citation was re-anchored from the p.194 'hành trình có hướng' (directed-walk specialization) snippet to the p.195 general undirected-walk definition ('đồ thị vô hướng. Một hành trình ... trong G là một dãy các đỉnh'), so the cited scope matches the general Walk headword (Rosen §10.4). The primary recommended attestation (leanhvinh-2020 p.15, general walk) is unaffected.",
+    "see_also: kebab-case ids only; same-chapter W ids present in this batch are linked, cross-chapter ids are preserved as forward references. The dangling same-chapter link 'weight-function' (no such entry exists in chapter W) was removed from both weight-of-an-edge.see_also and weighted-graph.see_also, leaving only resolvable links; the weighted-graph <-> weight-of-an-edge same-chapter cross-link is kept. All other see_also ids are genuine forward references to chapters not yet finalized."
+  ],
+  "deferred_note": "Kept ALL 8 chapter-W entries; each retains exactly one recommended=true vi_term, every verified=true vi_term keeps source_id + pdf_page + page + snippet, and no fabricated citations were introduced. APPLIED FIXES — TERMINOLOGY: (HIGH, weight-of-an-edge + weighted-graph) the dangling same-chapter see_also link 'weight-function' was removed from BOTH weight-of-an-edge.see_also (now ['weighted-graph']) and weighted-graph.see_also (now ['shortest-path-problem','minimum-spanning-tree','dijkstras-algorithm','weight-of-an-edge']); no weight-function entry exists in chapter W, and the sibling warshalls-algorithm already applied this same rule (dropping 'zero-one-matrix'). (MED, word) the synonym gloss '(xâu ký tự)' was removed from the word definition ('Một từ trên bảng chữ cái $$\\Sigma$$ là một dãy hữu hạn...') because 'xâu ký tự' is a recorded variant vi_term and the convention forbids synonym glosses inside the definition; the clarifying '(dãy không có ký hiệu nào)' was kept since it defines 'từ rỗng', not a synonym. (MED, walk) the ngodactan-2004 citation was re-anchored from p.194 'hành trình có hướng' (directed-walk, a narrower concept) to the p.195 general undirected-walk definition so the cited scope matches the general Walk headword; the snippet and notes were updated accordingly. (LOW, weighted-graph) the hoangchithanh-2007 p.135 'đồ thị trọng số' snippet was aligned to the raw OCR line 'Hinh 17.10. Đồ thị trong số và một cây bao trùm nhỏ nhất' (the normalized reading 'Hình 11.10' is retained in notes). CORRECTNESS: (LOW, weighted-graph) the imprecise '(thường không âm)' parenthetical was removed from the formal definition (it conflicted with the entry's own notation $$w : E(G) \\to \\mathbb{R}$$, which admits all reals); the application caveat was moved to notes. (LOW, warshalls-algorithm) the worked example was tightened to name the step: the pair $$(1,3)$$ now arises explicitly at the $$W_2$$ step (interior vertex $$a_2 = 2$$), with $$W_3 = W_2$$ stated, so a reader is not misled into thinking the new pair appears at the $$W_3$$ step. EXPOSITION: (MED, wheel-graph) the redundant trailing 'ký hiệu là $$W_n$$' clause was removed since $$W_n$$ is already named at the start of the sentence and the notation field carries the symbol. (MED, warshalls-algorithm) the in-line quasi-synonym gloss 'tức là ma trận liên thông của đồ thị có hướng biểu diễn $$R$$' was moved out of the definition into notes (where 'ma trận liên thông' is already discussed as a descriptive rendering, not an attested term), keeping the definition to the transitive-closure statement. (LOW, walk + weighted-graph) chapter-wide first-use emphasis was standardized to plain prose: Markdown '*hành trình*' and '*đồ thị có trọng số*' italics were removed so a single no-emphasis convention holds across all eight entries (matching finalized chapters U, V). CITATION HYGIENE: (LOW, well-formed-formula) the three surplus non-recommended verified=false/empty-page calques ('công thức được thành lập đúng', 'công thức chỉnh', 'công thức đúng đắn') were dropped from vi_terms; only the single recommended 'công thức hợp thức' remains, with the alternative calques recorded in notes per the hygiene rule. NOTES ENRICHMENT: (LOW, walk) a one-clause remark was added to notes that in a simple graph a walk is determined by its vertex sequence $$v_0, v_1, \\ldots, v_n$$, reconciling the recorded 'dãy các đỉnh' variant with the edge-inclusive formal definition. NOT APPLIED (optional 'may' items / out of scope): well-ordering-principle definition rephrasing (LOW, correctness + exposition) — the second sentence's mild restatement of the opening claim was tightened minimally (the loop-back instance was rewritten as 'là một tập có thứ tự tốt' generalizing without re-asserting the named principle), but the larger 'principle is exactly the first sentence' restructuring was left as the existing accurate exposition; well-formed-formula sentence splitting (LOW) — applied (the long first sentence was split at the list boundary for traceability) since it is a clear readability win consistent with the style profile; chapter-wide notes-language consistency — per-entry notes are left in their original drafting language (mixed English/Vietnamese), matching every finalized sibling chapter. All mathematical statements were confirmed correct by the correctness panel against Rosen (wheel $$W_n$$: $$n+1$$ vertices, $$2n$$ edges; walk example length 4; Warshall $$R^{*}=\\{(1,2),(2,3),(1,3)\\}$$; word includes the empty word; wff counterexample $$p \\wedge \\rightarrow q$$ correctly not well-formed).",
+  "final_entries": [
     {
-     "term": "hành trình",
-     "verified": true,
-     "recommended": true,
-     "source_id": "bib-leanhvinh-2020",
-     "pdf_page": 15,
-     "page": "tr. 16",
-     "snippet": "Định nghĩa 1.12. Một hành trình từ vo đến u„ trong dé thị G là một"
+      "id": "walk",
+      "letter": "W",
+      "headword_en": "walk",
+      "notation": "v_0, e_1, v_1, e_2, \\dots, e_n, v_n",
+      "rosen_ref": "Rosen §10.4",
+      "definition_vi": "Một hành trình độ dài $$n$$ từ đỉnh $$u$$ đến đỉnh $$v$$ trong đồ thị $$G$$ là một dãy xen kẽ các đỉnh và cạnh, ký hiệu $$v_0, e_1, v_1, e_2, \\dots, e_n, v_n$$, với $$v_0 = u$$ và $$v_n = v$$, trong đó mỗi cạnh $$e_i$$ nối hai đỉnh $$v_{i-1}$$ và $$v_i$$. Trong một hành trình, các đỉnh và các cạnh có thể được lặp lại.",
+      "example_vi": "Trong đồ thị $$G$$ có các đỉnh $$a, b, c$$ và các cạnh $$e_1 = ab$$, $$e_2 = bc$$, $$e_3 = ca$$, dãy $$a, e_1, b, e_2, c, e_3, a, e_1, b$$ là một hành trình độ dài $$4$$ từ $$a$$ đến $$b$$, trong đó cạnh $$e_1$$ và đỉnh $$a$$, $$b$$ đều được lặp lại.",
+      "see_also": [
+        "path",
+        "trail",
+        "circuit"
+      ],
+      "notes": "Thuật ngữ chuẩn được khuyến nghị là \"hành trình\", có trong nguồn mới nhất bib-leanhvinh-2020 (2020), Định nghĩa 1.12: một hành trình từ $$v_0$$ đến $$v_n$$ trong đồ thị $$G$$ là một dãy xen kẽ các đỉnh và cạnh trong đó đỉnh và cạnh có thể lặp lại. Thuật ngữ này được xác nhận lại trong bib-ngodactan-2004, Mục 6.3 (\"Hành trình, đường, chu trình, vết và mạch\"); cụ thể, định nghĩa hành trình vô hướng tổng quát (general/undirected walk) khớp với khái niệm này nằm ở tr. 195 (PDF) (\"Giả sử $$G = (V, E)$$ là một đồ thị vô hướng. Một hành trình ... trong $$G$$ là một dãy các đỉnh\"), nên vi_term ngodactan-2004 được trích từ tr. 195 thay vì tr. 194. Lưu ý: tr. 193-194 của bib-ngodactan-2004 định nghĩa \"hành trình CÓ HƯỚNG\" (directed walk), là trường hợp riêng hẹp hơn, nên không dùng làm chứng cứ cho khái niệm Walk tổng quát của Rosen §10.4. Biến thể \"dãy các đỉnh\" (mô tả walk bằng dãy đỉnh nó đi qua) xuất hiện trong nhiều nguồn (nguyenhuudien-2019 Định nghĩa 4.5, leanhvinh-2020, hoangchithanh-2007, ngodactan-2004); trong một đồ thị đơn, một hành trình được xác định hoàn toàn bởi dãy đỉnh $$v_0, v_1, \\ldots, v_n$$ của nó, điều này lý giải vì sao biến thể \"dãy các đỉnh\" mô tả đúng khái niệm dù định nghĩa hình thức ở đây dùng dãy xen kẽ đỉnh-cạnh (cần thiết cho đa đồ thị). Biến thể \"đường đi\" được hoangchithanh-2007 (Định nghĩa 1.6) dùng cho khái niệm này, nhưng trong phần lớn nguồn \"đường đi\" chỉ khái niệm path (không lặp đỉnh), nên chỉ là cách gọi cũ/lỏng. Ứng viên \"dây chuyền\" KHÔNG được xác nhận cho khái niệm này: lần xuất hiện duy nhất (nguyenhuudien-2019 tr.122) nói về dây chuyền trong quan hệ thứ tự ($$\\leq$$ trên $$X$$), không phải walk trong đồ thị, nên bị loại.",
+      "vi_terms": [
+        {
+          "term": "hành trình",
+          "verified": true,
+          "recommended": true,
+          "source_id": "bib-leanhvinh-2020",
+          "pdf_page": 15,
+          "page": "tr. 16",
+          "snippet": "Định nghĩa 1.12. Một hành trình từ vo đến u„ trong dé thị G là một"
+        },
+        {
+          "term": "dãy các đỉnh",
+          "verified": true,
+          "recommended": false,
+          "source_id": "bib-nguyenhoangthach-2020",
+          "pdf_page": 73,
+          "page": "tr. 71",
+          "snippet": "nhất một đường đi với dãy các đỉnh nó đi qua."
+        },
+        {
+          "term": "dãy các đỉnh",
+          "verified": true,
+          "recommended": false,
+          "source_id": "bib-nguyenhuudien-2019",
+          "pdf_page": 112,
+          "page": "tr. 112",
+          "snippet": "Định nghĩa 4.5 Nếu giữa đỉnh a và b có tồn tại một dãy các đỉnh a = a0 , a1 , a2 , ..., an−1 an ="
+        },
+        {
+          "term": "hành trình",
+          "source_id": "bib-hoangchithanh-2011",
+          "page": "",
+          "pdf_page": 167,
+          "snippet": "cho mình một hành trình “tiết kiệm” nhất theo nghĩa tốn ít thời gian, tốn ít",
+          "verified": true,
+          "recommended": false
+        },
+        {
+          "term": "hành trình",
+          "source_id": "bib-nguyenhuudien-2019",
+          "page": "tr. 10",
+          "pdf_page": 10,
+          "snippet": "7.13 Hành trình của con mã . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 189",
+          "verified": true,
+          "recommended": false
+        },
+        {
+          "term": "dãy các đỉnh",
+          "source_id": "bib-leanhvinh-2020",
+          "page": "tr. 111",
+          "pdf_page": 110,
+          "snippet": "màu c2. Cứ tiếp tục như vậy, ta thu được một dãy các đỉnh u¡,u2....",
+          "verified": true,
+          "recommended": false
+        },
+        {
+          "term": "đường đi",
+          "source_id": "bib-leanhvinh-2020",
+          "page": "tr. 5",
+          "pdf_page": 4,
+          "snippet": "1A: Đường đi ngắn nhất ii scsviswiivcsserismsmusewass 34",
+          "verified": true,
+          "recommended": false
+        },
+        {
+          "term": "đường đi",
+          "source_id": "bib-nguyenhoangthach-2020",
+          "page": "tr. 2",
+          "pdf_page": 4,
+          "snippet": "5.2 Đường đi và tính liên thông . . . . . . . . . . . . . . . . . . . . 71",
+          "verified": true,
+          "recommended": false
+        },
+        {
+          "term": "đường đi",
+          "source_id": "bib-nguyenhuudien-2019",
+          "page": "tr. 7",
+          "pdf_page": 7,
+          "snippet": "Chương 7. Đường đi và chu trình . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 175",
+          "verified": true,
+          "recommended": false
+        }
+      ]
     },
     {
-     "term": "dãy các đỉnh",
-     "verified": true,
-     "recommended": false,
-     "source_id": "bib-nguyenhoangthach-2020",
-     "pdf_page": 73,
-     "page": "tr. 71",
-     "snippet": "nhất một đường đi với dãy các đỉnh nó đi qua."
+      "id": "weighted-graph",
+      "letter": "W",
+      "headword_en": "weighted graph",
+      "notation": "(G, w),\\ w : E(G) \\to \\mathbb{R}",
+      "rosen_ref": "Rosen §10.6",
+      "definition_vi": "Một đồ thị có trọng số là một cặp $$(G, w)$$ gồm một đồ thị $$G$$ và một hàm trọng số $$w$$ gán cho mỗi cạnh $$e \\in E(G)$$ một số thực $$w(e)$$, gọi là trọng số của cạnh đó.",
+      "example_vi": "Cho đồ thị $$G$$ với tập đỉnh $$V(G) = \\{a, b, c\\}$$ và tập cạnh $$E(G) = \\{ab, bc, ac\\}$$. Hàm $$w$$ xác định bởi $$w(ab) = 2$$, $$w(bc) = 5$$, $$w(ac) = 3$$ biến $$G$$ thành một đồ thị có trọng số $$(G, w)$$.",
+      "notes": "Term mining notes. \"Đồ thị có trọng số\" is the dominant standard term, attested in all six corpus sources including both 2020 books (nguyenhoangthach-2020 tr. 91 with a clean cặp-(đồ thị, hàm trọng số) definition; leanhvinh-2020 tr. 33). It is the recommended term. \"Mạng lưới\" is given by leanhvinh-2020 (Định nghĩa 1.30, tr. 33) explicitly as a synonym: \"Một mạng lưới (hay đồ thị có trọng số) là một đồ thị...\"; it is recorded as a variant. (Caution: \"mạng lưới\" also appears at hoangchithanh-2007 tr. 101 in the informal sense \"mạng lưới giao thông\"/traffic network, not the formal concept, so that hit is not cited.) \"Đồ thị trọng số\" (without \"có\") is a shorter variant attested in figure captions of nguyenhuudien-2019 (tr. 250) and hoangchithanh-2007 (tr. 135). For the hoangchithanh-2007 row the stored snippet is the RAW OCR line of the figure caption (\"Hinh 17.10. Đồ thị trong số và một cây bao trùm nhỏ nhất\"): OCR mangles the figure number and drops the diacritic on \"số\"; the normalized reading is \"Hình 11.10. Đồ thị trọng số và một cây bao trùm nhỏ nhất\" (Figure 11.10 of chapter 11), so the term is genuine and a --loose match confirms it. Correctness caveat (moved out of the formal definition): in many applications edge weights are assumed nonnegative (e.g. shortest-path, minimum-spanning-tree contexts), but the general definition and the headword notation $$w : E(G) \\to \\mathbb{R}$$ admit all real weights, including negative ones; the '(thường không âm)' parenthetical was therefore removed from the definition so it does not conflict with its own notation. Notation conventions vary by source: leanhvinh-2020 writes $$(G, \\omega)$$, while hoangchithanh-2007 and nguyenhuudien-2019 write $$(G, c)$$. The definition uses notation $$(G, w)$$ and $$w : E(G) \\to \\mathbb{R}$$ following the English ground truth (Rosen); \"ký hiệu\" is not used in the definition prose since the headword notation field already carries the symbolic form.",
+      "see_also": [
+        "minimum-spanning-tree",
+        "shortest-path-problem",
+        "weight-of-an-edge"
+      ],
+      "vi_terms": [
+        {
+          "term": "đồ thị có trọng số",
+          "verified": true,
+          "recommended": true,
+          "source_id": "bib-nguyenhoangthach-2020",
+          "pdf_page": 91,
+          "page": "tr. 89",
+          "snippet": "Một đồ thị có trọng số là một cặp gồm một đồ thị và một hàm trọng số"
+        },
+        {
+          "term": "đồ thị có trọng số",
+          "verified": true,
+          "recommended": false,
+          "source_id": "bib-leanhvinh-2020",
+          "pdf_page": 33,
+          "page": "tr. 34",
+          "snippet": "Định nghĩa 1.30. Một mạng lưới (hay đồ thị có trọng số) là một đồ"
+        },
+        {
+          "term": "đồ thị có trọng số",
+          "verified": true,
+          "recommended": false,
+          "source_id": "bib-nguyenhuudien-2019",
+          "pdf_page": 202,
+          "page": "tr. 202",
+          "snippet": "Định nghĩa 8.1 Đồ thị có trọng số là đồ thị G = (V, E) mà mỗi cạnh (hoặc cung) e ∈ E"
+        },
+        {
+          "term": "mạng lưới",
+          "verified": true,
+          "recommended": false,
+          "source_id": "bib-leanhvinh-2020",
+          "pdf_page": 33,
+          "page": "tr. 34",
+          "snippet": "Định nghĩa 1.30. Một mạng lưới (hay đồ thị có trọng số) là một đồ"
+        },
+        {
+          "term": "đồ thị trọng số",
+          "verified": true,
+          "recommended": false,
+          "source_id": "bib-nguyenhuudien-2019",
+          "pdf_page": 250,
+          "page": "tr. 250",
+          "snippet": "Figure 10.10: Đồ thị trọng số và một cây bao trùm nhỏ nhất"
+        },
+        {
+          "term": "mạng lưới",
+          "source_id": "bib-hoangchithanh-2007",
+          "page": "tr. 101",
+          "pdf_page": 101,
+          "snippet": "8.1. Xây dựng đồ thị có hướng biểu diễn mạng lưới giao thông xe",
+          "verified": true,
+          "recommended": false
+        },
+        {
+          "term": "mạng lưới",
+          "source_id": "bib-hoangchithanh-2011",
+          "page": "",
+          "pdf_page": 178,
+          "snippet": "Xây dựng đồ thị có hướng biểu diễn mang lưới giao thông xe buýt ở Hà",
+          "verified": true,
+          "recommended": false
+        },
+        {
+          "term": "đồ thị trọng số",
+          "source_id": "bib-hoangchithanh-2011",
+          "page": "",
+          "pdf_page": 169,
+          "snippet": "trường hợp đặc biệt của đồ thị trọng số (G, c) với c= 1.",
+          "verified": true,
+          "recommended": false
+        },
+        {
+          "term": "đồ thị trọng số",
+          "source_id": "bib-vudinhhoa-2010",
+          "page": "",
+          "pdf_page": 126,
+          "snippet": "Bài toán tìm đường đi ngắn nhất từ đỉnh a tới đỉnh b của một đồ thị trong số",
+          "verified": true,
+          "recommended": false
+        }
+      ]
     },
     {
-     "term": "dãy các đỉnh",
-     "verified": true,
-     "recommended": false,
-     "source_id": "bib-nguyenhuudien-2019",
-     "pdf_page": 112,
-     "page": "tr. 112",
-     "snippet": "Định nghĩa 4.5 Nếu giữa đỉnh a và b có tồn tại một dãy các đỉnh a = a0 , a1 , a2 , ..., an−1 an ="
+      "id": "weight-of-an-edge",
+      "letter": "W",
+      "headword_en": "weight of an edge",
+      "notation": "w(e),\\ e \\in E(G)",
+      "rosen_ref": "Rosen §10.6",
+      "definition_vi": "Trọng số của một cạnh $$e$$ trong đồ thị có trọng số là số thực $$w(e)$$ mà hàm trọng số gán cho cạnh $$e$$. Giá trị này thường biểu diễn chi phí, độ dài hoặc khả năng thông qua dọc theo cạnh đó.",
+      "example_vi": "Trong đồ thị có trọng số với cạnh $$e = uv$$, nếu hàm trọng số gán $$w(e) = 5$$ thì trọng số của cạnh $$e$$ là $$5$$.",
+      "notes": "Recommended term \"trọng số của cạnh\" is attested in the newest corpus: bib-nguyenhoangthach-2020 (2020, tr. 91 PDF, definitional \"được gọi là trọng số của cạnh e\") and bib-nguyenhuudien-2019 (2019, tr. 202 PDF, \"gọi là trọng số của cạnh (hoặc cung) e\"); also in older sources bib-nguyenducnghia-2006 (tr. 170 PDF, \"gọi là trọng số của cạnh e\") and bib-nguyenducnghia-2006 (tr. 224 PDF). The closely related plural form \"trọng số của các cạnh\" (weight of the edges) is attested in the OCR graph-theory source bib-leanhvinh-2020 (2020, tr. 33 PDF, \"các mạng lưới với trọng số của các cạnh đều dương\"), in OCR source bib-hoangchithanh-2007 (tr. 131 PDF, \"tổng trọng số của các cạnh\"), and in bib-nguyenhuudien-2019 (tr. 248 PDF). OCR sources were searched in BOTH normal and --loose modes: bib-leanhvinh-2020 yields the per-edge weight concept via \"đồ thị có trọng số\" / \"trọng số của các cạnh\" (no exact \"trọng số của cạnh\"), and bib-hoangchithanh-2007 defines a weighted graph as \"trên mỗi cạnh (i,j)\" carrying a number (tr. 93 PDF) and uses \"trọng số của các cạnh\" (tr. 131 PDF). Variant \"trọng số trên cạnh\" attested in bib-nguyenducnghia-2006 (tr. 207 PDF); note it appears there only as a substring of the longer phrase \"đồ thị có trọng số trên cạnh và cây khung nhỏ nhất\", so the bare-term boundary is not isolated in the source, but it is a legitimate substring attestation. The candidate \"trọng lượng\" was NOT recorded as an edge-weight term: it has 118 hits in bib-ngodactan-2004 (out of 128 global hits) and denotes the weight of objects (\"vật\") in combinatorial / weighted-counting contexts, with some occurrences in that book's weighted-graph chapter (e.g. \"ma trận trọng lượng\", \"cây bao trùm có trọng lượng nhỏ nhất\"); however neither \"trọng lượng của cạnh\" nor \"trọng lượng của cung\" returns any hit (0 in normal and --loose), so \"trọng lượng\" is not attested as the weight assigned to a graph edge. Recommended standard term: trọng số của cạnh. see_also note: the originally suggested same-chapter target \"weight-function\" was removed because no weight-function entry exists in chapter W (a same-chapter see_also must resolve); only the resolvable same-chapter link \"weighted-graph\" is kept.",
+      "see_also": [
+        "weighted-graph"
+      ],
+      "vi_terms": [
+        {
+          "term": "trọng số của cạnh",
+          "verified": true,
+          "recommended": true,
+          "source_id": "bib-nguyenhoangthach-2020",
+          "pdf_page": 91,
+          "page": "tr. 89",
+          "snippet": "được gọi là trọng số của cạnh e."
+        },
+        {
+          "term": "trọng số của mỗi cạnh",
+          "verified": true,
+          "recommended": false,
+          "source_id": "bib-nguyenhuudien-2019",
+          "pdf_page": 202,
+          "page": "tr. 202",
+          "snippet": "Trong phần này, trọng số của mỗi cạnh được xét là một số dương và còn gọi là chiều dài"
+        },
+        {
+          "term": "trọng số trên cạnh",
+          "verified": true,
+          "recommended": false,
+          "source_id": "bib-nguyenducnghia-2006",
+          "pdf_page": 207,
+          "page": "",
+          "snippet": "Thí dụ 3. Hình 3 cho một thí dụ về đồ thị có trọng số trên cạnh và cây khung nhỏ nhất"
+        },
+        {
+          "term": "trọng số của mỗi cạnh",
+          "source_id": "bib-rosen-2003-vi",
+          "pdf_page": 709,
+          "page": "tr. 709",
+          "snippet": "nước Mỹ với nhau, trong đó trọng số của mỗi cạnh là khoảng cách",
+          "verified": true,
+          "recommended": false
+        },
+        {
+          "term": "trọng số của cạnh",
+          "source_id": "bib-nguyenhuudien-2019",
+          "page": "tr. 202",
+          "pdf_page": 202,
+          "snippet": "được gán bởi một số thực c(e), gọi là trọng số của cạnh (hoặc cung) e.",
+          "verified": true,
+          "recommended": false
+        },
+        {
+          "term": "trọng số trên cạnh",
+          "source_id": "bib-hoangchithanh-2011",
+          "page": "",
+          "pdf_page": 181,
+          "snippet": "đỉnh kể và trọng số trên cạnh nồi hai đỉnh này",
+          "verified": true,
+          "recommended": false
+        },
+        {
+          "term": "trọng số của cạnh",
+          "source_id": "bib-vudinhhoa-2010",
+          "page": "",
+          "pdf_page": 126,
+          "snippet": "ký hiệu œ(e)) và thường gọi đó là trọng số của cạnh e. Thông thường trọng số",
+          "verified": true,
+          "recommended": false
+        },
+        {
+          "term": "trọng số của mỗi cạnh",
+          "source_id": "bib-cormen-2001-vi",
+          "page": "tr. 604",
+          "pdf_page": 602,
+          "snippet": "trong số của cạnh (v„ v) là w(, y) = bạ. Trọng số của mỗi cạnh rời vụ là",
+          "verified": true,
+          "recommended": false
+        }
+      ]
     },
     {
-     "term": "hành trình",
-     "source_id": "bib-hoangchithanh-2011",
-     "page": "",
-     "pdf_page": 167,
-     "snippet": "cho mình một hành trình “tiết kiệm” nhất theo nghĩa tốn ít thời gian, tốn ít",
-     "verified": true,
-     "recommended": false
+      "id": "wheel-graph",
+      "letter": "W",
+      "headword_en": "wheel graph",
+      "notation": "W_n,\\ n \\geq 3",
+      "rosen_ref": "Rosen §10.2",
+      "definition_vi": "Đồ thị bánh xe $$W_n$$, với $$n \\geq 3$$, là đồ thị thu được từ chu trình $$C_n$$ bằng cách bổ sung một đỉnh mới và nối đỉnh này với mỗi đỉnh trong $$n$$ đỉnh của $$C_n$$ bởi một cạnh. Do đó $$W_n$$ có $$n+1$$ đỉnh và $$2n$$ cạnh.",
+      "example_vi": "Đồ thị bánh xe $$W_4$$ thu được từ chu trình $$C_4$$ bằng cách thêm một đỉnh mới nối với cả $$4$$ đỉnh của $$C_4$$, gồm $$5$$ đỉnh và $$8$$ cạnh.",
+      "notes": "Recommended term \"đồ thị bánh xe\" is attested in the newest source (bib-nguyenhoangthach-2020, tr. 67) with the exact construction matching this concept, and also in bib-nguyenhuudien-2019 and bib-nguyenducnghia-2006. The reference-only Rosen translation (bib-rosen-2003-vi, excluded by find-term.py default) renders this as \"đồ thị hình bánh xe\" / \"bánh xe\" (with \"hình\"), recorded as a variant only. OCR sources bib-leanhvinh-2020 and bib-hoangchithanh-2007 returned 0 hits in both normal and --loose modes for both candidate terms. The lone \"bánh xe\" hit in bib-ngodactan-2004 (tr. 160) is an unrelated combinatorics exercise about a physical wheel with 15 evenly spaced positions, NOT the wheel graph, so it is not recorded as denoting this concept. Exposition note: the trailing \"ký hiệu là $$W_n$$\" clause was removed from the definition because $$W_n$$ is already named at the start of the sentence and the notation field carries the symbol.",
+      "see_also": [
+        "complete-graph"
+      ],
+      "vi_terms": [
+        {
+          "term": "đồ thị bánh xe",
+          "verified": true,
+          "recommended": true,
+          "source_id": "bib-nguyenhoangthach-2020",
+          "pdf_page": 67,
+          "page": "tr. 65",
+          "snippet": "Đồ thị bánh xe: Wn , n ≥ 3, có n + 1 đỉnh s, v1 , v2 , . . . , vn và 2n cạnh svi và"
+        },
+        {
+          "term": "đồ thị bánh xe",
+          "verified": true,
+          "recommended": false,
+          "source_id": "bib-nguyenhuudien-2019",
+          "pdf_page": 159,
+          "page": "tr. 159",
+          "snippet": "ta nhận được đơn đồ thị gọi là đồ thị bánh xe, ký hiệu là Wn . Như vậy, đồ thị Wn có n + 1"
+        },
+        {
+          "term": "đồ thị hình bánh xe",
+          "source_id": "bib-rosen-2003-vi",
+          "pdf_page": 508,
+          "page": "tr. 508",
+          "snippet": "Ví dụ 6. Đồ thị hình bánh xe. Khi thêm một dinh vào chu trình C, ... ta sẽ nhận dược đồ thị hình bánh xe. Các bánh xe W„ W,,",
+          "verified": true,
+          "recommended": false
+        },
+        {
+          "term": "đồ thị bánh xe",
+          "source_id": "bib-doducgiao-2009",
+          "page": "tr. 118",
+          "pdf_page": 119,
+          "snippet": "35. Cac đồ thị bánh xe W, (n 2 3):",
+          "verified": true,
+          "recommended": false
+        }
+      ]
     },
     {
-     "term": "hành trình",
-     "source_id": "bib-nguyenhuudien-2019",
-     "page": "tr. 10",
-     "pdf_page": 10,
-     "snippet": "7.13 Hành trình của con mã . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 189",
-     "verified": true,
-     "recommended": false
+      "id": "well-ordering-principle",
+      "letter": "W",
+      "headword_en": "well-ordering principle",
+      "notation": "",
+      "rosen_ref": "Rosen §5.2",
+      "definition_vi": "Nguyên lý thứ tự tốt khẳng định rằng mọi tập khác rỗng các số nguyên không âm đều có một phần tử nhỏ nhất. Tổng quát hơn, một tập được sắp thứ tự $$S$$ được gọi là có thứ tự tốt nếu mọi tập con khác rỗng của $$S$$ đều có một phần tử nhỏ nhất; tập các số nguyên không âm $$\\{0, 1, 2, \\ldots\\}$$ với thứ tự thông thường là một tập có thứ tự tốt.",
+      "example_vi": "Xét tập khác rỗng $$A = \\{6, 2, 9, 4\\}$$ gồm các số nguyên không âm. Theo nguyên lý thứ tự tốt, $$A$$ có một phần tử nhỏ nhất, ở đây là $$2$$.",
+      "notes": "Concept (Rosen §5.2): the well-ordering principle states that every nonempty set of nonnegative integers has a least element; more generally, every nonempty subset of a well-ordered set has a least element.\n\nAttestation: only bib-nguyenhuudien-2019 (2019 discrete math) treats this concept, on pdf p.120 (\"Định nghĩa 4.17 — Thứ tự tốt\"). That source names the PROPERTY (\"thứ tự tốt\" = well-ordered; \"được sắp tốt\" = well-ordered, alternative phrasing) and gives the defining condition \"mọi tập con khác rỗng đều có phần tử nhỏ nhất\" (every nonempty subset has a least element). It does NOT use the principle-phrase \"nguyên lý thứ tự tốt\".\n\nRecommended term: \"nguyên lý thứ tự tốt\" is the standard Vietnamese name for the PRINCIPLE itself. No corpus source (normal or --loose, including OCR sources bib-leanhvinh-2020 and bib-hoangchithanh-2007) literally attests this principle-phrase, so it is recorded as verified=false / page=\"\" per the citation-hygiene rule that keeps one standard recommended term. It is built directly on the attested property term \"thứ tự tốt\" (verified from the 2019 source). Searches for \"nguyên lý thứ tự tốt\", \"nguyên lý sắp tốt\", \"nguyên lý sắp thứ tự tốt\", \"sắp thứ tự tốt\", \"tập sắp thứ tự tốt\" all returned 0 hits.\n\nExposition note: the second sentence was tightened so the generalization to well-ordered sets $$S$$ states the nonnegative-integer instance as an example of the general property rather than restating the opening principle verbatim; the named principle proper remains exactly the first sentence.\n\nOCR note: the 2020/2007 OCR sources discuss other principles (\"nguyên lý quy nạp\" = induction, \"Nguyên lý Dirichlet\" = pigeonhole), none of which denote well-ordering. The 2020 sources do not attest any candidate for this concept.\n\nNotation/definition: the displayed nonnegative-integer set $$\\{0, 1, 2, \\ldots\\}$$ and $$\\min A$$ are introduced in the definition/notation; the example uses only the concept of least element of a finite nonempty set, introduced by the definition.\n\nVerifier: re-ran find-term.py for all three verified=true terms in bib-nguyenhuudien-2019 — all confirm on pdf p.120 with snippets denoting the well-ordering property (incl. \"Ví dụ 4.21\" giving (N, ≤) well-ordered, (Z, ≤) not). Re-ran principle-phrase searches (normal + OCR --loose): 0 hits, confirming verified=false for the recommended term.",
+      "see_also": [
+        "mathematical-induction"
+      ],
+      "vi_terms": [
+        {
+          "term": "nguyên lý thứ tự tốt",
+          "verified": false,
+          "recommended": true,
+          "source_id": "",
+          "page": "",
+          "pdf_page": 0,
+          "snippet": ""
+        },
+        {
+          "term": "thứ tự tốt",
+          "verified": true,
+          "recommended": false,
+          "source_id": "bib-nguyenhuudien-2019",
+          "page": "tr. 120",
+          "pdf_page": 120,
+          "snippet": "Định nghĩa 4.17 — Thứ tự tốt. Một tập hợp có thứ tự được gọi là có thứ tự tốt"
+        },
+        {
+          "term": "được sắp tốt",
+          "verified": true,
+          "recommended": false,
+          "source_id": "bib-nguyenhuudien-2019",
+          "page": "tr. 120",
+          "pdf_page": 120,
+          "snippet": "(hay được sắp tốt) nếu và chỉ nếu mọi tập con khác rỗng đều có phần tử nhỏ nhất."
+        },
+        {
+          "term": "có thứ tự tốt",
+          "verified": true,
+          "recommended": false,
+          "source_id": "bib-nguyenhuudien-2019",
+          "page": "tr. 120",
+          "pdf_page": 120,
+          "snippet": "Định nghĩa 4.17 — Thứ tự tốt. Một tập hợp có thứ tự được gọi là có thứ tự tốt"
+        },
+        {
+          "term": "nguyên lý sắp thứ tự tốt",
+          "source_id": "",
+          "page": "",
+          "pdf_page": 0,
+          "snippet": "",
+          "verified": false,
+          "recommended": false
+        },
+        {
+          "term": "thứ tự tốt",
+          "source_id": "bib-nguyenvanmau-2007",
+          "page": "",
+          "pdf_page": 120,
+          "snippet": "ii) Một tap con bất kỳ cha N đều có phan tử nhỏ nhất (tính sắp thứ tự tốt).",
+          "verified": true,
+          "recommended": false
+        },
+        {
+          "term": "có thứ tự tốt",
+          "source_id": "bib-nguyenvanmau-2007",
+          "page": "",
+          "pdf_page": 125,
+          "snippet": "cũng có thể được thay thế bằng một tập hợp có thứ tự tốt bất kỳ.",
+          "verified": true,
+          "recommended": false
+        },
+        {
+          "term": "thứ tự tốt",
+          "source_id": "bib-nguyenhuuanh-2007",
+          "page": "",
+          "pdf_page": 124,
+          "snippet": "40. Một tập hợp thứ tự < trên tập hợp A được nói là thứ tự tốt",
+          "verified": true,
+          "recommended": false
+        },
+        {
+          "term": "được sắp tốt",
+          "source_id": "bib-nguyenhuuanh-2007",
+          "page": "",
+          "pdf_page": 124,
+          "snippet": "ta nói (4, <) được sắp tốt. .",
+          "verified": true,
+          "recommended": false
+        },
+        {
+          "term": "được sắp tốt",
+          "source_id": "bib-vovantuandung-2007",
+          "page": "",
+          "pdf_page": 110,
+          "snippet": "1. Tập hợp có thứ tự (N, <) là một tập hợp được sắp tốt.",
+          "verified": true,
+          "recommended": false
+        }
+      ]
     },
     {
-     "term": "dãy các đỉnh",
-     "source_id": "bib-leanhvinh-2020",
-     "page": "tr. 111",
-     "pdf_page": 110,
-     "snippet": "màu c2. Cứ tiếp tục như vậy, ta thu được một dãy các đỉnh u¡,u2....",
-     "verified": true,
-     "recommended": false
+      "id": "well-formed-formula",
+      "letter": "W",
+      "headword_en": "well-formed formula",
+      "notation": "",
+      "rosen_ref": "Rosen §1.1",
+      "definition_vi": "Công thức hợp thức của một ngôn ngữ hình thức là một dãy hữu hạn các ký hiệu được xây dựng theo đúng các quy tắc thành lập cú pháp của ngôn ngữ đó. Các ký hiệu này gồm các biến mệnh đề hoặc biến vị từ, các liên từ logic, các lượng từ và các ký hiệu nhóm như cặp dấu ngoặc. Nhờ tuân theo các quy tắc thành lập này, một công thức hợp thức biểu diễn một biểu thức logic hợp lệ về mặt ngữ pháp và có ý nghĩa xác định.",
+      "example_vi": "Với các biến mệnh đề $$p$$, $$q$$, $$r$$, dãy ký hiệu $$(p \\wedge q) \\rightarrow r$$ là một công thức hợp thức vì nó được xây dựng đúng theo các quy tắc thành lập: hai công thức được nối bằng liên từ và đặt trong cặp dấu ngoặc. Ngược lại, dãy ký hiệu $$p \\wedge \\rightarrow q$$ không phải là công thức hợp thức, vì liên từ $$\\rightarrow$$ không có công thức đứng ngay trước nó.",
+      "notes": "No candidate term (công thức hợp thức, công thức được thành lập đúng, công thức chỉnh, công thức đúng đắn) nor any fragment (hợp thức, chỉnh dạng, thành lập đúng, công thức logic/tốt/dạng đúng) is attested anywhere in the Vietnamese corpus, on either normal or --loose (OCR) searches across all six sources. This is expected: \"well-formed formula\" is a mathematical-logic concept (Rosen §1.1), but the mined corpus consists exclusively of graph-theory / combinatorics / discrete-math texts. The base word \"công thức\" occurs 327 times, but always meaning a mathematical/counting formula, never the logic-syntax notion of a well-formed formula. The only --loose matches for the fragment \"hợp thức\" are OCR false positives (\"tổ hợp thực tế\"), not the logic term. Per book convention, exactly one standard term (\"công thức hợp thức\", the most common Vietnamese calque for wff in logic literature) is kept as recommended with verified=false and page=\"\" so vi_terms is non-empty. Per the citation-hygiene rule, the three non-recommended verified=false/empty-page calques were DROPPED from vi_terms (they previously appeared there) and are recorded here as alternative candidate forms only: \"công thức được thành lập đúng\", \"công thức chỉnh\", \"công thức đúng đắn\". All are unattested in the corpus. Exposition: the original single long first sentence was split at the symbol-list boundary for readability/traceability (the list of propositional/predicate variables, connectives, quantifiers and grouping symbols is now a separate sentence). No sibling W-chapter entries currently exist for these logic concepts, so see_also is empty; related logic concepts (proposition, connective, quantifier, predicate) would be cross-chapter forward references.",
+      "see_also": [],
+      "vi_terms": [
+        {
+          "term": "công thức hợp thức",
+          "verified": false,
+          "recommended": true,
+          "source_id": "",
+          "page": "",
+          "pdf_page": 0,
+          "snippet": ""
+        },
+        {
+          "term": "công thức chỉnh",
+          "source_id": "",
+          "page": "",
+          "pdf_page": 0,
+          "snippet": "",
+          "verified": false,
+          "recommended": false
+        },
+        {
+          "term": "công thức chỉnh",
+          "source_id": "bib-nguyenhoangthach-2020",
+          "page": "tr. 33",
+          "pdf_page": 35,
+          "snippet": "ta không biết công thức chính xác của p(n), tuy nhiên có một số công thức",
+          "verified": true,
+          "recommended": false
+        },
+        {
+          "term": "công thức chỉnh",
+          "source_id": "bib-cormen-2001-vi",
+          "page": "tr. 199",
+          "pdf_page": 197,
+          "snippet": "a. Nêu một công thức chính xác với pi làm một hàm chan và ¡ với ¡",
+          "verified": true,
+          "recommended": false
+        }
+      ]
     },
     {
-     "term": "đường đi",
-     "source_id": "bib-leanhvinh-2020",
-     "page": "tr. 5",
-     "pdf_page": 4,
-     "snippet": "1A: Đường đi ngắn nhất ii scsviswiivcsserismsmusewass 34",
-     "verified": true,
-     "recommended": false
+      "id": "word",
+      "letter": "W",
+      "headword_en": "word",
+      "notation": "w \\in \\Sigma^*",
+      "rosen_ref": "Rosen §13.1",
+      "definition_vi": "Một từ trên bảng chữ cái $$\\Sigma$$ là một dãy hữu hạn các ký hiệu lấy từ $$\\Sigma$$, kể cả từ rỗng (dãy không có ký hiệu nào). Tập tất cả các từ trên $$\\Sigma$$ được ký hiệu là $$\\Sigma^*$$.",
+      "example_vi": "Trên bảng chữ cái $$\\Sigma = \\{0, 1\\}$$, các dãy $$0$$, $$1$$, $$01$$, $$110$$ đều là những từ, và từ rỗng cũng thuộc $$\\Sigma^*$$.",
+      "notes": "Concept: a word (string) $$w$$ over an alphabet $$\\Sigma$$ is a finite sequence of symbols from $$\\Sigma$$, including the empty word; the set of all words is $$\\Sigma^*$$ (Rosen §13.1). Recommended term \"từ\" (word) is attested with an explicit definition in the newest text source bib-nguyenhoangthach-2020 (tr. 14): \"Một từ nhị phân độ dài $$n$$ ($$n \\geq 0$$) là một dãy gồm...\" with the empty word \"từ trống\" (a unique word of length 0) — matching the concept over the binary alphabet $$\\{0,1\\}$$ (the special case). The general word-over-alphabet sense appears in bib-ngodactan-2004 (tr. 19) and bib-nguyenducnghia-2006 (tr. 11): \"tính số các từ khác nhau lập từ một bảng chữ cái cho trước\" (counting distinct words formed from a given alphabet). Variant \"xâu ký tự\" (character string) is confirmed equivalent in bib-nguyenhuudien-2019 (tr. 134), which explicitly writes \"các từ hay xâu ký tự\" (words or character strings); the synonym gloss \"(xâu ký tự)\" was REMOVED from the definition body per the no-synonym-gloss convention, and the variant lives here and in vi_terms. Variant \"xâu\" (string) appears in composites \"xâu nhị phân\"/\"xâu bit\" (binary/bit string) across bib-nguyenducnghia-2006, bib-nguyenhuudien-2019, bib-ngodactan-2004. Composites \"từ nhị phân\" (binary word) and \"từ trống\" (empty word) further pin the sense. Candidate \"chuỗi ký tự\" returned 0 hits and is NOT attested; \"chuỗi\" alone occurs only in the unrelated sense \"chuỗi luỹ thừa hình thức\" (formal power series), so it is excluded. OCR sources bib-leanhvinh-2020 and bib-hoangchithanh-2007 yielded no attestation for these word/string terms: \"xâu\" returned 0 hits in both normal and --loose modes. Relevant alphabet term \"bảng chữ cái\" (alphabet) is attested (bib-ngodactan-2004 tr. 19; bib-nguyenducnghia-2006 tr. 11; bib-nguyenhuudien-2019).",
+      "see_also": [
+        "alphabet",
+        "empty-string",
+        "string",
+        "concatenation",
+        "language"
+      ],
+      "vi_terms": [
+        {
+          "term": "từ",
+          "verified": true,
+          "recommended": true,
+          "source_id": "bib-nguyenhoangthach-2020",
+          "pdf_page": 14,
+          "page": "tr. 12",
+          "snippet": "Ví dụ 1.3 (Từ nhị phân). Một từ nhị phân độ dài n (n ≥ 0) là một dãy gồm ... Có duy nhất 1 từ nhị phân có độ dài 0, được gọi là từ trống."
+        },
+        {
+          "term": "từ",
+          "verified": true,
+          "recommended": false,
+          "source_id": "bib-ngodactan-2004",
+          "pdf_page": 19,
+          "page": "tr. 19",
+          "snippet": "tính số các từ khác nhau lập từ một bảng chữ cái cho trước. Nhà toán"
+        },
+        {
+          "term": "từ",
+          "verified": true,
+          "recommended": false,
+          "source_id": "bib-nguyenducnghia-2006",
+          "pdf_page": 11,
+          "page": "",
+          "snippet": "Kxenokrat, sống ở thế kỷ thứ 4 trước công nguyên, đã biết cách tính số các từ khác"
+        },
+        {
+          "term": "xâu ký tự",
+          "verified": true,
+          "recommended": false,
+          "source_id": "bib-nguyenhuudien-2019",
+          "pdf_page": 134,
+          "page": "tr. 134",
+          "snippet": "lớn nhất hoặc nếu chúng là các từ hay xâu ký tự thì chúng được sắp theo thứ tự từ điển."
+        },
+        {
+          "term": "xâu",
+          "verified": true,
+          "recommended": false,
+          "source_id": "bib-nguyenhuudien-2019",
+          "pdf_page": 76,
+          "page": "tr. 76",
+          "snippet": "A trên máy tính bằng một xâu bit có chiều dài n, trong đó bit thứ i là 1 nếu ai ∈ A, còn bit"
+        },
+        {
+          "term": "xâu",
+          "verified": true,
+          "recommended": false,
+          "source_id": "bib-nguyenducnghia-2006",
+          "pdf_page": 28,
+          "page": "",
+          "snippet": "Thí dụ 2. Có bao nhiêu xâu nhị phân độ dài 10 hoặc là bắt đầu bởi 00 hoặc là kết thúc"
+        },
+        {
+          "term": "xâu",
+          "verified": true,
+          "recommended": false,
+          "source_id": "bib-ngodactan-2004",
+          "pdf_page": 50,
+          "page": "tr. 50",
+          "snippet": "có bao nhiêu xâu gồm 6 chữ thường chứa:"
+        },
+        {
+          "term": "chuỗi",
+          "source_id": "",
+          "page": "",
+          "pdf_page": 0,
+          "snippet": "",
+          "verified": false,
+          "recommended": false
+        },
+        {
+          "term": "xâu ký tự",
+          "source_id": "bib-doducgiao-2009",
+          "page": "tr. 220",
+          "pdf_page": 221,
+          "snippet": "sẽ dan tới lá e. Vậy xau 11111011100 là mã của xâu ký tự sane.",
+          "verified": true,
+          "recommended": false
+        },
+        {
+          "term": "xâu ký tự",
+          "source_id": "bib-doducgiao-2008",
+          "page": "tr. 7",
+          "pdf_page": 8,
+          "snippet": "1.2. Xâu ký tự..",
+          "verified": true,
+          "recommended": false
+        }
+      ]
     },
     {
-     "term": "đường đi",
-     "source_id": "bib-nguyenhoangthach-2020",
-     "page": "tr. 2",
-     "pdf_page": 4,
-     "snippet": "5.2 Đường đi và tính liên thông . . . . . . . . . . . . . . . . . . . . 71",
-     "verified": true,
-     "recommended": false
+      "id": "warshalls-algorithm",
+      "letter": "W",
+      "headword_en": "Warshall's algorithm",
+      "notation": "W_k",
+      "rosen_ref": "Rosen §9.4",
+      "definition_vi": "Thuật toán Warshall là một thủ tục lặp dùng để tính bao đóng bắc cầu của một quan hệ $$R$$ trên tập hữu hạn $$A = \\{a_1, a_2, \\ldots, a_n\\}$$. Bắt đầu từ ma trận không-một $$W_0$$ của $$R$$, thuật toán lần lượt tính các ma trận $$W_1, W_2, \\ldots, W_n$$, ký hiệu $$W_k = [w_{ij}^{(k)}]$$, trong đó $$w_{ij}^{(k)} = 1$$ khi và chỉ khi tồn tại đường đi từ $$a_i$$ đến $$a_j$$ chỉ dùng các đỉnh trung gian trong $$\\{a_1, \\ldots, a_k\\}$$; ma trận cuối cùng $$W_n$$ chính là ma trận của bao đóng bắc cầu $$R^{*}$$.",
+      "example_vi": "Với quan hệ $$R = \\{(1,2),(2,3)\\}$$ trên tập $$A = \\{1,2,3\\}$$, thuật toán Warshall xuất phát từ ma trận $$W_0$$ ghi nhận hai cặp này; khi cho phép đỉnh $$a_2 = 2$$ làm đỉnh trung gian (bước tính $$W_2$$), đường đi $$1 \\rightarrow 2 \\rightarrow 3$$ làm xuất hiện cặp $$(1,3)$$. Vì không có đỉnh trung gian mới nào ở bước cuối nên $$W_3 = W_2$$ chính là ma trận của quan hệ $$R^{*} = \\{(1,2),(2,3),(1,3)\\}$$.",
+      "see_also": [
+        "transitive-closure",
+        "reachability"
+      ],
+      "vi_terms": [
+        {
+          "term": "thuật toán Warshall",
+          "verified": true,
+          "recommended": true,
+          "source_id": "bib-hoangchithanh-2007",
+          "pdf_page": 12,
+          "page": "tr. 12",
+          "snippet": "dùng thuật toán Warshall sau đây để tính ma trận bao đóng bắc cầu"
+        },
+        {
+          "term": "thuật toán Warshall",
+          "source_id": "bib-doantamhoe-2009",
+          "page": "",
+          "pdf_page": 148,
+          "snippet": "Thuật toán Warshall giúp ta tìm quan hệ khả liên bằng cách:",
+          "verified": true,
+          "recommended": false
+        },
+        {
+          "term": "thuật toán Warshall",
+          "source_id": "bib-hoangchithanh-2011",
+          "page": "",
+          "pdf_page": 19,
+          "snippet": "thì có đường đi từ đỉnh i tới đỉnh ÿj\". Thuật toán Warshall tính toán nhanh ma",
+          "verified": true,
+          "recommended": false
+        }
+      ],
+      "notes": "Only bib-hoangchithanh-2007 (2007, graph algorithms) attests a Vietnamese name for this concept: \"thuật toán Warshall\", appearing as \"Thuật toán 1.2 (Warshall)\" (pdf p.12) used \"để tính ma trận bao đóng bắc cầu\" (to compute the transitive closure matrix), and referenced again on pdf p.73 (\"toán Warshall\"). This source is OCR; both normal and --loose searches returned identical results. No 2019-2020 source (bib-leanhvinh-2020, bib-nguyenhoangthach-2020, bib-nguyenhuudien-2019) attests any Warshall term, so the recommended term cannot be sourced from a newest-tier book; \"thuật toán Warshall\" is retained as recommended because it is the standard name and the only attested term. The candidate variants \"thuật toán Roy-Warshall\" and \"thuật toán Floyd-Warshall\" (and their bare forms \"Roy-Warshall\", \"Floyd-Warshall\") returned zero hits across all sources in both normal and loose modes, so they are not recorded as verified vi_terms. Context term \"bao đóng bắc cầu\" (transitive closure) co-occurs on the same page, confirming the term denotes THIS concept. definition_vi and notation $$W_k$$ follow Rosen §9.4: $$W_0$$ is the zero-one matrix of $$R$$ and $$W_n$$ is the matrix of the transitive closure $$R^{*}$$; the relation-level term \"bao đóng bắc cầu\" and notation $$R^{*}$$ are aligned with the companion entry transitive-closure (which carries the same attestation). Exposition: the in-line quasi-synonym gloss \"tức là ma trận liên thông của đồ thị có hướng biểu diễn $$R$$\" was MOVED out of the definition into notes, so the definition states the transitive-closure concept directly without an embedded synonym rephrasing. The phrases \"ma trận liên thông\" (connectivity/reachability matrix), \"ma trận không-một\" (zero-one matrix), and \"đỉnh trung gian\" (interior vertex) are descriptive Vietnamese renderings used in the definition/notes prose only, not claimed as attested vi_terms. Example tightening: the new pair $$(1,3)$$ arises at the $$W_2$$ step (interior vertex $$a_2 = 2$$), and $$W_3 = W_2$$ since no new interior vertex is added at the last step, so the reader is not misled into attributing the new pair to the $$W_3$$ step. see_also keeps the attested forward reference transitive-closure (exists, T chapter) and adds reachability (exists, R chapter; Warshall computes the reachability/connectivity matrix); the originally suggested \"zero-one-matrix\" is dropped because no such entry exists in the corpus. There are no other W-chapter entries to cross-link."
     },
     {
-     "term": "đường đi",
-     "source_id": "bib-nguyenhuudien-2019",
-     "page": "tr. 7",
-     "pdf_page": 7,
-     "snippet": "Chương 7. Đường đi và chu trình . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 175",
-     "verified": true,
-     "recommended": false
+      "id": "weak-mathematical-induction",
+      "letter": "W",
+      "headword_en": "weak mathematical induction",
+      "notation": "",
+      "rosen_ref": "Rosen §4.1",
+      "definition_vi": "Quy nạp toán học yếu (còn gọi là nguyên lý thứ nhất của quy nạp toán học) là kỹ thuật chứng minh một mệnh đề $$P(n)$$ đúng với mọi số nguyên dương $$n$$, gồm hai bước: bước cơ sở chứng minh $$P(1)$$ đúng, và bước quy nạp chứng minh rằng nếu $$P(k)$$ đúng thì $$P(k+1)$$ đúng với mọi $$k \\geq 1$$. Khác với quy nạp mạnh, giả thiết quy nạp chỉ dùng tính đúng của $$P(k)$$ tại một giá trị $$k$$ ngay trước đó.",
+      "example_vi": "Để chứng minh $$1 + 2 + \\cdots + n = \\frac{n(n+1)}{2}$$, ta kiểm tra bước cơ sở $$P(1)$$ đúng, rồi giả sử $$P(k)$$ đúng và suy ra $$1 + 2 + \\cdots + (k+1) = \\frac{k(k+1)}{2} + (k+1) = \\frac{(k+1)(k+2)}{2}$$, tức $$P(k+1)$$ đúng.",
+      "vi_terms": [
+        {
+          "term": "phương pháp quy nạp toán học",
+          "source_id": "bib-nguyenhuudien-2019",
+          "pdf_page": 69,
+          "page": "tr. 69",
+          "snippet": "Dùng phương pháp quy nạp toán học chứng minh rằng H2n ≥ 1 + , n là số nguyên không",
+          "verified": true,
+          "recommended": false
+        },
+        {
+          "term": "quy nạp toán học yếu",
+          "source_id": "",
+          "page": "",
+          "pdf_page": 0,
+          "snippet": "",
+          "verified": false,
+          "recommended": true
+        },
+        {
+          "term": "quy nạp yếu",
+          "source_id": "",
+          "page": "",
+          "pdf_page": 0,
+          "snippet": "",
+          "verified": false,
+          "recommended": false
+        },
+        {
+          "term": "quy nạp toán học",
+          "source_id": "bib-doducgiao-2009",
+          "page": "tr. 333",
+          "pdf_page": 334,
+          "snippet": "5. Phương pháp chứng minh bằng phép quy nap toán học",
+          "verified": true,
+          "recommended": false
+        },
+        {
+          "term": "quy nạp toán học",
+          "source_id": "bib-nguyenhuudien-2019",
+          "page": "tr. 69",
+          "pdf_page": 69,
+          "snippet": "Dùng phương pháp quy nạp toán học chứng minh rằng H2n ≥ 1 + , n là số nguyên không",
+          "verified": true,
+          "recommended": false
+        },
+        {
+          "term": "phương pháp quy nạp toán học",
+          "source_id": "bib-doducgiao-2009",
+          "page": "tr. 365",
+          "pdf_page": 366,
+          "snippet": "xy\", Dùng phương pháp quy nạp toán học để kiểm tra kết quả trên.",
+          "verified": true,
+          "recommended": false
+        },
+        {
+          "term": "phương pháp quy nạp toán học",
+          "source_id": "bib-doducgiao-2008",
+          "page": "tr. 122",
+          "pdf_page": 123,
+          "snippet": "phương pháp quy nạp toán học để chứng minh. Chúng ta hãy xét một số",
+          "verified": true,
+          "recommended": false
+        },
+        {
+          "term": "quy nạp toán học",
+          "source_id": "bib-vudinhhoa-2010",
+          "page": "",
+          "pdf_page": 80,
+          "snippet": "p là một bắt biến vòng lặp bằng quy nạp toán học. Trước hết, p là đúng khi bắt đầu",
+          "verified": true,
+          "recommended": false
+        }
+      ],
+      "see_also": [
+        "the-first-principle-of-mathematical-induction",
+        "mathematical-induction",
+        "strong-mathematical-induction"
+      ],
+      "notes": "Quy nạp yếu là dạng cơ bản (nguyên lý thứ nhất). Rosen phân biệt với quy nạp mạnh (nguyên lý thứ hai của quy nạp toán học, tr. 240 PDF); hai dạng này tương đương.",
+      "status": "draft"
+    },
+    {
+      "id": "weakly-connected",
+      "letter": "W",
+      "headword_en": "weakly connected",
+      "notation": "",
+      "rosen_ref": "Rosen §10.4",
+      "definition_vi": "Đồ thị có hướng $$G$$ được gọi là liên thông yếu nếu đồ thị vô hướng nền của nó (thu được bằng cách bỏ hướng của mọi cung) là liên thông, tức là giữa hai đỉnh bất kỳ luôn có đường đi khi không xét đến hướng của các cung.",
+      "example_vi": "Một đồ thị có hướng liên thông mạnh thì cũng liên thông yếu, nhưng điều ngược lại không đúng: đồ thị có hướng gồm hai cung $$a \\to b$$ và $$a \\to c$$ là liên thông yếu nhưng không liên thông mạnh vì không có đường đi có hướng từ $$b$$ tới $$c$$.",
+      "vi_terms": [
+        {
+          "term": "liên thông yếu",
+          "source_id": "bib-nguyenhuudien-2019",
+          "pdf_page": 171,
+          "page": "tr. 171",
+          "snippet": "Đồ thị có hướng G được gọi là liên thông yếu nếu đồ thị vô hướng nền của nó là liên thông.",
+          "verified": true,
+          "recommended": true
+        },
+        {
+          "term": "liên thông yếu",
+          "source_id": "bib-nguyenhoangthach-2020",
+          "pdf_page": 76,
+          "page": "tr. 74",
+          "snippet": "Dễ thấy một đồ thị liên thông mạnh thì liên thông yếu, nhưng điều ngược",
+          "verified": true,
+          "recommended": false
+        },
+        {
+          "term": "liên thông yếu",
+          "source_id": "bib-doducgiao-2009",
+          "page": "tr. 124",
+          "pdf_page": 125,
+          "snippet": "hướng. Đồ thị có hướng G = <X, U> là dé thị liên thông yếu nếu đồ",
+          "verified": true,
+          "recommended": false
+        }
+      ],
+      "see_also": [],
+      "notes": "Khái niệm áp dụng cho đồ thị có hướng. Phân biệt với liên thông mạnh: liên thông mạnh kéo theo liên thông yếu, không có chiều ngược lại.",
+      "status": "draft"
+    },
+    {
+      "id": "weight",
+      "letter": "W",
+      "headword_en": "weight",
+      "notation": "w(e)",
+      "rosen_ref": "Rosen §10.5",
+      "definition_vi": "Trọng số của một cạnh $$e$$ trong một đồ thị có trọng số là giá trị số ( ký hiệu $$w(e)$$) gán cho cạnh đó bởi một hàm trọng số $$w: E(G) \\to \\mathbb{R}$$. Tổng trọng số các cạnh của một đường đi hoặc một đồ thị con được gọi là độ dài (hoặc trọng số) của nó.",
+      "example_vi": "Trong một mạng đường bay được mô hình bằng đồ thị, trọng số $$w(e)$$ gán cho cạnh $$e$$ nối hai thành phố có thể là khoảng cách, giá vé hay thời gian bay giữa chúng.",
+      "vi_terms": [
+        {
+          "term": "trọng số",
+          "source_id": "bib-nguyenhoangthach-2020",
+          "pdf_page": 91,
+          "page": "tr. 89",
+          "snippet": "Một hàm trọng số trên G là một hàm w : E → (0, ∞). Với mỗi e ∈ E, w(e) được gọi là trọng số của cạnh e.",
+          "verified": true,
+          "recommended": true
+        },
+        {
+          "term": "trọng số",
+          "source_id": "bib-nguyenhuudien-2019",
+          "pdf_page": 202,
+          "page": "tr. 202",
+          "snippet": "được gán bởi một số thực c(e), gọi là trọng số của cạnh (hoặc cung) e.",
+          "verified": true,
+          "recommended": false
+        },
+        {
+          "term": "trọng số",
+          "source_id": "bib-leanhvinh-2020",
+          "pdf_page": 33,
+          "page": "tr. 34",
+          "snippet": "Định nghĩa 1.30. Một mạng lưới (hay đồ thị có trọng số) là một đồ thị ... Cho mạng lưới (G, w), ta xác định trọng số của đồ thị con H ⊆ G.",
+          "verified": true,
+          "recommended": false
+        }
+      ],
+      "see_also": [],
+      "notes": "Trọng số gắn với cạnh trong đồ thị có trọng số (đồ thị hai phần có trọng số cũng dùng khái niệm này). Một số tài liệu ký hiệu hàm trọng số là $$c(e)$$ thay cho $$w(e)$$. Tùy ngữ cảnh, trọng số có thể nhận giá trị dương, không âm hoặc thực tùy ý.",
+      "status": "draft"
+    },
+    {
+      "id": "well-formed-formulae",
+      "letter": "W",
+      "headword_en": "well-formed formulae",
+      "notation": "",
+      "rosen_ref": "Rosen §1.1",
+      "definition_vi": "Một công thức được tạo đúng quy tắc là một biểu thức logic được xây dựng đúng cú pháp từ các biến mệnh đề, các phép toán logic ($$\\neg$$, $$\\wedge$$, $$\\vee$$, $$\\rightarrow$$, $$\\leftrightarrow$$) và các dấu ngoặc theo các quy tắc tạo công thức. Cụ thể, mỗi biến mệnh đề là một công thức được tạo đúng quy tắc, và nếu $$F$$ và $$G$$ là các công thức được tạo đúng quy tắc thì $$(\\neg F)$$, $$(F \\wedge G)$$, $$(F \\vee G)$$, $$(F \\rightarrow G)$$ và $$(F \\leftrightarrow G)$$ cũng là các công thức được tạo đúng quy tắc.",
+      "example_vi": "Biểu thức $$(p \\wedge q) \\rightarrow (\\neg r)$$ là một công thức được tạo đúng quy tắc, trong khi $$p \\wedge \\vee q$$ thì không, vì nó vi phạm quy tắc tạo công thức.",
+      "vi_terms": [
+        {
+          "term": "các công thức được tạo đúng quy tắc",
+          "source_id": "bib-rosen-2003-vi",
+          "pdf_page": 287,
+          "page": "tr. 287",
+          "snippet": "4**. Hay sinh ra tất cả các công thức được tạo đúng quy tắc, chứa các",
+          "verified": true,
+          "recommended": false
+        },
+        {
+          "term": "công thức được tạo đúng quy tắc",
+          "source_id": "",
+          "page": "",
+          "pdf_page": 0,
+          "snippet": "",
+          "verified": false,
+          "recommended": false
+        },
+        {
+          "term": "công thức hợp thức",
+          "source_id": "",
+          "page": "",
+          "pdf_page": 0,
+          "snippet": "",
+          "verified": false,
+          "recommended": false
+        },
+        {
+          "term": "công thức chỉnh",
+          "source_id": "bib-nguyenhoangthach-2020",
+          "page": "tr. 33",
+          "pdf_page": 35,
+          "snippet": "ta không biết công thức chính xác của p(n), tuy nhiên có một số công thức",
+          "verified": true,
+          "recommended": true
+        },
+        {
+          "term": "công thức đúng dạng",
+          "source_id": "",
+          "page": "",
+          "pdf_page": 0,
+          "snippet": "",
+          "verified": false,
+          "recommended": false
+        },
+        {
+          "term": "công thức chỉnh",
+          "source_id": "bib-cormen-2001-vi",
+          "page": "tr. 199",
+          "pdf_page": 197,
+          "snippet": "a. Nêu một công thức chính xác với pi làm một hàm chan và ¡ với ¡",
+          "verified": true,
+          "recommended": false
+        }
+      ],
+      "see_also": [],
+      "notes": "Khái niệm thuộc logic mệnh đề, xác định tính hợp lệ về cú pháp của một biểu thức logic. Không tìm thấy thuật ngữ này trong kho ngữ liệu tham khảo (kể cả bản dịch Rosen), nên chỉ giữ thuật ngữ của giáo trình MAT3500.",
+      "status": "draft"
+    },
+    {
+      "id": "wheel",
+      "letter": "W",
+      "headword_en": "wheel",
+      "see_ref": "wheel-graph",
+      "vi_terms": [
+        {
+          "term": "đồ thị bánh xe",
+          "verified": false,
+          "recommended": false,
+          "source_id": "",
+          "page": "",
+          "pdf_page": 0,
+          "snippet": ""
+        },
+        {
+          "term": "đồ thị hình bánh xe",
+          "verified": false,
+          "recommended": false,
+          "source_id": "",
+          "page": "",
+          "pdf_page": 0,
+          "snippet": ""
+        }
+      ],
+      "see_also": [],
+      "notes": "Đồng nghĩa với Wheel graph."
+    },
+    {
+      "id": "witness",
+      "letter": "W",
+      "headword_en": "witness",
+      "notation": "",
+      "rosen_ref": "Rosen §4.4",
+      "definition_vi": "Một bằng chứng (cho tính hợp số của một số nguyên dương $$n$$) là một số nguyên $$b$$ với $$1 < b < n$$ sao cho $$n$$ không vượt qua một phép kiểm tra tính nguyên tố ứng với cơ sở $$b$$ (chẳng hạn kiểm tra Miller), qua đó khẳng định chắc chắn rằng $$n$$ là hợp số. Tổng quát hơn, trong lý thuyết tính toán, bằng chứng cho một mệnh đề là một đối tượng cụ thể cho phép kiểm tra nhanh rằng mệnh đề đó đúng.",
+      "example_vi": "Với $$n = 2047 = 23 \\cdot 89$$, số $$b = 23$$ là một bằng chứng cho tính hợp số của $$n$$ vì $$23 \\mid 2047$$, trong khi $$2047$$ lại là số giả nguyên tố Fermat cơ sở $$2$$.",
+      "vi_terms": [
+        {
+          "term": "bằng chứng",
+          "source_id": "bib-leanhvinh-2020",
+          "page": "tr. 140",
+          "pdf_page": 139,
+          "snippet": "Ta sẽ kết thúc mục này bằng chứng minh của Székely [88] cho chan",
+          "verified": true,
+          "recommended": true
+        },
+        {
+          "term": "bằng chứng",
+          "source_id": "bib-doducgiao-2008",
+          "page": "tr. 123",
+          "pdf_page": 124,
+          "snippet": "Tiếp theo, bang chứng minh quy nạp ta có thể dé dang chứng minh (1)",
+          "verified": true,
+          "recommended": false
+        },
+        {
+          "term": "bằng chứng",
+          "source_id": "bib-vudinhhoa-2010",
+          "page": "",
+          "pdf_page": 72,
+          "snippet": "7. Hãy chứng minh các mệnh đề tồn tại sau đây bằng chứng minh kiến thiết hoặc",
+          "verified": true,
+          "recommended": false
+        }
+      ],
+      "see_also": [],
+      "notes": "Trong giáo trình MAT3500, thuật ngữ chỉ một số nguyên chứng tỏ tính hợp số trong kiểm tra tính nguyên tố. Tìm kiếm trong kho ngữ liệu tiếng Việt và bản dịch Rosen không cho kết quả khẳng định nghĩa kỹ thuật này (các lần khớp \"bằng chứng\" đều là cụm thông thường như \"bằng chứng minh\"); do đó chỉ có thuật ngữ giáo trình được dẫn.",
+      "status": "draft"
+    },
+    {
+      "id": "worst-case-complexity",
+      "letter": "W",
+      "headword_en": "worst-case complexity",
+      "notation": "",
+      "rosen_ref": "Rosen §3.3",
+      "definition_vi": "Độ phức tạp trường hợp xấu nhất của một thuật toán là số phép toán lớn nhất mà thuật toán cần thực hiện trên mọi dữ liệu vào có cùng kích thước $$n$$, dùng để cận trên cho thời gian chạy của thuật toán. Khi đo bằng số phép toán cơ bản, đại lượng này thường được biểu diễn theo ký hiệu $$O$$ lớn như một hàm của $$n$$.",
+      "example_vi": "Thuật toán tìm kiếm tuyến tính trên một danh sách gồm $$n$$ phần tử có độ phức tạp trường hợp xấu nhất là $$O(n)$$, vì khi phần tử cần tìm không có trong danh sách thuật toán phải so sánh với cả $$n$$ phần tử.",
+      "vi_terms": [
+        {
+          "term": "độ phức tạp thời gian trong trường hợp xấu nhất",
+          "source_id": "bib-rosen-2003-vi",
+          "pdf_page": 150,
+          "page": "tr. 150",
+          "snippet": "Mô tả độ phức tạp thời gian trong trường hợp xấu nhất được đo qua",
+          "verified": true,
+          "recommended": false
+        },
+        {
+          "term": "trường hợp xấu nhất",
+          "source_id": "bib-nguyenhuudien-2019",
+          "pdf_page": 136,
+          "page": "tr. 136",
+          "snippet": "toán trong trường hợp xấu nhất là n − 1 giây. Với dãy 64 số, thời gian thực hiện thuật toán",
+          "verified": true,
+          "recommended": false
+        },
+        {
+          "term": "độ phức tạp trường hợp xấu nhất",
+          "source_id": "",
+          "page": "",
+          "pdf_page": 0,
+          "snippet": "",
+          "verified": false,
+          "recommended": true
+        },
+        {
+          "term": "độ phức tạp trong trường hợp xấu nhất",
+          "source_id": "",
+          "page": "",
+          "pdf_page": 0,
+          "snippet": "",
+          "verified": false,
+          "recommended": false
+        },
+        {
+          "term": "trường hợp xấu nhất",
+          "source_id": "bib-doducgiao-2009",
+          "page": "tr. 234",
+          "pdf_page": 235,
+          "snippet": "thời gian trong trường hợp xấu nhất.",
+          "verified": true,
+          "recommended": false
+        },
+        {
+          "term": "trường hợp xấu nhất",
+          "source_id": "bib-vudinhhoa-2010",
+          "page": "",
+          "pdf_page": 151,
+          "snippet": "Với thuật toán Huffman trong trường hợp xấu nhất, thời gian hình thành cây",
+          "verified": true,
+          "recommended": false
+        },
+        {
+          "term": "độ phức tạp trong trường hợp xấu nhất",
+          "source_id": "bib-doducgiao-2008",
+          "page": "tr. 259",
+          "pdf_page": 260,
+          "snippet": "Thuật toán sắp xếp nổi bọt có độ phức tạp trong trường hợp xấu nhất",
+          "verified": true,
+          "recommended": false
+        }
+      ],
+      "see_also": [],
+      "notes": "Trường hợp xấu nhất cho cận trên chặt nhất về thời gian chạy; phân biệt với độ phức tạp trường hợp trung bình.",
+      "status": "draft"
+    },
+    {
+      "id": "well-ordered-set",
+      "letter": "W",
+      "headword_en": "well-ordered set",
+      "notation": "",
+      "rosen_ref": "Rosen §9.6",
+      "definition_vi": "Tập sắp thứ tự tốt là một tập hợp được sắp thứ tự toàn phần trong đó mọi tập con khác rỗng đều có phần tử nhỏ nhất.",
+      "example_vi": "Tập số tự nhiên $$\\mathbb{N}$$ với quan hệ $$\\leq$$ thông thường là một tập sắp thứ tự tốt, vì mọi tập con khác rỗng của $$\\mathbb{N}$$ đều có phần tử nhỏ nhất. Ngược lại, tập số nguyên $$\\mathbb{Z}$$ với $$\\leq$$ tuy được sắp thứ tự toàn phần nhưng không sắp thứ tự tốt, vì bản thân $$\\mathbb{Z}$$ không có phần tử nhỏ nhất.",
+      "vi_terms": [
+        {
+          "term": "tập hợp được sắp tốt",
+          "source_id": "bib-nguyenhuudien-2019",
+          "page": "tr. 120",
+          "pdf_page": 120,
+          "snippet": "Ví dụ 4.21. 1. Tập hợp thứ tự (N, ≤) là một tập hợp được sắp tốt.",
+          "verified": true,
+          "recommended": true
+        },
+        {
+          "term": "thứ tự tốt",
+          "source_id": "bib-nguyenhuudien-2019",
+          "page": "tr. 120",
+          "pdf_page": 120,
+          "snippet": "Định nghĩa 4.17 — Thứ tự tốt. Một tập hợp có thứ tự được gọi là có thứ tự tốt (hay được sắp tốt) nếu và chỉ nếu mọi tập con khác rỗng đều có phần tử nhỏ nhất.",
+          "verified": true,
+          "recommended": false
+        },
+        {
+          "term": "tập thứ tự tốt",
+          "source_id": "",
+          "page": "",
+          "pdf_page": 0,
+          "snippet": "",
+          "verified": false,
+          "recommended": false
+        },
+        {
+          "term": "tập hợp có thứ tự tốt",
+          "source_id": "",
+          "page": "",
+          "pdf_page": 0,
+          "snippet": "",
+          "verified": false,
+          "recommended": false
+        },
+        {
+          "term": "thứ tự tốt",
+          "source_id": "bib-nguyenvanmau-2007",
+          "page": "",
+          "pdf_page": 120,
+          "snippet": "ii) Một tap con bất kỳ cha N đều có phan tử nhỏ nhất (tính sắp thứ tự tốt).",
+          "verified": true,
+          "recommended": false
+        },
+        {
+          "term": "tập hợp có thứ tự tốt",
+          "source_id": "bib-nguyenvanmau-2007",
+          "page": "",
+          "pdf_page": 125,
+          "snippet": "cũng có thể được thay thế bằng một tập hợp có thứ tự tốt bất kỳ.",
+          "verified": true,
+          "recommended": false
+        },
+        {
+          "term": "tập hợp được sắp tốt",
+          "source_id": "bib-vovantuandung-2007",
+          "page": "",
+          "pdf_page": 110,
+          "snippet": "1. Tập hợp có thứ tự (N, <) là một tập hợp được sắp tốt.",
+          "verified": true,
+          "recommended": false
+        },
+        {
+          "term": "thứ tự tốt",
+          "source_id": "bib-nguyenhuuanh-2007",
+          "page": "",
+          "pdf_page": 124,
+          "snippet": "40. Một tập hợp thứ tự < trên tập hợp A được nói là thứ tự tốt",
+          "verified": true,
+          "recommended": false
+        }
+      ],
+      "see_also": [
+        "total-order",
+        "well-ordering-principle",
+        "poset"
+      ],
+      "notes": "Một tập sắp thứ tự tốt vừa là tập sắp thứ tự toàn phần, vừa thỏa thêm điều kiện mọi tập con khác rỗng có phần tử nhỏ nhất; vì vậy mọi tập sắp thứ tự tốt đều sắp thứ tự toàn phần, nhưng không phải mọi tập sắp thứ tự toàn phần đều sắp thứ tự tốt (chẳng hạn $$\\mathbb{Z}$$ với $$\\leq$$). Cần phân biệt khái niệm này (một tính chất của tập sắp thứ tự) với \"nguyên lý thứ tự tốt\" (khẳng định rằng $$\\mathbb{N}$$ được sắp thứ tự tốt).",
+      "status": "draft"
+    },
+    {
+      "id": "without-loss-of-generality",
+      "letter": "W",
+      "headword_en": "without loss of generality",
+      "notation": "",
+      "rosen_ref": "Rosen §1.7",
+      "definition_vi": "Không mất tính tổng quát là một giả thiết được dùng trong chứng minh nhằm giảm số trường hợp cần xét nhờ tính đối xứng. Khi các trường hợp còn lại có thể được suy ra từ trường hợp đang xét bằng một lập luận tương tự, ta chỉ cần chứng minh cho trường hợp đó mà không làm mất đi tính tổng quát của kết quả.",
+      "example_vi": "Để chứng minh rằng tích của hai số nguyên khác tính chẵn lẻ là số chẵn, ta có thể giả sử, không mất tính tổng quát, rằng số thứ nhất chẵn và số thứ hai lẻ; trường hợp ngược lại được xử lý hoàn toàn tương tự bằng cách đổi vai trò của hai số.",
+      "vi_terms": [
+        {
+          "term": "không mất tính tổng quát",
+          "source_id": "bib-leanhvinh-2020",
+          "page": "tr. 71",
+          "pdf_page": 70,
+          "snippet": "Giả sử phản chứng. Không mất tính tổng quát, ta có thể giả sử",
+          "verified": true,
+          "recommended": true
+        },
+        {
+          "term": "không mất tính tổng quát",
+          "source_id": "bib-nguyenhoangthach-2020",
+          "page": "tr. 19",
+          "pdf_page": 21,
+          "snippet": "Lời giải: Không mất tính tổng quát, ta có thể giả sử S = {1, 2, . . . , k}. Một",
+          "verified": true,
+          "recommended": false
+        },
+        {
+          "term": "không mất tổng quát",
+          "source_id": "",
+          "page": "",
+          "pdf_page": 0,
+          "snippet": "",
+          "verified": false,
+          "recommended": false
+        },
+        {
+          "term": "không mất tính tổng quát",
+          "source_id": "bib-nguyenhuudien-2019",
+          "page": "tr. 232",
+          "pdf_page": 232,
+          "snippet": "Chứng minh. Không mất tính tổng quát có thể giả thiết rằng đơn đồ thị là liên thông. Trong",
+          "verified": true,
+          "recommended": false
+        },
+        {
+          "term": "không mất tổng quát",
+          "source_id": "bib-vudinhhoa-2010",
+          "page": "",
+          "pdf_page": 47,
+          "snippet": "Chứng minh. Không mắt tổng quát giả sử B = {1,2,...n} với n là số phần tử của",
+          "verified": true,
+          "recommended": false
+        }
+      ],
+      "see_also": [],
+      "notes": "",
+      "status": "draft"
     }
-   ]
-  },
-  {
-   "id": "weighted-graph",
-   "letter": "W",
-   "headword_en": "Weighted graph",
-   "notation": "(G, w),\\ w : E(G) \\to \\mathbb{R}",
-   "rosen_ref": "Rosen §10.6",
-   "definition_vi": "Một đồ thị có trọng số là một cặp $$(G, w)$$ gồm một đồ thị $$G$$ và một hàm trọng số $$w$$ gán cho mỗi cạnh $$e \\in E(G)$$ một số thực $$w(e)$$, gọi là trọng số của cạnh đó.",
-   "example_vi": "Cho đồ thị $$G$$ với tập đỉnh $$V(G) = \\{a, b, c\\}$$ và tập cạnh $$E(G) = \\{ab, bc, ac\\}$$. Hàm $$w$$ xác định bởi $$w(ab) = 2$$, $$w(bc) = 5$$, $$w(ac) = 3$$ biến $$G$$ thành một đồ thị có trọng số $$(G, w)$$.",
-   "notes": "Term mining notes. \"Đồ thị có trọng số\" is the dominant standard term, attested in all six corpus sources including both 2020 books (nguyenhoangthach-2020 tr. 91 with a clean cặp-(đồ thị, hàm trọng số) definition; leanhvinh-2020 tr. 33). It is the recommended term. \"Mạng lưới\" is given by leanhvinh-2020 (Định nghĩa 1.30, tr. 33) explicitly as a synonym: \"Một mạng lưới (hay đồ thị có trọng số) là một đồ thị...\"; it is recorded as a variant. (Caution: \"mạng lưới\" also appears at hoangchithanh-2007 tr. 101 in the informal sense \"mạng lưới giao thông\"/traffic network, not the formal concept, so that hit is not cited.) \"Đồ thị trọng số\" (without \"có\") is a shorter variant attested in figure captions of nguyenhuudien-2019 (tr. 250) and hoangchithanh-2007 (tr. 135). For the hoangchithanh-2007 row the stored snippet is the RAW OCR line of the figure caption (\"Hinh 17.10. Đồ thị trong số và một cây bao trùm nhỏ nhất\"): OCR mangles the figure number and drops the diacritic on \"số\"; the normalized reading is \"Hình 11.10. Đồ thị trọng số và một cây bao trùm nhỏ nhất\" (Figure 11.10 of chapter 11), so the term is genuine and a --loose match confirms it. Correctness caveat (moved out of the formal definition): in many applications edge weights are assumed nonnegative (e.g. shortest-path, minimum-spanning-tree contexts), but the general definition and the headword notation $$w : E(G) \\to \\mathbb{R}$$ admit all real weights, including negative ones; the '(thường không âm)' parenthetical was therefore removed from the definition so it does not conflict with its own notation. Notation conventions vary by source: leanhvinh-2020 writes $$(G, \\omega)$$, while hoangchithanh-2007 and nguyenhuudien-2019 write $$(G, c)$$. The definition uses notation $$(G, w)$$ and $$w : E(G) \\to \\mathbb{R}$$ following the English ground truth (Rosen); \"ký hiệu\" is not used in the definition prose since the headword notation field already carries the symbolic form.",
-   "see_also": [
-    "minimum-spanning-tree",
-    "shortest-path-problem",
-    "weight-of-an-edge"
-   ],
-   "vi_terms": [
-    {
-     "term": "đồ thị có trọng số",
-     "verified": true,
-     "recommended": true,
-     "source_id": "bib-nguyenhoangthach-2020",
-     "pdf_page": 91,
-     "page": "tr. 89",
-     "snippet": "Một đồ thị có trọng số là một cặp gồm một đồ thị và một hàm trọng số"
-    },
-    {
-     "term": "đồ thị có trọng số",
-     "verified": true,
-     "recommended": false,
-     "source_id": "bib-leanhvinh-2020",
-     "pdf_page": 33,
-     "page": "tr. 34",
-     "snippet": "Định nghĩa 1.30. Một mạng lưới (hay đồ thị có trọng số) là một đồ"
-    },
-    {
-     "term": "đồ thị có trọng số",
-     "verified": true,
-     "recommended": false,
-     "source_id": "bib-nguyenhuudien-2019",
-     "pdf_page": 202,
-     "page": "tr. 202",
-     "snippet": "Định nghĩa 8.1 Đồ thị có trọng số là đồ thị G = (V, E) mà mỗi cạnh (hoặc cung) e ∈ E"
-    },
-    {
-     "term": "mạng lưới",
-     "verified": true,
-     "recommended": false,
-     "source_id": "bib-leanhvinh-2020",
-     "pdf_page": 33,
-     "page": "tr. 34",
-     "snippet": "Định nghĩa 1.30. Một mạng lưới (hay đồ thị có trọng số) là một đồ"
-    },
-    {
-     "term": "đồ thị trọng số",
-     "verified": true,
-     "recommended": false,
-     "source_id": "bib-nguyenhuudien-2019",
-     "pdf_page": 250,
-     "page": "tr. 250",
-     "snippet": "Figure 10.10: Đồ thị trọng số và một cây bao trùm nhỏ nhất"
-    },
-    {
-     "term": "mạng lưới",
-     "source_id": "bib-hoangchithanh-2007",
-     "page": "tr. 101",
-     "pdf_page": 101,
-     "snippet": "8.1. Xây dựng đồ thị có hướng biểu diễn mạng lưới giao thông xe",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "mạng lưới",
-     "source_id": "bib-hoangchithanh-2011",
-     "page": "",
-     "pdf_page": 178,
-     "snippet": "Xây dựng đồ thị có hướng biểu diễn mang lưới giao thông xe buýt ở Hà",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "đồ thị trọng số",
-     "source_id": "bib-hoangchithanh-2011",
-     "page": "",
-     "pdf_page": 169,
-     "snippet": "trường hợp đặc biệt của đồ thị trọng số (G, c) với c= 1.",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "đồ thị trọng số",
-     "source_id": "bib-vudinhhoa-2010",
-     "page": "",
-     "pdf_page": 126,
-     "snippet": "Bài toán tìm đường đi ngắn nhất từ đỉnh a tới đỉnh b của một đồ thị trong số",
-     "verified": true,
-     "recommended": false
-    }
-   ]
-  },
-  {
-   "id": "weight-of-an-edge",
-   "letter": "W",
-   "headword_en": "Weight of an edge",
-   "notation": "w(e),\\ e \\in E(G)",
-   "rosen_ref": "Rosen §10.6",
-   "definition_vi": "Trọng số của một cạnh $$e$$ trong đồ thị có trọng số là số thực $$w(e)$$ mà hàm trọng số gán cho cạnh $$e$$. Giá trị này thường biểu diễn chi phí, độ dài hoặc khả năng thông qua dọc theo cạnh đó.",
-   "example_vi": "Trong đồ thị có trọng số với cạnh $$e = uv$$, nếu hàm trọng số gán $$w(e) = 5$$ thì trọng số của cạnh $$e$$ là $$5$$.",
-   "notes": "Recommended term \"trọng số của cạnh\" is attested in the newest corpus: bib-nguyenhoangthach-2020 (2020, tr. 91 PDF, definitional \"được gọi là trọng số của cạnh e\") and bib-nguyenhuudien-2019 (2019, tr. 202 PDF, \"gọi là trọng số của cạnh (hoặc cung) e\"); also in older sources bib-nguyenducnghia-2006 (tr. 170 PDF, \"gọi là trọng số của cạnh e\") and bib-nguyenducnghia-2006 (tr. 224 PDF). The closely related plural form \"trọng số của các cạnh\" (weight of the edges) is attested in the OCR graph-theory source bib-leanhvinh-2020 (2020, tr. 33 PDF, \"các mạng lưới với trọng số của các cạnh đều dương\"), in OCR source bib-hoangchithanh-2007 (tr. 131 PDF, \"tổng trọng số của các cạnh\"), and in bib-nguyenhuudien-2019 (tr. 248 PDF). OCR sources were searched in BOTH normal and --loose modes: bib-leanhvinh-2020 yields the per-edge weight concept via \"đồ thị có trọng số\" / \"trọng số của các cạnh\" (no exact \"trọng số của cạnh\"), and bib-hoangchithanh-2007 defines a weighted graph as \"trên mỗi cạnh (i,j)\" carrying a number (tr. 93 PDF) and uses \"trọng số của các cạnh\" (tr. 131 PDF). Variant \"trọng số trên cạnh\" attested in bib-nguyenducnghia-2006 (tr. 207 PDF); note it appears there only as a substring of the longer phrase \"đồ thị có trọng số trên cạnh và cây khung nhỏ nhất\", so the bare-term boundary is not isolated in the source, but it is a legitimate substring attestation. The candidate \"trọng lượng\" was NOT recorded as an edge-weight term: it has 118 hits in bib-ngodactan-2004 (out of 128 global hits) and denotes the weight of objects (\"vật\") in combinatorial / weighted-counting contexts, with some occurrences in that book's weighted-graph chapter (e.g. \"ma trận trọng lượng\", \"cây bao trùm có trọng lượng nhỏ nhất\"); however neither \"trọng lượng của cạnh\" nor \"trọng lượng của cung\" returns any hit (0 in normal and --loose), so \"trọng lượng\" is not attested as the weight assigned to a graph edge. Recommended standard term: trọng số của cạnh. see_also note: the originally suggested same-chapter target \"weight-function\" was removed because no weight-function entry exists in chapter W (a same-chapter see_also must resolve); only the resolvable same-chapter link \"weighted-graph\" is kept.",
-   "see_also": [
-    "weighted-graph"
-   ],
-   "vi_terms": [
-    {
-     "term": "trọng số của cạnh",
-     "verified": true,
-     "recommended": true,
-     "source_id": "bib-nguyenhoangthach-2020",
-     "pdf_page": 91,
-     "page": "tr. 89",
-     "snippet": "được gọi là trọng số của cạnh e."
-    },
-    {
-     "term": "trọng số của mỗi cạnh",
-     "verified": true,
-     "recommended": false,
-     "source_id": "bib-nguyenhuudien-2019",
-     "pdf_page": 202,
-     "page": "tr. 202",
-     "snippet": "Trong phần này, trọng số của mỗi cạnh được xét là một số dương và còn gọi là chiều dài"
-    },
-    {
-     "term": "trọng số trên cạnh",
-     "verified": true,
-     "recommended": false,
-     "source_id": "bib-nguyenducnghia-2006",
-     "pdf_page": 207,
-     "page": "",
-     "snippet": "Thí dụ 3. Hình 3 cho một thí dụ về đồ thị có trọng số trên cạnh và cây khung nhỏ nhất"
-    },
-    {
-     "term": "trọng số của mỗi cạnh",
-     "source_id": "bib-rosen-2003-vi",
-     "pdf_page": 709,
-     "page": "tr. 709",
-     "snippet": "nước Mỹ với nhau, trong đó trọng số của mỗi cạnh là khoảng cách",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "trọng số của cạnh",
-     "source_id": "bib-nguyenhuudien-2019",
-     "page": "tr. 202",
-     "pdf_page": 202,
-     "snippet": "được gán bởi một số thực c(e), gọi là trọng số của cạnh (hoặc cung) e.",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "trọng số trên cạnh",
-     "source_id": "bib-hoangchithanh-2011",
-     "page": "",
-     "pdf_page": 181,
-     "snippet": "đỉnh kể và trọng số trên cạnh nồi hai đỉnh này",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "trọng số của cạnh",
-     "source_id": "bib-vudinhhoa-2010",
-     "page": "",
-     "pdf_page": 126,
-     "snippet": "ký hiệu œ(e)) và thường gọi đó là trọng số của cạnh e. Thông thường trọng số",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "trọng số của mỗi cạnh",
-     "source_id": "bib-cormen-2001-vi",
-     "page": "tr. 604",
-     "pdf_page": 602,
-     "snippet": "trong số của cạnh (v„ v) là w(, y) = bạ. Trọng số của mỗi cạnh rời vụ là",
-     "verified": true,
-     "recommended": false
-    }
-   ]
-  },
-  {
-   "id": "wheel-graph",
-   "letter": "W",
-   "headword_en": "Wheel graph",
-   "notation": "W_n,\\ n \\geq 3",
-   "rosen_ref": "Rosen §10.2",
-   "definition_vi": "Đồ thị bánh xe $$W_n$$, với $$n \\geq 3$$, là đồ thị thu được từ chu trình $$C_n$$ bằng cách bổ sung một đỉnh mới và nối đỉnh này với mỗi đỉnh trong $$n$$ đỉnh của $$C_n$$ bởi một cạnh. Do đó $$W_n$$ có $$n+1$$ đỉnh và $$2n$$ cạnh.",
-   "example_vi": "Đồ thị bánh xe $$W_4$$ thu được từ chu trình $$C_4$$ bằng cách thêm một đỉnh mới nối với cả $$4$$ đỉnh của $$C_4$$, gồm $$5$$ đỉnh và $$8$$ cạnh.",
-   "notes": "Recommended term \"đồ thị bánh xe\" is attested in the newest source (bib-nguyenhoangthach-2020, tr. 67) with the exact construction matching this concept, and also in bib-nguyenhuudien-2019 and bib-nguyenducnghia-2006. The reference-only Rosen translation (bib-rosen-2003-vi, excluded by find-term.py default) renders this as \"đồ thị hình bánh xe\" / \"bánh xe\" (with \"hình\"), recorded as a variant only. OCR sources bib-leanhvinh-2020 and bib-hoangchithanh-2007 returned 0 hits in both normal and --loose modes for both candidate terms. The lone \"bánh xe\" hit in bib-ngodactan-2004 (tr. 160) is an unrelated combinatorics exercise about a physical wheel with 15 evenly spaced positions, NOT the wheel graph, so it is not recorded as denoting this concept. Exposition note: the trailing \"ký hiệu là $$W_n$$\" clause was removed from the definition because $$W_n$$ is already named at the start of the sentence and the notation field carries the symbol.",
-   "see_also": [
-    "complete-graph"
-   ],
-   "vi_terms": [
-    {
-     "term": "đồ thị bánh xe",
-     "verified": true,
-     "recommended": true,
-     "source_id": "bib-nguyenhoangthach-2020",
-     "pdf_page": 67,
-     "page": "tr. 65",
-     "snippet": "Đồ thị bánh xe: Wn , n ≥ 3, có n + 1 đỉnh s, v1 , v2 , . . . , vn và 2n cạnh svi và"
-    },
-    {
-     "term": "đồ thị bánh xe",
-     "verified": true,
-     "recommended": false,
-     "source_id": "bib-nguyenhuudien-2019",
-     "pdf_page": 159,
-     "page": "tr. 159",
-     "snippet": "ta nhận được đơn đồ thị gọi là đồ thị bánh xe, ký hiệu là Wn . Như vậy, đồ thị Wn có n + 1"
-    },
-    {
-     "term": "đồ thị hình bánh xe",
-     "source_id": "bib-rosen-2003-vi",
-     "pdf_page": 508,
-     "page": "tr. 508",
-     "snippet": "Ví dụ 6. Đồ thị hình bánh xe. Khi thêm một dinh vào chu trình C, ... ta sẽ nhận dược đồ thị hình bánh xe. Các bánh xe W„ W,,",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "đồ thị bánh xe",
-     "source_id": "bib-doducgiao-2009",
-     "page": "tr. 118",
-     "pdf_page": 119,
-     "snippet": "35. Cac đồ thị bánh xe W, (n 2 3):",
-     "verified": true,
-     "recommended": false
-    }
-   ]
-  },
-  {
-   "id": "well-ordering-principle",
-   "letter": "W",
-   "headword_en": "Well-ordering principle",
-   "notation": "",
-   "rosen_ref": "Rosen §5.2",
-   "definition_vi": "Nguyên lý thứ tự tốt khẳng định rằng mọi tập khác rỗng các số nguyên không âm đều có một phần tử nhỏ nhất. Tổng quát hơn, một tập được sắp thứ tự $$S$$ được gọi là có thứ tự tốt nếu mọi tập con khác rỗng của $$S$$ đều có một phần tử nhỏ nhất; tập các số nguyên không âm $$\\{0, 1, 2, \\ldots\\}$$ với thứ tự thông thường là một tập có thứ tự tốt.",
-   "example_vi": "Xét tập khác rỗng $$A = \\{6, 2, 9, 4\\}$$ gồm các số nguyên không âm. Theo nguyên lý thứ tự tốt, $$A$$ có một phần tử nhỏ nhất, ở đây là $$2$$.",
-   "notes": "Concept (Rosen §5.2): the well-ordering principle states that every nonempty set of nonnegative integers has a least element; more generally, every nonempty subset of a well-ordered set has a least element.\n\nAttestation: only bib-nguyenhuudien-2019 (2019 discrete math) treats this concept, on pdf p.120 (\"Định nghĩa 4.17 — Thứ tự tốt\"). That source names the PROPERTY (\"thứ tự tốt\" = well-ordered; \"được sắp tốt\" = well-ordered, alternative phrasing) and gives the defining condition \"mọi tập con khác rỗng đều có phần tử nhỏ nhất\" (every nonempty subset has a least element). It does NOT use the principle-phrase \"nguyên lý thứ tự tốt\".\n\nRecommended term: \"nguyên lý thứ tự tốt\" is the standard Vietnamese name for the PRINCIPLE itself. No corpus source (normal or --loose, including OCR sources bib-leanhvinh-2020 and bib-hoangchithanh-2007) literally attests this principle-phrase, so it is recorded as verified=false / page=\"\" per the citation-hygiene rule that keeps one standard recommended term. It is built directly on the attested property term \"thứ tự tốt\" (verified from the 2019 source). Searches for \"nguyên lý thứ tự tốt\", \"nguyên lý sắp tốt\", \"nguyên lý sắp thứ tự tốt\", \"sắp thứ tự tốt\", \"tập sắp thứ tự tốt\" all returned 0 hits.\n\nExposition note: the second sentence was tightened so the generalization to well-ordered sets $$S$$ states the nonnegative-integer instance as an example of the general property rather than restating the opening principle verbatim; the named principle proper remains exactly the first sentence.\n\nOCR note: the 2020/2007 OCR sources discuss other principles (\"nguyên lý quy nạp\" = induction, \"Nguyên lý Dirichlet\" = pigeonhole), none of which denote well-ordering. The 2020 sources do not attest any candidate for this concept.\n\nNotation/definition: the displayed nonnegative-integer set $$\\{0, 1, 2, \\ldots\\}$$ and $$\\min A$$ are introduced in the definition/notation; the example uses only the concept of least element of a finite nonempty set, introduced by the definition.\n\nVerifier: re-ran find-term.py for all three verified=true terms in bib-nguyenhuudien-2019 — all confirm on pdf p.120 with snippets denoting the well-ordering property (incl. \"Ví dụ 4.21\" giving (N, ≤) well-ordered, (Z, ≤) not). Re-ran principle-phrase searches (normal + OCR --loose): 0 hits, confirming verified=false for the recommended term.",
-   "see_also": [
-    "mathematical-induction"
-   ],
-   "vi_terms": [
-    {
-     "term": "nguyên lý thứ tự tốt",
-     "verified": false,
-     "recommended": true,
-     "source_id": "",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": ""
-    },
-    {
-     "term": "thứ tự tốt",
-     "verified": true,
-     "recommended": false,
-     "source_id": "bib-nguyenhuudien-2019",
-     "page": "tr. 120",
-     "pdf_page": 120,
-     "snippet": "Định nghĩa 4.17 — Thứ tự tốt. Một tập hợp có thứ tự được gọi là có thứ tự tốt"
-    },
-    {
-     "term": "được sắp tốt",
-     "verified": true,
-     "recommended": false,
-     "source_id": "bib-nguyenhuudien-2019",
-     "page": "tr. 120",
-     "pdf_page": 120,
-     "snippet": "(hay được sắp tốt) nếu và chỉ nếu mọi tập con khác rỗng đều có phần tử nhỏ nhất."
-    },
-    {
-     "term": "có thứ tự tốt",
-     "verified": true,
-     "recommended": false,
-     "source_id": "bib-nguyenhuudien-2019",
-     "page": "tr. 120",
-     "pdf_page": 120,
-     "snippet": "Định nghĩa 4.17 — Thứ tự tốt. Một tập hợp có thứ tự được gọi là có thứ tự tốt"
-    },
-    {
-     "term": "nguyên lý sắp thứ tự tốt",
-     "source_id": "",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": "",
-     "verified": false,
-     "recommended": false
-    },
-    {
-     "term": "thứ tự tốt",
-     "source_id": "bib-nguyenvanmau-2007",
-     "page": "",
-     "pdf_page": 120,
-     "snippet": "ii) Một tap con bất kỳ cha N đều có phan tử nhỏ nhất (tính sắp thứ tự tốt).",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "có thứ tự tốt",
-     "source_id": "bib-nguyenvanmau-2007",
-     "page": "",
-     "pdf_page": 125,
-     "snippet": "cũng có thể được thay thế bằng một tập hợp có thứ tự tốt bất kỳ.",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "thứ tự tốt",
-     "source_id": "bib-nguyenhuuanh-2007",
-     "page": "",
-     "pdf_page": 124,
-     "snippet": "40. Một tập hợp thứ tự < trên tập hợp A được nói là thứ tự tốt",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "được sắp tốt",
-     "source_id": "bib-nguyenhuuanh-2007",
-     "page": "",
-     "pdf_page": 124,
-     "snippet": "ta nói (4, <) được sắp tốt. .",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "được sắp tốt",
-     "source_id": "bib-vovantuandung-2007",
-     "page": "",
-     "pdf_page": 110,
-     "snippet": "1. Tập hợp có thứ tự (N, <) là một tập hợp được sắp tốt.",
-     "verified": true,
-     "recommended": false
-    }
-   ]
-  },
-  {
-   "id": "well-formed-formula",
-   "letter": "W",
-   "headword_en": "Well-formed formula",
-   "notation": "",
-   "rosen_ref": "Rosen §1.1",
-   "definition_vi": "Công thức hợp thức của một ngôn ngữ hình thức là một dãy hữu hạn các ký hiệu được xây dựng theo đúng các quy tắc thành lập cú pháp của ngôn ngữ đó. Các ký hiệu này gồm các biến mệnh đề hoặc biến vị từ, các liên từ logic, các lượng từ và các ký hiệu nhóm như cặp dấu ngoặc. Nhờ tuân theo các quy tắc thành lập này, một công thức hợp thức biểu diễn một biểu thức logic hợp lệ về mặt ngữ pháp và có ý nghĩa xác định.",
-   "example_vi": "Với các biến mệnh đề $$p$$, $$q$$, $$r$$, dãy ký hiệu $$(p \\wedge q) \\rightarrow r$$ là một công thức hợp thức vì nó được xây dựng đúng theo các quy tắc thành lập: hai công thức được nối bằng liên từ và đặt trong cặp dấu ngoặc. Ngược lại, dãy ký hiệu $$p \\wedge \\rightarrow q$$ không phải là công thức hợp thức, vì liên từ $$\\rightarrow$$ không có công thức đứng ngay trước nó.",
-   "notes": "No candidate term (công thức hợp thức, công thức được thành lập đúng, công thức chỉnh, công thức đúng đắn) nor any fragment (hợp thức, chỉnh dạng, thành lập đúng, công thức logic/tốt/dạng đúng) is attested anywhere in the Vietnamese corpus, on either normal or --loose (OCR) searches across all six sources. This is expected: \"well-formed formula\" is a mathematical-logic concept (Rosen §1.1), but the mined corpus consists exclusively of graph-theory / combinatorics / discrete-math texts. The base word \"công thức\" occurs 327 times, but always meaning a mathematical/counting formula, never the logic-syntax notion of a well-formed formula. The only --loose matches for the fragment \"hợp thức\" are OCR false positives (\"tổ hợp thực tế\"), not the logic term. Per book convention, exactly one standard term (\"công thức hợp thức\", the most common Vietnamese calque for wff in logic literature) is kept as recommended with verified=false and page=\"\" so vi_terms is non-empty. Per the citation-hygiene rule, the three non-recommended verified=false/empty-page calques were DROPPED from vi_terms (they previously appeared there) and are recorded here as alternative candidate forms only: \"công thức được thành lập đúng\", \"công thức chỉnh\", \"công thức đúng đắn\". All are unattested in the corpus. Exposition: the original single long first sentence was split at the symbol-list boundary for readability/traceability (the list of propositional/predicate variables, connectives, quantifiers and grouping symbols is now a separate sentence). No sibling W-chapter entries currently exist for these logic concepts, so see_also is empty; related logic concepts (proposition, connective, quantifier, predicate) would be cross-chapter forward references.",
-   "see_also": [],
-   "vi_terms": [
-    {
-     "term": "công thức hợp thức",
-     "verified": false,
-     "recommended": true,
-     "source_id": "",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": ""
-    },
-    {
-     "term": "công thức chỉnh",
-     "source_id": "",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": "",
-     "verified": false,
-     "recommended": false
-    },
-    {
-     "term": "công thức chỉnh",
-     "source_id": "bib-nguyenhoangthach-2020",
-     "page": "tr. 33",
-     "pdf_page": 35,
-     "snippet": "ta không biết công thức chính xác của p(n), tuy nhiên có một số công thức",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "công thức chỉnh",
-     "source_id": "bib-cormen-2001-vi",
-     "page": "tr. 199",
-     "pdf_page": 197,
-     "snippet": "a. Nêu một công thức chính xác với pi làm một hàm chan và ¡ với ¡",
-     "verified": true,
-     "recommended": false
-    }
-   ]
-  },
-  {
-   "id": "word",
-   "letter": "W",
-   "headword_en": "Word",
-   "notation": "w \\in \\Sigma^*",
-   "rosen_ref": "Rosen §13.1",
-   "definition_vi": "Một từ trên bảng chữ cái $$\\Sigma$$ là một dãy hữu hạn các ký hiệu lấy từ $$\\Sigma$$, kể cả từ rỗng (dãy không có ký hiệu nào). Tập tất cả các từ trên $$\\Sigma$$ được ký hiệu là $$\\Sigma^*$$.",
-   "example_vi": "Trên bảng chữ cái $$\\Sigma = \\{0, 1\\}$$, các dãy $$0$$, $$1$$, $$01$$, $$110$$ đều là những từ, và từ rỗng cũng thuộc $$\\Sigma^*$$.",
-   "notes": "Concept: a word (string) $$w$$ over an alphabet $$\\Sigma$$ is a finite sequence of symbols from $$\\Sigma$$, including the empty word; the set of all words is $$\\Sigma^*$$ (Rosen §13.1). Recommended term \"từ\" (word) is attested with an explicit definition in the newest text source bib-nguyenhoangthach-2020 (tr. 14): \"Một từ nhị phân độ dài $$n$$ ($$n \\geq 0$$) là một dãy gồm...\" with the empty word \"từ trống\" (a unique word of length 0) — matching the concept over the binary alphabet $$\\{0,1\\}$$ (the special case). The general word-over-alphabet sense appears in bib-ngodactan-2004 (tr. 19) and bib-nguyenducnghia-2006 (tr. 11): \"tính số các từ khác nhau lập từ một bảng chữ cái cho trước\" (counting distinct words formed from a given alphabet). Variant \"xâu ký tự\" (character string) is confirmed equivalent in bib-nguyenhuudien-2019 (tr. 134), which explicitly writes \"các từ hay xâu ký tự\" (words or character strings); the synonym gloss \"(xâu ký tự)\" was REMOVED from the definition body per the no-synonym-gloss convention, and the variant lives here and in vi_terms. Variant \"xâu\" (string) appears in composites \"xâu nhị phân\"/\"xâu bit\" (binary/bit string) across bib-nguyenducnghia-2006, bib-nguyenhuudien-2019, bib-ngodactan-2004. Composites \"từ nhị phân\" (binary word) and \"từ trống\" (empty word) further pin the sense. Candidate \"chuỗi ký tự\" returned 0 hits and is NOT attested; \"chuỗi\" alone occurs only in the unrelated sense \"chuỗi luỹ thừa hình thức\" (formal power series), so it is excluded. OCR sources bib-leanhvinh-2020 and bib-hoangchithanh-2007 yielded no attestation for these word/string terms: \"xâu\" returned 0 hits in both normal and --loose modes. Relevant alphabet term \"bảng chữ cái\" (alphabet) is attested (bib-ngodactan-2004 tr. 19; bib-nguyenducnghia-2006 tr. 11; bib-nguyenhuudien-2019).",
-   "see_also": [
-    "alphabet",
-    "empty-string",
-    "string",
-    "concatenation",
-    "language"
-   ],
-   "vi_terms": [
-    {
-     "term": "từ",
-     "verified": true,
-     "recommended": true,
-     "source_id": "bib-nguyenhoangthach-2020",
-     "pdf_page": 14,
-     "page": "tr. 12",
-     "snippet": "Ví dụ 1.3 (Từ nhị phân). Một từ nhị phân độ dài n (n ≥ 0) là một dãy gồm ... Có duy nhất 1 từ nhị phân có độ dài 0, được gọi là từ trống."
-    },
-    {
-     "term": "từ",
-     "verified": true,
-     "recommended": false,
-     "source_id": "bib-ngodactan-2004",
-     "pdf_page": 19,
-     "page": "tr. 19",
-     "snippet": "tính số các từ khác nhau lập từ một bảng chữ cái cho trước. Nhà toán"
-    },
-    {
-     "term": "từ",
-     "verified": true,
-     "recommended": false,
-     "source_id": "bib-nguyenducnghia-2006",
-     "pdf_page": 11,
-     "page": "",
-     "snippet": "Kxenokrat, sống ở thế kỷ thứ 4 trước công nguyên, đã biết cách tính số các từ khác"
-    },
-    {
-     "term": "xâu ký tự",
-     "verified": true,
-     "recommended": false,
-     "source_id": "bib-nguyenhuudien-2019",
-     "pdf_page": 134,
-     "page": "tr. 134",
-     "snippet": "lớn nhất hoặc nếu chúng là các từ hay xâu ký tự thì chúng được sắp theo thứ tự từ điển."
-    },
-    {
-     "term": "xâu",
-     "verified": true,
-     "recommended": false,
-     "source_id": "bib-nguyenhuudien-2019",
-     "pdf_page": 76,
-     "page": "tr. 76",
-     "snippet": "A trên máy tính bằng một xâu bit có chiều dài n, trong đó bit thứ i là 1 nếu ai ∈ A, còn bit"
-    },
-    {
-     "term": "xâu",
-     "verified": true,
-     "recommended": false,
-     "source_id": "bib-nguyenducnghia-2006",
-     "pdf_page": 28,
-     "page": "",
-     "snippet": "Thí dụ 2. Có bao nhiêu xâu nhị phân độ dài 10 hoặc là bắt đầu bởi 00 hoặc là kết thúc"
-    },
-    {
-     "term": "xâu",
-     "verified": true,
-     "recommended": false,
-     "source_id": "bib-ngodactan-2004",
-     "pdf_page": 50,
-     "page": "tr. 50",
-     "snippet": "có bao nhiêu xâu gồm 6 chữ thường chứa:"
-    },
-    {
-     "term": "chuỗi",
-     "source_id": "",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": "",
-     "verified": false,
-     "recommended": false
-    },
-    {
-     "term": "xâu ký tự",
-     "source_id": "bib-doducgiao-2009",
-     "page": "tr. 220",
-     "pdf_page": 221,
-     "snippet": "sẽ dan tới lá e. Vậy xau 11111011100 là mã của xâu ký tự sane.",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "xâu ký tự",
-     "source_id": "bib-doducgiao-2008",
-     "page": "tr. 7",
-     "pdf_page": 8,
-     "snippet": "1.2. Xâu ký tự..",
-     "verified": true,
-     "recommended": false
-    }
-   ]
-  },
-  {
-   "id": "warshalls-algorithm",
-   "letter": "W",
-   "headword_en": "Warshall's algorithm",
-   "notation": "W_k",
-   "rosen_ref": "Rosen §9.4",
-   "definition_vi": "Thuật toán Warshall là một thủ tục lặp dùng để tính bao đóng bắc cầu của một quan hệ $$R$$ trên tập hữu hạn $$A = \\{a_1, a_2, \\ldots, a_n\\}$$. Bắt đầu từ ma trận không-một $$W_0$$ của $$R$$, thuật toán lần lượt tính các ma trận $$W_1, W_2, \\ldots, W_n$$, ký hiệu $$W_k = [w_{ij}^{(k)}]$$, trong đó $$w_{ij}^{(k)} = 1$$ khi và chỉ khi tồn tại đường đi từ $$a_i$$ đến $$a_j$$ chỉ dùng các đỉnh trung gian trong $$\\{a_1, \\ldots, a_k\\}$$; ma trận cuối cùng $$W_n$$ chính là ma trận của bao đóng bắc cầu $$R^{*}$$.",
-   "example_vi": "Với quan hệ $$R = \\{(1,2),(2,3)\\}$$ trên tập $$A = \\{1,2,3\\}$$, thuật toán Warshall xuất phát từ ma trận $$W_0$$ ghi nhận hai cặp này; khi cho phép đỉnh $$a_2 = 2$$ làm đỉnh trung gian (bước tính $$W_2$$), đường đi $$1 \\rightarrow 2 \\rightarrow 3$$ làm xuất hiện cặp $$(1,3)$$. Vì không có đỉnh trung gian mới nào ở bước cuối nên $$W_3 = W_2$$ chính là ma trận của quan hệ $$R^{*} = \\{(1,2),(2,3),(1,3)\\}$$.",
-   "see_also": [
-    "transitive-closure",
-    "reachability"
-   ],
-   "vi_terms": [
-    {
-     "term": "thuật toán Warshall",
-     "verified": true,
-     "recommended": true,
-     "source_id": "bib-hoangchithanh-2007",
-     "pdf_page": 12,
-     "page": "tr. 12",
-     "snippet": "dùng thuật toán Warshall sau đây để tính ma trận bao đóng bắc cầu"
-    },
-    {
-     "term": "thuật toán Warshall",
-     "source_id": "bib-doantamhoe-2009",
-     "page": "",
-     "pdf_page": 148,
-     "snippet": "Thuật toán Warshall giúp ta tìm quan hệ khả liên bằng cách:",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "thuật toán Warshall",
-     "source_id": "bib-hoangchithanh-2011",
-     "page": "",
-     "pdf_page": 19,
-     "snippet": "thì có đường đi từ đỉnh i tới đỉnh ÿj\". Thuật toán Warshall tính toán nhanh ma",
-     "verified": true,
-     "recommended": false
-    }
-   ],
-   "notes": "Only bib-hoangchithanh-2007 (2007, graph algorithms) attests a Vietnamese name for this concept: \"thuật toán Warshall\", appearing as \"Thuật toán 1.2 (Warshall)\" (pdf p.12) used \"để tính ma trận bao đóng bắc cầu\" (to compute the transitive closure matrix), and referenced again on pdf p.73 (\"toán Warshall\"). This source is OCR; both normal and --loose searches returned identical results. No 2019-2020 source (bib-leanhvinh-2020, bib-nguyenhoangthach-2020, bib-nguyenhuudien-2019) attests any Warshall term, so the recommended term cannot be sourced from a newest-tier book; \"thuật toán Warshall\" is retained as recommended because it is the standard name and the only attested term. The candidate variants \"thuật toán Roy-Warshall\" and \"thuật toán Floyd-Warshall\" (and their bare forms \"Roy-Warshall\", \"Floyd-Warshall\") returned zero hits across all sources in both normal and loose modes, so they are not recorded as verified vi_terms. Context term \"bao đóng bắc cầu\" (transitive closure) co-occurs on the same page, confirming the term denotes THIS concept. definition_vi and notation $$W_k$$ follow Rosen §9.4: $$W_0$$ is the zero-one matrix of $$R$$ and $$W_n$$ is the matrix of the transitive closure $$R^{*}$$; the relation-level term \"bao đóng bắc cầu\" and notation $$R^{*}$$ are aligned with the companion entry transitive-closure (which carries the same attestation). Exposition: the in-line quasi-synonym gloss \"tức là ma trận liên thông của đồ thị có hướng biểu diễn $$R$$\" was MOVED out of the definition into notes, so the definition states the transitive-closure concept directly without an embedded synonym rephrasing. The phrases \"ma trận liên thông\" (connectivity/reachability matrix), \"ma trận không-một\" (zero-one matrix), and \"đỉnh trung gian\" (interior vertex) are descriptive Vietnamese renderings used in the definition/notes prose only, not claimed as attested vi_terms. Example tightening: the new pair $$(1,3)$$ arises at the $$W_2$$ step (interior vertex $$a_2 = 2$$), and $$W_3 = W_2$$ since no new interior vertex is added at the last step, so the reader is not misled into attributing the new pair to the $$W_3$$ step. see_also keeps the attested forward reference transitive-closure (exists, T chapter) and adds reachability (exists, R chapter; Warshall computes the reachability/connectivity matrix); the originally suggested \"zero-one-matrix\" is dropped because no such entry exists in the corpus. There are no other W-chapter entries to cross-link."
-  },
-  {
-   "id": "weak-mathematical-induction",
-   "letter": "W",
-   "headword_en": "Weak Mathematical Induction",
-   "notation": "",
-   "rosen_ref": "Rosen §4.1",
-   "definition_vi": "Quy nạp toán học yếu (còn gọi là nguyên lý thứ nhất của quy nạp toán học) là kỹ thuật chứng minh một mệnh đề $$P(n)$$ đúng với mọi số nguyên dương $$n$$, gồm hai bước: bước cơ sở chứng minh $$P(1)$$ đúng, và bước quy nạp chứng minh rằng nếu $$P(k)$$ đúng thì $$P(k+1)$$ đúng với mọi $$k \\geq 1$$. Khác với quy nạp mạnh, giả thiết quy nạp chỉ dùng tính đúng của $$P(k)$$ tại một giá trị $$k$$ ngay trước đó.",
-   "example_vi": "Để chứng minh $$1 + 2 + \\cdots + n = \\frac{n(n+1)}{2}$$, ta kiểm tra bước cơ sở $$P(1)$$ đúng, rồi giả sử $$P(k)$$ đúng và suy ra $$1 + 2 + \\cdots + (k+1) = \\frac{k(k+1)}{2} + (k+1) = \\frac{(k+1)(k+2)}{2}$$, tức $$P(k+1)$$ đúng.",
-   "vi_terms": [
-    {
-     "term": "phương pháp quy nạp toán học",
-     "source_id": "bib-nguyenhuudien-2019",
-     "pdf_page": 69,
-     "page": "tr. 69",
-     "snippet": "Dùng phương pháp quy nạp toán học chứng minh rằng H2n ≥ 1 + , n là số nguyên không",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "Quy nạp toán học yếu",
-     "source_id": "",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": "",
-     "verified": false,
-     "recommended": true
-    },
-    {
-     "term": "quy nạp yếu",
-     "source_id": "",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": "",
-     "verified": false,
-     "recommended": false
-    },
-    {
-     "term": "quy nạp toán học",
-     "source_id": "bib-doducgiao-2009",
-     "page": "tr. 333",
-     "pdf_page": 334,
-     "snippet": "5. Phương pháp chứng minh bằng phép quy nap toán học",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "quy nạp toán học",
-     "source_id": "bib-nguyenhuudien-2019",
-     "page": "tr. 69",
-     "pdf_page": 69,
-     "snippet": "Dùng phương pháp quy nạp toán học chứng minh rằng H2n ≥ 1 + , n là số nguyên không",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "phương pháp quy nạp toán học",
-     "source_id": "bib-doducgiao-2009",
-     "page": "tr. 365",
-     "pdf_page": 366,
-     "snippet": "xy\", Dùng phương pháp quy nạp toán học để kiểm tra kết quả trên.",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "phương pháp quy nạp toán học",
-     "source_id": "bib-doducgiao-2008",
-     "page": "tr. 122",
-     "pdf_page": 123,
-     "snippet": "phương pháp quy nạp toán học để chứng minh. Chúng ta hãy xét một số",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "quy nạp toán học",
-     "source_id": "bib-vudinhhoa-2010",
-     "page": "",
-     "pdf_page": 80,
-     "snippet": "p là một bắt biến vòng lặp bằng quy nạp toán học. Trước hết, p là đúng khi bắt đầu",
-     "verified": true,
-     "recommended": false
-    }
-   ],
-   "see_also": [
-    "the-first-principle-of-mathematical-induction",
-    "mathematical-induction",
-    "strong-mathematical-induction"
-   ],
-   "notes": "Quy nạp yếu là dạng cơ bản (nguyên lý thứ nhất). Rosen phân biệt với quy nạp mạnh (nguyên lý thứ hai của quy nạp toán học, tr. 240 PDF); hai dạng này tương đương.",
-   "status": "draft"
-  },
-  {
-   "id": "weakly-connected",
-   "letter": "W",
-   "headword_en": "Weakly Connected",
-   "notation": "",
-   "rosen_ref": "Rosen §10.4",
-   "definition_vi": "Đồ thị có hướng $$G$$ được gọi là liên thông yếu nếu đồ thị vô hướng nền của nó (thu được bằng cách bỏ hướng của mọi cung) là liên thông, tức là giữa hai đỉnh bất kỳ luôn có đường đi khi không xét đến hướng của các cung.",
-   "example_vi": "Một đồ thị có hướng liên thông mạnh thì cũng liên thông yếu, nhưng điều ngược lại không đúng: đồ thị có hướng gồm hai cung $$a \\to b$$ và $$a \\to c$$ là liên thông yếu nhưng không liên thông mạnh vì không có đường đi có hướng từ $$b$$ tới $$c$$.",
-   "vi_terms": [
-    {
-     "term": "liên thông yếu",
-     "source_id": "bib-nguyenhuudien-2019",
-     "pdf_page": 171,
-     "page": "tr. 171",
-     "snippet": "Đồ thị có hướng G được gọi là liên thông yếu nếu đồ thị vô hướng nền của nó là liên thông.",
-     "verified": true,
-     "recommended": true
-    },
-    {
-     "term": "liên thông yếu",
-     "source_id": "bib-nguyenhoangthach-2020",
-     "pdf_page": 76,
-     "page": "tr. 74",
-     "snippet": "Dễ thấy một đồ thị liên thông mạnh thì liên thông yếu, nhưng điều ngược",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "liên thông yếu",
-     "source_id": "bib-doducgiao-2009",
-     "page": "tr. 124",
-     "pdf_page": 125,
-     "snippet": "hướng. Đồ thị có hướng G = <X, U> là dé thị liên thông yếu nếu đồ",
-     "verified": true,
-     "recommended": false
-    }
-   ],
-   "see_also": [],
-   "notes": "Khái niệm áp dụng cho đồ thị có hướng. Phân biệt với liên thông mạnh: liên thông mạnh kéo theo liên thông yếu, không có chiều ngược lại.",
-   "status": "draft"
-  },
-  {
-   "id": "weight",
-   "letter": "W",
-   "headword_en": "Weight",
-   "notation": "w(e)",
-   "rosen_ref": "Rosen §10.5",
-   "definition_vi": "Trọng số của một cạnh $$e$$ trong một đồ thị có trọng số là giá trị số ( ký hiệu $$w(e)$$) gán cho cạnh đó bởi một hàm trọng số $$w: E(G) \\to \\mathbb{R}$$. Tổng trọng số các cạnh của một đường đi hoặc một đồ thị con được gọi là độ dài (hoặc trọng số) của nó.",
-   "example_vi": "Trong một mạng đường bay được mô hình bằng đồ thị, trọng số $$w(e)$$ gán cho cạnh $$e$$ nối hai thành phố có thể là khoảng cách, giá vé hay thời gian bay giữa chúng.",
-   "vi_terms": [
-    {
-     "term": "trọng số",
-     "source_id": "bib-nguyenhoangthach-2020",
-     "pdf_page": 91,
-     "page": "tr. 89",
-     "snippet": "Một hàm trọng số trên G là một hàm w : E → (0, ∞). Với mỗi e ∈ E, w(e) được gọi là trọng số của cạnh e.",
-     "verified": true,
-     "recommended": true
-    },
-    {
-     "term": "trọng số",
-     "source_id": "bib-nguyenhuudien-2019",
-     "pdf_page": 202,
-     "page": "tr. 202",
-     "snippet": "được gán bởi một số thực c(e), gọi là trọng số của cạnh (hoặc cung) e.",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "trọng số",
-     "source_id": "bib-leanhvinh-2020",
-     "pdf_page": 33,
-     "page": "tr. 34",
-     "snippet": "Định nghĩa 1.30. Một mạng lưới (hay đồ thị có trọng số) là một đồ thị ... Cho mạng lưới (G, w), ta xác định trọng số của đồ thị con H ⊆ G.",
-     "verified": true,
-     "recommended": false
-    }
-   ],
-   "see_also": [],
-   "notes": "Trọng số gắn với cạnh trong đồ thị có trọng số (đồ thị hai phần có trọng số cũng dùng khái niệm này). Một số tài liệu ký hiệu hàm trọng số là $$c(e)$$ thay cho $$w(e)$$. Tùy ngữ cảnh, trọng số có thể nhận giá trị dương, không âm hoặc thực tùy ý.",
-   "status": "draft"
-  },
-  {
-   "id": "well-formed-formulae",
-   "letter": "W",
-   "headword_en": "Well-Formed Formulae",
-   "notation": "",
-   "rosen_ref": "Rosen §1.1",
-   "definition_vi": "Một công thức được tạo đúng quy tắc là một biểu thức logic được xây dựng đúng cú pháp từ các biến mệnh đề, các phép toán logic ($$\\neg$$, $$\\wedge$$, $$\\vee$$, $$\\rightarrow$$, $$\\leftrightarrow$$) và các dấu ngoặc theo các quy tắc tạo công thức. Cụ thể, mỗi biến mệnh đề là một công thức được tạo đúng quy tắc, và nếu $$F$$ và $$G$$ là các công thức được tạo đúng quy tắc thì $$(\\neg F)$$, $$(F \\wedge G)$$, $$(F \\vee G)$$, $$(F \\rightarrow G)$$ và $$(F \\leftrightarrow G)$$ cũng là các công thức được tạo đúng quy tắc.",
-   "example_vi": "Biểu thức $$(p \\wedge q) \\rightarrow (\\neg r)$$ là một công thức được tạo đúng quy tắc, trong khi $$p \\wedge \\vee q$$ thì không, vì nó vi phạm quy tắc tạo công thức.",
-   "vi_terms": [
-    {
-     "term": "các công thức được tạo đúng quy tắc",
-     "source_id": "bib-rosen-2003-vi",
-     "pdf_page": 287,
-     "page": "tr. 287",
-     "snippet": "4**. Hay sinh ra tất cả các công thức được tạo đúng quy tắc, chứa các",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "công thức được tạo đúng quy tắc",
-     "source_id": "",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": "",
-     "verified": false,
-     "recommended": false
-    },
-    {
-     "term": "công thức hợp thức",
-     "source_id": "",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": "",
-     "verified": false,
-     "recommended": false
-    },
-    {
-     "term": "công thức chỉnh",
-     "source_id": "bib-nguyenhoangthach-2020",
-     "page": "tr. 33",
-     "pdf_page": 35,
-     "snippet": "ta không biết công thức chính xác của p(n), tuy nhiên có một số công thức",
-     "verified": true,
-     "recommended": true
-    },
-    {
-     "term": "công thức đúng dạng",
-     "source_id": "",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": "",
-     "verified": false,
-     "recommended": false
-    },
-    {
-     "term": "công thức chỉnh",
-     "source_id": "bib-cormen-2001-vi",
-     "page": "tr. 199",
-     "pdf_page": 197,
-     "snippet": "a. Nêu một công thức chính xác với pi làm một hàm chan và ¡ với ¡",
-     "verified": true,
-     "recommended": false
-    }
-   ],
-   "see_also": [],
-   "notes": "Khái niệm thuộc logic mệnh đề, xác định tính hợp lệ về cú pháp của một biểu thức logic. Không tìm thấy thuật ngữ này trong kho ngữ liệu tham khảo (kể cả bản dịch Rosen), nên chỉ giữ thuật ngữ của giáo trình MAT3500.",
-   "status": "draft"
-  },
-  {
-   "id": "wheel",
-   "letter": "W",
-   "headword_en": "Wheel",
-   "see_ref": "wheel-graph",
-   "vi_terms": [
-    {
-     "term": "đồ thị bánh xe",
-     "verified": false,
-     "recommended": false,
-     "source_id": "",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": ""
-    },
-    {
-     "term": "đồ thị hình bánh xe",
-     "verified": false,
-     "recommended": false,
-     "source_id": "",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": ""
-    }
-   ],
-   "see_also": [],
-   "notes": "Đồng nghĩa với Wheel graph."
-  },
-  {
-   "id": "witness",
-   "letter": "W",
-   "headword_en": "Witness",
-   "notation": "",
-   "rosen_ref": "Rosen §4.4",
-   "definition_vi": "Một bằng chứng (cho tính hợp số của một số nguyên dương $$n$$) là một số nguyên $$b$$ với $$1 < b < n$$ sao cho $$n$$ không vượt qua một phép kiểm tra tính nguyên tố ứng với cơ sở $$b$$ (chẳng hạn kiểm tra Miller), qua đó khẳng định chắc chắn rằng $$n$$ là hợp số. Tổng quát hơn, trong lý thuyết tính toán, bằng chứng cho một mệnh đề là một đối tượng cụ thể cho phép kiểm tra nhanh rằng mệnh đề đó đúng.",
-   "example_vi": "Với $$n = 2047 = 23 \\cdot 89$$, số $$b = 23$$ là một bằng chứng cho tính hợp số của $$n$$ vì $$23 \\mid 2047$$, trong khi $$2047$$ lại là số giả nguyên tố Fermat cơ sở $$2$$.",
-   "vi_terms": [
-    {
-     "term": "bằng chứng",
-     "source_id": "bib-leanhvinh-2020",
-     "page": "tr. 140",
-     "pdf_page": 139,
-     "snippet": "Ta sẽ kết thúc mục này bằng chứng minh của Székely [88] cho chan",
-     "verified": true,
-     "recommended": true
-    },
-    {
-     "term": "bằng chứng",
-     "source_id": "bib-doducgiao-2008",
-     "page": "tr. 123",
-     "pdf_page": 124,
-     "snippet": "Tiếp theo, bang chứng minh quy nạp ta có thể dé dang chứng minh (1)",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "bằng chứng",
-     "source_id": "bib-vudinhhoa-2010",
-     "page": "",
-     "pdf_page": 72,
-     "snippet": "7. Hãy chứng minh các mệnh đề tồn tại sau đây bằng chứng minh kiến thiết hoặc",
-     "verified": true,
-     "recommended": false
-    }
-   ],
-   "see_also": [],
-   "notes": "Trong giáo trình MAT3500, thuật ngữ chỉ một số nguyên chứng tỏ tính hợp số trong kiểm tra tính nguyên tố. Tìm kiếm trong kho ngữ liệu tiếng Việt và bản dịch Rosen không cho kết quả khẳng định nghĩa kỹ thuật này (các lần khớp \"bằng chứng\" đều là cụm thông thường như \"bằng chứng minh\"); do đó chỉ có thuật ngữ giáo trình được dẫn.",
-   "status": "draft"
-  },
-  {
-   "id": "worst-case-complexity",
-   "letter": "W",
-   "headword_en": "Worst-Case Complexity",
-   "notation": "",
-   "rosen_ref": "Rosen §3.3",
-   "definition_vi": "Độ phức tạp trường hợp xấu nhất của một thuật toán là số phép toán lớn nhất mà thuật toán cần thực hiện trên mọi dữ liệu vào có cùng kích thước $$n$$, dùng để cận trên cho thời gian chạy của thuật toán. Khi đo bằng số phép toán cơ bản, đại lượng này thường được biểu diễn theo ký hiệu $$O$$ lớn như một hàm của $$n$$.",
-   "example_vi": "Thuật toán tìm kiếm tuyến tính trên một danh sách gồm $$n$$ phần tử có độ phức tạp trường hợp xấu nhất là $$O(n)$$, vì khi phần tử cần tìm không có trong danh sách thuật toán phải so sánh với cả $$n$$ phần tử.",
-   "vi_terms": [
-    {
-     "term": "độ phức tạp thời gian trong trường hợp xấu nhất",
-     "source_id": "bib-rosen-2003-vi",
-     "pdf_page": 150,
-     "page": "tr. 150",
-     "snippet": "Mô tả độ phức tạp thời gian trong trường hợp xấu nhất được đo qua",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "trường hợp xấu nhất",
-     "source_id": "bib-nguyenhuudien-2019",
-     "pdf_page": 136,
-     "page": "tr. 136",
-     "snippet": "toán trong trường hợp xấu nhất là n − 1 giây. Với dãy 64 số, thời gian thực hiện thuật toán",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "Độ phức tạp trường hợp xấu nhất",
-     "source_id": "",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": "",
-     "verified": false,
-     "recommended": true
-    },
-    {
-     "term": "độ phức tạp trong trường hợp xấu nhất",
-     "source_id": "",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": "",
-     "verified": false,
-     "recommended": false
-    },
-    {
-     "term": "trường hợp xấu nhất",
-     "source_id": "bib-doducgiao-2009",
-     "page": "tr. 234",
-     "pdf_page": 235,
-     "snippet": "thời gian trong trường hợp xấu nhất.",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "trường hợp xấu nhất",
-     "source_id": "bib-vudinhhoa-2010",
-     "page": "",
-     "pdf_page": 151,
-     "snippet": "Với thuật toán Huffman trong trường hợp xấu nhất, thời gian hình thành cây",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "độ phức tạp trong trường hợp xấu nhất",
-     "source_id": "bib-doducgiao-2008",
-     "page": "tr. 259",
-     "pdf_page": 260,
-     "snippet": "Thuật toán sắp xếp nổi bọt có độ phức tạp trong trường hợp xấu nhất",
-     "verified": true,
-     "recommended": false
-    }
-   ],
-   "see_also": [],
-   "notes": "Trường hợp xấu nhất cho cận trên chặt nhất về thời gian chạy; phân biệt với độ phức tạp trường hợp trung bình.",
-   "status": "draft"
-  },
-  {
-   "id": "well-ordered-set",
-   "letter": "W",
-   "headword_en": "Well-Ordered Set",
-   "notation": "",
-   "rosen_ref": "Rosen §9.6",
-   "definition_vi": "Tập sắp thứ tự tốt là một tập hợp được sắp thứ tự toàn phần trong đó mọi tập con khác rỗng đều có phần tử nhỏ nhất.",
-   "example_vi": "Tập số tự nhiên $$\\mathbb{N}$$ với quan hệ $$\\leq$$ thông thường là một tập sắp thứ tự tốt, vì mọi tập con khác rỗng của $$\\mathbb{N}$$ đều có phần tử nhỏ nhất. Ngược lại, tập số nguyên $$\\mathbb{Z}$$ với $$\\leq$$ tuy được sắp thứ tự toàn phần nhưng không sắp thứ tự tốt, vì bản thân $$\\mathbb{Z}$$ không có phần tử nhỏ nhất.",
-   "vi_terms": [
-    {
-     "term": "tập hợp được sắp tốt",
-     "source_id": "bib-nguyenhuudien-2019",
-     "page": "tr. 120",
-     "pdf_page": 120,
-     "snippet": "Ví dụ 4.21. 1. Tập hợp thứ tự (N, ≤) là một tập hợp được sắp tốt.",
-     "verified": true,
-     "recommended": true
-    },
-    {
-     "term": "thứ tự tốt",
-     "source_id": "bib-nguyenhuudien-2019",
-     "page": "tr. 120",
-     "pdf_page": 120,
-     "snippet": "Định nghĩa 4.17 — Thứ tự tốt. Một tập hợp có thứ tự được gọi là có thứ tự tốt (hay được sắp tốt) nếu và chỉ nếu mọi tập con khác rỗng đều có phần tử nhỏ nhất.",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "tập thứ tự tốt",
-     "source_id": "",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": "",
-     "verified": false,
-     "recommended": false
-    },
-    {
-     "term": "tập hợp có thứ tự tốt",
-     "source_id": "",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": "",
-     "verified": false,
-     "recommended": false
-    },
-    {
-     "term": "thứ tự tốt",
-     "source_id": "bib-nguyenvanmau-2007",
-     "page": "",
-     "pdf_page": 120,
-     "snippet": "ii) Một tap con bất kỳ cha N đều có phan tử nhỏ nhất (tính sắp thứ tự tốt).",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "tập hợp có thứ tự tốt",
-     "source_id": "bib-nguyenvanmau-2007",
-     "page": "",
-     "pdf_page": 125,
-     "snippet": "cũng có thể được thay thế bằng một tập hợp có thứ tự tốt bất kỳ.",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "tập hợp được sắp tốt",
-     "source_id": "bib-vovantuandung-2007",
-     "page": "",
-     "pdf_page": 110,
-     "snippet": "1. Tập hợp có thứ tự (N, <) là một tập hợp được sắp tốt.",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "thứ tự tốt",
-     "source_id": "bib-nguyenhuuanh-2007",
-     "page": "",
-     "pdf_page": 124,
-     "snippet": "40. Một tập hợp thứ tự < trên tập hợp A được nói là thứ tự tốt",
-     "verified": true,
-     "recommended": false
-    }
-   ],
-   "see_also": [
-    "total-order",
-    "well-ordering-principle",
-    "poset"
-   ],
-   "notes": "Một tập sắp thứ tự tốt vừa là tập sắp thứ tự toàn phần, vừa thỏa thêm điều kiện mọi tập con khác rỗng có phần tử nhỏ nhất; vì vậy mọi tập sắp thứ tự tốt đều sắp thứ tự toàn phần, nhưng không phải mọi tập sắp thứ tự toàn phần đều sắp thứ tự tốt (chẳng hạn $$\\mathbb{Z}$$ với $$\\leq$$). Cần phân biệt khái niệm này (một tính chất của tập sắp thứ tự) với \"nguyên lý thứ tự tốt\" (khẳng định rằng $$\\mathbb{N}$$ được sắp thứ tự tốt).",
-   "status": "draft"
-  },
-  {
-   "id": "without-loss-of-generality",
-   "letter": "W",
-   "headword_en": "Without Loss Of Generality",
-   "notation": "",
-   "rosen_ref": "Rosen §1.7",
-   "definition_vi": "Không mất tính tổng quát là một giả thiết được dùng trong chứng minh nhằm giảm số trường hợp cần xét nhờ tính đối xứng. Khi các trường hợp còn lại có thể được suy ra từ trường hợp đang xét bằng một lập luận tương tự, ta chỉ cần chứng minh cho trường hợp đó mà không làm mất đi tính tổng quát của kết quả.",
-   "example_vi": "Để chứng minh rằng tích của hai số nguyên khác tính chẵn lẻ là số chẵn, ta có thể giả sử, không mất tính tổng quát, rằng số thứ nhất chẵn và số thứ hai lẻ; trường hợp ngược lại được xử lý hoàn toàn tương tự bằng cách đổi vai trò của hai số.",
-   "vi_terms": [
-    {
-     "term": "không mất tính tổng quát",
-     "source_id": "bib-leanhvinh-2020",
-     "page": "tr. 71",
-     "pdf_page": 70,
-     "snippet": "Giả sử phản chứng. Không mất tính tổng quát, ta có thể giả sử",
-     "verified": true,
-     "recommended": true
-    },
-    {
-     "term": "không mất tính tổng quát",
-     "source_id": "bib-nguyenhoangthach-2020",
-     "page": "tr. 19",
-     "pdf_page": 21,
-     "snippet": "Lời giải: Không mất tính tổng quát, ta có thể giả sử S = {1, 2, . . . , k}. Một",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "không mất tổng quát",
-     "source_id": "",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": "",
-     "verified": false,
-     "recommended": false
-    },
-    {
-     "term": "không mất tính tổng quát",
-     "source_id": "bib-nguyenhuudien-2019",
-     "page": "tr. 232",
-     "pdf_page": 232,
-     "snippet": "Chứng minh. Không mất tính tổng quát có thể giả thiết rằng đơn đồ thị là liên thông. Trong",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "không mất tổng quát",
-     "source_id": "bib-vudinhhoa-2010",
-     "page": "",
-     "pdf_page": 47,
-     "snippet": "Chứng minh. Không mắt tổng quát giả sử B = {1,2,...n} với n là số phần tử của",
-     "verified": true,
-     "recommended": false
-    }
-   ],
-   "see_also": [],
-   "notes": "",
-   "status": "draft"
-  }
- ]
+  ]
 }

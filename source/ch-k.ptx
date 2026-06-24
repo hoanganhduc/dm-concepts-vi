@@ -19,10 +19,6 @@
     <idx><h>tô màu đồ thị</h></idx>
     <idx><h>tô được bằng k màu</h></idx>
     <idx><h>tô được bởi k màu</h></idx>
-    <notation>
-      <usage><m>c: V(G) \to \{1, 2, \ldots, k\}</m></usage>
-      <description>tô màu một đồ thị đơn bằng k màu</description>
-    </notation>
     <statement>
       <p>Một \emph{cách tô màu bằng <m>k</m> màu} của một đồ thị đơn <m>G</m> là một phép gán cho mỗi đỉnh của <m>G</m> một trong <m>k</m> màu, tức một hàm <m>c: V(G) \to \{1, 2, \ldots, k\}</m> thỏa mãn <m>c(u) \neq c(v)</m> với mọi cạnh <m>uv \in E(G)</m>, nghĩa là không có hai đỉnh kề nhau nào được gán cùng một màu (theo <xref ref="bib-rosen-2019" />, Rosen §10.8).</p>
       <p>Thuật ngữ tiếng Việt tương ứng:</p>
@@ -45,10 +41,6 @@
     <idx><h>k-liên thông</h></idx>
     <idx><h>k-liên thông đỉnh</h></idx>
     <idx><h>đồ thị k-liên thông</h></idx>
-    <notation>
-      <usage><m>\kappa(G) \geq k</m></usage>
-      <description>k-liên thông</description>
-    </notation>
     <statement>
       <p>Cho <m>k</m> là một số nguyên dương. Một đồ thị liên thông <m>G</m> được gọi là \emph{<m>k</m>-liên thông} nếu độ liên thông đỉnh của nó thỏa mãn <m>\kappa(G) \geq k</m>, tức là không thể làm cho <m>G</m> mất liên thông (hoặc trở thành đồ thị tầm thường một đỉnh) bằng cách xóa đi ít hơn <m>k</m> đỉnh bất kỳ (theo <xref ref="bib-rosen-2019" />, Rosen §10.4).</p>
       <p>Thuật ngữ tiếng Việt tương ứng:</p>
@@ -69,10 +61,6 @@
     <idx><h>đồ thị chính qui bậc k</h></idx>
     <idx><h>đồ thị k chính quy</h></idx>
     <idx><h>đồ thị đều bậc k</h></idx>
-    <notation>
-      <usage><m>\deg_G(v) = k</m></usage>
-      <description>đồ thị k chính quy</description>
-    </notation>
     <statement>
       <p>Cho <m>k</m> là một số nguyên không âm. \emph{Đồ thị <m>k</m> chính quy} là đồ thị <m>G</m> trong đó mọi đỉnh đều có bậc đúng bằng <m>k</m>, tức là <m>\deg_G(v) = k</m> với mọi <m>v \in V(G)</m> (theo <xref ref="bib-rosen-2019" />, Rosen §10.2).</p>
       <p>Thuật ngữ tiếng Việt tương ứng:</p>
@@ -89,7 +77,7 @@
   </definition>
   <definition xml:id="def-kruskals-algorithm">
     <title>Kruskal's algorithm — thuật toán Kruskal</title>
-    <idx><h>kruskal's algorithm</h></idx>
+    <idx><h>Kruskal's algorithm</h></idx>
     <idx><h>thuật toán Kruskal</h></idx>
     <statement>
       <p><em>Thuật toán Kruskal</em> là thuật toán tìm cây bao trùm nhỏ nhất của một đồ thị liên thông, vô hướng và có trọng số <m>G = (V, E)</m> với hàm trọng số <m>c \colon E \to \mathbb{R}</m>. Bắt đầu từ rừng gồm <m>|V|</m> đỉnh rời nhau và không có cạnh, ở mỗi bước thuật toán xét các cạnh theo thứ tự trọng số tăng dần và thêm vào cạnh có trọng số nhỏ nhất trong số các cạnh còn lại mà không tạo thành một chu trình, cho đến khi thu được một cây bao trùm (theo <xref ref="bib-rosen-2019" />, Rosen §11.5).</p>
@@ -103,7 +91,7 @@
   </definition>
   <definition xml:id="def-kuratowskis-theorem">
     <title>Kuratowski's theorem — định lý Kuratowski</title>
-    <idx><h>kuratowski's theorem</h></idx>
+    <idx><h>Kuratowski's theorem</h></idx>
     <idx><h>định lý Kuratowski</h></idx>
     <idx><h>định lý Kuratowski - Pontragin</h></idx>
     <statement>
@@ -119,7 +107,7 @@
   </definition>
   <definition xml:id="def-karnaugh-map">
     <title>Karnaugh map — bìa Karnaugh</title>
-    <idx><h>karnaugh map</h></idx>
+    <idx><h>Karnaugh map</h></idx>
     <idx><h>Phương pháp sơ đồ Karnaugh</h></idx>
     <idx><h>biểu đồ Veitch</h></idx>
     <idx><h>bìa Karnaugh</h></idx>
@@ -147,10 +135,6 @@
     <idx><h>kernel of a graph</h></idx>
     <idx><h>nhân</h></idx>
     <idx><h>nhân của đồ thị</h></idx>
-    <notation>
-      <usage><m>B \subseteq V(G)</m></usage>
-      <description>nhân của đồ thị</description>
-    </notation>
     <statement>
       <p><em>Nhân</em> của một đồ thị có hướng <m>G = (V, E)</m> là một tập đỉnh <m>B \subseteq V</m> vừa độc lập (không có cung nào nối hai đỉnh của <m>B</m>) vừa hấp thụ (mỗi đỉnh ngoài <m>B</m> đều có một cung đi vào <m>B</m>); trong tài liệu hai điều kiện này còn được gọi là tập ổn định trong và tập ổn định ngoài (theo <xref ref="bib-rosen-2019" />, Rosen §10.5 (directed graphs; kernel not a named §10.2 topic)).</p>
       <p>Thuật ngữ tiếng Việt tương ứng:</p>
@@ -164,7 +148,7 @@
   </definition>
   <definition xml:id="def-konigsberg-bridge-problem">
     <title>Königsberg bridge problem — bài toán bảy cây cầu</title>
-    <idx><h>königsberg bridge problem</h></idx>
+    <idx><h>Königsberg bridge problem</h></idx>
     <idx><h>bài toán 7 cây cầu ở Konigsberg</h></idx>
     <idx><h>bài toán bảy cây cầu</h></idx>
     <idx><h>bài toán cầu Königsberg</h></idx>
@@ -249,10 +233,6 @@
     <idx><h>bộ sắp thứ tự gồm k phần tử</h></idx>
     <idx><h>bộ thứ tự</h></idx>
     <idx><h>k-bộ có thứ tự</h></idx>
-    <notation>
-      <usage><m>(a_1, a_2, \ldots, a_k)</m></usage>
-      <description>bộ sắp thứ tự</description>
-    </notation>
     <statement>
       <p>Một \emph{<m>k</m>-bộ sắp thứ tự} là một dãy gồm <m>k</m> đối tượng được liệt kê theo một thứ tự xác định, ký hiệu <m>(a_1, a_2, \ldots, a_k)</m>, trong đó <m>a_i</m> là thành phần thứ <m>i</m>. Thứ tự của các thành phần là quan trọng và các thành phần được phép lặp lại, nên <m>(a_1, a_2, \ldots, a_k) = (b_1, b_2, \ldots, b_k)</m> khi và chỉ khi <m>a_i = b_i</m> với mọi <m>i</m> thỏa <m>1 \leq i \leq k</m> (theo <xref ref="bib-rosen-2019" />, Rosen §2.1).</p>
       <p>Thuật ngữ tiếng Việt tương ứng:</p>
@@ -283,14 +263,10 @@
   </definition>
   <definition xml:id="def-kuratowskis-subgraph">
     <title>Kuratowski's Subgraph — đồ thị con Kuratowski</title>
-    <idx><h>kuratowski's subgraph</h></idx>
-    <idx><h>cấu hình $$K_5$$ / $$K_{3,3}$$</h></idx>
+    <idx><h>Kuratowski's Subgraph</h></idx>
+    <idx><h>cấu hình K_5 / K_{3,3}</h></idx>
     <idx><h>đồ thị con Kuratowski</h></idx>
-    <idx><h>đồ thị con đồng phôi với $$K_5$$ hoặc $$K_{3,3}$$</h></idx>
-    <notation>
-      <usage><m>K_5,\ K_{3,3}</m></usage>
-      <description>đồ thị con Kuratowski</description>
-    </notation>
+    <idx><h>đồ thị con đồng phôi với K_5 hoặc K_{3,3}</h></idx>
     <statement>
       <p>Đồ thị con Kuratowski của một đồ thị <m>G</m> là một đồ thị con của <m>G</m> đồng phôi với đồ thị đầy đủ <m>K_5</m> hoặc với đồ thị hai phần đầy đủ <m>K_{3,3}</m> (ký hiệu hai đồ thị Kuratowski). Theo định lý Kuratowski, <m>G</m> là không phẳng khi và chỉ khi <m>G</m> chứa một đồ thị con Kuratowski, tức một đồ thị con đồng phôi với <m>K_5</m> hoặc <m>K_{3,3}</m> (theo <xref ref="bib-rosen-2019" />, Rosen §10.7).</p>
       <p>Thuật ngữ tiếng Việt tương ứng:</p>
@@ -304,12 +280,12 @@
   </definition>
   <definition xml:id="def-k-map">
     <title>K-Map</title>
-    <idx><h>k-map</h></idx>
+    <idx><h>K-Map</h></idx>
     <statement><p><term>K-Map</term>. Xem <xref ref="def-karnaugh-map" text="title" />.</p></statement>
   </definition>
   <definition xml:id="def-key-exchange-protocol">
     <title>Key Exchange Protocol — giao thức trao đổi khóa</title>
-    <idx><h>key exchange protocol</h></idx>
+    <idx><h>Key Exchange Protocol</h></idx>
     <idx><h>giao thức thỏa thuận khóa</h></idx>
     <idx><h>giao thức trao đổi khóa</h></idx>
     <statement>

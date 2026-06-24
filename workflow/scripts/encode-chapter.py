@@ -78,10 +78,10 @@ def render_see(e, allowed_ids):
     target = e["see_ref"]
     lines = [f'  <definition xml:id="def-{eid}">',
              f"    <title>{esc_text(e['headword_en'])}</title>",
-             f"    <idx><h>{esc_text(e['headword_en'].lower())}</h></idx>"]
+             f"    <idx><h>{esc_text(e['headword_en'])}</h></idx>"]
     vi_terms = sorted({t.get("term", "") for t in e.get("vi_terms", []) if t.get("term")})
     for term in vi_terms:
-        lines.append(f"    <idx><h>{esc_text(term)}</h></idx>")
+        lines.append(f"    <idx><h>{esc_text(term.replace('$$', ''))}</h></idx>")
     see = (f'<xref ref="def-{target}" text="title" />' if target in allowed_ids
            else f"<em>{esc_text(target)}</em>")
     vi = ", ".join(vi_terms)
@@ -104,16 +104,15 @@ def render_entry(e, allowed_ids):
     title = esc_text(e["headword_en"]) + (" — " + esc_text(rec) if rec else "")
     lines.append(f"    <title>{title}</title>")
     seen = set()
-    for h in [e["headword_en"].lower()] + sorted({t.get("term", "") for t in e.get("vi_terms", []) if t.get("term")}):
+    for h in [e["headword_en"]] + sorted({t.get("term", "") for t in e.get("vi_terms", []) if t.get("term")}):
+        h = h.replace("$$", "").strip()
         if h and h.lower() not in seen:
             seen.add(h.lower())
             lines.append(f"    <idx><h>{esc_text(h)}</h></idx>")
-    nota = (e.get("notation") or "").replace("$$", "").strip()
-    if nota:
-        lines.append("    <notation>")
-        lines.append(f"      <usage><m>{esc_math(nota)}</m></usage>")
-        lines.append(f"      <description>{esc_text(rec or e['headword_en'])}</description>")
-        lines.append("    </notation>")
+    # Notation table intentionally not emitted: symbols are contextual (the same
+    # symbol, e.g. T or G=(V,E), recurs with different meanings across entries),
+    # so a global list of notation is misleading for a lexicon. Symbols still
+    # render inline (<m>) inside each entry's definition.
     lines.append("    <statement>")
     raw = (e.get("definition_vi", "") or "").rstrip()
     if e.get("rosen_ref") and raw.endswith("."):

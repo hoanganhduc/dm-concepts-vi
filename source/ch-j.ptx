@@ -13,10 +13,6 @@
     <title>join of two graphs — kết nối của hai đồ thị</title>
     <idx><h>join of two graphs</h></idx>
     <idx><h>kết nối của hai đồ thị</h></idx>
-    <notation>
-      <usage><m>G_1 + G_2</m></usage>
-      <description>kết nối của hai đồ thị</description>
-    </notation>
     <statement>
       <p>Cho hai đồ thị đơn <m>G_1=(V_1,E_1)</m> và <m>G_2=(V_2,E_2)</m> có tập đỉnh rời nhau. <em>Kết nối của hai đồ thị</em> <m>G_1</m> và <m>G_2</m>, ký hiệu là <m>G_1 + G_2</m>, là đồ thị trên tập đỉnh <m>V_1 \cup V_2</m> nhận được từ hợp rời của <m>G_1</m> và <m>G_2</m> bằng cách thêm vào mọi cạnh <m>xy</m> với <m>x \in V_1</m> và <m>y \in V_2</m> (theo <xref ref="bib-rosen-2019" />, Rosen §10.2).</p>
       <p>Thuật ngữ tiếng Việt tương ứng:</p>
@@ -34,10 +30,6 @@
     <idx><h>cận trên</h></idx>
     <idx><h>hợp</h></idx>
     <idx><h>sup</h></idx>
-    <notation>
-      <usage><m>a \vee b</m></usage>
-      <description>chặn trên nhỏ nhất</description>
-    </notation>
     <statement>
       <p>Trong một dàn <m>(L,\preceq)</m>, <em>chặn trên nhỏ nhất</em> của hai phần tử <m>a</m> và <m>b</m>, ký hiệu <m>a\vee b</m>, là phần tử <m>\sup(a,b)</m> thỏa mãn <m>a\preceq a\vee b</m>, <m>b\preceq a\vee b</m>, và <m>a\vee b\preceq c</m> với mọi chặn trên <m>c</m> của cả <m>a</m> và <m>b</m> (theo <xref ref="bib-rosen-2019" />, Rosen §9.6).</p>
       <p>Thuật ngữ tiếng Việt tương ứng:</p>
@@ -53,7 +45,7 @@
   </definition>
   <definition xml:id="def-jordan-curve-theorem">
     <title>Jordan curve theorem — định lý đường cong Jordan</title>
-    <idx><h>jordan curve theorem</h></idx>
+    <idx><h>Jordan curve theorem</h></idx>
     <idx><h>đường cong Jordan</h></idx>
     <idx><h>đường cong Jordan khép kín</h></idx>
     <idx><h>định lý đường cong Jordan</h></idx>
@@ -71,12 +63,8 @@
   </definition>
   <definition xml:id="def-johnson-graph">
     <title>Johnson graph — đồ thị Johnson</title>
-    <idx><h>johnson graph</h></idx>
+    <idx><h>Johnson graph</h></idx>
     <idx><h>đồ thị Johnson</h></idx>
-    <notation>
-      <usage><m>J(n, k)</m></usage>
-      <description>đồ thị Johnson</description>
-    </notation>
     <statement>
       <p><em>Đồ thị Johnson</em>, ký hiệu <m>J(n,k)</m>, là đồ thị có các đỉnh là các tập con <m>k</m> phần tử của một tập <m>n</m> phần tử, trong đó hai đỉnh kề nhau khi và chỉ khi hai tập con tương ứng có chung đúng <m>k-1</m> phần tử (tương đương, hiệu đối xứng của chúng có lực lượng bằng <m>2</m>) (theo <xref ref="bib-rosen-2019" />, Rosen §10.2).</p>
       <p>Thuật ngữ tiếng Việt tương ứng:</p>
@@ -88,12 +76,8 @@
   </definition>
   <definition xml:id="def-jacobi-symbol">
     <title>Jacobi symbol — ký hiệu Jacobi</title>
-    <idx><h>jacobi symbol</h></idx>
+    <idx><h>Jacobi symbol</h></idx>
     <idx><h>ký hiệu Jacobi</h></idx>
-    <notation>
-      <usage><m>\left(\tfrac{a}{n}\right)</m></usage>
-      <description>ký hiệu Jacobi</description>
-    </notation>
     <statement>
       <p>Cho số nguyên <m>a</m> và số nguyên dương lẻ <m>n=p_1^{e_1}\cdots p_r^{e_r}</m>, trong đó <m>p_1,\dots,p_r</m> là các số nguyên tố lẻ phân biệt. <em>Ký hiệu Jacobi</em> của <m>a</m> theo <m>n</m>, ký hiệu <m>\left(\tfrac{a}{n}\right)</m>, được định nghĩa là tích các ký hiệu Legendre <m>\left(\tfrac{a}{n}\right)=\prod_{i=1}^{r}\left(\tfrac{a}{p_i}\right)^{e_i}</m>, mở rộng ký hiệu Legendre sang mọi môđun lẻ dương (theo <xref ref="bib-rosen-2019" />, Rosen §4.4).</p>
       <p>Thuật ngữ tiếng Việt tương ứng:</p>
@@ -106,7 +90,7 @@
   </definition>
   <definition xml:id="def-johnsons-algorithm">
     <title>Johnson's algorithm — thuật toán Johnson</title>
-    <idx><h>johnson's algorithm</h></idx>
+    <idx><h>Johnson's algorithm</h></idx>
     <idx><h>thuật toán Johnson</h></idx>
     <statement>
       <p><em>Thuật toán Johnson</em> là thủ tục tìm độ dài đường đi ngắn nhất giữa mọi cặp đỉnh trong một đồ thị có hướng có trọng số <m>G = (V, E)</m> mà trọng số cạnh có thể âm nhưng không chứa chu trình có trọng số âm. Thuật toán dùng thuật toán Bellman–Ford để gán cho mỗi đỉnh <m>v</m> một thế năng <m>h(v)</m>, rồi đổi trọng số của mỗi cạnh <m>(u, v)</m> từ <m>w(u, v)</m> thành <m>w'(u, v) = w(u, v) + h(u) - h(v) \geq 0</m> để mọi trọng số trở thành không âm; sau đó chạy thuật toán Dijkstra từ mỗi đỉnh trên đồ thị đã đổi trọng số và quy đổi kết quả về khoảng cách ban đầu (theo <xref ref="bib-rosen-2019" />, Rosen §10.6).</p>
@@ -120,15 +104,11 @@
   </definition>
   <definition xml:id="def-join-of-relations">
     <title>Join of Relations — phép kết nối</title>
-    <idx><h>join of relations</h></idx>
+    <idx><h>Join of Relations</h></idx>
     <idx><h>phép hợp</h></idx>
     <idx><h>phép kết</h></idx>
     <idx><h>phép kết nối</h></idx>
     <idx><h>phép nối</h></idx>
-    <notation>
-      <usage><m>J_p(R, S)</m></usage>
-      <description>phép kết nối</description>
-    </notation>
     <statement>
       <p>Cho <m>R</m> là một quan hệ bậc <m>m</m> và <m>S</m> là một quan hệ bậc <m>n</m>. Phép kết nối <m>J_p(R, S)</m>, với <m>p \leq m</m> và <m>p \leq n</m>, là phép toán tạo một quan hệ bậc <m>m + n - p</m> gồm tất cả các bộ <m>(m + n - p)</m> thành phần thu được bằng cách tổ hợp một bộ <m>m</m> thành phần của <m>R</m> với một bộ <m>n</m> thành phần của <m>S</m>, trong đó <m>p</m> thành phần cuối cùng của bộ thuộc <m>R</m> trùng với <m>p</m> thành phần đầu tiên của bộ thuộc <m>S</m> (theo <xref ref="bib-rosen-2019" />, Rosen, Định nghĩa 3, tr. 444 (bản dịch tiếng Việt)).</p>
       <p>Thuật ngữ tiếng Việt tương ứng:</p>
@@ -144,7 +124,7 @@
   </definition>
   <definition xml:id="def-join">
     <title>Join — phép nối</title>
-    <idx><h>join</h></idx>
+    <idx><h>Join</h></idx>
     <idx><h>phép nối</h></idx>
     <statement>
       <p>Trong toán rời rạc, <em>phép nối</em> (join) gộp hai đối tượng thành một theo một quy tắc, và mang nhiều nghĩa tùy ngữ cảnh. Mục này chỉ nêu ý niệm chung; các trường hợp cụ thể được trình bày ở những mục riêng (xem mục Xem thêm).</p>

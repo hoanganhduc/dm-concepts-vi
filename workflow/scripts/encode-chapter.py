@@ -73,24 +73,22 @@ def group_terms(vi_terms):
 
 
 def render_see(e, allowed_ids):
-    """Render a cross-reference stub: 'Headword (vi). Xem <target>.'"""
+    """Render a cross-reference stub. Same title format as a full entry
+    ('Headword (pos) — vi'); the body is just the redirect 'Xem <target>.'"""
     eid = e["id"]
     target = e["see_ref"]
     pos = f" ({e['pos']})" if e.get("pos") else ""
-    lines = [f'  <definition xml:id="def-{eid}">',
-             f"    <title>{esc_text(e['headword_en'])}{pos}</title>",
-             f"    <idx><h>{esc_text(e['headword_en'])}</h></idx>"]
     vi_terms = sorted({t.get("term", "") for t in e.get("vi_terms", []) if t.get("term")})
+    vi = ", ".join(vi_terms)
+    title = esc_text(e["headword_en"]) + pos + (" — " + esc_text(vi) if vi else "")
+    lines = [f'  <definition xml:id="def-{eid}">',
+             f"    <title>{title}</title>",
+             f"    <idx><h>{esc_text(e['headword_en'])}</h></idx>"]
     for term in vi_terms:
         lines.append(f"    <idx><h>{esc_text(term.replace('$$', ''))}</h></idx>")
     see = (f'<xref ref="def-{target}" text="title" />' if target in allowed_ids
            else f"<em>{esc_text(target)}</em>")
-    vi = ", ".join(vi_terms)
-    body = f"<term>{esc_text(e['headword_en'])}</term>"
-    if vi:
-        body += f" ({esc_text(vi)})"
-    body += f". Xem {see}."
-    lines.append(f"    <statement><p>{body}</p></statement>")
+    lines.append(f"    <statement><p>Xem {see}.</p></statement>")
     lines.append("  </definition>")
     return "\n".join(lines)
 

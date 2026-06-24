@@ -30,18 +30,14 @@
   <definition xml:id="def-maximum-matching">
     <title>maximum matching (d.t.) — cặp ghép lớn nhất</title>
     <idx><h>maximum matching</h></idx>
-    <idx><h>bộ ghép cực đại</h></idx>
     <idx><h>cặp ghép cực đại</h></idx>
     <idx><h>cặp ghép lớn nhất</h></idx>
-    <idx><h>ghép cặp cực đại</h></idx>
     <statement>
       <p>Một <em>cặp ghép lớn nhất</em> của một đồ thị <m>G</m> là cặp ghép có số cạnh nhiều nhất có thể trong <m>G</m> (theo <xref ref="bib-rosen-2019" />, Rosen §10.7).</p>
       <p>Thuật ngữ tiếng Việt tương ứng:</p>
       <ul>
         <li><p><term>cặp ghép lớn nhất</term> <xref ref="bib-leanhvinh-2020" /> (tr. 77); <xref ref="bib-nguyenhuudien-2019" /> (tr. 218); <xref ref="bib-hoangchithanh-2011" /> — cách dùng phổ biến.</p></li>
-        <li><p><term>bộ ghép cực đại</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
         <li><p><term>cặp ghép cực đại</term> <xref ref="bib-leanhvinh-2020" /> (tr. 68).</p></li>
-        <li><p><term>ghép cặp cực đại</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
       </ul>
       <p>Ví dụ: Trong một đồ thị đường đi <m>P_4</m> với các đỉnh <m>v_1, v_2, v_3, v_4</m> và các cạnh <m>v_1 v_2</m>, <m>v_2 v_3</m>, <m>v_3 v_4</m>, cặp ghép <m>\{v_1 v_2, v_3 v_4\}</m> là một cặp ghép lớn nhất vì nó gồm <m>2</m> cạnh và không có cặp ghép nào của <m>P_4</m> có nhiều hơn <m>2</m> cạnh.</p>
       <p>Xem thêm <xref ref="def-matching" text="title" />, <xref ref="def-perfect-matching" text="title" />.</p>
@@ -105,7 +101,7 @@
       <ul>
         <li><p><term>cây bao trùm nhỏ nhất</term> <xref ref="bib-leanhvinh-2020" /> (tr. 60); <xref ref="bib-nguyenhoangthach-2020" /> (tr. 91); <xref ref="bib-nguyenhuudien-2019" /> (tr. 249) — cách dùng phổ biến.</p></li>
         <li><p><term>cây khung nhỏ nhất</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 260); <xref ref="bib-doducgiao-2009" /> (tr. 243); <xref ref="bib-vudinhhoa-2010" />.</p></li>
-        <li><p><term>cây khung tối thiểu</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
+        <li><p><term>cây khung tối thiểu</term> <xref ref="bib-wikipedia-vi" />.</p></li>
       </ul>
       <p>Ví dụ: Trong một đồ thị liên thông có trọng số mô tả mạng lưới đường giữa các thành phố, trong đó trọng số mỗi cạnh là độ dài con đường, một cây bao trùm nhỏ nhất là tập hợp các con đường nối tất cả các thành phố với tổng độ dài nhỏ nhất.</p>
       <p>Xem thêm <xref ref="def-spanning-tree" text="title" />, <xref ref="def-tree" text="title" />, <xref ref="def-weighted-graph" text="title" />.</p>
@@ -265,14 +261,12 @@
     <idx><h>master theorem</h></idx>
     <idx><h>định lý Master</h></idx>
     <idx><h>định lý thợ</h></idx>
-    <idx><h>định lý tổng quát</h></idx>
     <statement>
       <p>Định lý thợ là một định lý cho công thức nghiệm tiệm cận của hệ thức truy hồi chia để trị dạng <m>T(n) = aT(n/b) + cn^d</m>, trong đó <m>a \geq 1</m>, <m>b  \gt  1</m> là các hằng số nguyên và <m>c, d</m> là các hằng số dương. Cận tăng của <m>T(n)</m> được xác định theo việc so sánh <m>a</m> với <m>b^d</m>, cụ thể <m>T(n)</m> là <m>O(n^d)</m> khi <m>a  \lt  b^d</m>, là <m>O(n^d \log n)</m> khi <m>a = b^d</m>, và là <m>O(n^{\log_b a})</m> khi <m>a  \gt  b^d</m> (theo <xref ref="bib-rosen-2019" />, Rosen §8.3).</p>
       <p>Thuật ngữ tiếng Việt tương ứng:</p>
       <ul>
         <li><p><term>định lý thợ</term> <em>(thuật ngữ chuẩn; chưa truy được trong kho văn bản)</em> — cách dùng phổ biến.</p></li>
         <li><p><term>định lý Master</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
-        <li><p><term>định lý tổng quát</term> <xref ref="bib-sierpinski-2012" /> (tr. 63); <xref ref="bib-vudinhhoa-2010" />.</p></li>
       </ul>
       <p>Ví dụ: Với hệ thức truy hồi <m>T(n) = 2T(n/2) + n</m> của thuật toán sắp xếp trộn, ta có <m>a = b^d</m> (do <m>2 = 2^1</m>), nên theo định lý thợ <m>T(n)</m> là <m>O(n \log n)</m>.</p>
     </statement>
@@ -422,7 +416,6 @@
   <definition xml:id="def-mutually-independent-events">
     <title>mutually independent events (d.t.) — biến cố độc lập tương hỗ</title>
     <idx><h>mutually independent events</h></idx>
-    <idx><h>biến cố độc lập</h></idx>
     <idx><h>biến cố độc lập toàn phần</h></idx>
     <idx><h>biến cố độc lập toàn thể</h></idx>
     <idx><h>biến cố độc lập tương hỗ</h></idx>
@@ -432,7 +425,6 @@
       <p>Thuật ngữ tiếng Việt tương ứng:</p>
       <ul>
         <li><p><term>biến cố độc lập tương hỗ</term> <em>(thuật ngữ chuẩn; chưa truy được trong kho văn bản)</em> — cách dùng phổ biến.</p></li>
-        <li><p><term>biến cố độc lập</term> <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 162).</p></li>
         <li><p><term>biến cố độc lập toàn phần</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
         <li><p><term>biến cố độc lập toàn thể</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
         <li><p><term>độc lập tương hỗ</term> <xref ref="bib-leanhvinh-2020" /> (tr. 158); <xref ref="bib-cormen-2001-vi" /> (tr. 135).</p></li>

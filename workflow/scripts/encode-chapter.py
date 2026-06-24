@@ -65,8 +65,8 @@ def group_terms(vi_terms):
             groups.append(index[key])
         g = index[key]
         g["recommended"] = g["recommended"] or bool(t.get("recommended"))
-        if t.get("verified") and t.get("source_id") and str(t.get("page", "")).strip():
-            g["cites"].append((t["source_id"], str(t["page"]).strip()))
+        if t.get("verified") and t.get("source_id"):
+            g["cites"].append((t["source_id"], str(t.get("page", "")).strip()))
     # recommended term first
     groups.sort(key=lambda g: (not g["recommended"], g["term"]))
     return groups
@@ -126,7 +126,8 @@ def render_entry(e, allowed_ids):
     for g in group_terms(e.get("vi_terms", [])):
         body = f"<term>{esc_text(g['term'])}</term>"
         if g["cites"]:
-            cites = "; ".join(f'<xref ref="{sid}" /> ({esc_text(pg)})' for sid, pg in g["cites"])
+            cites = "; ".join(f'<xref ref="{sid}" />' + (f" ({esc_text(pg)})" if pg else "")
+                              for sid, pg in g["cites"])
             body += " " + cites
         else:
             note = ("thuật ngữ chuẩn; chưa truy được trong kho văn bản"

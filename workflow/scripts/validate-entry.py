@@ -93,13 +93,13 @@ def main() -> int:
                 if t.get("recommended"):
                     recommended += 1
                 if verified:
-                    # A verified citation must carry a real source + page.
+                    # A verified citation must carry a real source. Page is
+                    # optional: some sources (scans with irregular numbering) are
+                    # cited without a page number rather than with a misleading one.
                     if not sid:
                         errors.append(f"{where}: verified vi_term '{term}' has no source_id")
                     elif sid not in source_ids:
                         errors.append(f"{where}: source_id '{sid}' not in registry")
-                    if not page:
-                        errors.append(f"{where}: verified vi_term '{term}' has empty page")
                 else:
                     # Unverified term: source/page must be absent (no fabrication).
                     if sid and sid not in source_ids:

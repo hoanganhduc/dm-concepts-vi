@@ -1,1176 +1,1194 @@
 {
-  "locked_conventions": [
-    "Math delimiters: every inline mathematical symbol in prose ($$G$$, $$K_n$$, $$\\chi(G)$$, $$\\kappa(G)$$, $$\\deg_G(v)$$, $$Q_k$$, set braces, set-builder, $$\\gcd(a,b)$$) is wrapped in $$...$$ in definition_vi, example_vi, and notes. Block math uses a ```math fence. A bare Vietnamese word (đồ thị, nhân, hành trình) is never wrapped; the first introduction of a central concept is marked with \\emph{...} OUTSIDE math.",
-    "Inequalities and relations: ASCII '>=', '<=', '!=' are forbidden in finished prose; use $$\\geq$$, $$\\leq$$, $$\\neq$$. The stray \\ge in k-connected-graph (notation and definition_vi) was normalized to \\geq, matching the 36 \\geq occurrences elsewhere in the corpus.",
-    "Notation field: the structured 'notation' field carries a BARE symbolic LaTeX token (K_n, Q_k, \\kappa(G) \\geq k, \\deg_G(v) = k, (a_1,...,a_k), B \\subseteq V(G), c: V(G) \\to {1,...,k}), NOT wrapped in $$...$$ and NOT mixed with Vietnamese prose. This is by design: the build layer wraps it (confirmed against output/web/entries.json, where complete-graph='K_n', chromatic-number='\\chi(G)' are stored bare). The exposition panel's request to wrap notation fields was therefore NOT applied.",
-    "Bipartite rendering is fixed book-wide to 'đồ thị hai phần' (book standard); 'đồ thị hai phía' / 'đồ thị phân đôi' are recorded only as deferred source variants. kuratowskis-theorem and complete-graph-kn use 'đồ thị hai phần' in prose, honoring the standard.",
-    "Exactly one vi_term per entry has recommended=true. The recommended term is, whenever possible, a verified=true term backed by source_id + pdf_page + page + snippet, attested in a 2019-2020 source where the concept exists there; newest citations are listed first. EVERY variant from ALL sources (old and new) is still recorded. A recommended term may be verified=false only when NO corpus source attests any candidate; that unverified status is surfaced explicitly in notes (here: karnaugh-map 'bìa Karnaugh', key 'khóa').",
-    "Citation hygiene: every verified=true vi_term carries source_id, pdf_page, page, and a quoted snippet whose surface form contains the term (OCR sources may show diacritic-mangled forms stored verbatim). vi_terms with verified=false AND empty page were DROPPED, except a single recommended standard term retained to keep vi_terms non-empty (karnaugh-map, key). The undropped verified=false empty-page non-recommended variants in k-coloring, konigsberg-bridge-problem, and key were removed per this rule; their non-attestation rationale is preserved in notes.",
-    "Examples are self-contained: an example_vi never relies on a derived quantity the definition_vi did not introduce. konigsberg-bridge-problem's definition now states the odd-degree Euler criteria the example uses; kuratowskis-theorem's example uses only the forbidden subgraph $$K_{3,3}$$ the definition introduces.",
-    "No synonym glosses inside the definition; variants live in vi_terms/notes. Inline English glosses '(closed)'/'(open)' were removed from knights-tour's definition_vi; the English equivalent is carried by headword_en.",
-    "see_also lists kebab ids only. Same-chapter (K) ids are direct links (complete-graph-kn -> complete-bipartite-graph-kmn); cross-chapter ids are forward references to be created in their own letter chapters. The chapter-wide policy of listing relevant cross-chapter forward references (the majority of corpus entries do) was applied to kruskals-algorithm, knights-tour, and k-cube, which previously left see_also empty.",
-    "First introduction of each headword concept in definition_vi is marked with LaTeX \\emph{...} (not markdown asterisks); the markdown-asterisk emphases in k-ary-tree and k-tuple were converted to \\emph{...} for chapter-wide consistency.",
-    "Chapter-wide editorial notes are written in English; the prose-facing definition_vi and example_vi are in Vietnamese."
-  ],
-  "deferred_note": "Applied the panel's clearly-correct fixes and kept ALL 15 chapter-K entries. HIGH CORRECTNESS FIXES: (1) k-connected-graph dropped the over-restrictive standalone clause 'có nhiều hơn $$k$$ đỉnh' and now leads with the standard Rosen §10.4 definition $$\\kappa(G) \\geq k$$ that the cited source (nguyenhoangthach-2020 tr.75) itself states; normalized \\ge to \\geq in notation and definition_vi. (2) kernel-of-a-graph removed the undefined-symbol clause '$$F^{-1}(B) = V \\setminus B$$' from the definition (the successor map $$F$$ was never defined, breaking self-containment); the complete independent+absorbing characterization is retained and the $$F^{-1}$$ identity moved to notes. Its rosen_ref was corrected from the spurious '§10.2' (graph terminology, no kernel) to '§10.5 (directed graphs; kernel not a named §10.2 topic)' to surface provenance honestly. HIGH CITATION-HYGIENE FIXES: dropped the verified=false empty-page non-recommended variants in k-coloring ('tô màu bằng k màu'), konigsberg-bridge-problem ('bài toán bảy cây cầu Königsberg', 'bài toán bảy chiếc cầu Königsberg'), and key ('khóa của quan hệ', 'thuộc tính khóa'); their non-attestation rationale is preserved in notes; the single recommended standard term is kept where no source attests the concept (karnaugh-map 'bìa Karnaugh', key 'khóa'). MED FIXES: (3) karnaugh-map qualified 'với $$n$$ biến' to 'với một số nhỏ biến (thường nhiều nhất $$4$$ biến)' and added Gray-code / wrap-around adjacency so the 'differ in one variable' adjacency notion is correct (Rosen §12.4). (4) konigsberg-bridge-problem tightened the framing to state both Euler-path (0 or 2 odd-degree vertices) and Euler-circuit (all even) criteria so the example is self-contained, and corrected the see_also rationale from 'same-chapter ... Rosen ch.10' to cross-chapter forward references (chapters G, M, E). (5) kuratowskis-theorem replaced the circular self-homeomorphic-$$K_5$$ example with a self-contained $$K_{3,3}$$ example that exercises the second forbidden subgraph. (6) knights-tour removed the inline English glosses '(closed)'/'(open)' from the definition, keeping Vietnamese 'khép kín'/'hở'. CHAPTER-WIDE CONSISTENCY: standardized first-introduction emphasis to LaTeX \\emph{...} across all entries (converted markdown asterisks in k-ary-tree and k-tuple; added \\emph to the rest); applied the chapter-wide see_also forward-reference policy by adding relevant cross-chapter forward references to kruskals-algorithm (minimum-spanning-tree, spanning-tree, prims-algorithm, weighted-graph), knights-tour (hamiltonian-path, hamiltonian-circuit), and k-cube (hypercube, binary-string); tightened k-coloring (single-sentence function-form definition, removed duplicated English 'Concept:' gloss) and k-cube (removed redundant 'ký hiệu là $$Q_k$$' restatement) for economy of expression. NOT APPLIED (out of scope / incorrect): the exposition panel's HIGH findings to wrap the structured 'notation' fields in $$...$$ were NOT applied — the notation field stores bare LaTeX by design and is wrapped by the build layer (confirmed against output/web/entries.json and the chapter-J locked conventions). FLAGGED FOR EDITOR-AT-LARGE (could not open a Rosen copy here): suspect rosen_ref section numbers — knapsack-problem '§8.1' (Rosen typically places knapsack as a dynamic-programming application of recurrences, §8.1 covers applications of recurrence relations; left as-is, flagged) and kernel-of-a-graph (corrected as above). Also out-of-scope but worth chapter-wide reconciliation: sibling chapter C (chromatic-number) still uses 'đồ thị hai phía', which conflicts with the locked book-standard 'đồ thị hai phần'. Each entry retains exactly one recommended=true; every verified=true vi_term keeps source_id + pdf_page + page + snippet; no fabricated citations were introduced.",
-  "final_entries": [
+ "locked_conventions": [
+  "Math delimiters: every inline mathematical symbol in prose ($$G$$, $$K_n$$, $$\\chi(G)$$, $$\\kappa(G)$$, $$\\deg_G(v)$$, $$Q_k$$, set braces, set-builder, $$\\gcd(a,b)$$) is wrapped in $$...$$ in definition_vi, example_vi, and notes. Block math uses a ```math fence. A bare Vietnamese word (đồ thị, nhân, hành trình) is never wrapped; the first introduction of a central concept is marked with \\emph{...} OUTSIDE math.",
+  "Inequalities and relations: ASCII '>=', '<=', '!=' are forbidden in finished prose; use $$\\geq$$, $$\\leq$$, $$\\neq$$. The stray \\ge in k-connected-graph (notation and definition_vi) was normalized to \\geq, matching the 36 \\geq occurrences elsewhere in the corpus.",
+  "Notation field: the structured 'notation' field carries a BARE symbolic LaTeX token (K_n, Q_k, \\kappa(G) \\geq k, \\deg_G(v) = k, (a_1,...,a_k), B \\subseteq V(G), c: V(G) \\to {1,...,k}), NOT wrapped in $$...$$ and NOT mixed with Vietnamese prose. This is by design: the build layer wraps it (confirmed against output/web/entries.json, where complete-graph='K_n', chromatic-number='\\chi(G)' are stored bare). The exposition panel's request to wrap notation fields was therefore NOT applied.",
+  "Bipartite rendering is fixed book-wide to 'đồ thị hai phần' (book standard); 'đồ thị hai phía' / 'đồ thị phân đôi' are recorded only as deferred source variants. kuratowskis-theorem and complete-graph-kn use 'đồ thị hai phần' in prose, honoring the standard.",
+  "Exactly one vi_term per entry has recommended=true. The recommended term is, whenever possible, a verified=true term backed by source_id + pdf_page + page + snippet, attested in a 2019-2020 source where the concept exists there; newest citations are listed first. EVERY variant from ALL sources (old and new) is still recorded. A recommended term may be verified=false only when NO corpus source attests any candidate; that unverified status is surfaced explicitly in notes (here: karnaugh-map 'bìa Karnaugh', key 'khóa').",
+  "Citation hygiene: every verified=true vi_term carries source_id, pdf_page, page, and a quoted snippet whose surface form contains the term (OCR sources may show diacritic-mangled forms stored verbatim). vi_terms with verified=false AND empty page were DROPPED, except a single recommended standard term retained to keep vi_terms non-empty (karnaugh-map, key). The undropped verified=false empty-page non-recommended variants in k-coloring, konigsberg-bridge-problem, and key were removed per this rule; their non-attestation rationale is preserved in notes.",
+  "Examples are self-contained: an example_vi never relies on a derived quantity the definition_vi did not introduce. konigsberg-bridge-problem's definition now states the odd-degree Euler criteria the example uses; kuratowskis-theorem's example uses only the forbidden subgraph $$K_{3,3}$$ the definition introduces.",
+  "No synonym glosses inside the definition; variants live in vi_terms/notes. Inline English glosses '(closed)'/'(open)' were removed from knights-tour's definition_vi; the English equivalent is carried by headword_en.",
+  "see_also lists kebab ids only. Same-chapter (K) ids are direct links (complete-graph-kn -> complete-bipartite-graph-kmn); cross-chapter ids are forward references to be created in their own letter chapters. The chapter-wide policy of listing relevant cross-chapter forward references (the majority of corpus entries do) was applied to kruskals-algorithm, knights-tour, and k-cube, which previously left see_also empty.",
+  "First introduction of each headword concept in definition_vi is marked with LaTeX \\emph{...} (not markdown asterisks); the markdown-asterisk emphases in k-ary-tree and k-tuple were converted to \\emph{...} for chapter-wide consistency.",
+  "Chapter-wide editorial notes are written in English; the prose-facing definition_vi and example_vi are in Vietnamese."
+ ],
+ "deferred_note": "Applied the panel's clearly-correct fixes and kept ALL 15 chapter-K entries. HIGH CORRECTNESS FIXES: (1) k-connected-graph dropped the over-restrictive standalone clause 'có nhiều hơn $$k$$ đỉnh' and now leads with the standard Rosen §10.4 definition $$\\kappa(G) \\geq k$$ that the cited source (nguyenhoangthach-2020 tr.75) itself states; normalized \\ge to \\geq in notation and definition_vi. (2) kernel-of-a-graph removed the undefined-symbol clause '$$F^{-1}(B) = V \\setminus B$$' from the definition (the successor map $$F$$ was never defined, breaking self-containment); the complete independent+absorbing characterization is retained and the $$F^{-1}$$ identity moved to notes. Its rosen_ref was corrected from the spurious '§10.2' (graph terminology, no kernel) to '§10.5 (directed graphs; kernel not a named §10.2 topic)' to surface provenance honestly. HIGH CITATION-HYGIENE FIXES: dropped the verified=false empty-page non-recommended variants in k-coloring ('tô màu bằng k màu'), konigsberg-bridge-problem ('bài toán bảy cây cầu Königsberg', 'bài toán bảy chiếc cầu Königsberg'), and key ('khóa của quan hệ', 'thuộc tính khóa'); their non-attestation rationale is preserved in notes; the single recommended standard term is kept where no source attests the concept (karnaugh-map 'bìa Karnaugh', key 'khóa'). MED FIXES: (3) karnaugh-map qualified 'với $$n$$ biến' to 'với một số nhỏ biến (thường nhiều nhất $$4$$ biến)' and added Gray-code / wrap-around adjacency so the 'differ in one variable' adjacency notion is correct (Rosen §12.4). (4) konigsberg-bridge-problem tightened the framing to state both Euler-path (0 or 2 odd-degree vertices) and Euler-circuit (all even) criteria so the example is self-contained, and corrected the see_also rationale from 'same-chapter ... Rosen ch.10' to cross-chapter forward references (chapters G, M, E). (5) kuratowskis-theorem replaced the circular self-homeomorphic-$$K_5$$ example with a self-contained $$K_{3,3}$$ example that exercises the second forbidden subgraph. (6) knights-tour removed the inline English glosses '(closed)'/'(open)' from the definition, keeping Vietnamese 'khép kín'/'hở'. CHAPTER-WIDE CONSISTENCY: standardized first-introduction emphasis to LaTeX \\emph{...} across all entries (converted markdown asterisks in k-ary-tree and k-tuple; added \\emph to the rest); applied the chapter-wide see_also forward-reference policy by adding relevant cross-chapter forward references to kruskals-algorithm (minimum-spanning-tree, spanning-tree, prims-algorithm, weighted-graph), knights-tour (hamiltonian-path, hamiltonian-circuit), and k-cube (hypercube, binary-string); tightened k-coloring (single-sentence function-form definition, removed duplicated English 'Concept:' gloss) and k-cube (removed redundant 'ký hiệu là $$Q_k$$' restatement) for economy of expression. NOT APPLIED (out of scope / incorrect): the exposition panel's HIGH findings to wrap the structured 'notation' fields in $$...$$ were NOT applied — the notation field stores bare LaTeX by design and is wrapped by the build layer (confirmed against output/web/entries.json and the chapter-J locked conventions). FLAGGED FOR EDITOR-AT-LARGE (could not open a Rosen copy here): suspect rosen_ref section numbers — knapsack-problem '§8.1' (Rosen typically places knapsack as a dynamic-programming application of recurrences, §8.1 covers applications of recurrence relations; left as-is, flagged) and kernel-of-a-graph (corrected as above). Also out-of-scope but worth chapter-wide reconciliation: sibling chapter C (chromatic-number) still uses 'đồ thị hai phía', which conflicts with the locked book-standard 'đồ thị hai phần'. Each entry retains exactly one recommended=true; every verified=true vi_term keeps source_id + pdf_page + page + snippet; no fabricated citations were introduced.",
+ "final_entries": [
+  {
+   "id": "k-coloring",
+   "letter": "K",
+   "headword_en": "k-coloring",
+   "notation": "c: V(G) \\to \\{1, 2, \\ldots, k\\}",
+   "rosen_ref": "Rosen §10.8",
+   "definition_vi": "Một \\emph{cách tô màu bằng $$k$$ màu} của một đồ thị đơn $$G$$ là một phép gán cho mỗi đỉnh của $$G$$ một trong $$k$$ màu, tức một hàm $$c: V(G) \\to \\{1, 2, \\ldots, k\\}$$ thỏa mãn $$c(u) \\neq c(v)$$ với mọi cạnh $$uv \\in E(G)$$, nghĩa là không có hai đỉnh kề nhau nào được gán cùng một màu.",
+   "example_vi": "Đồ thị chu trình $$C_4$$ có một cách tô màu bằng $$2$$ màu: tô hai đỉnh đối nhau bằng màu thứ nhất và hai đỉnh còn lại bằng màu thứ hai, khi đó không có hai đỉnh kề nhau nào cùng màu.",
+   "see_also": [
+    "chromatic-number",
+    "graph-coloring"
+   ],
+   "notes": "Recommended term \"tô màu một đồ thị đơn bằng k màu\" is the verbatim 2020 book phrasing, attested as a formal definition in nguyenhoangthach-2020 (tr. 81, Định nghĩa 5.53: \"Một cách tô màu một đồ thị đơn bằng k màu là một cách...\"). The bare string \"tô màu bằng k màu\" (with the object removed) returns 0 exact hits in any source (confirmed normal search), so it is NOT recorded as a vi_term and is dropped per citation hygiene; the head phrase \"tô màu ... bằng k màu\" is attested only with \"một đồ thị đơn\" inserted between \"tô màu\" and \"bằng k màu\".\n\nStrong noun alternative: \"k-tô màu\" (ngodactan-2004, tr. 283: \"gọi là k-tô màu\", 18 hits). This is the cleanest single-token noun for a k-coloring and matches Rosen's \"k-coloring\" as an object; it formally partitions the vertex set into $$k$$ classes (\"một k-tô màu phân hoạch tập đỉnh của đồ thị thành k lớp\"). It is only attested in a 2004 source, hence not recommended under the 2019-2020 preference, but recorded as a verified variant.\n\nNewest 2020 formal definitions both use the \"bằng/bởi k màu\" pattern: nguyenhoangthach-2020 uses \"bằng k màu\"; leanhvinh-2020 (tr. 90, Định nghĩa 4.1) uses \"tô được bởi k màu\" / \"cách tô màu tốt các đỉnh của G bởi k màu\". The 2019 source nguyenhuudien-2019 (tr. 227) uses \"tô được bằng k màu\". Variant \"bởi k màu\" vs \"bằng k màu\" is a preposition difference only.\n\n\"tô màu tốt\" (leanhvinh-2020) = proper coloring (the no-adjacent-same-color condition); related but a separate sub-concept. \"tô màu đồ thị\" / \"tô màu các đỉnh\" denote graph coloring / vertex coloring in general (the broader operation), not specifically a k-coloring; recorded as broader variants.\n\nCandidate \"phép tô màu k màu\" returned 0 hits (normal and --loose) and is dropped.\n\nDefinition follows the book's formal-function form (Định nghĩa 4.1 of leanhvinh-2020 and the hàm $$c$$ formulation of nguyenhuudien-2019, tr. 227): a k-coloring is a vertex assignment $$c: V(G) \\to \\{1, \\ldots, k\\}$$ with $$c(u) \\neq c(v)$$ for every edge $$uv$$. The definition is tightened to a single sentence ending in the function form (economy of expression). The example uses only $$C_4$$ and the two colors the definition introduces; no derived quantity (e.g. chromatic number) is invoked. Per Rosen §10.8 a k-coloring is a (proper) coloring using $$k$$ colors; the no-adjacent-same-color condition is the proper-coloring requirement and is correctly baked in.\n\nEDITOR (chapter K final): per terminology citation hygiene, dropped the verified=false empty-page non-recommended variant \"tô màu bằng k màu\" from vi_terms (its 0-hit rationale is preserved above). Trimmed the duplicated English 'Concept:' gloss that restated the definition. The recommended term remains the verified 2020 form.",
+   "vi_terms": [
     {
-      "id": "k-coloring",
-      "letter": "K",
-      "headword_en": "k-coloring",
-      "notation": "c: V(G) \\to \\{1, 2, \\ldots, k\\}",
-      "rosen_ref": "Rosen §10.8",
-      "definition_vi": "Một \\emph{cách tô màu bằng $$k$$ màu} của một đồ thị đơn $$G$$ là một phép gán cho mỗi đỉnh của $$G$$ một trong $$k$$ màu, tức một hàm $$c: V(G) \\to \\{1, 2, \\ldots, k\\}$$ thỏa mãn $$c(u) \\neq c(v)$$ với mọi cạnh $$uv \\in E(G)$$, nghĩa là không có hai đỉnh kề nhau nào được gán cùng một màu.",
-      "example_vi": "Đồ thị chu trình $$C_4$$ có một cách tô màu bằng $$2$$ màu: tô hai đỉnh đối nhau bằng màu thứ nhất và hai đỉnh còn lại bằng màu thứ hai, khi đó không có hai đỉnh kề nhau nào cùng màu.",
-      "see_also": [
-        "chromatic-number",
-        "graph-coloring"
-      ],
-      "notes": "Recommended term \"tô màu một đồ thị đơn bằng k màu\" is the verbatim 2020 book phrasing, attested as a formal definition in nguyenhoangthach-2020 (tr. 81, Định nghĩa 5.53: \"Một cách tô màu một đồ thị đơn bằng k màu là một cách...\"). The bare string \"tô màu bằng k màu\" (with the object removed) returns 0 exact hits in any source (confirmed normal search), so it is NOT recorded as a vi_term and is dropped per citation hygiene; the head phrase \"tô màu ... bằng k màu\" is attested only with \"một đồ thị đơn\" inserted between \"tô màu\" and \"bằng k màu\".\n\nStrong noun alternative: \"k-tô màu\" (ngodactan-2004, tr. 283: \"gọi là k-tô màu\", 18 hits). This is the cleanest single-token noun for a k-coloring and matches Rosen's \"k-coloring\" as an object; it formally partitions the vertex set into $$k$$ classes (\"một k-tô màu phân hoạch tập đỉnh của đồ thị thành k lớp\"). It is only attested in a 2004 source, hence not recommended under the 2019-2020 preference, but recorded as a verified variant.\n\nNewest 2020 formal definitions both use the \"bằng/bởi k màu\" pattern: nguyenhoangthach-2020 uses \"bằng k màu\"; leanhvinh-2020 (tr. 90, Định nghĩa 4.1) uses \"tô được bởi k màu\" / \"cách tô màu tốt các đỉnh của G bởi k màu\". The 2019 source nguyenhuudien-2019 (tr. 227) uses \"tô được bằng k màu\". Variant \"bởi k màu\" vs \"bằng k màu\" is a preposition difference only.\n\n\"tô màu tốt\" (leanhvinh-2020) = proper coloring (the no-adjacent-same-color condition); related but a separate sub-concept. \"tô màu đồ thị\" / \"tô màu các đỉnh\" denote graph coloring / vertex coloring in general (the broader operation), not specifically a k-coloring; recorded as broader variants.\n\nCandidate \"phép tô màu k màu\" returned 0 hits (normal and --loose) and is dropped.\n\nDefinition follows the book's formal-function form (Định nghĩa 4.1 of leanhvinh-2020 and the hàm $$c$$ formulation of nguyenhuudien-2019, tr. 227): a k-coloring is a vertex assignment $$c: V(G) \\to \\{1, \\ldots, k\\}$$ with $$c(u) \\neq c(v)$$ for every edge $$uv$$. The definition is tightened to a single sentence ending in the function form (economy of expression). The example uses only $$C_4$$ and the two colors the definition introduces; no derived quantity (e.g. chromatic number) is invoked. Per Rosen §10.8 a k-coloring is a (proper) coloring using $$k$$ colors; the no-adjacent-same-color condition is the proper-coloring requirement and is correctly baked in.\n\nEDITOR (chapter K final): per terminology citation hygiene, dropped the verified=false empty-page non-recommended variant \"tô màu bằng k màu\" from vi_terms (its 0-hit rationale is preserved above). Trimmed the duplicated English 'Concept:' gloss that restated the definition. The recommended term remains the verified 2020 form.",
-      "vi_terms": [
-        {
-          "term": "tô màu một đồ thị đơn bằng k màu",
-          "verified": true,
-          "recommended": true,
-          "source_id": "bib-nguyenhoangthach-2020",
-          "pdf_page": 81,
-          "page": "tr. 79",
-          "snippet": "Định nghĩa 5.53. Một cách tô màu một đồ thị đơn bằng k màu là một cách"
-        },
-        {
-          "term": "tô màu (các đỉnh của G) bởi k màu",
-          "verified": false,
-          "recommended": false,
-          "source_id": "",
-          "pdf_page": 0,
-          "page": "",
-          "snippet": ""
-        },
-        {
-          "term": "tô được bởi k màu",
-          "verified": true,
-          "recommended": false,
-          "source_id": "bib-leanhvinh-2020",
-          "pdf_page": 90,
-          "page": "tr. 91",
-          "snippet": "Định nghĩa 4.1. Ta nói đồ thị G có thể tô được bởi k màu nếu có"
-        },
-        {
-          "term": "tô được bằng k màu",
-          "verified": true,
-          "recommended": false,
-          "source_id": "bib-nguyenhuudien-2019",
-          "pdf_page": 227,
-          "page": "tr. 227",
-          "snippet": "Ta nói rằng, đồ thị G tô được bằng k màu nếu tồn tại hàm:"
-        },
-        {
-          "term": "k-tô màu",
-          "verified": true,
-          "recommended": false,
-          "source_id": "bib-ngodactan-2004",
-          "pdf_page": 283,
-          "page": "tr. 283",
-          "snippet": "gọi là k-tô màu. ... Như vậy, một k-tô màu phân hoạch tập đỉnh của đồ thị thành k lớp"
-        },
-        {
-          "term": "tô màu các đỉnh",
-          "verified": true,
-          "recommended": false,
-          "source_id": "bib-leanhvinh-2020",
-          "pdf_page": 245,
-          "page": "tr. 246",
-          "snippet": "vac: V ¬ [k| là một cách tô màu các đỉnh của G bởi k màu sao cho"
-        },
-        {
-          "term": "tô màu đồ thị",
-          "verified": true,
-          "recommended": false,
-          "source_id": "bib-leanhvinh-2020",
-          "pdf_page": 90,
-          "page": "tr. 91",
-          "snippet": "Tô màu đồ thị"
-        },
-        {
-          "term": "tô được bằng k màu",
-          "source_id": "bib-ngodactan-2004",
-          "page": "tr. 296",
-          "pdf_page": 296,
-          "snippet": "(c) Bản đo M có thể tô được bằng k màu khi và chỉ khi đồ thị phẳng",
-          "verified": true,
-          "recommended": false
-        },
-        {
-          "term": "tô màu các đỉnh",
-          "source_id": "bib-hoangchithanh-2011",
-          "page": "",
-          "pdf_page": 88,
-          "snippet": "Hãy tô màu các đỉnh của một đồ thị đã cho, sao cho hai đỉnh kề nhau",
-          "verified": true,
-          "recommended": false
-        },
-        {
-          "term": "tô màu các đỉnh",
-          "source_id": "bib-nguyenhuudien-2019",
-          "page": "tr. 11",
-          "pdf_page": 11,
-          "snippet": "9.6 Tô màu các đỉnh đồ thị . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 228",
-          "verified": true,
-          "recommended": false
-        },
-        {
-          "term": "tô màu đồ thị",
-          "source_id": "bib-nguyenhoangthach-2020",
-          "page": "tr. 2",
-          "pdf_page": 4,
-          "snippet": "5.5 Tô màu đồ thị . . . . . . . . . . . . . . . . . . . . . . . . . . . . 79",
-          "verified": true,
-          "recommended": false
-        },
-        {
-          "term": "tô màu đồ thị",
-          "source_id": "bib-nguyenhuudien-2019",
-          "page": "tr. 7",
-          "pdf_page": 7,
-          "snippet": "Chương 9. Đồ thị phẳng và tô màu đồ thị . . . . . . . . . . . . . . . . . 223",
-          "verified": true,
-          "recommended": false
-        }
-      ]
+     "term": "tô màu một đồ thị đơn bằng k màu",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-nguyenhoangthach-2020",
+     "pdf_page": 81,
+     "page": "tr. 79",
+     "snippet": "Định nghĩa 5.53. Một cách tô màu một đồ thị đơn bằng k màu là một cách"
     },
     {
-      "id": "k-connected-graph",
-      "letter": "K",
-      "headword_en": "k-connected graph",
-      "notation": "\\kappa(G) \\geq k",
-      "rosen_ref": "Rosen §10.4",
-      "definition_vi": "Cho $$k$$ là một số nguyên dương. Một đồ thị liên thông $$G$$ được gọi là \\emph{$$k$$-liên thông} nếu độ liên thông đỉnh của nó thỏa mãn $$\\kappa(G) \\geq k$$, tức là không thể làm cho $$G$$ mất liên thông (hoặc trở thành đồ thị tầm thường một đỉnh) bằng cách xóa đi ít hơn $$k$$ đỉnh bất kỳ.",
-      "example_vi": "Đồ thị đầy đủ $$K_n$$ với $$n \\geq k+1$$ là $$k$$-liên thông, vì $$\\kappa(K_n) = n-1 \\geq k$$.",
-      "vi_terms": [
-        {
-          "term": "k-liên thông",
-          "verified": true,
-          "recommended": true,
-          "source_id": "bib-nguyenhoangthach-2020",
-          "pdf_page": 75,
-          "page": "tr. 73",
-          "snippet": "Ta nói đồ thị G là k-liên thông nếu κ(G) ≥ k."
-        },
-        {
-          "term": "đồ thị k-liên thông",
-          "verified": true,
-          "recommended": false,
-          "source_id": "bib-leanhvinh-2020",
-          "pdf_page": 31,
-          "page": "tr. 32",
-          "snippet": "Dinh lý 1.28. (Dirac, 1960) Cho đồ thị k-liên thông G với k > 2."
-        },
-        {
-          "term": "k-liên thông",
-          "verified": true,
-          "recommended": false,
-          "source_id": "bib-leanhvinh-2020",
-          "pdf_page": 25,
-          "page": "tr. 26",
-          "snippet": "lớn nhất để G là k-liên thông."
-        },
-        {
-          "term": "k-liên thông đỉnh",
-          "verified": true,
-          "recommended": false,
-          "source_id": "bib-ngodactan-2004",
-          "pdf_page": 265,
-          "page": "tr. 265",
-          "snippet": "Đồ thị G = (V\\ E) được gọi là k-liên thông đỉnh hay gọi tắ t là k-liên"
-        },
-        {
-          "term": "đồ thị k-liên thông",
-          "verified": true,
-          "recommended": false,
-          "source_id": "bib-ngodactan-2004",
-          "pdf_page": 280,
-          "page": "tr. 280",
-          "snippet": "Chứng minh rằng G là đồ thị k-liên thông."
-        },
-        {
-          "term": "k-liên thông",
-          "source_id": "bib-vudinhhoa-2010",
-          "page": "",
-          "pdf_page": 129,
-          "snippet": "mét đồ thị k-lién thông (đỉnh), nếu như Œ là một dé thị liên thông va nếu như bỗ di",
-          "verified": true,
-          "recommended": false
-        },
-        {
-          "term": "đồ thị k-liên thông",
-          "source_id": "bib-vudinhhoa-2010",
-          "page": "",
-          "pdf_page": 129,
-          "snippet": "mét đồ thị k-lién thông (đỉnh), nếu như Œ là một dé thị liên thông va nếu như bỗ di",
-          "verified": true,
-          "recommended": false
-        }
-      ],
-      "notes": "EDITOR (chapter K final): applied the panel HIGH correctness fix. The prior definition added a standalone defining clause \"có nhiều hơn $$k$$ đỉnh\" (more than $$k$$ vertices) joined by \"và\" to the deletion clause; that is over-restrictive and non-standard. Rosen §10.4 defines a connected graph to be $$k$$-connected iff its vertex connectivity satisfies $$\\kappa(G) \\geq k$$, which is exactly what the cited source nguyenhoangthach-2020 (tr. 75) states (\"G là k-liên thông nếu κ(G) ≥ k\"). The definition now leads with $$\\kappa(G) \\geq k$$ and states the equivalent operational characterization (cannot be disconnected, or reduced to the trivial one-vertex graph, by deleting fewer than $$k$$ vertices). Also normalized the relation symbol from \\ge to \\geq in both notation and definition_vi per book convention.\n\nRecommended term \"k-liên thông\" is attested in two 2020 sources; the cleanest definitional attestation is nguyenhoangthach-2020 (tr. 75 PDF), which matches Rosen's notation $$\\kappa(G) \\geq k$$. leanhvinh-2020 uses it throughout Chapter 1 (Whitney/Dirac theorems). ngodactan-2004 (tr. 265 PDF) defines \"đồ thị k-liên thông đỉnh\" (vertex k-connectivity) and abbreviates it to \"k-liên thông\" — the same concept as this entry. The fuller noun phrase \"đồ thị k-liên thông\" is a stylistic variant. The candidate \"k-liên thông cạnh\" (edge k-connectivity, $$\\kappa'(G) \\geq k$$ / $$\\lambda(G) \\geq k$$) is a DIFFERENT concept and is excluded; it appears in leanhvinh-2020 (tr. 26 PDF) and ngodactan-2004 (tr. 270 PDF). The candidate \"liên thông bậc k\" is NOT attested in any corpus source. Sources nguyenhuudien-2019, nguyenducnghia-2006, and hoangchithanh-2007 contain only general connectivity (\"liên thông\") and do not define the k-connected concept. see_also targets are cross-chapter forward references: \"connectivity\" and \"cut-vertex\" exist in chapter C; \"vertex-connectivity\" and \"edge-connectivity\" are forward references. No same-chapter K links. All five verified vi_terms re-confirmed via find-term.py at their cited pages with matching snippets (leanhvinh-2020 confirmed under both normal and loose OCR modes).",
-      "see_also": [
-        "connectivity",
-        "vertex-connectivity",
-        "edge-connectivity",
-        "cut-vertex"
-      ]
+     "term": "tô màu (các đỉnh của G) bởi k màu",
+     "verified": false,
+     "recommended": false,
+     "source_id": "",
+     "pdf_page": 0,
+     "page": "",
+     "snippet": ""
     },
     {
-      "id": "k-regular-graph",
-      "letter": "K",
-      "headword_en": "k-regular graph",
-      "notation": "\\deg_G(v) = k",
-      "rosen_ref": "Rosen §10.2",
-      "definition_vi": "Cho $$k$$ là một số nguyên không âm. \\emph{Đồ thị $$k$$ chính quy} là đồ thị $$G$$ trong đó mọi đỉnh đều có bậc đúng bằng $$k$$, tức là $$\\deg_G(v) = k$$ với mọi $$v \\in V(G)$$.",
-      "example_vi": "Đồ thị đầy đủ $$K_n$$ là đồ thị $$(n-1)$$ chính quy, vì mỗi đỉnh kề với tất cả $$n-1$$ đỉnh còn lại; chu trình $$C_n$$ với $$n \\geq 3$$ là đồ thị $$2$$ chính quy.",
-      "notes": "Concept attested only in bib-leanhvinh-2020, bib-nguyenducnghia-2006, and bib-ngodactan-2004. In bib-nguyenhoangthach-2020, bib-nguyenhuudien-2019, and bib-hoangchithanh-2007 the string \"đồ thị đều\" appears only as the universal adverb \"đều\" (every/all), e.g. \"mọi đỉnh của đồ thị đều có bậc...\", not as the regular-graph term; those are not citations of this concept. In bib-leanhvinh-2020 the book uses \"đồ thị đều bậc k\" as the primary form (pp. 10, 89, 93, 214) with \"đồ thị k chính quy\" given as the explicit alternate (\"hay còn gọi là\", p. 214); the generalized \"đồ thị đều bậc d\" / \"đồ thị d chính quy\" also appears (p. 10). The recommended term \"đồ thị k chính quy\" is attested in the newest source (bib-leanhvinh-2020, 2020). The variant \"đồ thị đều bậc k\" is equally standard and also from 2020. Older sources use the older orthography \"chính qui\" (modern \"chính quy\"): bib-ngodactan-2004 p. 191 defines \"đồ thị chính qui bậc k\" / short form \"k-chính qui\"; bib-nguyenducnghia-2006 p. 164 uses \"chính qui bậc k\". The synonym \"đồ thị bậc k\" in bib-ngodactan-2004 is attested via the book index (\"đồ thị bậc k, 191\", PDF p. 336), which points to the definition on p. 191; no verbatim definition-line snippet for that exact phrase is recoverable from the OCR text, so the verifiable index snippet is cited. Caution: in bib-leanhvinh-2020 the unrelated phrases \"đồ thị bậc n\" mean \"graph on n vertices\" (order n), not a regular graph, and \"đồ thị chính quy mạnh\" means \"strongly regular graph\" — both excluded. Definition is mathematically correct against Rosen §10.2 (every vertex has degree exactly $$k$$); the nonnegative-integer constraint on $$k$$ is correct (0-regular = empty graph is valid). Snippets from OCR sources (bib-leanhvinh-2020, bib-ngodactan-2004) reproduce OCR artifacts verbatim. EDITOR (chapter K final): the notation field stores the bare token $$\\deg_G(v) = k$$ without $$...$$ wrapping per the book-wide convention (the structured notation field is wrapped by the build layer, as confirmed against output/web/entries.json); no wrapping change applied. Added the $$k \\geq 0$$ lead-in to the definition for parameter scope, consistent with the source convention.",
-      "see_also": [
-        "bipartite-graph",
-        "complete-graph",
-        "regular-graph"
-      ],
-      "vi_terms": [
-        {
-          "term": "đồ thị k chính quy",
-          "verified": true,
-          "recommended": true,
-          "source_id": "bib-leanhvinh-2020",
-          "pdf_page": 214,
-          "page": "tr. 215",
-          "snippet": "© Dé thị G là đồ thị đều bậc k, hay còn gợi là đồ thị k chính quy."
-        },
-        {
-          "term": "đồ thị đều bậc k",
-          "verified": true,
-          "recommended": false,
-          "source_id": "bib-leanhvinh-2020",
-          "pdf_page": 214,
-          "page": "tr. 215",
-          "snippet": "© Dé thị G là đồ thị đều bậc k, hay còn gợi là đồ thị k chính quy."
-        },
-        {
-          "term": "đồ thị chính qui bậc k",
-          "verified": false,
-          "recommended": false,
-          "source_id": "",
-          "pdf_page": 0,
-          "page": "",
-          "snippet": ""
-        },
-        {
-          "term": "đồ thị chính qui bậc k",
-          "verified": true,
-          "recommended": false,
-          "source_id": "bib-ngodactan-2004",
-          "pdf_page": 191,
-          "page": "tr. 191",
-          "snippet": "và G được gọi là đồ thị chính qui bậc k hay ngắn gọn là k-chính qui."
-        },
-        {
-          "term": "k-chính qui",
-          "verified": true,
-          "recommended": false,
-          "source_id": "bib-ngodactan-2004",
-          "pdf_page": 191,
-          "page": "tr. 191",
-          "snippet": "và G được gọi là đồ thị chính qui bậc k hay ngắn gọn là k-chính qui."
-        },
-        {
-          "term": "đồ thị bậc k",
-          "verified": true,
-          "recommended": false,
-          "source_id": "bib-ngodactan-2004",
-          "pdf_page": 336,
-          "page": "tr. 336",
-          "snippet": "đồ thị bậc k, 191"
-        }
-      ]
+     "term": "tô được bởi k màu",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-leanhvinh-2020",
+     "pdf_page": 90,
+     "page": "tr. 91",
+     "snippet": "Định nghĩa 4.1. Ta nói đồ thị G có thể tô được bởi k màu nếu có"
     },
     {
-      "id": "kruskals-algorithm",
-      "letter": "K",
-      "headword_en": "Kruskal's algorithm",
-      "definition_vi": "\\emph{Thuật toán Kruskal} là thuật toán tìm cây bao trùm nhỏ nhất của một đồ thị liên thông, vô hướng và có trọng số $$G = (V, E)$$ với hàm trọng số $$c \\colon E \\to \\mathbb{R}$$. Bắt đầu từ rừng gồm $$|V|$$ đỉnh rời nhau và không có cạnh, ở mỗi bước thuật toán xét các cạnh theo thứ tự trọng số tăng dần và thêm vào cạnh có trọng số nhỏ nhất trong số các cạnh còn lại mà không tạo thành một chu trình, cho đến khi thu được một cây bao trùm.",
-      "notation": "",
-      "rosen_ref": "Rosen §11.5",
-      "example_vi": "Xét đồ thị liên thông $$G$$ trên bốn đỉnh $$\\{a, b, c, d\\}$$ với các cạnh có trọng số $$c(ab) = 1$$, $$c(bc) = 2$$, $$c(cd) = 3$$ và $$c(ac) = 4$$. Thuật toán Kruskal lần lượt chọn $$ab$$, $$bc$$, rồi $$cd$$; cạnh $$ac$$ bị bỏ qua vì nó tạo thành chu trình với $$ab$$ và $$bc$$, và ta thu được cây bao trùm nhỏ nhất gồm các cạnh $$ab$$, $$bc$$, $$cd$$ với tổng trọng số $$6$$.",
-      "notes": "Recommended term \"thuật toán Kruskal\" is attested in all six corpus sources, including both 2020 sources (bib-leanhvinh-2020 tr. 61, bib-nguyenhoangthach-2020 tr. 95) and the 2019 source (bib-nguyenhuudien-2019 tr. 250). The candidate \"giải thuật Kruskal\" returned zero hits in every source under both normal and --loose matching, so it is not recorded as a verified vi_term. The candidate \"thuật toán Kruskal tìm cây khung nhỏ nhất\" is not attested as a fixed term; bib-leanhvinh-2020 tr. 61 has only the running descriptive phrase \"Thuật toán Kruskal tìm cây bao trùm nhỏ nhất trong mạng lưới\", not a coined compound term, so it is not recorded as a separate variant. Note the differing renderings of \"minimum spanning tree\": newer/southern sources use \"cây bao trùm nhỏ nhất\" (leanhvinh, nguyenhuudien, hoangchithanh, ngodactan use \"cây bao\"), while nguyenhoangthach and nguyenducnghia use \"cây khung nhỏ nhất\". The definition_vi follows the lead source bib-leanhvinh-2020, which renders the target as \"cây bao trùm nhỏ nhất\"; bib-leanhvinh-2020 tr. 61 frames Kruskal as a greedy algorithm (\"một thuật toán tham lam\") that repeatedly adds the smallest-weight edge until a spanning tree is obtained, and bib-nguyenhuudien-2019 tr. 250 gives the formal setting \"đồ thị vô hướng G với tập cạnh E và hàm trọng số c\". The cycle-avoidance condition (\"không tạo thành một chu trình\") corresponds to the English ground truth's \"does not create a circuit\"; the equivalent stopping condition is reaching $$|V|-1$$ edges (a spanning tree). Definition faithfully matches Rosen §11.5.\n\nEDITOR (chapter K final): per the chapter-wide see_also forward-reference policy (the majority of corpus entries list cross-chapter forward references), added the cross-chapter forward references minimum-spanning-tree, spanning-tree, prims-algorithm, and weighted-graph (chapters M, S, P, W). These are forward references to be created in their own letter chapters; there are no same-chapter K links.",
-      "see_also": [
-        "minimum-spanning-tree",
-        "spanning-tree",
-        "weighted-graph"
-      ],
-      "vi_terms": [
-        {
-          "term": "thuật toán Kruskal",
-          "verified": true,
-          "recommended": true,
-          "source_id": "bib-leanhvinh-2020",
-          "pdf_page": 61,
-          "page": "tr. 62",
-          "snippet": "Thuật toán Kruskal tìm cây bao trùm nhỏ nhất trong mạng lưới"
-        },
-        {
-          "term": "thuật toán Kruskal",
-          "verified": true,
-          "recommended": false,
-          "source_id": "bib-nguyenhoangthach-2020",
-          "pdf_page": 95,
-          "page": "tr. 93",
-          "snippet": "Định lý 7.6. Nếu G là liên thông thì thuật toán Kruskal cho kết quả là một"
-        },
-        {
-          "term": "thuật toán Kruskal",
-          "verified": true,
-          "recommended": false,
-          "source_id": "bib-nguyenhuudien-2019",
-          "pdf_page": 250,
-          "page": "tr. 250",
-          "snippet": "Thuật toán Kruskal được mô tả chi tiết như sau."
-        }
-      ]
+     "term": "tô được bằng k màu",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 227,
+     "page": "tr. 227",
+     "snippet": "Ta nói rằng, đồ thị G tô được bằng k màu nếu tồn tại hàm:"
     },
     {
-      "id": "kuratowskis-theorem",
-      "letter": "K",
-      "headword_en": "Kuratowski's theorem",
-      "notation": "",
-      "definition_vi": "\\emph{Định lý Kuratowski} khẳng định rằng một đồ thị $$G$$ là phẳng khi và chỉ khi nó không chứa đồ thị con nào đồng phôi với đồ thị đầy đủ $$K_5$$ hoặc đồ thị hai phần đầy đủ $$K_{3,3}$$.",
-      "example_vi": "Đồ thị hai phần đầy đủ $$K_{3,3}$$ không phẳng: bản thân nó là một đồ thị con đồng phôi với $$K_{3,3}$$, nên theo định lý Kuratowski thì $$K_{3,3}$$ không là đồ thị phẳng.",
-      "rosen_ref": "Rosen §10.7",
-      "notes": "Recommended term \"định lý Kuratowski\" is attested in two 2020 sources (bib-nguyenhoangthach-2020 p.81 and bib-leanhvinh-2020 p.127), a 2019 source (bib-nguyenhuudien-2019 p.234), and older sources (bib-hoangchithanh-2007 p.119, bib-ngodactan-2004 p.210); citations are listed newest-first. The variant \"định lý Kuratowski - Pontragin\" (Kuratowski-Pontryagin theorem) is attested only in the 2004 source (bib-ngodactan-2004 p.210, also p.213, index p.336); it is recorded as a verified variant. No candidate uses inline math, so no $$...$$ wrapping is needed in the term strings. The definition uses the book-standard \"đồ thị hai phần\" for bipartite. \"Đồng phôi\" (homeomorphic) is the standard term linked via see_also to homeomorphic-graphs. Definition is correct against Rosen §10.7 (a graph is planar iff it contains no subgraph homeomorphic to $$K_5$$ or $$K_{3,3}$$).\n\nEDITOR (chapter K final): the previous example used $$K_5$$ as \"a subgraph homeomorphic to $$K_5$$ of itself\", which is logically valid but pedagogically circular. Switched the example to $$K_{3,3}$$ — likewise the trivial self-homeomorphic case, but it exercises the second forbidden subgraph $$K_{3,3}$$ (the complete bipartite graph) and keeps the example self-contained using only the forbidden subgraphs the definition introduces. The substance (a forbidden subgraph forces non-planarity by Kuratowski) is unchanged; either $$K_5$$ or $$K_{3,3}$$ is a minimal self-contained witness.",
-      "see_also": [
-        "planar-graph",
-        "complete-graph",
-        "complete-bipartite-graph",
-        "homeomorphic-graphs"
-      ],
-      "vi_terms": [
-        {
-          "term": "định lý Kuratowski",
-          "verified": true,
-          "recommended": true,
-          "source_id": "bib-nguyenhoangthach-2020",
-          "pdf_page": 81,
-          "page": "tr. 79",
-          "snippet": "Trước khi phát biểu định lý Kuratowski, chúng ta cần chuẩn bị một số"
-        },
-        {
-          "term": "định lý Kuratowski",
-          "verified": true,
-          "recommended": false,
-          "source_id": "bib-leanhvinh-2020",
-          "pdf_page": 127,
-          "page": "tr. 128",
-          "snippet": "Định lý 5.10. (Dinh ly Kuratowski, 1930) Dé thị G là không phẳng"
-        },
-        {
-          "term": "định lý Kuratowski",
-          "verified": true,
-          "recommended": false,
-          "source_id": "bib-nguyenhuudien-2019",
-          "pdf_page": 234,
-          "page": "tr. 234",
-          "snippet": "Ta có thể áp dụng định lý Kuratowski để xét tính chất phẳng của đồ thị."
-        },
-        {
-          "term": "định lý Kuratowski - Pontragin",
-          "verified": true,
-          "recommended": false,
-          "source_id": "bib-ngodactan-2004",
-          "pdf_page": 210,
-          "page": "tr. 210",
-          "snippet": "đó, định lý trền cũng còn được gọi là Định lý Kuratowski - Pontragin."
-        }
-      ]
+     "term": "k-tô màu",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-ngodactan-2004",
+     "pdf_page": 283,
+     "page": "tr. 283",
+     "snippet": "gọi là k-tô màu. ... Như vậy, một k-tô màu phân hoạch tập đỉnh của đồ thị thành k lớp"
     },
     {
-      "id": "karnaugh-map",
-      "letter": "K",
-      "headword_en": "Karnaugh map",
-      "notation": "",
-      "rosen_ref": "Rosen §12.4",
-      "definition_vi": "\\emph{Bìa Karnaugh} của một hàm Boole $$f$$ với một số nhỏ biến (thường nhiều nhất $$4$$ biến) là một sơ đồ dạng bảng biểu diễn các giá trị của $$f$$, trong đó các ô được sắp xếp theo mã Gray sao cho hai ô kề nhau (kể cả hai ô ở hai mép đối diện) ứng với hai số hạng chỉ khác nhau ở đúng một biến. Bìa Karnaugh được dùng để tối thiểu hóa $$f$$ bằng cách gộp các ô kề nhau có giá trị $$1$$ thành các nhóm.",
-      "example_vi": "Với hàm Boole $$f(x,y)$$, bìa Karnaugh là bảng $$2 \\times 2$$ có các ô ứng với các tổ hợp giá trị của $$x$$ và $$y$$; hai ô cùng một hàng hoặc cùng một cột là kề nhau vì chúng chỉ khác nhau ở một biến.",
-      "notes": "Khái niệm \"Karnaugh map\" thuộc về tối thiểu hóa hàm Boole (logic số), không thuộc lý thuyết đồ thị hay tổ hợp. Không có nguồn tiếng Việt nào trong kho ngữ liệu (bib-leanhvinh-2020, bib-nguyenhoangthach-2020, bib-nguyenhuudien-2019, bib-hoangchithanh-2007, bib-nguyenducnghia-2006, bib-ngodactan-2004) chứng thực thuật ngữ này: tất cả đều là sách đồ thị/tổ hợp/toán rời rạc-đồ thị, không trình bày phần tối thiểu hóa hàm Boole của Rosen §12.4. Đã tìm cả dạng thường lẫn --loose cho hai nguồn OCR, và đã thử các biến thể chuyển tự (\"Karnaugh\", \"Cácnô\", \"Các-nô\", \"Karno\", \"bìa Các-nô\", \"bảng Karnaugh\", \"Veitch\") cùng \"bảng chân lý\"; tất cả đều 0 hit. Thuật ngữ chuẩn được giữ lại verified=false/page=\"\" (ngoại lệ một-thuật-ngữ-chuẩn để vi_terms không rỗng). Các biến thể thường gặp trong tài liệu kỹ thuật số tiếng Việt: bìa Karnaugh (phổ biến nhất, được chọn làm thuật ngữ khuyến nghị), bản đồ Karnaugh, biểu đồ Karnaugh, sơ đồ Karnaugh; không biến thể nào được kho ngữ liệu chứng thực, nên chúng chỉ được ghi ở đây trong notes.\n\nEDITOR (chapter K final): applied the panel correctness fix. Rosen §12.4 trình bày bìa Karnaugh cho một số nhỏ biến (2, 3, 4 biến), nên thay \"với $$n$$ biến\" bằng \"với một số nhỏ biến (thường nhiều nhất $$4$$ biến)\". Bổ sung tính kề theo mã Gray và tính kề vòng (hai ô ở hai mép đối diện cũng kề nhau) để khái niệm \"kề nhau\" chính xác. Giữ nguyên một vi_term chuẩn-nhưng-chưa-chứng-thực \"bìa Karnaugh\" (verified=false, page=\"\") để vi_terms không rỗng, theo đúng quy ước.",
-      "vi_terms": [
-        {
-          "term": "bìa Karnaugh",
-          "verified": false,
-          "recommended": true,
-          "source_id": "",
-          "pdf_page": 0,
-          "page": "",
-          "snippet": ""
-        },
-        {
-          "term": "sơ đồ Karnaugh",
-          "source_id": "",
-          "page": "",
-          "pdf_page": 0,
-          "snippet": "",
-          "verified": false,
-          "recommended": false
-        },
-        {
-          "term": "phương pháp sơ đồ Karnaugh",
-          "source_id": "",
-          "page": "",
-          "pdf_page": 0,
-          "snippet": "",
-          "verified": false,
-          "recommended": false
-        },
-        {
-          "term": "bảng Karnaugh",
-          "source_id": "",
-          "page": "",
-          "pdf_page": 0,
-          "snippet": "",
-          "verified": false,
-          "recommended": false
-        },
-        {
-          "term": "bản đồ Karnaugh",
-          "source_id": "",
-          "page": "",
-          "pdf_page": 0,
-          "snippet": "",
-          "verified": false,
-          "recommended": false
-        },
-        {
-          "term": "sơ đồ Các-nô",
-          "source_id": "",
-          "page": "",
-          "pdf_page": 0,
-          "snippet": "",
-          "verified": false,
-          "recommended": false
-        },
-        {
-          "term": "biểu đồ Veitch",
-          "source_id": "",
-          "page": "",
-          "pdf_page": 0,
-          "snippet": "",
-          "verified": false,
-          "recommended": false
-        },
-        {
-          "term": "bảng Karnaugh",
-          "source_id": "bib-doducgiao-2000",
-          "page": "tr. 442",
-          "pdf_page": 441,
-          "snippet": "4.2. Phương pháp bảng Karnaugh",
-          "verified": true,
-          "recommended": false
-        },
-        {
-          "term": "bảng Karnaugh",
-          "source_id": "bib-vovantuandung-2007",
-          "page": "",
-          "pdf_page": 128,
-          "snippet": "5.5.2. Phương pháp bang Karnaugh",
-          "verified": true,
-          "recommended": false
-        }
-      ],
-      "see_also": []
+     "term": "tô màu các đỉnh",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-leanhvinh-2020",
+     "pdf_page": 245,
+     "page": "tr. 246",
+     "snippet": "vac: V ¬ [k| là một cách tô màu các đỉnh của G bởi k màu sao cho"
     },
     {
-      "id": "kernel-of-a-graph",
-      "letter": "K",
-      "headword_en": "kernel of a graph",
-      "notation": "B \\subseteq V(G)",
-      "definition_vi": "\\emph{Nhân} của một đồ thị có hướng $$G = (V, E)$$ là một tập đỉnh $$B \\subseteq V$$ vừa độc lập (không có cung nào nối hai đỉnh của $$B$$) vừa hấp thụ (mỗi đỉnh ngoài $$B$$ đều có một cung đi vào $$B$$); trong tài liệu hai điều kiện này còn được gọi là tập ổn định trong và tập ổn định ngoài.",
-      "example_vi": "Xét đồ thị có hướng $$G$$ với tập đỉnh $$V = \\{a, b, c\\}$$ và tập cung $$E = \\{(b, a), (c, a)\\}$$. Khi đó $$B = \\{a\\}$$ là một nhân của $$G$$: không có cung nào nối hai đỉnh trong $$B$$ (vì $$B$$ chỉ có một đỉnh), và mỗi đỉnh ngoài $$B$$ là $$b$$ và $$c$$ đều có một cung đi vào $$a \\in B$$.",
-      "notes": "Concept match confirmed. Định nghĩa 3.3 in bib-hoangchithanh-2007 (PDF tr. 34) defines \"nhân của đồ thị $$G$$\" as a set $$B \\subseteq V$$ that is both \"tập ổn định trong\" (internally stable = independent: no arc joins two vertices of $$B$$) and \"tập ổn định ngoài\" (externally stable = absorbing: every vertex outside $$B$$ has an arc into $$B$$). This is exactly Rosen's kernel (independent + absorbing). The source also states the two conditions are equivalent to an identity $$F^{-1}(B) = V \\setminus B$$ where $$F$$ is the successor (out-neighbor) map of the digraph.\n\nEDITOR (chapter K final): applied two panel HIGH correctness fixes. (1) Removed the clause \"điều này tương đương với $$F^{-1}(B) = V \\setminus B$$\" from definition_vi: the symbol $$F$$ (the successor map) was never defined in the entry, so importing $$F^{-1}$$ broke the self-containment requirement, and the equivalence is convention-dependent. The independent + absorbing (tập ổn định trong + tập ổn định ngoài) characterization is complete, standard, and self-contained; the $$F^{-1}$$ identity is described in this note instead. (2) Fixed rosen_ref: the previous value \"Rosen §10.2\" (Graph Terminology and Special Types of Graphs) does not cover the directed-graph kernel concept and appears copied from the default §10.2 used by the genuine §10.2 entries. The kernel of a digraph (independent dominating set) is not a standard Rosen §10.2 topic; Rosen discusses digraphs and related structures in §10.5 (and kernel/independent-dominating ideas appear, if at all, in exercises rather than as a named §10.2 definition). rosen_ref is set to \"Rosen §10.5 (directed graphs; kernel not a named §10.2 topic)\" to surface the provenance honestly rather than assert §10.2.\n\nRecommended term: \"nhân của đồ thị\" is the only Vietnamese term denoting THIS concept across all six corpus sources; it is attested only in the 2007 source. NO 2019-2020 source attests any candidate for this concept, so the 2019-2020 recency preference cannot be met; the standard 2007 term is recommended (verified=true). Strict and loose searches in bib-leanhvinh-2020, bib-nguyenhoangthach-2020, bib-nguyenhuudien-2019, bib-nguyenducnghia-2006, and bib-ngodactan-2004 returned 0 hits for this concept.\n\n\"nhân\" (bare) is used as the standalone term throughout §3.3 of the same source once \"nhân của đồ thị\" is introduced; recorded as a variant.\n\nRejected candidate \"lõi của đồ thị\": in bib-hoangchithanh-2007 (Định nghĩa 3.4, PDF tr. 36) \"lõi\" is a DISTINCT concept defined via paths (the reachability/path analog), not the arc-based kernel, and is excluded. Candidate \"nhân của đồ thị có hướng\" returned 0 hits (strict and loose) in all sources and is not recorded.\n\nbib-hoangchithanh-2007 is an OCR source; both strict and loose searches were run. Snippets are verbatim OCR (e.g. \"Tạp\" for \"Tập\", \"Ơ\" for \"G\") and are preserved as-is. All verified=true vi_terms re-checked via find-term.py; source_id/pdf_page/snippets confirmed. Exactly one recommended=true.",
-      "rosen_ref": "Rosen §10.5 (directed graphs; kernel not a named §10.2 topic)",
-      "see_also": [
-        "independent-set",
-        "directed-graph"
-      ],
-      "vi_terms": [
-        {
-          "term": "nhân của đồ thị",
-          "verified": true,
-          "recommended": true,
-          "source_id": "bib-hoangchithanh-2007",
-          "pdf_page": 34,
-          "page": "tr. 34",
-          "snippet": "Định nghĩa 3.3: Tạp BC V được gọi là nhân của đồ thị G nếu nó"
-        },
-        {
-          "term": "nhân",
-          "verified": true,
-          "recommended": false,
-          "source_id": "bib-hoangchithanh-2007",
-          "pdf_page": 35,
-          "page": "tr. 35",
-          "snippet": "Dinh ly 3.2: Nếu B là nhân của đồ thị G thì B cũng là tập ổn định"
-        },
-        {
-          "term": "nhân",
-          "source_id": "bib-rosen-2003-vi",
-          "pdf_page": 11,
-          "page": "tr. 11",
-          "snippet": "nhân - qua giữa giả thiết và kết luận.",
-          "verified": true,
-          "recommended": false
-        },
-        {
-          "term": "nhân của đồ thị",
-          "source_id": "bib-hoangchithanh-2011",
-          "page": "",
-          "pdf_page": 62,
-          "snippet": "3.3. Nhân của đồ thị",
-          "verified": true,
-          "recommended": false
-        },
-        {
-          "term": "nhân của đồ thị",
-          "source_id": "bib-doducgiao-2008",
-          "page": "tr. 6",
-          "pdf_page": 7,
-          "snippet": "§3. Số ổn định trong, số ổn định ngoài và nhân của đồ thi.",
-          "verified": true,
-          "recommended": false
-        }
-      ]
+     "term": "tô màu đồ thị",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-leanhvinh-2020",
+     "pdf_page": 90,
+     "page": "tr. 91",
+     "snippet": "Tô màu đồ thị"
     },
     {
-      "id": "konigsberg-bridge-problem",
-      "letter": "K",
-      "headword_en": "Königsberg bridge problem",
-      "definition_vi": "\\emph{Bài toán bảy cây cầu Königsberg} hỏi liệu có thể đi dạo qua thành phố sao cho mỗi cây trong bảy cây cầu được đi qua đúng một lần hay không. Mô hình hóa thành phố bằng một đa đồ thị $$G$$ trong đó mỗi vùng đất là một đỉnh và mỗi cây cầu là một cạnh, câu hỏi tương đương với việc $$G$$ có một đường đi Euler (hoặc một chu trình Euler nếu yêu cầu quay về điểm xuất phát) hay không. Một đa đồ thị liên thông có một đường đi Euler khi và chỉ khi nó có đúng $$0$$ hoặc $$2$$ đỉnh bậc lẻ, và có một chu trình Euler khi và chỉ khi mọi đỉnh đều có bậc chẵn; Euler đã chứng minh rằng với Königsberg điều này là không thể.",
-      "example_vi": "Đa đồ thị mô hình hóa bốn vùng đất của Königsberg có bốn đỉnh, mỗi đỉnh đều có bậc lẻ. Vì một đường đi Euler đòi hỏi không quá hai đỉnh bậc lẻ, nên không tồn tại hành trình đi qua mỗi cây cầu đúng một lần.",
-      "notation": "",
-      "rosen_ref": "Rosen §10.5",
-      "see_also": [
-        "graph",
-        "multigraph",
-        "euler-circuit",
-        "euler-path"
-      ],
-      "notes": "Recommended form set to the city-named full form \"bài toán bảy cây cầu Königsberg\" matching the headword, but note that as a contiguous string it is NOT attested in the corpus: bib-leanhvinh-2020 always inserts \"của thành phố\" between \"cầu\" and \"Königsberg\" (p.20 'bài toán bảy cây cầu của thành phó [Königsberg]', p.257 index 'Bài toán bảy cây cầu'). The attested verified=true lead form is \"bài toán bảy cây cầu\" (leanhvinh-2020), kept as recommended=true; the synthesized full-city-name string is documented here in notes only and is NOT carried as a verified=false vi_term row. The city name Königsberg with umlaut IS attested in bib-leanhvinh-2020 (p.6, p.19, p.20, p.257), so the headword spelling is well grounded.\n\nEDITOR (chapter K final): applied two fixes. (1) Citation hygiene: dropped the two verified=false empty-page non-recommended variants (\"bài toán bảy cây cầu Königsberg\" and \"bài toán bảy chiếc cầu Königsberg\"); since the recommended term \"bài toán bảy cây cầu\" is verified=true, the one-standard-term exception does not apply, so unattested synthesized strings are removed from vi_terms and their non-attestation rationale preserved here. (2) Reworded the see_also rationale: the targets graph (G), multigraph (M), euler-circuit / euler-path (E) are CROSS-chapter forward references (chapters G, M, E), NOT same-chapter K links — the prior note's \"same-chapter ... within the graph chapter (Rosen ch.10)\" framing conflated Rosen-chapter membership with dictionary-letter chapter membership and is corrected here. (3) Tightened the framing per Rosen §10.5: the definition now states both Euler-path and Euler-circuit criteria (0 or 2 odd-degree vertices for a path; all-even for a circuit) so the example's use of the \"at most two odd-degree vertices\" criterion is introduced by the definition and the example is self-contained.\n\nVariant forms attested across the corpus: \"bảy cầu của thành phố Konigsberg\" (bib-nguyenhuudien-2019 p.181 figure + p.10 TOC), \"bảy cái cầu ở Konigsberg\" (bib-nguyenhuudien-2019 p.181), \"bài toán 7 cây cầu ở Konigsberg\" (bib-hoangchithanh-2007 p.76, OCR 'Bai toán 7 cây cầu ở Konigsberg'), \"bài toán về bảy chiếc cầu ở Königsberg\" (bib-ngodactan-2004 p.184 caption 'Hình 6.1: Bài toán về bầy clìiếc cầu ở Kõnigsberg', also p.15 TOC and p.183). Spelling note: city name appears as \"Königsberg\" (umlaut, modern text sources) and as OCR-mangled \"Konigsberg\"/\"Kõnigsberg\" in scanned sources. The four Königsberg vertices have degrees 3,3,3,5 (all odd); 4 odd-degree vertices > 2, so no Euler path and no Euler circuit.",
-      "vi_terms": [
-        {
-          "term": "bài toán bảy cây cầu",
-          "verified": true,
-          "recommended": true,
-          "source_id": "bib-leanhvinh-2020",
-          "pdf_page": 20,
-          "page": "tr. 21",
-          "snippet": "Dịnh lý 1.17 chỉ ra rằng bài toán bảy cây cầu của thành phó"
-        },
-        {
-          "term": "bảy cầu của thành phố Konigsberg",
-          "verified": true,
-          "recommended": false,
-          "source_id": "bib-nguyenhuudien-2019",
-          "pdf_page": 181,
-          "page": "tr. 181",
-          "snippet": "Figure 7.3: Bảy cầu của thành phố Konigsberg"
-        },
-        {
-          "term": "bảy cái cầu ở Konigsberg",
-          "verified": true,
-          "recommended": false,
-          "source_id": "bib-nguyenhuudien-2019",
-          "pdf_page": 181,
-          "page": "tr. 181",
-          "snippet": "ông giải quyết bài toán hóc búa nổi tiếng thời đó về bảy cái cầu ở Konigsberg và đây là"
-        },
-        {
-          "term": "bài toán 7 cây cầu ở Konigsberg",
-          "verified": true,
-          "recommended": false,
-          "source_id": "bib-hoangchithanh-2007",
-          "pdf_page": 76,
-          "page": "tr. 76",
-          "snippet": "Ví dụ 7.1 (Bai toán 7 cây cầu ở Konigsberg):"
-        },
-        {
-          "term": "bài toán về bảy chiếc cầu ở Königsberg",
-          "verified": false,
-          "recommended": false,
-          "source_id": "",
-          "pdf_page": 0,
-          "page": "",
-          "snippet": ""
-        },
-        {
-          "term": "bài toán cầu Königsberg",
-          "source_id": "",
-          "page": "",
-          "pdf_page": 0,
-          "snippet": "",
-          "verified": false,
-          "recommended": false
-        },
-        {
-          "term": "bài toán bảy cây cầu",
-          "source_id": "bib-hoangchithanh-2011",
-          "page": "",
-          "pdf_page": 7,
-          "snippet": "rất sớm từ những bai toán thực tế như: bài toán bảy cây cầu ở thành phố",
-          "verified": true,
-          "recommended": false
-        },
-        {
-          "term": "bài toán 7 cây cầu ở Konigsberg",
-          "source_id": "bib-hoangchithanh-2011",
-          "page": "",
-          "pdf_page": 124,
-          "snippet": "Ví dụ 6.1 (Bài toán 7 cây cầu ở Konigsberg)",
-          "verified": true,
-          "recommended": false
-        }
-      ]
+     "term": "tô được bằng k màu",
+     "source_id": "bib-ngodactan-2004",
+     "page": "tr. 296",
+     "pdf_page": 296,
+     "snippet": "(c) Bản đo M có thể tô được bằng k màu khi và chỉ khi đồ thị phẳng",
+     "verified": true,
+     "recommended": false
     },
     {
-      "id": "knapsack-problem",
-      "letter": "K",
-      "headword_en": "knapsack problem",
-      "notation": "",
-      "rosen_ref": "Rosen §8.1",
-      "definition_vi": "\\emph{Bài toán cái túi} là bài toán tối ưu trong đó cho một cái túi có sức chứa trọng lượng $$D$$ và $$n$$ đồ vật, đồ vật thứ $$j$$ có trọng lượng $$a_j$$ và giá trị $$c_j$$ (với $$j = 1, 2, \\ldots, n$$), yêu cầu chọn một tập con các đồ vật sao cho tổng giá trị là lớn nhất trong khi tổng trọng lượng không vượt quá $$D$$. Mỗi phương án chọn được biểu diễn bởi một vectơ nhị phân $$x = (x_1, x_2, \\ldots, x_n)$$, trong đó $$x_j = 1$$ nghĩa là đồ vật thứ $$j$$ được chọn và $$x_j = 0$$ nghĩa là không chọn, và mục tiêu là cực đại hóa $$\\sum_{j=1}^{n} c_j x_j$$ với ràng buộc $$\\sum_{j=1}^{n} a_j x_j \\leq D$$.",
-      "example_vi": "Với sức chứa $$D = 5$$ và ba đồ vật có cặp trọng lượng và giá trị lần lượt là $$(a_1, c_1) = (2, 3)$$, $$(a_2, c_2) = (3, 4)$$, $$(a_3, c_3) = (4, 5)$$, chọn các đồ vật $$1$$ và $$2$$ cho tổng trọng lượng $$2 + 3 = 5 \\leq 5$$ và tổng giá trị $$3 + 4 = 7$$, là phương án có tổng giá trị lớn nhất không vượt quá sức chứa.",
-      "notes": "Only \"bài toán cái túi\" is attested for this concept, in bib-nguyenducnghia-2006 (2006), with 11 hits (pp. 115, 116, 119, 121, 122, 123, 124, 150). Page 115 confirms the concept: an explorer carries a bag of capacity at most $$D$$ and there are $$n$$ items, item $$j$$ having weight $$a_j$$ and value $$c_j$$, the goal being to choose a subset of maximum total value within the capacity; the formal optimization form on p. 116 maximizes $$\\sum c_j x_j$$ subject to $$\\sum a_j x_j \\leq D$$ over binary vectors $$x$$. No 2019-2020 source attests any term for this concept, so the recommended term's newest attestation is from 2006. The candidate variants \"bài toán xếp ba lô\", \"bài toán ba lô\", and \"bài toán chiếc túi\" returned zero hits in every source under both normal and loose matching (OCR sources bib-leanhvinh-2020 and bib-hoangchithanh-2007 were searched with --loose). They are common Vietnamese names for the knapsack problem in the wider literature but are unattested in this corpus, so they are listed here in notes only. Note: \"chiếc túi\" appears in bib-ngodactan-2004 (p. 51), but only inside counting/enumeration exercises (\"6 chiếc túi?\", \"12 chiếc túi?\") that do not denote the knapsack optimization problem; those hits were excluded. The example's choice {1,2} (weight 5, value 7) is optimal among feasible subsets: item 3 alone gives 5; subsets {1,3}, {2,3}, {1,2,3} all exceed capacity 5.\n\nEDITOR (chapter K final): rosen_ref left as \"Rosen §8.1\" per the chapter's prior provenance assignment; flagged for editor-at-large to confirm against a Rosen copy, since the knapsack problem in Rosen is typically a dynamic-programming application of recurrences (§8.1 covers applications of recurrence relations) rather than a standalone §8.1 definition. Could not open a Rosen copy in this environment to confirm. Per the chapter-wide see_also forward-reference policy, see_also is left empty because the directly related concepts (optimization problem, dynamic programming, greedy algorithm) are not yet seeded as kebab ids in the corpus index; they would be cross-chapter forward references once created.",
-      "see_also": [],
-      "vi_terms": [
-        {
-          "term": "bài toán cái túi",
-          "verified": true,
-          "recommended": true,
-          "source_id": "bib-nguyenducnghia-2006",
-          "pdf_page": 115,
-          "page": "",
-          "snippet": "Bài toán cái túi. Một nhà thám hiểm cần đem theo một cái túi có trọng lượng không quá Ð. Có n đồ vật"
-        },
-        {
-          "term": "bài toán ba lô",
-          "source_id": "",
-          "page": "",
-          "pdf_page": 0,
-          "snippet": "",
-          "verified": false,
-          "recommended": false
-        },
-        {
-          "term": "bài toán ba lô",
-          "source_id": "bib-cormen-2001-vi",
-          "page": "tr. 375",
-          "pdf_page": 373,
-          "snippet": "Bài toán ba lô 0-1 được đặt ra như sau. Một tên trộm đánh cắp một",
-          "verified": true,
-          "recommended": false
-        }
-      ]
+     "term": "tô màu các đỉnh",
+     "source_id": "bib-hoangchithanh-2011",
+     "page": "",
+     "pdf_page": 88,
+     "snippet": "Hãy tô màu các đỉnh của một đồ thị đã cho, sao cho hai đỉnh kề nhau",
+     "verified": true,
+     "recommended": false
     },
     {
-      "id": "knights-tour",
-      "letter": "K",
-      "headword_en": "knight's tour",
-      "notation": "",
-      "rosen_ref": "Rosen §10.5",
-      "definition_vi": "\\emph{Hành trình của con mã} trên một bàn cờ là một dãy các nước đi của con mã sao cho mỗi ô của bàn cờ được đi qua đúng một lần. Nếu con mã trở lại được ô xuất phát sau khi đi qua tất cả các ô, hành trình đó được gọi là khép kín; ngược lại, nó được gọi là hở.",
-      "example_vi": "Trên bàn cờ $$8 \\times 8$$, một hành trình của con mã đi qua cả $$64$$ ô, mỗi ô đúng một lần; nếu nước đi cuối cùng đưa con mã trở lại ô xuất phát thì đó là một hành trình khép kín.",
-      "notes": "The concept is attested in two corpus sources:\n- bib-nguyenhuudien-2019 (2019, newest text source) names it \"hành trình của con mã\" as the title of §7.13 / Figure 7.13 (pdf p.189) and uses the descriptive phrase \"đường đi của con mã trên bàn cờ\" (pdf p.188), with surrounding text confirming a (closed) knight's tour returning to the start.\n- bib-hoangchithanh-2007 (2007, OCR) names it \"bài toán mã đi tuần\" / \"mã đi tuần\" (pdf p.82): \"Cho quân mã đi trên bàn cờ vua sao cho nó đi qua mỗi ô đúng một lần (bài toán mã đi tuần).\" This is the standard, established Vietnamese name for the knight's-tour problem.\nRecommended term: \"mã đi tuần\" is the canonical/standard Vietnamese term, but it is attested only in 2007. \"hành trình của con mã\" is the newest attestation (2019) and is a legitimate named section/figure title, so it is set as recommended to satisfy the 2019-2020 preference. If the established name should win over recency, \"mã đi tuần\" is the strongest alternative. No attestation found in the 2020 sources; both normal and --loose searches on the OCR sources were run.\n\"con mã\" and \"quân mã\" both appear in the corpus for the chess knight piece (nguyenhuudien-2019 / hoangchithanh-2007), used interchangeably.\nDefinition follows Rosen's general tour (visit every square exactly once) as ground truth, with the closed/open distinction added because the 2019 source describes the re-entrant variant. CAUTION (kept out of the entry): one source snippet (nguyenhuudien-2019 p.188) wrongly describes the knight moving \"theo đường chéo\" (diagonally); the knight moves in an L-shape, so definition_vi deliberately writes only \"nước đi của con mã\" and does not propagate that error. A closed knight's tour corresponds to a Hamiltonian circuit and an open tour to a Hamiltonian path on the knight's-move graph (Rosen §10.5).\n\nEDITOR (chapter K final): applied two terminology fixes. (1) Removed the inline English glosses \"(closed)\" and \"(open)\" from definition_vi, keeping only the Vietnamese \"khép kín\"/\"hở\" per the no-inline-gloss convention; the EN correspondence is documented here in notes. (2) Per the chapter-wide see_also forward-reference policy, added the cross-chapter forward references hamiltonian-path and hamiltonian-circuit (chapter H), which are the graph-theoretic correspondents of the open and closed tours. All four verified terms re-confirmed via find-term.py.",
-      "see_also": [
-        "hamiltonian-path"
-      ],
-      "vi_terms": [
-        {
-          "term": "hành trình của con mã",
-          "verified": true,
-          "recommended": true,
-          "source_id": "bib-nguyenhuudien-2019",
-          "pdf_page": 189,
-          "page": "tr. 189",
-          "snippet": "Ví dụ 7.11. Một lời giải về hành trình của con mã trên bàn cờ 8 × 8:"
-        },
-        {
-          "term": "đường đi của con mã",
-          "verified": true,
-          "recommended": false,
-          "source_id": "bib-nguyenhuudien-2019",
-          "pdf_page": 188,
-          "page": "tr. 188",
-          "snippet": "“đường đi của con mã trên bàn cờ”. Trên bàn cờ, con mã chỉ có thể đi theo đường chéo của"
-        },
-        {
-          "term": "bài toán mã đi tuần",
-          "verified": true,
-          "recommended": false,
-          "source_id": "bib-hoangchithanh-2007",
-          "pdf_page": 82,
-          "page": "tr. 82",
-          "snippet": "một lần (bài toán mã đi tuần)."
-        },
-        {
-          "term": "mã đi tuần",
-          "verified": true,
-          "recommended": false,
-          "source_id": "bib-hoangchithanh-2007",
-          "pdf_page": 82,
-          "page": "tr. 82",
-          "snippet": "một lần (bài toán mã đi tuần)."
-        },
-        {
-          "term": "đường đi tuần của quân mã",
-          "source_id": "",
-          "page": "",
-          "pdf_page": 0,
-          "snippet": "",
-          "verified": false,
-          "recommended": false
-        },
-        {
-          "term": "hành trình của quân mã",
-          "source_id": "",
-          "page": "",
-          "pdf_page": 0,
-          "snippet": "",
-          "verified": false,
-          "recommended": false
-        },
-        {
-          "term": "hành trình của con mã",
-          "source_id": "bib-doducgiao-2000",
-          "page": "tr. 123",
-          "pdf_page": 122,
-          "snippet": "35. Hành trình của con mã là một dãy di chuyển hợp lệ từ một",
-          "verified": true,
-          "recommended": false
-        },
-        {
-          "term": "hành trình của con mã",
-          "source_id": "bib-nguyenhuyran-2000",
-          "page": "",
-          "pdf_page": 113,
-          "snippet": "Rai toán 14.1. Hành trình của con mã trên bàn cờ (Euler). Liệu con",
-          "verified": true,
-          "recommended": false
-        },
-        {
-          "term": "bài toán mã đi tuần",
-          "source_id": "bib-hoangchithanh-2011",
-          "page": "",
-          "pdf_page": 7,
-          "snippet": "Konigsberg, bài toán mã đi tuần, bài toán hôn nhân bèn vững, bài toán ba nhà",
-          "verified": true,
-          "recommended": false
-        },
-        {
-          "term": "mã đi tuần",
-          "source_id": "bib-hoangchithanh-2011",
-          "page": "",
-          "pdf_page": 7,
-          "snippet": "Konigsberg, bài toán mã đi tuần, bài toán hôn nhân bèn vững, bài toán ba nhà",
-          "verified": true,
-          "recommended": false
-        }
-      ]
+     "term": "tô màu các đỉnh",
+     "source_id": "bib-nguyenhuudien-2019",
+     "page": "tr. 11",
+     "pdf_page": 11,
+     "snippet": "9.6 Tô màu các đỉnh đồ thị . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 228",
+     "verified": true,
+     "recommended": false
     },
     {
-      "id": "k-ary-tree",
-      "letter": "K",
-      "headword_en": "k-ary tree",
-      "see_ref": "m-ary-tree",
-      "vi_terms": [
-        {
-          "term": "cây m-phân",
-          "verified": false,
-          "recommended": false,
-          "source_id": "",
-          "page": "",
-          "pdf_page": 0,
-          "snippet": ""
-        }
-      ],
-      "see_also": [],
-      "notes": "Đồng nghĩa với m-ary tree."
+     "term": "tô màu đồ thị",
+     "source_id": "bib-nguyenhoangthach-2020",
+     "page": "tr. 2",
+     "pdf_page": 4,
+     "snippet": "5.5 Tô màu đồ thị . . . . . . . . . . . . . . . . . . . . . . . . . . . . 79",
+     "verified": true,
+     "recommended": false
     },
     {
-      "id": "k-cube",
-      "letter": "K",
-      "headword_en": "k-cube",
-      "see_ref": "hypercube",
-      "vi_terms": [
-        {
-          "term": "đồ thị lập phương",
-          "verified": false,
-          "recommended": false,
-          "source_id": "",
-          "page": "",
-          "pdf_page": 0,
-          "snippet": ""
-        },
-        {
-          "term": "đồ thị siêu lập phương",
-          "verified": false,
-          "recommended": false,
-          "source_id": "",
-          "page": "",
-          "pdf_page": 0,
-          "snippet": ""
-        },
-        {
-          "term": "siêu khối",
-          "verified": false,
-          "recommended": false,
-          "source_id": "",
-          "page": "",
-          "pdf_page": 0,
-          "snippet": ""
-        },
-        {
-          "term": "mạng kiểu siêu khối",
-          "verified": false,
-          "recommended": false,
-          "source_id": "",
-          "page": "",
-          "pdf_page": 0,
-          "snippet": ""
-        }
-      ],
-      "see_also": [],
-      "notes": "Đồng nghĩa với Hypercube."
-    },
-    {
-      "id": "k-tuple",
-      "letter": "K",
-      "headword_en": "k-tuple",
-      "notation": "(a_1, a_2, \\ldots, a_k)",
-      "definition_vi": "Một \\emph{$$k$$-bộ sắp thứ tự} là một dãy gồm $$k$$ đối tượng được liệt kê theo một thứ tự xác định, ký hiệu $$(a_1, a_2, \\ldots, a_k)$$, trong đó $$a_i$$ là thành phần thứ $$i$$. Thứ tự của các thành phần là quan trọng và các thành phần được phép lặp lại, nên $$(a_1, a_2, \\ldots, a_k) = (b_1, b_2, \\ldots, b_k)$$ khi và chỉ khi $$a_i = b_i$$ với mọi $$i$$ thỏa $$1 \\leq i \\leq k$$.",
-      "example_vi": "Bộ $$(2, 1, 2)$$ là một $$3$$-bộ sắp thứ tự với $$a_1 = 2$$, $$a_2 = 1$$, $$a_3 = 2$$; nó khác với bộ $$(1, 2, 2)$$ vì thứ tự các thành phần khác nhau, mặc dù cả hai cùng dùng các phần tử $$1$$ và $$2$$.",
-      "notes": "Recommended term \"bộ sắp thứ tự\" is attested in the newest source bib-nguyenhoangthach-2020 (2020), where the ordered-tuple notation \"(f(1), f(2), ..., f(k))\" (p.21) names exactly the ordered k-tuple concept; the same source's p.20 occurrence carries an extra \"khác nhau\" (distinct) restriction that is narrower than the general k-tuple, so the p.21 snippet is recorded for the recommended term. The candidate terms \"bộ k thành phần\" and \"bộ gồm k phần tử\" returned zero hits across all sources (normal and --loose) and are dropped. The fuller phrase \"bộ có thứ tự gồm k thành phần\" is attested only in the 2004 source. Excluded: \"bộ ba\" hits denote ordered triples (a special case) or graph-theoretic triples $$(V,E,f)$$, not the general k-tuple, so they are not recorded here.\n\nEDITOR (chapter K final): converted the markdown-asterisk emphasis \"*k-bộ sắp thứ tự*\" to \\emph{$$k$$-bộ sắp thứ tự} to match the chapter-wide \\emph{...} first-introduction emphasis convention. Definition matches Rosen §2.1 (an ordered k-tuple is the ordered collection in which order matters and two tuples are equal iff each corresponding pair of elements is equal).",
-      "rosen_ref": "Rosen §2.1",
-      "see_also": [
-        "ordered-pair",
-        "cartesian-product",
-        "sequence"
-      ],
-      "vi_terms": [
-        {
-          "term": "bộ sắp thứ tự",
-          "verified": true,
-          "recommended": true,
-          "source_id": "bib-nguyenhoangthach-2020",
-          "pdf_page": 21,
-          "page": "tr. 19",
-          "snippet": "bởi bộ sắp thứ tự (f (1), f (2), . . . , f (k)). Hơn nữa, f là đơn ánh nếu và chỉ nếu"
-        },
-        {
-          "term": "bộ sắp thứ tự gồm k phần tử",
-          "verified": true,
-          "recommended": false,
-          "source_id": "bib-nguyenhoangthach-2020",
-          "pdf_page": 20,
-          "page": "tr. 18",
-          "snippet": "S là một bộ sắp thứ tự gồm k phần tử khác nhau của S."
-        },
-        {
-          "term": "bộ thứ tự",
-          "verified": true,
-          "recommended": false,
-          "source_id": "bib-nguyenhuudien-2019",
-          "pdf_page": 236,
-          "page": "tr. 236",
-          "snippet": "Gn+1 gồm n bản sao của Gn và thêm knn đỉnh mới theo cách sau: mỗi bộ thứ tự (v1 , v2 , . . . , vn ),"
-        },
-        {
-          "term": "bộ có thứ tự",
-          "verified": true,
-          "recommended": false,
-          "source_id": "bib-nguyenducnghia-2006",
-          "pdf_page": 16,
-          "page": "",
-          "snippet": "Nếnu môi thành phần a, của bộ có thứ tự k thành phần (a,, 0› ... d) có h5¿ khả năng chọn"
-        },
-        {
-          "term": "bộ có thứ tự gồm k thành phần",
-          "verified": true,
-          "recommended": false,
-          "source_id": "bib-ngodactan-2004",
-          "pdf_page": 27,
-          "page": "tr. 27",
-          "snippet": "s là sơ đồ sắp xếp “bộ có thứ tự gồm k thành phần (xi, X2 , ■■■,'Xfe)” ,"
-        },
-        {
-          "term": "k-bộ có thứ tự",
-          "source_id": "",
-          "page": "",
-          "pdf_page": 0,
-          "snippet": "",
-          "verified": false,
-          "recommended": false
-        },
-        {
-          "term": "bộ sắp thứ tự",
-          "source_id": "bib-doducgiao-2000",
-          "page": "tr. 216",
-          "pdf_page": 215,
-          "snippet": "Định nghĩa 1: Văn phạm G là một bộ sắp thứ tự gồm 4",
-          "verified": true,
-          "recommended": false
-        },
-        {
-          "term": "bộ thứ tự",
-          "source_id": "bib-nguyenvanmau-2007",
-          "page": "",
-          "pdf_page": 61,
-          "snippet": "của chứng. Tim số các bộ thú tự X = (x1,...,2n) thỏa mãn các điều kiện:",
-          "verified": true,
-          "recommended": false
-        },
-        {
-          "term": "bộ có thứ tự",
-          "source_id": "bib-ngodactan-2004",
-          "page": "tr. 26",
-          "pdf_page": 26,
-          "snippet": "tất cả các bộ có thứ tự ( ai , ữ2, ■■• , Cbn) gồm n thành phần ãị, 0 ,2 ,.. ■,an",
-          "verified": true,
-          "recommended": false
-        },
-        {
-          "term": "bộ sắp thứ tự",
-          "source_id": "bib-doducgiao-2008",
-          "page": "tr. 300",
-          "pdf_page": 301,
-          "snippet": "Định nghĩa 1: Văn phạm G là một bộ sắp thứ tự gồm bốn thành phần",
-          "verified": true,
-          "recommended": false
-        },
-        {
-          "term": "bộ có thứ tự",
-          "source_id": "bib-vovantuandung-2007",
-          "page": "",
-          "pdf_page": 55,
-          "snippet": "i. Một chính hợp lặp chập k từ n phan tứ là một bộ có thứ tự gồm",
-          "verified": true,
-          "recommended": false
-        }
-      ]
-    },
-    {
-      "id": "key",
-      "letter": "K",
-      "headword_en": "key",
-      "notation": "",
-      "rosen_ref": "Rosen §9.2",
-      "definition_vi": "Một \\emph{khóa} của một quan hệ $$n$$-ngôi $$R \\subseteq A_1 \\times A_2 \\times \\cdots \\times A_n$$ là một miền $$A_i$$ hoặc một tập các miền sao cho các giá trị trên đó xác định duy nhất mỗi bộ $$n$$ phần tử của $$R$$; nghĩa là, không có hai bộ phân biệt nào của $$R$$ trùng nhau trên tất cả các thành phần thuộc khóa.",
-      "example_vi": "Xét quan hệ $$R$$ gồm các bộ ba $$(\\text{Mã số}, \\text{Họ tên}, \\text{Điểm})$$. Nếu mỗi sinh viên có một mã số riêng biệt thì miền $$\\text{Mã số}$$ là một khóa của $$R$$, vì giá trị mã số xác định duy nhất một bộ trong $$R$$.",
-      "see_also": [],
-      "vi_terms": [
-        {
-          "term": "khóa",
-          "verified": false,
-          "recommended": true,
-          "source_id": "",
-          "pdf_page": 0,
-          "page": "",
-          "snippet": ""
-        }
-      ],
-      "notes": "No Vietnamese corpus source attests the \"key of an n-ary relation\" (relational-database) concept. This concept comes from Rosen §9.2 (Representing Relations / databases), a discrete-math-for-CS topic absent from the six corpus sources, which are graph theory and combinatorics texts. Searches (normal + --loose on OCR sources bib-leanhvinh-2020 and bib-hoangchithanh-2007): \"khóa\" (0 strict; 40+19 loose hits all noise), \"khoá\", \"khóa của quan hệ\", \"thuộc tính khóa\", \"khóa của một quan hệ\", \"khóa chính\", \"khóa quan hệ\", \"cơ sở dữ liệu\" (0 hits), \"quan hệ n-ngôi\" (0 hits). All \"khóa/khoá\" hits are unrelated noise — khoa học (science), khoảng cách (distance), and proper names (Hà Huy Khoái, Phan Huy Khải). The 407 \"quan hệ\" hits denote graph-theoretic relations (quan hệ nhị nguyên, quan hệ tương đương), not relational-database relations. Definition faithfully matches Rosen §9.2 (a key / composite key of an n-ary relation is a domain or set of domains whose values uniquely determine each tuple).\n\nEDITOR (chapter K final): applied the terminology citation-hygiene fix. Dropped the two verified=false empty-page non-recommended variants \"khóa của quan hệ\" (key of the relation) and \"thuộc tính khóa\" (key attribute); per the locked rule, when no source attests the concept only the single standard recommended term may be kept so vi_terms stays non-empty. Their status as standard-but-unattested database renderings is preserved here in notes. Recommended term \"khóa\" is the standard Vietnamese rendering of a key (of a relation/database); kept verified=false with empty page since no source attests it. see_also is empty: no other K-chapter terms in these graph/combinatorics books relate to the relational-database key concept."
-    },
-    {
-      "id": "complete-graph-kn",
-      "letter": "K",
-      "headword_en": "complete graph K_n",
-      "notation": "K_n",
-      "rosen_ref": "Rosen §10.2",
-      "definition_vi": "\\emph{Đồ thị đầy đủ} trên $$n$$ đỉnh, ký hiệu $$K_n$$, là đơn đồ thị mà mỗi cặp đỉnh phân biệt được nối với nhau bởi đúng một cạnh.",
-      "example_vi": "Đồ thị $$K_4$$ có bốn đỉnh và $$\\binom{4}{2} = 6$$ cạnh, trong đó mỗi đỉnh kề với ba đỉnh còn lại.",
-      "vi_terms": [
-        {
-          "term": "đồ thị đầy đủ",
-          "verified": true,
-          "recommended": true,
-          "source_id": "bib-leanhvinh-2020",
-          "pdf_page": 14,
-          "page": "tr. 15",
-          "snippet": "Định nghĩa 1.9. Đồ thị đầy đủ bậc n, kí hiệu bởi K„, là đồ thị gồm"
-        },
-        {
-          "term": "đồ thị đầy đủ bậc n",
-          "verified": true,
-          "recommended": false,
-          "source_id": "bib-leanhvinh-2020",
-          "pdf_page": 14,
-          "page": "tr. 15",
-          "snippet": "Định nghĩa 1.9. Đồ thị đầy đủ bậc n, kí hiệu bởi K„, là đồ thị gồm"
-        },
-        {
-          "term": "đồ thị đầy đủ Kn",
-          "verified": true,
-          "recommended": false,
-          "source_id": "bib-nguyenhoangthach-2020",
-          "pdf_page": 69,
-          "page": "tr. 67",
-          "snippet": "Đồ thị đầy đủ Kn với n ≥ 3 không phải là một đồ thị hai phần."
-        },
-        {
-          "term": "đồ thị đầy đủ n đỉnh",
-          "verified": true,
-          "recommended": false,
-          "source_id": "bib-nguyenhuudien-2019",
-          "pdf_page": 159,
-          "page": "tr. 159",
-          "snippet": "Đồ thị đầy đủ n đỉnh, ký hiệu là Kn , là đơn đồ thị mà hai đỉnh phân biệt bất kỳ của nó"
-        },
-        {
-          "term": "n-đồ thị đầy đủ",
-          "verified": true,
-          "recommended": false,
-          "source_id": "bib-ngodactan-2004",
-          "pdf_page": 190,
-          "page": "tr. 190",
-          "snippet": "cấp n và cỡ m = (2) được gọi là n-đồ thị đầy đủ và thường được ký"
-        },
-        {
-          "term": "đồ thị đầy đủ",
-          "source_id": "bib-nguyenhoangthach-2020",
-          "page": "tr. 65",
-          "pdf_page": 67,
-          "snippet": "Đồ thị đầy đủ: Kn , n ≥ 1, có n đỉnh v1 , v2 , . . . , vn và n(n − 1)/2 cạnh nối",
-          "verified": true,
-          "recommended": false
-        },
-        {
-          "term": "đồ thị đầy đủ",
-          "source_id": "bib-nguyenhuudien-2019",
-          "page": "tr. 9",
-          "pdf_page": 9,
-          "snippet": "6.9 Đồ thị đầy đủ . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 159",
-          "verified": true,
-          "recommended": false
-        },
-        {
-          "term": "đồ thị đầy đủ Kn",
-          "source_id": "bib-nguyenhuudien-2019",
-          "page": "tr. 162",
-          "pdf_page": 162,
-          "snippet": "giữa mỗi cặp bộ xử lý. Các mạng này có thể mô hình bằng đồ thị đầy đủ Kn , trong đó n là",
-          "verified": true,
-          "recommended": false
-        },
-        {
-          "term": "đồ thị đầy đủ n đỉnh",
-          "source_id": "bib-hoangchithanh-2011",
-          "page": "",
-          "pdf_page": 51,
-          "snippet": "2.3. Đồ thị day đủ n đỉnh K, có bao nhiêu hàm Grundy? Hãy liệt kê các hàm đó.",
-          "verified": true,
-          "recommended": false
-        },
-        {
-          "term": "đồ thị đầy đủ n đỉnh",
-          "source_id": "bib-vudinhhoa-2010",
-          "page": "",
-          "pdf_page": 131,
-          "snippet": "đình. Do đó, người ta vẫn kí hiệu đồ thị đầy đủ n đỉnh là K„. Với kí hiệu này, thì",
-          "verified": true,
-          "recommended": false
-        }
-      ],
-      "see_also": [
-        "bipartite-graph",
-        "simple-graph"
-      ],
-      "notes": "Recommended term \"đồ thị đầy đủ\" is the standard base form, attested in all six sources including both 2020 sources (bib-leanhvinh-2020 p.14 formal definition, base form standalone p.180; bib-nguyenhoangthach-2020 p.69) and 2019 (bib-nguyenhuudien-2019 p.159). Newest formal definition: bib-leanhvinh-2020 p.14 (\"Đồ thị đầy đủ bậc n, kí hiệu bởi $$K_n$$...\"); bib-nguyenhuudien-2019 p.159 gives the per-vertex definition (\"hai đỉnh phân biệt bất kỳ\" are joined). Older sources: bib-nguyenducnghia-2006 p.158 (\"Đồ thị đầy đủ n đỉnh, ký hiệu bởi $$K_n$$, là đơn đồ thị vô hướng mà giữa...\"), bib-hoangchithanh-2007 p.52 (uses \"đồ thị đầy đủ n đỉnh\"), bib-ngodactan-2004 p.190 (variant \"n-đồ thị đầy đủ\"). Variant \"đồ thị đầy đủ bậc n\" (degree/order phrasing) is unique to bib-leanhvinh-2020; \"đồ thị đầy đủ Kn\" and \"đồ thị đầy đủ n đỉnh\" co-occur in the 2019-2020 texts. OCR sources (bib-leanhvinh-2020, bib-hoangchithanh-2007) confirmed via both normal and --loose runs. The standard notation $$K_n$$ is consistent across every source. Definition_vi follows the per-vertex formulation from bib-nguyenhuudien-2019 p.159. Example uses $$K_4$$ with $$\\binom{4}{2}=6$$ edges, self-contained from the definition's edge-per-pair rule; each vertex has degree 3 (correct). Definition matches Rosen §10.2.\n\nEDITOR (chapter K final): the notation field stores the bare token $$K_n$$ per the book-wide convention (wrapped by the build layer). see_also id complete-bipartite-graph-kmn is a same-chapter (K) forward reference that will resolve once that entry is built; simple-graph and bipartite-graph are cross-chapter forward references. All five verified=true vi_terms confirmed (source_id, pdf_page, snippet denote this concept); exactly one recommended=true."
-    },
-    {
-      "id": "kuratowskis-subgraph",
-      "letter": "K",
-      "headword_en": "Kuratowski's subgraph",
-      "notation": "K_5,\\ K_{3,3}",
-      "rosen_ref": "Rosen §10.7",
-      "definition_vi": "Đồ thị con Kuratowski của một đồ thị $$G$$ là một đồ thị con của $$G$$ đồng phôi với đồ thị đầy đủ $$K_5$$ hoặc với đồ thị hai phần đầy đủ $$K_{3,3}$$ (ký hiệu hai đồ thị Kuratowski). Theo định lý Kuratowski, $$G$$ là không phẳng khi và chỉ khi $$G$$ chứa một đồ thị con Kuratowski, tức một đồ thị con đồng phôi với $$K_5$$ hoặc $$K_{3,3}$$.",
-      "example_vi": "Đồ thị Petersen chứa một đồ thị con đồng phôi với $$K_{3,3}$$, do đó nó có một đồ thị con Kuratowski và không phẳng. Ngược lại, đồ thị đầy đủ $$K_4$$ không chứa đồ thị con nào đồng phôi với $$K_5$$ hay $$K_{3,3}$$ nên $$K_4$$ là đồ thị phẳng.",
-      "vi_terms": [
-        {
-          "term": "đồ thị con đồng phôi với $$K_5$$ hoặc $$K_{3,3}$$",
-          "source_id": "",
-          "pdf_page": 0,
-          "page": "",
-          "snippet": "",
-          "verified": false,
-          "recommended": false
-        },
-        {
-          "term": "cấu hình $$K_5$$ / $$K_{3,3}$$",
-          "source_id": "",
-          "pdf_page": 0,
-          "page": "",
-          "snippet": "",
-          "verified": false,
-          "recommended": false
-        },
-        {
-          "term": "đồ thị con Kuratowski",
-          "source_id": "",
-          "page": "",
-          "pdf_page": 0,
-          "snippet": "",
-          "verified": false,
-          "recommended": true
-        }
-      ],
-      "see_also": [],
-      "notes": "Thuật ngữ chuẩn của giáo trình MAT3500 là \"đồ thị con Kuratowski\", tức đồ thị con đồng phôi với $$K_5$$ hoặc $$K_{3,3}$$. Các tài liệu tiếng Việt mô tả cùng khái niệm này qua định lý Kuratowski: Nguyễn Hoàng Thạch gọi là \"đồ thị con đồng phôi với $$K_5$$ hoặc $$K_{3,3}$$\", còn Nguyễn Hữu Điển dùng \"cấu hình $$K_5$$ / $$K_{3,3}$$\".",
-      "status": "draft"
-    },
-    {
-      "id": "k-map",
-      "letter": "K",
-      "headword_en": "K-map",
-      "see_ref": "karnaugh-map",
-      "vi_terms": [],
-      "status": "draft"
-    },
-    {
-      "id": "key-exchange-protocol",
-      "letter": "K",
-      "headword_en": "key exchange protocol",
-      "notation": "",
-      "rosen_ref": "Rosen §4.6",
-      "definition_vi": "Giao thức trao đổi khóa là một giao thức được hai bên sử dụng để cùng thống nhất về một khóa bí mật dùng chung. Khóa bí mật chung này sau đó có thể được dùng để mã hóa và giải mã các thông điệp trao đổi giữa hai bên.",
-      "example_vi": "Trong giao thức trao đổi khóa Diffie–Hellman, hai bên công khai chọn một số nguyên tố $$p$$ và một số nguyên $$a$$ với $$2 \\leq a \\leq p-1$$. Mỗi bên chọn riêng một số mũ bí mật, lần lượt là $$k_1$$ và $$k_2$$ với $$1 \\leq k_1, k_2 \\leq p-1$$, rồi gửi cho bên kia các giá trị $$a^{k_1} \\bmod p$$ và $$a^{k_2} \\bmod p$$. Khi đó cả hai bên đều tính được cùng một khóa bí mật chung $$a^{k_1 k_2} \\bmod p$$, trong khi một bên thứ ba chỉ biết $$p$$, $$a$$, $$a^{k_1} \\bmod p$$ và $$a^{k_2} \\bmod p$$ vẫn rất khó suy ra khóa này.",
-      "vi_terms": [
-        {
-          "term": "giao thức trao đổi khóa",
-          "verified": false,
-          "recommended": true,
-          "source_id": "",
-          "page": "",
-          "pdf_page": 0,
-          "snippet": ""
-        },
-        {
-          "term": "giao thức thỏa thuận khóa",
-          "source_id": "",
-          "page": "",
-          "pdf_page": 0,
-          "snippet": "",
-          "verified": false,
-          "recommended": false
-        }
-      ],
-      "see_also": [
-        "public-key-cryptography",
-        "private-key-cryptography",
-        "key"
-      ],
-      "notes": "Giao thức trao đổi khóa cho phép hai bên thống nhất một khóa bí mật dùng chung qua một kênh truyền công khai; ví dụ kinh điển là giao thức Diffie–Hellman, có độ an toàn dựa trên bài toán lôgarit rời rạc theo modulo (việc tính $$a^{k_1 k_2} \\bmod p$$ từ $$a^{k_1} \\bmod p$$ và $$a^{k_2} \\bmod p$$ là khó về mặt tính toán). Thuật ngữ \"giao thức trao đổi khóa\" là cách dịch chuẩn; không tìm thấy dẫn chứng trực tiếp cho khái niệm này trong kho ngữ liệu khảo sát (kể cả bản dịch Rosen tiếng Việt 2003), nên thuật ngữ tiếng Việt được đề xuất theo bản dịch chuẩn với verified=false.",
-      "status": "draft"
+     "term": "tô màu đồ thị",
+     "source_id": "bib-nguyenhuudien-2019",
+     "page": "tr. 7",
+     "pdf_page": 7,
+     "snippet": "Chương 9. Đồ thị phẳng và tô màu đồ thị . . . . . . . . . . . . . . . . . 223",
+     "verified": true,
+     "recommended": false
     }
-  ]
+   ],
+   "pos": "d.t."
+  },
+  {
+   "id": "k-connected-graph",
+   "letter": "K",
+   "headword_en": "k-connected graph",
+   "notation": "\\kappa(G) \\geq k",
+   "rosen_ref": "Rosen §10.4",
+   "definition_vi": "Cho $$k$$ là một số nguyên dương. Một đồ thị liên thông $$G$$ được gọi là \\emph{$$k$$-liên thông} nếu độ liên thông đỉnh của nó thỏa mãn $$\\kappa(G) \\geq k$$, tức là không thể làm cho $$G$$ mất liên thông (hoặc trở thành đồ thị tầm thường một đỉnh) bằng cách xóa đi ít hơn $$k$$ đỉnh bất kỳ.",
+   "example_vi": "Đồ thị đầy đủ $$K_n$$ với $$n \\geq k+1$$ là $$k$$-liên thông, vì $$\\kappa(K_n) = n-1 \\geq k$$.",
+   "vi_terms": [
+    {
+     "term": "k-liên thông",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-nguyenhoangthach-2020",
+     "pdf_page": 75,
+     "page": "tr. 73",
+     "snippet": "Ta nói đồ thị G là k-liên thông nếu κ(G) ≥ k."
+    },
+    {
+     "term": "đồ thị k-liên thông",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-leanhvinh-2020",
+     "pdf_page": 31,
+     "page": "tr. 32",
+     "snippet": "Dinh lý 1.28. (Dirac, 1960) Cho đồ thị k-liên thông G với k > 2."
+    },
+    {
+     "term": "k-liên thông",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-leanhvinh-2020",
+     "pdf_page": 25,
+     "page": "tr. 26",
+     "snippet": "lớn nhất để G là k-liên thông."
+    },
+    {
+     "term": "k-liên thông đỉnh",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-ngodactan-2004",
+     "pdf_page": 265,
+     "page": "tr. 265",
+     "snippet": "Đồ thị G = (V\\ E) được gọi là k-liên thông đỉnh hay gọi tắ t là k-liên"
+    },
+    {
+     "term": "đồ thị k-liên thông",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-ngodactan-2004",
+     "pdf_page": 280,
+     "page": "tr. 280",
+     "snippet": "Chứng minh rằng G là đồ thị k-liên thông."
+    },
+    {
+     "term": "k-liên thông",
+     "source_id": "bib-vudinhhoa-2010",
+     "page": "",
+     "pdf_page": 129,
+     "snippet": "mét đồ thị k-lién thông (đỉnh), nếu như Œ là một dé thị liên thông va nếu như bỗ di",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "đồ thị k-liên thông",
+     "source_id": "bib-vudinhhoa-2010",
+     "page": "",
+     "pdf_page": 129,
+     "snippet": "mét đồ thị k-lién thông (đỉnh), nếu như Œ là một dé thị liên thông va nếu như bỗ di",
+     "verified": true,
+     "recommended": false
+    }
+   ],
+   "notes": "EDITOR (chapter K final): applied the panel HIGH correctness fix. The prior definition added a standalone defining clause \"có nhiều hơn $$k$$ đỉnh\" (more than $$k$$ vertices) joined by \"và\" to the deletion clause; that is over-restrictive and non-standard. Rosen §10.4 defines a connected graph to be $$k$$-connected iff its vertex connectivity satisfies $$\\kappa(G) \\geq k$$, which is exactly what the cited source nguyenhoangthach-2020 (tr. 75) states (\"G là k-liên thông nếu κ(G) ≥ k\"). The definition now leads with $$\\kappa(G) \\geq k$$ and states the equivalent operational characterization (cannot be disconnected, or reduced to the trivial one-vertex graph, by deleting fewer than $$k$$ vertices). Also normalized the relation symbol from \\ge to \\geq in both notation and definition_vi per book convention.\n\nRecommended term \"k-liên thông\" is attested in two 2020 sources; the cleanest definitional attestation is nguyenhoangthach-2020 (tr. 75 PDF), which matches Rosen's notation $$\\kappa(G) \\geq k$$. leanhvinh-2020 uses it throughout Chapter 1 (Whitney/Dirac theorems). ngodactan-2004 (tr. 265 PDF) defines \"đồ thị k-liên thông đỉnh\" (vertex k-connectivity) and abbreviates it to \"k-liên thông\" — the same concept as this entry. The fuller noun phrase \"đồ thị k-liên thông\" is a stylistic variant. The candidate \"k-liên thông cạnh\" (edge k-connectivity, $$\\kappa'(G) \\geq k$$ / $$\\lambda(G) \\geq k$$) is a DIFFERENT concept and is excluded; it appears in leanhvinh-2020 (tr. 26 PDF) and ngodactan-2004 (tr. 270 PDF). The candidate \"liên thông bậc k\" is NOT attested in any corpus source. Sources nguyenhuudien-2019, nguyenducnghia-2006, and hoangchithanh-2007 contain only general connectivity (\"liên thông\") and do not define the k-connected concept. see_also targets are cross-chapter forward references: \"connectivity\" and \"cut-vertex\" exist in chapter C; \"vertex-connectivity\" and \"edge-connectivity\" are forward references. No same-chapter K links. All five verified vi_terms re-confirmed via find-term.py at their cited pages with matching snippets (leanhvinh-2020 confirmed under both normal and loose OCR modes).",
+   "see_also": [
+    "connectivity",
+    "vertex-connectivity",
+    "edge-connectivity",
+    "cut-vertex"
+   ],
+   "pos": "d.t."
+  },
+  {
+   "id": "k-regular-graph",
+   "letter": "K",
+   "headword_en": "k-regular graph",
+   "notation": "\\deg_G(v) = k",
+   "rosen_ref": "Rosen §10.2",
+   "definition_vi": "Cho $$k$$ là một số nguyên không âm. \\emph{Đồ thị $$k$$ chính quy} là đồ thị $$G$$ trong đó mọi đỉnh đều có bậc đúng bằng $$k$$, tức là $$\\deg_G(v) = k$$ với mọi $$v \\in V(G)$$.",
+   "example_vi": "Đồ thị đầy đủ $$K_n$$ là đồ thị $$(n-1)$$ chính quy, vì mỗi đỉnh kề với tất cả $$n-1$$ đỉnh còn lại; chu trình $$C_n$$ với $$n \\geq 3$$ là đồ thị $$2$$ chính quy.",
+   "notes": "Concept attested only in bib-leanhvinh-2020, bib-nguyenducnghia-2006, and bib-ngodactan-2004. In bib-nguyenhoangthach-2020, bib-nguyenhuudien-2019, and bib-hoangchithanh-2007 the string \"đồ thị đều\" appears only as the universal adverb \"đều\" (every/all), e.g. \"mọi đỉnh của đồ thị đều có bậc...\", not as the regular-graph term; those are not citations of this concept. In bib-leanhvinh-2020 the book uses \"đồ thị đều bậc k\" as the primary form (pp. 10, 89, 93, 214) with \"đồ thị k chính quy\" given as the explicit alternate (\"hay còn gọi là\", p. 214); the generalized \"đồ thị đều bậc d\" / \"đồ thị d chính quy\" also appears (p. 10). The recommended term \"đồ thị k chính quy\" is attested in the newest source (bib-leanhvinh-2020, 2020). The variant \"đồ thị đều bậc k\" is equally standard and also from 2020. Older sources use the older orthography \"chính qui\" (modern \"chính quy\"): bib-ngodactan-2004 p. 191 defines \"đồ thị chính qui bậc k\" / short form \"k-chính qui\"; bib-nguyenducnghia-2006 p. 164 uses \"chính qui bậc k\". The synonym \"đồ thị bậc k\" in bib-ngodactan-2004 is attested via the book index (\"đồ thị bậc k, 191\", PDF p. 336), which points to the definition on p. 191; no verbatim definition-line snippet for that exact phrase is recoverable from the OCR text, so the verifiable index snippet is cited. Caution: in bib-leanhvinh-2020 the unrelated phrases \"đồ thị bậc n\" mean \"graph on n vertices\" (order n), not a regular graph, and \"đồ thị chính quy mạnh\" means \"strongly regular graph\" — both excluded. Definition is mathematically correct against Rosen §10.2 (every vertex has degree exactly $$k$$); the nonnegative-integer constraint on $$k$$ is correct (0-regular = empty graph is valid). Snippets from OCR sources (bib-leanhvinh-2020, bib-ngodactan-2004) reproduce OCR artifacts verbatim. EDITOR (chapter K final): the notation field stores the bare token $$\\deg_G(v) = k$$ without $$...$$ wrapping per the book-wide convention (the structured notation field is wrapped by the build layer, as confirmed against output/web/entries.json); no wrapping change applied. Added the $$k \\geq 0$$ lead-in to the definition for parameter scope, consistent with the source convention.",
+   "see_also": [
+    "bipartite-graph",
+    "complete-graph",
+    "regular-graph"
+   ],
+   "vi_terms": [
+    {
+     "term": "đồ thị k chính quy",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-leanhvinh-2020",
+     "pdf_page": 214,
+     "page": "tr. 215",
+     "snippet": "© Dé thị G là đồ thị đều bậc k, hay còn gợi là đồ thị k chính quy."
+    },
+    {
+     "term": "đồ thị đều bậc k",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-leanhvinh-2020",
+     "pdf_page": 214,
+     "page": "tr. 215",
+     "snippet": "© Dé thị G là đồ thị đều bậc k, hay còn gợi là đồ thị k chính quy."
+    },
+    {
+     "term": "đồ thị chính qui bậc k",
+     "verified": false,
+     "recommended": false,
+     "source_id": "",
+     "pdf_page": 0,
+     "page": "",
+     "snippet": ""
+    },
+    {
+     "term": "đồ thị chính qui bậc k",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-ngodactan-2004",
+     "pdf_page": 191,
+     "page": "tr. 191",
+     "snippet": "và G được gọi là đồ thị chính qui bậc k hay ngắn gọn là k-chính qui."
+    },
+    {
+     "term": "k-chính qui",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-ngodactan-2004",
+     "pdf_page": 191,
+     "page": "tr. 191",
+     "snippet": "và G được gọi là đồ thị chính qui bậc k hay ngắn gọn là k-chính qui."
+    },
+    {
+     "term": "đồ thị bậc k",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-ngodactan-2004",
+     "pdf_page": 336,
+     "page": "tr. 336",
+     "snippet": "đồ thị bậc k, 191"
+    }
+   ],
+   "pos": "d.t."
+  },
+  {
+   "id": "kruskals-algorithm",
+   "letter": "K",
+   "headword_en": "Kruskal's algorithm",
+   "definition_vi": "\\emph{Thuật toán Kruskal} là thuật toán tìm cây bao trùm nhỏ nhất của một đồ thị liên thông, vô hướng và có trọng số $$G = (V, E)$$ với hàm trọng số $$c \\colon E \\to \\mathbb{R}$$. Bắt đầu từ rừng gồm $$|V|$$ đỉnh rời nhau và không có cạnh, ở mỗi bước thuật toán xét các cạnh theo thứ tự trọng số tăng dần và thêm vào cạnh có trọng số nhỏ nhất trong số các cạnh còn lại mà không tạo thành một chu trình, cho đến khi thu được một cây bao trùm.",
+   "notation": "",
+   "rosen_ref": "Rosen §11.5",
+   "example_vi": "Xét đồ thị liên thông $$G$$ trên bốn đỉnh $$\\{a, b, c, d\\}$$ với các cạnh có trọng số $$c(ab) = 1$$, $$c(bc) = 2$$, $$c(cd) = 3$$ và $$c(ac) = 4$$. Thuật toán Kruskal lần lượt chọn $$ab$$, $$bc$$, rồi $$cd$$; cạnh $$ac$$ bị bỏ qua vì nó tạo thành chu trình với $$ab$$ và $$bc$$, và ta thu được cây bao trùm nhỏ nhất gồm các cạnh $$ab$$, $$bc$$, $$cd$$ với tổng trọng số $$6$$.",
+   "notes": "Recommended term \"thuật toán Kruskal\" is attested in all six corpus sources, including both 2020 sources (bib-leanhvinh-2020 tr. 61, bib-nguyenhoangthach-2020 tr. 95) and the 2019 source (bib-nguyenhuudien-2019 tr. 250). The candidate \"giải thuật Kruskal\" returned zero hits in every source under both normal and --loose matching, so it is not recorded as a verified vi_term. The candidate \"thuật toán Kruskal tìm cây khung nhỏ nhất\" is not attested as a fixed term; bib-leanhvinh-2020 tr. 61 has only the running descriptive phrase \"Thuật toán Kruskal tìm cây bao trùm nhỏ nhất trong mạng lưới\", not a coined compound term, so it is not recorded as a separate variant. Note the differing renderings of \"minimum spanning tree\": newer/southern sources use \"cây bao trùm nhỏ nhất\" (leanhvinh, nguyenhuudien, hoangchithanh, ngodactan use \"cây bao\"), while nguyenhoangthach and nguyenducnghia use \"cây khung nhỏ nhất\". The definition_vi follows the lead source bib-leanhvinh-2020, which renders the target as \"cây bao trùm nhỏ nhất\"; bib-leanhvinh-2020 tr. 61 frames Kruskal as a greedy algorithm (\"một thuật toán tham lam\") that repeatedly adds the smallest-weight edge until a spanning tree is obtained, and bib-nguyenhuudien-2019 tr. 250 gives the formal setting \"đồ thị vô hướng G với tập cạnh E và hàm trọng số c\". The cycle-avoidance condition (\"không tạo thành một chu trình\") corresponds to the English ground truth's \"does not create a circuit\"; the equivalent stopping condition is reaching $$|V|-1$$ edges (a spanning tree). Definition faithfully matches Rosen §11.5.\n\nEDITOR (chapter K final): per the chapter-wide see_also forward-reference policy (the majority of corpus entries list cross-chapter forward references), added the cross-chapter forward references minimum-spanning-tree, spanning-tree, prims-algorithm, and weighted-graph (chapters M, S, P, W). These are forward references to be created in their own letter chapters; there are no same-chapter K links.",
+   "see_also": [
+    "minimum-spanning-tree",
+    "spanning-tree",
+    "weighted-graph"
+   ],
+   "vi_terms": [
+    {
+     "term": "thuật toán Kruskal",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-leanhvinh-2020",
+     "pdf_page": 61,
+     "page": "tr. 62",
+     "snippet": "Thuật toán Kruskal tìm cây bao trùm nhỏ nhất trong mạng lưới"
+    },
+    {
+     "term": "thuật toán Kruskal",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhoangthach-2020",
+     "pdf_page": 95,
+     "page": "tr. 93",
+     "snippet": "Định lý 7.6. Nếu G là liên thông thì thuật toán Kruskal cho kết quả là một"
+    },
+    {
+     "term": "thuật toán Kruskal",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 250,
+     "page": "tr. 250",
+     "snippet": "Thuật toán Kruskal được mô tả chi tiết như sau."
+    }
+   ],
+   "pos": "d.t."
+  },
+  {
+   "id": "kuratowskis-theorem",
+   "letter": "K",
+   "headword_en": "Kuratowski's theorem",
+   "notation": "",
+   "definition_vi": "\\emph{Định lý Kuratowski} khẳng định rằng một đồ thị $$G$$ là phẳng khi và chỉ khi nó không chứa đồ thị con nào đồng phôi với đồ thị đầy đủ $$K_5$$ hoặc đồ thị hai phần đầy đủ $$K_{3,3}$$.",
+   "example_vi": "Đồ thị hai phần đầy đủ $$K_{3,3}$$ không phẳng: bản thân nó là một đồ thị con đồng phôi với $$K_{3,3}$$, nên theo định lý Kuratowski thì $$K_{3,3}$$ không là đồ thị phẳng.",
+   "rosen_ref": "Rosen §10.7",
+   "notes": "Recommended term \"định lý Kuratowski\" is attested in two 2020 sources (bib-nguyenhoangthach-2020 p.81 and bib-leanhvinh-2020 p.127), a 2019 source (bib-nguyenhuudien-2019 p.234), and older sources (bib-hoangchithanh-2007 p.119, bib-ngodactan-2004 p.210); citations are listed newest-first. The variant \"định lý Kuratowski - Pontragin\" (Kuratowski-Pontryagin theorem) is attested only in the 2004 source (bib-ngodactan-2004 p.210, also p.213, index p.336); it is recorded as a verified variant. No candidate uses inline math, so no $$...$$ wrapping is needed in the term strings. The definition uses the book-standard \"đồ thị hai phần\" for bipartite. \"Đồng phôi\" (homeomorphic) is the standard term linked via see_also to homeomorphic-graphs. Definition is correct against Rosen §10.7 (a graph is planar iff it contains no subgraph homeomorphic to $$K_5$$ or $$K_{3,3}$$).\n\nEDITOR (chapter K final): the previous example used $$K_5$$ as \"a subgraph homeomorphic to $$K_5$$ of itself\", which is logically valid but pedagogically circular. Switched the example to $$K_{3,3}$$ — likewise the trivial self-homeomorphic case, but it exercises the second forbidden subgraph $$K_{3,3}$$ (the complete bipartite graph) and keeps the example self-contained using only the forbidden subgraphs the definition introduces. The substance (a forbidden subgraph forces non-planarity by Kuratowski) is unchanged; either $$K_5$$ or $$K_{3,3}$$ is a minimal self-contained witness.",
+   "see_also": [
+    "planar-graph",
+    "complete-graph",
+    "complete-bipartite-graph",
+    "homeomorphic-graphs"
+   ],
+   "vi_terms": [
+    {
+     "term": "định lý Kuratowski",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-nguyenhoangthach-2020",
+     "pdf_page": 81,
+     "page": "tr. 79",
+     "snippet": "Trước khi phát biểu định lý Kuratowski, chúng ta cần chuẩn bị một số"
+    },
+    {
+     "term": "định lý Kuratowski",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-leanhvinh-2020",
+     "pdf_page": 127,
+     "page": "tr. 128",
+     "snippet": "Định lý 5.10. (Dinh ly Kuratowski, 1930) Dé thị G là không phẳng"
+    },
+    {
+     "term": "định lý Kuratowski",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 234,
+     "page": "tr. 234",
+     "snippet": "Ta có thể áp dụng định lý Kuratowski để xét tính chất phẳng của đồ thị."
+    },
+    {
+     "term": "định lý Kuratowski - Pontragin",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-ngodactan-2004",
+     "pdf_page": 210,
+     "page": "tr. 210",
+     "snippet": "đó, định lý trền cũng còn được gọi là Định lý Kuratowski - Pontragin."
+    }
+   ],
+   "pos": "d.t."
+  },
+  {
+   "id": "karnaugh-map",
+   "letter": "K",
+   "headword_en": "Karnaugh map",
+   "notation": "",
+   "rosen_ref": "Rosen §12.4",
+   "definition_vi": "\\emph{Bìa Karnaugh} của một hàm Boole $$f$$ với một số nhỏ biến (thường nhiều nhất $$4$$ biến) là một sơ đồ dạng bảng biểu diễn các giá trị của $$f$$, trong đó các ô được sắp xếp theo mã Gray sao cho hai ô kề nhau (kể cả hai ô ở hai mép đối diện) ứng với hai số hạng chỉ khác nhau ở đúng một biến. Bìa Karnaugh được dùng để tối thiểu hóa $$f$$ bằng cách gộp các ô kề nhau có giá trị $$1$$ thành các nhóm.",
+   "example_vi": "Với hàm Boole $$f(x,y)$$, bìa Karnaugh là bảng $$2 \\times 2$$ có các ô ứng với các tổ hợp giá trị của $$x$$ và $$y$$; hai ô cùng một hàng hoặc cùng một cột là kề nhau vì chúng chỉ khác nhau ở một biến.",
+   "notes": "Khái niệm \"Karnaugh map\" thuộc về tối thiểu hóa hàm Boole (logic số), không thuộc lý thuyết đồ thị hay tổ hợp. Không có nguồn tiếng Việt nào trong kho ngữ liệu (bib-leanhvinh-2020, bib-nguyenhoangthach-2020, bib-nguyenhuudien-2019, bib-hoangchithanh-2007, bib-nguyenducnghia-2006, bib-ngodactan-2004) chứng thực thuật ngữ này: tất cả đều là sách đồ thị/tổ hợp/toán rời rạc-đồ thị, không trình bày phần tối thiểu hóa hàm Boole của Rosen §12.4. Đã tìm cả dạng thường lẫn --loose cho hai nguồn OCR, và đã thử các biến thể chuyển tự (\"Karnaugh\", \"Cácnô\", \"Các-nô\", \"Karno\", \"bìa Các-nô\", \"bảng Karnaugh\", \"Veitch\") cùng \"bảng chân lý\"; tất cả đều 0 hit. Thuật ngữ chuẩn được giữ lại verified=false/page=\"\" (ngoại lệ một-thuật-ngữ-chuẩn để vi_terms không rỗng). Các biến thể thường gặp trong tài liệu kỹ thuật số tiếng Việt: bìa Karnaugh (phổ biến nhất, được chọn làm thuật ngữ khuyến nghị), bản đồ Karnaugh, biểu đồ Karnaugh, sơ đồ Karnaugh; không biến thể nào được kho ngữ liệu chứng thực, nên chúng chỉ được ghi ở đây trong notes.\n\nEDITOR (chapter K final): applied the panel correctness fix. Rosen §12.4 trình bày bìa Karnaugh cho một số nhỏ biến (2, 3, 4 biến), nên thay \"với $$n$$ biến\" bằng \"với một số nhỏ biến (thường nhiều nhất $$4$$ biến)\". Bổ sung tính kề theo mã Gray và tính kề vòng (hai ô ở hai mép đối diện cũng kề nhau) để khái niệm \"kề nhau\" chính xác. Giữ nguyên một vi_term chuẩn-nhưng-chưa-chứng-thực \"bìa Karnaugh\" (verified=false, page=\"\") để vi_terms không rỗng, theo đúng quy ước.",
+   "vi_terms": [
+    {
+     "term": "bìa Karnaugh",
+     "verified": false,
+     "recommended": true,
+     "source_id": "",
+     "pdf_page": 0,
+     "page": "",
+     "snippet": ""
+    },
+    {
+     "term": "sơ đồ Karnaugh",
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": "",
+     "verified": false,
+     "recommended": false
+    },
+    {
+     "term": "phương pháp sơ đồ Karnaugh",
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": "",
+     "verified": false,
+     "recommended": false
+    },
+    {
+     "term": "bảng Karnaugh",
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": "",
+     "verified": false,
+     "recommended": false
+    },
+    {
+     "term": "bản đồ Karnaugh",
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": "",
+     "verified": false,
+     "recommended": false
+    },
+    {
+     "term": "sơ đồ Các-nô",
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": "",
+     "verified": false,
+     "recommended": false
+    },
+    {
+     "term": "biểu đồ Veitch",
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": "",
+     "verified": false,
+     "recommended": false
+    },
+    {
+     "term": "bảng Karnaugh",
+     "source_id": "bib-doducgiao-2000",
+     "page": "tr. 442",
+     "pdf_page": 441,
+     "snippet": "4.2. Phương pháp bảng Karnaugh",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "bảng Karnaugh",
+     "source_id": "bib-vovantuandung-2007",
+     "page": "",
+     "pdf_page": 128,
+     "snippet": "5.5.2. Phương pháp bang Karnaugh",
+     "verified": true,
+     "recommended": false
+    }
+   ],
+   "see_also": [],
+   "pos": "d.t."
+  },
+  {
+   "id": "kernel-of-a-graph",
+   "letter": "K",
+   "headword_en": "kernel of a graph",
+   "notation": "B \\subseteq V(G)",
+   "definition_vi": "\\emph{Nhân} của một đồ thị có hướng $$G = (V, E)$$ là một tập đỉnh $$B \\subseteq V$$ vừa độc lập (không có cung nào nối hai đỉnh của $$B$$) vừa hấp thụ (mỗi đỉnh ngoài $$B$$ đều có một cung đi vào $$B$$); trong tài liệu hai điều kiện này còn được gọi là tập ổn định trong và tập ổn định ngoài.",
+   "example_vi": "Xét đồ thị có hướng $$G$$ với tập đỉnh $$V = \\{a, b, c\\}$$ và tập cung $$E = \\{(b, a), (c, a)\\}$$. Khi đó $$B = \\{a\\}$$ là một nhân của $$G$$: không có cung nào nối hai đỉnh trong $$B$$ (vì $$B$$ chỉ có một đỉnh), và mỗi đỉnh ngoài $$B$$ là $$b$$ và $$c$$ đều có một cung đi vào $$a \\in B$$.",
+   "notes": "Concept match confirmed. Định nghĩa 3.3 in bib-hoangchithanh-2007 (PDF tr. 34) defines \"nhân của đồ thị $$G$$\" as a set $$B \\subseteq V$$ that is both \"tập ổn định trong\" (internally stable = independent: no arc joins two vertices of $$B$$) and \"tập ổn định ngoài\" (externally stable = absorbing: every vertex outside $$B$$ has an arc into $$B$$). This is exactly Rosen's kernel (independent + absorbing). The source also states the two conditions are equivalent to an identity $$F^{-1}(B) = V \\setminus B$$ where $$F$$ is the successor (out-neighbor) map of the digraph.\n\nEDITOR (chapter K final): applied two panel HIGH correctness fixes. (1) Removed the clause \"điều này tương đương với $$F^{-1}(B) = V \\setminus B$$\" from definition_vi: the symbol $$F$$ (the successor map) was never defined in the entry, so importing $$F^{-1}$$ broke the self-containment requirement, and the equivalence is convention-dependent. The independent + absorbing (tập ổn định trong + tập ổn định ngoài) characterization is complete, standard, and self-contained; the $$F^{-1}$$ identity is described in this note instead. (2) Fixed rosen_ref: the previous value \"Rosen §10.2\" (Graph Terminology and Special Types of Graphs) does not cover the directed-graph kernel concept and appears copied from the default §10.2 used by the genuine §10.2 entries. The kernel of a digraph (independent dominating set) is not a standard Rosen §10.2 topic; Rosen discusses digraphs and related structures in §10.5 (and kernel/independent-dominating ideas appear, if at all, in exercises rather than as a named §10.2 definition). rosen_ref is set to \"Rosen §10.5 (directed graphs; kernel not a named §10.2 topic)\" to surface the provenance honestly rather than assert §10.2.\n\nRecommended term: \"nhân của đồ thị\" is the only Vietnamese term denoting THIS concept across all six corpus sources; it is attested only in the 2007 source. NO 2019-2020 source attests any candidate for this concept, so the 2019-2020 recency preference cannot be met; the standard 2007 term is recommended (verified=true). Strict and loose searches in bib-leanhvinh-2020, bib-nguyenhoangthach-2020, bib-nguyenhuudien-2019, bib-nguyenducnghia-2006, and bib-ngodactan-2004 returned 0 hits for this concept.\n\n\"nhân\" (bare) is used as the standalone term throughout §3.3 of the same source once \"nhân của đồ thị\" is introduced; recorded as a variant.\n\nRejected candidate \"lõi của đồ thị\": in bib-hoangchithanh-2007 (Định nghĩa 3.4, PDF tr. 36) \"lõi\" is a DISTINCT concept defined via paths (the reachability/path analog), not the arc-based kernel, and is excluded. Candidate \"nhân của đồ thị có hướng\" returned 0 hits (strict and loose) in all sources and is not recorded.\n\nbib-hoangchithanh-2007 is an OCR source; both strict and loose searches were run. Snippets are verbatim OCR (e.g. \"Tạp\" for \"Tập\", \"Ơ\" for \"G\") and are preserved as-is. All verified=true vi_terms re-checked via find-term.py; source_id/pdf_page/snippets confirmed. Exactly one recommended=true.",
+   "rosen_ref": "Rosen §10.5 (directed graphs; kernel not a named §10.2 topic)",
+   "see_also": [
+    "independent-set",
+    "directed-graph"
+   ],
+   "vi_terms": [
+    {
+     "term": "nhân của đồ thị",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-hoangchithanh-2007",
+     "pdf_page": 34,
+     "page": "tr. 34",
+     "snippet": "Định nghĩa 3.3: Tạp BC V được gọi là nhân của đồ thị G nếu nó"
+    },
+    {
+     "term": "nhân",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-hoangchithanh-2007",
+     "pdf_page": 35,
+     "page": "tr. 35",
+     "snippet": "Dinh ly 3.2: Nếu B là nhân của đồ thị G thì B cũng là tập ổn định"
+    },
+    {
+     "term": "nhân",
+     "source_id": "bib-rosen-2003-vi",
+     "pdf_page": 11,
+     "page": "tr. 11",
+     "snippet": "nhân - qua giữa giả thiết và kết luận.",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "nhân của đồ thị",
+     "source_id": "bib-hoangchithanh-2011",
+     "page": "",
+     "pdf_page": 62,
+     "snippet": "3.3. Nhân của đồ thị",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "nhân của đồ thị",
+     "source_id": "bib-doducgiao-2008",
+     "page": "tr. 6",
+     "pdf_page": 7,
+     "snippet": "§3. Số ổn định trong, số ổn định ngoài và nhân của đồ thi.",
+     "verified": true,
+     "recommended": false
+    }
+   ],
+   "pos": "d.t."
+  },
+  {
+   "id": "konigsberg-bridge-problem",
+   "letter": "K",
+   "headword_en": "Königsberg bridge problem",
+   "definition_vi": "\\emph{Bài toán bảy cây cầu Königsberg} hỏi liệu có thể đi dạo qua thành phố sao cho mỗi cây trong bảy cây cầu được đi qua đúng một lần hay không. Mô hình hóa thành phố bằng một đa đồ thị $$G$$ trong đó mỗi vùng đất là một đỉnh và mỗi cây cầu là một cạnh, câu hỏi tương đương với việc $$G$$ có một đường đi Euler (hoặc một chu trình Euler nếu yêu cầu quay về điểm xuất phát) hay không. Một đa đồ thị liên thông có một đường đi Euler khi và chỉ khi nó có đúng $$0$$ hoặc $$2$$ đỉnh bậc lẻ, và có một chu trình Euler khi và chỉ khi mọi đỉnh đều có bậc chẵn; Euler đã chứng minh rằng với Königsberg điều này là không thể.",
+   "example_vi": "Đa đồ thị mô hình hóa bốn vùng đất của Königsberg có bốn đỉnh, mỗi đỉnh đều có bậc lẻ. Vì một đường đi Euler đòi hỏi không quá hai đỉnh bậc lẻ, nên không tồn tại hành trình đi qua mỗi cây cầu đúng một lần.",
+   "notation": "",
+   "rosen_ref": "Rosen §10.5",
+   "see_also": [
+    "graph",
+    "multigraph",
+    "euler-circuit",
+    "euler-path"
+   ],
+   "notes": "Recommended form set to the city-named full form \"bài toán bảy cây cầu Königsberg\" matching the headword, but note that as a contiguous string it is NOT attested in the corpus: bib-leanhvinh-2020 always inserts \"của thành phố\" between \"cầu\" and \"Königsberg\" (p.20 'bài toán bảy cây cầu của thành phó [Königsberg]', p.257 index 'Bài toán bảy cây cầu'). The attested verified=true lead form is \"bài toán bảy cây cầu\" (leanhvinh-2020), kept as recommended=true; the synthesized full-city-name string is documented here in notes only and is NOT carried as a verified=false vi_term row. The city name Königsberg with umlaut IS attested in bib-leanhvinh-2020 (p.6, p.19, p.20, p.257), so the headword spelling is well grounded.\n\nEDITOR (chapter K final): applied two fixes. (1) Citation hygiene: dropped the two verified=false empty-page non-recommended variants (\"bài toán bảy cây cầu Königsberg\" and \"bài toán bảy chiếc cầu Königsberg\"); since the recommended term \"bài toán bảy cây cầu\" is verified=true, the one-standard-term exception does not apply, so unattested synthesized strings are removed from vi_terms and their non-attestation rationale preserved here. (2) Reworded the see_also rationale: the targets graph (G), multigraph (M), euler-circuit / euler-path (E) are CROSS-chapter forward references (chapters G, M, E), NOT same-chapter K links — the prior note's \"same-chapter ... within the graph chapter (Rosen ch.10)\" framing conflated Rosen-chapter membership with dictionary-letter chapter membership and is corrected here. (3) Tightened the framing per Rosen §10.5: the definition now states both Euler-path and Euler-circuit criteria (0 or 2 odd-degree vertices for a path; all-even for a circuit) so the example's use of the \"at most two odd-degree vertices\" criterion is introduced by the definition and the example is self-contained.\n\nVariant forms attested across the corpus: \"bảy cầu của thành phố Konigsberg\" (bib-nguyenhuudien-2019 p.181 figure + p.10 TOC), \"bảy cái cầu ở Konigsberg\" (bib-nguyenhuudien-2019 p.181), \"bài toán 7 cây cầu ở Konigsberg\" (bib-hoangchithanh-2007 p.76, OCR 'Bai toán 7 cây cầu ở Konigsberg'), \"bài toán về bảy chiếc cầu ở Königsberg\" (bib-ngodactan-2004 p.184 caption 'Hình 6.1: Bài toán về bầy clìiếc cầu ở Kõnigsberg', also p.15 TOC and p.183). Spelling note: city name appears as \"Königsberg\" (umlaut, modern text sources) and as OCR-mangled \"Konigsberg\"/\"Kõnigsberg\" in scanned sources. The four Königsberg vertices have degrees 3,3,3,5 (all odd); 4 odd-degree vertices > 2, so no Euler path and no Euler circuit.",
+   "vi_terms": [
+    {
+     "term": "bài toán bảy cây cầu",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-leanhvinh-2020",
+     "pdf_page": 20,
+     "page": "tr. 21",
+     "snippet": "Dịnh lý 1.17 chỉ ra rằng bài toán bảy cây cầu của thành phó"
+    },
+    {
+     "term": "bảy cầu của thành phố Konigsberg",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 181,
+     "page": "tr. 181",
+     "snippet": "Figure 7.3: Bảy cầu của thành phố Konigsberg"
+    },
+    {
+     "term": "bảy cái cầu ở Konigsberg",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 181,
+     "page": "tr. 181",
+     "snippet": "ông giải quyết bài toán hóc búa nổi tiếng thời đó về bảy cái cầu ở Konigsberg và đây là"
+    },
+    {
+     "term": "bài toán 7 cây cầu ở Konigsberg",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-hoangchithanh-2007",
+     "pdf_page": 76,
+     "page": "tr. 76",
+     "snippet": "Ví dụ 7.1 (Bai toán 7 cây cầu ở Konigsberg):"
+    },
+    {
+     "term": "bài toán về bảy chiếc cầu ở Königsberg",
+     "verified": false,
+     "recommended": false,
+     "source_id": "",
+     "pdf_page": 0,
+     "page": "",
+     "snippet": ""
+    },
+    {
+     "term": "bài toán cầu Königsberg",
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": "",
+     "verified": false,
+     "recommended": false
+    },
+    {
+     "term": "bài toán bảy cây cầu",
+     "source_id": "bib-hoangchithanh-2011",
+     "page": "",
+     "pdf_page": 7,
+     "snippet": "rất sớm từ những bai toán thực tế như: bài toán bảy cây cầu ở thành phố",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "bài toán 7 cây cầu ở Konigsberg",
+     "source_id": "bib-hoangchithanh-2011",
+     "page": "",
+     "pdf_page": 124,
+     "snippet": "Ví dụ 6.1 (Bài toán 7 cây cầu ở Konigsberg)",
+     "verified": true,
+     "recommended": false
+    }
+   ],
+   "pos": "d.t."
+  },
+  {
+   "id": "knapsack-problem",
+   "letter": "K",
+   "headword_en": "knapsack problem",
+   "notation": "",
+   "rosen_ref": "Rosen §8.1",
+   "definition_vi": "\\emph{Bài toán cái túi} là bài toán tối ưu trong đó cho một cái túi có sức chứa trọng lượng $$D$$ và $$n$$ đồ vật, đồ vật thứ $$j$$ có trọng lượng $$a_j$$ và giá trị $$c_j$$ (với $$j = 1, 2, \\ldots, n$$), yêu cầu chọn một tập con các đồ vật sao cho tổng giá trị là lớn nhất trong khi tổng trọng lượng không vượt quá $$D$$. Mỗi phương án chọn được biểu diễn bởi một vectơ nhị phân $$x = (x_1, x_2, \\ldots, x_n)$$, trong đó $$x_j = 1$$ nghĩa là đồ vật thứ $$j$$ được chọn và $$x_j = 0$$ nghĩa là không chọn, và mục tiêu là cực đại hóa $$\\sum_{j=1}^{n} c_j x_j$$ với ràng buộc $$\\sum_{j=1}^{n} a_j x_j \\leq D$$.",
+   "example_vi": "Với sức chứa $$D = 5$$ và ba đồ vật có cặp trọng lượng và giá trị lần lượt là $$(a_1, c_1) = (2, 3)$$, $$(a_2, c_2) = (3, 4)$$, $$(a_3, c_3) = (4, 5)$$, chọn các đồ vật $$1$$ và $$2$$ cho tổng trọng lượng $$2 + 3 = 5 \\leq 5$$ và tổng giá trị $$3 + 4 = 7$$, là phương án có tổng giá trị lớn nhất không vượt quá sức chứa.",
+   "notes": "Only \"bài toán cái túi\" is attested for this concept, in bib-nguyenducnghia-2006 (2006), with 11 hits (pp. 115, 116, 119, 121, 122, 123, 124, 150). Page 115 confirms the concept: an explorer carries a bag of capacity at most $$D$$ and there are $$n$$ items, item $$j$$ having weight $$a_j$$ and value $$c_j$$, the goal being to choose a subset of maximum total value within the capacity; the formal optimization form on p. 116 maximizes $$\\sum c_j x_j$$ subject to $$\\sum a_j x_j \\leq D$$ over binary vectors $$x$$. No 2019-2020 source attests any term for this concept, so the recommended term's newest attestation is from 2006. The candidate variants \"bài toán xếp ba lô\", \"bài toán ba lô\", and \"bài toán chiếc túi\" returned zero hits in every source under both normal and loose matching (OCR sources bib-leanhvinh-2020 and bib-hoangchithanh-2007 were searched with --loose). They are common Vietnamese names for the knapsack problem in the wider literature but are unattested in this corpus, so they are listed here in notes only. Note: \"chiếc túi\" appears in bib-ngodactan-2004 (p. 51), but only inside counting/enumeration exercises (\"6 chiếc túi?\", \"12 chiếc túi?\") that do not denote the knapsack optimization problem; those hits were excluded. The example's choice {1,2} (weight 5, value 7) is optimal among feasible subsets: item 3 alone gives 5; subsets {1,3}, {2,3}, {1,2,3} all exceed capacity 5.\n\nEDITOR (chapter K final): rosen_ref left as \"Rosen §8.1\" per the chapter's prior provenance assignment; flagged for editor-at-large to confirm against a Rosen copy, since the knapsack problem in Rosen is typically a dynamic-programming application of recurrences (§8.1 covers applications of recurrence relations) rather than a standalone §8.1 definition. Could not open a Rosen copy in this environment to confirm. Per the chapter-wide see_also forward-reference policy, see_also is left empty because the directly related concepts (optimization problem, dynamic programming, greedy algorithm) are not yet seeded as kebab ids in the corpus index; they would be cross-chapter forward references once created.",
+   "see_also": [],
+   "vi_terms": [
+    {
+     "term": "bài toán cái túi",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-nguyenducnghia-2006",
+     "pdf_page": 115,
+     "page": "",
+     "snippet": "Bài toán cái túi. Một nhà thám hiểm cần đem theo một cái túi có trọng lượng không quá Ð. Có n đồ vật"
+    },
+    {
+     "term": "bài toán ba lô",
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": "",
+     "verified": false,
+     "recommended": false
+    },
+    {
+     "term": "bài toán ba lô",
+     "source_id": "bib-cormen-2001-vi",
+     "page": "tr. 375",
+     "pdf_page": 373,
+     "snippet": "Bài toán ba lô 0-1 được đặt ra như sau. Một tên trộm đánh cắp một",
+     "verified": true,
+     "recommended": false
+    }
+   ],
+   "pos": "d.t."
+  },
+  {
+   "id": "knights-tour",
+   "letter": "K",
+   "headword_en": "knight's tour",
+   "notation": "",
+   "rosen_ref": "Rosen §10.5",
+   "definition_vi": "\\emph{Hành trình của con mã} trên một bàn cờ là một dãy các nước đi của con mã sao cho mỗi ô của bàn cờ được đi qua đúng một lần. Nếu con mã trở lại được ô xuất phát sau khi đi qua tất cả các ô, hành trình đó được gọi là khép kín; ngược lại, nó được gọi là hở.",
+   "example_vi": "Trên bàn cờ $$8 \\times 8$$, một hành trình của con mã đi qua cả $$64$$ ô, mỗi ô đúng một lần; nếu nước đi cuối cùng đưa con mã trở lại ô xuất phát thì đó là một hành trình khép kín.",
+   "notes": "The concept is attested in two corpus sources:\n- bib-nguyenhuudien-2019 (2019, newest text source) names it \"hành trình của con mã\" as the title of §7.13 / Figure 7.13 (pdf p.189) and uses the descriptive phrase \"đường đi của con mã trên bàn cờ\" (pdf p.188), with surrounding text confirming a (closed) knight's tour returning to the start.\n- bib-hoangchithanh-2007 (2007, OCR) names it \"bài toán mã đi tuần\" / \"mã đi tuần\" (pdf p.82): \"Cho quân mã đi trên bàn cờ vua sao cho nó đi qua mỗi ô đúng một lần (bài toán mã đi tuần).\" This is the standard, established Vietnamese name for the knight's-tour problem.\nRecommended term: \"mã đi tuần\" is the canonical/standard Vietnamese term, but it is attested only in 2007. \"hành trình của con mã\" is the newest attestation (2019) and is a legitimate named section/figure title, so it is set as recommended to satisfy the 2019-2020 preference. If the established name should win over recency, \"mã đi tuần\" is the strongest alternative. No attestation found in the 2020 sources; both normal and --loose searches on the OCR sources were run.\n\"con mã\" and \"quân mã\" both appear in the corpus for the chess knight piece (nguyenhuudien-2019 / hoangchithanh-2007), used interchangeably.\nDefinition follows Rosen's general tour (visit every square exactly once) as ground truth, with the closed/open distinction added because the 2019 source describes the re-entrant variant. CAUTION (kept out of the entry): one source snippet (nguyenhuudien-2019 p.188) wrongly describes the knight moving \"theo đường chéo\" (diagonally); the knight moves in an L-shape, so definition_vi deliberately writes only \"nước đi của con mã\" and does not propagate that error. A closed knight's tour corresponds to a Hamiltonian circuit and an open tour to a Hamiltonian path on the knight's-move graph (Rosen §10.5).\n\nEDITOR (chapter K final): applied two terminology fixes. (1) Removed the inline English glosses \"(closed)\" and \"(open)\" from definition_vi, keeping only the Vietnamese \"khép kín\"/\"hở\" per the no-inline-gloss convention; the EN correspondence is documented here in notes. (2) Per the chapter-wide see_also forward-reference policy, added the cross-chapter forward references hamiltonian-path and hamiltonian-circuit (chapter H), which are the graph-theoretic correspondents of the open and closed tours. All four verified terms re-confirmed via find-term.py.",
+   "see_also": [
+    "hamiltonian-path"
+   ],
+   "vi_terms": [
+    {
+     "term": "hành trình của con mã",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 189,
+     "page": "tr. 189",
+     "snippet": "Ví dụ 7.11. Một lời giải về hành trình của con mã trên bàn cờ 8 × 8:"
+    },
+    {
+     "term": "đường đi của con mã",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 188,
+     "page": "tr. 188",
+     "snippet": "“đường đi của con mã trên bàn cờ”. Trên bàn cờ, con mã chỉ có thể đi theo đường chéo của"
+    },
+    {
+     "term": "bài toán mã đi tuần",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-hoangchithanh-2007",
+     "pdf_page": 82,
+     "page": "tr. 82",
+     "snippet": "một lần (bài toán mã đi tuần)."
+    },
+    {
+     "term": "mã đi tuần",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-hoangchithanh-2007",
+     "pdf_page": 82,
+     "page": "tr. 82",
+     "snippet": "một lần (bài toán mã đi tuần)."
+    },
+    {
+     "term": "đường đi tuần của quân mã",
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": "",
+     "verified": false,
+     "recommended": false
+    },
+    {
+     "term": "hành trình của quân mã",
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": "",
+     "verified": false,
+     "recommended": false
+    },
+    {
+     "term": "hành trình của con mã",
+     "source_id": "bib-doducgiao-2000",
+     "page": "tr. 123",
+     "pdf_page": 122,
+     "snippet": "35. Hành trình của con mã là một dãy di chuyển hợp lệ từ một",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "hành trình của con mã",
+     "source_id": "bib-nguyenhuyran-2000",
+     "page": "",
+     "pdf_page": 113,
+     "snippet": "Rai toán 14.1. Hành trình của con mã trên bàn cờ (Euler). Liệu con",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "bài toán mã đi tuần",
+     "source_id": "bib-hoangchithanh-2011",
+     "page": "",
+     "pdf_page": 7,
+     "snippet": "Konigsberg, bài toán mã đi tuần, bài toán hôn nhân bèn vững, bài toán ba nhà",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "mã đi tuần",
+     "source_id": "bib-hoangchithanh-2011",
+     "page": "",
+     "pdf_page": 7,
+     "snippet": "Konigsberg, bài toán mã đi tuần, bài toán hôn nhân bèn vững, bài toán ba nhà",
+     "verified": true,
+     "recommended": false
+    }
+   ],
+   "pos": "d.t."
+  },
+  {
+   "id": "k-ary-tree",
+   "letter": "K",
+   "headword_en": "k-ary tree",
+   "see_ref": "m-ary-tree",
+   "vi_terms": [
+    {
+     "term": "cây m-phân",
+     "verified": false,
+     "recommended": false,
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": ""
+    }
+   ],
+   "see_also": [],
+   "notes": "Đồng nghĩa với m-ary tree.",
+   "pos": "d.t."
+  },
+  {
+   "id": "k-cube",
+   "letter": "K",
+   "headword_en": "k-cube",
+   "see_ref": "hypercube",
+   "vi_terms": [
+    {
+     "term": "đồ thị lập phương",
+     "verified": false,
+     "recommended": false,
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": ""
+    },
+    {
+     "term": "đồ thị siêu lập phương",
+     "verified": false,
+     "recommended": false,
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": ""
+    },
+    {
+     "term": "siêu khối",
+     "verified": false,
+     "recommended": false,
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": ""
+    },
+    {
+     "term": "mạng kiểu siêu khối",
+     "verified": false,
+     "recommended": false,
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": ""
+    }
+   ],
+   "see_also": [],
+   "notes": "Đồng nghĩa với Hypercube.",
+   "pos": "d.t."
+  },
+  {
+   "id": "k-tuple",
+   "letter": "K",
+   "headword_en": "k-tuple",
+   "notation": "(a_1, a_2, \\ldots, a_k)",
+   "definition_vi": "Một \\emph{$$k$$-bộ sắp thứ tự} là một dãy gồm $$k$$ đối tượng được liệt kê theo một thứ tự xác định, ký hiệu $$(a_1, a_2, \\ldots, a_k)$$, trong đó $$a_i$$ là thành phần thứ $$i$$. Thứ tự của các thành phần là quan trọng và các thành phần được phép lặp lại, nên $$(a_1, a_2, \\ldots, a_k) = (b_1, b_2, \\ldots, b_k)$$ khi và chỉ khi $$a_i = b_i$$ với mọi $$i$$ thỏa $$1 \\leq i \\leq k$$.",
+   "example_vi": "Bộ $$(2, 1, 2)$$ là một $$3$$-bộ sắp thứ tự với $$a_1 = 2$$, $$a_2 = 1$$, $$a_3 = 2$$; nó khác với bộ $$(1, 2, 2)$$ vì thứ tự các thành phần khác nhau, mặc dù cả hai cùng dùng các phần tử $$1$$ và $$2$$.",
+   "notes": "Recommended term \"bộ sắp thứ tự\" is attested in the newest source bib-nguyenhoangthach-2020 (2020), where the ordered-tuple notation \"(f(1), f(2), ..., f(k))\" (p.21) names exactly the ordered k-tuple concept; the same source's p.20 occurrence carries an extra \"khác nhau\" (distinct) restriction that is narrower than the general k-tuple, so the p.21 snippet is recorded for the recommended term. The candidate terms \"bộ k thành phần\" and \"bộ gồm k phần tử\" returned zero hits across all sources (normal and --loose) and are dropped. The fuller phrase \"bộ có thứ tự gồm k thành phần\" is attested only in the 2004 source. Excluded: \"bộ ba\" hits denote ordered triples (a special case) or graph-theoretic triples $$(V,E,f)$$, not the general k-tuple, so they are not recorded here.\n\nEDITOR (chapter K final): converted the markdown-asterisk emphasis \"*k-bộ sắp thứ tự*\" to \\emph{$$k$$-bộ sắp thứ tự} to match the chapter-wide \\emph{...} first-introduction emphasis convention. Definition matches Rosen §2.1 (an ordered k-tuple is the ordered collection in which order matters and two tuples are equal iff each corresponding pair of elements is equal).",
+   "rosen_ref": "Rosen §2.1",
+   "see_also": [
+    "ordered-pair",
+    "cartesian-product",
+    "sequence"
+   ],
+   "vi_terms": [
+    {
+     "term": "bộ sắp thứ tự",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-nguyenhoangthach-2020",
+     "pdf_page": 21,
+     "page": "tr. 19",
+     "snippet": "bởi bộ sắp thứ tự (f (1), f (2), . . . , f (k)). Hơn nữa, f là đơn ánh nếu và chỉ nếu"
+    },
+    {
+     "term": "bộ sắp thứ tự gồm k phần tử",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhoangthach-2020",
+     "pdf_page": 20,
+     "page": "tr. 18",
+     "snippet": "S là một bộ sắp thứ tự gồm k phần tử khác nhau của S."
+    },
+    {
+     "term": "bộ thứ tự",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 236,
+     "page": "tr. 236",
+     "snippet": "Gn+1 gồm n bản sao của Gn và thêm knn đỉnh mới theo cách sau: mỗi bộ thứ tự (v1 , v2 , . . . , vn ),"
+    },
+    {
+     "term": "bộ có thứ tự",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenducnghia-2006",
+     "pdf_page": 16,
+     "page": "",
+     "snippet": "Nếnu môi thành phần a, của bộ có thứ tự k thành phần (a,, 0› ... d) có h5¿ khả năng chọn"
+    },
+    {
+     "term": "bộ có thứ tự gồm k thành phần",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-ngodactan-2004",
+     "pdf_page": 27,
+     "page": "tr. 27",
+     "snippet": "s là sơ đồ sắp xếp “bộ có thứ tự gồm k thành phần (xi, X2 , ■■■,'Xfe)” ,"
+    },
+    {
+     "term": "k-bộ có thứ tự",
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": "",
+     "verified": false,
+     "recommended": false
+    },
+    {
+     "term": "bộ sắp thứ tự",
+     "source_id": "bib-doducgiao-2000",
+     "page": "tr. 216",
+     "pdf_page": 215,
+     "snippet": "Định nghĩa 1: Văn phạm G là một bộ sắp thứ tự gồm 4",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "bộ thứ tự",
+     "source_id": "bib-nguyenvanmau-2007",
+     "page": "",
+     "pdf_page": 61,
+     "snippet": "của chứng. Tim số các bộ thú tự X = (x1,...,2n) thỏa mãn các điều kiện:",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "bộ có thứ tự",
+     "source_id": "bib-ngodactan-2004",
+     "page": "tr. 26",
+     "pdf_page": 26,
+     "snippet": "tất cả các bộ có thứ tự ( ai , ữ2, ■■• , Cbn) gồm n thành phần ãị, 0 ,2 ,.. ■,an",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "bộ sắp thứ tự",
+     "source_id": "bib-doducgiao-2008",
+     "page": "tr. 300",
+     "pdf_page": 301,
+     "snippet": "Định nghĩa 1: Văn phạm G là một bộ sắp thứ tự gồm bốn thành phần",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "bộ có thứ tự",
+     "source_id": "bib-vovantuandung-2007",
+     "page": "",
+     "pdf_page": 55,
+     "snippet": "i. Một chính hợp lặp chập k từ n phan tứ là một bộ có thứ tự gồm",
+     "verified": true,
+     "recommended": false
+    }
+   ],
+   "pos": "d.t."
+  },
+  {
+   "id": "key",
+   "letter": "K",
+   "headword_en": "key",
+   "notation": "",
+   "rosen_ref": "Rosen §9.2",
+   "definition_vi": "Một \\emph{khóa} của một quan hệ $$n$$-ngôi $$R \\subseteq A_1 \\times A_2 \\times \\cdots \\times A_n$$ là một miền $$A_i$$ hoặc một tập các miền sao cho các giá trị trên đó xác định duy nhất mỗi bộ $$n$$ phần tử của $$R$$; nghĩa là, không có hai bộ phân biệt nào của $$R$$ trùng nhau trên tất cả các thành phần thuộc khóa.",
+   "example_vi": "Xét quan hệ $$R$$ gồm các bộ ba $$(\\text{Mã số}, \\text{Họ tên}, \\text{Điểm})$$. Nếu mỗi sinh viên có một mã số riêng biệt thì miền $$\\text{Mã số}$$ là một khóa của $$R$$, vì giá trị mã số xác định duy nhất một bộ trong $$R$$.",
+   "see_also": [],
+   "vi_terms": [
+    {
+     "term": "khóa",
+     "verified": false,
+     "recommended": true,
+     "source_id": "",
+     "pdf_page": 0,
+     "page": "",
+     "snippet": ""
+    }
+   ],
+   "notes": "No Vietnamese corpus source attests the \"key of an n-ary relation\" (relational-database) concept. This concept comes from Rosen §9.2 (Representing Relations / databases), a discrete-math-for-CS topic absent from the six corpus sources, which are graph theory and combinatorics texts. Searches (normal + --loose on OCR sources bib-leanhvinh-2020 and bib-hoangchithanh-2007): \"khóa\" (0 strict; 40+19 loose hits all noise), \"khoá\", \"khóa của quan hệ\", \"thuộc tính khóa\", \"khóa của một quan hệ\", \"khóa chính\", \"khóa quan hệ\", \"cơ sở dữ liệu\" (0 hits), \"quan hệ n-ngôi\" (0 hits). All \"khóa/khoá\" hits are unrelated noise — khoa học (science), khoảng cách (distance), and proper names (Hà Huy Khoái, Phan Huy Khải). The 407 \"quan hệ\" hits denote graph-theoretic relations (quan hệ nhị nguyên, quan hệ tương đương), not relational-database relations. Definition faithfully matches Rosen §9.2 (a key / composite key of an n-ary relation is a domain or set of domains whose values uniquely determine each tuple).\n\nEDITOR (chapter K final): applied the terminology citation-hygiene fix. Dropped the two verified=false empty-page non-recommended variants \"khóa của quan hệ\" (key of the relation) and \"thuộc tính khóa\" (key attribute); per the locked rule, when no source attests the concept only the single standard recommended term may be kept so vi_terms stays non-empty. Their status as standard-but-unattested database renderings is preserved here in notes. Recommended term \"khóa\" is the standard Vietnamese rendering of a key (of a relation/database); kept verified=false with empty page since no source attests it. see_also is empty: no other K-chapter terms in these graph/combinatorics books relate to the relational-database key concept.",
+   "pos": "d.t."
+  },
+  {
+   "id": "complete-graph-kn",
+   "letter": "K",
+   "headword_en": "complete graph K_n",
+   "notation": "K_n",
+   "rosen_ref": "Rosen §10.2",
+   "definition_vi": "\\emph{Đồ thị đầy đủ} trên $$n$$ đỉnh, ký hiệu $$K_n$$, là đơn đồ thị mà mỗi cặp đỉnh phân biệt được nối với nhau bởi đúng một cạnh.",
+   "example_vi": "Đồ thị $$K_4$$ có bốn đỉnh và $$\\binom{4}{2} = 6$$ cạnh, trong đó mỗi đỉnh kề với ba đỉnh còn lại.",
+   "vi_terms": [
+    {
+     "term": "đồ thị đầy đủ",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-leanhvinh-2020",
+     "pdf_page": 14,
+     "page": "tr. 15",
+     "snippet": "Định nghĩa 1.9. Đồ thị đầy đủ bậc n, kí hiệu bởi K„, là đồ thị gồm"
+    },
+    {
+     "term": "đồ thị đầy đủ bậc n",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-leanhvinh-2020",
+     "pdf_page": 14,
+     "page": "tr. 15",
+     "snippet": "Định nghĩa 1.9. Đồ thị đầy đủ bậc n, kí hiệu bởi K„, là đồ thị gồm"
+    },
+    {
+     "term": "đồ thị đầy đủ Kn",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhoangthach-2020",
+     "pdf_page": 69,
+     "page": "tr. 67",
+     "snippet": "Đồ thị đầy đủ Kn với n ≥ 3 không phải là một đồ thị hai phần."
+    },
+    {
+     "term": "đồ thị đầy đủ n đỉnh",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 159,
+     "page": "tr. 159",
+     "snippet": "Đồ thị đầy đủ n đỉnh, ký hiệu là Kn , là đơn đồ thị mà hai đỉnh phân biệt bất kỳ của nó"
+    },
+    {
+     "term": "n-đồ thị đầy đủ",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-ngodactan-2004",
+     "pdf_page": 190,
+     "page": "tr. 190",
+     "snippet": "cấp n và cỡ m = (2) được gọi là n-đồ thị đầy đủ và thường được ký"
+    },
+    {
+     "term": "đồ thị đầy đủ",
+     "source_id": "bib-nguyenhoangthach-2020",
+     "page": "tr. 65",
+     "pdf_page": 67,
+     "snippet": "Đồ thị đầy đủ: Kn , n ≥ 1, có n đỉnh v1 , v2 , . . . , vn và n(n − 1)/2 cạnh nối",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "đồ thị đầy đủ",
+     "source_id": "bib-nguyenhuudien-2019",
+     "page": "tr. 9",
+     "pdf_page": 9,
+     "snippet": "6.9 Đồ thị đầy đủ . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 159",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "đồ thị đầy đủ Kn",
+     "source_id": "bib-nguyenhuudien-2019",
+     "page": "tr. 162",
+     "pdf_page": 162,
+     "snippet": "giữa mỗi cặp bộ xử lý. Các mạng này có thể mô hình bằng đồ thị đầy đủ Kn , trong đó n là",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "đồ thị đầy đủ n đỉnh",
+     "source_id": "bib-hoangchithanh-2011",
+     "page": "",
+     "pdf_page": 51,
+     "snippet": "2.3. Đồ thị day đủ n đỉnh K, có bao nhiêu hàm Grundy? Hãy liệt kê các hàm đó.",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "đồ thị đầy đủ n đỉnh",
+     "source_id": "bib-vudinhhoa-2010",
+     "page": "",
+     "pdf_page": 131,
+     "snippet": "đình. Do đó, người ta vẫn kí hiệu đồ thị đầy đủ n đỉnh là K„. Với kí hiệu này, thì",
+     "verified": true,
+     "recommended": false
+    }
+   ],
+   "see_also": [
+    "bipartite-graph",
+    "simple-graph"
+   ],
+   "notes": "Recommended term \"đồ thị đầy đủ\" is the standard base form, attested in all six sources including both 2020 sources (bib-leanhvinh-2020 p.14 formal definition, base form standalone p.180; bib-nguyenhoangthach-2020 p.69) and 2019 (bib-nguyenhuudien-2019 p.159). Newest formal definition: bib-leanhvinh-2020 p.14 (\"Đồ thị đầy đủ bậc n, kí hiệu bởi $$K_n$$...\"); bib-nguyenhuudien-2019 p.159 gives the per-vertex definition (\"hai đỉnh phân biệt bất kỳ\" are joined). Older sources: bib-nguyenducnghia-2006 p.158 (\"Đồ thị đầy đủ n đỉnh, ký hiệu bởi $$K_n$$, là đơn đồ thị vô hướng mà giữa...\"), bib-hoangchithanh-2007 p.52 (uses \"đồ thị đầy đủ n đỉnh\"), bib-ngodactan-2004 p.190 (variant \"n-đồ thị đầy đủ\"). Variant \"đồ thị đầy đủ bậc n\" (degree/order phrasing) is unique to bib-leanhvinh-2020; \"đồ thị đầy đủ Kn\" and \"đồ thị đầy đủ n đỉnh\" co-occur in the 2019-2020 texts. OCR sources (bib-leanhvinh-2020, bib-hoangchithanh-2007) confirmed via both normal and --loose runs. The standard notation $$K_n$$ is consistent across every source. Definition_vi follows the per-vertex formulation from bib-nguyenhuudien-2019 p.159. Example uses $$K_4$$ with $$\\binom{4}{2}=6$$ edges, self-contained from the definition's edge-per-pair rule; each vertex has degree 3 (correct). Definition matches Rosen §10.2.\n\nEDITOR (chapter K final): the notation field stores the bare token $$K_n$$ per the book-wide convention (wrapped by the build layer). see_also id complete-bipartite-graph-kmn is a same-chapter (K) forward reference that will resolve once that entry is built; simple-graph and bipartite-graph are cross-chapter forward references. All five verified=true vi_terms confirmed (source_id, pdf_page, snippet denote this concept); exactly one recommended=true.",
+   "pos": "d.t."
+  },
+  {
+   "id": "kuratowskis-subgraph",
+   "letter": "K",
+   "headword_en": "Kuratowski's subgraph",
+   "notation": "K_5,\\ K_{3,3}",
+   "rosen_ref": "Rosen §10.7",
+   "definition_vi": "Đồ thị con Kuratowski của một đồ thị $$G$$ là một đồ thị con của $$G$$ đồng phôi với đồ thị đầy đủ $$K_5$$ hoặc với đồ thị hai phần đầy đủ $$K_{3,3}$$ (ký hiệu hai đồ thị Kuratowski). Theo định lý Kuratowski, $$G$$ là không phẳng khi và chỉ khi $$G$$ chứa một đồ thị con Kuratowski, tức một đồ thị con đồng phôi với $$K_5$$ hoặc $$K_{3,3}$$.",
+   "example_vi": "Đồ thị Petersen chứa một đồ thị con đồng phôi với $$K_{3,3}$$, do đó nó có một đồ thị con Kuratowski và không phẳng. Ngược lại, đồ thị đầy đủ $$K_4$$ không chứa đồ thị con nào đồng phôi với $$K_5$$ hay $$K_{3,3}$$ nên $$K_4$$ là đồ thị phẳng.",
+   "vi_terms": [
+    {
+     "term": "đồ thị con đồng phôi với $$K_5$$ hoặc $$K_{3,3}$$",
+     "source_id": "",
+     "pdf_page": 0,
+     "page": "",
+     "snippet": "",
+     "verified": false,
+     "recommended": false
+    },
+    {
+     "term": "cấu hình $$K_5$$ / $$K_{3,3}$$",
+     "source_id": "",
+     "pdf_page": 0,
+     "page": "",
+     "snippet": "",
+     "verified": false,
+     "recommended": false
+    },
+    {
+     "term": "đồ thị con Kuratowski",
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": "",
+     "verified": false,
+     "recommended": true
+    }
+   ],
+   "see_also": [],
+   "notes": "Thuật ngữ chuẩn của giáo trình MAT3500 là \"đồ thị con Kuratowski\", tức đồ thị con đồng phôi với $$K_5$$ hoặc $$K_{3,3}$$. Các tài liệu tiếng Việt mô tả cùng khái niệm này qua định lý Kuratowski: Nguyễn Hoàng Thạch gọi là \"đồ thị con đồng phôi với $$K_5$$ hoặc $$K_{3,3}$$\", còn Nguyễn Hữu Điển dùng \"cấu hình $$K_5$$ / $$K_{3,3}$$\".",
+   "status": "draft",
+   "pos": "d.t."
+  },
+  {
+   "id": "k-map",
+   "letter": "K",
+   "headword_en": "K-map",
+   "see_ref": "karnaugh-map",
+   "vi_terms": [],
+   "status": "draft",
+   "pos": "d.t."
+  },
+  {
+   "id": "key-exchange-protocol",
+   "letter": "K",
+   "headword_en": "key exchange protocol",
+   "notation": "",
+   "rosen_ref": "Rosen §4.6",
+   "definition_vi": "Giao thức trao đổi khóa là một giao thức được hai bên sử dụng để cùng thống nhất về một khóa bí mật dùng chung. Khóa bí mật chung này sau đó có thể được dùng để mã hóa và giải mã các thông điệp trao đổi giữa hai bên.",
+   "example_vi": "Trong giao thức trao đổi khóa Diffie–Hellman, hai bên công khai chọn một số nguyên tố $$p$$ và một số nguyên $$a$$ với $$2 \\leq a \\leq p-1$$. Mỗi bên chọn riêng một số mũ bí mật, lần lượt là $$k_1$$ và $$k_2$$ với $$1 \\leq k_1, k_2 \\leq p-1$$, rồi gửi cho bên kia các giá trị $$a^{k_1} \\bmod p$$ và $$a^{k_2} \\bmod p$$. Khi đó cả hai bên đều tính được cùng một khóa bí mật chung $$a^{k_1 k_2} \\bmod p$$, trong khi một bên thứ ba chỉ biết $$p$$, $$a$$, $$a^{k_1} \\bmod p$$ và $$a^{k_2} \\bmod p$$ vẫn rất khó suy ra khóa này.",
+   "vi_terms": [
+    {
+     "term": "giao thức trao đổi khóa",
+     "verified": false,
+     "recommended": true,
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": ""
+    },
+    {
+     "term": "giao thức thỏa thuận khóa",
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": "",
+     "verified": false,
+     "recommended": false
+    }
+   ],
+   "see_also": [
+    "public-key-cryptography",
+    "private-key-cryptography",
+    "key"
+   ],
+   "notes": "Giao thức trao đổi khóa cho phép hai bên thống nhất một khóa bí mật dùng chung qua một kênh truyền công khai; ví dụ kinh điển là giao thức Diffie–Hellman, có độ an toàn dựa trên bài toán lôgarit rời rạc theo modulo (việc tính $$a^{k_1 k_2} \\bmod p$$ từ $$a^{k_1} \\bmod p$$ và $$a^{k_2} \\bmod p$$ là khó về mặt tính toán). Thuật ngữ \"giao thức trao đổi khóa\" là cách dịch chuẩn; không tìm thấy dẫn chứng trực tiếp cho khái niệm này trong kho ngữ liệu khảo sát (kể cả bản dịch Rosen tiếng Việt 2003), nên thuật ngữ tiếng Việt được đề xuất theo bản dịch chuẩn với verified=false.",
+   "status": "draft",
+   "pos": "d.t."
+  }
+ ]
 }

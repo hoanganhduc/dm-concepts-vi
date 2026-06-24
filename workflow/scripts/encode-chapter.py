@@ -76,8 +76,9 @@ def render_see(e, allowed_ids):
     """Render a cross-reference stub: 'Headword (vi). Xem <target>.'"""
     eid = e["id"]
     target = e["see_ref"]
+    pos = f" ({e['pos']})" if e.get("pos") else ""
     lines = [f'  <definition xml:id="def-{eid}">',
-             f"    <title>{esc_text(e['headword_en'])}</title>",
+             f"    <title>{esc_text(e['headword_en'])}{pos}</title>",
              f"    <idx><h>{esc_text(e['headword_en'])}</h></idx>"]
     vi_terms = sorted({t.get("term", "") for t in e.get("vi_terms", []) if t.get("term")})
     for term in vi_terms:
@@ -101,7 +102,8 @@ def render_entry(e, allowed_ids):
     rec = next((t["term"] for t in e.get("vi_terms", []) if t.get("recommended")), "")
     lines = []
     lines.append(f'  <definition xml:id="def-{eid}">')
-    title = esc_text(e["headword_en"]) + (" — " + esc_text(rec) if rec else "")
+    pos = f" ({e['pos']})" if e.get("pos") else ""
+    title = esc_text(e["headword_en"]) + pos + (" — " + esc_text(rec) if rec else "")
     lines.append(f"    <title>{title}</title>")
     seen = set()
     for h in [e["headword_en"]] + sorted({t.get("term", "") for t in e.get("vi_terms", []) if t.get("term")}):

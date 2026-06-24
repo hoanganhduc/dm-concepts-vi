@@ -1,95 +1,97 @@
 {
-  "locked_conventions": [
-    "Math: every inline math symbol wrapped in $$...$$ (e.g. $$G$$, $$\\lambda \\vdash n$$, $$Y$$, $$\\Delta$$, set braces $$\\{a, b, c\\}$$, $$\\gcd(a,b)$$); block math uses a ```math fence; no bare unwrapped book-prose math; use $$\\geq$$ $$\\leq$$ $$\\neq$$, never ASCII >= <= !=. Greek configuration letters $$Y$$ and $$\\Delta$$ are math objects and are wrapped wherever they appear as symbols in definition prose. Verbatim OCR snippets and literal find-term query strings inside notes are left as quoted source text, not wrapped.",
-    "Bipartite is rendered \"đồ thị hai phần\" (book standard); \"đồ thị hai phía\"/\"đồ thị phân đôi\" are listed variants only. Not triggered in chapter Y (Young tableau / Y-Delta transform; no bipartite content).",
-    "Exactly ONE vi_term per entry has recommended=true; attested in a 2019-2020 source where possible; citations ordered newest-first. EVERY variant from ALL sources (old+new) is recorded. A recommended term may be verified=false only if NO source attests it (then explained in notes); this is the case for both Y-chapter entries, which are fully unattested across all seven corpus sources.",
-    "Citation hygiene: every verified=true vi_term carries source_id + pdf_page + page + snippet; verified=false non-recommended terms with empty page are dropped, except one standard recommended term kept so vi_terms stays non-empty.",
-    "Examples are self-contained: they instantiate only the quantities the definition introduces; no derived quantity the definition did not introduce.",
-    "No synonym glosses inside the definition prose; variants live in vi_terms/notes; the English headword lives in headword_en.",
-    "see_also: kebab-case ids; only same-chapter ids are linked, cross-chapter ids are forward references (text only). Both Y entries have empty see_also: young-tableau has no same-chapter target, and y-delta-transform's only related concept (homeomorphic-graphs / graph-minor) is cross-chapter, hence a forward reference only.",
-    "Registry constraint: bib-rosen-2003-vi is role:reference and is excluded from the default \"search all\" pass in find-term.py (EXCLUDE_DEFAULT, line 25). It must be mined in a dedicated by-id pass and may NEVER be the recommended/lead term. For chapter Y the dedicated Rosen-vi pass returned zero attestation for both concepts, so no rosen-2003-vi variants are recorded; this is documented in the deferred_note."
-  ],
-  "deferred_note": "Before applying fixes I corrected the corpus-coverage gap that affected chapter X: the original chapter-Y miner notes list only SIX sources and never mention bib-rosen-2003-vi, because find-term.py excludes it from the default \"search all\" pass (EXCLUDE_DEFAULT = {bib-rosen-2003-vi}, scripts/find-term.py line 25). I re-ran a dedicated by-id Rosen-vi pass for both concepts (Young tableau at Rosen §6.5; Y-Delta). Results: \"Young\"=0, \"tableau\"=0, \"bang Young\"--loose=0, \"giản đồ Young\"--loose=0, \"biểu đồ Young\"--loose=0, \"sao-tam giác\"=0, \"sao tam giac\"--loose=0, \"Y-Delta\"=0, \"tam giác sao\"(all sources)=0; the lone \"wye\" hit (rosen-2003-vi PDF p.935) is OCR noise from a city-graph exercise (\"NewYerk\"/New York), not the transform. Both concepts are therefore confirmed absent across ALL SEVEN sources, so the miner's no-attestation conclusion stands and each entry keeps exactly one standard recommended term with verified=false and page=\"\" so vi_terms is non-empty (the permitted citation-hygiene exception). I updated both notes to state \"all seven sources including the dedicated bib-rosen-2003-vi pass\" instead of the false six-source claim. Correctness/exposition/terminology fixes applied where clearly correct: (young-tableau) HIGH+MED resolved by committing to the STANDARD Young tableau (the $$\\lambda \\vdash n$$ notation, Rosen §6.5 context, and the example filling $$1,2,3$$ each once all indicate the standard tableau): definition now states entries are $$1,2,\\dots,n$$ each used exactly once and strictly increasing along both rows (left to right) and columns (top to bottom), with corrected direction wording (\"từ trái sang phải\", \"từ trên xuống dưới\"); the example row check changed from $$1 \\leq 2$$ to $$1 < 2$$ so it now exercises the strict-row rule and agrees with the definition; LOW note added on the standard-vs-semistandard distinction. (y-delta-transform) HIGH correctness: removed the false invariant sentence \"giữ nguyên tính liên thông cốt yếu và cấu trúc minor\" (a Y-Delta transform produces a different, generally non-minor-equivalent graph; vertex count and cycle count change). Per the panel's preferred fix the definition now states only the local replacement operation; the one robust invariant (edge count is preserved: 3 edges removed, 3 added) and the conditional planarity fact (preserved only when the triangle/star is a face of a planar embedding; NOT unconditional, and the Petersen family is a Y-Delta equivalence class) are moved to notes as remarks rather than asserted unconditionally in the definition. HIGH terminology/exposition: wrapped every bare configuration letter -- $$Y$$, $$\\Delta$$, the compound labels $$Y\\text{-}\\Delta$$ and $$\\Delta\\text{-}Y$$ -- in definition_vi, and converted the bare Greek in the notes query-string list to ASCII \"Y-Delta\"/\"Delta-Y\" so no bare Δ survives in prose. MED: added \"ba láng giềng phân biệt\" (three distinct neighbours) to the definition body to match the example and keep the operation well-defined on simple graphs (resulting parallel edges merged). LOW: rosen_ref retained but flagged in notes as a related-topic pointer (Y-Delta is not a core Rosen §10.7 definition; §10.7 covers planarity/Kuratowski, the relevant motivating context). Both recommended terms remain verified=false with empty source_id/page/pdf_page/snippet, which is the permitted standard-term exception; no fabricated citations.",
-  "final_entries": [
+ "locked_conventions": [
+  "Math: every inline math symbol wrapped in $$...$$ (e.g. $$G$$, $$\\lambda \\vdash n$$, $$Y$$, $$\\Delta$$, set braces $$\\{a, b, c\\}$$, $$\\gcd(a,b)$$); block math uses a ```math fence; no bare unwrapped book-prose math; use $$\\geq$$ $$\\leq$$ $$\\neq$$, never ASCII >= <= !=. Greek configuration letters $$Y$$ and $$\\Delta$$ are math objects and are wrapped wherever they appear as symbols in definition prose. Verbatim OCR snippets and literal find-term query strings inside notes are left as quoted source text, not wrapped.",
+  "Bipartite is rendered \"đồ thị hai phần\" (book standard); \"đồ thị hai phía\"/\"đồ thị phân đôi\" are listed variants only. Not triggered in chapter Y (Young tableau / Y-Delta transform; no bipartite content).",
+  "Exactly ONE vi_term per entry has recommended=true; attested in a 2019-2020 source where possible; citations ordered newest-first. EVERY variant from ALL sources (old+new) is recorded. A recommended term may be verified=false only if NO source attests it (then explained in notes); this is the case for both Y-chapter entries, which are fully unattested across all seven corpus sources.",
+  "Citation hygiene: every verified=true vi_term carries source_id + pdf_page + page + snippet; verified=false non-recommended terms with empty page are dropped, except one standard recommended term kept so vi_terms stays non-empty.",
+  "Examples are self-contained: they instantiate only the quantities the definition introduces; no derived quantity the definition did not introduce.",
+  "No synonym glosses inside the definition prose; variants live in vi_terms/notes; the English headword lives in headword_en.",
+  "see_also: kebab-case ids; only same-chapter ids are linked, cross-chapter ids are forward references (text only). Both Y entries have empty see_also: young-tableau has no same-chapter target, and y-delta-transform's only related concept (homeomorphic-graphs / graph-minor) is cross-chapter, hence a forward reference only.",
+  "Registry constraint: bib-rosen-2003-vi is role:reference and is excluded from the default \"search all\" pass in find-term.py (EXCLUDE_DEFAULT, line 25). It must be mined in a dedicated by-id pass and may NEVER be the recommended/lead term. For chapter Y the dedicated Rosen-vi pass returned zero attestation for both concepts, so no rosen-2003-vi variants are recorded; this is documented in the deferred_note."
+ ],
+ "deferred_note": "Before applying fixes I corrected the corpus-coverage gap that affected chapter X: the original chapter-Y miner notes list only SIX sources and never mention bib-rosen-2003-vi, because find-term.py excludes it from the default \"search all\" pass (EXCLUDE_DEFAULT = {bib-rosen-2003-vi}, scripts/find-term.py line 25). I re-ran a dedicated by-id Rosen-vi pass for both concepts (Young tableau at Rosen §6.5; Y-Delta). Results: \"Young\"=0, \"tableau\"=0, \"bang Young\"--loose=0, \"giản đồ Young\"--loose=0, \"biểu đồ Young\"--loose=0, \"sao-tam giác\"=0, \"sao tam giac\"--loose=0, \"Y-Delta\"=0, \"tam giác sao\"(all sources)=0; the lone \"wye\" hit (rosen-2003-vi PDF p.935) is OCR noise from a city-graph exercise (\"NewYerk\"/New York), not the transform. Both concepts are therefore confirmed absent across ALL SEVEN sources, so the miner's no-attestation conclusion stands and each entry keeps exactly one standard recommended term with verified=false and page=\"\" so vi_terms is non-empty (the permitted citation-hygiene exception). I updated both notes to state \"all seven sources including the dedicated bib-rosen-2003-vi pass\" instead of the false six-source claim. Correctness/exposition/terminology fixes applied where clearly correct: (young-tableau) HIGH+MED resolved by committing to the STANDARD Young tableau (the $$\\lambda \\vdash n$$ notation, Rosen §6.5 context, and the example filling $$1,2,3$$ each once all indicate the standard tableau): definition now states entries are $$1,2,\\dots,n$$ each used exactly once and strictly increasing along both rows (left to right) and columns (top to bottom), with corrected direction wording (\"từ trái sang phải\", \"từ trên xuống dưới\"); the example row check changed from $$1 \\leq 2$$ to $$1 < 2$$ so it now exercises the strict-row rule and agrees with the definition; LOW note added on the standard-vs-semistandard distinction. (y-delta-transform) HIGH correctness: removed the false invariant sentence \"giữ nguyên tính liên thông cốt yếu và cấu trúc minor\" (a Y-Delta transform produces a different, generally non-minor-equivalent graph; vertex count and cycle count change). Per the panel's preferred fix the definition now states only the local replacement operation; the one robust invariant (edge count is preserved: 3 edges removed, 3 added) and the conditional planarity fact (preserved only when the triangle/star is a face of a planar embedding; NOT unconditional, and the Petersen family is a Y-Delta equivalence class) are moved to notes as remarks rather than asserted unconditionally in the definition. HIGH terminology/exposition: wrapped every bare configuration letter -- $$Y$$, $$\\Delta$$, the compound labels $$Y\\text{-}\\Delta$$ and $$\\Delta\\text{-}Y$$ -- in definition_vi, and converted the bare Greek in the notes query-string list to ASCII \"Y-Delta\"/\"Delta-Y\" so no bare Δ survives in prose. MED: added \"ba láng giềng phân biệt\" (three distinct neighbours) to the definition body to match the example and keep the operation well-defined on simple graphs (resulting parallel edges merged). LOW: rosen_ref retained but flagged in notes as a related-topic pointer (Y-Delta is not a core Rosen §10.7 definition; §10.7 covers planarity/Kuratowski, the relevant motivating context). Both recommended terms remain verified=false with empty source_id/page/pdf_page/snippet, which is the permitted standard-term exception; no fabricated citations.",
+ "final_entries": [
+  {
+   "id": "young-tableau",
+   "letter": "Y",
+   "headword_en": "Young tableau",
+   "notation": "\\lambda \\vdash n",
+   "rosen_ref": "Rosen §6.5",
+   "definition_vi": "Cho phân hoạch $$\\lambda \\vdash n$$ của số nguyên dương $$n$$, một *bảng Young (chuẩn)* ứng với $$\\lambda$$ (ký hiệu $$T$$) là một cách điền các số $$1, 2, \\ldots, n$$, mỗi số đúng một lần, vào các ô của giản đồ Young của $$\\lambda$$ (một mảng ô được căn lề trái mà độ dài các dòng tạo thành $$\\lambda$$), sao cho các số tăng ngặt theo mỗi dòng từ trái sang phải và tăng ngặt theo mỗi cột từ trên xuống dưới.",
+   "example_vi": "Với $$\\lambda = (2,1) \\vdash 3$$, giản đồ Young có hai ô ở dòng thứ nhất và một ô ở dòng thứ hai; cách điền dòng thứ nhất bằng $$1, 2$$ và dòng thứ hai bằng $$3$$ là một bảng Young, vì $$1 < 2$$ trên dòng và $$1 < 3$$ trên cột.",
+   "notes": "Kết quả khai thác: KHÔNG nguồn tiếng Việt nào trong kho ngữ liệu chứng thực bất kỳ thuật ngữ ứng viên nào cho khái niệm bảng Young. Đã tìm trên cả bảy nguồn — bib-leanhvinh-2020, bib-nguyenhoangthach-2020, bib-nguyenhuudien-2019, bib-hoangchithanh-2007, bib-nguyenducnghia-2006, bib-ngodactan-2004, VÀ bản dịch tham khảo bib-rosen-2003-vi qua một lần khai thác by-id riêng (find-term.py loại bib-rosen-2003-vi khỏi chế độ tìm-tất-cả mặc định, EXCLUDE_DEFAULT, dòng 25). Cả bốn ứng viên (\"bảng Young\", \"biểu đồ Young\", \"bảng Young chuẩn\", \"lược đồ Young\") trả về 0 hit ở cả chế độ thường lẫn --loose, kể cả ở các nguồn OCR bib-leanhvinh-2020 và bib-hoangchithanh-2007 và ở bib-rosen-2003-vi. \"giản đồ Young\" và \"biểu đồ Young\" cũng trả về 0 hit (kể cả --loose ở Rosen-vi). Tìm \"Young\" trần chỉ trả về các kết quả không liên quan: bất đẳng thức Young (\"bất đẳng thức Young\", bib-leanhvinh-2020 tr. 239) và nhà toán học Youngs trong định lý Ringel-Youngs (bib-ngodactan-2004 tr. 214, 299, 301, 332). Từ tiếng Anh \"tableau\" cũng trả về 0 hit. Khái niệm bảng Young vì vậy không được bao quát trong kho ngữ liệu (bao gồm cả nguồn tham khảo Rosen-vi). Đính chính so với bản khai thác trước: ghi chú gốc chỉ liệt kê SÁU nguồn và bỏ sót bib-rosen-2003-vi; lần khai thác by-id riêng đã xác nhận Rosen-vi cũng 0 hit, nên kết luận không-chứng-thực vẫn đúng và nay được nêu trên đủ bảy nguồn. Theo quy ước, đúng một thuật ngữ chuẩn được giữ làm khuyến nghị với verified=false và page=\"\" để vi_terms không rỗng. Thuật ngữ khuyến nghị: \"bảng Young\" (calque của \"Young tableau\", \"bảng\" chỉ một bảng/mảng). Phân biệt chuẩn vs nửa-chuẩn: vì ký hiệu $$\\lambda \\vdash n$$, ngữ cảnh Rosen §6.5 và ví dụ điền $$1, 2, 3$$ mỗi số đúng một lần đều chỉ tới *bảng Young chuẩn*, định nghĩa được chốt theo thể chuẩn — các số $$1, \\ldots, n$$ dùng đúng một lần và tăng ngặt theo CẢ dòng lẫn cột. Thể *nửa chuẩn* (semistandard) cho phép lặp số nguyên dương tùy ý với dòng không giảm (yếu) và cột tăng ngặt; thể đó không được định nghĩa ở mục này để định nghĩa và ví dụ khớp nhau. Các biến thể (cũng không chứng thực trong kho): \"biểu đồ Young\" và \"lược đồ Young\" thực ra chỉ giản đồ Young nền (giản đồ/khung Young) chứ không phải bảng đã điền; \"bảng Young chuẩn\" chỉ chính thể chuẩn được định nghĩa ở đây. Ký hiệu phân hoạch $$\\lambda \\vdash n$$ nghĩa là $$\\lambda$$ là một phân hoạch của số nguyên dương $$n$$, cho độ dài các dòng của giản đồ. Trong định nghĩa, giản đồ Young nền được gọi là \"giản đồ Young\" (calque, \"giản đồ\" = diagram); đây là lựa chọn diagram có chủ ý, phân biệt với \"biểu đồ/lược đồ/khung Young\". Quy ước bao math áp dụng xuyên suốt. rosen_ref \"Rosen §6.5\" là con trỏ chủ đề liên quan: bảng Young xuất hiện quanh phần sinh hoán vị/tổ hợp của Rosen chứ không là một định nghĩa lõi được đánh số, phù hợp với việc khái niệm vắng mặt trong kho tiếng Việt.",
+   "see_also": [],
+   "vi_terms": [
     {
-      "id": "young-tableau",
-      "letter": "Y",
-      "headword_en": "Young tableau",
-      "notation": "\\lambda \\vdash n",
-      "rosen_ref": "Rosen §6.5",
-      "definition_vi": "Cho phân hoạch $$\\lambda \\vdash n$$ của số nguyên dương $$n$$, một *bảng Young (chuẩn)* ứng với $$\\lambda$$ (ký hiệu $$T$$) là một cách điền các số $$1, 2, \\ldots, n$$, mỗi số đúng một lần, vào các ô của giản đồ Young của $$\\lambda$$ (một mảng ô được căn lề trái mà độ dài các dòng tạo thành $$\\lambda$$), sao cho các số tăng ngặt theo mỗi dòng từ trái sang phải và tăng ngặt theo mỗi cột từ trên xuống dưới.",
-      "example_vi": "Với $$\\lambda = (2,1) \\vdash 3$$, giản đồ Young có hai ô ở dòng thứ nhất và một ô ở dòng thứ hai; cách điền dòng thứ nhất bằng $$1, 2$$ và dòng thứ hai bằng $$3$$ là một bảng Young, vì $$1 < 2$$ trên dòng và $$1 < 3$$ trên cột.",
-      "notes": "Kết quả khai thác: KHÔNG nguồn tiếng Việt nào trong kho ngữ liệu chứng thực bất kỳ thuật ngữ ứng viên nào cho khái niệm bảng Young. Đã tìm trên cả bảy nguồn — bib-leanhvinh-2020, bib-nguyenhoangthach-2020, bib-nguyenhuudien-2019, bib-hoangchithanh-2007, bib-nguyenducnghia-2006, bib-ngodactan-2004, VÀ bản dịch tham khảo bib-rosen-2003-vi qua một lần khai thác by-id riêng (find-term.py loại bib-rosen-2003-vi khỏi chế độ tìm-tất-cả mặc định, EXCLUDE_DEFAULT, dòng 25). Cả bốn ứng viên (\"bảng Young\", \"biểu đồ Young\", \"bảng Young chuẩn\", \"lược đồ Young\") trả về 0 hit ở cả chế độ thường lẫn --loose, kể cả ở các nguồn OCR bib-leanhvinh-2020 và bib-hoangchithanh-2007 và ở bib-rosen-2003-vi. \"giản đồ Young\" và \"biểu đồ Young\" cũng trả về 0 hit (kể cả --loose ở Rosen-vi). Tìm \"Young\" trần chỉ trả về các kết quả không liên quan: bất đẳng thức Young (\"bất đẳng thức Young\", bib-leanhvinh-2020 tr. 239) và nhà toán học Youngs trong định lý Ringel-Youngs (bib-ngodactan-2004 tr. 214, 299, 301, 332). Từ tiếng Anh \"tableau\" cũng trả về 0 hit. Khái niệm bảng Young vì vậy không được bao quát trong kho ngữ liệu (bao gồm cả nguồn tham khảo Rosen-vi). Đính chính so với bản khai thác trước: ghi chú gốc chỉ liệt kê SÁU nguồn và bỏ sót bib-rosen-2003-vi; lần khai thác by-id riêng đã xác nhận Rosen-vi cũng 0 hit, nên kết luận không-chứng-thực vẫn đúng và nay được nêu trên đủ bảy nguồn. Theo quy ước, đúng một thuật ngữ chuẩn được giữ làm khuyến nghị với verified=false và page=\"\" để vi_terms không rỗng. Thuật ngữ khuyến nghị: \"bảng Young\" (calque của \"Young tableau\", \"bảng\" chỉ một bảng/mảng). Phân biệt chuẩn vs nửa-chuẩn: vì ký hiệu $$\\lambda \\vdash n$$, ngữ cảnh Rosen §6.5 và ví dụ điền $$1, 2, 3$$ mỗi số đúng một lần đều chỉ tới *bảng Young chuẩn*, định nghĩa được chốt theo thể chuẩn — các số $$1, \\ldots, n$$ dùng đúng một lần và tăng ngặt theo CẢ dòng lẫn cột. Thể *nửa chuẩn* (semistandard) cho phép lặp số nguyên dương tùy ý với dòng không giảm (yếu) và cột tăng ngặt; thể đó không được định nghĩa ở mục này để định nghĩa và ví dụ khớp nhau. Các biến thể (cũng không chứng thực trong kho): \"biểu đồ Young\" và \"lược đồ Young\" thực ra chỉ giản đồ Young nền (giản đồ/khung Young) chứ không phải bảng đã điền; \"bảng Young chuẩn\" chỉ chính thể chuẩn được định nghĩa ở đây. Ký hiệu phân hoạch $$\\lambda \\vdash n$$ nghĩa là $$\\lambda$$ là một phân hoạch của số nguyên dương $$n$$, cho độ dài các dòng của giản đồ. Trong định nghĩa, giản đồ Young nền được gọi là \"giản đồ Young\" (calque, \"giản đồ\" = diagram); đây là lựa chọn diagram có chủ ý, phân biệt với \"biểu đồ/lược đồ/khung Young\". Quy ước bao math áp dụng xuyên suốt. rosen_ref \"Rosen §6.5\" là con trỏ chủ đề liên quan: bảng Young xuất hiện quanh phần sinh hoán vị/tổ hợp của Rosen chứ không là một định nghĩa lõi được đánh số, phù hợp với việc khái niệm vắng mặt trong kho tiếng Việt.",
-      "see_also": [],
-      "vi_terms": [
-        {
-          "term": "bảng Young",
-          "source_id": "",
-          "page": "",
-          "pdf_page": 0,
-          "snippet": "",
-          "verified": false,
-          "recommended": true
-        },
-        {
-          "term": "bảng Young chuẩn",
-          "source_id": "",
-          "page": "",
-          "pdf_page": 0,
-          "snippet": "",
-          "verified": false,
-          "recommended": false
-        },
-        {
-          "term": "bảng Young chuẩn tắc",
-          "source_id": "",
-          "page": "",
-          "pdf_page": 0,
-          "snippet": "",
-          "verified": false,
-          "recommended": false
-        }
-      ]
+     "term": "bảng Young",
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": "",
+     "verified": false,
+     "recommended": true
     },
     {
-      "id": "y-delta-transform",
-      "letter": "Y",
-      "headword_en": "Y-delta transform",
-      "notation": "Y \\leftrightarrow \\Delta",
-      "rosen_ref": "Rosen §10.7",
-      "definition_vi": "Phép biến đổi sao-tam giác ($$Y$$-$$\\Delta$$) trên đồ thị $$G$$, ký hiệu $$Y \\leftrightarrow \\Delta$$, là phép thay một đỉnh bậc ba $$v$$ với ba láng giềng phân biệt $$a$$, $$b$$, $$c$$ cùng ba cạnh kề $$va$$, $$vb$$, $$vc$$ (cấu hình hình sao $$Y$$) bởi một tam giác trên ba láng giềng đó (cấu hình tam giác $$\\Delta$$), hoặc thực hiện phép thay ngược lại ($$\\Delta$$-$$Y$$). Nếu một cạnh của tam giác đã có sẵn thì các cạnh song song được gộp lại để giữ đồ thị đơn.",
-      "example_vi": "Cho đỉnh $$v$$ của $$G$$ có đúng ba láng giềng phân biệt $$a$$, $$b$$, $$c$$. Phép biến đổi sao-tam giác xóa $$v$$ cùng ba cạnh $$va$$, $$vb$$, $$vc$$, rồi thêm ba cạnh $$ab$$, $$bc$$, $$ca$$, tạo thành tam giác trên $$\\{a, b, c\\}$$.",
-      "notes": "Khái niệm phép biến đổi $$Y$$-$$\\Delta$$ (sao-tam giác) không được chứng thực trong bất kỳ nguồn tiếng Việt nào của kho ngữ liệu. Đã tìm trên cả bảy nguồn — bib-leanhvinh-2020, bib-nguyenhoangthach-2020, bib-nguyenhuudien-2019, bib-hoangchithanh-2007, bib-nguyenducnghia-2006, bib-ngodactan-2004, VÀ bản dịch tham khảo bib-rosen-2003-vi qua một lần khai thác by-id riêng (find-term.py loại bib-rosen-2003-vi khỏi chế độ tìm-tất-cả mặc định) — ở cả chế độ thường lẫn --loose cho các nguồn OCR. Đã tìm các biến thể \"phép biến đổi sao-tam giác\", \"biến đổi Y-Delta\", \"phép biến đổi Y-Delta\", \"sao tam giác\", \"tam giác sao\", \"biến đổi sao\", \"Y-Delta\", \"Delta-Y\", \"wye-delta\": tất cả đều 0 hit. Hit \"wye\" duy nhất (bib-rosen-2003-vi tr. 935 PDF) là tạp âm OCR từ một bài tập đồ thị thành phố (\"NewYerk\"/New York), không phải phép biến đổi. Đính chính so với bản khai thác trước: ghi chú gốc chỉ liệt kê SÁU nguồn và bỏ sót bib-rosen-2003-vi; lần khai thác by-id riêng đã xác nhận Rosen-vi cũng 0 hit, nên kết luận không-chứng-thực vẫn đúng trên đủ bảy nguồn. Các nguồn có nói về phép toán đồ thị liên quan nhưng khác khái niệm này, gồm phép chia cạnh (bib-nguyenhoangthach-2020 tr. 81 \"Định nghĩa 5.51. Phép chia cạnh\", bib-hoangchithanh-2007 tr. 119), khái niệm hai đồ thị đồng cấu qua phép chia cạnh (bib-nguyenducnghia-2006 tr. 161 \"...đồng cấu nếu chúng có thể thu được từ cùng một đồ thị nào đó nhờ các phép chia cạnh\"; so sánh khái niệm đồng phôi ở bib-nguyenhoangthach-2020 tr. 81), và đồ thị sao $$K_{1,n}$$ như một lớp đồ thị (bib-leanhvinh-2020 tr. 15, tr. 82) — không phải phép biến đổi thay đỉnh bậc ba bằng tam giác trên ba láng giềng. Đây là khái niệm chuyên biệt (rút gọn đồ thị kiểu mạng điện) không xuất hiện trong các giáo trình toán rời rạc/lý thuyết đồ thị tiếng Việt đã khảo sát. Giữ một thuật ngữ chuẩn theo nghĩa đen \"phép biến đổi sao-tam giác\" với verified=false, page=\"\" để vi_terms không rỗng. Hit \"We Wye\" (bib-hoangchithanh-2007 tr. 26) là tạp âm OCR, không liên quan. Bất biến: bản nháp trước khẳng định sai rằng phép biến đổi \"giữ nguyên tính liên thông cốt yếu và cấu trúc minor của $$G$$\"; câu này đã được gỡ bỏ. Một phép $$Y$$-$$\\Delta$$ tạo ra một đồ thị khác, nói chung KHÔNG tương đương minor, và làm thay đổi số đỉnh và số chu trình. Bất biến duy nhất luôn đúng là số cạnh được bảo toàn (mỗi phép xóa 3 cạnh và thêm 3 cạnh). Tính phẳng chỉ được bảo toàn CÓ ĐIỀU KIỆN — khi tam giác (hoặc sao) là một mặt của một biểu diễn phẳng — chứ KHÔNG vô điều kiện; ví dụ họ Petersen là một lớp tương đương $$Y$$-$$\\Delta$$ không rút gọn được. Vì các phát biểu bất biến này hoặc có điều kiện hoặc không cần cho định nghĩa, chúng được để ở ghi chú thay vì khẳng định trong định nghĩa. rosen_ref \"Rosen §10.7\" là con trỏ chủ đề liên quan, không phải nguồn định nghĩa: §10.7 của Rosen bàn về đồ thị phẳng/công thức Euler/Kuratowski — ngữ cảnh tạo động lực cho phép biến đổi này (tính phẳng, minor kiểu Kuratowski) — chứ không định nghĩa trực tiếp phép $$Y$$-$$\\Delta$$; điều này phù hợp với việc khái niệm vắng mặt trong kho tiếng Việt. see_also để trống: chưa có mục cùng chương Y nào để liên kết, và mục liên quan duy nhất (homeomorphic-graphs / graph-minor, qua thảo luận chia cạnh/đồng phôi) nằm ở chương khác nên chỉ là tham chiếu xuôi, không liên kết theo quy ước kebab-id cùng chương.",
-      "see_also": [],
-      "vi_terms": [
-        {
-          "term": "phép biến đổi sao-tam giác",
-          "source_id": "",
-          "page": "",
-          "pdf_page": 0,
-          "snippet": "",
-          "verified": false,
-          "recommended": true
-        },
-        {
-          "term": "biến đổi Y-delta",
-          "source_id": "",
-          "page": "",
-          "pdf_page": 0,
-          "snippet": "",
-          "verified": false,
-          "recommended": false
-        },
-        {
-          "term": "biến đổi tam giác-sao",
-          "source_id": "",
-          "page": "",
-          "pdf_page": 0,
-          "snippet": "",
-          "verified": false,
-          "recommended": false
-        }
-      ]
+     "term": "bảng Young chuẩn",
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": "",
+     "verified": false,
+     "recommended": false
+    },
+    {
+     "term": "bảng Young chuẩn tắc",
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": "",
+     "verified": false,
+     "recommended": false
     }
-  ]
+   ],
+   "pos": "d.t."
+  },
+  {
+   "id": "y-delta-transform",
+   "letter": "Y",
+   "headword_en": "Y-delta transform",
+   "notation": "Y \\leftrightarrow \\Delta",
+   "rosen_ref": "Rosen §10.7",
+   "definition_vi": "Phép biến đổi sao-tam giác ($$Y$$-$$\\Delta$$) trên đồ thị $$G$$, ký hiệu $$Y \\leftrightarrow \\Delta$$, là phép thay một đỉnh bậc ba $$v$$ với ba láng giềng phân biệt $$a$$, $$b$$, $$c$$ cùng ba cạnh kề $$va$$, $$vb$$, $$vc$$ (cấu hình hình sao $$Y$$) bởi một tam giác trên ba láng giềng đó (cấu hình tam giác $$\\Delta$$), hoặc thực hiện phép thay ngược lại ($$\\Delta$$-$$Y$$). Nếu một cạnh của tam giác đã có sẵn thì các cạnh song song được gộp lại để giữ đồ thị đơn.",
+   "example_vi": "Cho đỉnh $$v$$ của $$G$$ có đúng ba láng giềng phân biệt $$a$$, $$b$$, $$c$$. Phép biến đổi sao-tam giác xóa $$v$$ cùng ba cạnh $$va$$, $$vb$$, $$vc$$, rồi thêm ba cạnh $$ab$$, $$bc$$, $$ca$$, tạo thành tam giác trên $$\\{a, b, c\\}$$.",
+   "notes": "Khái niệm phép biến đổi $$Y$$-$$\\Delta$$ (sao-tam giác) không được chứng thực trong bất kỳ nguồn tiếng Việt nào của kho ngữ liệu. Đã tìm trên cả bảy nguồn — bib-leanhvinh-2020, bib-nguyenhoangthach-2020, bib-nguyenhuudien-2019, bib-hoangchithanh-2007, bib-nguyenducnghia-2006, bib-ngodactan-2004, VÀ bản dịch tham khảo bib-rosen-2003-vi qua một lần khai thác by-id riêng (find-term.py loại bib-rosen-2003-vi khỏi chế độ tìm-tất-cả mặc định) — ở cả chế độ thường lẫn --loose cho các nguồn OCR. Đã tìm các biến thể \"phép biến đổi sao-tam giác\", \"biến đổi Y-Delta\", \"phép biến đổi Y-Delta\", \"sao tam giác\", \"tam giác sao\", \"biến đổi sao\", \"Y-Delta\", \"Delta-Y\", \"wye-delta\": tất cả đều 0 hit. Hit \"wye\" duy nhất (bib-rosen-2003-vi tr. 935 PDF) là tạp âm OCR từ một bài tập đồ thị thành phố (\"NewYerk\"/New York), không phải phép biến đổi. Đính chính so với bản khai thác trước: ghi chú gốc chỉ liệt kê SÁU nguồn và bỏ sót bib-rosen-2003-vi; lần khai thác by-id riêng đã xác nhận Rosen-vi cũng 0 hit, nên kết luận không-chứng-thực vẫn đúng trên đủ bảy nguồn. Các nguồn có nói về phép toán đồ thị liên quan nhưng khác khái niệm này, gồm phép chia cạnh (bib-nguyenhoangthach-2020 tr. 81 \"Định nghĩa 5.51. Phép chia cạnh\", bib-hoangchithanh-2007 tr. 119), khái niệm hai đồ thị đồng cấu qua phép chia cạnh (bib-nguyenducnghia-2006 tr. 161 \"...đồng cấu nếu chúng có thể thu được từ cùng một đồ thị nào đó nhờ các phép chia cạnh\"; so sánh khái niệm đồng phôi ở bib-nguyenhoangthach-2020 tr. 81), và đồ thị sao $$K_{1,n}$$ như một lớp đồ thị (bib-leanhvinh-2020 tr. 15, tr. 82) — không phải phép biến đổi thay đỉnh bậc ba bằng tam giác trên ba láng giềng. Đây là khái niệm chuyên biệt (rút gọn đồ thị kiểu mạng điện) không xuất hiện trong các giáo trình toán rời rạc/lý thuyết đồ thị tiếng Việt đã khảo sát. Giữ một thuật ngữ chuẩn theo nghĩa đen \"phép biến đổi sao-tam giác\" với verified=false, page=\"\" để vi_terms không rỗng. Hit \"We Wye\" (bib-hoangchithanh-2007 tr. 26) là tạp âm OCR, không liên quan. Bất biến: bản nháp trước khẳng định sai rằng phép biến đổi \"giữ nguyên tính liên thông cốt yếu và cấu trúc minor của $$G$$\"; câu này đã được gỡ bỏ. Một phép $$Y$$-$$\\Delta$$ tạo ra một đồ thị khác, nói chung KHÔNG tương đương minor, và làm thay đổi số đỉnh và số chu trình. Bất biến duy nhất luôn đúng là số cạnh được bảo toàn (mỗi phép xóa 3 cạnh và thêm 3 cạnh). Tính phẳng chỉ được bảo toàn CÓ ĐIỀU KIỆN — khi tam giác (hoặc sao) là một mặt của một biểu diễn phẳng — chứ KHÔNG vô điều kiện; ví dụ họ Petersen là một lớp tương đương $$Y$$-$$\\Delta$$ không rút gọn được. Vì các phát biểu bất biến này hoặc có điều kiện hoặc không cần cho định nghĩa, chúng được để ở ghi chú thay vì khẳng định trong định nghĩa. rosen_ref \"Rosen §10.7\" là con trỏ chủ đề liên quan, không phải nguồn định nghĩa: §10.7 của Rosen bàn về đồ thị phẳng/công thức Euler/Kuratowski — ngữ cảnh tạo động lực cho phép biến đổi này (tính phẳng, minor kiểu Kuratowski) — chứ không định nghĩa trực tiếp phép $$Y$$-$$\\Delta$$; điều này phù hợp với việc khái niệm vắng mặt trong kho tiếng Việt. see_also để trống: chưa có mục cùng chương Y nào để liên kết, và mục liên quan duy nhất (homeomorphic-graphs / graph-minor, qua thảo luận chia cạnh/đồng phôi) nằm ở chương khác nên chỉ là tham chiếu xuôi, không liên kết theo quy ước kebab-id cùng chương.",
+   "see_also": [],
+   "vi_terms": [
+    {
+     "term": "phép biến đổi sao-tam giác",
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": "",
+     "verified": false,
+     "recommended": true
+    },
+    {
+     "term": "biến đổi Y-delta",
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": "",
+     "verified": false,
+     "recommended": false
+    },
+    {
+     "term": "biến đổi tam giác-sao",
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": "",
+     "verified": false,
+     "recommended": false
+    }
+   ],
+   "pos": "d.t."
+  }
+ ]
 }

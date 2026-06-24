@@ -1,1202 +1,1346 @@
 {
-  "locked_conventions": [
-    "Math delimiters: every inline mathematical symbol in definition_vi, example_vi, and notes prose is wrapped in $$...$$ ($$G$$, $$K_n$$, $$\\kappa(G)$$, $$\\chi(G)$$, $$\\deg_G(v)$$, $$c : V(G) \\to \\{1,\\dots,k\\}$$, $$c(u) \\neq c(v)$$, $$p \\to q$$, $$A \\cap B$$, $$\\mathrm{val}(f)$$, set braces $$\\{a, b, c\\}$$). Block math uses a ```math fence (not needed in chapter V). Bare Vietnamese words (đồ thị, tập phủ đỉnh, độ liên thông đỉnh, sơ đồ Venn, chứng minh rỗng) are never wrapped in $$...$$, and the $$\\text{...}$$ wrapper is never used around prose words.",
-    "Inequalities and relations: ASCII '>=', '<=', '!=' are forbidden in finished prose; use $$\\geq$$, $$\\leq$$, $$\\neq$$. A strict greater-than is rendered $$0 > 1$$ (LaTeX '>' inside the math wrapper, never a bare ASCII glyph). ASCII relation operators appear only inside quoted OCR source snippets (evidence), which are not subject to the wrapping rule.",
-    "Notation field carries a BARE symbolic LaTeX token (e.g. v \\in V(G); \\kappa(G); \\deg_G(v); c : V(G) \\to \\{1,\\dots,k\\}; V(G); S \\subseteq V(G); \\mathrm{val}(f); p \\to q; U), NOT wrapped in $$...$$. The renderer adds the $$...$$ wrapper. vertex-cover's notation was normalized from the pre-wrapped '$$S \\subseteq V(G)$$' to bare 'S \\subseteq V(G)' to match every sibling field. Empty-string notation is preserved where the source entry had no canonical symbol (venn-diagram carries U; vacuous-proof carries p \\to q).",
-    "First-concept emphasis: chapter-V definitions introduce the central term in plain prose. The Markdown-asterisk emphasis (vertex-coloring: *tô màu các đỉnh*) and the LaTeX \\emph{...} wrapper (vertex-connectivity: \\emph{Độ liên thông đỉnh}; vertex-cover/vacuous-proof had no wrapper) were removed so a single chapter-wide convention holds: Vietnamese prose words are never wrapped in $$...$$ and no \\emph{...}/\\textit{...}/\\textbf{...}/Markdown-* is used in definition bodies, matching finalized siblings (chapter U).",
-    "Bipartite rendering is fixed book-wide to 'đồ thị hai phần' (book standard); 'đồ thị hai phía' / 'đồ thị phân đôi' are recorded only as deferred source variants. Not exercised in any chapter-V definition body; vertex-set notes carry a passing consistency reminder only.",
-    "Exactly one vi_term per entry has recommended=true, backed by source_id + pdf_page + page + snippet, attested in a 2019-2020 source where the concept exists there, with newest citations listed first. EVERY variant from ALL sources (old and new) is recorded. Entry falling back to an unattested standard term: vacuous-proof ('chứng minh rỗng', no corpus source attests any candidate; kept verified=false with empty page so vi_terms stays non-empty, per the citation-hygiene exception). valid-argument and value-of-a-flow are anchored to the 2019 source (bib-nguyenhuudien-2019), the newest source covering propositional logic / network flows respectively.",
-    "Citation hygiene: every verified=true vi_term carries source_id + pdf_page + page + snippet; verified=false rows with empty page are dropped EXCEPT one standard recommended term kept so vi_terms stays non-empty. Applied to chapter V: vacuous-proof keeps a single verified=false recommended row ('chứng minh rỗng', page='', concept genuinely unattested in the corpus); valid-argument keeps only its single attested 2019 term and drops the 0-hit candidates ('suy luận hợp lệ', 'lập luận đúng đắn', 'suy diễn hợp lệ') to notes. All other vi_terms are verified=true with full citation fields.",
-    "Concept hygiene: a vi_term must denote the SAME concept as the headword, not a parent topic. vertex-coloring's 'tô màu đồ thị' rows (= graph coloring, the parent chapter-title topic, 6 attestations) were demoted out of vi_terms; only the true vertex-coloring renderings remain ('tô màu các đỉnh', 'tô màu đỉnh'). 'tô màu đồ thị' is documented in notes and routed to a 'graph-coloring' see_also forward reference.",
-    "see_also: kebab-case ids only; same-chapter V ids present in this batch are linked, cross-chapter ids are preserved as forward references. Same-chapter linkable V ids include vertex, vertex-set, vertex-degree, vertex-coloring, vertex-connectivity, vertex-cover, valid-argument, value-of-a-flow, venn-diagram, vacuous-proof. venn-diagram correctly leaves see_also empty with an explicit justification (universal-set is chapter U, a forward reference). All other see_also ids are genuine forward references to chapters not yet finalized and are preserved."
-  ],
-  "deferred_note": "Kept ALL 11 chapter-V entries; each retains exactly one recommended=true vi_term, every verified=true vi_term keeps source_id + pdf_page + page + snippet, and no fabricated citations were introduced. APPLIED FIXES — CORRECTNESS/EXPOSITION: (HIGH, 3 panelists agree) vertex-cover — notation field normalized from the pre-wrapped '$$S \\subseteq V(G)$$' to bare 'S \\subseteq V(G)' so the renderer's $$ injection does not double-wrap into literal dollar signs; every sibling notation field stores bare LaTeX. (LOW, exposition) value-of-a-flow — the fabricated rosen_ref 'Rosen §10.0 (Network flows)' was replaced with the chapter-established form 'Rosen — network flow not covered; anchored to nguyenhuudien-2019 §8 (luồng vận tải / giá trị của luồng)', matching how finalized siblings (flow-network, maximum-flow, cut-network in chapters F/M/etc.) handle the absence of a Rosen network-flow section; a one-clause note records that $$\\mathrm{val}(f)$$ is the book's standardized symbol for the source's $$\\varphi_{v_n}$$ (value at the sink), so the citation attests the Vietnamese term and concept, not the symbol. TERMINOLOGY: (MED, concept mismatch) vertex-coloring — the six 'tô màu đồ thị' rows (graph coloring, the parent topic, not the vertex-coloring map $$c : V(G) \\to \\{1,\\dots,k\\}$$) were demoted OUT of vi_terms; only the true vertex-coloring renderings remain — recommended 'tô màu các đỉnh' (bib-leanhvinh-2020 tr.90, 2020, newest) plus the noun variant 'tô màu đỉnh' (leanhvinh-2020 tr.90, ngodactan-2004 tr.283). The parent topic 'tô màu đồ thị' is documented in notes and routed to a 'graph-coloring' see_also forward reference. Exactly one recommended remains, newest-first ordering preserved. EMPHASIS/STYLE (chapter-wide standardization to plain prose, matching finalized chapter U): (LOW, 2 panelists) vertex-coloring — Markdown '*tô màu các đỉnh*' emphasis removed; (LOW) vertex-connectivity — LaTeX '\\emph{Độ liên thông đỉnh}' wrapper removed; both headwords now stand in plain prose so a single no-emphasis convention holds chapter-wide. NOT APPLIED (optional 'may' items / contradicts an established sibling convention / out of scope): value-of-a-flow example trimming — the correctness and terminology panels both praised this example as the chapter's self-containment gold standard (it states the no-incoming-edge-into-source assumption BEFORE asserting out=in, introducing only $$s$$, $$t$$, and $$\\mathrm{val}(f)$$); trimming would remove the assumption that makes it self-contained, so the example is kept verbatim. vacuous-proof example conciseness (LOW) — the example is mathematically correct and the trailing clause that mirrors the definition is mild; kept, since it is a 'may' item and the example correctly exhibits a false hypothesis ($$0 > 1$$) making $$p \\to q$$ vacuously true. vertex definition's edge-incidence closing clause (LOW, optional) — kept as orienting context. Notes-language consistency (LOW) — per-entry notes are left in their original drafting language (mixed English/Vietnamese), matching every finalized sibling chapter, which explicitly preserves drafting-language notes. vertex OCR snippet normalization (LOW) — the raw OCR recommended snippet for 'đỉnh' is kept verbatim as evidence (snippets are verbatim source quotations; the cleaner reading lives in notes). vertex-degree loop clause unexercised by a loop-free example (LOW) — the loop-counted-twice rule is correct and standard (Rosen §10.2) and kept; no loop is added to the example. All mathematical statements were confirmed correct by the correctness panel against Rosen (vertex-connectivity retains the 'reduce to a single vertex' clause making $$\\kappa(K_n)=n-1$$ well-defined; vacuous-proof correctly separates vacuous from trivial proof; vertex-coloring's $$\\chi(K_n)=n$$ example is correct).",
-  "final_entries": [
+ "locked_conventions": [
+  "Math delimiters: every inline mathematical symbol in definition_vi, example_vi, and notes prose is wrapped in $$...$$ ($$G$$, $$K_n$$, $$\\kappa(G)$$, $$\\chi(G)$$, $$\\deg_G(v)$$, $$c : V(G) \\to \\{1,\\dots,k\\}$$, $$c(u) \\neq c(v)$$, $$p \\to q$$, $$A \\cap B$$, $$\\mathrm{val}(f)$$, set braces $$\\{a, b, c\\}$$). Block math uses a ```math fence (not needed in chapter V). Bare Vietnamese words (đồ thị, tập phủ đỉnh, độ liên thông đỉnh, sơ đồ Venn, chứng minh rỗng) are never wrapped in $$...$$, and the $$\\text{...}$$ wrapper is never used around prose words.",
+  "Inequalities and relations: ASCII '>=', '<=', '!=' are forbidden in finished prose; use $$\\geq$$, $$\\leq$$, $$\\neq$$. A strict greater-than is rendered $$0 > 1$$ (LaTeX '>' inside the math wrapper, never a bare ASCII glyph). ASCII relation operators appear only inside quoted OCR source snippets (evidence), which are not subject to the wrapping rule.",
+  "Notation field carries a BARE symbolic LaTeX token (e.g. v \\in V(G); \\kappa(G); \\deg_G(v); c : V(G) \\to \\{1,\\dots,k\\}; V(G); S \\subseteq V(G); \\mathrm{val}(f); p \\to q; U), NOT wrapped in $$...$$. The renderer adds the $$...$$ wrapper. vertex-cover's notation was normalized from the pre-wrapped '$$S \\subseteq V(G)$$' to bare 'S \\subseteq V(G)' to match every sibling field. Empty-string notation is preserved where the source entry had no canonical symbol (venn-diagram carries U; vacuous-proof carries p \\to q).",
+  "First-concept emphasis: chapter-V definitions introduce the central term in plain prose. The Markdown-asterisk emphasis (vertex-coloring: *tô màu các đỉnh*) and the LaTeX \\emph{...} wrapper (vertex-connectivity: \\emph{Độ liên thông đỉnh}; vertex-cover/vacuous-proof had no wrapper) were removed so a single chapter-wide convention holds: Vietnamese prose words are never wrapped in $$...$$ and no \\emph{...}/\\textit{...}/\\textbf{...}/Markdown-* is used in definition bodies, matching finalized siblings (chapter U).",
+  "Bipartite rendering is fixed book-wide to 'đồ thị hai phần' (book standard); 'đồ thị hai phía' / 'đồ thị phân đôi' are recorded only as deferred source variants. Not exercised in any chapter-V definition body; vertex-set notes carry a passing consistency reminder only.",
+  "Exactly one vi_term per entry has recommended=true, backed by source_id + pdf_page + page + snippet, attested in a 2019-2020 source where the concept exists there, with newest citations listed first. EVERY variant from ALL sources (old and new) is recorded. Entry falling back to an unattested standard term: vacuous-proof ('chứng minh rỗng', no corpus source attests any candidate; kept verified=false with empty page so vi_terms stays non-empty, per the citation-hygiene exception). valid-argument and value-of-a-flow are anchored to the 2019 source (bib-nguyenhuudien-2019), the newest source covering propositional logic / network flows respectively.",
+  "Citation hygiene: every verified=true vi_term carries source_id + pdf_page + page + snippet; verified=false rows with empty page are dropped EXCEPT one standard recommended term kept so vi_terms stays non-empty. Applied to chapter V: vacuous-proof keeps a single verified=false recommended row ('chứng minh rỗng', page='', concept genuinely unattested in the corpus); valid-argument keeps only its single attested 2019 term and drops the 0-hit candidates ('suy luận hợp lệ', 'lập luận đúng đắn', 'suy diễn hợp lệ') to notes. All other vi_terms are verified=true with full citation fields.",
+  "Concept hygiene: a vi_term must denote the SAME concept as the headword, not a parent topic. vertex-coloring's 'tô màu đồ thị' rows (= graph coloring, the parent chapter-title topic, 6 attestations) were demoted out of vi_terms; only the true vertex-coloring renderings remain ('tô màu các đỉnh', 'tô màu đỉnh'). 'tô màu đồ thị' is documented in notes and routed to a 'graph-coloring' see_also forward reference.",
+  "see_also: kebab-case ids only; same-chapter V ids present in this batch are linked, cross-chapter ids are preserved as forward references. Same-chapter linkable V ids include vertex, vertex-set, vertex-degree, vertex-coloring, vertex-connectivity, vertex-cover, valid-argument, value-of-a-flow, venn-diagram, vacuous-proof. venn-diagram correctly leaves see_also empty with an explicit justification (universal-set is chapter U, a forward reference). All other see_also ids are genuine forward references to chapters not yet finalized and are preserved."
+ ],
+ "deferred_note": "Kept ALL 11 chapter-V entries; each retains exactly one recommended=true vi_term, every verified=true vi_term keeps source_id + pdf_page + page + snippet, and no fabricated citations were introduced. APPLIED FIXES — CORRECTNESS/EXPOSITION: (HIGH, 3 panelists agree) vertex-cover — notation field normalized from the pre-wrapped '$$S \\subseteq V(G)$$' to bare 'S \\subseteq V(G)' so the renderer's $$ injection does not double-wrap into literal dollar signs; every sibling notation field stores bare LaTeX. (LOW, exposition) value-of-a-flow — the fabricated rosen_ref 'Rosen §10.0 (Network flows)' was replaced with the chapter-established form 'Rosen — network flow not covered; anchored to nguyenhuudien-2019 §8 (luồng vận tải / giá trị của luồng)', matching how finalized siblings (flow-network, maximum-flow, cut-network in chapters F/M/etc.) handle the absence of a Rosen network-flow section; a one-clause note records that $$\\mathrm{val}(f)$$ is the book's standardized symbol for the source's $$\\varphi_{v_n}$$ (value at the sink), so the citation attests the Vietnamese term and concept, not the symbol. TERMINOLOGY: (MED, concept mismatch) vertex-coloring — the six 'tô màu đồ thị' rows (graph coloring, the parent topic, not the vertex-coloring map $$c : V(G) \\to \\{1,\\dots,k\\}$$) were demoted OUT of vi_terms; only the true vertex-coloring renderings remain — recommended 'tô màu các đỉnh' (bib-leanhvinh-2020 tr.90, 2020, newest) plus the noun variant 'tô màu đỉnh' (leanhvinh-2020 tr.90, ngodactan-2004 tr.283). The parent topic 'tô màu đồ thị' is documented in notes and routed to a 'graph-coloring' see_also forward reference. Exactly one recommended remains, newest-first ordering preserved. EMPHASIS/STYLE (chapter-wide standardization to plain prose, matching finalized chapter U): (LOW, 2 panelists) vertex-coloring — Markdown '*tô màu các đỉnh*' emphasis removed; (LOW) vertex-connectivity — LaTeX '\\emph{Độ liên thông đỉnh}' wrapper removed; both headwords now stand in plain prose so a single no-emphasis convention holds chapter-wide. NOT APPLIED (optional 'may' items / contradicts an established sibling convention / out of scope): value-of-a-flow example trimming — the correctness and terminology panels both praised this example as the chapter's self-containment gold standard (it states the no-incoming-edge-into-source assumption BEFORE asserting out=in, introducing only $$s$$, $$t$$, and $$\\mathrm{val}(f)$$); trimming would remove the assumption that makes it self-contained, so the example is kept verbatim. vacuous-proof example conciseness (LOW) — the example is mathematically correct and the trailing clause that mirrors the definition is mild; kept, since it is a 'may' item and the example correctly exhibits a false hypothesis ($$0 > 1$$) making $$p \\to q$$ vacuously true. vertex definition's edge-incidence closing clause (LOW, optional) — kept as orienting context. Notes-language consistency (LOW) — per-entry notes are left in their original drafting language (mixed English/Vietnamese), matching every finalized sibling chapter, which explicitly preserves drafting-language notes. vertex OCR snippet normalization (LOW) — the raw OCR recommended snippet for 'đỉnh' is kept verbatim as evidence (snippets are verbatim source quotations; the cleaner reading lives in notes). vertex-degree loop clause unexercised by a loop-free example (LOW) — the loop-counted-twice rule is correct and standard (Rosen §10.2) and kept; no loop is added to the example. All mathematical statements were confirmed correct by the correctness panel against Rosen (vertex-connectivity retains the 'reduce to a single vertex' clause making $$\\kappa(K_n)=n-1$$ well-defined; vacuous-proof correctly separates vacuous from trivial proof; vertex-coloring's $$\\chi(K_n)=n$$ example is correct).",
+ "final_entries": [
+  {
+   "id": "vertex",
+   "letter": "V",
+   "headword_en": "vertex",
+   "notation": "v \\in V(G)",
+   "rosen_ref": "Rosen §10.1",
+   "definition_vi": "Đỉnh của một đồ thị $$G$$ là một phần tử của tập đỉnh $$V(G)$$, ký hiệu $$v \\in V(G)$$; mỗi cạnh của $$G$$ nối một cặp đỉnh trong tập này.",
+   "example_vi": "Với đồ thị $$G$$ có tập đỉnh $$V(G) = \\{a, b, c\\}$$, mỗi phần tử $$a$$, $$b$$, $$c$$ là một đỉnh của $$G$$.",
+   "notes": "Recommended term \"đỉnh\" is the standard, definitional graph-theory term for a vertex; it is attested with a definitional snippet in the newest source bib-leanhvinh-2020 (p.8: \"V gồm các phần tử được gọi là đỉnh của đồ thị\") and in every other corpus source. Variant \"điểm\" (point) denotes the same concept in the geometric/drawing representation of $$V(G)$$ — e.g. bib-leanhvinh-2020 p.8 represents the vertex set $$V$$ by \"một tập điểm\", and bib-ngodactan-2004 p.17 speaks of \"các điểm kề nhau\" (adjacent points/vertices). Variant \"nút\" (node) is the applied/informal rendering of the same notion: it appears as \"nút của cây tìm kiếm\" (nodes of a search tree) in bib-nguyenducnghia-2006, and as \"đỉnh nút\" (a self-loop vertex) / \"nút giao thông\" (traffic node) in bib-hoangchithanh-2007 and bib-nguyenhuudien-2019. The compound \"đỉnh nút\" in bib-hoangchithanh-2007 specifically modifies \"đỉnh\" to mean a vertex carrying a loop, not a free-standing synonym for vertex. The recommended row's snippet is kept verbatim as raw OCR evidence (\"V gồm các phan tử ... đồ thi va tập cạnh\"); the clean reading of the same passage is \"V gồm các phần tử được gọi là đỉnh của đồ thị và tập cạnh E gồm các\".",
+   "see_also": [
+    "adjacent",
+    "edge",
+    "graph"
+   ],
+   "vi_terms": [
     {
-      "id": "vertex",
-      "letter": "V",
-      "headword_en": "vertex",
-      "notation": "v \\in V(G)",
-      "rosen_ref": "Rosen §10.1",
-      "definition_vi": "Đỉnh của một đồ thị $$G$$ là một phần tử của tập đỉnh $$V(G)$$, ký hiệu $$v \\in V(G)$$; mỗi cạnh của $$G$$ nối một cặp đỉnh trong tập này.",
-      "example_vi": "Với đồ thị $$G$$ có tập đỉnh $$V(G) = \\{a, b, c\\}$$, mỗi phần tử $$a$$, $$b$$, $$c$$ là một đỉnh của $$G$$.",
-      "notes": "Recommended term \"đỉnh\" is the standard, definitional graph-theory term for a vertex; it is attested with a definitional snippet in the newest source bib-leanhvinh-2020 (p.8: \"V gồm các phần tử được gọi là đỉnh của đồ thị\") and in every other corpus source. Variant \"điểm\" (point) denotes the same concept in the geometric/drawing representation of $$V(G)$$ — e.g. bib-leanhvinh-2020 p.8 represents the vertex set $$V$$ by \"một tập điểm\", and bib-ngodactan-2004 p.17 speaks of \"các điểm kề nhau\" (adjacent points/vertices). Variant \"nút\" (node) is the applied/informal rendering of the same notion: it appears as \"nút của cây tìm kiếm\" (nodes of a search tree) in bib-nguyenducnghia-2006, and as \"đỉnh nút\" (a self-loop vertex) / \"nút giao thông\" (traffic node) in bib-hoangchithanh-2007 and bib-nguyenhuudien-2019. The compound \"đỉnh nút\" in bib-hoangchithanh-2007 specifically modifies \"đỉnh\" to mean a vertex carrying a loop, not a free-standing synonym for vertex. The recommended row's snippet is kept verbatim as raw OCR evidence (\"V gồm các phan tử ... đồ thi va tập cạnh\"); the clean reading of the same passage is \"V gồm các phần tử được gọi là đỉnh của đồ thị và tập cạnh E gồm các\".",
-      "see_also": [
-        "adjacent",
-        "edge",
-        "graph"
-      ],
-      "vi_terms": [
-        {
-          "term": "đỉnh",
-          "verified": true,
-          "recommended": true,
-          "source_id": "bib-leanhvinh-2020",
-          "pdf_page": 8,
-          "page": "tr. 9",
-          "snippet": "V gồm các phan tử được gọi là đỉnh của đồ thi va tập cạnh E gồm các"
-        },
-        {
-          "term": "đỉnh",
-          "verified": true,
-          "recommended": false,
-          "source_id": "bib-nguyenhoangthach-2020",
-          "pdf_page": 61,
-          "page": "tr. 59",
-          "snippet": "một tập hợp V khác rỗng gồm các đỉnh,"
-        },
-        {
-          "term": "đỉnh",
-          "verified": true,
-          "recommended": false,
-          "source_id": "bib-nguyenhuudien-2019",
-          "pdf_page": 165,
-          "page": "tr. 165",
-          "snippet": "Hai đồ thị không đẳng cấu do có hai đỉnh không kề"
-        },
-        {
-          "term": "điểm",
-          "verified": true,
-          "recommended": false,
-          "source_id": "bib-leanhvinh-2020",
-          "pdf_page": 8,
-          "page": "tr. 9",
-          "snippet": "Thông thường, ta biểu diễn tập đỉnh V của Ơ bởi một tập điểm"
-        },
-        {
-          "term": "điểm",
-          "verified": true,
-          "recommended": false,
-          "source_id": "bib-ngodactan-2004",
-          "pdf_page": 17,
-          "page": "tr. 17",
-          "snippet": "10.2 Dùng cho chứng minh Định lý 10.12: Các điểm kề nhau"
-        },
-        {
-          "term": "nút",
-          "verified": true,
-          "recommended": false,
-          "source_id": "bib-nguyenducnghia-2006",
-          "pdf_page": 131,
-          "page": "",
-          "snippet": "biểu diễn như là các nút của cây tìm kiếm và cố gắng bằng phép đánh giá cận cho các"
-        },
-        {
-          "term": "nút",
-          "verified": true,
-          "recommended": false,
-          "source_id": "bib-hoangchithanh-2007",
-          "pdf_page": 16,
-          "page": "tr. 16",
-          "snippet": "1) Đồ thị vô hướng với n đỉnh (n > 3), không có đỉnh nút và bac"
-        },
-        {
-          "term": "điểm",
-          "source_id": "bib-rosen-2003-vi",
-          "pdf_page": 18,
-          "page": "tr. 18",
-          "snippet": ": Bạn nhận được điểm giỏi trong kỳ thi cuối khoá.",
-          "verified": true,
-          "recommended": false
-        },
-        {
-          "term": "nút",
-          "source_id": "bib-rosen-2003-vi",
-          "pdf_page": 451,
-          "page": "tr. 451",
-          "snippet": "(hay các nút) cùng với một tập KE các cặp phẩn tử của V được sắp. Các",
-          "verified": true,
-          "recommended": false
-        }
-      ]
+     "term": "đỉnh",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-leanhvinh-2020",
+     "pdf_page": 8,
+     "page": "tr. 9",
+     "snippet": "V gồm các phan tử được gọi là đỉnh của đồ thi va tập cạnh E gồm các"
     },
     {
-      "id": "vertex-coloring",
-      "letter": "V",
-      "headword_en": "vertex coloring",
-      "notation": "c : V(G) \\to \\{1,\\dots,k\\}",
-      "rosen_ref": "Rosen §10.8",
-      "definition_vi": "Một phép tô màu các đỉnh của đồ thị $$G$$ bằng $$k$$ màu là một ánh xạ $$c : V(G) \\to \\{1,\\dots,k\\}$$ gán cho mỗi đỉnh một màu sao cho hai đỉnh kề nhau bất kỳ luôn được gán hai màu khác nhau, tức là $$c(u) \\neq c(v)$$ với mọi cạnh $$uv \\in E(G)$$.",
-      "example_vi": "Với đồ thị đầy đủ $$K_n$$, mọi cặp đỉnh đều kề nhau, nên mỗi đỉnh phải nhận một màu riêng; do đó một phép tô màu các đỉnh của $$K_n$$ cần đúng $$n$$ màu.",
-      "notes": "Thuật ngữ khuyến nghị \"tô màu các đỉnh\" được chứng thực trong nguồn 2020 mới nhất (bib-leanhvinh-2020, tr. 90) với định nghĩa hình thức khớp với ánh xạ $$c : V(G) \\to \\{1,\\dots,k\\}$$. Biến thể \"tô màu đỉnh\" là dạng danh từ ngắn gọn (\"vertex coloring\"). Biến thể \"tô màu đồ thị\" KHÔNG được ghi nhận là một vi_term của mục này: nó tương ứng với khái niệm rộng hơn \"graph coloring\" (tiêu đề chương trong mọi nguồn từ 2004 đến 2020), tức là chủ đề cha chứ không phải bản dịch của ánh xạ tô màu đỉnh $$c : V(G) \\to \\{1,\\dots,k\\}$$; do đó nó được hạ cấp khỏi vi_terms và chuyển sang tham chiếu chuyển tiếp \"graph-coloring\" trong see_also. \"tô màu đồ thị\" được chứng thực rộng rãi (bib-nguyenhoangthach-2020 tr.81, bib-leanhvinh-2020 tr.90, bib-nguyenhuudien-2019 tr.227, bib-nguyenducnghia-2006 tr.166, bib-hoangchithanh-2007 tr.51, bib-ngodactan-2004 tr.284) nhưng như là tên của chủ đề cha. Hai nguồn OCR (bib-leanhvinh-2020, bib-hoangchithanh-2007) đã được kiểm tra ở cả chế độ thường và --loose; OCR đôi khi đọc \"đỉnh\" thành \"đính\"/\"định\" nhưng ngữ cảnh xác nhận đúng khái niệm.",
-      "see_also": [
-        "chromatic-number",
-        "graph-coloring"
-      ],
-      "vi_terms": [
-        {
-          "term": "tô màu các đỉnh",
-          "verified": true,
-          "recommended": true,
-          "source_id": "bib-leanhvinh-2020",
-          "pdf_page": 90,
-          "page": "tr. 91",
-          "snippet": "Một cách to màu các đỉnh của dé thị G bởi k mau là một ánh xạ"
-        },
-        {
-          "term": "tô màu các đỉnh",
-          "verified": true,
-          "recommended": false,
-          "source_id": "bib-nguyenhuudien-2019",
-          "pdf_page": 227,
-          "page": "tr. 227",
-          "snippet": "Hãy tô màu các đỉnh của một đồ thị đã cho, sao cho hai đỉnh kề nhau phải được tô bằng hai màu"
-        },
-        {
-          "term": "tô màu đỉnh",
-          "verified": true,
-          "recommended": false,
-          "source_id": "bib-leanhvinh-2020",
-          "pdf_page": 90,
-          "page": "tr. 91",
-          "snippet": "4.1. Tô màu đính"
-        },
-        {
-          "term": "tô màu đỉnh",
-          "verified": true,
-          "recommended": false,
-          "source_id": "bib-ngodactan-2004",
-          "pdf_page": 283,
-          "page": "tr. 283",
-          "snippet": "Một tô màu đỉnh của một đồ thị, mà ta sẽ đơn giản gọi là một tô màu,"
-        },
-        {
-          "term": "tô màu các đỉnh",
-          "source_id": "bib-hoangchithanh-2011",
-          "page": "",
-          "pdf_page": 88,
-          "snippet": "Hãy tô màu các đỉnh của một đồ thị đã cho, sao cho hai đỉnh kề nhau",
-          "verified": true,
-          "recommended": false
-        }
-      ]
+     "term": "đỉnh",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhoangthach-2020",
+     "pdf_page": 61,
+     "page": "tr. 59",
+     "snippet": "một tập hợp V khác rỗng gồm các đỉnh,"
     },
     {
-      "id": "vertex-connectivity",
-      "letter": "V",
-      "headword_en": "vertex connectivity",
-      "notation": "\\kappa(G)",
-      "rosen_ref": "Rosen §10.4",
-      "definition_vi": "Độ liên thông đỉnh của một đồ thị $$G$$, ký hiệu $$\\kappa(G)$$, là số đỉnh ít nhất cần xóa (cùng với các cạnh kề) để làm cho $$G$$ mất liên thông hoặc trở thành đồ thị chỉ có một đỉnh. Với $$G$$ có ít nhất hai đỉnh, $$\\kappa(G)$$ cũng bằng số nguyên $$k$$ lớn nhất sao cho $$G$$ là $$k$$-liên thông đỉnh.",
-      "example_vi": "Với đồ thị chu trình $$C_n$$ (trong đó $$n \\geq 3$$), ta có $$\\kappa(C_n) = 2$$, vì cần xóa ít nhất hai đỉnh mới làm cho $$C_n$$ mất liên thông.",
-      "vi_terms": [
-        {
-          "term": "độ liên thông đỉnh",
-          "verified": true,
-          "recommended": true,
-          "source_id": "bib-nguyenhoangthach-2020",
-          "pdf_page": 75,
-          "page": "tr. 73",
-          "snippet": "cắt đỉnh bé nhất được gọi là độ liên thông đỉnh của G, ký hiệu là κ(G):"
-        },
-        {
-          "term": "số liên thông đỉnh",
-          "verified": true,
-          "recommended": false,
-          "source_id": "bib-leanhvinh-2020",
-          "pdf_page": 225,
-          "page": "tr. 226",
-          "snippet": "Số liên thông đỉnh của Ơ, kí hiệu bởi «(G), là số nhỏ nhất các đỉnh"
-        },
-        {
-          "term": "độ liên thông",
-          "verified": true,
-          "recommended": false,
-          "source_id": "bib-ngodactan-2004",
-          "pdf_page": 266,
-          "page": "tr. 266",
-          "snippet": "gọi là độ liên thông của G và được ký hiệu là k (G)."
-        },
-        {
-          "term": "liên thông đỉnh",
-          "source_id": "bib-leanhvinh-2020",
-          "page": "tr. 226",
-          "pdf_page": 225,
-          "snippet": "Ta nhac lại định nghĩa về số liên thông đỉnh và cạnh của đỏ thị.",
-          "verified": true,
-          "recommended": false
-        },
-        {
-          "term": "liên thông đỉnh",
-          "source_id": "bib-nguyenhoangthach-2020",
-          "page": "tr. 73",
-          "pdf_page": 75,
-          "snippet": "cắt đỉnh bé nhất được gọi là độ liên thông đỉnh của G, ký hiệu là κ(G):",
-          "verified": true,
-          "recommended": false
-        },
-        {
-          "term": "độ liên thông",
-          "source_id": "bib-nguyenhoangthach-2020",
-          "page": "tr. 73",
-          "pdf_page": 75,
-          "snippet": "niệm độ liên thông.",
-          "verified": true,
-          "recommended": false
-        },
-        {
-          "term": "liên thông đỉnh",
-          "source_id": "bib-vudinhhoa-2010",
-          "page": "",
-          "pdf_page": 129,
-          "snippet": "Tương tự khái niệm liên thông đỉnh, ta gọi một đồ thị liên thông là dé thị k-liên",
-          "verified": true,
-          "recommended": false
-        }
-      ],
-      "notes": "Three distinct Vietnamese terms denote this concept across the corpus. (1) \"độ liên thông đỉnh\" — recommended standard form, attested in the 2020 source bib-nguyenhoangthach-2020 (tr. 75), where the minimum vertex cut size is named $$\\kappa(G)$$; it parallels the modern term \"độ liên thông cạnh\" (edge connectivity) used in the same source. (2) \"số liên thông đỉnh\" — equivalent 2020 form in bib-leanhvinh-2020 (tr. 225, OCR source; the snippet shows OCR noise rendering $$G$$ as \"Ơ\" and $$\\kappa(G)$$ as \"«(G)\", but the surrounding definition unambiguously denotes vertex connectivity); the term also appears verbatim under normal (non-loose) search. (3) \"liên thông đỉnh\" — older form in bib-ngodactan-2004 (tr. 265), where graphs are called \"k-liên thông đỉnh\" ($$k$$-vertex-connected); the connectivity number itself is the least such $$k$$. No source attests the candidate \"bậc liên thông\" or phrasings like \"liên thông theo đỉnh\"/\"tính liên thông đỉnh\" (0 hits, normal and loose). The OCR source bib-hoangchithanh-2007 and the text sources bib-nguyenhuudien-2019 and bib-nguyenducnghia-2006 returned no hits for any \"đỉnh\" connectivity term.",
-      "see_also": [
-        "edge-connectivity",
-        "cut-vertex",
-        "k-connected-graph"
-      ]
+     "term": "đỉnh",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 165,
+     "page": "tr. 165",
+     "snippet": "Hai đồ thị không đẳng cấu do có hai đỉnh không kề"
     },
     {
-      "id": "vertex-cover",
-      "letter": "V",
-      "headword_en": "vertex cover",
-      "notation": "S \\subseteq V(G)",
-      "rosen_ref": "Rosen §10.2",
-      "definition_vi": "Một tập phủ đỉnh của đồ thị $$G$$ là một tập con các đỉnh $$S \\subseteq V(G)$$ sao cho mỗi cạnh của $$G$$ có ít nhất một đầu mút thuộc $$S$$.",
-      "example_vi": "Xét đồ thị đường đi $$P_3$$ với các đỉnh $$a, b, c$$ và các cạnh $$ab$$, $$bc$$. Tập $$\\{b\\}$$ là một tập phủ đỉnh vì cả hai cạnh $$ab$$ và $$bc$$ đều có đầu mút $$b$$.",
-      "notes": "Three distinct Vietnamese terms denote this concept across the corpus. The recommended term \"tập phủ đỉnh\" is the standard full noun phrase, attested in the newest source (bib-leanhvinh-2020, 2020) as section heading \"3.3. Tập phủ đỉnh\" and used throughout its definition/proofs. The shorter head noun \"phủ đỉnh\" is attested and explicitly defined in bib-nguyenducnghia-2006 (2006, p. 263): a subset $$S$$ of vertices is a phủ đỉnh if every edge has at least one endpoint in $$S$$. \"phủ đỉnh nhỏ nhất\" (minimum vertex cover) is the optimization-problem variant named in bib-nguyenducnghia-2006 (\"Bài toán phủ đỉnh nhỏ nhất\"), recorded as a variant. OCR sources bib-hoangchithanh-2007 and bib-leanhvinh-2020 were checked with both normal and --loose passes; hoangchithanh-2007 describes the covering property on p. 59 (\"mỗi cạnh của G đều kề với ít nhất một đỉnh\") but does not name the concept with any \"phủ\"-based head noun, so it is not recorded as an attestation. Loose searches for \"phủ đỉnh\" also surface false positives from \"phủ định\" (negation) in nguyenducnghia-2006; only p. 263 hits denote this concept. The notation field stores the bare LaTeX token \"S \\subseteq V(G)\" (the renderer adds $$...$$), normalized from a pre-wrapped form to match every sibling notation field.",
-      "see_also": [
-        "vertex",
-        "edge",
-        "independent-set"
-      ],
-      "vi_terms": [
-        {
-          "term": "tập phủ đỉnh",
-          "verified": true,
-          "recommended": true,
-          "source_id": "bib-leanhvinh-2020",
-          "pdf_page": 77,
-          "page": "tr. 78",
-          "snippet": "3.3. Tập phủ đỉnh"
-        },
-        {
-          "term": "phủ đỉnh nhỏ nhất",
-          "verified": true,
-          "recommended": false,
-          "source_id": "bib-nguyenducnghia-2006",
-          "pdf_page": 263,
-          "page": "",
-          "snippet": "6, Bài toán phủ đỉnh nhỏ nhất: Cho đồ thị vô hướng G = (V, E) với trọng số trên các đỉnh ... Bài toán đặt ra là tìm phủ đỉnh có trọng lượng nhỏ nhất (mà ta sẽ gọi là phủ đỉnh nhỏ nhất)."
-        },
-        {
-          "term": "phủ đỉnh",
-          "source_id": "bib-leanhvinh-2020",
-          "page": "tr. 5",
-          "pdf_page": 4,
-          "snippet": "3.3. Tap phủ đỉnh ................ininenn nen nen ae nen nen ng 78",
-          "verified": true,
-          "recommended": false
-        },
-        {
-          "term": "phủ đỉnh",
-          "source_id": "bib-nguyenhoangthach-2020",
-          "page": "tr. 54",
-          "pdf_page": 56,
-          "snippet": "Trong nhiều bài toán đếm, ta thường sử dụng dạng phủ định của nguyên",
-          "verified": true,
-          "recommended": false
-        },
-        {
-          "term": "phủ đỉnh",
-          "source_id": "bib-nguyenhuudien-2019",
-          "page": "tr. 13",
-          "pdf_page": 13,
-          "snippet": "1.2.1. Phép phủ định . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 16",
-          "verified": true,
-          "recommended": false
-        }
-      ]
+     "term": "điểm",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-leanhvinh-2020",
+     "pdf_page": 8,
+     "page": "tr. 9",
+     "snippet": "Thông thường, ta biểu diễn tập đỉnh V của Ơ bởi một tập điểm"
     },
     {
-      "id": "valid-argument",
-      "letter": "V",
-      "headword_en": "valid argument",
-      "notation": "(p_1 \\wedge \\cdots \\wedge p_n) \\rightarrow q",
-      "rosen_ref": "Rosen §1.6",
-      "definition_vi": "Một suy luận trong logic mệnh đề, gồm các tiền đề $$p_1, p_2, \\ldots, p_n$$ và kết luận $$q$$, được gọi là một suy luận đúng nếu kết luận $$q$$ đúng mỗi khi tất cả các tiền đề $$p_1, p_2, \\ldots, p_n$$ đều đúng, tức là phép kéo theo $$(p_1 \\wedge p_2 \\wedge \\cdots \\wedge p_n) \\rightarrow q$$ là một hằng đúng.",
-      "example_vi": "Suy luận với các tiền đề $$p \\rightarrow q$$ và $$p$$, kết luận $$q$$, là một suy luận đúng, vì khi cả $$p \\rightarrow q$$ và $$p$$ đều đúng thì $$q$$ cũng đúng; do đó $$((p \\rightarrow q) \\wedge p) \\rightarrow q$$ là một hằng đúng.",
-      "notes": "Recommended term \"suy luận đúng\" is attested in the 2019 discrete-math source bib-nguyenhuudien-2019 (newest available source covering this propositional-logic concept). It appears repeatedly across §1.6 \"Quy tắc suy diễn\" (Rules of inference): \"suy diễn (B) là một suy luận đúng\" (tr. 28 PDF), \"phép suy luận trên là suy luận đúng\" (tr. 30 PDF), \"Vậy suy luận đúng\" (tr. 34 PDF), and as the §1.2 heading \"Suy luận đúng\" (tr. 36 PDF). The source equates a suy luận đúng with one that is \"hợp logic\" (logically valid): \"Để kiểm tra một suy luận cụ thể là đúng hay không, tức là có 'hợp logic' hay không\" (tr. 30 PDF), matching Rosen's definition that an argument is valid when the conclusion is true whenever all premises are true. The source also frames it as \"Một bước suy diễn đúng và sai\" (tr. 28 PDF).\n\nThe candidate variants \"suy luận hợp lệ\", \"lập luận đúng đắn\", and \"suy diễn hợp lệ\" returned zero hits in every source (normal and --loose), so they are dropped from vi_terms and recorded here only as plausible synonym variants.\n\nThe graph-theory sources bib-leanhvinh-2020 (tr. 74, 127, 151, 168, 241 PDF) and others use \"lập luận\" only in the generic proof sense (\"như ta đã lập luận ở trên\", \"Lập luận như trong trường hợp...\"), i.e. an argument/reasoning step within a proof, NOT the named propositional-logic concept of a valid argument; OCR sources (bib-leanhvinh-2020, bib-hoangchithanh-2007) yielded no hits for \"suy luận đúng\" under --loose either. Hence no graph-source attestation exists for this concept and the recommendation rests on the 2019 discrete-math source.\n\nRelated concept \"Rules of inference\" appears as \"Quy tắc suy diễn\" / \"luật suy diễn\" (bib-nguyenhuudien-2019, §1.6), useful for the see_also forward reference.",
-      "see_also": [
-        "logical-equivalence",
-        "logical-rules-of-inference",
-        "premise"
-      ],
-      "vi_terms": [
-        {
-          "term": "suy luận đúng",
-          "verified": true,
-          "recommended": true,
-          "source_id": "bib-nguyenhuudien-2019",
-          "pdf_page": 30,
-          "page": "tr. 30",
-          "snippet": "phép suy luận trên là suy luận đúng."
-        },
-        {
-          "term": "lập luận hợp lệ",
-          "source_id": "",
-          "page": "",
-          "pdf_page": 0,
-          "snippet": "",
-          "verified": false,
-          "recommended": false
-        },
-        {
-          "term": "suy luận đúng",
-          "source_id": "bib-doducgiao-2009",
-          "page": "tr. 350",
-          "pdf_page": 351,
-          "snippet": "23. Xác định các suy luận đúng trong số các suy luận đưới đây:",
-          "verified": true,
-          "recommended": false
-        },
-        {
-          "term": "suy luận đúng",
-          "source_id": "bib-vudinhhoa-2010",
-          "page": "",
-          "pdf_page": 65,
-          "snippet": "đích chương này là cung cắp cho các học viên những suy luận đúng đắn và những",
-          "verified": true,
-          "recommended": false
-        }
-      ]
+     "term": "điểm",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-ngodactan-2004",
+     "pdf_page": 17,
+     "page": "tr. 17",
+     "snippet": "10.2 Dùng cho chứng minh Định lý 10.12: Các điểm kề nhau"
     },
     {
-      "id": "venn-diagram",
-      "letter": "V",
-      "headword_en": "Venn diagram",
-      "notation": "U",
-      "rosen_ref": "Rosen §2.1",
-      "definition_vi": "Sơ đồ Venn của một họ các tập hợp là một hình biểu diễn trong đó tập hợp vũ trụ (ký hiệu $$U$$) được vẽ thành một hình chữ nhật, còn mỗi tập hợp được vẽ thành một vùng (thường là hình tròn) nằm bên trong hình chữ nhật đó. Sơ đồ Venn được dùng để minh họa quan hệ giữa các tập hợp và các phép toán trên tập hợp.",
-      "example_vi": "Với hai tập hợp $$A$$ và $$B$$, vùng nằm trong cả hai hình tròn biểu diễn $$A$$ và $$B$$ chính là giao $$A \\cap B$$, còn toàn bộ vùng được phủ bởi hai hình tròn biểu diễn hợp $$A \\cup B$$.",
-      "notes": "Thuật ngữ khuyến nghị là \"sơ đồ Venn\", xuất hiện trong cả hai nguồn mới: nguyenhoangthach-2020 (tr. 17 PDF, minh họa quy tắc trừ trong đếm) và nguyenhuudien-2019 (tr. 73 và 75 PDF, mục biểu diễn tập hợp). Được chọn làm thuật ngữ khuyến nghị (verified=true, có chứng cứ ở nguồn 2020).\n\nBiến thể \"giản đồ Venn\" CÓ chứng cứ trong bib-rosen-2003-vi (bản dịch Rosen 2003, tr. 55 PDF: đoạn định nghĩa \"Trong các giản đồ Venn, tập hợp vũ trụ U ... được biểu diễn bằng một hình chữ nhật\"; còn lặp lại nhiều lần ở tr. 56 trở đi). Đây là nguồn dịch cũ, đã OCR, vai trò \"reference-only\" theo registry (role: reference) nên không bao giờ được chọn làm thuật ngữ khuyến nghị; ghi nhận verified=true, recommended=false.\n\nBiến thể ứng viên \"biểu đồ Venn\" KHÔNG có chứng cứ trong bất kỳ nguồn nào (quét toàn bộ corpus theo từ khóa \"biểu đồ Venn\" cho 0 kết quả, cả thường lẫn --loose), nên do verified=false và không có trang nên không đưa vào vi_terms. see_also để trống vì chương V chưa có mục cùng chương nào khác để liên kết; \"universal-set\" thuộc chương U (tham chiếu chéo, chỉ là forward reference).",
-      "see_also": [],
-      "vi_terms": [
-        {
-          "term": "sơ đồ Venn",
-          "verified": true,
-          "recommended": true,
-          "source_id": "bib-nguyenhoangthach-2020",
-          "pdf_page": 17,
-          "page": "tr. 15",
-          "snippet": "Quy tắc trừ cũng có thể được thể hiện bằng sơ đồ Venn như trong Hình"
-        },
-        {
-          "term": "sơ đồ Venn",
-          "verified": true,
-          "recommended": false,
-          "source_id": "bib-nguyenhuudien-2019",
-          "pdf_page": 73,
-          "page": "tr. 73",
-          "snippet": "– Sơ đồ Venn"
-        },
-        {
-          "term": "sơ đồ Venn",
-          "verified": true,
-          "recommended": false,
-          "source_id": "bib-nguyenhuudien-2019",
-          "pdf_page": 75,
-          "page": "tr. 75",
-          "snippet": "Sơ đồ Venn"
-        },
-        {
-          "term": "giản đồ Venn",
-          "verified": true,
-          "recommended": false,
-          "source_id": "bib-rosen-2003-vi",
-          "pdf_page": 55,
-          "page": "tr. 55",
-          "snippet": "Trong các giản đồ Venn, tập hợp vũ trụ U — tập hợp"
-        },
-        {
-          "term": "biểu đồ Venn",
-          "source_id": "",
-          "page": "",
-          "pdf_page": 0,
-          "snippet": "",
-          "verified": false,
-          "recommended": false
-        },
-        {
-          "term": "biểu đồ Ven",
-          "source_id": "",
-          "page": "",
-          "pdf_page": 0,
-          "snippet": "",
-          "verified": false,
-          "recommended": false
-        },
-        {
-          "term": "biểu đồ Venn",
-          "source_id": "bib-vovantuandung-2007",
-          "page": "",
-          "pdf_page": 38,
-          "snippet": "g) Biểu đồ Venn: Để dễ hình dung một số quan hệ giữa các tập hợp",
-          "verified": true,
-          "recommended": false
-        },
-        {
-          "term": "biểu đồ Venn",
-          "source_id": "bib-vudinhhoa-2010",
-          "page": "",
-          "pdf_page": 26,
-          "snippet": "còn được gọi là biểu đồ Venn. Sơ đồ biểu diễn tập hợp các số nguyễn Z và tap hợp I",
-          "verified": true,
-          "recommended": false
-        },
-        {
-          "term": "biểu đồ Ven",
-          "source_id": "bib-vovantuandung-2007",
-          "page": "",
-          "pdf_page": 38,
-          "snippet": "g) Biểu đồ Venn: Để dễ hình dung một số quan hệ giữa các tập hợp",
-          "verified": true,
-          "recommended": false
-        },
-        {
-          "term": "biểu đồ Ven",
-          "source_id": "bib-vudinhhoa-2010",
-          "page": "",
-          "pdf_page": 26,
-          "snippet": "còn được gọi là biểu đồ Venn. Sơ đồ biểu diễn tập hợp các số nguyễn Z và tap hợp I",
-          "verified": true,
-          "recommended": false
-        }
-      ]
+     "term": "nút",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenducnghia-2006",
+     "pdf_page": 131,
+     "page": "",
+     "snippet": "biểu diễn như là các nút của cây tìm kiếm và cố gắng bằng phép đánh giá cận cho các"
     },
     {
-      "id": "vertex-degree",
-      "letter": "V",
-      "headword_en": "vertex degree",
-      "see_ref": "degree",
-      "vi_terms": [
-        {
-          "term": "bậc của đỉnh",
-          "verified": false,
-          "recommended": false,
-          "source_id": "",
-          "page": "",
-          "pdf_page": 0,
-          "snippet": ""
-        },
-        {
-          "term": "bậc của một đỉnh",
-          "verified": false,
-          "recommended": false,
-          "source_id": "",
-          "page": "",
-          "pdf_page": 0,
-          "snippet": ""
-        },
-        {
-          "term": "bậc đỉnh",
-          "verified": false,
-          "recommended": false,
-          "source_id": "",
-          "page": "",
-          "pdf_page": 0,
-          "snippet": ""
-        }
-      ],
-      "see_also": [],
-      "notes": "Đồng nghĩa với Degree of a vertex."
+     "term": "nút",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-hoangchithanh-2007",
+     "pdf_page": 16,
+     "page": "tr. 16",
+     "snippet": "1) Đồ thị vô hướng với n đỉnh (n > 3), không có đỉnh nút và bac"
     },
     {
-      "id": "vertex-set",
-      "letter": "V",
-      "headword_en": "vertex set",
-      "notation": "V(G)",
-      "rosen_ref": "Rosen §10.1",
-      "definition_vi": "Tập đỉnh của một đồ thị $$G$$ là tập hợp tất cả các đỉnh của $$G$$, ký hiệu $$V(G)$$.",
-      "example_vi": "Với đồ thị $$G$$ có các đỉnh $$a$$, $$b$$, $$c$$, ta có tập đỉnh $$V(G) = \\{a, b, c\\}$$.",
-      "notes": "Recommended term \"tập đỉnh\" is the standard, concise form and is attested in a 2020 source (bib-leanhvinh-2020) in the definition-of-graph context: \"Đồ thị $$G = (V,E)$$ gồm hai tập hữu hạn, tập đỉnh ...\". The variant \"tập hợp đỉnh\" is attested in the 2020 combinatorics source bib-nguyenhoangthach-2020 and in bib-leanhvinh-2020. The variant \"tập các đỉnh\" is the most widely attested across the corpus, including the graph-definition contexts in bib-nguyenducnghia-2006 (\"$$G = (V,E)$$ bao gồm $$V$$ là tập các đỉnh\") and bib-hoangchithanh-2007. The 2019 source bib-nguyenhuudien-2019 attests none of the three candidate terms (no hits in normal or loose search). Per book convention \"đồ thị hai phần\" is used elsewhere for bipartite; not relevant to this entry's prose but noted for consistency.",
-      "see_also": [
-        "vertex",
-        "vertex-degree"
-      ],
-      "vi_terms": [
-        {
-          "term": "tập đỉnh",
-          "verified": true,
-          "recommended": true,
-          "source_id": "bib-leanhvinh-2020",
-          "pdf_page": 8,
-          "page": "tr. 9",
-          "snippet": "Định nghĩa 1.1. Đồ thị G = (V,E) gồm hai tập hữu hạn, tập đỉnh"
-        },
-        {
-          "term": "tập hợp đỉnh",
-          "verified": true,
-          "recommended": false,
-          "source_id": "bib-nguyenhoangthach-2020",
-          "pdf_page": 61,
-          "page": "tr. 59",
-          "snippet": "tức là các đồ thị có tập hợp đỉnh V hữu hạn."
-        },
-        {
-          "term": "tập hợp đỉnh",
-          "verified": true,
-          "recommended": false,
-          "source_id": "bib-leanhvinh-2020",
-          "pdf_page": 8,
-          "page": "tr. 9",
-          "snippet": "Ta bat đầu với định nghĩa của dé thi qua tập hợp đỉnh và tập hợp cạnh."
-        },
-        {
-          "term": "tập đỉnh",
-          "source_id": "bib-hoangchithanh-2011",
-          "page": "",
-          "pdf_page": 13,
-          "snippet": "Đồ thị có tập đỉnh V = {a,b,e,đ,e} và tập cạnh E = {(a, b), (a, e), (b, ©),",
-          "verified": true,
-          "recommended": false
-        },
-        {
-          "term": "tập đỉnh",
-          "source_id": "bib-nguyenhuudien-2019",
-          "page": "tr. 182",
-          "pdf_page": 182,
-          "snippet": "và vi+1 ̸= vi−1 (có thể chọn như vậy vì deg(vi ) ≥ 2), v0 = v. Do tập đỉnh của G là hữu hạn,",
-          "verified": true,
-          "recommended": false
-        },
-        {
-          "term": "tập các đỉnh",
-          "source_id": "bib-hoangchithanh-2011",
-          "page": "",
-          "pdf_page": 21,
-          "snippet": "một phân hoạch trên tập các đỉnh. Mỗi lớp tương đương của quan hệ này được",
-          "verified": true,
-          "recommended": false
-        },
-        {
-          "term": "tập các đỉnh",
-          "source_id": "bib-leanhvinh-2020",
-          "page": "tr. 30",
-          "pdf_page": 29,
-          "snippet": "W = N(w) là tập các đỉnh kể của u và t trong G. Một đường đi tit",
-          "verified": true,
-          "recommended": false
-        },
-        {
-          "term": "tập các đỉnh",
-          "source_id": "bib-nguyenhuudien-2019",
-          "page": "tr. 158",
-          "pdf_page": 158,
-          "snippet": "Chứng minh. Gọi V1 và V2 tương ứng là tập các đỉnh bậc chẵn và tập các đỉnh bậc lẻ của đồ",
-          "verified": true,
-          "recommended": false
-        },
-        {
-          "term": "tập hợp đỉnh",
-          "source_id": "bib-vudinhhoa-2010",
-          "page": "",
-          "pdf_page": 120,
-          "snippet": "Định nghĩa 7.1. Một dé thị được hiểu là một bộ hai tập hợp hữu hạn: Tập hợp dinh",
-          "verified": true,
-          "recommended": false
-        }
-      ]
+     "term": "điểm",
+     "source_id": "bib-rosen-2003-vi",
+     "pdf_page": 18,
+     "page": "tr. 18",
+     "snippet": ": Bạn nhận được điểm giỏi trong kỳ thi cuối khoá.",
+     "verified": true,
+     "recommended": false
     },
     {
-      "id": "vacuous-proof",
-      "letter": "V",
-      "headword_en": "vacuous proof",
-      "notation": "p \\to q",
-      "rosen_ref": "Rosen §1.7",
-      "definition_vi": "Chứng minh rỗng là phương pháp chứng minh một mệnh đề kéo theo $$p \\to q$$ bằng cách chỉ ra rằng giả thiết $$p$$ là sai; khi đó $$p \\to q$$ luôn đúng bất kể giá trị chân lý của $$q$$.",
-      "example_vi": "Mệnh đề \"nếu $$0 > 1$$ thì $$2 = 2$$\" đúng theo phép chứng minh rỗng, vì giả thiết $$0 > 1$$ là sai nên $$p \\to q$$ đúng bất kể kết luận.",
-      "notes": "Mining result: NO source in the Vietnamese corpus (bib-leanhvinh-2020, bib-nguyenhoangthach-2020, bib-nguyenhuudien-2019, bib-hoangchithanh-2007, bib-nguyenducnghia-2006, bib-ngodactan-2004) attests any candidate term for \"vacuous proof.\" All three candidates (chứng minh rỗng, chứng minh tầm thường, phép chứng minh rỗng) returned 0 hits in both normal and --loose (OCR) modes; this was independently re-verified by the checker. The proof-methods section of the discrete-math source bib-nguyenhuudien-2019 (§2.3, \"Các phương pháp chứng minh cơ bản\") names only direct proof (chứng minh trực tiếp, pdf_page 56), proof by contradiction (chứng minh phản chứng, pdf_page 57-58), proof by cases (chứng minh bằng cách chia trường hợp), and counterexample (phản ví dụ); it does NOT name the vacuous proof as a separate technique. The component words \"rỗng\" (118 hits) and \"tầm thường\" (14 hits) occur only in unrelated senses (empty set/tập rỗng; nontrivial graph/đồ thị không tầm thường), never as a proof-method term. Per the locked convention, exactly one standard term (\"chứng minh rỗng\") is kept with verified=false and page=\"\" so vi_terms is non-empty; the other two candidates were dropped as verified=false with empty pages. Recommended term reflects the standard rendering of Rosen's \"vacuous proof\" (a conditional $$p \\to q$$ shown true because the hypothesis $$p$$ is false). Variant glosses worth noting: \"chứng minh tầm thường\" collides with Rosen's distinct \"trivial proof\" (true because $$q$$ is true), so \"chứng minh rỗng\" is preferred to keep the two notions separate.",
-      "see_also": [
-        "trivial-proof",
-        "direct-proof",
-        "proof-by-contraposition",
-        "conditional-statement"
-      ],
-      "vi_terms": [
-        {
-          "term": "chứng minh rỗng",
-          "verified": false,
-          "recommended": true,
-          "source_id": "",
-          "page": "",
-          "pdf_page": 0,
-          "snippet": ""
-        }
-      ]
-    },
-    {
-      "id": "value-of-a-flow",
-      "letter": "V",
-      "headword_en": "value of a flow",
-      "notation": "\\mathrm{val}(f)",
-      "rosen_ref": "Rosen — network flow not covered; anchored to nguyenhuudien-2019 §8 (luồng vận tải / giá trị của luồng)",
-      "definition_vi": "Giá trị của luồng $$f$$ trong một mạng vận tải là lượng luồng thực sự đi ra khỏi đỉnh nguồn $$s$$, bằng với lượng luồng thực sự đi vào đỉnh thu $$t$$, ký hiệu $$\\mathrm{val}(f)$$.",
-      "example_vi": "Xét mạng vận tải với đỉnh nguồn $$s$$ và đỉnh thu $$t$$. Nếu luồng $$f$$ gửi từ $$s$$ ra ngoài tổng cộng $$5$$ đơn vị qua các cạnh ra khỏi $$s$$ và không có cạnh nào đi vào $$s$$, thì $$\\mathrm{val}(f) = 5$$, và đúng $$5$$ đơn vị này đi vào $$t$$.",
-      "vi_terms": [
-        {
-          "term": "giá trị của luồng",
-          "verified": true,
-          "recommended": true,
-          "source_id": "bib-nguyenhuudien-2019",
-          "pdf_page": 210,
-          "page": "tr. 210",
-          "snippet": "tại điểm vn hay giá trị của luồng φ. Bài toán đặt ra ở đây là tìm φ để φvn đạt giá trị lớn nhất,"
-        },
-        {
-          "term": "giá trị của luồng",
-          "verified": true,
-          "recommended": false,
-          "source_id": "bib-hoangchithanh-2007",
-          "pdf_page": 108,
-          "page": "tr. 108",
-          "snippet": "cuối cùng nhận được sẽ là luồng lớn nhất với giá trị của luồng qua"
-        },
-        {
-          "term": "giá trị luồng",
-          "verified": true,
-          "recommended": false,
-          "source_id": "bib-nguyenhuudien-2019",
-          "pdf_page": 213,
-          "page": "tr. 213",
-          "snippet": "Figure 8.6: Nâng giá trị luồng"
-        },
-        {
-          "term": "giá trị luồng",
-          "verified": true,
-          "recommended": false,
-          "source_id": "bib-nguyenducnghia-2006",
-          "pdf_page": 243,
-          "page": "",
-          "snippet": "Chú ý là đẳng thức thứ hai trong định nghĩa giá trị luồng là hệ quả của điều kiện cân"
-        },
-        {
-          "term": "giá trị của luồng",
-          "source_id": "bib-hoangchithanh-2011",
-          "page": "",
-          "pdf_page": 187,
-          "snippet": "Bước 3: Nâng giá trị của luồng",
-          "verified": true,
-          "recommended": false
-        },
-        {
-          "term": "giá trị luồng",
-          "source_id": "bib-cormen-2001-vi",
-          "page": "tr. 654",
-          "pdf_page": 652,
-          "snippet": "luỗng mạng rời nguồn cho mặt hàng đó. Tổng giá trị luỗng là tổng các",
-          "verified": true,
-          "recommended": false
-        }
-      ],
-      "notes": "rosen_ref: Rosen does not contain a numbered network-flow section, so per the chapter-established convention (cf. flow-network, maximum-flow, cut-network in other letters) the ref is anchored to the newest Vietnamese source that covers network flows, bib-nguyenhuudien-2019 §8 (luồng vận tải); the earlier fabricated form \"§10.0 (Network flows)\" was removed. The book's standardized symbol $$\\mathrm{val}(f)$$ renders the source's $$\\varphi_{v_n}$$ (the flow value at the sink $$v_n$$, the quantity to be maximized); the citation therefore attests the Vietnamese term and the concept, not the symbol $$\\mathrm{val}(f)$$. Recommended term \"giá trị của luồng\" is the standard form, attested in the newest network-flow-covering source bib-nguyenhuudien-2019 (2019, p210) and in older sources bib-hoangchithanh-2007 (p108) and bib-ngodactan-2004 (p244, where condition-(2)/(3) value $$c$$ \"được gọi là giá trị của luồng\"; also p259 \"giá trị của luồng f được thu vào đỉnh thu t\"). The 2020 sources (bib-leanhvinh-2020, bib-nguyenhoangthach-2020) do NOT cover network flows: re-verified, both return 0 hits for \"giá trị của luồng\" (normal and --loose), confirming their \"giá trị\"/\"đỉnh thu\" hits elsewhere are false positives (minimum values, eigenvalues \"giá trị riêng\", and \"đỉnh thuộc\" = vertex belonging to a set). Hence the newest attestation is 2019, listed first. Variant \"giá trị luồng\" (no \"của\") is attested in bib-nguyenhuudien-2019 (p213 figure caption \"Nâng giá trị luồng\") and bib-nguyenducnghia-2006 (p243, \"định nghĩa giá trị luồng\"). Candidate \"giá trị của một luồng\" returned 0 hits in both normal and --loose searches across all sources and is dropped per citation hygiene. OCR sources (bib-hoangchithanh-2007, bib-ngodactan-2004) were searched both normally and with --loose; loose mode surfaced extra mangled-diacritic hits but no new distinct terms. The definition states the value as the net flow leaving the source equal to net flow entering the sink, matching the English ground truth and the source framing of $$\\varphi_{v_n}$$ as the quantity to maximize; the example is self-contained, introducing only $$s$$, $$t$$, and $$\\mathrm{val}(f)$$, and states the no-edge-into-source assumption before asserting the source-sink equality.",
-      "see_also": [
-        "maximum-flow"
-      ]
-    },
-    {
-      "id": "valid-inference-rule",
-      "letter": "V",
-      "headword_en": "valid inference rule",
-      "notation": "\\dfrac{P_1, P_2, \\ldots, P_n}{\\therefore Q}",
-      "rosen_ref": "Rosen §1.5",
-      "definition_vi": "Một quy tắc suy luận hợp lý (ký hiệu $$\\frac{P_1, P_2, \\ldots, P_n}{\\therefore Q}$$) là một dạng lập luận đi từ các giả thiết $$P_1, P_2, \\ldots, P_n$$ đến kết luận $$Q$$ sao cho phép kéo theo $$(P_1 \\wedge P_2 \\wedge \\cdots \\wedge P_n) \\to Q$$ là một hằng đúng. Khi đó, mỗi khi tất cả các giả thiết đều đúng thì kết luận $$Q$$ cũng đúng.",
-      "example_vi": "Quy tắc Modus Ponens là một quy tắc suy luận hợp lý, dựa trên hằng đúng $$(p \\wedge (p \\to q)) \\to q$$: từ $$p$$ và $$p \\to q$$ ta suy ra $$q$$.",
-      "vi_terms": [
-        {
-          "term": "quy tắc suy luận hợp lệ",
-          "source_id": "",
-          "page": "",
-          "pdf_page": 0,
-          "snippet": "",
-          "verified": false,
-          "recommended": true
-        },
-        {
-          "term": "quy tắc suy diễn",
-          "source_id": "bib-nguyenhuudien-2019",
-          "pdf_page": 29,
-          "page": "tr. 29",
-          "snippet": "Định nghĩa qui tắc suy diễn",
-          "verified": true,
-          "recommended": false
-        },
-        {
-          "term": "qui tắc suy diễn hợp lý",
-          "source_id": "bib-nguyenhuudien-2019",
-          "pdf_page": 29,
-          "page": "tr. 29",
-          "snippet": "luận như thế phải dựa trên một qui tắc suy diễn hợp lý nào đó để nó được xem là một suy",
-          "verified": true,
-          "recommended": false
-        },
-        {
-          "term": "luật suy diễn",
-          "source_id": "bib-nguyenhuudien-2019",
-          "pdf_page": 29,
-          "page": "tr. 29",
-          "snippet": "Ta gọi dạng lý luận trên là một luật suy diễn và người ta cũng thường viết luật suy diễn",
-          "verified": true,
-          "recommended": false
-        },
-        {
-          "term": "quy tắc suy luận",
-          "source_id": "bib-rosen-2003-vi",
-          "pdf_page": 210,
-          "page": "tr. 210",
-          "snippet": "Hàng đúng (p A (p — q}} > q là cơ sở của quy tắc suy luận có tên là",
-          "verified": true,
-          "recommended": false
-        },
-        {
-          "term": "luật suy diễn",
-          "source_id": "bib-rosen-2003-vi",
-          "pdf_page": 210,
-          "page": "tr. 210",
-          "snippet": "an toàn của một hệ điều hảnh, xây dựng các luật suy diễn trong lĩnh",
-          "verified": true,
-          "recommended": false
-        },
-        {
-          "term": "quy tắc suy luận lôgic hợp lý",
-          "source_id": "",
-          "page": "",
-          "pdf_page": 0,
-          "snippet": "",
-          "verified": false,
-          "recommended": false
-        },
-        {
-          "term": "quy tắc suy diễn",
-          "source_id": "bib-doducgiao-2009",
-          "page": "tr. 279",
-          "pdf_page": 280,
-          "snippet": "Các quy tắc suy diễn trong lògic là cơ sở để biết được một lập luận hay",
-          "verified": true,
-          "recommended": false
-        },
-        {
-          "term": "quy tắc suy diễn",
-          "source_id": "bib-vudinhhoa-2010",
-          "page": "",
-          "pdf_page": 65,
-          "snippet": "các kỹ thuật và các thủ tục thường dùng để xây dựng các quy tắc suy diễn. Mục",
-          "verified": true,
-          "recommended": false
-        },
-        {
-          "term": "luật suy diễn",
-          "source_id": "bib-vudinhhoa-2010",
-          "page": "",
-          "pdf_page": 65,
-          "snippet": "Một trong những quy tắc đầu tiên được dùng trong các luật suy diễn là khái",
-          "verified": true,
-          "recommended": false
-        },
-        {
-          "term": "quy tắc suy luận",
-          "source_id": "bib-vudinhhoa-2010",
-          "page": "",
-          "pdf_page": 5,
-          "snippet": "4.1. Các quy tắc suy luận 2",
-          "verified": true,
-          "recommended": false
-        }
-      ],
-      "see_also": [],
-      "notes": "Rosen dùng \"quy tắc suy luận\" (bảng các quy tắc trong §1.5); Nguyễn Hữu Điển dùng \"quy tắc/luật suy diễn\". Tính \"hợp lý\" của quy tắc tương ứng với việc $$(P_1 \\wedge \\cdots \\wedge P_n) \\to Q$$ là hằng đúng.",
-      "status": "draft"
-    },
-    {
-      "id": "valid",
-      "letter": "V",
-      "headword_en": "valid",
-      "notation": "",
-      "rosen_ref": "Rosen §1.5",
-      "definition_vi": "Một lập luận gồm các tiền đề $$p_1, p_2, \\ldots, p_n$$ và kết luận $$q$$ được gọi là hợp lý nếu kết luận luôn đúng mỗi khi tất cả các tiền đề đều đúng, tức là khi kéo theo $$(p_1 \\wedge p_2 \\wedge \\cdots \\wedge p_n) \\to q$$ là một hằng đúng (tautology). Tính hợp lý chỉ phụ thuộc vào dạng lập luận chứ không phụ thuộc vào giá trị chân lý cụ thể của các tiền đề.",
-      "example_vi": "Luật suy diễn modus ponens cho một lập luận hợp lý: từ $$p$$ và $$p \\to q$$ suy ra $$q$$, vì $$(p \\wedge (p \\to q)) \\to q$$ là một hằng đúng.",
-      "vi_terms": [
-        {
-          "term": "hợp lý",
-          "source_id": "bib-nguyenhuudien-2019",
-          "pdf_page": 29,
-          "page": "tr. 29",
-          "snippet": "Dạng lý luận này được xem là hợp lý (được chấp nhận là đúng) khi ta có biểu thức",
-          "verified": true,
-          "recommended": true
-        },
-        {
-          "term": "suy luận đúng",
-          "source_id": "bib-nguyenhuudien-2019",
-          "pdf_page": 30,
-          "page": "tr. 30",
-          "snippet": "phép suy luận trên là suy luận đúng.",
-          "verified": true,
-          "recommended": false
-        },
-        {
-          "term": "hợp lý",
-          "source_id": "bib-doducgiao-2009",
-          "page": "tr. 279",
-          "pdf_page": 280,
-          "snippet": "Dạng lý luận này được xem là hợp lý nếu công thức",
-          "verified": true,
-          "recommended": false
-        },
-        {
-          "term": "suy luận đúng",
-          "source_id": "bib-doducgiao-2009",
-          "page": "tr. 350",
-          "pdf_page": 351,
-          "snippet": "23. Xác định các suy luận đúng trong số các suy luận đưới đây:",
-          "verified": true,
-          "recommended": false
-        },
-        {
-          "term": "đúng đắn",
-          "source_id": "bib-leanhvinh-2020",
-          "page": "tr. 103",
-          "pdf_page": 102,
-          "snippet": "Do a(G,) = a(Ơ), áp dụng đánh giá trên ta có",
-          "verified": true,
-          "recommended": false
-        },
-        {
-          "term": "đúng đắn",
-          "source_id": "bib-nguyenhoangthach-2020",
-          "page": "tr. 22",
-          "pdf_page": 24,
-          "snippet": "dụng đẳng thức Pascal sau đây.",
-          "verified": true,
-          "recommended": false
-        },
-        {
-          "term": "đúng đắn",
-          "source_id": "bib-nguyenhuudien-2019",
-          "page": "tr. 28",
-          "pdf_page": 28,
-          "snippet": "Một lập luận (hay lý luận) chỉ ra được tính đúng đắn của mệnh đề phát biểu trong định",
-          "verified": true,
-          "recommended": false
-        },
-        {
-          "term": "hợp lý",
-          "source_id": "bib-doducthai-2010",
-          "page": "tr. 7",
-          "pdf_page": 7,
-          "snippet": "5.2.4 Phương pháp hợp lý cực đại . . . . . . . . . . . . . . . 228",
-          "verified": true,
-          "recommended": false
-        },
-        {
-          "term": "suy luận đúng",
-          "source_id": "bib-vudinhhoa-2010",
-          "page": "",
-          "pdf_page": 65,
-          "snippet": "đích chương này là cung cắp cho các học viên những suy luận đúng đắn và những",
-          "verified": true,
-          "recommended": false
-        }
-      ],
-      "see_also": [],
-      "notes": "Trong logic, \"hợp lý\" (valid) chỉ tính đúng của dạng lập luận, không phải nghĩa \"hợp lý\" thông thường. Bản dịch Rosen dùng \"đúng đắn\"; một số tài liệu dùng \"suy luận đúng\".",
-      "status": "draft"
-    },
-    {
-      "id": "vandermondes-identity",
-      "letter": "V",
-      "headword_en": "Vandermonde's identity",
-      "notation": "\\binom{m+n}{r}=\\sum_{k=0}^{r}\\binom{m}{r-k}\\binom{n}{k}",
-      "rosen_ref": "Rosen §5.4",
-      "definition_vi": "Đẳng thức Vandermonde là hệ thức tổ hợp khẳng định rằng với các số nguyên không âm $$m$$, $$n$$, $$r$$ thỏa $$r\\leq m+n$$, ta có $$\\binom{m+n}{r}=\\sum_{k=0}^{r}\\binom{m}{r-k}\\binom{n}{k}$$.",
-      "example_vi": "Khi $$m=n=r$$, đẳng thức Vandermonde cho $$\\binom{2n}{n}=\\sum_{k=0}^{n}\\binom{n}{k}^{2}$$.",
-      "vi_terms": [
-        {
-          "term": "đẳng thức Vandermonde",
-          "source_id": "bib-nguyenhoangthach-2020",
-          "pdf_page": 24,
-          "page": "tr. 22",
-          "snippet": "Định lý 2.13 (Đẳng thức Vandermonde). Giả sử m, n, k là các số nguyên",
-          "verified": true,
-          "recommended": true
-        },
-        {
-          "term": "đồng nhất thức Vandermonde",
-          "source_id": "bib-ngodactan-2004",
-          "pdf_page": 42,
-          "page": "tr. 42",
-          "snippet": "Thay n = 1 vào đồng nhất thức Vandermonde ta nhận được đồng",
-          "verified": true,
-          "recommended": false
-        },
-        {
-          "term": "hằng đẳng thức Vandermonde",
-          "source_id": "bib-rosen-2003-vi",
-          "pdf_page": 320,
-          "page": "tr. 320",
-          "snippet": "DINH LY 5. HANG DANG THỨC VANDERMONDE. Giả sử m, n và r ... Đó chính là hằng đẳng thức Vandermonde.",
-          "verified": true,
-          "recommended": false
-        },
-        {
-          "term": "công thức Vandermonde",
-          "source_id": "",
-          "page": "",
-          "pdf_page": 0,
-          "snippet": "",
-          "verified": false,
-          "recommended": false
-        }
-      ],
-      "see_also": [],
-      "notes": "Còn gọi là đồng nhất thức Vandermonde (Ngô Đắc Tân) hay hằng đẳng thức Vandermonde (bản dịch Rosen). Trường hợp $$m=n=r$$ cho $$\\binom{2n}{n}=\\sum_{k=0}^{n}\\binom{n}{k}^{2}$$.",
-      "status": "draft"
-    },
-    {
-      "id": "variable",
-      "letter": "V",
-      "headword_en": "variable",
-      "notation": "x, y, z",
-      "rosen_ref": "Rosen §1.3",
-      "definition_vi": "Biến là một ký hiệu (thường là một chữ cái như $$x$$, $$y$$, $$z$$) thay cho một phần tử chưa xác định lấy giá trị trong một miền xác định cho trước. Trong hàm mệnh đề $$P(x)$$, mệnh đề chỉ nhận giá trị chân lý sau khi biến $$x$$ được gán một giá trị cụ thể trong miền của nó.",
-      "example_vi": "Trong câu \"$$x$$ lớn hơn $$3$$\", ký hiệu $$x$$ là biến và phần \"lớn hơn $$3$$\" là vị từ; câu này được viết là $$P(x)$$, và chỉ khi gán cho $$x$$ một giá trị, chẳng hạn $$x = 4$$, ta mới thu được một mệnh đề có giá trị chân lý xác định.",
-      "vi_terms": [
-        {
-          "term": "biến",
-          "source_id": "bib-rosen-2003-vi",
-          "pdf_page": 32,
-          "page": "tr. 32",
-          "snippet": "lớn hơn 3\" là Pfx), với P ký hiệu vị ngữ \"lớn hơn 3\" và x là biến.",
-          "verified": true,
-          "recommended": false
-        },
-        {
-          "term": "biến",
-          "source_id": "bib-nguyenhuudien-2019",
-          "pdf_page": 19,
-          "page": "tr. 19",
-          "snippet": "Trong đại số ta có các biểu thức đại số được xây dựng từ các hằng số, các biến và các phép toán.",
-          "verified": true,
-          "recommended": true
-        },
-        {
-          "term": "biến số",
-          "source_id": "bib-leanhvinh-2020",
-          "page": "tr. 8",
-          "pdf_page": 7,
-          "snippet": "Mặc dù tác giả đã có nhiều cố gắng trong quá trình biên soạn",
-          "verified": true,
-          "recommended": false
-        },
-        {
-          "term": "biến số",
-          "source_id": "bib-nguyenhuudien-2019",
-          "page": "tr. 3",
-          "pdf_page": 3,
-          "snippet": "Lần đầu tiên biên soạn không thể tránh khỏi sai sót và nhầm lẫn mong bạn đọc cho ý",
-          "verified": true,
-          "recommended": false
-        },
-        {
-          "term": "biến số",
-          "source_id": "bib-sierpinski-2012",
-          "page": "tr. 16",
-          "pdf_page": 30,
-          "snippet": "ai và đổi dấu của biến số tương ứng. Nếu có hai hệ số ai bằng nhau chẳng hạn a1  a2 thì đặt",
-          "verified": true,
-          "recommended": false
-        }
-      ],
-      "see_also": [],
-      "notes": "Biến trong giáo trình MAT3500 là ký hiệu thay cho một giá trị chưa xác định. Các trường hợp riêng thường gặp gồm \"biến mệnh đề\" (propositional variable) và \"biến logic\" (logical variable), xem nguyenhuudien-2019, tr. 20–21 (PDF). Cần phân biệt với \"biến ngẫu nhiên\" (random variable) và \"biến cố\" (event) trong xác suất, vốn là khái niệm khác.",
-      "status": "draft"
-    },
-    {
-      "id": "valid-argument-form",
-      "letter": "V",
-      "headword_en": "valid argument form",
-      "see_ref": "valid",
-      "vi_terms": [
-        {
-          "term": "dạng lập luận hợp lý",
-          "verified": false,
-          "recommended": false,
-          "source_id": "",
-          "page": "",
-          "pdf_page": 0,
-          "snippet": ""
-        }
-      ],
-      "status": "draft"
-    },
-    {
-      "id": "value-of-a-vertex-in-a-game-tree",
-      "letter": "V",
-      "headword_en": "value of a vertex in a game tree",
-      "notation": "",
-      "rosen_ref": "Rosen §11.5",
-      "definition_vi": "Giá trị của một đỉnh trong cây trò chơi được định nghĩa như sau: nếu đỉnh đó là một lá thì giá trị của nó là tiền trả cho người chơi thứ nhất khi ván chơi kết thúc tại lá đó; nếu đỉnh đó là một đỉnh trong thì giá trị của nó được xác định bởi giá trị của các đỉnh con qua cách chơi của hai người, tức là người chơi thứ nhất chọn nước đi tới đỉnh con có giá trị lớn nhất còn người chơi thứ hai chọn nước đi tới đỉnh con có giá trị nhỏ nhất.",
-      "example_vi": "Xét một cây trò chơi trong đó mỗi lá được gán tiền trả cho người chơi thứ nhất. Tại một đỉnh trong ứng với lượt đi của người chơi thứ nhất, giá trị bằng giá trị lớn nhất trong các đỉnh con; tại một đỉnh trong ứng với lượt đi của người chơi thứ hai, giá trị bằng giá trị nhỏ nhất trong các đỉnh con. Lan truyền quy tắc này từ các lá lên gốc, giá trị của gốc cho biết tiền trả mà người chơi thứ nhất bảo đảm được khi cả hai cùng chơi tối ưu.",
-      "vi_terms": [
-        {
-          "term": "giá trị của một đỉnh trong cây trò chơi",
-          "source_id": "",
-          "page": "",
-          "pdf_page": 0,
-          "snippet": "",
-          "verified": false,
-          "recommended": true
-        },
-        {
-          "term": "trò chơi",
-          "source_id": "bib-leanhvinh-2020",
-          "page": "tr. 90",
-          "pdf_page": 89,
-          "snippet": "Bài tập 3.11. Hai chị em Jenny và Julia chơi trò chơi trên một đồ",
-          "verified": true,
-          "recommended": false
-        },
-        {
-          "term": "trò chơi",
-          "source_id": "bib-nguyenhoangthach-2020",
-          "page": "tr. 4",
-          "pdf_page": 6,
-          "snippet": "3.1 Trò chơi Tháp Hà Nội, n = 3. . . . . . . . . . . . . . . . . . . . . . 37",
-          "verified": true,
-          "recommended": false
-        },
-        {
-          "term": "trò chơi",
-          "source_id": "bib-nguyenhuudien-2019",
-          "page": "tr. 136",
-          "pdf_page": 136,
-          "snippet": "Ví dụ 5.4 (Thuật toán về trò chơi “Tháp Hà Nội”). Trò chơi “Tháp Hà Nội” như sau: Có ba",
-          "verified": true,
-          "recommended": false
-        }
-      ],
-      "see_also": [
-        "decision-tree",
-        "rooted-tree",
-        "leaf",
-        "internal-vertices",
-        "tree"
-      ],
-      "notes": "Theo Rosen §11.5 (Cây quyết định và cây trò chơi), giá trị của một đỉnh trong cây trò chơi được tính đệ quy từ các lá lên gốc theo nguyên lý minimax: giá trị của một lá là tiền trả cho người chơi thứ nhất, còn giá trị của một đỉnh trong là giá trị lớn nhất (ở lượt người chơi thứ nhất) hoặc nhỏ nhất (ở lượt người chơi thứ hai) trong các giá trị của các đỉnh con. Giá trị của gốc bằng tiền trả mà người chơi thứ nhất bảo đảm được khi cả hai chơi tối ưu, và một chiến lược tối ưu chọn ở mỗi đỉnh đỉnh con đạt giá trị đó. Thuật ngữ tiếng Việt khuyến nghị \"giá trị của một đỉnh trong cây trò chơi\" là cách dịch chuẩn của \"value of a vertex in a game tree\"; nó được giữ verified=false (trích dẫn rỗng) vì không có nguồn nào trong kho ngữ liệu (các nguồn 2004–2020) chứng thực đúng cụm này, kể cả khi tìm với --loose. CHÍNH SÁCH NGUỒN DẪN ĐẦU (terminology_policy): bib-rosen-2003-vi có role=reference và bị find-term.py loại khỏi tìm mặc định (EXCLUDE_DEFAULT); chỉ một lượt truy vấn tường minh theo id mới trả về kết quả, nên nó không bao giờ được làm thuật ngữ recommended/lead. Hai dòng bib-rosen-2003-vi được ghi là verified=true, recommended=false làm chứng thực bổ trợ cho ngữ cảnh trò chơi và cây trò chơi trong bản dịch Rosen: tr. 630 biểu diễn một trò chơi bằng cây và nói về các đỉnh, tr. 710 nhắc tới việc nghiên cứu các trò chơi (cờ caro, nim, hex) và tìm chiến lược thắng. Mục §11.5 chuyên về cây trò chơi của Rosen không cho snippet OCR sạch ứng đúng định nghĩa giá trị của đỉnh, nên không có dòng nào được gán làm trích dẫn xác nhận trực tiếp cho cụm khuyến nghị; OCR có sai một số dấu và ký tự, snippet được giữ nguyên minh bạch. see_also dẫn tới decision-tree (cùng mục §11.5), rooted-tree, leaf, internal-vertices và tree vì giá trị của đỉnh được tính trên một cây có gốc, lan truyền từ lá lên qua các đỉnh trong.",
-      "status": "draft"
-    },
-    {
-      "id": "variance-of-a-random-variable",
-      "letter": "V",
-      "headword_en": "variance of a random variable",
-      "notation": "V(X)",
-      "rosen_ref": "Rosen §7.4",
-      "definition_vi": "Phương sai của một biến ngẫu nhiên $$X$$ là trung bình có trọng số của các bình phương độ lệch của $$X$$ so với giá trị kì vọng $$E(X)$$ của nó. Cụ thể, $$V(X) = \\sum_{s \\in S} (X(s) - E(X))^2\\, p(s)$$, trong đó tổng được lấy theo mọi kết cục $$s$$ trong không gian mẫu $$S$$.",
-      "example_vi": "Xét phép thử tung một con xúc xắc cân đối và gọi $$X$$ là số chấm xuất hiện. Khi đó $$E(X) = 7/2$$ và phương sai là $$V(X) = \\sum_{i=1}^{6} \\frac{1}{6}\\left(i - \\frac{7}{2}\\right)^2 = \\frac{35}{12}$$.",
-      "vi_terms": [
-        {
-          "term": "phương sai",
-          "verified": false,
-          "recommended": false,
-          "source_id": "",
-          "page": "",
-          "pdf_page": 0,
-          "snippet": ""
-        },
-        {
-          "term": "phương sai",
-          "source_id": "bib-cormen-2001-vi",
-          "page": "tr. 123",
-          "pdf_page": 121,
-          "snippet": "cùng với các tính chất của sự dự trù [expectation] và phương sai. Doan",
-          "verified": true,
-          "recommended": false
-        },
-        {
-          "term": "phương sai",
-          "source_id": "bib-doducthai-2010",
-          "page": "tr. 5",
-          "pdf_page": 5,
-          "snippet": "Phương sai, độ lệch chuẩn, và các moment . . . . 108",
-          "verified": true,
-          "recommended": true
-        }
-      ],
-      "see_also": [
-        "expected-value"
-      ],
-      "notes": "Phương sai $$V(X)$$ đo mức độ phân tán của biến ngẫu nhiên $$X$$ quanh giá trị kì vọng $$E(X)$$. Công thức tương đương thường dùng là $$V(X) = E(X^2) - E(X)^2$$. Căn bậc hai của phương sai, $$\\sigma(X) = \\sqrt{V(X)}$$, được gọi là độ lệch chuẩn của $$X$$. Thuật ngữ \"phương sai\" là cách dịch chuẩn của \"variance\"; ngữ liệu hiện có (kể cả các nguồn mới nhất và bản dịch Rosen tham chiếu) không có dẫn chứng trực tiếp cho thuật ngữ này.",
-      "status": "draft"
-    },
-    {
-      "id": "vertex-cut",
-      "letter": "V",
-      "headword_en": "vertex cut",
-      "notation": "",
-      "rosen_ref": "Rosen §10.4",
-      "definition_vi": "Một lát cắt đỉnh của một đồ thị $$G$$ là một tập đỉnh $$W \\subseteq V(G)$$ sao cho việc xóa các đỉnh trong $$W$$ (cùng với các cạnh kề với chúng) làm cho đồ thị $$G - W$$ thu được không liên thông. Nói cách khác, $$W$$ là một lát cắt đỉnh nếu $$G - W$$ không liên thông.",
-      "example_vi": "Mọi đồ thị liên thông không đầy đủ đều có một lát cắt đỉnh. Số đỉnh nhỏ nhất trong một lát cắt đỉnh của $$G$$ chính là độ liên thông đỉnh $$\\kappa(G) = \\min\\{|W| : W \\text{ là lát cắt đỉnh của } G\\}$$.",
-      "vi_terms": [
-        {
-          "term": "lát cắt đỉnh",
-          "source_id": "bib-nguyenhoangthach-2020",
-          "page": "tr. 73",
-          "pdf_page": 75,
-          "snippet": "W ⊂ V là một lát cắt đỉnh nếu G − W không liên thông. Số đỉnh trong lát",
-          "verified": true,
-          "recommended": true
-        },
-        {
-          "term": "tập đỉnh cắt",
-          "source_id": "bib-leanhvinh-2020",
-          "page": "tr. 130",
-          "pdf_page": 129,
-          "snippet": "còn lại trong tập đỉnh cắt của G/e. Khi đó, {x,y,z} là một tập đỉnh",
-          "verified": true,
-          "recommended": false
-        },
-        {
-          "term": "lát cắt đỉnh",
-          "source_id": "bib-ngodactan-2004",
-          "page": "tr. 256",
-          "pdf_page": 256,
-          "snippet": "lát cắt trong mạng vận tải đỉnh cũng được gọi là lát cắt đỉnh, còn lát",
-          "verified": true,
-          "recommended": false
-        },
-        {
-          "term": "tập cắt đỉnh",
-          "source_id": "",
-          "page": "",
-          "pdf_page": 0,
-          "snippet": "",
-          "verified": false,
-          "recommended": false
-        },
-        {
-          "term": "tập đỉnh phân tách",
-          "source_id": "",
-          "page": "",
-          "pdf_page": 0,
-          "snippet": "",
-          "verified": false,
-          "recommended": false
-        }
-      ],
-      "see_also": [
-        "vertex-connectivity",
-        "connectivity",
-        "cut-vertex",
-        "separating-set-of-edges",
-        "k-connected-graph"
-      ],
-      "notes": "Cần phân biệt lát cắt đỉnh (vertex cut) là một tập đỉnh với đỉnh cắt (cut vertex / khớp) là một đỉnh đơn lẻ; một đỉnh cắt chính là một lát cắt đỉnh gồm một đỉnh. Lát cắt đỉnh là phiên bản theo đỉnh của tập cạnh phân tách (separating set of edges); số đỉnh nhỏ nhất của một lát cắt đỉnh là độ liên thông đỉnh $$\\kappa(G)$$. Bản dịch bib-nguyenhoangthach-2020 (tr. 75) dùng \"lát cắt đỉnh\" (song song với \"lát cắt cạnh\"), còn bib-leanhvinh-2020 (tr. 129) dùng \"tập đỉnh cắt\"; cả hai đều chỉ cùng khái niệm này.",
-      "status": "draft"
+     "term": "nút",
+     "source_id": "bib-rosen-2003-vi",
+     "pdf_page": 451,
+     "page": "tr. 451",
+     "snippet": "(hay các nút) cùng với một tập KE các cặp phẩn tử của V được sắp. Các",
+     "verified": true,
+     "recommended": false
     }
-  ]
+   ]
+  },
+  {
+   "id": "vertex-coloring",
+   "letter": "V",
+   "headword_en": "vertex coloring",
+   "notation": "c : V(G) \\to \\{1,\\dots,k\\}",
+   "rosen_ref": "Rosen §10.8",
+   "definition_vi": "Một phép tô màu các đỉnh của đồ thị $$G$$ bằng $$k$$ màu là một ánh xạ $$c : V(G) \\to \\{1,\\dots,k\\}$$ gán cho mỗi đỉnh một màu sao cho hai đỉnh kề nhau bất kỳ luôn được gán hai màu khác nhau, tức là $$c(u) \\neq c(v)$$ với mọi cạnh $$uv \\in E(G)$$.",
+   "example_vi": "Với đồ thị đầy đủ $$K_n$$, mọi cặp đỉnh đều kề nhau, nên mỗi đỉnh phải nhận một màu riêng; do đó một phép tô màu các đỉnh của $$K_n$$ cần đúng $$n$$ màu.",
+   "notes": "Thuật ngữ khuyến nghị \"tô màu các đỉnh\" được chứng thực trong nguồn 2020 mới nhất (bib-leanhvinh-2020, tr. 90) với định nghĩa hình thức khớp với ánh xạ $$c : V(G) \\to \\{1,\\dots,k\\}$$. Biến thể \"tô màu đỉnh\" là dạng danh từ ngắn gọn (\"vertex coloring\"). Biến thể \"tô màu đồ thị\" KHÔNG được ghi nhận là một vi_term của mục này: nó tương ứng với khái niệm rộng hơn \"graph coloring\" (tiêu đề chương trong mọi nguồn từ 2004 đến 2020), tức là chủ đề cha chứ không phải bản dịch của ánh xạ tô màu đỉnh $$c : V(G) \\to \\{1,\\dots,k\\}$$; do đó nó được hạ cấp khỏi vi_terms và chuyển sang tham chiếu chuyển tiếp \"graph-coloring\" trong see_also. \"tô màu đồ thị\" được chứng thực rộng rãi (bib-nguyenhoangthach-2020 tr.81, bib-leanhvinh-2020 tr.90, bib-nguyenhuudien-2019 tr.227, bib-nguyenducnghia-2006 tr.166, bib-hoangchithanh-2007 tr.51, bib-ngodactan-2004 tr.284) nhưng như là tên của chủ đề cha. Hai nguồn OCR (bib-leanhvinh-2020, bib-hoangchithanh-2007) đã được kiểm tra ở cả chế độ thường và --loose; OCR đôi khi đọc \"đỉnh\" thành \"đính\"/\"định\" nhưng ngữ cảnh xác nhận đúng khái niệm.",
+   "see_also": [
+    "chromatic-number",
+    "graph-coloring"
+   ],
+   "vi_terms": [
+    {
+     "term": "tô màu các đỉnh",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-leanhvinh-2020",
+     "pdf_page": 90,
+     "page": "tr. 91",
+     "snippet": "Một cách to màu các đỉnh của dé thị G bởi k mau là một ánh xạ"
+    },
+    {
+     "term": "tô màu các đỉnh",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 227,
+     "page": "tr. 227",
+     "snippet": "Hãy tô màu các đỉnh của một đồ thị đã cho, sao cho hai đỉnh kề nhau phải được tô bằng hai màu"
+    },
+    {
+     "term": "tô màu đỉnh",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-leanhvinh-2020",
+     "pdf_page": 90,
+     "page": "tr. 91",
+     "snippet": "4.1. Tô màu đính"
+    },
+    {
+     "term": "tô màu đỉnh",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-ngodactan-2004",
+     "pdf_page": 283,
+     "page": "tr. 283",
+     "snippet": "Một tô màu đỉnh của một đồ thị, mà ta sẽ đơn giản gọi là một tô màu,"
+    },
+    {
+     "term": "tô màu các đỉnh",
+     "source_id": "bib-hoangchithanh-2011",
+     "page": "",
+     "pdf_page": 88,
+     "snippet": "Hãy tô màu các đỉnh của một đồ thị đã cho, sao cho hai đỉnh kề nhau",
+     "verified": true,
+     "recommended": false
+    }
+   ]
+  },
+  {
+   "id": "vertex-connectivity",
+   "letter": "V",
+   "headword_en": "vertex connectivity",
+   "notation": "\\kappa(G)",
+   "rosen_ref": "Rosen §10.4",
+   "definition_vi": "Độ liên thông đỉnh của một đồ thị $$G$$, ký hiệu $$\\kappa(G)$$, là số đỉnh ít nhất cần xóa (cùng với các cạnh kề) để làm cho $$G$$ mất liên thông hoặc trở thành đồ thị chỉ có một đỉnh. Với $$G$$ có ít nhất hai đỉnh, $$\\kappa(G)$$ cũng bằng số nguyên $$k$$ lớn nhất sao cho $$G$$ là $$k$$-liên thông đỉnh.",
+   "example_vi": "Với đồ thị chu trình $$C_n$$ (trong đó $$n \\geq 3$$), ta có $$\\kappa(C_n) = 2$$, vì cần xóa ít nhất hai đỉnh mới làm cho $$C_n$$ mất liên thông.",
+   "vi_terms": [
+    {
+     "term": "độ liên thông đỉnh",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-nguyenhoangthach-2020",
+     "pdf_page": 75,
+     "page": "tr. 73",
+     "snippet": "cắt đỉnh bé nhất được gọi là độ liên thông đỉnh của G, ký hiệu là κ(G):"
+    },
+    {
+     "term": "số liên thông đỉnh",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-leanhvinh-2020",
+     "pdf_page": 225,
+     "page": "tr. 226",
+     "snippet": "Số liên thông đỉnh của Ơ, kí hiệu bởi «(G), là số nhỏ nhất các đỉnh"
+    },
+    {
+     "term": "độ liên thông",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-ngodactan-2004",
+     "pdf_page": 266,
+     "page": "tr. 266",
+     "snippet": "gọi là độ liên thông của G và được ký hiệu là k (G)."
+    },
+    {
+     "term": "liên thông đỉnh",
+     "source_id": "bib-leanhvinh-2020",
+     "page": "tr. 226",
+     "pdf_page": 225,
+     "snippet": "Ta nhac lại định nghĩa về số liên thông đỉnh và cạnh của đỏ thị.",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "liên thông đỉnh",
+     "source_id": "bib-nguyenhoangthach-2020",
+     "page": "tr. 73",
+     "pdf_page": 75,
+     "snippet": "cắt đỉnh bé nhất được gọi là độ liên thông đỉnh của G, ký hiệu là κ(G):",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "độ liên thông",
+     "source_id": "bib-nguyenhoangthach-2020",
+     "page": "tr. 73",
+     "pdf_page": 75,
+     "snippet": "niệm độ liên thông.",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "liên thông đỉnh",
+     "source_id": "bib-vudinhhoa-2010",
+     "page": "",
+     "pdf_page": 129,
+     "snippet": "Tương tự khái niệm liên thông đỉnh, ta gọi một đồ thị liên thông là dé thị k-liên",
+     "verified": true,
+     "recommended": false
+    }
+   ],
+   "notes": "Three distinct Vietnamese terms denote this concept across the corpus. (1) \"độ liên thông đỉnh\" — recommended standard form, attested in the 2020 source bib-nguyenhoangthach-2020 (tr. 75), where the minimum vertex cut size is named $$\\kappa(G)$$; it parallels the modern term \"độ liên thông cạnh\" (edge connectivity) used in the same source. (2) \"số liên thông đỉnh\" — equivalent 2020 form in bib-leanhvinh-2020 (tr. 225, OCR source; the snippet shows OCR noise rendering $$G$$ as \"Ơ\" and $$\\kappa(G)$$ as \"«(G)\", but the surrounding definition unambiguously denotes vertex connectivity); the term also appears verbatim under normal (non-loose) search. (3) \"liên thông đỉnh\" — older form in bib-ngodactan-2004 (tr. 265), where graphs are called \"k-liên thông đỉnh\" ($$k$$-vertex-connected); the connectivity number itself is the least such $$k$$. No source attests the candidate \"bậc liên thông\" or phrasings like \"liên thông theo đỉnh\"/\"tính liên thông đỉnh\" (0 hits, normal and loose). The OCR source bib-hoangchithanh-2007 and the text sources bib-nguyenhuudien-2019 and bib-nguyenducnghia-2006 returned no hits for any \"đỉnh\" connectivity term.",
+   "see_also": [
+    "edge-connectivity",
+    "cut-vertex",
+    "k-connected-graph"
+   ]
+  },
+  {
+   "id": "vertex-cover",
+   "letter": "V",
+   "headword_en": "vertex cover",
+   "notation": "S \\subseteq V(G)",
+   "rosen_ref": "Rosen §10.2",
+   "definition_vi": "Một tập phủ đỉnh của đồ thị $$G$$ là một tập con các đỉnh $$S \\subseteq V(G)$$ sao cho mỗi cạnh của $$G$$ có ít nhất một đầu mút thuộc $$S$$.",
+   "example_vi": "Xét đồ thị đường đi $$P_3$$ với các đỉnh $$a, b, c$$ và các cạnh $$ab$$, $$bc$$. Tập $$\\{b\\}$$ là một tập phủ đỉnh vì cả hai cạnh $$ab$$ và $$bc$$ đều có đầu mút $$b$$.",
+   "notes": "Three distinct Vietnamese terms denote this concept across the corpus. The recommended term \"tập phủ đỉnh\" is the standard full noun phrase, attested in the newest source (bib-leanhvinh-2020, 2020) as section heading \"3.3. Tập phủ đỉnh\" and used throughout its definition/proofs. The shorter head noun \"phủ đỉnh\" is attested and explicitly defined in bib-nguyenducnghia-2006 (2006, p. 263): a subset $$S$$ of vertices is a phủ đỉnh if every edge has at least one endpoint in $$S$$. \"phủ đỉnh nhỏ nhất\" (minimum vertex cover) is the optimization-problem variant named in bib-nguyenducnghia-2006 (\"Bài toán phủ đỉnh nhỏ nhất\"), recorded as a variant. OCR sources bib-hoangchithanh-2007 and bib-leanhvinh-2020 were checked with both normal and --loose passes; hoangchithanh-2007 describes the covering property on p. 59 (\"mỗi cạnh của G đều kề với ít nhất một đỉnh\") but does not name the concept with any \"phủ\"-based head noun, so it is not recorded as an attestation. Loose searches for \"phủ đỉnh\" also surface false positives from \"phủ định\" (negation) in nguyenducnghia-2006; only p. 263 hits denote this concept. The notation field stores the bare LaTeX token \"S \\subseteq V(G)\" (the renderer adds $$...$$), normalized from a pre-wrapped form to match every sibling notation field.",
+   "see_also": [
+    "vertex",
+    "edge",
+    "independent-set"
+   ],
+   "vi_terms": [
+    {
+     "term": "tập phủ đỉnh",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-leanhvinh-2020",
+     "pdf_page": 77,
+     "page": "tr. 78",
+     "snippet": "3.3. Tập phủ đỉnh"
+    },
+    {
+     "term": "phủ đỉnh nhỏ nhất",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenducnghia-2006",
+     "pdf_page": 263,
+     "page": "",
+     "snippet": "6, Bài toán phủ đỉnh nhỏ nhất: Cho đồ thị vô hướng G = (V, E) với trọng số trên các đỉnh ... Bài toán đặt ra là tìm phủ đỉnh có trọng lượng nhỏ nhất (mà ta sẽ gọi là phủ đỉnh nhỏ nhất)."
+    },
+    {
+     "term": "phủ đỉnh",
+     "source_id": "bib-leanhvinh-2020",
+     "page": "tr. 5",
+     "pdf_page": 4,
+     "snippet": "3.3. Tap phủ đỉnh ................ininenn nen nen ae nen nen ng 78",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "phủ đỉnh",
+     "source_id": "bib-nguyenhoangthach-2020",
+     "page": "tr. 54",
+     "pdf_page": 56,
+     "snippet": "Trong nhiều bài toán đếm, ta thường sử dụng dạng phủ định của nguyên",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "phủ đỉnh",
+     "source_id": "bib-nguyenhuudien-2019",
+     "page": "tr. 13",
+     "pdf_page": 13,
+     "snippet": "1.2.1. Phép phủ định . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 16",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "phủ đỉnh",
+     "source_id": "bib-cungkimtien-2004",
+     "page": "",
+     "pdf_page": 102,
+     "snippet": "denial sự phủ định",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "phủ đỉnh",
+     "source_id": "bib-phan-1976",
+     "page": "tr. 79",
+     "pdf_page": 79,
+     "snippet": "contracdict phủ định, từ chối; mâu thuẫn",
+     "verified": true,
+     "recommended": false
+    }
+   ]
+  },
+  {
+   "id": "valid-argument",
+   "letter": "V",
+   "headword_en": "valid argument",
+   "notation": "(p_1 \\wedge \\cdots \\wedge p_n) \\rightarrow q",
+   "rosen_ref": "Rosen §1.6",
+   "definition_vi": "Một suy luận trong logic mệnh đề, gồm các tiền đề $$p_1, p_2, \\ldots, p_n$$ và kết luận $$q$$, được gọi là một suy luận đúng nếu kết luận $$q$$ đúng mỗi khi tất cả các tiền đề $$p_1, p_2, \\ldots, p_n$$ đều đúng, tức là phép kéo theo $$(p_1 \\wedge p_2 \\wedge \\cdots \\wedge p_n) \\rightarrow q$$ là một hằng đúng.",
+   "example_vi": "Suy luận với các tiền đề $$p \\rightarrow q$$ và $$p$$, kết luận $$q$$, là một suy luận đúng, vì khi cả $$p \\rightarrow q$$ và $$p$$ đều đúng thì $$q$$ cũng đúng; do đó $$((p \\rightarrow q) \\wedge p) \\rightarrow q$$ là một hằng đúng.",
+   "notes": "Recommended term \"suy luận đúng\" is attested in the 2019 discrete-math source bib-nguyenhuudien-2019 (newest available source covering this propositional-logic concept). It appears repeatedly across §1.6 \"Quy tắc suy diễn\" (Rules of inference): \"suy diễn (B) là một suy luận đúng\" (tr. 28 PDF), \"phép suy luận trên là suy luận đúng\" (tr. 30 PDF), \"Vậy suy luận đúng\" (tr. 34 PDF), and as the §1.2 heading \"Suy luận đúng\" (tr. 36 PDF). The source equates a suy luận đúng with one that is \"hợp logic\" (logically valid): \"Để kiểm tra một suy luận cụ thể là đúng hay không, tức là có 'hợp logic' hay không\" (tr. 30 PDF), matching Rosen's definition that an argument is valid when the conclusion is true whenever all premises are true. The source also frames it as \"Một bước suy diễn đúng và sai\" (tr. 28 PDF).\n\nThe candidate variants \"suy luận hợp lệ\", \"lập luận đúng đắn\", and \"suy diễn hợp lệ\" returned zero hits in every source (normal and --loose), so they are dropped from vi_terms and recorded here only as plausible synonym variants.\n\nThe graph-theory sources bib-leanhvinh-2020 (tr. 74, 127, 151, 168, 241 PDF) and others use \"lập luận\" only in the generic proof sense (\"như ta đã lập luận ở trên\", \"Lập luận như trong trường hợp...\"), i.e. an argument/reasoning step within a proof, NOT the named propositional-logic concept of a valid argument; OCR sources (bib-leanhvinh-2020, bib-hoangchithanh-2007) yielded no hits for \"suy luận đúng\" under --loose either. Hence no graph-source attestation exists for this concept and the recommendation rests on the 2019 discrete-math source.\n\nRelated concept \"Rules of inference\" appears as \"Quy tắc suy diễn\" / \"luật suy diễn\" (bib-nguyenhuudien-2019, §1.6), useful for the see_also forward reference.",
+   "see_also": [
+    "logical-equivalence",
+    "logical-rules-of-inference",
+    "premise"
+   ],
+   "vi_terms": [
+    {
+     "term": "suy luận đúng",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 30,
+     "page": "tr. 30",
+     "snippet": "phép suy luận trên là suy luận đúng."
+    },
+    {
+     "term": "lập luận hợp lệ",
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": "",
+     "verified": false,
+     "recommended": false
+    },
+    {
+     "term": "suy luận đúng",
+     "source_id": "bib-doducgiao-2009",
+     "page": "tr. 350",
+     "pdf_page": 351,
+     "snippet": "23. Xác định các suy luận đúng trong số các suy luận đưới đây:",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "suy luận đúng",
+     "source_id": "bib-vudinhhoa-2010",
+     "page": "",
+     "pdf_page": 65,
+     "snippet": "đích chương này là cung cắp cho các học viên những suy luận đúng đắn và những",
+     "verified": true,
+     "recommended": false
+    }
+   ]
+  },
+  {
+   "id": "venn-diagram",
+   "letter": "V",
+   "headword_en": "Venn diagram",
+   "notation": "U",
+   "rosen_ref": "Rosen §2.1",
+   "definition_vi": "Sơ đồ Venn của một họ các tập hợp là một hình biểu diễn trong đó tập hợp vũ trụ (ký hiệu $$U$$) được vẽ thành một hình chữ nhật, còn mỗi tập hợp được vẽ thành một vùng (thường là hình tròn) nằm bên trong hình chữ nhật đó. Sơ đồ Venn được dùng để minh họa quan hệ giữa các tập hợp và các phép toán trên tập hợp.",
+   "example_vi": "Với hai tập hợp $$A$$ và $$B$$, vùng nằm trong cả hai hình tròn biểu diễn $$A$$ và $$B$$ chính là giao $$A \\cap B$$, còn toàn bộ vùng được phủ bởi hai hình tròn biểu diễn hợp $$A \\cup B$$.",
+   "notes": "Thuật ngữ khuyến nghị là \"sơ đồ Venn\", xuất hiện trong cả hai nguồn mới: nguyenhoangthach-2020 (tr. 17 PDF, minh họa quy tắc trừ trong đếm) và nguyenhuudien-2019 (tr. 73 và 75 PDF, mục biểu diễn tập hợp). Được chọn làm thuật ngữ khuyến nghị (verified=true, có chứng cứ ở nguồn 2020).\n\nBiến thể \"giản đồ Venn\" CÓ chứng cứ trong bib-rosen-2003-vi (bản dịch Rosen 2003, tr. 55 PDF: đoạn định nghĩa \"Trong các giản đồ Venn, tập hợp vũ trụ U ... được biểu diễn bằng một hình chữ nhật\"; còn lặp lại nhiều lần ở tr. 56 trở đi). Đây là nguồn dịch cũ, đã OCR, vai trò \"reference-only\" theo registry (role: reference) nên không bao giờ được chọn làm thuật ngữ khuyến nghị; ghi nhận verified=true, recommended=false.\n\nBiến thể ứng viên \"biểu đồ Venn\" KHÔNG có chứng cứ trong bất kỳ nguồn nào (quét toàn bộ corpus theo từ khóa \"biểu đồ Venn\" cho 0 kết quả, cả thường lẫn --loose), nên do verified=false và không có trang nên không đưa vào vi_terms. see_also để trống vì chương V chưa có mục cùng chương nào khác để liên kết; \"universal-set\" thuộc chương U (tham chiếu chéo, chỉ là forward reference).",
+   "see_also": [],
+   "vi_terms": [
+    {
+     "term": "sơ đồ Venn",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-nguyenhoangthach-2020",
+     "pdf_page": 17,
+     "page": "tr. 15",
+     "snippet": "Quy tắc trừ cũng có thể được thể hiện bằng sơ đồ Venn như trong Hình"
+    },
+    {
+     "term": "sơ đồ Venn",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 73,
+     "page": "tr. 73",
+     "snippet": "– Sơ đồ Venn"
+    },
+    {
+     "term": "sơ đồ Venn",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 75,
+     "page": "tr. 75",
+     "snippet": "Sơ đồ Venn"
+    },
+    {
+     "term": "giản đồ Venn",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-rosen-2003-vi",
+     "pdf_page": 55,
+     "page": "tr. 55",
+     "snippet": "Trong các giản đồ Venn, tập hợp vũ trụ U — tập hợp"
+    },
+    {
+     "term": "biểu đồ Venn",
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": "",
+     "verified": false,
+     "recommended": false
+    },
+    {
+     "term": "biểu đồ Ven",
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": "",
+     "verified": false,
+     "recommended": false
+    },
+    {
+     "term": "biểu đồ Venn",
+     "source_id": "bib-vovantuandung-2007",
+     "page": "",
+     "pdf_page": 38,
+     "snippet": "g) Biểu đồ Venn: Để dễ hình dung một số quan hệ giữa các tập hợp",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "biểu đồ Venn",
+     "source_id": "bib-vudinhhoa-2010",
+     "page": "",
+     "pdf_page": 26,
+     "snippet": "còn được gọi là biểu đồ Venn. Sơ đồ biểu diễn tập hợp các số nguyễn Z và tap hợp I",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "biểu đồ Ven",
+     "source_id": "bib-vovantuandung-2007",
+     "page": "",
+     "pdf_page": 38,
+     "snippet": "g) Biểu đồ Venn: Để dễ hình dung một số quan hệ giữa các tập hợp",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "biểu đồ Ven",
+     "source_id": "bib-vudinhhoa-2010",
+     "page": "",
+     "pdf_page": 26,
+     "snippet": "còn được gọi là biểu đồ Venn. Sơ đồ biểu diễn tập hợp các số nguyễn Z và tap hợp I",
+     "verified": true,
+     "recommended": false
+    }
+   ]
+  },
+  {
+   "id": "vertex-degree",
+   "letter": "V",
+   "headword_en": "vertex degree",
+   "see_ref": "degree",
+   "vi_terms": [
+    {
+     "term": "bậc của đỉnh",
+     "verified": false,
+     "recommended": false,
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": ""
+    },
+    {
+     "term": "bậc của một đỉnh",
+     "verified": false,
+     "recommended": false,
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": ""
+    },
+    {
+     "term": "bậc đỉnh",
+     "verified": false,
+     "recommended": false,
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": ""
+    }
+   ],
+   "see_also": [],
+   "notes": "Đồng nghĩa với Degree of a vertex."
+  },
+  {
+   "id": "vertex-set",
+   "letter": "V",
+   "headword_en": "vertex set",
+   "notation": "V(G)",
+   "rosen_ref": "Rosen §10.1",
+   "definition_vi": "Tập đỉnh của một đồ thị $$G$$ là tập hợp tất cả các đỉnh của $$G$$, ký hiệu $$V(G)$$.",
+   "example_vi": "Với đồ thị $$G$$ có các đỉnh $$a$$, $$b$$, $$c$$, ta có tập đỉnh $$V(G) = \\{a, b, c\\}$$.",
+   "notes": "Recommended term \"tập đỉnh\" is the standard, concise form and is attested in a 2020 source (bib-leanhvinh-2020) in the definition-of-graph context: \"Đồ thị $$G = (V,E)$$ gồm hai tập hữu hạn, tập đỉnh ...\". The variant \"tập hợp đỉnh\" is attested in the 2020 combinatorics source bib-nguyenhoangthach-2020 and in bib-leanhvinh-2020. The variant \"tập các đỉnh\" is the most widely attested across the corpus, including the graph-definition contexts in bib-nguyenducnghia-2006 (\"$$G = (V,E)$$ bao gồm $$V$$ là tập các đỉnh\") and bib-hoangchithanh-2007. The 2019 source bib-nguyenhuudien-2019 attests none of the three candidate terms (no hits in normal or loose search). Per book convention \"đồ thị hai phần\" is used elsewhere for bipartite; not relevant to this entry's prose but noted for consistency.",
+   "see_also": [
+    "vertex",
+    "vertex-degree"
+   ],
+   "vi_terms": [
+    {
+     "term": "tập đỉnh",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-leanhvinh-2020",
+     "pdf_page": 8,
+     "page": "tr. 9",
+     "snippet": "Định nghĩa 1.1. Đồ thị G = (V,E) gồm hai tập hữu hạn, tập đỉnh"
+    },
+    {
+     "term": "tập hợp đỉnh",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhoangthach-2020",
+     "pdf_page": 61,
+     "page": "tr. 59",
+     "snippet": "tức là các đồ thị có tập hợp đỉnh V hữu hạn."
+    },
+    {
+     "term": "tập hợp đỉnh",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-leanhvinh-2020",
+     "pdf_page": 8,
+     "page": "tr. 9",
+     "snippet": "Ta bat đầu với định nghĩa của dé thi qua tập hợp đỉnh và tập hợp cạnh."
+    },
+    {
+     "term": "tập đỉnh",
+     "source_id": "bib-hoangchithanh-2011",
+     "page": "",
+     "pdf_page": 13,
+     "snippet": "Đồ thị có tập đỉnh V = {a,b,e,đ,e} và tập cạnh E = {(a, b), (a, e), (b, ©),",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "tập đỉnh",
+     "source_id": "bib-nguyenhuudien-2019",
+     "page": "tr. 182",
+     "pdf_page": 182,
+     "snippet": "và vi+1 ̸= vi−1 (có thể chọn như vậy vì deg(vi ) ≥ 2), v0 = v. Do tập đỉnh của G là hữu hạn,",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "tập các đỉnh",
+     "source_id": "bib-hoangchithanh-2011",
+     "page": "",
+     "pdf_page": 21,
+     "snippet": "một phân hoạch trên tập các đỉnh. Mỗi lớp tương đương của quan hệ này được",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "tập các đỉnh",
+     "source_id": "bib-leanhvinh-2020",
+     "page": "tr. 30",
+     "pdf_page": 29,
+     "snippet": "W = N(w) là tập các đỉnh kể của u và t trong G. Một đường đi tit",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "tập các đỉnh",
+     "source_id": "bib-nguyenhuudien-2019",
+     "page": "tr. 158",
+     "pdf_page": 158,
+     "snippet": "Chứng minh. Gọi V1 và V2 tương ứng là tập các đỉnh bậc chẵn và tập các đỉnh bậc lẻ của đồ",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "tập hợp đỉnh",
+     "source_id": "bib-vudinhhoa-2010",
+     "page": "",
+     "pdf_page": 120,
+     "snippet": "Định nghĩa 7.1. Một dé thị được hiểu là một bộ hai tập hợp hữu hạn: Tập hợp dinh",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "tập đỉnh",
+     "source_id": "bib-cungkimtien-2004",
+     "page": "",
+     "pdf_page": 268,
+     "snippet": "orientable manifold đa tạp định",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "tập đỉnh",
+     "source_id": "bib-phan-1976",
+     "page": "tr. 274",
+     "pdf_page": 274,
+     "snippet": "oriantable m. đa tạp định hướng được",
+     "verified": true,
+     "recommended": false
+    }
+   ]
+  },
+  {
+   "id": "vacuous-proof",
+   "letter": "V",
+   "headword_en": "vacuous proof",
+   "notation": "p \\to q",
+   "rosen_ref": "Rosen §1.7",
+   "definition_vi": "Chứng minh rỗng là phương pháp chứng minh một mệnh đề kéo theo $$p \\to q$$ bằng cách chỉ ra rằng giả thiết $$p$$ là sai; khi đó $$p \\to q$$ luôn đúng bất kể giá trị chân lý của $$q$$.",
+   "example_vi": "Mệnh đề \"nếu $$0 > 1$$ thì $$2 = 2$$\" đúng theo phép chứng minh rỗng, vì giả thiết $$0 > 1$$ là sai nên $$p \\to q$$ đúng bất kể kết luận.",
+   "notes": "Mining result: NO source in the Vietnamese corpus (bib-leanhvinh-2020, bib-nguyenhoangthach-2020, bib-nguyenhuudien-2019, bib-hoangchithanh-2007, bib-nguyenducnghia-2006, bib-ngodactan-2004) attests any candidate term for \"vacuous proof.\" All three candidates (chứng minh rỗng, chứng minh tầm thường, phép chứng minh rỗng) returned 0 hits in both normal and --loose (OCR) modes; this was independently re-verified by the checker. The proof-methods section of the discrete-math source bib-nguyenhuudien-2019 (§2.3, \"Các phương pháp chứng minh cơ bản\") names only direct proof (chứng minh trực tiếp, pdf_page 56), proof by contradiction (chứng minh phản chứng, pdf_page 57-58), proof by cases (chứng minh bằng cách chia trường hợp), and counterexample (phản ví dụ); it does NOT name the vacuous proof as a separate technique. The component words \"rỗng\" (118 hits) and \"tầm thường\" (14 hits) occur only in unrelated senses (empty set/tập rỗng; nontrivial graph/đồ thị không tầm thường), never as a proof-method term. Per the locked convention, exactly one standard term (\"chứng minh rỗng\") is kept with verified=false and page=\"\" so vi_terms is non-empty; the other two candidates were dropped as verified=false with empty pages. Recommended term reflects the standard rendering of Rosen's \"vacuous proof\" (a conditional $$p \\to q$$ shown true because the hypothesis $$p$$ is false). Variant glosses worth noting: \"chứng minh tầm thường\" collides with Rosen's distinct \"trivial proof\" (true because $$q$$ is true), so \"chứng minh rỗng\" is preferred to keep the two notions separate.",
+   "see_also": [
+    "trivial-proof",
+    "direct-proof",
+    "proof-by-contraposition",
+    "conditional-statement"
+   ],
+   "vi_terms": [
+    {
+     "term": "chứng minh rỗng",
+     "verified": false,
+     "recommended": true,
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": ""
+    }
+   ]
+  },
+  {
+   "id": "value-of-a-flow",
+   "letter": "V",
+   "headword_en": "value of a flow",
+   "notation": "\\mathrm{val}(f)",
+   "rosen_ref": "Rosen — network flow not covered; anchored to nguyenhuudien-2019 §8 (luồng vận tải / giá trị của luồng)",
+   "definition_vi": "Giá trị của luồng $$f$$ trong một mạng vận tải là lượng luồng thực sự đi ra khỏi đỉnh nguồn $$s$$, bằng với lượng luồng thực sự đi vào đỉnh thu $$t$$, ký hiệu $$\\mathrm{val}(f)$$.",
+   "example_vi": "Xét mạng vận tải với đỉnh nguồn $$s$$ và đỉnh thu $$t$$. Nếu luồng $$f$$ gửi từ $$s$$ ra ngoài tổng cộng $$5$$ đơn vị qua các cạnh ra khỏi $$s$$ và không có cạnh nào đi vào $$s$$, thì $$\\mathrm{val}(f) = 5$$, và đúng $$5$$ đơn vị này đi vào $$t$$.",
+   "vi_terms": [
+    {
+     "term": "giá trị của luồng",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 210,
+     "page": "tr. 210",
+     "snippet": "tại điểm vn hay giá trị của luồng φ. Bài toán đặt ra ở đây là tìm φ để φvn đạt giá trị lớn nhất,"
+    },
+    {
+     "term": "giá trị của luồng",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-hoangchithanh-2007",
+     "pdf_page": 108,
+     "page": "tr. 108",
+     "snippet": "cuối cùng nhận được sẽ là luồng lớn nhất với giá trị của luồng qua"
+    },
+    {
+     "term": "giá trị luồng",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 213,
+     "page": "tr. 213",
+     "snippet": "Figure 8.6: Nâng giá trị luồng"
+    },
+    {
+     "term": "giá trị luồng",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenducnghia-2006",
+     "pdf_page": 243,
+     "page": "",
+     "snippet": "Chú ý là đẳng thức thứ hai trong định nghĩa giá trị luồng là hệ quả của điều kiện cân"
+    },
+    {
+     "term": "giá trị của luồng",
+     "source_id": "bib-hoangchithanh-2011",
+     "page": "",
+     "pdf_page": 187,
+     "snippet": "Bước 3: Nâng giá trị của luồng",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "giá trị luồng",
+     "source_id": "bib-cormen-2001-vi",
+     "page": "tr. 654",
+     "pdf_page": 652,
+     "snippet": "luỗng mạng rời nguồn cho mặt hàng đó. Tổng giá trị luỗng là tổng các",
+     "verified": true,
+     "recommended": false
+    }
+   ],
+   "notes": "rosen_ref: Rosen does not contain a numbered network-flow section, so per the chapter-established convention (cf. flow-network, maximum-flow, cut-network in other letters) the ref is anchored to the newest Vietnamese source that covers network flows, bib-nguyenhuudien-2019 §8 (luồng vận tải); the earlier fabricated form \"§10.0 (Network flows)\" was removed. The book's standardized symbol $$\\mathrm{val}(f)$$ renders the source's $$\\varphi_{v_n}$$ (the flow value at the sink $$v_n$$, the quantity to be maximized); the citation therefore attests the Vietnamese term and the concept, not the symbol $$\\mathrm{val}(f)$$. Recommended term \"giá trị của luồng\" is the standard form, attested in the newest network-flow-covering source bib-nguyenhuudien-2019 (2019, p210) and in older sources bib-hoangchithanh-2007 (p108) and bib-ngodactan-2004 (p244, where condition-(2)/(3) value $$c$$ \"được gọi là giá trị của luồng\"; also p259 \"giá trị của luồng f được thu vào đỉnh thu t\"). The 2020 sources (bib-leanhvinh-2020, bib-nguyenhoangthach-2020) do NOT cover network flows: re-verified, both return 0 hits for \"giá trị của luồng\" (normal and --loose), confirming their \"giá trị\"/\"đỉnh thu\" hits elsewhere are false positives (minimum values, eigenvalues \"giá trị riêng\", and \"đỉnh thuộc\" = vertex belonging to a set). Hence the newest attestation is 2019, listed first. Variant \"giá trị luồng\" (no \"của\") is attested in bib-nguyenhuudien-2019 (p213 figure caption \"Nâng giá trị luồng\") and bib-nguyenducnghia-2006 (p243, \"định nghĩa giá trị luồng\"). Candidate \"giá trị của một luồng\" returned 0 hits in both normal and --loose searches across all sources and is dropped per citation hygiene. OCR sources (bib-hoangchithanh-2007, bib-ngodactan-2004) were searched both normally and with --loose; loose mode surfaced extra mangled-diacritic hits but no new distinct terms. The definition states the value as the net flow leaving the source equal to net flow entering the sink, matching the English ground truth and the source framing of $$\\varphi_{v_n}$$ as the quantity to maximize; the example is self-contained, introducing only $$s$$, $$t$$, and $$\\mathrm{val}(f)$$, and states the no-edge-into-source assumption before asserting the source-sink equality.",
+   "see_also": [
+    "maximum-flow"
+   ]
+  },
+  {
+   "id": "valid-inference-rule",
+   "letter": "V",
+   "headword_en": "valid inference rule",
+   "notation": "\\dfrac{P_1, P_2, \\ldots, P_n}{\\therefore Q}",
+   "rosen_ref": "Rosen §1.5",
+   "definition_vi": "Một quy tắc suy luận hợp lý (ký hiệu $$\\frac{P_1, P_2, \\ldots, P_n}{\\therefore Q}$$) là một dạng lập luận đi từ các giả thiết $$P_1, P_2, \\ldots, P_n$$ đến kết luận $$Q$$ sao cho phép kéo theo $$(P_1 \\wedge P_2 \\wedge \\cdots \\wedge P_n) \\to Q$$ là một hằng đúng. Khi đó, mỗi khi tất cả các giả thiết đều đúng thì kết luận $$Q$$ cũng đúng.",
+   "example_vi": "Quy tắc Modus Ponens là một quy tắc suy luận hợp lý, dựa trên hằng đúng $$(p \\wedge (p \\to q)) \\to q$$: từ $$p$$ và $$p \\to q$$ ta suy ra $$q$$.",
+   "vi_terms": [
+    {
+     "term": "quy tắc suy luận hợp lệ",
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": "",
+     "verified": false,
+     "recommended": true
+    },
+    {
+     "term": "quy tắc suy diễn",
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 29,
+     "page": "tr. 29",
+     "snippet": "Định nghĩa qui tắc suy diễn",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "qui tắc suy diễn hợp lý",
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 29,
+     "page": "tr. 29",
+     "snippet": "luận như thế phải dựa trên một qui tắc suy diễn hợp lý nào đó để nó được xem là một suy",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "luật suy diễn",
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 29,
+     "page": "tr. 29",
+     "snippet": "Ta gọi dạng lý luận trên là một luật suy diễn và người ta cũng thường viết luật suy diễn",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "quy tắc suy luận",
+     "source_id": "bib-rosen-2003-vi",
+     "pdf_page": 210,
+     "page": "tr. 210",
+     "snippet": "Hàng đúng (p A (p — q}} > q là cơ sở của quy tắc suy luận có tên là",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "luật suy diễn",
+     "source_id": "bib-rosen-2003-vi",
+     "pdf_page": 210,
+     "page": "tr. 210",
+     "snippet": "an toàn của một hệ điều hảnh, xây dựng các luật suy diễn trong lĩnh",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "quy tắc suy luận lôgic hợp lý",
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": "",
+     "verified": false,
+     "recommended": false
+    },
+    {
+     "term": "quy tắc suy diễn",
+     "source_id": "bib-doducgiao-2009",
+     "page": "tr. 279",
+     "pdf_page": 280,
+     "snippet": "Các quy tắc suy diễn trong lògic là cơ sở để biết được một lập luận hay",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "quy tắc suy diễn",
+     "source_id": "bib-vudinhhoa-2010",
+     "page": "",
+     "pdf_page": 65,
+     "snippet": "các kỹ thuật và các thủ tục thường dùng để xây dựng các quy tắc suy diễn. Mục",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "luật suy diễn",
+     "source_id": "bib-vudinhhoa-2010",
+     "page": "",
+     "pdf_page": 65,
+     "snippet": "Một trong những quy tắc đầu tiên được dùng trong các luật suy diễn là khái",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "quy tắc suy luận",
+     "source_id": "bib-vudinhhoa-2010",
+     "page": "",
+     "pdf_page": 5,
+     "snippet": "4.1. Các quy tắc suy luận 2",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "quy tắc suy diễn",
+     "source_id": "bib-cungkimtien-2004",
+     "page": "",
+     "pdf_page": 99,
+     "snippet": "deducible rule quy tắc suy diễn",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "quy tắc suy diễn",
+     "source_id": "bib-phan-1976",
+     "page": "tr. 372",
+     "pdf_page": 372,
+     "snippet": "deducible r. /og. quy tắc suy diễn được",
+     "verified": true,
+     "recommended": false
+    }
+   ],
+   "see_also": [],
+   "notes": "Rosen dùng \"quy tắc suy luận\" (bảng các quy tắc trong §1.5); Nguyễn Hữu Điển dùng \"quy tắc/luật suy diễn\". Tính \"hợp lý\" của quy tắc tương ứng với việc $$(P_1 \\wedge \\cdots \\wedge P_n) \\to Q$$ là hằng đúng.",
+   "status": "draft"
+  },
+  {
+   "id": "valid",
+   "letter": "V",
+   "headword_en": "valid",
+   "notation": "",
+   "rosen_ref": "Rosen §1.5",
+   "definition_vi": "Một lập luận gồm các tiền đề $$p_1, p_2, \\ldots, p_n$$ và kết luận $$q$$ được gọi là hợp lý nếu kết luận luôn đúng mỗi khi tất cả các tiền đề đều đúng, tức là khi kéo theo $$(p_1 \\wedge p_2 \\wedge \\cdots \\wedge p_n) \\to q$$ là một hằng đúng (tautology). Tính hợp lý chỉ phụ thuộc vào dạng lập luận chứ không phụ thuộc vào giá trị chân lý cụ thể của các tiền đề.",
+   "example_vi": "Luật suy diễn modus ponens cho một lập luận hợp lý: từ $$p$$ và $$p \\to q$$ suy ra $$q$$, vì $$(p \\wedge (p \\to q)) \\to q$$ là một hằng đúng.",
+   "vi_terms": [
+    {
+     "term": "hợp lý",
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 29,
+     "page": "tr. 29",
+     "snippet": "Dạng lý luận này được xem là hợp lý (được chấp nhận là đúng) khi ta có biểu thức",
+     "verified": true,
+     "recommended": true
+    },
+    {
+     "term": "suy luận đúng",
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 30,
+     "page": "tr. 30",
+     "snippet": "phép suy luận trên là suy luận đúng.",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "hợp lý",
+     "source_id": "bib-doducgiao-2009",
+     "page": "tr. 279",
+     "pdf_page": 280,
+     "snippet": "Dạng lý luận này được xem là hợp lý nếu công thức",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "suy luận đúng",
+     "source_id": "bib-doducgiao-2009",
+     "page": "tr. 350",
+     "pdf_page": 351,
+     "snippet": "23. Xác định các suy luận đúng trong số các suy luận đưới đây:",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "đúng đắn",
+     "source_id": "bib-leanhvinh-2020",
+     "page": "tr. 103",
+     "pdf_page": 102,
+     "snippet": "Do a(G,) = a(Ơ), áp dụng đánh giá trên ta có",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "đúng đắn",
+     "source_id": "bib-nguyenhoangthach-2020",
+     "page": "tr. 22",
+     "pdf_page": 24,
+     "snippet": "dụng đẳng thức Pascal sau đây.",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "đúng đắn",
+     "source_id": "bib-nguyenhuudien-2019",
+     "page": "tr. 28",
+     "pdf_page": 28,
+     "snippet": "Một lập luận (hay lý luận) chỉ ra được tính đúng đắn của mệnh đề phát biểu trong định",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "hợp lý",
+     "source_id": "bib-doducthai-2010",
+     "page": "tr. 7",
+     "pdf_page": 7,
+     "snippet": "5.2.4 Phương pháp hợp lý cực đại . . . . . . . . . . . . . . . 228",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "suy luận đúng",
+     "source_id": "bib-vudinhhoa-2010",
+     "page": "",
+     "pdf_page": 65,
+     "snippet": "đích chương này là cung cắp cho các học viên những suy luận đúng đắn và những",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "hợp lý",
+     "source_id": "bib-cungkimtien-2004",
+     "page": "",
+     "pdf_page": 231,
+     "snippet": "phương pháp hợp lý nhất",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "hợp lý",
+     "source_id": "bib-phan-1976",
+     "page": "tr. 13",
+     "pdf_page": 13,
+     "snippet": "rafional a. phân tích hợp lý",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "đúng đắn",
+     "source_id": "bib-cungkimtien-2004",
+     "page": "",
+     "pdf_page": 86,
+     "snippet": "chỉnh đúng đắn",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "đúng đắn",
+     "source_id": "bib-phan-1976",
+     "page": "tr. 162",
+     "pdf_page": 162,
+     "snippet": "exactness [tính, độ] chính xác, tính đúng đắn, tính khớp",
+     "verified": true,
+     "recommended": false
+    }
+   ],
+   "see_also": [],
+   "notes": "Trong logic, \"hợp lý\" (valid) chỉ tính đúng của dạng lập luận, không phải nghĩa \"hợp lý\" thông thường. Bản dịch Rosen dùng \"đúng đắn\"; một số tài liệu dùng \"suy luận đúng\".",
+   "status": "draft"
+  },
+  {
+   "id": "vandermondes-identity",
+   "letter": "V",
+   "headword_en": "Vandermonde's identity",
+   "notation": "\\binom{m+n}{r}=\\sum_{k=0}^{r}\\binom{m}{r-k}\\binom{n}{k}",
+   "rosen_ref": "Rosen §5.4",
+   "definition_vi": "Đẳng thức Vandermonde là hệ thức tổ hợp khẳng định rằng với các số nguyên không âm $$m$$, $$n$$, $$r$$ thỏa $$r\\leq m+n$$, ta có $$\\binom{m+n}{r}=\\sum_{k=0}^{r}\\binom{m}{r-k}\\binom{n}{k}$$.",
+   "example_vi": "Khi $$m=n=r$$, đẳng thức Vandermonde cho $$\\binom{2n}{n}=\\sum_{k=0}^{n}\\binom{n}{k}^{2}$$.",
+   "vi_terms": [
+    {
+     "term": "đẳng thức Vandermonde",
+     "source_id": "bib-nguyenhoangthach-2020",
+     "pdf_page": 24,
+     "page": "tr. 22",
+     "snippet": "Định lý 2.13 (Đẳng thức Vandermonde). Giả sử m, n, k là các số nguyên",
+     "verified": true,
+     "recommended": true
+    },
+    {
+     "term": "đồng nhất thức Vandermonde",
+     "source_id": "bib-ngodactan-2004",
+     "pdf_page": 42,
+     "page": "tr. 42",
+     "snippet": "Thay n = 1 vào đồng nhất thức Vandermonde ta nhận được đồng",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "hằng đẳng thức Vandermonde",
+     "source_id": "bib-rosen-2003-vi",
+     "pdf_page": 320,
+     "page": "tr. 320",
+     "snippet": "DINH LY 5. HANG DANG THỨC VANDERMONDE. Giả sử m, n và r ... Đó chính là hằng đẳng thức Vandermonde.",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "công thức Vandermonde",
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": "",
+     "verified": false,
+     "recommended": false
+    }
+   ],
+   "see_also": [],
+   "notes": "Còn gọi là đồng nhất thức Vandermonde (Ngô Đắc Tân) hay hằng đẳng thức Vandermonde (bản dịch Rosen). Trường hợp $$m=n=r$$ cho $$\\binom{2n}{n}=\\sum_{k=0}^{n}\\binom{n}{k}^{2}$$.",
+   "status": "draft"
+  },
+  {
+   "id": "variable",
+   "letter": "V",
+   "headword_en": "variable",
+   "notation": "x, y, z",
+   "rosen_ref": "Rosen §1.3",
+   "definition_vi": "Biến là một ký hiệu (thường là một chữ cái như $$x$$, $$y$$, $$z$$) thay cho một phần tử chưa xác định lấy giá trị trong một miền xác định cho trước. Trong hàm mệnh đề $$P(x)$$, mệnh đề chỉ nhận giá trị chân lý sau khi biến $$x$$ được gán một giá trị cụ thể trong miền của nó.",
+   "example_vi": "Trong câu \"$$x$$ lớn hơn $$3$$\", ký hiệu $$x$$ là biến và phần \"lớn hơn $$3$$\" là vị từ; câu này được viết là $$P(x)$$, và chỉ khi gán cho $$x$$ một giá trị, chẳng hạn $$x = 4$$, ta mới thu được một mệnh đề có giá trị chân lý xác định.",
+   "vi_terms": [
+    {
+     "term": "biến",
+     "source_id": "bib-rosen-2003-vi",
+     "pdf_page": 32,
+     "page": "tr. 32",
+     "snippet": "lớn hơn 3\" là Pfx), với P ký hiệu vị ngữ \"lớn hơn 3\" và x là biến.",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "biến",
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 19,
+     "page": "tr. 19",
+     "snippet": "Trong đại số ta có các biểu thức đại số được xây dựng từ các hằng số, các biến và các phép toán.",
+     "verified": true,
+     "recommended": true
+    },
+    {
+     "term": "biến số",
+     "source_id": "bib-leanhvinh-2020",
+     "page": "tr. 8",
+     "pdf_page": 7,
+     "snippet": "Mặc dù tác giả đã có nhiều cố gắng trong quá trình biên soạn",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "biến số",
+     "source_id": "bib-nguyenhuudien-2019",
+     "page": "tr. 3",
+     "pdf_page": 3,
+     "snippet": "Lần đầu tiên biên soạn không thể tránh khỏi sai sót và nhầm lẫn mong bạn đọc cho ý",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "biến số",
+     "source_id": "bib-sierpinski-2012",
+     "page": "tr. 16",
+     "pdf_page": 30,
+     "snippet": "ai và đổi dấu của biến số tương ứng. Nếu có hai hệ số ai bằng nhau chẳng hạn a1  a2 thì đặt",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "biến số",
+     "source_id": "bib-cungkimtien-2004",
+     "page": "",
+     "pdf_page": 157,
+     "snippet": "variable ham biến số phức (thực)",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "biến số",
+     "source_id": "bib-phan-1976",
+     "page": "tr. 193",
+     "pdf_page": 193,
+     "snippet": "f. of a complex(real) variable hàm biến số phức thực",
+     "verified": true,
+     "recommended": false
+    }
+   ],
+   "see_also": [],
+   "notes": "Biến trong giáo trình MAT3500 là ký hiệu thay cho một giá trị chưa xác định. Các trường hợp riêng thường gặp gồm \"biến mệnh đề\" (propositional variable) và \"biến logic\" (logical variable), xem nguyenhuudien-2019, tr. 20–21 (PDF). Cần phân biệt với \"biến ngẫu nhiên\" (random variable) và \"biến cố\" (event) trong xác suất, vốn là khái niệm khác.",
+   "status": "draft"
+  },
+  {
+   "id": "valid-argument-form",
+   "letter": "V",
+   "headword_en": "valid argument form",
+   "see_ref": "valid",
+   "vi_terms": [
+    {
+     "term": "dạng lập luận hợp lý",
+     "verified": false,
+     "recommended": false,
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": ""
+    }
+   ],
+   "status": "draft"
+  },
+  {
+   "id": "value-of-a-vertex-in-a-game-tree",
+   "letter": "V",
+   "headword_en": "value of a vertex in a game tree",
+   "notation": "",
+   "rosen_ref": "Rosen §11.5",
+   "definition_vi": "Giá trị của một đỉnh trong cây trò chơi được định nghĩa như sau: nếu đỉnh đó là một lá thì giá trị của nó là tiền trả cho người chơi thứ nhất khi ván chơi kết thúc tại lá đó; nếu đỉnh đó là một đỉnh trong thì giá trị của nó được xác định bởi giá trị của các đỉnh con qua cách chơi của hai người, tức là người chơi thứ nhất chọn nước đi tới đỉnh con có giá trị lớn nhất còn người chơi thứ hai chọn nước đi tới đỉnh con có giá trị nhỏ nhất.",
+   "example_vi": "Xét một cây trò chơi trong đó mỗi lá được gán tiền trả cho người chơi thứ nhất. Tại một đỉnh trong ứng với lượt đi của người chơi thứ nhất, giá trị bằng giá trị lớn nhất trong các đỉnh con; tại một đỉnh trong ứng với lượt đi của người chơi thứ hai, giá trị bằng giá trị nhỏ nhất trong các đỉnh con. Lan truyền quy tắc này từ các lá lên gốc, giá trị của gốc cho biết tiền trả mà người chơi thứ nhất bảo đảm được khi cả hai cùng chơi tối ưu.",
+   "vi_terms": [
+    {
+     "term": "giá trị của một đỉnh trong cây trò chơi",
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": "",
+     "verified": false,
+     "recommended": true
+    },
+    {
+     "term": "trò chơi",
+     "source_id": "bib-leanhvinh-2020",
+     "page": "tr. 90",
+     "pdf_page": 89,
+     "snippet": "Bài tập 3.11. Hai chị em Jenny và Julia chơi trò chơi trên một đồ",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "trò chơi",
+     "source_id": "bib-nguyenhoangthach-2020",
+     "page": "tr. 4",
+     "pdf_page": 6,
+     "snippet": "3.1 Trò chơi Tháp Hà Nội, n = 3. . . . . . . . . . . . . . . . . . . . . . 37",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "trò chơi",
+     "source_id": "bib-nguyenhuudien-2019",
+     "page": "tr. 136",
+     "pdf_page": 136,
+     "snippet": "Ví dụ 5.4 (Thuật toán về trò chơi “Tháp Hà Nội”). Trò chơi “Tháp Hà Nội” như sau: Có ba",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "trò chơi",
+     "source_id": "bib-cungkimtien-2004",
+     "page": "",
+     "pdf_page": 3,
+     "snippet": "toán, xác suất thống kê, lý thuyết số, lý thuyết trò chơi, cơ học, cơ",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "trò chơi",
+     "source_id": "bib-phan-1976",
+     "page": "tr. 1",
+     "pdf_page": 1,
+     "snippet": "trch. lý thuyết trò chơi",
+     "verified": true,
+     "recommended": false
+    }
+   ],
+   "see_also": [
+    "decision-tree",
+    "rooted-tree",
+    "leaf",
+    "internal-vertices",
+    "tree"
+   ],
+   "notes": "Theo Rosen §11.5 (Cây quyết định và cây trò chơi), giá trị của một đỉnh trong cây trò chơi được tính đệ quy từ các lá lên gốc theo nguyên lý minimax: giá trị của một lá là tiền trả cho người chơi thứ nhất, còn giá trị của một đỉnh trong là giá trị lớn nhất (ở lượt người chơi thứ nhất) hoặc nhỏ nhất (ở lượt người chơi thứ hai) trong các giá trị của các đỉnh con. Giá trị của gốc bằng tiền trả mà người chơi thứ nhất bảo đảm được khi cả hai chơi tối ưu, và một chiến lược tối ưu chọn ở mỗi đỉnh đỉnh con đạt giá trị đó. Thuật ngữ tiếng Việt khuyến nghị \"giá trị của một đỉnh trong cây trò chơi\" là cách dịch chuẩn của \"value of a vertex in a game tree\"; nó được giữ verified=false (trích dẫn rỗng) vì không có nguồn nào trong kho ngữ liệu (các nguồn 2004–2020) chứng thực đúng cụm này, kể cả khi tìm với --loose. CHÍNH SÁCH NGUỒN DẪN ĐẦU (terminology_policy): bib-rosen-2003-vi có role=reference và bị find-term.py loại khỏi tìm mặc định (EXCLUDE_DEFAULT); chỉ một lượt truy vấn tường minh theo id mới trả về kết quả, nên nó không bao giờ được làm thuật ngữ recommended/lead. Hai dòng bib-rosen-2003-vi được ghi là verified=true, recommended=false làm chứng thực bổ trợ cho ngữ cảnh trò chơi và cây trò chơi trong bản dịch Rosen: tr. 630 biểu diễn một trò chơi bằng cây và nói về các đỉnh, tr. 710 nhắc tới việc nghiên cứu các trò chơi (cờ caro, nim, hex) và tìm chiến lược thắng. Mục §11.5 chuyên về cây trò chơi của Rosen không cho snippet OCR sạch ứng đúng định nghĩa giá trị của đỉnh, nên không có dòng nào được gán làm trích dẫn xác nhận trực tiếp cho cụm khuyến nghị; OCR có sai một số dấu và ký tự, snippet được giữ nguyên minh bạch. see_also dẫn tới decision-tree (cùng mục §11.5), rooted-tree, leaf, internal-vertices và tree vì giá trị của đỉnh được tính trên một cây có gốc, lan truyền từ lá lên qua các đỉnh trong.",
+   "status": "draft"
+  },
+  {
+   "id": "variance-of-a-random-variable",
+   "letter": "V",
+   "headword_en": "variance of a random variable",
+   "notation": "V(X)",
+   "rosen_ref": "Rosen §7.4",
+   "definition_vi": "Phương sai của một biến ngẫu nhiên $$X$$ là trung bình có trọng số của các bình phương độ lệch của $$X$$ so với giá trị kì vọng $$E(X)$$ của nó. Cụ thể, $$V(X) = \\sum_{s \\in S} (X(s) - E(X))^2\\, p(s)$$, trong đó tổng được lấy theo mọi kết cục $$s$$ trong không gian mẫu $$S$$.",
+   "example_vi": "Xét phép thử tung một con xúc xắc cân đối và gọi $$X$$ là số chấm xuất hiện. Khi đó $$E(X) = 7/2$$ và phương sai là $$V(X) = \\sum_{i=1}^{6} \\frac{1}{6}\\left(i - \\frac{7}{2}\\right)^2 = \\frac{35}{12}$$.",
+   "vi_terms": [
+    {
+     "term": "phương sai",
+     "verified": false,
+     "recommended": false,
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": ""
+    },
+    {
+     "term": "phương sai",
+     "source_id": "bib-cormen-2001-vi",
+     "page": "tr. 123",
+     "pdf_page": 121,
+     "snippet": "cùng với các tính chất của sự dự trù [expectation] và phương sai. Doan",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "phương sai",
+     "source_id": "bib-doducthai-2010",
+     "page": "tr. 5",
+     "pdf_page": 5,
+     "snippet": "Phương sai, độ lệch chuẩn, và các moment . . . . 108",
+     "verified": true,
+     "recommended": true
+    },
+    {
+     "term": "phương sai",
+     "source_id": "bib-cungkimtien-2004",
+     "page": "",
+     "pdf_page": 8,
+     "snippet": "accidental variance phương sai",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "phương sai",
+     "source_id": "bib-phan-1976",
+     "page": "tr. 12",
+     "pdf_page": 12,
+     "snippet": "a. of convariance phân tích hiệp phương sai",
+     "verified": true,
+     "recommended": false
+    }
+   ],
+   "see_also": [
+    "expected-value"
+   ],
+   "notes": "Phương sai $$V(X)$$ đo mức độ phân tán của biến ngẫu nhiên $$X$$ quanh giá trị kì vọng $$E(X)$$. Công thức tương đương thường dùng là $$V(X) = E(X^2) - E(X)^2$$. Căn bậc hai của phương sai, $$\\sigma(X) = \\sqrt{V(X)}$$, được gọi là độ lệch chuẩn của $$X$$. Thuật ngữ \"phương sai\" là cách dịch chuẩn của \"variance\"; ngữ liệu hiện có (kể cả các nguồn mới nhất và bản dịch Rosen tham chiếu) không có dẫn chứng trực tiếp cho thuật ngữ này.",
+   "status": "draft"
+  },
+  {
+   "id": "vertex-cut",
+   "letter": "V",
+   "headword_en": "vertex cut",
+   "notation": "",
+   "rosen_ref": "Rosen §10.4",
+   "definition_vi": "Một lát cắt đỉnh của một đồ thị $$G$$ là một tập đỉnh $$W \\subseteq V(G)$$ sao cho việc xóa các đỉnh trong $$W$$ (cùng với các cạnh kề với chúng) làm cho đồ thị $$G - W$$ thu được không liên thông. Nói cách khác, $$W$$ là một lát cắt đỉnh nếu $$G - W$$ không liên thông.",
+   "example_vi": "Mọi đồ thị liên thông không đầy đủ đều có một lát cắt đỉnh. Số đỉnh nhỏ nhất trong một lát cắt đỉnh của $$G$$ chính là độ liên thông đỉnh $$\\kappa(G) = \\min\\{|W| : W \\text{ là lát cắt đỉnh của } G\\}$$.",
+   "vi_terms": [
+    {
+     "term": "lát cắt đỉnh",
+     "source_id": "bib-nguyenhoangthach-2020",
+     "page": "tr. 73",
+     "pdf_page": 75,
+     "snippet": "W ⊂ V là một lát cắt đỉnh nếu G − W không liên thông. Số đỉnh trong lát",
+     "verified": true,
+     "recommended": true
+    },
+    {
+     "term": "tập đỉnh cắt",
+     "source_id": "bib-leanhvinh-2020",
+     "page": "tr. 130",
+     "pdf_page": 129,
+     "snippet": "còn lại trong tập đỉnh cắt của G/e. Khi đó, {x,y,z} là một tập đỉnh",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "lát cắt đỉnh",
+     "source_id": "bib-ngodactan-2004",
+     "page": "tr. 256",
+     "pdf_page": 256,
+     "snippet": "lát cắt trong mạng vận tải đỉnh cũng được gọi là lát cắt đỉnh, còn lát",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "tập cắt đỉnh",
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": "",
+     "verified": false,
+     "recommended": false
+    },
+    {
+     "term": "tập đỉnh phân tách",
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": "",
+     "verified": false,
+     "recommended": false
+    }
+   ],
+   "see_also": [
+    "vertex-connectivity",
+    "connectivity",
+    "cut-vertex",
+    "separating-set-of-edges",
+    "k-connected-graph"
+   ],
+   "notes": "Cần phân biệt lát cắt đỉnh (vertex cut) là một tập đỉnh với đỉnh cắt (cut vertex / khớp) là một đỉnh đơn lẻ; một đỉnh cắt chính là một lát cắt đỉnh gồm một đỉnh. Lát cắt đỉnh là phiên bản theo đỉnh của tập cạnh phân tách (separating set of edges); số đỉnh nhỏ nhất của một lát cắt đỉnh là độ liên thông đỉnh $$\\kappa(G)$$. Bản dịch bib-nguyenhoangthach-2020 (tr. 75) dùng \"lát cắt đỉnh\" (song song với \"lát cắt cạnh\"), còn bib-leanhvinh-2020 (tr. 129) dùng \"tập đỉnh cắt\"; cả hai đều chỉ cùng khái niệm này.",
+   "status": "draft"
+  }
+ ]
 }

@@ -24,6 +24,19 @@ PAGE_RE = re.compile(r"@@PAGE (\d+)@@")
 REFERENCE = {"bib-rosen-2003-vi"}
 MIN_LEN = 6          # skip very short normalized terms (OCR noise)
 
+# Printed-page offset per source: printed_page = pdf_page + offset. Only sources
+# with a verified CONSTANT offset are listed; new citations from any other source
+# are stored with an empty printed page (the book cites printed pages only, never
+# the scan/PDF page). bib-phan-1976: cover=printed 1, offset 0 (verified). The
+# 2004 dictionary has a non-constant offset (+4 then +5 across its two sections),
+# so it is intentionally omitted -> page "" (cited without a page number).
+PRINT_OFFSET = {"bib-phan-1976": 0}
+
+# Only mine NEW sources for added citations, so a re-run corroborates with the
+# freshly-added dictionaries without disturbing the existing, hand-curated
+# (printed-page-verified) citations from sources already in the book.
+NEW_SOURCES = {"bib-phan-1976", "bib-cungkimtien-2004"}
+
 def strip(s):
     s = unicodedata.normalize("NFD", s or "")
     s = "".join(c for c in s if unicodedata.category(c) != "Mn")
@@ -55,12 +68,21 @@ for f in sorted(glob.glob(os.path.join(CORPUS, "*.txt"))):
 print(f"Loaded {len(SRC)} non-reference sources: {', '.join(sorted(SRC))}")
 
 def find_in(sid, needle):
+    """First WHOLE-WORD occurrence of needle. Plain substring matching gives
+    false positives in a dense dictionary (e.g. 'lien ke' inside 'lien ket',
+    'dinh ke' inside 'dinh kep'), so require non-alphanumeric boundaries."""
     blob, starts, pages, raws = SRC[sid]
-    idx = blob.find(needle)
-    if idx < 0:
-        return None
-    li = bisect.bisect_right(starts, idx) - 1
-    return pages[li], " ".join(raws[li].split())[:200]
+    start = 0
+    while True:
+        idx = blob.find(needle, start)
+        if idx < 0:
+            return None
+        before = blob[idx - 1] if idx > 0 else " "
+        after = blob[idx + len(needle)] if idx + len(needle) < len(blob) else " "
+        if not before.isalnum() and not after.isalnum():
+            li = bisect.bisect_right(starts, idx) - 1
+            return pages[li], " ".join(raws[li].split())[:200]
+        start = idx + 1
 
 # process entries
 added = 0
@@ -87,13 +109,15 @@ for eid, (f, e) in loc.items():
         ns = strip(term)
         if len(ns) < MIN_LEN:
             continue
-        for sid in SRC:
+        for sid in NEW_SOURCES:
             if (sid, ns) in have:
                 continue
             hit = find_in(sid, ns)
             if hit:
                 page, snip = hit
-                vts.append({"term": term, "source_id": sid, "page": f"tr. {page} (PDF)",
+                off = PRINT_OFFSET.get(sid)
+                printed = f"tr. {page + off}" if off is not None else ""
+                vts.append({"term": term, "source_id": sid, "page": printed,
                             "pdf_page": page, "snippet": snip, "verified": True,
                             "recommended": False})
                 have.add((sid, ns)); added += 1; changed.add(f)

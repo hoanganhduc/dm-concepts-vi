@@ -27,16 +27,20 @@ def main():
     ap.add_argument("--pdf", required=True)
     ap.add_argument("--dpi", type=int, default=200)
     ap.add_argument("--psm", default="3")
+    ap.add_argument("--first", type=int, default=1)
+    ap.add_argument("--last", type=int, default=0)
+    ap.add_argument("--out", default=None)
     a = ap.parse_args()
     if not os.path.exists(a.pdf):
         sys.exit(f"PDF not found: {a.pdf}")
     env = dict(os.environ, TESSDATA_PREFIX=FAST, OMP_THREAD_LIMIT="1")
     n = pages(a.pdf)
+    last = a.last or n
     os.makedirs(CORPUS, exist_ok=True)
-    dst = os.path.join(CORPUS, a.biblio_id + ".txt")
-    print(f"OCR-fast {os.path.basename(a.pdf)} -> {a.biblio_id}.txt | {n} pages @{a.dpi}dpi psm{a.psm}", flush=True)
+    dst = a.out or os.path.join(CORPUS, a.biblio_id + ".txt")
+    print(f"OCR-fast {os.path.basename(a.pdf)} -> {os.path.basename(dst)} | pages {a.first}-{last}/{n} @{a.dpi}dpi psm{a.psm}", flush=True)
     with tempfile.TemporaryDirectory() as td, open(dst, "w", encoding="utf-8") as out:
-        for p in range(1, n + 1):
+        for p in range(a.first, last + 1):
             base = os.path.join(td, "pg")
             subprocess.run(["pdftoppm", "-f", str(p), "-l", str(p), "-r", str(a.dpi),
                             "-gray", "-png", "-singlefile", a.pdf, base],

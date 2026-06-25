@@ -16,6 +16,31 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  # Decide whether the book content changed. The PDF release is skipped when a
+  # push only touches docs/meta files (README, LICENSE, docs/, .gitignore).
+  changes:
+    runs-on: ubuntu-latest
+    outputs:
+      book: ${{ steps.f.outputs.book }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - id: f
+        run: |
+          base="${{ github.event.before }}"
+          if [ -z "$base" ] || [ "$base" = "0000000000000000000000000000000000000000" ] \
+             || ! git cat-file -e "${base}^{commit}" 2>/dev/null; then
+            echo "book=true" >> "$GITHUB_OUTPUT"; exit 0   # first push / unknown base -> release
+          fi
+          changed=$(git diff --name-only "$base" "${{ github.sha }}")
+          # book=true if any changed file is NOT a docs/meta-only file
+          if printf '%s\n' "$changed" | grep -qvE '^(README\.md|LICENSE|\.gitignore)$|^docs/'; then
+            echo "book=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "book=false" >> "$GITHUB_OUTPUT"
+          fi
+
   build-deploy:
     runs-on: ubuntu-latest
     steps:
@@ -58,7 +83,9 @@ jobs:
   # yyyy.mm.dd.N, where the date is the build (last-updated) date and N is the
   # release count for that day, starting at 1.
   release-pdf:
-    needs: build-deploy
+    needs: [build-deploy, changes]
+    # Only release when the book content changed (skip docs-only pushes).
+    if: needs.changes.outputs.book == 'true' || github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4

@@ -17,7 +17,9 @@ bash workflow/scripts/install-vi-locale.sh
 #    fetched into workflow/acknowledgements/merged-prs.json).
 "$PYTHON" workflow/scripts/gen-acknowledgements.py
 
-# 2. Build HTML.
+# 2. Build HTML. Clean output/web first so removed pages (e.g. a dropped
+#    appendix) don't linger as stale orphan files in local builds.
+rm -rf output/web
 "$PRETEXT" build web
 
 # 3. Quick-lookup search index (entries.json is gitignored, so regenerate it).

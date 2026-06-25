@@ -100,8 +100,7 @@ def render(bodies: list[str]) -> str:
     intro = (
         f"      Cùng với người biên soạn, <term>{esc(EDITOR)}</term>, nhiều người đã\n"
         "      góp phần làm cuốn sách tốt hơn — qua góp ý gửi tới hòm thư biên tập hoặc\n"
-        "      qua các pull request đã được tích hợp trên kho mã nguồn GitHub. Người biên\n"
-        "      soạn xin chân thành cảm ơn những đóng góp đó."
+        "      qua các pull request đã được tích hợp trên kho mã nguồn GitHub."
     )
     parts = [
         '<?xml version="1.0" encoding="UTF-8"?>',

@@ -5,12 +5,12 @@ on:
     branches: [main]
   workflow_dispatch:
 
-# Pushing the built site to the gh-pages branch needs write access to the repo.
+# Deploying to gh-pages and creating releases both need write access.
 permissions:
   contents: write
 
 concurrency:
-  group: gh-pages
+  group: dm-concepts-build
   cancel-in-progress: false
 
 jobs:
@@ -54,3 +54,51 @@ jobs:
           publish_dir: ./output/web
           publish_branch: gh-pages
           force_orphan: true
+
+  # Build the print PDF and publish it as the latest GitHub Release. Runs only
+  # after the web build/validation succeeds. Release tag (= the PDF's version) is
+  # yyyy.mm.dd.N, where the date is the build (last-updated) date and N is the
+  # release count for that day, starting at 1.
+  release-pdf:
+    needs: build-deploy
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install PreTeXt + deps
+        run: pip install pretext pyyaml
+
+      - name: Install TeX Live (XeLaTeX, fonts, polyglossia)
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends \
+            texlive-xetex texlive-latex-recommended texlive-latex-extra \
+            texlive-pictures texlive-fonts-recommended texlive-fonts-extra \
+            texlive-lang-other latexmk
+
+      - name: Install Vietnamese locale (also fetches PreTeXt core)
+        run: bash workflow/scripts/install-vi-locale.sh
+
+      - name: Build PDF (cover embedded, cross-ref links preserved)
+        run: bash workflow/scripts/build-print.sh
+
+      - name: Release latest PDF as yyyy.mm.dd.N
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          DATE=$(date +%Y.%m.%d)
+          # How many releases already exist for today? Next number = count + 1.
+          COUNT=$(gh release list --limit 300 --json tagName \
+            --jq "[.[] | select(.tagName | startswith(\"${DATE}.\"))] | length")
+          NUM=$((COUNT + 1))
+          TAG="${DATE}.${NUM}"
+          ASSET="Mot-so-thuat-ngu-Toan-roi-rac-va-KHMT-${TAG}.pdf"
+          cp output/print/main.pdf "$ASSET"
+          gh release create "$TAG" "$ASSET" \
+            --title "PDF $TAG" \
+            --notes "Bản PDF mới nhất, cập nhật ngày ${DATE} (phiên bản thứ ${NUM} trong ngày). Tạo tự động từ commit ${GITHUB_SHA}."

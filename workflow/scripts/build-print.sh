@@ -19,8 +19,14 @@ bash workflow/scripts/install-vi-locale.sh
 #    CI, e.g. 2026.06.25.1) or the build date (yyyy.mm.dd) for local builds.
 printf '\\def\\coverversion{%s}\n' "${RELEASE_VERSION:-$(date +%Y.%m.%d)}" > assets/cover-version.tex
 if command -v xelatex >/dev/null && [ -f assets/cover-front.tex ]; then
-  ( cd assets && xelatex -interaction=batchmode cover-front.tex >/dev/null 2>&1 ) || \
-    echo "WARNING: cover-front.tex recompile failed; using existing cover-front.pdf." >&2
+  ( cd assets && xelatex -interaction=batchmode cover-front.tex >/dev/null 2>&1 ) || true
+  # Guard against a blank cover: if fontspec could not load the cover fonts
+  # (e.g. TeX Gyre not registered with fontconfig), the text renders empty.
+  # In that case restore the committed (correct) cover-front.pdf.
+  if grep -qiE "cannot be found|could not be found|Missing character" assets/cover-front.log 2>/dev/null; then
+    echo "WARNING: cover font issue detected; restoring the committed cover-front.pdf." >&2
+    git checkout -- assets/cover-front.pdf 2>/dev/null || true
+  fi
 fi
 # Refresh the web cover image from the cover PDF (used by the web cover card).
 command -v pdftoppm >/dev/null && [ -f assets/cover-front.pdf ] && \

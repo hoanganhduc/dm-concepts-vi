@@ -103,7 +103,11 @@ jobs:
           sudo apt-get install -y --no-install-recommends \
             texlive-xetex texlive-latex-recommended texlive-latex-extra \
             texlive-pictures texlive-fonts-recommended texlive-fonts-extra \
-            texlive-lang-other latexmk
+            texlive-lang-other latexmk fonts-texgyre
+          # fonts-texgyre registers "TeX Gyre Termes"/"TeX Gyre Cursor" with
+          # fontconfig so the XeLaTeX cover (fontspec, by name) renders its text;
+          # without it the cover compiled with blank text.
+          sudo fc-cache -f
 
       - name: Install Vietnamese locale (also fetches PreTeXt core)
         run: bash workflow/scripts/install-vi-locale.sh

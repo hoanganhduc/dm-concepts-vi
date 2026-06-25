@@ -29,8 +29,10 @@ rm -rf output/web
 cp assets/search/tra-cuu.html assets/search/lookup.js assets/search/entries.json output/web/
 touch output/web/.nojekyll
 
-# 5. Bundle FontAwesome locally (no CDN) for the acknowledgement channel icons.
+# 5. Bundle FontAwesome locally (no CDN) for the acknowledgement channel icons,
+#    plus the cover image + CC badge used by the cover card / footer.
 cp -r assets/fontawesome output/web/fontawesome
+cp assets/cover-front.png assets/cc-by-nc-sa.png output/web/
 
 # 6. Rewrite acknowledgement channel-icon tokens into FontAwesome glyphs.
 "$PYTHON" workflow/scripts/postprocess-web.py output/web

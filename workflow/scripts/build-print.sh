@@ -19,6 +19,9 @@ if command -v xelatex >/dev/null && [ -f assets/cover-front.tex ]; then
   ( cd assets && xelatex -interaction=batchmode cover-front.tex >/dev/null 2>&1 ) || \
     echo "WARNING: cover-front.tex recompile failed; using existing cover-front.pdf." >&2
 fi
+# Refresh the web cover image from the cover PDF (used by the web cover card).
+command -v pdftoppm >/dev/null && [ -f assets/cover-front.pdf ] && \
+  pdftoppm -png -r 150 -singlefile assets/cover-front.pdf assets/cover-front >/dev/null 2>&1 || true
 
 # 1b. Regenerate the acknowledgements list (email contributors + any merged-PR
 #     data already fetched into workflow/acknowledgements/merged-prs.json).

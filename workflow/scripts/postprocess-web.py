@@ -1,22 +1,31 @@
 #!/usr/bin/env python3
-"""Post-process the built HTML (output/web) for acknowledgement channel icons.
+"""Post-process the built HTML (output/web).
 
-gen-acknowledgements.py emits portable tokens (@@person@@ / @@github@@). Here we
-rewrite them to FontAwesome <i> glyphs and add the FontAwesome stylesheet to the
-<head> of any page that uses them (only the acknowledgements page in practice).
-Idempotent: safe to run more than once.
+  1. Acknowledgement channel icons: rewrite the portable tokens emitted by
+     gen-acknowledgements.py (@@person@@ / @@github@@) to FontAwesome <i> glyphs
+     and add the (locally bundled) FontAwesome stylesheet where used; also strip
+     the tokens from the lunr full-text index.
+  2. Cover card on the title page (frontmatter.html): the designed cover image
+     plus a "Tải bản PDF" button (the print cover is not shown on the web by
+     default).
+  3. Page footer (every page): a Release line linking to the GitHub releases
+     page, and the Creative Commons BY-NC-SA badge.
+
+Idempotent: safe to run more than once. Run by build-web.sh after `pretext
+build web`. assets/cover-front.png and assets/cc-by-nc-sa.png are copied into
+output/web by build-web.sh.
 
 Usage: postprocess-web.py [output/web]
 """
 from __future__ import annotations
 
+import datetime
+import os
 import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
-# FontAwesome is bundled locally (assets/fontawesome -> output/web/fontawesome by
-# build-web.sh) so the web book needs no network/CDN. Relative href works because
-# PreTeXt emits all pages at the site root.
+
 FA_CSS_HREF = "fontawesome/css/all.min.css"
 FA_LINK = f'<link rel="stylesheet" href="{FA_CSS_HREF}">'
 TOKENS = {
@@ -24,20 +33,55 @@ TOKENS = {
     "@@github@@": '<i class="fa-brands fa-github" aria-hidden="true"></i>',
 }
 
+REPO = "https://github.com/hoanganhduc/dm-concepts-vi"
+RELEASES = f"{REPO}/releases/latest"
+LICENSE_URL = "https://creativecommons.org/licenses/by-nc-sa/4.0/"
+# Release tag in CI (RELEASE_VERSION) or the build date for a plain web build.
+VERSION = os.environ.get("RELEASE_VERSION") or datetime.date.today().strftime("%Y.%m.%d")
 
-def process(html: str) -> str:
-    if not any(tok in html for tok in TOKENS):
-        return html
-    for tok, glyph in TOKENS.items():
-        html = html.replace(tok, glyph)
-    if FA_CSS_HREF not in html and "</head>" in html:
-        html = html.replace("</head>", f"  {FA_LINK}\n</head>", 1)
+FOOTER_ANCHOR = '<div id="ptx-page-footer" class="ptx-page-footer">'
+FOOTER_BLOCK = (
+    '<div class="dm-web-footer" style="display:flex;align-items:center;gap:.8rem;'
+    'flex-wrap:wrap;font-size:.85rem;margin:.4rem 0;">'
+    f'<a href="{RELEASES}" style="font-family:monospace;color:#2C7A7B;'
+    f'text-decoration:none;">Release {VERSION}</a>'
+    f'<a href="{LICENSE_URL}" title="CC BY-NC-SA 4.0">'
+    '<img src="cc-by-nc-sa.png" alt="CC BY-NC-SA 4.0" '
+    'style="height:24px;vertical-align:middle;"></a>'
+    '</div>'
+)
+
+COVER_ANCHOR = '<section class="frontmatter" id="frontmatter">'
+COVER_CARD = (
+    '<div class="dm-cover-card" style="text-align:center;margin:1rem 0 2rem;">'
+    f'<a href="{RELEASES}" title="Tải bản PDF mới nhất">'
+    '<img src="cover-front.png" alt="Bìa sách" '
+    'style="max-width:280px;width:100%;height:auto;'
+    'box-shadow:0 3px 12px rgba(0,0,0,.25);border-radius:4px;"></a>'
+    '<div style="margin-top:1rem;">'
+    f'<a href="{RELEASES}" style="display:inline-block;padding:.7rem 1.4rem;'
+    'background:#0F2A43;color:#fff;border-radius:6px;text-decoration:none;'
+    'font-weight:600;font-size:1.05rem;">⬇ Tải bản PDF</a></div></div>'
+)
+
+
+def process(path: Path, html: str) -> str:
+    # 1. channel icons
+    if any(tok in html for tok in TOKENS):
+        for tok, glyph in TOKENS.items():
+            html = html.replace(tok, glyph)
+        if FA_CSS_HREF not in html and "</head>" in html:
+            html = html.replace("</head>", f"  {FA_LINK}\n</head>", 1)
+    # 2. cover card on the title page only
+    if path.name == "frontmatter.html" and "dm-cover-card" not in html and COVER_ANCHOR in html:
+        html = html.replace(COVER_ANCHOR, COVER_ANCHOR + COVER_CARD, 1)
+    # 3. footer (every page)
+    if "dm-web-footer" not in html and FOOTER_ANCHOR in html:
+        html = html.replace(FOOTER_ANCHOR, FOOTER_ANCHOR + FOOTER_BLOCK, 1)
     return html
 
 
 def strip_tokens(text: str) -> str:
-    """Remove the bare tokens (no icon) — for the full-text search index, whose
-    snippets should show just the contributor name."""
     for tok in TOKENS:
         text = text.replace(tok + " ", "").replace(tok, "")
     return text
@@ -50,18 +94,16 @@ def main() -> int:
     changed = 0
     for path in web.glob("*.html"):
         original = path.read_text(encoding="utf-8")
-        updated = process(original)
+        updated = process(path, original)
         if updated != original:
             path.write_text(updated, encoding="utf-8")
             changed += 1
-    # PreTeXt's lunr full-text index embeds page text verbatim — clean the
-    # tokens out of it so search snippets don't show "@@person@@".
     for idx in web.glob("*search-index*.js"):
         original = idx.read_text(encoding="utf-8")
         updated = strip_tokens(original)
         if updated != original:
             idx.write_text(updated, encoding="utf-8")
-    print(f"postprocess-web: added channel icons to {changed} page(s)")
+    print(f"postprocess-web: footer + cover card + icons on {changed} page(s)")
     return 0
 
 

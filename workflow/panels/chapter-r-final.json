@@ -1060,9 +1060,9 @@
    "example_vi": "Định nghĩa đệ quy của lũy thừa $$a^n$$ với $$a \\neq 0$$ và $$n \\geq 0$$: trường hợp cơ sở $$a^0 = 1$$, và bước đệ quy $$a^{n+1} = a \\cdot a^n$$ với mọi $$n \\geq 0$$.",
    "notes": "Thuật ngữ chuẩn được khuyến nghị là \"đệ quy\", có trong nguồn 2019 (bib-nguyenhuudien-2019, tr. 97): \"dễ dàng định nghĩa đối tượng này qua chính nó. Kỹ thuật này được gọi là đệ quy\" — đúng khái niệm Rosen. Cùng nguồn còn mô tả định nghĩa đệ quy của một dãy số bằng cách \"định rõ giá trị của một hay nhiều hơn các số hạng đầu tiên và quy tắc xác định các số hạng tiếp theo từ các số hạng đi trước\", khớp với mô tả Rosen §5.3; ví dụ lũy thừa $$a^{n+1} = a \\cdot a^n$$ lấy từ Ví dụ 5.12 cùng nguồn (tr. 147). Biến thể chính tả \"đệ qui\" (viết \"i\" thay vì \"y\") xuất hiện trong các nguồn cũ hơn bib-ngodactan-2004 (định nghĩa đệ qui một tập, tr. 247) và bib-nguyenducnghia-2006 (thủ tục đệ qui, tr. 99); đây cùng một khái niệm, chỉ khác cách viết. Lưu ý: trong bib-nguyenducnghia-2006 thuật ngữ còn xuất hiện trong cụm \"công thức (đệ) qui/quy\" (tr. 21, tr. 31) nhưng cụm đó chỉ khái niệm công thức truy hồi (recurrence relation), được tách riêng; các trích dẫn ở đây dùng ngữ cảnh đệ quy thuần (thủ tục/lời gọi đệ quy). Hai ứng viên \"phép đệ quy\" và \"sự đệ quy\" không có trong bất kỳ nguồn nào (0 hit) nên bị loại. Hai nguồn 2020 (bib-leanhvinh-2020, bib-nguyenhoangthach-2020) không nhắc tới khái niệm này, kể cả khi chạy --loose cho nguồn OCR. Khái niệm liên quan \"công thức truy hồi\"/\"công thức đệ quy\" (recurrence relation) là một khái niệm khác, được tách riêng.",
    "see_also": [
+    "mathematical-induction",
     "recurrence-relation",
-    "recursive-definition",
-    "mathematical-induction"
+    "recursive-definition"
    ],
    "vi_terms": [
     {
@@ -1191,8 +1191,8 @@
    "definition_vi": "Một thuật toán được gọi là *thuật toán đệ quy* nếu nó giải một bài toán bằng cách rút gọn liên tiếp bài toán ban đầu về một hoặc nhiều bài toán cùng dạng nhưng có dữ liệu đầu vào nhỏ hơn, cho tới khi đạt tới *trường hợp cơ sở* được giải trực tiếp. Chẳng hạn, để tính $$\\gcd(a,b)$$ với $$b > 0$$, ta rút gọn về $$\\gcd(b, a \\bmod b)$$, lặp lại cho tới khi đối số thứ hai bằng $$0$$, khi đó $$\\gcd(a, 0) = a$$.",
    "example_vi": "Thủ tục đệ quy tính giai thừa $$n!$$ với $$n$$ là số nguyên dương: nếu $$n = 0$$ thì trả về $$1$$ (trường hợp cơ sở), ngược lại trả về $$n \\cdot (n-1)!$$, rút gọn dần về các giá trị nhỏ hơn cho tới khi gặp $$n = 0$$.",
    "see_also": [
-    "recursion",
     "recurrence-relation",
+    "recursion",
     "recursive-definition"
    ],
    "vi_terms": [
@@ -1424,10 +1424,10 @@
    ],
    "notes": "Mining results across the corpus: \"định nghĩa đệ quy\" is the standard term, attested in bib-nguyenhuudien-2019 (2019) at pp. 97, 147, 149, 253 and in OCR source bib-hoangchithanh-2007 (2007) at pp. 137, 139 (both normal and --loose returned identical hits). The clearest definitional usage is bib-nguyenhuudien-2019 p. 97, which describes the rule for determining further terms from preceding ones. Recommended term \"định nghĩa đệ quy\" is verified and attested in the newest available source (2019). Variant \"định nghĩa bằng đệ quy\" (\"defined by recursion\") appears once in bib-nguyenhuudien-2019 (2019) at p. 149. Candidate \"định nghĩa truy hồi\" returned 0 hits in any source (normal and --loose); also tested spelling variants \"định nghĩa đệ qui\" and \"định nghĩa hồi quy\" with 0 hits — none recorded. The recommended-term row uses the 2019 occurrence; the duplicate \"định nghĩa đệ quy\" row from bib-hoangchithanh-2007 (2007) is retained to attest the term across an older source as well. see_also note: recurrence-relation, recursion and recursive-algorithm are same-chapter (R) entries present in this batch and are linked per the same-chapter convention; mathematical-induction and structural-induction are cross-chapter forward references. ids are well-formed kebab-case.",
    "see_also": [
+    "mathematical-induction",
     "recurrence-relation",
     "recursion",
     "recursive-algorithm",
-    "mathematical-induction",
     "structural-induction"
    ],
    "example_vi": "Dãy giai thừa $$\\{n!\\}$$ được định nghĩa đệ quy bởi bước cơ sở $$0! = 1$$ và bước đệ quy $$n! = n \\cdot (n-1)!$$ với mọi số nguyên $$n \\geq 1$$.",
@@ -1610,7 +1610,7 @@
   {
    "id": "recursive-set",
    "letter": "R",
-   "headword_en": "recursive set",
+   "headword_en": "recursively defined set",
    "notation": "",
    "rosen_ref": "Rosen §5.3",
    "definition_vi": "Tập hợp định nghĩa bằng đệ quy là tập hợp $$S$$ được xác định qua hai bước: bước cơ sở chỉ rõ một số phần tử ban đầu thuộc $$S$$, và bước đệ quy cho quy tắc tạo ra phần tử mới của $$S$$ từ các phần tử đã có. Tập $$S$$ gồm đúng những phần tử sinh được sau hữu hạn lần áp dụng hai bước trên, ngầm hiểu kèm theo điều kiện loại trừ rằng không còn phần tử nào khác.",
@@ -1738,11 +1738,11 @@
    "example_vi": "Trên tập $$A = \\{1, 2, 3\\}$$, quan hệ $$R = \\{(1,1), (2,2), (3,3), (1,2)\\}$$ có tính phản xạ vì chứa $$(1,1)$$, $$(2,2)$$ và $$(3,3)$$. Quan hệ $$S = \\{(1,1), (2,2), (1,3)\\}$$ không có tính phản xạ vì $$(3,3) \\notin S$$.",
    "notes": "Đây là khái niệm về tính phản xạ của một quan hệ hai ngôi $$R$$ trên tập $$A$$: $$R$$ phản xạ nếu $$(a,a) \\in R$$ với mọi $$a \\in A$$.\n\nThuật ngữ khuyến nghị \"tính phản xạ\" được chứng thực ở nguồn 2019 (bib-nguyenhuudien-2019, tr. 109 PDF) ngay tại định nghĩa: \"Ta nói quan hệ R có tính phản xạ (reflexive) nếu và chỉ nếu xRx với mọi x ∈ X.\", có kèm chú thích tiếng Anh \"(reflexive)\".\n\nBiến thể \"tính chất phản xạ\" được chứng thực ở nguồn mới nhất 2020 (bib-leanhvinh-2020, tr. 12 PDF) trong ngữ cảnh quan hệ tương đương (đẳng cấu), cũng như ở bib-nguyenhuudien-2019 và bib-nguyenducnghia-2006.\n\nDạng rút gọn \"phản xạ\" (chỉ tính chất của quan hệ) được chứng thực ở bib-ngodactan-2004 (tr. 163 PDF, định nghĩa quan hệ thứ tự: \"(i) phàn xạ nếu với mọi X...\" — bản OCR sai dấu) và bib-nguyenducnghia-2006 (tr. 14 PDF: \"* phản xạ (mọi phần tử có quan hệ với chính nó)\").\n\nLưu ý loại trừ: trong bib-ngodactan-2004, phần lớn lần xuất hiện của \"phản xạ\" (tr. 140–160) là \"phép phản xạ\" theo nghĩa hình học (phép đối xứng/biến hình trong nhóm nhị diện), KHÔNG phải tính phản xạ của quan hệ, nên không tính vào khái niệm này.\n\nỨng viên \"quan hệ phản xạ\" (cụm danh từ) không xuất hiện ở bất kỳ nguồn nào (0 hits cả thường lẫn --loose); các nguồn diễn đạt khái niệm này như một tính chất (\"tính phản xạ\" / \"tính chất phản xạ\") chứ không gọi tên trực tiếp \"quan hệ phản xạ\".",
    "see_also": [
-    "equivalence-relation",
-    "symmetric-relation",
-    "transitive-relation",
     "antisymmetric-relation",
-    "partial-order"
+    "equivalence-relation",
+    "partial-order",
+    "symmetric-relation",
+    "transitive-relation"
    ],
    "vi_terms": [
     {
@@ -1757,7 +1757,7 @@
     {
      "term": "tính phản xạ",
      "verified": true,
-     "recommended": true,
+     "recommended": false,
      "source_id": "bib-nguyenhuudien-2019",
      "pdf_page": 109,
      "page": "tr. 109",
@@ -1797,7 +1797,7 @@
      "pdf_page": 32,
      "snippet": "quan hệ phản xạ",
      "verified": true,
-     "recommended": false
+     "recommended": true
     },
     {
      "term": "tính chất phản xạ",
@@ -2084,7 +2084,7 @@
     {
      "term": "đồ thị đều bậc k",
      "verified": true,
-     "recommended": true,
+     "recommended": false,
      "source_id": "bib-leanhvinh-2020",
      "pdf_page": 89,
      "page": "tr. 90",
@@ -2169,7 +2169,7 @@
      "pdf_page": 39,
      "snippet": "1.62. Nếu các đỉnh của đồ thị đều có bậc chin thì:",
      "verified": true,
-     "recommended": false
+     "recommended": true
     },
     {
      "term": "đồ thị đều",
@@ -2701,8 +2701,8 @@
    "definition_vi": "Thu hẹp của một hàm $$f$$ từ $$A$$ đến $$B$$ trên một tập con $$S \\subseteq A$$, ký hiệu $$f|_S$$, là hàm $$f|_S : S \\to B$$ xác định bởi $$f|_S(x) = f(x)$$ với mọi $$x \\in S$$.",
    "example_vi": "Cho hàm $$f : \\mathbb{Z} \\to \\mathbb{Z}$$ với $$f(x) = x^2$$ và tập con $$S = \\{0, 1, 2\\}$$. Khi đó thu hẹp $$f|_S : S \\to \\mathbb{Z}$$ thỏa mãn $$f|_S(0) = 0$$, $$f|_S(1) = 1$$ và $$f|_S(2) = 4$$.",
    "see_also": [
-    "function",
     "domain",
+    "function",
     "function-composition",
     "inverse-function"
    ],
@@ -3197,9 +3197,9 @@
    "example_vi": "Xét cây $$T$$ với tập đỉnh $$\\{a, b, c, d\\}$$ và các cạnh $$ab$$, $$ac$$, $$cd$$. Chọn $$a$$ làm gốc và định hướng mọi cạnh ra xa khỏi $$a$$, ta được cây có gốc $$(T, a)$$ trong đó có đúng một đường đi có hướng từ $$a$$ đến mỗi đỉnh $$b$$, $$c$$, $$d$$.",
    "notes": "Mining across all six sources (normal + --loose for OCR sources) found only one Vietnamese term for \"rooted tree\": \"cây có gốc\". It is the standard term and is attested in the newest corpus, including a formal definition in bib-nguyenhoangthach-2020 (Định nghĩa 6.3: \"Một cây có gốc là một đồ thị có hướng...\") which matches Rosen's concept of a directed tree with a designated root. Rosen §11.1 itself starts from an undirected tree, designates a root, and orients edges away from it (matching definition_vi), whereas the recommended source frames the object as an already-directed graph; the two formulations are equivalent. The term also appears in bib-leanhvinh-2020 (OCR-confirmed, pdf_page 49-50, both normal and loose), bib-nguyenhuudien-2019, and bib-nguyenducnghia-2006. Citations are ordered newest-source first; the recommended attestation is the 2020 formal definition.\n\nThe other supplied candidates have NO attestation in any source: \"cây gốc\" (0 hits, normal + loose, all sources) and \"cây được gốc hóa\" (0 hits). The alternative phrasing \"cây có rễ\" also returned 0 hits. These unattested terms are dropped per citation hygiene (verified=false with empty page), leaving only the single standard recommended term.\n\nNo attestation was found in bib-hoangchithanh-2007 (OCR, normal + loose) or bib-ngodactan-2004 for this concept under any tested phrasing.",
    "see_also": [
-    "tree",
+    "directed-graph",
     "root",
-    "directed-graph"
+    "tree"
    ],
    "vi_terms": [
     {
@@ -3324,8 +3324,8 @@
     }
    ],
    "see_also": [
-    "set",
     "element",
+    "set",
     "set-builder-notation"
    ],
    "notes": "Phương pháp liệt kê (cách liệt kê) mô tả tập hợp bằng cách viết tất cả các phần tử của nó giữa cặp ngoặc nhọn $$\\{$$ và $$\\}$$. Cần phân biệt với cách mô tả tập hợp bằng đặc trưng (set-builder notation), trong đó tập hợp được xác định qua một tính chất chung của các phần tử. Phương pháp liệt kê chỉ tiện dùng khi số phần tử hữu hạn và không quá lớn, hoặc khi quy luật của các phần tử đủ rõ để dùng dấu $$\\ldots$$, chẳng hạn $$\\{1, 2, 3, \\ldots, 100\\}$$.",
@@ -3379,8 +3379,8 @@
     }
    ],
    "see_also": [
-    "public-key-cryptography",
-    "private-key-cryptography"
+    "private-key-cryptography",
+    "public-key-cryptography"
    ],
    "notes": "Hệ mật mã RSA (đặt theo tên Rivest, Shamir và Adleman) là một trường hợp cụ thể của mật mã khóa công khai, nên tham chiếu chéo tới mục \"public-key-cryptography\". Thuật ngữ chuẩn là \"hệ mật mã RSA\"; chữ \"RSA\" thường được giữ nguyên. Không tìm thấy thuật ngữ này một cách rõ ràng trong kho ngữ liệu tham khảo (các giáo trình toán rời rạc và lý thuyết đồ thị tiếng Việt), nên không có nguồn đối chứng bổ sung.",
    "status": "draft",

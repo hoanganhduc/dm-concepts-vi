@@ -145,10 +145,10 @@
    "example_vi": "Trong đồ thị $$G$$ với tập đỉnh $$V(G) = \\{u, v, w\\}$$, cặp không sắp thứ tự $$\\{u, v\\}$$ là một cạnh có hai đầu mút $$u$$ và $$v$$, trong khi $$\\{u, w\\}$$ không phải là cạnh của $$G$$ nếu $$u$$ và $$w$$ không được nối với nhau.",
    "notes": "Standard term is \"cạnh\", attested as definitional in the 2020 source bib-leanhvinh-2020 (tr. 8 PDF): \"được gọi là cạnh của G với hai đầu mút u và v\" (an edge of $$G$$ with endpoints $$u$$ and $$v$$). \"cạnh của đồ thị\" is the same concept with the modifier \"of the graph\". For an undirected edge the corpus uses \"cạnh vô hướng\" and for a directed edge \"cạnh có hướng (hay cung)\" - i.e. \"cung\" (arc) denotes the directed edge $$(u,v)$$ of a directed graph; see nguyenhuudien-2019 (tr. 158 PDF): \"nếu (u, v) là một cung của G. Đỉnh u gọi là đỉnh đầu và đỉnh v gọi là đỉnh cuối\". The candidate \"cung\" is therefore a directed-edge variant, not a synonym for the undirected edge of the primary definition (the two \"cung\" rows are tagged as directed-edge attestations in notes). Note the corpus token \"cung\" is heavily overloaded (e.g. \"cung cấp\" = supply, \"dây cung\" = chord); only graph-theoretic directed-edge occurrences are recorded here. Older sources (hoangchithanh-2007, ngodactan-2004, nguyenducnghia-2006) likewise use \"cạnh\". For a simple graph the identification of an edge with the unordered pair $$\\{u,v\\}$$ is exact; in a multigraph distinct parallel edges share the same endpoints, so the pair no longer determines the edge uniquely (Rosen §10.1 uses the same simple-graph simplification).",
    "see_also": [
-    "vertex",
-    "endpoint",
     "directed-graph",
-    "undirected-graph"
+    "endpoint",
+    "undirected-graph",
+    "vertex"
    ],
    "vi_terms": [
     {
@@ -332,9 +332,9 @@
    "example_vi": "Đồ thị chu trình $$C_4$$, trong đó hai cạnh liên tiếp dọc theo chu trình thì kề nhau, có thể được tô bằng $$2$$ màu, tô luân phiên hai màu dọc theo chu trình, nên $$\\chi'(C_4) = 2$$.",
    "notes": "Headword \"Edge coloring\" denotes the assignment of colors to edges. The recommended term \"tô màu cạnh\" directly translates this and is attested in the newest source bib-leanhvinh-2020 (2020) as the §4.4 section title \"Tô màu cạnh\" (pdf_page 107-110), and in bib-ngodactan-2004 §9.3 (pdf_page 292: \"Một tô màu cạnh của một đồ thị là một phép gán các màu cho các cạnh của đồ thị đó sao cho hai cạnh kề nhau bất kỳ có màu khác nhau\") and bib-nguyenducnghia-2006 (pdf_page 70). The descriptive variant \"tô màu các cạnh\" (coloring the edges) also appears in bib-leanhvinh-2020 (pdf_page 37, 107, 109, 143, 145, 158, 163) and bib-nguyenducnghia-2006 (pdf_page 71). The related term \"sắc số cạnh\" denotes the edge chromatic number $$\\chi'(G)$$ - a numeric invariant, not the coloring itself - and is therefore a related-but-distinct term, not a synonym of \"tô màu cạnh\"; it is retained in vi_terms with this disambiguation, and the see_also link to edge-chromatic-number carries the cross-reference. Attestations of \"sắc số cạnh\": bib-leanhvinh-2020 pdf_page 107 (\"Sắc số cạnh của một đồ thị $$G$$, kí hiệu bởi $$\\chi'(G)$$, là số màu $$k$$ nhỏ nhất...\") and bib-ngodactan-2004 pdf_page 292 (\"gọi là sắc số cạnh của $$G$$ và được ký hiệu là $$\\chi'(G)$$\"). bib-leanhvinh-2020 and bib-hoangchithanh-2007 are OCR sources, so both normal and --loose searches were run; OCR mangles some diacritics (e.g. \"Ơ\" for \"G\", \"x'(Ơ)\" for \"$$\\chi'(G)$$\") but the terms are confirmed. The candidate \"phép tô màu cạnh\" returned 0 hits in all sources (normal and --loose) and is dropped. Example correctness: in $$C_4$$ only consecutive edges along the cycle are adjacent (opposite edges share no endpoint), and the two color classes are the two pairs of opposite edges, giving $$\\chi'(C_4) = 2$$; the example uses only objects the definition introduces (a graph, its edges, colors).",
    "see_also": [
+    "chromatic-number",
     "edge-chromatic-number",
-    "graph-coloring",
-    "chromatic-number"
+    "graph-coloring"
    ],
    "vi_terms": [
     {
@@ -422,9 +422,9 @@
    "example_vi": "Với đồ thị chu trình $$C_n$$ (trong đó $$n \\geq 3$$), ta có $$\\lambda(C_n) = 2$$, vì cần xóa ít nhất hai cạnh mới làm cho $$C_n$$ mất liên thông.",
    "notes": "Recommended term \"độ liên thông cạnh\" is the standard form, attested in a 2020 source (bib-nguyenhoangthach-2020, tr. 75) and earlier in bib-ngodactan-2004 (tr. 266), where it carries the book-standard notation $$\\lambda(G)$$ (OCR renders it \"A(ỡ)\"). Both ngodactan-2004 and nguyenhoangthach-2020 define it as the minimum number of edges whose removal disconnects $$G$$, with the convention for the trivial/disconnected case, matching the Rosen concept. The minimum-edge-cut clause is taken as primary; the equivalence with the \"largest $$k$$ such that $$G$$ is $$k$$-liên thông cạnh\" formulation holds only for $$|V(G)| \\geq 2$$ (the single-vertex case $$K_1$$ is governed by the convention in the first clause), so the definition now states that boundary assumption. Variants in bib-leanhvinh-2020 (2020): \"chỉ số liên thông cạnh\" (tr. 26, the largest-$$k$$ formulation, \"G là $$k$$-liên thông cạnh\") and \"số liên thông cạnh\" (tr. 225); leanhvinh-2020 uses the notation $$\\kappa'(G)$$ for this parameter rather than $$\\lambda(G)$$. The leanhvinh-2020 attestations were confirmed via --loose (OCR drops diacritics: \"Chi số\", \"thong\"). The related adjective form \"$$k$$-liên thông cạnh\" ($$k$$-edge-connected) appears across ngodactan-2004 and leanhvinh-2020 but denotes the property, not the parameter, so it is not listed as a synonym for $$\\lambda(G)$$. No attestation found in bib-nguyenhuudien-2019, bib-nguyenducnghia-2006, or bib-hoangchithanh-2007 (the latter searched both normal and --loose).",
    "see_also": [
-    "vertex-connectivity",
+    "cut-edge",
     "k-connected-graph",
-    "cut-edge"
+    "vertex-connectivity"
    ],
    "vi_terms": [
     {
@@ -504,8 +504,8 @@
     }
    ],
    "see_also": [
-    "vertex-cover",
-    "cover"
+    "cover",
+    "vertex-cover"
    ],
    "notes": "",
    "status": "panel-approved",
@@ -610,10 +610,10 @@
    "example_vi": "Với tập hợp $$A = \\{1, 2, 3\\}$$, ta có $$2 \\in A$$ và $$4 \\notin A$$.",
    "notes": "Standard term across the entire corpus is \"phần tử\" (universal; attested in all six sources, newest first: leanhvinh-2020 p.49 \"các phần tử thuộc [n]\", nguyenhoangthach-2020 p.16 \"tập hợp S gồm n phần tử\", nguyenhuudien-2019, hoangchithanh-2007, nguyenducnghia-2006, ngodactan-2004). The membership relation $$a \\in A$$ (\"a là phần tử của A\") is defined explicitly in nguyenhuudien-2019 p.72 (\"đối tượng là một phần tử của tập hợp ... ta nói\") and nguyenducnghia-2006 p.12 (\"Để chỉ x là phần tử của X, ta viết x ∈ X\"). Variant \"phần tử của tập hợp\" attested in the 2020 source (nguyenhoangthach-2020 p.19 \"các phần tử của tập hợp đó\") and in nguyenducnghia-2006 p.12; shorter variant \"phần tử của tập\" attested in ngodactan-2004 (p.31) and hoangchithanh-2007 - these are the same head noun \"phần tử\" with a complement, not distinct synonyms. OCR sources leanhvinh-2020 (loose) and hoangchithanh-2007 (p.18 \"Cho một tập hợp X có n phần tử\") both confirm the term. The non-membership symbol $$\\notin$$ is the standard negation of $$\\in$$ and follows directly from the membership relation defined in the sources.",
    "see_also": [
+    "cardinality",
     "empty-set",
     "set",
-    "subset",
-    "cardinality"
+    "subset"
    ],
    "vi_terms": [
     {
@@ -747,9 +747,9 @@
    "example_vi": "Đồ thị $$\\overline{K_3}$$ gồm ba đỉnh và không có cạnh nào; cả ba đỉnh đều là đỉnh cô lập.",
    "notes": "Recommended term \"đồ thị rỗng\" is the standard name, attested in 2020 sources (leanhvinh-2020 tr. 90, 106; nguyenhoangthach-2020 tr. 70) and older sources (ngodactan-2004 tr. 190, 289, with index entry tr. 337); citations ordered newest-first. Variant \"đồ thị hoàn toàn rời rạc\" is given explicitly by ngodactan-2004 tr. 190 as a synonym (\"n-đồ thị rỗng hay n-đồ thị hoàn toàn rời rạc\"; also index tr. 336). Candidate \"đồ thị không có cạnh\" was REJECTED: its only hits (nguyenhuudien-2019 tr. 168, 230) mean \"without multiple edges\" (simple graph) and \"without crossing edges\" (planar graph), not the edgeless graph - not attested for this concept. Candidate \"đồ thị rời rạc\" returned 0 hits (only the qualified form \"hoàn toàn rời rạc\" exists). OCR sources bib-hoangchithanh-2007 and bib-nguyenducnghia-2006 were searched both normal and --loose; neither names this concept (\"rỗng\" hits in hoangchithanh are unrelated, e.g. \"rỗng liên thông\"; \"không có cạnh nào\" appears only as a descriptive phrase in algorithm steps/other definitions). The notation $$\\overline{K_n}$$ denotes the complement of the complete graph $$K_n$$; ngodactan-2004 uses $$O_n$$ for the empty graph on $$n$$ vertices. The case $$n = 1$$ is consistent: its single vertex has degree $$0$$ and is isolated. The see_also targets (complete-graph, bipartite-graph, complement-of-a-graph) are cross-chapter forward references rather than same-chapter E-terms.",
    "see_also": [
-    "complete-graph",
     "bipartite-graph",
-    "complement-of-a-graph"
+    "complement-of-a-graph",
+    "complete-graph"
    ],
    "vi_terms": [
     {
@@ -970,8 +970,8 @@
     }
    ],
    "see_also": [
-    "string",
     "alphabet",
+    "string",
     "word"
    ],
    "notes": "Xâu rỗng $$\\lambda$$ là xâu có chiều dài $$0$$, phân biệt với xâu chỉ chứa một ký tự khoảng trắng. Nó là phần tử đơn vị của phép ghép xâu: $$\\lambda w = w \\lambda = w$$ với mọi xâu $$w$$. Một số tài liệu dùng \"chuỗi rỗng\" thay cho \"xâu rỗng\".",
@@ -1108,8 +1108,8 @@
    "example_vi": "Xét cạnh $$e = uv$$ nối hai đỉnh $$u$$ và $$v$$. Khi đó $$u$$ và $$v$$ là hai đầu mút của $$e$$. Nếu thay $$e$$ bằng cạnh có hướng $$(u,v)$$ thì $$u$$ là đỉnh đầu và $$v$$ là đỉnh cuối của cạnh đó.",
    "notes": "Khái niệm \"endpoint\" gồm hai trường hợp: (1) đầu mút của một cạnh (vô hướng) là một trong hai đỉnh mà cạnh đó nối; (2) với cạnh có hướng (cung) $$(u,v)$$, $$u$$ là đỉnh đầu (initial vertex) và $$v$$ là đỉnh cuối (terminal vertex). Khi cạnh là một khuyên $$\\{u,u\\}$$, hai đầu mút trùng nhau tại một đỉnh.\n\nThuật ngữ chuẩn cho đầu mút của một cạnh vô hướng là \"đầu mút\", được dùng phổ biến và có trong nguồn mới nhất (leanhvinh-2020, tr. 8 (PDF): \"cạnh của $$G$$ với hai đầu mút $$u$$ và $$v$$\"). Biến thể \"điểm đầu mút\" có định nghĩa rõ ràng trong nguyenhuudien-2019, tr. 157 (PDF): \"Các đỉnh $$u$$ và $$v$$ gọi là các điểm đầu mút của cạnh $$e$$.\" Biến thể \"đỉnh đầu mút\" có trong ngodactan-2004, tr. 186 (PDF): \"$$a$$ và $$b$$ được gọi là các đỉnh đầu mút của cạnh $$e$$.\"\n\nĐối với cạnh có hướng (cung): \"đỉnh đầu\" = initial vertex, \"đỉnh cuối\" = terminal vertex; cả hai đều được nhiều nguồn dùng (leanhvinh-2020, hoangchithanh-2007, nguyenducnghia-2006, ngodactan-2004). Định nghĩa rõ ràng nhất cho cung nằm ở ngodactan-2004, tr. 185 (PDF): \"$$(a,b)$$ được gọi là cung của $$G$$ với đỉnh đầu là $$a$$, đỉnh cuối là $$b$$.\" Biến thể danh từ \"cung\" cho cạnh có hướng được ghi ở mục edge và không lặp lại làm chú giải trong định nghĩa.\n\nLoại bỏ: \"mút\" đứng riêng không có nguồn nào dùng độc lập để chỉ khái niệm này (chỉ xuất hiện trong các cụm \"đầu mút\"/\"đỉnh đầu mút\"). \"điểm cuối\" đứng riêng trong các nguồn 2019-2020 (nguyenhoangthach-2020, nguyenhuudien-2019) chỉ đầu cuối của một ĐƯỜNG ĐI (\"điểm cuối của đường đi\"), không phải đầu mút của một cạnh, nên không ghi làm biến thể của khái niệm này. \"đỉnh mút\" trong hoangchithanh-2007, tr. 8 (PDF) lại chỉ khuyên (đỉnh kề chính nó), là khái niệm khác, nên cũng loại bỏ.",
    "see_also": [
-    "edge",
     "directed-edge",
+    "edge",
     "loop"
    ],
    "vi_terms": [
@@ -1679,8 +1679,8 @@
    "notes": "",
    "see_also": [
     "error-detecting-code",
-    "minimum-distance",
-    "hamming-code"
+    "hamming-code",
+    "minimum-distance"
    ],
    "vi_terms": [
     {
@@ -1711,8 +1711,8 @@
    "notes": "",
    "see_also": [
     "error-correcting-code",
-    "minimum-distance",
-    "hamming-distance"
+    "hamming-distance",
+    "minimum-distance"
    ],
    "vi_terms": [
     {
@@ -1759,9 +1759,9 @@
     }
    ],
    "see_also": [
-    "minterm",
+    "boolean-function",
     "karnaugh-map",
-    "boolean-function"
+    "minterm"
    ],
    "notes": "Khái niệm \"nguyên nhân nguyên tố\" (prime implicant) và \"nguyên nhân nguyên tố cốt yếu\" (essential prime implicant) được dùng trong bài toán cực tiểu hóa hàm Boole. Một nguyên nhân nguyên tố là cốt yếu khi nó phủ một tiểu hạng mà không nguyên nhân nguyên tố nào khác phủ được; do đó nó luôn xuất hiện trong dạng khai triển tối thiểu. Thuật ngữ \"nguyên nhân\" (implicant) và \"nguyên nhân nguyên tố\" được dùng theo Nguyễn Đức Nghĩa (2006), tr. 274 và tr. 285.",
    "status": "draft",
@@ -1777,8 +1777,8 @@
    "example_vi": "Đồ thị $$K_3$$ với ba đỉnh $$u$$, $$v$$, $$w$$ và ba cạnh $$uv$$, $$vw$$, $$wu$$ có chu trình Euler $$u, v, w, u$$, vì nó đi qua cả ba cạnh đúng một lần và quay về đỉnh xuất phát $$u$$.",
    "notes": "Recommended term \"chu trình Euler\" is standard and attested in two 2020 sources (newest first: bib-nguyenhoangthach-2020 p76, which gives the formal Định nghĩa 5.40; bib-leanhvinh-2020 p109), as well as older sources bib-nguyenducnghia-2006 (p190-198) and bib-hoangchithanh-2007 (p76-90, OCR, confirmed in both normal and --loose modes). The candidate variants \"đường đi Euler kín\" and \"chu trình Ơle\" returned 0 hits across ALL six sources in both normal and --loose modes, so they are dropped per citation hygiene (verified=false with empty page). Note: in these sources \"đường đi Euler\" denotes the open Euler path (traverses every edge once but need not return to start), a distinct concept; only \"chu trình Euler\" denotes the closed Euler circuit of this entry. The related class term \"đồ thị Euler\" (Euler graph = graph having an Euler circuit) is attested but names a different object and is not listed here. An Euler circuit traverses each edge exactly once but may revisit vertices, so it is generally not a simple cycle; the $$K_3$$ example happens to be a simple cycle, which is still a correct Euler circuit.",
    "see_also": [
-    "euler-path",
     "circuit",
+    "euler-path",
     "hamilton-circuit"
    ],
    "vi_terms": [
@@ -1842,8 +1842,8 @@
    "see_also": [
     "euler-circuit",
     "hamilton-path",
-    "path",
-    "multigraph"
+    "multigraph",
+    "path"
    ],
    "vi_terms": [
     {
@@ -2346,7 +2346,6 @@
    "example_vi": "Để tìm tất cả tập con của $$\\{1,2,3\\}$$ có tổng bằng $$3$$, ta liệt kê toàn bộ $$2^3=8$$ tập con và kiểm tra từng tập.",
    "notes": "",
    "see_also": [
-    "brute-force algorithm",
     "backtracking"
    ],
    "vi_terms": [
@@ -2385,9 +2384,9 @@
     }
    ],
    "see_also": [
-    "proof-by-cases",
     "direct-proof",
-    "proof"
+    "proof",
+    "proof-by-cases"
    ],
    "notes": "Chứng minh vét cạn là một dạng đặc biệt của chứng minh bằng cách chia trường hợp, trong đó mỗi trường hợp được kiểm tra trực tiếp; do đó nó chỉ áp dụng được khi số trường hợp là hữu hạn và đủ nhỏ. Từ \"vét cạn\" trong bib-nguyenducnghia-2006 chỉ thuật toán duyệt hết mọi cấu hình (vét cạn), khẳng định đây là cách dịch chuẩn của \"exhaustive\"; thuật ngữ \"chứng minh vét cạn\" cho phương pháp chứng minh chưa có dẫn chứng trực tiếp trong kho ngữ liệu nên để recommended với verified=false.",
    "status": "draft",
@@ -2692,7 +2691,6 @@
    "example_vi": "$$2^{10}=1024$$.",
    "notes": "",
    "see_also": [
-    "modular exponentiation",
     "logarithm"
    ],
    "vi_terms": [
@@ -2732,9 +2730,8 @@
    "example_vi": "Với $$a=240$$, $$b=46$$, thuật toán cho $$\\gcd=2$$ và $$240\\cdot(-9)+46\\cdot 47=2$$.",
    "notes": "",
    "see_also": [
-    "Euclidean algorithm",
-    "greatest common divisor",
-    "modular inverse"
+    "euclidean-algorithm",
+    "greatest-common-divisor"
    ],
    "vi_terms": [
     {

@@ -21,9 +21,9 @@
    "definition_vi": "Một hành trình độ dài $$n$$ từ đỉnh $$u$$ đến đỉnh $$v$$ trong đồ thị $$G$$ là một dãy xen kẽ các đỉnh và cạnh, ký hiệu $$v_0, e_1, v_1, e_2, \\dots, e_n, v_n$$, với $$v_0 = u$$ và $$v_n = v$$, trong đó mỗi cạnh $$e_i$$ nối hai đỉnh $$v_{i-1}$$ và $$v_i$$. Trong một hành trình, các đỉnh và các cạnh có thể được lặp lại.",
    "example_vi": "Trong đồ thị $$G$$ có các đỉnh $$a, b, c$$ và các cạnh $$e_1 = ab$$, $$e_2 = bc$$, $$e_3 = ca$$, dãy $$a, e_1, b, e_2, c, e_3, a, e_1, b$$ là một hành trình độ dài $$4$$ từ $$a$$ đến $$b$$, trong đó cạnh $$e_1$$ và đỉnh $$a$$, $$b$$ đều được lặp lại.",
    "see_also": [
+    "circuit",
     "path",
-    "trail",
-    "circuit"
+    "trail"
    ],
    "notes": "Thuật ngữ chuẩn được khuyến nghị là \"hành trình\", có trong nguồn mới nhất bib-leanhvinh-2020 (2020), Định nghĩa 1.12: một hành trình từ $$v_0$$ đến $$v_n$$ trong đồ thị $$G$$ là một dãy xen kẽ các đỉnh và cạnh trong đó đỉnh và cạnh có thể lặp lại. Thuật ngữ này được xác nhận lại trong bib-ngodactan-2004, Mục 6.3 (\"Hành trình, đường, chu trình, vết và mạch\"); cụ thể, định nghĩa hành trình vô hướng tổng quát (general/undirected walk) khớp với khái niệm này nằm ở tr. 195 (PDF) (\"Giả sử $$G = (V, E)$$ là một đồ thị vô hướng. Một hành trình ... trong $$G$$ là một dãy các đỉnh\"), nên vi_term ngodactan-2004 được trích từ tr. 195 thay vì tr. 194. Lưu ý: tr. 193-194 của bib-ngodactan-2004 định nghĩa \"hành trình CÓ HƯỚNG\" (directed walk), là trường hợp riêng hẹp hơn, nên không dùng làm chứng cứ cho khái niệm Walk tổng quát của Rosen §10.4. Biến thể \"dãy các đỉnh\" (mô tả walk bằng dãy đỉnh nó đi qua) xuất hiện trong nhiều nguồn (nguyenhuudien-2019 Định nghĩa 4.5, leanhvinh-2020, hoangchithanh-2007, ngodactan-2004); trong một đồ thị đơn, một hành trình được xác định hoàn toàn bởi dãy đỉnh $$v_0, v_1, \\ldots, v_n$$ của nó, điều này lý giải vì sao biến thể \"dãy các đỉnh\" mô tả đúng khái niệm dù định nghĩa hình thức ở đây dùng dãy xen kẽ đỉnh-cạnh (cần thiết cho đa đồ thị). Biến thể \"đường đi\" được hoangchithanh-2007 (Định nghĩa 1.6) dùng cho khái niệm này, nhưng trong phần lớn nguồn \"đường đi\" chỉ khái niệm path (không lặp đỉnh), nên chỉ là cách gọi cũ/lỏng. Ứng viên \"dây chuyền\" KHÔNG được xác nhận cho khái niệm này: lần xuất hiện duy nhất (nguyenhuudien-2019 tr.122) nói về dây chuyền trong quan hệ thứ tự ($$\\leq$$ trên $$X$$), không phải walk trong đồ thị, nên bị loại.",
    "vi_terms": [
@@ -607,10 +607,10 @@
    "notes": "Concept: a word (string) $$w$$ over an alphabet $$\\Sigma$$ is a finite sequence of symbols from $$\\Sigma$$, including the empty word; the set of all words is $$\\Sigma^*$$ (Rosen §13.1). Recommended term \"từ\" (word) is attested with an explicit definition in the newest text source bib-nguyenhoangthach-2020 (tr. 14): \"Một từ nhị phân độ dài $$n$$ ($$n \\geq 0$$) là một dãy gồm...\" with the empty word \"từ trống\" (a unique word of length 0) — matching the concept over the binary alphabet $$\\{0,1\\}$$ (the special case). The general word-over-alphabet sense appears in bib-ngodactan-2004 (tr. 19) and bib-nguyenducnghia-2006 (tr. 11): \"tính số các từ khác nhau lập từ một bảng chữ cái cho trước\" (counting distinct words formed from a given alphabet). Variant \"xâu ký tự\" (character string) is confirmed equivalent in bib-nguyenhuudien-2019 (tr. 134), which explicitly writes \"các từ hay xâu ký tự\" (words or character strings); the synonym gloss \"(xâu ký tự)\" was REMOVED from the definition body per the no-synonym-gloss convention, and the variant lives here and in vi_terms. Variant \"xâu\" (string) appears in composites \"xâu nhị phân\"/\"xâu bit\" (binary/bit string) across bib-nguyenducnghia-2006, bib-nguyenhuudien-2019, bib-ngodactan-2004. Composites \"từ nhị phân\" (binary word) and \"từ trống\" (empty word) further pin the sense. Candidate \"chuỗi ký tự\" returned 0 hits and is NOT attested; \"chuỗi\" alone occurs only in the unrelated sense \"chuỗi luỹ thừa hình thức\" (formal power series), so it is excluded. OCR sources bib-leanhvinh-2020 and bib-hoangchithanh-2007 yielded no attestation for these word/string terms: \"xâu\" returned 0 hits in both normal and --loose modes. Relevant alphabet term \"bảng chữ cái\" (alphabet) is attested (bib-ngodactan-2004 tr. 19; bib-nguyenducnghia-2006 tr. 11; bib-nguyenhuudien-2019).",
    "see_also": [
     "alphabet",
-    "empty-string",
-    "string",
     "concatenation",
-    "language"
+    "empty-string",
+    "language",
+    "string"
    ],
    "vi_terms": [
     {
@@ -706,8 +706,8 @@
    "definition_vi": "Thuật toán Warshall là một thủ tục lặp dùng để tính bao đóng bắc cầu của một quan hệ $$R$$ trên tập hữu hạn $$A = \\{a_1, a_2, \\ldots, a_n\\}$$. Bắt đầu từ ma trận không-một $$W_0$$ của $$R$$, thuật toán lần lượt tính các ma trận $$W_1, W_2, \\ldots, W_n$$, ký hiệu $$W_k = [w_{ij}^{(k)}]$$, trong đó $$w_{ij}^{(k)} = 1$$ khi và chỉ khi tồn tại đường đi từ $$a_i$$ đến $$a_j$$ chỉ dùng các đỉnh trung gian trong $$\\{a_1, \\ldots, a_k\\}$$; ma trận cuối cùng $$W_n$$ chính là ma trận của bao đóng bắc cầu $$R^{*}$$.",
    "example_vi": "Với quan hệ $$R = \\{(1,2),(2,3)\\}$$ trên tập $$A = \\{1,2,3\\}$$, thuật toán Warshall xuất phát từ ma trận $$W_0$$ ghi nhận hai cặp này; khi cho phép đỉnh $$a_2 = 2$$ làm đỉnh trung gian (bước tính $$W_2$$), đường đi $$1 \\rightarrow 2 \\rightarrow 3$$ làm xuất hiện cặp $$(1,3)$$. Vì không có đỉnh trung gian mới nào ở bước cuối nên $$W_3 = W_2$$ chính là ma trận của quan hệ $$R^{*} = \\{(1,2),(2,3),(1,3)\\}$$.",
    "see_also": [
-    "transitive-closure",
-    "reachability"
+    "reachability",
+    "transitive-closure"
    ],
    "vi_terms": [
     {
@@ -842,9 +842,9 @@
     }
    ],
    "see_also": [
-    "the-first-principle-of-mathematical-induction",
     "mathematical-induction",
-    "strong-mathematical-induction"
+    "strong-mathematical-induction",
+    "the-first-principle-of-mathematical-induction"
    ],
    "notes": "Quy nạp yếu là dạng cơ bản (nguyên lý thứ nhất). Rosen phân biệt với quy nạp mạnh (nguyên lý thứ hai của quy nạp toán học, tr. 240 PDF); hai dạng này tương đương.",
    "status": "draft",
@@ -986,7 +986,7 @@
      "pdf_page": 0,
      "snippet": "",
      "verified": false,
-     "recommended": false
+     "recommended": true
     },
     {
      "term": "công thức chỉnh",
@@ -995,7 +995,7 @@
      "pdf_page": 35,
      "snippet": "ta không biết công thức chính xác của p(n), tuy nhiên có một số công thức",
      "verified": true,
-     "recommended": true
+     "recommended": false
     },
     {
      "term": "công thức đúng dạng",
@@ -1271,9 +1271,9 @@
     }
    ],
    "see_also": [
+    "poset",
     "total-order",
-    "well-ordering-principle",
-    "poset"
+    "well-ordering-principle"
    ],
    "notes": "Một tập sắp thứ tự tốt vừa là tập sắp thứ tự toàn phần, vừa thỏa thêm điều kiện mọi tập con khác rỗng có phần tử nhỏ nhất; vì vậy mọi tập sắp thứ tự tốt đều sắp thứ tự toàn phần, nhưng không phải mọi tập sắp thứ tự toàn phần đều sắp thứ tự tốt (chẳng hạn $$\\mathbb{Z}$$ với $$\\leq$$). Cần phân biệt khái niệm này (một tính chất của tập sắp thứ tự) với \"nguyên lý thứ tự tốt\" (khẳng định rằng $$\\mathbb{N}$$ được sắp thứ tự tốt).",
    "status": "draft",

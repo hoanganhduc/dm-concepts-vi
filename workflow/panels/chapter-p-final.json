@@ -87,9 +87,9 @@
     }
    ],
    "see_also": [
+    "event",
     "independent-events",
-    "mutually-independent-events",
-    "event"
+    "mutually-independent-events"
    ],
    "notes": "Độc lập đôi một là điều kiện yếu hơn độc lập tương hỗ (mutually independent). Các biến cố độc lập đôi một chỉ đòi hỏi đẳng thức $$p(E_i \\cap E_j) = p(E_i)p(E_j)$$ đúng cho mọi cặp $$i \\neq j$$, trong khi độc lập tương hỗ đòi hỏi $$p\\!\\left(\\bigcap_{i \\in I} E_i\\right) = \\prod_{i \\in I} p(E_i)$$ đúng cho mọi tập con $$I$$. Do đó độc lập tương hỗ kéo theo độc lập đôi một, nhưng điều ngược lại nói chung không đúng. Cụm \"biến cố độc lập đôi một\" là bản dịch chuẩn được khuyến nghị; bản dịch Rosen tiếng Việt (tr. 337) định nghĩa độc lập cho từng cặp biến cố. Cần phân biệt \"biến cố độc lập\" trong xác suất với \"tập độc lập\" (independent set) trong lý thuyết đồ thị.",
    "status": "draft",
@@ -551,9 +551,9 @@
     }
    ],
    "see_also": [
-    "function",
+    "codomain",
     "domain",
-    "codomain"
+    "function"
    ],
    "notes": "Hàm bộ phận từ $$A$$ đến $$B$$ gán cho mỗi phần tử của $$A$$ nhiều nhất một phần tử của $$B$$, do đó nó có thể không xác định tại một số phần tử của $$A$$. Khái niệm này khác với hàm (hàm số) thông thường trong Rosen, vốn là hàm toàn phần xác định tại mọi phần tử của miền. Thuật ngữ \"hàm bộ phận\" được dẫn chứng trực tiếp trong bản dịch tiếng Việt của Rosen (tr. 96 PDF), nơi định nghĩa và ký hiệu của khái niệm được trình bày; phần đối nghĩa là \"hàm toàn phần\".",
    "status": "draft",
@@ -679,12 +679,12 @@
     }
    ],
    "see_also": [
-    "total-order",
-    "binary-relation",
-    "poset",
-    "order-relation",
-    "reflexive-relation",
     "antisymmetric-relation",
+    "binary-relation",
+    "order-relation",
+    "poset",
+    "reflexive-relation",
+    "total-order",
     "transitive-relation"
    ],
    "pos": "d.t."
@@ -921,10 +921,10 @@
     }
    ],
    "see_also": [
-    "simple-path",
     "circuit",
+    "connected-graph",
     "cycle",
-    "connected-graph"
+    "simple-path"
    ],
    "notes": "Recommended term \"đường đi\" (general path) is the base concept matching Rosen §10.4 and is attested in both 2020 sources: bib-nguyenhoangthach-2020 p73 (Định nghĩa 5.25: \"Một đường đi độ dài ` từ đỉnh u tới đỉnh v là một dãy ...\") and bib-leanhvinh-2020 p15-16, plus bib-nguyenhuudien-2019 p168 (Định nghĩa 6.18), bib-hoangchithanh-2007 p7. Vi_terms ordered newest-source first.\n\ndefinition_vi follows the recommended term and the wording of the recommended source (bib-nguyenhoangthach-2020 Định nghĩa 5.25), expressing Rosen's general path: a length-$$n$$ path is a sequence of $$n$$ edges successively connecting a vertex sequence from $$u$$ to $$v$$. The notation field gives the vertex sequence $$u = v_0, v_1, \\ldots, v_n = v$$ as in the source (stored as bare LaTeX; the renderer adds the math wrapping). The example is self-contained: it introduces only edges and the resulting path/length, no derived quantity beyond what the definition states.\n\nCONCEPT BOUNDARY (per panel terminology HIGH finding): two stricter refinements of the path concept appear in the corpus but denote notions narrower than Rosen's general \"đường đi\", so they are NOT listed as vi_terms of this entry. Following the chapter-C precedent (id=circuit, whose vi_terms hold only synonyms of the \"...đơn\" refinement, while the general \"chu trình\" lives under id=cycle), each refinement belongs to its own headword. They are recorded here as forward references for the simple-path entry (and an elementary-path entry if treated separately):\n- \"đường đi đơn\" = simple path: bib-nguyenhoangthach-2020 p73 (\"Một đường đi đơn (tương tự, chu trình đơn) là một đường đi ...\"), bib-nguyenhuudien-2019 p168 (\"Đường đi hoặc chu trình gọi là đơn nếu nó không chứa cùng một cạnh ... quá\"), bib-nguyenducnghia-2006 p156, bib-hoangchithanh-2007 p7 (\"Đường đi đơn là đường đi mà các đỉnh trên nó khác nhau từng đôi.\"). The Vietnamese \"đơn\" usage is the no-repeated-edge sense in nguyenhuudien-2019/nguyenducnghia-2006, aligning with Rosen's \"simple path\" (no repeated edge), but the vertex/edge convention varies by book.\n- \"đường đi sơ cấp\" = elementary path (distinct vertices): bib-nguyenhuudien-2019 p168-169 (\"... được gọi là đường đi hoặc chu trình sơ cấp\"); the hierarchy is explicit there (an elementary path is a simple path).\n\nbib-leanhvinh-2020 (OCR) and bib-hoangchithanh-2007 (OCR) were searched in BOTH normal and --loose modes; both attest \"đường đi\" cleanly. bib-ngodactan-2004 also uses \"đường đi\" (bib id present in references.ptx) but a clean definitional snippet was not isolated; the base term is already amply attested in newer sources.\n\nVerifier note: all cited bibliography ids confirmed to exist in source/references.ptx and data/sources/registry.yaml. The four remaining \"đường đi\" snippet/pdf_page pairs were re-mined against the corpus text and reconfirmed (OCR sources checked normal + --loose). No fabricated citations.\n\nsee_also: \"simple-path\" is the in-chapter refinement (đường đi đơn); \"circuit\"/\"cycle\"/\"connected-graph\" are related P/C-chapter concepts and remain cross-chapter forward references where not in chapter P.\n\nDiacritic note: snippets contain OCR artifacts in the 2020/2007 OCR sources (e.g., \"dé dài\" = \"độ dài\"). Clean text terms: đường đi (and the refinements đường đi đơn, đường đi sơ cấp, recorded above).",
    "pos": "d.t."
@@ -1066,12 +1066,13 @@
    "headword_en": "permutation",
    "notation": "P(n,r)",
    "rosen_ref": "Rosen §6.3",
-   "definition_vi": "Một chỉnh hợp chập $$r$$ của một tập hợp gồm $$n$$ phần tử phân biệt là một cách sắp xếp có thứ tự của $$r$$ trong số $$n$$ phần tử đó, trong đó $$0 \\leq r \\leq n$$. Số các chỉnh hợp chập $$r$$ của $$n$$ phần tử được ký hiệu là $$P(n,r)$$; trường hợp $$r = n$$ là một cách sắp xếp có thứ tự của toàn bộ $$n$$ phần tử và được gọi là một hoán vị của tập hợp đó.",
-   "example_vi": "Với tập hợp $$\\{a, b, c\\}$$, các chỉnh hợp chập $$2$$ là $$ab$$, $$ba$$, $$ac$$, $$ca$$, $$bc$$, $$cb$$, nên $$P(3,2) = 6$$; các hoán vị (chỉnh hợp chập $$3$$) là $$abc$$, $$acb$$, $$bac$$, $$bca$$, $$cab$$, $$cba$$, nên $$P(3,3) = 6$$.",
+   "definition_vi": "Một \\emph{hoán vị} của một tập hợp gồm $$n$$ phần tử phân biệt là một cách sắp xếp có thứ tự của \\emph{tất cả} $$n$$ phần tử đó. Số các hoán vị của một tập $$n$$ phần tử là $$n! = n(n-1)\\cdots 2\\cdot 1$$. Một cách sắp xếp có thứ tự của $$r$$ trong số $$n$$ phần tử (với $$0 \\leq r \\leq n$$) được gọi là một \\emph{chỉnh hợp chập $$r$$}; xem mục r-permutation.",
+   "example_vi": "Với tập hợp $$\\{a, b, c\\}$$, các hoán vị là $$abc, acb, bac, bca, cab, cba$$, nên một tập $$3$$ phần tử có $$3! = 6$$ hoán vị.",
    "notes": "Rosen §6.3 covers two related notions under one heading: a permutation of $$n$$ distinct objects (an ordered arrangement of all of them) and an $$r$$-permutation (an ordered arrangement of $$r$$ of them, counted by $$P(n,r)$$). The Vietnamese tradition splits these into two distinct terms: \"chỉnh hợp\" denotes the $$r$$-permutation (arrangement of $$r$$ of $$n$$ elements) and matches Rosen's notation $$P(n,r)$$ directly, while \"hoán vị\" denotes the full permutation of all $$n$$ elements (the case $$r=n$$). Because the headword notation is $$P(n,r)$$ (the $$r$$-permutation), the recommended term is \"chỉnh hợp\", attested in the newest source bib-nguyenhoangthach-2020 (tr. 20 PDF), which writes \"Một chỉnh hợp chập k, hay còn gọi là một k-hoán vị\" and gives the notation $$P(n,k)$$. The variant \"k-hoán vị\" (calque of $$k$$-permutation) appears as an explicit synonym there. The full formal names \"chỉnh hợp không lặp\" and \"hoán vị không lặp\" (no-repetition variants) are recorded from bib-nguyenducnghia-2006 and bib-ngodactan-2004, which note these are usually shortened to \"chỉnh hợp\" and \"hoán vị\" respectively. The term \"hoán vị\" is retained because the $$r=n$$ permutation is central to the same Rosen concept; it is the recommended Vietnamese term for the full-permutation sense even though the headword notation $$P(n,r)$$ targets the $$r$$-permutation \"chỉnh hợp\". Sources bib-nguyenhuudien-2019, bib-leanhvinh-2020, and bib-hoangchithanh-2007 do not attest these counting terms (\"hoán vị\" appears in bib-leanhvinh-2020 only in the graph-coloring sense of \"permuting colours\", not the counting concept). Note (snippet-vs-notation): the recommended source uses the index $$k$$ where this entry uses $$r$$; the snippet is faithful to the source and no citation change is needed.",
    "see_also": [
     "combination",
     "r-combination",
+    "r-permutation",
     "the-product-rule"
    ],
    "vi_terms": [
@@ -1082,7 +1083,7 @@
      "pdf_page": 20,
      "snippet": "Một chỉnh hợp chập k, hay còn gọi là một k-hoán vị, của ... Số chỉnh hợp chập k của n phần tử thường được ký hiệu là P (n, k)",
      "verified": true,
-     "recommended": true
+     "recommended": false
     },
     {
      "term": "k-hoán vị",
@@ -1136,7 +1137,7 @@
      "pdf_page": 94,
      "snippet": "Ta hoán vị các màu để trong các cách tô màu các đồ thị G!, đỉnh v",
      "verified": true,
-     "recommended": false
+     "recommended": true
     },
     {
      "term": "hoán vị",
@@ -1260,8 +1261,8 @@
     }
    ],
    "see_also": [
-    "regular-graph",
-    "graph-coloring"
+    "graph-coloring",
+    "regular-graph"
    ],
    "notes": "Only one Vietnamese term denotes this concept across the whole corpus: \"đồ thị Petersen\" (a proper-noun-based name, identical in all sources). It is attested in two older sources: bib-nguyenducnghia-2006 (tr. 167 PDF, labeling a figure for a chromatic-number exercise) and bib-ngodactan-2004 (tr. 195 PDF, \"gọi là đồ thị Petersen\" introducing the graph via Hình 6.9; also tr. 217 and tr. 281). No 2019-2020 source (bib-leanhvinh-2020, bib-nguyenhoangthach-2020, bib-nguyenhuudien-2019) attests the term; both normal and --loose searches for \"Petersen\" returned hits only in the 2004 and 2006 books. The OCR sources (bib-leanhvinh-2020, bib-hoangchithanh-2007) yielded no Petersen hits under either mode. No Vietnamese-transliterated spelling (e.g. \"Pêtécxen\") exists in the corpus. The recommended term is therefore verified=true but its newest attestation is 2006 rather than 2019-2020; this is the standard and only form, so no variant is needed. vi_terms ordered newest-source first (2006 before 2004).\n\nsee_also edit (per panel exposition LOW): the misleading \"bipartite-graph\" link was dropped — the Petersen graph is a standard example of a NON-bipartite graph (girth 5, contains odd cycles). \"regular-graph\" (the definition is 3-regular) and \"graph-coloring\" (the example is chromatic-related) are retained as well-chosen cross-chapter forward references.",
    "pos": "d.t."
@@ -1333,8 +1334,8 @@
    ],
    "see_also": [
     "alphabet",
-    "string",
-    "empty-string"
+    "empty-string",
+    "string"
    ],
    "notes": "Văn phạm cấu trúc câu $$G = (V, T, S, P)$$ gồm từ vựng $$V$$, tập ký hiệu kết thúc $$T$$, ký hiệu xuất phát $$S$$ và tập quy tắc sản xuất $$P$$; các phần tử của $$V$$ không thuộc $$T$$ được gọi là ký hiệu không kết thúc. Quy tắc sản xuất cho phép thay thế một xâu con này bằng một xâu con khác; ngôn ngữ $$L(G)$$ sinh bởi $$G$$ là tập tất cả các xâu chỉ gồm ký hiệu kết thúc dẫn xuất được từ $$S$$. Thuật ngữ \"văn phạm cấu trúc câu\" theo bản dịch Rosen-VI (ĐỊNH NGHĨA 2, tr. 770).",
    "status": "draft",
@@ -1433,8 +1434,8 @@
    "notes": "",
    "see_also": [
     "ciphertext",
-    "public-key",
-    "private-key"
+    "private-key",
+    "public-key"
    ],
    "vi_terms": [
     {
@@ -1518,8 +1519,8 @@
    ],
    "see_also": [
     "bipartite-graph",
-    "complete-graph",
-    "chromatic-number"
+    "chromatic-number",
+    "complete-graph"
    ],
    "notes": "Recommended term \"đồ thị phẳng\" (planar graph) is the standard term, attested in the newest 2020 source (bib-leanhvinh-2020 p.114, formal definition) and across all corpus sources (2020, 2019, 2007, 2004). The negated form \"đồ thị không phẳng\" (nonplanar graph) is recorded as a closely related variant denoting graphs that are NOT planar; it is attested in bib-leanhvinh-2020 (p.126), bib-nguyenhuudien-2019 (p.233, theorem on K5), and bib-ngodactan-2004 (p.16). For the OCR sources (bib-hoangchithanh-2007, bib-leanhvinh-2020) both normal and --loose searches were run; loose added no new term forms. The phrase \"biểu diễn phẳng\" (planar representation/embedding) used in definition_vi follows the source wording \"biểu diễn\" in bib-leanhvinh-2020 p.114.\n\nTerminology consistency (per panel exposition finding): bib-nguyenhuudien-2019 renders complete bipartite locally as \"đồ thị phân đôi đầy đủ\", but the book-standard rendering for bipartite is \"đồ thị hai phần\" and \"đồ thị phân đôi\" is a listed variant only; the planar-graph term itself is consistently \"đồ thị phẳng\" in every source.\n\nsee_also: all three ids (bipartite-graph, complete-graph, chromatic-number) are cross-chapter forward references to be created in their own letter chapters, consistent with the path/poset entries which flag forward references.",
    "pos": "d.t."
@@ -1781,11 +1782,11 @@
     }
    ],
    "see_also": [
-    "partial-order",
     "hasse-diagram",
     "lattice",
-    "total-order",
-    "relation"
+    "partial-order",
+    "relation",
+    "total-order"
    ],
    "notes": "Concept: a poset is a set $$S$$ together with a partial order $$\\preceq$$ (reflexive, antisymmetric, transitive), written $$(S, \\preceq)$$ (Rosen §9.6).\n\nRecommended term \"tập hợp có thứ tự\" is taken from the newest attested order-theory source, bib-nguyenhuudien-2019 (2019), which gives the formal Định nghĩa 4.13 \"Cho $$(X, \\le)$$ là một tập hợp có thứ tự\" with the partial-order axioms (phản xạ, phản đối xứng, bắc cầu) and develops Hasse diagrams and lattices from it (pdf pages 119-125). In this source the \"bộ phận\"/\"partial\" qualifier is left implicit (a \"thứ tự\" satisfying the three axioms), so \"tập hợp có thứ tự\" is the surface form actually attested in 2019.\n\nVariant \"tập được sắp bộ phận\" is the explicit \"partially ordered set\" form from bib-ngodactan-2004 (2004, pdf pages 163-165), where \"thứ tự bộ phận\" (partial order) is defined and the poset is denoted $$\\langle X, \\preceq \\rangle$$ with Hasse-diagram development. The qualifier \"thứ tự bộ phận\" appears ONLY in bib-ngodactan-2004 across the whole corpus.\n\nConsistency with the partial-order entry (per panel finding): definition_vi uses \"quan hệ thứ tự bộ phận $$\\preceq$$\", matching the explicit-partial wording adopted in the partial-order entry's definition_vi so the two P-chapter entries describe the same underlying relation consistently; the recommended Vietnamese term in partial-order remains the attested \"quan hệ thứ tự\". First-concept emphasis was normalized from Markdown \"*...*\" to \\emph{tập hợp có thứ tự}.\n\nCandidate terms \"tập sắp thứ tự bộ phận\" and the full literal \"tập hợp có thứ tự bộ phận\" returned 0 hits in every source (normal and --loose) and are therefore not recorded as verified terms.\n\nThe OCR graph sources bib-leanhvinh-2020 (2020) and bib-hoangchithanh-2007 (2007), and the combinatorics source bib-nguyenhoangthach-2020 (2020), do not cover posets; their only \"sắp thứ tự\"/\"tập được sắp\" hits refer to ordered pairs/directed edges or to exercises \"sắp xếp\" (arranged) by difficulty, not to the partial-order concept. Both OCR sources were searched with --loose as well, with no poset attestation.",
    "pos": "d.t."
@@ -2390,8 +2391,8 @@
     }
    ],
    "see_also": [
-    "logical-argument",
     "argument-form",
+    "logical-argument",
     "valid-argument"
    ],
    "notes": "Tiền đề (premise) là các mệnh đề được giả định trong một lập luận, từ đó kết luận được rút ra; cần phân biệt với kết luận (conclusion) là mệnh đề được suy ra. Trong một dạng suy luận, các tiền đề thường được ký hiệu là $$p_1, p_2, \\ldots, p_n$$. Bản dịch Rosen (2003) và các nguồn tiếng Việt khác đều dùng \"tiền đề\" cho thuật ngữ này.",
@@ -2547,8 +2548,8 @@
    "headword_en": "prime implicant",
    "notation": "",
    "rosen_ref": "Rosen §12.4",
-   "definition_vi": "Một nguyên nhân (implicant) của một hàm Boole là một hội sơ cấp (tích các literal) sao cho mỗi khi hội đó nhận giá trị $$1$$ thì hàm cũng nhận giá trị $$1$$. Một nguyên nhân nguyên tố của hàm là một nguyên nhân không bị kéo theo bởi bất kỳ nguyên nhân nào khác của hàm đó; nói cách khác, không thể bỏ đi literal nào của nó mà vẫn còn là một nguyên nhân của hàm.",
-   "example_vi": "Xét hàm Boole $$x + y$$ (tức $$x \\vee y$$). Các hội $$x$$ và $$y$$ đều là nguyên nhân nguyên tố của hàm này, vì mỗi khi $$x = 1$$ hoặc mỗi khi $$y = 1$$ thì $$x + y = 1$$, và không thể bỏ bớt literal nào. Trái lại, hội $$x \\wedge y$$ tuy là một nguyên nhân nhưng không phải nguyên nhân nguyên tố, vì nó bị kéo theo bởi nguyên nhân $$x$$ (và bởi $$y$$).",
+   "definition_vi": "Một nguyên nhân (implicant) của một hàm Boole là một hội sơ cấp (tích các literal) sao cho mỗi khi hội đó nhận giá trị $$1$$ thì hàm cũng nhận giá trị $$1$$. Một nguyên nhân nguyên tố của hàm là một nguyên nhân không kéo theo bất kỳ nguyên nhân nào khác của hàm đó; nói cách khác, không thể bỏ đi literal nào của nó mà vẫn còn là một nguyên nhân của hàm.",
+   "example_vi": "Xét hàm Boole $$x + y$$ (tức $$x \\vee y$$). Các hội $$x$$ và $$y$$ đều là nguyên nhân nguyên tố của hàm này, vì mỗi khi $$x = 1$$ hoặc mỗi khi $$y = 1$$ thì $$x + y = 1$$, và không thể bỏ bớt literal nào. Trái lại, hội $$x \\wedge y$$ tuy là một nguyên nhân nhưng không phải nguyên nhân nguyên tố, vì nó kéo theo nguyên nhân $$x$$ (và $$y$$).",
    "vi_terms": [
     {
      "term": "nguyên nhân nguyên tố",
@@ -2570,11 +2571,11 @@
     }
    ],
    "see_also": [
-    "minterm",
+    "boolean-expression",
     "boolean-function",
     "disjunctive-normal-form",
     "karnaugh-map",
-    "boolean-expression"
+    "minterm"
    ],
    "notes": "Khái niệm nguyên nhân nguyên tố là cốt lõi của việc tối thiểu hóa biểu thức Boole (bản đồ Karnaugh, phương pháp Quine–McCluskey). Một \"nguyên nhân\" (implicant) là một hội sơ cấp kéo theo hàm; nó là \"nguyên tố\" nếu không thể bỏ literal nào mà vẫn còn là nguyên nhân, tức không bị nguyên nhân nào khác kéo theo. Nguyễn Đức Nghĩa (2006, tr. 274) dùng \"nguyên nhân\" cho implicant và \"nguyên nhân nguyên tố\" cho prime implicant; tuyển của tất cả các nguyên nhân nguyên tố cho dạng tuyển chuẩn tắc thu gọn của hàm.",
    "status": "draft",
@@ -2777,9 +2778,9 @@
     }
    ],
    "see_also": [
-    "quadratic-residue",
+    "congruence",
     "modular-arithmetic",
-    "congruence"
+    "quadratic-residue"
    ],
    "notes": "Căn nguyên thủy modulo số nguyên tố $$p$$ là số nguyên $$r$$ sao cho các lũy thừa $$r^1, r^2, \\ldots, r^{p-1}$$ chạy qua tất cả $$p-1$$ thặng dư khác $$0$$ modulo $$p$$; nói cách khác, $$r$$ có bậc bằng $$p-1$$ modulo $$p$$. Mỗi số nguyên tố đều có căn nguyên thủy. Thuật ngữ \"căn nguyên thủy\" là cách dịch chuẩn; tuy nhiên khái niệm này chưa được dẫn chứng trực tiếp trong các nguồn dịch tiếng Việt thuộc ngữ liệu, kể cả bản dịch tiếng Việt của Rosen, nên thuật ngữ khuyến nghị để verified=false.",
    "status": "draft",
@@ -2797,9 +2798,9 @@
    "example_vi": "Trong hệ RSA, khóa bí mật là số mũ $$d$$ thỏa $$ed \\equiv 1 \\pmod{\\varphi(n)}$$; người nhận giải mã bằng $$m = c^d \\bmod n$$.",
    "notes": "",
    "see_also": [
-    "public-key",
+    "ciphertext",
     "plaintext",
-    "ciphertext"
+    "public-key"
    ],
    "vi_terms": [
     {
@@ -2983,8 +2984,8 @@
     }
    ],
    "see_also": [
-    "ramsey-number",
-    "expected-value"
+    "expected-value",
+    "ramsey-number"
    ],
    "notes": "Phương pháp xác suất, do Erdős phát triển, là một kỹ thuật chứng minh không kiến thiết: nó khẳng định sự tồn tại của một đối tượng mà không cần xây dựng tường minh đối tượng đó. Ý tưởng chính là nếu xác suất để một đối tượng ngẫu nhiên có tính chất mong muốn là dương, thì phải tồn tại ít nhất một đối tượng có tính chất ấy.",
    "status": "draft",
@@ -3064,8 +3065,8 @@
     }
    ],
    "see_also": [
-    "event",
     "distribution-of-a-random-variable",
+    "event",
     "expected-value"
    ],
    "notes": "Phân phối xác suất là hàm $$p$$ gán xác suất cho từng kết cục của không gian mẫu $$S$$, với điều kiện $$0 \\leq p(s) \\leq 1$$ và $$\\sum_{s \\in S} p(s) = 1$$. Trường hợp $$p(s) = 1/|S|$$ với mọi $$s$$ cho ta phân phối đều (uniform distribution). Cần phân biệt \"phân phối xác suất\" (hàm xác suất trên không gian mẫu $$S$$) với \"phân phối của biến ngẫu nhiên\" (tập các cặp $$(r, p(X = r))$$ ứng với các giá trị của một biến ngẫu nhiên $$X$$). Trong kho ngữ liệu hiện có chưa thấy cụm \"phân phối xác suất\" được dùng trực tiếp, nên thuật ngữ khuyến nghị là bản dịch chuẩn.",
@@ -3155,8 +3156,8 @@
     }
    ],
    "see_also": [
-    "sample-space",
-    "bernoulli-trial"
+    "bernoulli-trial",
+    "sample-space"
    ],
    "notes": "Xác suất của một biến cố $$E$$ trong một không gian mẫu hữu hạn là tổng xác suất của các kết cục thuộc $$E$$, tức $$p(E) = \\sum_{s \\in E} p(s)$$. Khi tất cả các kết cục đồng khả năng trong không gian mẫu gồm $$n$$ kết cục, công thức rút gọn thành $$p(E) = \\frac{|E|}{n}$$, là số kết cục thuận lợi chia cho tổng số kết cục. Thuật ngữ \"xác suất của một biến cố\" có dẫn chứng trực tiếp trong bản dịch Rosen; \"biến cố\" cũng được dùng trong ngữ liệu mới (Lê Anh Vinh, 2020). Cần phân biệt với \"không gian mẫu\" (tập tất cả các kết cục) và \"kết cục\" (một phần tử của không gian mẫu).",
    "status": "draft",
@@ -3182,8 +3183,8 @@
     }
    ],
    "see_also": [
-    "cartesian-product",
     "boolean-product",
+    "cartesian-product",
     "the-product-rule"
    ],
    "notes": "Trong giáo trình MAT3500, \"tích\" chỉ tích Đề các của các tập hợp (theo Rosen §2.1). Hai biến thể phổ biến là \"tích Đề các\" và \"tích Descartes\"; cả hai cùng chỉ một khái niệm.",
@@ -3826,9 +3827,9 @@
     }
    ],
    "see_also": [
-    "subgraph",
     "induced-subgraph",
-    "spanning-subgraph"
+    "spanning-subgraph",
+    "subgraph"
    ],
    "notes": "Đồ thị con thực sự là đồ thị con khác với chính đồ thị ban đầu. Bản dịch Rosen chỉ dùng \"đồ thị con\" mà không nêu thuật ngữ riêng cho trường hợp thực sự; các lần xuất hiện của \"tập con thực sự\" hay \"dãy con thực sự\" chỉ tập/dãy con thực sự, không phải đồ thị con thực sự.",
    "status": "draft",
@@ -4137,9 +4138,9 @@
     }
    ],
    "see_also": [
-    "proposition",
     "atomic-proposition",
     "boolean-variable",
+    "proposition",
     "variable"
    ],
    "notes": "Trong Rosen §1.1, biến mệnh đề là biến biểu diễn một mệnh đề và thường được ký hiệu $$p$$, $$q$$, $$r$$. Cần phân biệt biến mệnh đề (ký hiệu thay cho một mệnh đề) với mệnh đề nguyên tử (bản thân một mệnh đề không phân tích được), và với biến Boole (biến nhận giá trị trong $$\\{0, 1\\}$$ trong đại số Boole).",
@@ -4225,10 +4226,10 @@
    "example_vi": "Xét đồ thị vô hướng trên tập đỉnh $$\\{a, b, c\\}$$ gồm hai cạnh nối $$a$$ với $$b$$, một cạnh nối $$b$$ với $$c$$, và một khuyên tại $$c$$. Vì có cặp đỉnh được nối bởi hai cạnh và có một cạnh nối $$c$$ với chính nó, đồ thị này là một giả đồ thị.",
    "notes": "Hai thuật ngữ đều chỉ cùng khái niệm pseudograph. \"giả đồ thị\" (nguyenhuudien-2019) là cách dịch sát và chuẩn của \"pseudograph\", được nêu thành Định nghĩa 6.3 với mô tả là loại đồ thị vô hướng tổng quát nhất chứa cả khuyên lẫn cạnh bội; đây là thuật ngữ được khuyến nghị. \"đa đồ thị có khuyên\" (nguyenhoangthach-2020) là cách diễn đạt mô tả (đa đồ thị có thêm khuyên), xuất hiện trong chú thích hình đối chiếu với \"đồ thị đơn\". Các nguồn graph theory cũ hơn được mã hóa (leanhvinh-2020, hoangchithanh-2007) trình bày khuyên và cạnh song song nhưng không dùng riêng một thuật ngữ \"giả đồ thị\"; nguyenducnghia-2006 và ngodactan-2004 cũng không chứng thực thuật ngữ này. EMPHASIS edit (per panel terminology MED): first-concept emphasis $$giả đồ thị$$ (a spaced Vietnamese phrase wrapped directly in math delimiters, which would render run-together) was normalized to \\emph{giả đồ thị}; the genuine math ($$G$$, vertex/edge set braces) stays wrapped.",
    "see_also": [
-    "multigraph",
-    "simple-graph",
     "loop",
+    "multigraph",
     "multiple-edges",
+    "simple-graph",
     "undirected-graph"
    ],
    "vi_terms": [
@@ -4336,8 +4337,8 @@
     }
    ],
    "see_also": [
-    "prime-number",
-    "fermats-little-theorem"
+    "fermats-little-theorem",
+    "prime-number"
    ],
    "notes": "Số giả nguyên tố là hợp số \"giả dạng\" số nguyên tố vì nó vượt qua một phép kiểm tra tính nguyên tố ứng với một cơ sở $$b$$ cố định; chẳng hạn $$n$$ là số giả nguyên tố cơ sở $$b$$ nếu $$b^{n-1} \\equiv 1 \\pmod{n}$$ nhưng $$n$$ là hợp số. Một hợp số là số giả nguyên tố với mọi cơ sở $$b$$ nguyên tố cùng nhau với nó được gọi là số Carmichael.",
    "status": "draft",
@@ -4355,9 +4356,9 @@
    "example_vi": "Trong hệ RSA, khóa công khai là cặp $$(n, e)$$; người gửi mã hóa bản rõ $$m$$ thành $$c = m^e \\bmod n$$.",
    "notes": "",
    "see_also": [
-    "private-key",
+    "ciphertext",
     "plaintext",
-    "ciphertext"
+    "private-key"
    ],
    "vi_terms": [
     {

@@ -67,9 +67,9 @@ entries:
     pdf_page: 62
     snippet: c. ofan event phần bù của một biến cố; biến đối lập
   see_also:
+  - event
   - independent-events
   - mutually-independent-events
-  - event
   status: draft
   see_ref: ''
   notes: Độc lập đôi một là điều kiện yếu hơn độc lập tương hỗ (mutually independent). Các biến cố độc
@@ -490,9 +490,9 @@ entries:
     pdf_page: 200
     snippet: partial f. hàm bộ phan
   see_also:
-  - function
-  - domain
   - codomain
+  - domain
+  - function
   status: draft
   see_ref: ''
   notes: Hàm bộ phận từ $$A$$ đến $$B$$ gán cho mỗi phần tử của $$A$$ nhiều nhất một phần tử của $$B$$,
@@ -600,12 +600,12 @@ entries:
     pdf_page: 363
     snippet: order r. quan hệ thứ tự
   see_also:
-  - total-order
-  - binary-relation
-  - poset
-  - order-relation
-  - reflexive-relation
   - antisymmetric-relation
+  - binary-relation
+  - order-relation
+  - poset
+  - reflexive-relation
+  - total-order
   - transitive-relation
   status: panel-approved
   see_ref: ''
@@ -865,10 +865,10 @@ entries:
     pdf_page: 321
     snippet: path bước, đường di; quỹ dao
   see_also:
-  - simple-path
   - circuit
-  - cycle
   - connected-graph
+  - cycle
+  - simple-path
   status: panel-approved
   see_ref: ''
   notes: 'Recommended term "đường đi" (general path) is the base concept matching Rosen §10.4 and is attested
@@ -1059,18 +1059,17 @@ entries:
   notation: P(n,r)
   rosen_ref: Rosen §6.3
   ref_bib: ''
-  definition_vi: Một chỉnh hợp chập $$r$$ của một tập hợp gồm $$n$$ phần tử phân biệt là một cách sắp
-    xếp có thứ tự của $$r$$ trong số $$n$$ phần tử đó, trong đó $$0 \leq r \leq n$$. Số các chỉnh hợp
-    chập $$r$$ của $$n$$ phần tử được ký hiệu là $$P(n,r)$$; trường hợp $$r = n$$ là một cách sắp xếp
-    có thứ tự của toàn bộ $$n$$ phần tử và được gọi là một hoán vị của tập hợp đó.
-  example_vi: Với tập hợp $$\{a, b, c\}$$, các chỉnh hợp chập $$2$$ là $$ab$$, $$ba$$, $$ac$$, $$ca$$,
-    $$bc$$, $$cb$$, nên $$P(3,2) = 6$$; các hoán vị (chỉnh hợp chập $$3$$) là $$abc$$, $$acb$$, $$bac$$,
-    $$bca$$, $$cab$$, $$cba$$, nên $$P(3,3) = 6$$.
+  definition_vi: Một \emph{hoán vị} của một tập hợp gồm $$n$$ phần tử phân biệt là một cách sắp xếp có
+    thứ tự của \emph{tất cả} $$n$$ phần tử đó. Số các hoán vị của một tập $$n$$ phần tử là $$n! = n(n-1)\cdots
+    2\cdot 1$$. Một cách sắp xếp có thứ tự của $$r$$ trong số $$n$$ phần tử (với $$0 \leq r \leq n$$)
+    được gọi là một \emph{chỉnh hợp chập $$r$$}; xem mục r-permutation.
+  example_vi: Với tập hợp $$\{a, b, c\}$$, các hoán vị là $$abc, acb, bac, bca, cab, cba$$, nên một tập
+    $$3$$ phần tử có $$3! = 6$$ hoán vị.
   vi_terms:
   - term: chỉnh hợp
     source_id: bib-nguyenhoangthach-2020
     page: tr. 18
-    recommended: true
+    recommended: false
     verified: true
     pdf_page: 20
     snippet: Một chỉnh hợp chập k, hay còn gọi là một k-hoán vị, của ... Số chỉnh hợp chập k của n phần
@@ -1114,7 +1113,7 @@ entries:
   - term: hoán vị
     source_id: bib-leanhvinh-2020
     page: tr. 95
-    recommended: false
+    recommended: true
     verified: true
     pdf_page: 94
     snippet: Ta hoán vị các màu để trong các cách tô màu các đồ thị G!, đỉnh v
@@ -1185,6 +1184,7 @@ entries:
   see_also:
   - combination
   - r-combination
+  - r-permutation
   - the-product-rule
   status: panel-approved
   see_ref: ''
@@ -1241,8 +1241,8 @@ entries:
     pdf_page: 123
     snippet: đồ thị Petersen có ma trận liền kề A là
   see_also:
-  - regular-graph
   - graph-coloring
+  - regular-graph
   status: panel-approved
   see_ref: ''
   notes: 'Only one Vietnamese term denotes this concept across the whole corpus: "đồ thị Petersen" (a
@@ -1319,8 +1319,8 @@ entries:
     snippet: '— Nhóm 0: Văn phạm ngữ cấu;'
   see_also:
   - alphabet
-  - string
   - empty-string
+  - string
   status: draft
   see_ref: ''
   notes: Văn phạm cấu trúc câu $$G = (V, T, S, P)$$ gồm từ vựng $$V$$, tập ký hiệu kết thúc $$T$$, ký
@@ -1429,8 +1429,8 @@ entries:
     snippet: https://vi.wikipedia.org/wiki/Khóa_(mật_mã)
   see_also:
   - ciphertext
-  - public-key
   - private-key
+  - public-key
   status: panel-approved
   see_ref: ''
   notes: ''
@@ -1490,8 +1490,8 @@ entries:
     snippet: do đó một đồ thị có đồ thị con không phẳng là đồ thị không phẳng.
   see_also:
   - bipartite-graph
-  - complete-graph
   - chromatic-number
+  - complete-graph
   status: panel-approved
   see_ref: ''
   notes: 'Recommended term "đồ thị phẳng" (planar graph) is the standard term, attested in the newest
@@ -1734,11 +1734,11 @@ entries:
     pdf_page: 384
     snippet: ordering s. tập hợp có thứ tự
   see_also:
-  - partial-order
   - hasse-diagram
   - lattice
-  - total-order
+  - partial-order
   - relation
+  - total-order
   status: panel-approved
   see_ref: ''
   notes: 'Concept: a poset is a set $$S$$ together with a partial order $$\preceq$$ (reflexive, antisymmetric,
@@ -2338,8 +2338,8 @@ entries:
     pdf_page: 24
     snippet: axiom tién dé
   see_also:
-  - logical-argument
   - argument-form
+  - logical-argument
   - valid-argument
   status: draft
   see_ref: ''
@@ -2494,12 +2494,12 @@ entries:
   ref_bib: ''
   definition_vi: Một nguyên nhân (implicant) của một hàm Boole là một hội sơ cấp (tích các literal) sao
     cho mỗi khi hội đó nhận giá trị $$1$$ thì hàm cũng nhận giá trị $$1$$. Một nguyên nhân nguyên tố của
-    hàm là một nguyên nhân không bị kéo theo bởi bất kỳ nguyên nhân nào khác của hàm đó; nói cách khác,
-    không thể bỏ đi literal nào của nó mà vẫn còn là một nguyên nhân của hàm.
+    hàm là một nguyên nhân không kéo theo bất kỳ nguyên nhân nào khác của hàm đó; nói cách khác, không
+    thể bỏ đi literal nào của nó mà vẫn còn là một nguyên nhân của hàm.
   example_vi: Xét hàm Boole $$x + y$$ (tức $$x \vee y$$). Các hội $$x$$ và $$y$$ đều là nguyên nhân nguyên
     tố của hàm này, vì mỗi khi $$x = 1$$ hoặc mỗi khi $$y = 1$$ thì $$x + y = 1$$, và không thể bỏ bớt
     literal nào. Trái lại, hội $$x \wedge y$$ tuy là một nguyên nhân nhưng không phải nguyên nhân nguyên
-    tố, vì nó bị kéo theo bởi nguyên nhân $$x$$ (và bởi $$y$$).
+    tố, vì nó kéo theo nguyên nhân $$x$$ (và $$y$$).
   vi_terms:
   - term: nguyên nhân nguyên tố
     source_id: bib-nguyenducnghia-2006
@@ -2516,11 +2516,11 @@ entries:
     pdf_page: 274
     snippet: Xy và x ÿ là các nguyên nhân nguyên tố của hàm x + y.
   see_also:
-  - minterm
+  - boolean-expression
   - boolean-function
   - disjunctive-normal-form
   - karnaugh-map
-  - boolean-expression
+  - minterm
   status: draft
   see_ref: ''
   notes: Khái niệm nguyên nhân nguyên tố là cốt lõi của việc tối thiểu hóa biểu thức Boole (bản đồ Karnaugh,
@@ -2710,9 +2710,9 @@ entries:
     pdf_page: 370
     snippet: primitive r. căn nguyên thuỷ
   see_also:
-  - quadratic-residue
-  - modular-arithmetic
   - congruence
+  - modular-arithmetic
+  - quadratic-residue
   status: draft
   see_ref: ''
   notes: Căn nguyên thủy modulo số nguyên tố $$p$$ là số nguyên $$r$$ sao cho các lũy thừa $$r^1, r^2,
@@ -2761,9 +2761,9 @@ entries:
     pdf_page: 920
     snippet: khóa công [public key] và một khóa bí mật [secret key]. Mỗi khóa là
   see_also:
-  - public-key
-  - plaintext
   - ciphertext
+  - plaintext
+  - public-key
   status: panel-approved
   see_ref: ''
   notes: ''
@@ -2915,8 +2915,8 @@ entries:
     pdf_page: 24
     snippet: không kiến thiết như phương pháp xác suất). Tuy nhiên, chưa có một
   see_also:
-  - ramsey-number
   - expected-value
+  - ramsey-number
   status: draft
   see_ref: ''
   notes: 'Phương pháp xác suất, do Erdős phát triển, là một kỹ thuật chứng minh không kiến thiết: nó khẳng
@@ -2987,8 +2987,8 @@ entries:
     pdf_page: 258
     snippet: elementary probability 1. mật độ phân phối xác suất
   see_also:
-  - event
   - distribution-of-a-random-variable
+  - event
   - expected-value
   status: draft
   see_ref: ''
@@ -3069,8 +3069,8 @@ entries:
     pdf_page: 62
     snippet: c. ofan event phần bù của một biến cố; biến đối lập
   see_also:
-  - sample-space
   - bernoulli-trial
+  - sample-space
   status: draft
   see_ref: ''
   notes: Xác suất của một biến cố $$E$$ trong một không gian mẫu hữu hạn là tổng xác suất của các kết
@@ -3099,8 +3099,8 @@ entries:
     pdf_page: 0
     snippet: ''
   see_also:
-  - cartesian-product
   - boolean-product
+  - cartesian-product
   - the-product-rule
   status: draft
   see_ref: ''
@@ -3677,9 +3677,9 @@ entries:
     pdf_page: 91
     snippet: phẳng trong đó mọi đồ thị con thực sự của nó đều phẳng.
   see_also:
-  - subgraph
   - induced-subgraph
   - spanning-subgraph
+  - subgraph
   status: draft
   see_ref: ''
   notes: Đồ thị con thực sự là đồ thị con khác với chính đồ thị ban đầu. Bản dịch Rosen chỉ dùng "đồ thị
@@ -3964,9 +3964,9 @@ entries:
     pdf_page: 441
     snippet: proposition v. biến mệnh đề
   see_also:
-  - proposition
   - atomic-proposition
   - boolean-variable
+  - proposition
   - variable
   status: draft
   see_ref: ''
@@ -4085,10 +4085,10 @@ entries:
     pdf_page: 194
     snippet: ø Giả đồ thị
   see_also:
-  - multigraph
-  - simple-graph
   - loop
+  - multigraph
   - multiple-edges
+  - simple-graph
   - undirected-graph
   status: panel-approved
   see_ref: ''
@@ -4151,8 +4151,8 @@ entries:
     pdf_page: 307
     snippet: pseudoprime n. số giả nguyên tố
   see_also:
-  - prime-number
   - fermats-little-theorem
+  - prime-number
   status: draft
   see_ref: ''
   notes: Số giả nguyên tố là hợp số "giả dạng" số nguyên tố vì nó vượt qua một phép kiểm tra tính nguyên
@@ -4186,9 +4186,9 @@ entries:
     pdf_page: 0
     snippet: https://vi.wikipedia.org/wiki/Mật_mã_hóa_khóa_công_khai
   see_also:
-  - private-key
-  - plaintext
   - ciphertext
+  - plaintext
+  - private-key
   status: panel-approved
   see_ref: ''
   notes: ''

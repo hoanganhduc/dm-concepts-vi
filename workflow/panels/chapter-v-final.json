@@ -22,10 +22,10 @@
    "example_vi": "Mệnh đề \"nếu $$0 > 1$$ thì $$2 = 2$$\" đúng theo phép chứng minh rỗng, vì giả thiết $$0 > 1$$ là sai nên $$p \\to q$$ đúng bất kể kết luận.",
    "notes": "Mining result: NO source in the Vietnamese corpus (bib-leanhvinh-2020, bib-nguyenhoangthach-2020, bib-nguyenhuudien-2019, bib-hoangchithanh-2007, bib-nguyenducnghia-2006, bib-ngodactan-2004) attests any candidate term for \"vacuous proof.\" All three candidates (chứng minh rỗng, chứng minh tầm thường, phép chứng minh rỗng) returned 0 hits in both normal and --loose (OCR) modes; this was independently re-verified by the checker. The proof-methods section of the discrete-math source bib-nguyenhuudien-2019 (§2.3, \"Các phương pháp chứng minh cơ bản\") names only direct proof (chứng minh trực tiếp, pdf_page 56), proof by contradiction (chứng minh phản chứng, pdf_page 57-58), proof by cases (chứng minh bằng cách chia trường hợp), and counterexample (phản ví dụ); it does NOT name the vacuous proof as a separate technique. The component words \"rỗng\" (118 hits) and \"tầm thường\" (14 hits) occur only in unrelated senses (empty set/tập rỗng; nontrivial graph/đồ thị không tầm thường), never as a proof-method term. Per the locked convention, exactly one standard term (\"chứng minh rỗng\") is kept with verified=false and page=\"\" so vi_terms is non-empty; the other two candidates were dropped as verified=false with empty pages. Recommended term reflects the standard rendering of Rosen's \"vacuous proof\" (a conditional $$p \\to q$$ shown true because the hypothesis $$p$$ is false). Variant glosses worth noting: \"chứng minh tầm thường\" collides with Rosen's distinct \"trivial proof\" (true because $$q$$ is true), so \"chứng minh rỗng\" is preferred to keep the two notions separate.",
    "see_also": [
-    "trivial-proof",
+    "conditional-statement",
     "direct-proof",
     "proof-by-contraposition",
-    "conditional-statement"
+    "trivial-proof"
    ],
    "vi_terms": [
     {
@@ -532,9 +532,9 @@
    ],
    "see_also": [
     "decision-tree",
-    "rooted-tree",
-    "leaf",
     "internal-vertices",
+    "leaf",
+    "rooted-tree",
     "tree"
    ],
    "notes": "Theo Rosen §11.5 (Cây quyết định và cây trò chơi), giá trị của một đỉnh trong cây trò chơi được tính đệ quy từ các lá lên gốc theo nguyên lý minimax: giá trị của một lá là tiền trả cho người chơi thứ nhất, còn giá trị của một đỉnh trong là giá trị lớn nhất (ở lượt người chơi thứ nhất) hoặc nhỏ nhất (ở lượt người chơi thứ hai) trong các giá trị của các đỉnh con. Giá trị của gốc bằng tiền trả mà người chơi thứ nhất bảo đảm được khi cả hai chơi tối ưu, và một chiến lược tối ưu chọn ở mỗi đỉnh đỉnh con đạt giá trị đó. Thuật ngữ tiếng Việt khuyến nghị \"giá trị của một đỉnh trong cây trò chơi\" là cách dịch chuẩn của \"value of a vertex in a game tree\"; nó được giữ verified=false (trích dẫn rỗng) vì không có nguồn nào trong kho ngữ liệu (các nguồn 2004–2020) chứng thực đúng cụm này, kể cả khi tìm với --loose. CHÍNH SÁCH NGUỒN DẪN ĐẦU (terminology_policy): bib-rosen-2003-vi có role=reference và bị find-term.py loại khỏi tìm mặc định (EXCLUDE_DEFAULT); chỉ một lượt truy vấn tường minh theo id mới trả về kết quả, nên nó không bao giờ được làm thuật ngữ recommended/lead. Hai dòng bib-rosen-2003-vi được ghi là verified=true, recommended=false làm chứng thực bổ trợ cho ngữ cảnh trò chơi và cây trò chơi trong bản dịch Rosen: tr. 630 biểu diễn một trò chơi bằng cây và nói về các đỉnh, tr. 710 nhắc tới việc nghiên cứu các trò chơi (cờ caro, nim, hex) và tìm chiến lược thắng. Mục §11.5 chuyên về cây trò chơi của Rosen không cho snippet OCR sạch ứng đúng định nghĩa giá trị của đỉnh, nên không có dòng nào được gán làm trích dẫn xác nhận trực tiếp cho cụm khuyến nghị; OCR có sai một số dấu và ký tự, snippet được giữ nguyên minh bạch. see_also dẫn tới decision-tree (cùng mục §11.5), rooted-tree, leaf, internal-vertices và tree vì giá trị của đỉnh được tính trên một cây có gốc, lan truyền từ lá lên qua các đỉnh trong.",
@@ -1256,8 +1256,8 @@
    ],
    "notes": "Three distinct Vietnamese terms denote this concept across the corpus. (1) \"độ liên thông đỉnh\" — recommended standard form, attested in the 2020 source bib-nguyenhoangthach-2020 (tr. 75), where the minimum vertex cut size is named $$\\kappa(G)$$; it parallels the modern term \"độ liên thông cạnh\" (edge connectivity) used in the same source. (2) \"số liên thông đỉnh\" — equivalent 2020 form in bib-leanhvinh-2020 (tr. 225, OCR source; the snippet shows OCR noise rendering $$G$$ as \"Ơ\" and $$\\kappa(G)$$ as \"«(G)\", but the surrounding definition unambiguously denotes vertex connectivity); the term also appears verbatim under normal (non-loose) search. (3) \"liên thông đỉnh\" — older form in bib-ngodactan-2004 (tr. 265), where graphs are called \"k-liên thông đỉnh\" ($$k$$-vertex-connected); the connectivity number itself is the least such $$k$$. No source attests the candidate \"bậc liên thông\" or phrasings like \"liên thông theo đỉnh\"/\"tính liên thông đỉnh\" (0 hits, normal and loose). The OCR source bib-hoangchithanh-2007 and the text sources bib-nguyenhuudien-2019 and bib-nguyenducnghia-2006 returned no hits for any \"đỉnh\" connectivity term.",
    "see_also": [
-    "edge-connectivity",
     "cut-vertex",
+    "edge-connectivity",
     "k-connected-graph"
    ],
    "pos": "d.t."
@@ -1272,9 +1272,9 @@
    "example_vi": "Xét đồ thị đường đi $$P_3$$ với các đỉnh $$a, b, c$$ và các cạnh $$ab$$, $$bc$$. Tập $$\\{b\\}$$ là một tập phủ đỉnh vì cả hai cạnh $$ab$$ và $$bc$$ đều có đầu mút $$b$$.",
    "notes": "Three distinct Vietnamese terms denote this concept across the corpus. The recommended term \"tập phủ đỉnh\" is the standard full noun phrase, attested in the newest source (bib-leanhvinh-2020, 2020) as section heading \"3.3. Tập phủ đỉnh\" and used throughout its definition/proofs. The shorter head noun \"phủ đỉnh\" is attested and explicitly defined in bib-nguyenducnghia-2006 (2006, p. 263): a subset $$S$$ of vertices is a phủ đỉnh if every edge has at least one endpoint in $$S$$. \"phủ đỉnh nhỏ nhất\" (minimum vertex cover) is the optimization-problem variant named in bib-nguyenducnghia-2006 (\"Bài toán phủ đỉnh nhỏ nhất\"), recorded as a variant. OCR sources bib-hoangchithanh-2007 and bib-leanhvinh-2020 were checked with both normal and --loose passes; hoangchithanh-2007 describes the covering property on p. 59 (\"mỗi cạnh của G đều kề với ít nhất một đỉnh\") but does not name the concept with any \"phủ\"-based head noun, so it is not recorded as an attestation. Loose searches for \"phủ đỉnh\" also surface false positives from \"phủ định\" (negation) in nguyenducnghia-2006; only p. 263 hits denote this concept. The notation field stores the bare LaTeX token \"S \\subseteq V(G)\" (the renderer adds $$...$$), normalized from a pre-wrapped form to match every sibling notation field.",
    "see_also": [
-    "vertex",
     "edge",
-    "independent-set"
+    "independent-set",
+    "vertex"
    ],
    "vi_terms": [
     {
@@ -1399,11 +1399,11 @@
     }
    ],
    "see_also": [
-    "vertex-connectivity",
     "connectivity",
     "cut-vertex",
+    "k-connected-graph",
     "separating-set-of-edges",
-    "k-connected-graph"
+    "vertex-connectivity"
    ],
    "notes": "Cần phân biệt lát cắt đỉnh (vertex cut) là một tập đỉnh với đỉnh cắt (cut vertex / khớp) là một đỉnh đơn lẻ; một đỉnh cắt chính là một lát cắt đỉnh gồm một đỉnh. Lát cắt đỉnh là phiên bản theo đỉnh của tập cạnh phân tách (separating set of edges); số đỉnh nhỏ nhất của một lát cắt đỉnh là độ liên thông đỉnh $$\\kappa(G)$$. Bản dịch bib-nguyenhoangthach-2020 (tr. 75) dùng \"lát cắt đỉnh\" (song song với \"lát cắt cạnh\"), còn bib-leanhvinh-2020 (tr. 129) dùng \"tập đỉnh cắt\"; cả hai đều chỉ cùng khái niệm này.",
    "status": "draft",

@@ -342,9 +342,9 @@
    "notes": "EDITOR (chapter K final): applied the panel HIGH correctness fix. The prior definition added a standalone defining clause \"có nhiều hơn $$k$$ đỉnh\" (more than $$k$$ vertices) joined by \"và\" to the deletion clause; that is over-restrictive and non-standard. Rosen §10.4 defines a connected graph to be $$k$$-connected iff its vertex connectivity satisfies $$\\kappa(G) \\geq k$$, which is exactly what the cited source nguyenhoangthach-2020 (tr. 75) states (\"G là k-liên thông nếu κ(G) ≥ k\"). The definition now leads with $$\\kappa(G) \\geq k$$ and states the equivalent operational characterization (cannot be disconnected, or reduced to the trivial one-vertex graph, by deleting fewer than $$k$$ vertices). Also normalized the relation symbol from \\ge to \\geq in both notation and definition_vi per book convention.\n\nRecommended term \"k-liên thông\" is attested in two 2020 sources; the cleanest definitional attestation is nguyenhoangthach-2020 (tr. 75 PDF), which matches Rosen's notation $$\\kappa(G) \\geq k$$. leanhvinh-2020 uses it throughout Chapter 1 (Whitney/Dirac theorems). ngodactan-2004 (tr. 265 PDF) defines \"đồ thị k-liên thông đỉnh\" (vertex k-connectivity) and abbreviates it to \"k-liên thông\" — the same concept as this entry. The fuller noun phrase \"đồ thị k-liên thông\" is a stylistic variant. The candidate \"k-liên thông cạnh\" (edge k-connectivity, $$\\kappa'(G) \\geq k$$ / $$\\lambda(G) \\geq k$$) is a DIFFERENT concept and is excluded; it appears in leanhvinh-2020 (tr. 26 PDF) and ngodactan-2004 (tr. 270 PDF). The candidate \"liên thông bậc k\" is NOT attested in any corpus source. Sources nguyenhuudien-2019, nguyenducnghia-2006, and hoangchithanh-2007 contain only general connectivity (\"liên thông\") and do not define the k-connected concept. see_also targets are cross-chapter forward references: \"connectivity\" and \"cut-vertex\" exist in chapter C; \"vertex-connectivity\" and \"edge-connectivity\" are forward references. No same-chapter K links. All five verified vi_terms re-confirmed via find-term.py at their cited pages with matching snippets (leanhvinh-2020 confirmed under both normal and loose OCR modes).",
    "see_also": [
     "connectivity",
-    "vertex-connectivity",
+    "cut-vertex",
     "edge-connectivity",
-    "cut-vertex"
+    "vertex-connectivity"
    ],
    "pos": "d.t."
   },
@@ -486,8 +486,8 @@
    "notes": "Recommended term \"bộ sắp thứ tự\" is attested in the newest source bib-nguyenhoangthach-2020 (2020), where the ordered-tuple notation \"(f(1), f(2), ..., f(k))\" (p.21) names exactly the ordered k-tuple concept; the same source's p.20 occurrence carries an extra \"khác nhau\" (distinct) restriction that is narrower than the general k-tuple, so the p.21 snippet is recorded for the recommended term. The candidate terms \"bộ k thành phần\" and \"bộ gồm k phần tử\" returned zero hits across all sources (normal and --loose) and are dropped. The fuller phrase \"bộ có thứ tự gồm k thành phần\" is attested only in the 2004 source. Excluded: \"bộ ba\" hits denote ordered triples (a special case) or graph-theoretic triples $$(V,E,f)$$, not the general k-tuple, so they are not recorded here.\n\nEDITOR (chapter K final): converted the markdown-asterisk emphasis \"*k-bộ sắp thứ tự*\" to \\emph{$$k$$-bộ sắp thứ tự} to match the chapter-wide \\emph{...} first-introduction emphasis convention. Definition matches Rosen §2.1 (an ordered k-tuple is the ordered collection in which order matters and two tuples are equal iff each corresponding pair of elements is equal).",
    "rosen_ref": "Rosen §2.1",
    "see_also": [
-    "ordered-pair",
     "cartesian-product",
+    "ordered-pair",
     "sequence"
    ],
    "vi_terms": [
@@ -689,8 +689,8 @@
    "notes": "Concept match confirmed. Định nghĩa 3.3 in bib-hoangchithanh-2007 (PDF tr. 34) defines \"nhân của đồ thị $$G$$\" as a set $$B \\subseteq V$$ that is both \"tập ổn định trong\" (internally stable = independent: no arc joins two vertices of $$B$$) and \"tập ổn định ngoài\" (externally stable = absorbing: every vertex outside $$B$$ has an arc into $$B$$). This is exactly Rosen's kernel (independent + absorbing). The source also states the two conditions are equivalent to an identity $$F^{-1}(B) = V \\setminus B$$ where $$F$$ is the successor (out-neighbor) map of the digraph.\n\nEDITOR (chapter K final): applied two panel HIGH correctness fixes. (1) Removed the clause \"điều này tương đương với $$F^{-1}(B) = V \\setminus B$$\" from definition_vi: the symbol $$F$$ (the successor map) was never defined in the entry, so importing $$F^{-1}$$ broke the self-containment requirement, and the equivalence is convention-dependent. The independent + absorbing (tập ổn định trong + tập ổn định ngoài) characterization is complete, standard, and self-contained; the $$F^{-1}$$ identity is described in this note instead. (2) Fixed rosen_ref: the previous value \"Rosen §10.2\" (Graph Terminology and Special Types of Graphs) does not cover the directed-graph kernel concept and appears copied from the default §10.2 used by the genuine §10.2 entries. The kernel of a digraph (independent dominating set) is not a standard Rosen §10.2 topic; Rosen discusses digraphs and related structures in §10.5 (and kernel/independent-dominating ideas appear, if at all, in exercises rather than as a named §10.2 definition). rosen_ref is set to \"Rosen §10.5 (directed graphs; kernel not a named §10.2 topic)\" to surface the provenance honestly rather than assert §10.2.\n\nRecommended term: \"nhân của đồ thị\" is the only Vietnamese term denoting THIS concept across all six corpus sources; it is attested only in the 2007 source. NO 2019-2020 source attests any candidate for this concept, so the 2019-2020 recency preference cannot be met; the standard 2007 term is recommended (verified=true). Strict and loose searches in bib-leanhvinh-2020, bib-nguyenhoangthach-2020, bib-nguyenhuudien-2019, bib-nguyenducnghia-2006, and bib-ngodactan-2004 returned 0 hits for this concept.\n\n\"nhân\" (bare) is used as the standalone term throughout §3.3 of the same source once \"nhân của đồ thị\" is introduced; recorded as a variant.\n\nRejected candidate \"lõi của đồ thị\": in bib-hoangchithanh-2007 (Định nghĩa 3.4, PDF tr. 36) \"lõi\" is a DISTINCT concept defined via paths (the reachability/path analog), not the arc-based kernel, and is excluded. Candidate \"nhân của đồ thị có hướng\" returned 0 hits (strict and loose) in all sources and is not recorded.\n\nbib-hoangchithanh-2007 is an OCR source; both strict and loose searches were run. Snippets are verbatim OCR (e.g. \"Tạp\" for \"Tập\", \"Ơ\" for \"G\") and are preserved as-is. All verified=true vi_terms re-checked via find-term.py; source_id/pdf_page/snippets confirmed. Exactly one recommended=true.",
    "rosen_ref": "Rosen §10.5 (directed graphs; kernel not a named §10.2 topic)",
    "see_also": [
-    "independent-set",
-    "directed-graph"
+    "directed-graph",
+    "independent-set"
    ],
    "vi_terms": [
     {
@@ -793,9 +793,9 @@
     }
    ],
    "see_also": [
-    "public-key-cryptography",
+    "key",
     "private-key-cryptography",
-    "key"
+    "public-key-cryptography"
    ],
    "notes": "Giao thức trao đổi khóa cho phép hai bên thống nhất một khóa bí mật dùng chung qua một kênh truyền công khai; ví dụ kinh điển là giao thức Diffie–Hellman, có độ an toàn dựa trên bài toán lôgarit rời rạc theo modulo (việc tính $$a^{k_1 k_2} \\bmod p$$ từ $$a^{k_1} \\bmod p$$ và $$a^{k_2} \\bmod p$$ là khó về mặt tính toán). Thuật ngữ \"giao thức trao đổi khóa\" là cách dịch chuẩn; không tìm thấy dẫn chứng trực tiếp cho khái niệm này trong kho ngữ liệu khảo sát (kể cả bản dịch Rosen tiếng Việt 2003), nên thuật ngữ tiếng Việt được đề xuất theo bản dịch chuẩn với verified=false.",
    "status": "draft",
@@ -1041,10 +1041,10 @@
    "rosen_ref": "Rosen §10.7",
    "notes": "Recommended term \"định lý Kuratowski\" is attested in two 2020 sources (bib-nguyenhoangthach-2020 p.81 and bib-leanhvinh-2020 p.127), a 2019 source (bib-nguyenhuudien-2019 p.234), and older sources (bib-hoangchithanh-2007 p.119, bib-ngodactan-2004 p.210); citations are listed newest-first. The variant \"định lý Kuratowski - Pontragin\" (Kuratowski-Pontryagin theorem) is attested only in the 2004 source (bib-ngodactan-2004 p.210, also p.213, index p.336); it is recorded as a verified variant. No candidate uses inline math, so no $$...$$ wrapping is needed in the term strings. The definition uses the book-standard \"đồ thị hai phần\" for bipartite. \"Đồng phôi\" (homeomorphic) is the standard term linked via see_also to homeomorphic-graphs. Definition is correct against Rosen §10.7 (a graph is planar iff it contains no subgraph homeomorphic to $$K_5$$ or $$K_{3,3}$$).\n\nEDITOR (chapter K final): the previous example used $$K_5$$ as \"a subgraph homeomorphic to $$K_5$$ of itself\", which is logically valid but pedagogically circular. Switched the example to $$K_{3,3}$$ — likewise the trivial self-homeomorphic case, but it exercises the second forbidden subgraph $$K_{3,3}$$ (the complete bipartite graph) and keeps the example self-contained using only the forbidden subgraphs the definition introduces. The substance (a forbidden subgraph forces non-planarity by Kuratowski) is unchanged; either $$K_5$$ or $$K_{3,3}$$ is a minimal self-contained witness.",
    "see_also": [
-    "planar-graph",
-    "complete-graph",
     "complete-bipartite-graph",
-    "homeomorphic-graphs"
+    "complete-graph",
+    "homeomorphic-graphs",
+    "planar-graph"
    ],
    "vi_terms": [
     {
@@ -1095,10 +1095,10 @@
    "notation": "",
    "rosen_ref": "Rosen §10.5",
    "see_also": [
-    "graph",
-    "multigraph",
     "euler-circuit",
-    "euler-path"
+    "euler-path",
+    "graph",
+    "multigraph"
    ],
    "notes": "Recommended form set to the city-named full form \"bài toán bảy cây cầu Königsberg\" matching the headword, but note that as a contiguous string it is NOT attested in the corpus: bib-leanhvinh-2020 always inserts \"của thành phố\" between \"cầu\" and \"Königsberg\" (p.20 'bài toán bảy cây cầu của thành phó [Königsberg]', p.257 index 'Bài toán bảy cây cầu'). The attested verified=true lead form is \"bài toán bảy cây cầu\" (leanhvinh-2020), kept as recommended=true; the synthesized full-city-name string is documented here in notes only and is NOT carried as a verified=false vi_term row. The city name Königsberg with umlaut IS attested in bib-leanhvinh-2020 (p.6, p.19, p.20, p.257), so the headword spelling is well grounded.\n\nEDITOR (chapter K final): applied two fixes. (1) Citation hygiene: dropped the two verified=false empty-page non-recommended variants (\"bài toán bảy cây cầu Königsberg\" and \"bài toán bảy chiếc cầu Königsberg\"); since the recommended term \"bài toán bảy cây cầu\" is verified=true, the one-standard-term exception does not apply, so unattested synthesized strings are removed from vi_terms and their non-attestation rationale preserved here. (2) Reworded the see_also rationale: the targets graph (G), multigraph (M), euler-circuit / euler-path (E) are CROSS-chapter forward references (chapters G, M, E), NOT same-chapter K links — the prior note's \"same-chapter ... within the graph chapter (Rosen ch.10)\" framing conflated Rosen-chapter membership with dictionary-letter chapter membership and is corrected here. (3) Tightened the framing per Rosen §10.5: the definition now states both Euler-path and Euler-circuit criteria (0 or 2 odd-degree vertices for a path; all-even for a circuit) so the example's use of the \"at most two odd-degree vertices\" criterion is introduced by the definition and the example is self-contained.\n\nVariant forms attested across the corpus: \"bảy cầu của thành phố Konigsberg\" (bib-nguyenhuudien-2019 p.181 figure + p.10 TOC), \"bảy cái cầu ở Konigsberg\" (bib-nguyenhuudien-2019 p.181), \"bài toán 7 cây cầu ở Konigsberg\" (bib-hoangchithanh-2007 p.76, OCR 'Bai toán 7 cây cầu ở Konigsberg'), \"bài toán về bảy chiếc cầu ở Königsberg\" (bib-ngodactan-2004 p.184 caption 'Hình 6.1: Bài toán về bầy clìiếc cầu ở Kõnigsberg', also p.15 TOC and p.183). Spelling note: city name appears as \"Königsberg\" (umlaut, modern text sources) and as OCR-mangled \"Konigsberg\"/\"Kõnigsberg\" in scanned sources. The four Königsberg vertices have degrees 3,3,3,5 (all odd); 4 odd-degree vertices > 2, so no Euler path and no Euler circuit.",
    "vi_terms": [

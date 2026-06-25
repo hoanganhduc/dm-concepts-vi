@@ -126,11 +126,11 @@
    "definition_vi": "Trong một đồ thị vô hướng $$G$$, đồ thị phi chu trình là một đồ thị không chứa chu trình nào. Một đồ thị vô hướng liên thông và phi chu trình chính là một cây, còn một đồ thị vô hướng (không nhất thiết liên thông) phi chu trình là một rừng.",
    "example_vi": "Mọi cây và mọi rừng đều là đồ thị phi chu trình. Đồ thị đầy đủ $$K_3$$ với các cạnh $$ab, bc, ca$$ không phải là đồ thị phi chu trình, vì dãy đỉnh $$a, b, c, a$$ tạo thành một chu trình.",
    "see_also": [
+    "arborescence",
     "cycle",
-    "tree",
-    "forest",
     "directed-acyclic-graph",
-    "arborescence"
+    "forest",
+    "tree"
    ],
    "notes": "Concept: an undirected graph containing no cycle. The definition is stated for the simple undirected setting so the connected-acyclic = tree and acyclic = forest characterizations are unambiguous; the directed (DAG) sense is left to the cross-reference \"directed-acyclic-graph\". The recommended standard named term \"đồ thị phi chu trình\" is attested with an explicit definition in the 2019 source bib-nguyenhuudien-2019 (p.226: \"Đồ thị có chu số bằng 0 được gọi là đồ thị phi chu trình\"); note that the source defines the named term via chu số = 0 (cycle rank zero), a derived characterization, while this book takes the equivalent no-cycle formulation as its primary definition. The descriptive no-cycle phrasing is directly attested in the variant rows: bib-nguyenducnghia-2006 (p.230, \"Giả sử G là đồ thị không có chu trình\"; and p.200, where the connected case is named a tree and the general case a forest) and bib-hoangchithanh-2007 (p.123, \"đồ thị là một cây nếu nó liên thông và không có chu trình\"). The bare form \"phi chu trình\" is the adjectival predicate used in statements such as \"$$G$$ là phi chu trình\" (Định lý 9.3, nguyenhuudien-2019 p.226, which is in a directed setting). Note: the 2020 source bib-nguyenhoangthach-2020 (p.93) and several other \"không có chu trình\" hits qualify the cycle type (chu trình âm / Euler / Hamilton / độ dài lẻ); these do NOT denote the general acyclic concept and are not used as citations for it. OCR sources (bib-leanhvinh-2020, bib-hoangchithanh-2007) were re-run with --loose: leanhvinh-2020 yielded no occurrence of the named term \"phi chu trình\" (it uses \"không có chu trình\" descriptively), confirming the 2019 text as the strongest modern attestation of the recommended named term. The recommended named term (2019) is listed first.",
    "vi_terms": [
@@ -372,8 +372,8 @@
    "notes": "Both \"ma trận kề\" and \"ma trận liền kề\" denote the adjacency matrix. \"Ma trận kề\" is the dominant, standard term, attested in two 2020 sources (bib-leanhvinh-2020 Định nghĩa 2.20 and bib-nguyenhoangthach-2020 Định nghĩa 5.8) and in all four older sources, so it is recommended. The lead leanhvinh-2020 p.54 snippet is OCR-mangled (\"Ma trận kể\"); a diacritically clean 2020 corroboration is bib-nguyenhoangthach-2020 p.66 (\"Ma trận kề của một đa đồ thị\"). \"Ma trận liền kề\" appears only in bib-nguyenhuudien-2019 (2019, Định nghĩa/Ví dụ 6.18-6.19) and is recorded as a verified variant. In leanhvinh-2020 (OCR) the term is mangled to \"ma trận kể\"/\"ma trận ké\"; --loose recovered the definition on pdf_page 54. The leanhvinh-2020 page references are PDF pages.",
    "see_also": [
     "adjacency-list",
-    "incidence-matrix",
-    "adjacent-vertices"
+    "adjacent-vertices",
+    "incidence-matrix"
    ],
    "vi_terms": [
     {
@@ -507,9 +507,9 @@
     }
    ],
    "see_also": [
-    "adjacent-vertices",
+    "adjacency-list",
     "adjacency-matrix",
-    "adjacency-list"
+    "adjacent-vertices"
    ],
    "notes": "Thuật ngữ giáo trình MAT3500 dùng là \"liền kề\". Biến thể \"kề nhau\" (hoặc \"kề\") phổ biến trong nhiều giáo trình tiếng Việt và mang cùng nghĩa. Khái niệm liền kề cũng áp dụng cho hai cạnh (hai cạnh có chung một đỉnh).",
    "status": "draft",
@@ -1124,17 +1124,21 @@
    "example_vi": "Xét tập $$A = \\{1, 2, 3\\}$$ và quan hệ $$R = \\{(1, 1), (1, 2), (2, 3)\\}$$ trên $$A$$. Quan hệ này phản xứng vì cặp duy nhất $$(a, b) \\in R$$ mà đồng thời $$(b, a) \\in R$$ là $$(1, 1)$$, và khi đó $$1 = 1$$. Ngược lại, quan hệ $$R' = \\{(1, 2), (2, 1)\\}$$ trên $$A$$ không phản xứng vì $$(1, 2) \\in R'$$ và $$(2, 1) \\in R'$$ nhưng $$1 \\neq 2$$.",
    "notes": "Hai biến thể được ghi nhận trong kho ngữ liệu, đều chỉ cùng khái niệm này. \"phản xứng\" được chọn làm thuật ngữ chuẩn vì xuất hiện trong nguồn mới nhất (Nguyễn Hữu Điển 2019) kèm chú thích tiếng Anh \"(antisymmetric)\" và điều kiện $$(xRy \\wedge yRx) \\Rightarrow x = y$$. \"phản đối xứng\" là biến thể, được dùng trong định nghĩa quan hệ thứ tự ở Ngô Đắc Tân 2004 (tr. 163) và cũng xuất hiện thay thế cho \"phản xứng\" trong Nguyễn Hữu Điển 2019 (tr. 111). Lưu ý: tuy \"phản đối xứng\" dịch sát nghĩa là \"anti-symmetric\", trong kho ngữ liệu nó vẫn chỉ đúng tính chất phản xứng (antisymmetric) chứ KHÔNG có nghĩa \"không đối xứng\"; cả \"phản xứng\" và \"phản đối xứng\" đều biểu thị cùng điều kiện $$(aRb \\wedge bRa) \\Rightarrow a = b$$. Các nguồn OCR đồ thị (bib-leanhvinh-2020, bib-hoangchithanh-2007) và các nguồn tổ hợp/đồ thị khác (bib-nguyenhoangthach-2020, bib-nguyenducnghia-2006) không có chỗ nào đề cập khái niệm này (đều cho 0 hit ở cả chế độ thường lẫn --loose), phù hợp vì chúng tập trung vào lý thuyết đồ thị chứ không trình bày tính chất quan hệ.",
    "see_also": [
+    "equivalence-relation",
+    "partial-order",
     "reflexive-relation",
     "symmetric-relation",
-    "transitive-relation",
-    "partial-order",
-    "equivalence-relation"
+    "transitive-relation"
    ],
    "vi_terms": [
     {
+     "term": "quan hệ phản xứng",
+     "recommended": true
+    },
+    {
      "term": "phản xứng",
      "verified": true,
-     "recommended": true,
+     "recommended": false,
      "source_id": "bib-nguyenhuudien-2019",
      "pdf_page": 110,
      "page": "tr. 110",
@@ -1393,10 +1397,10 @@
     }
    ],
    "see_also": [
-    "logical-argument",
-    "valid-argument",
+    "compound-proposition",
     "inference-rule",
-    "compound-proposition"
+    "logical-argument",
+    "valid-argument"
    ],
    "notes": "Cần phân biệt dạng suy luận (argument form) với lập luận lôgic (logical argument). Lập luận lôgic là một dãy các mệnh đề cụ thể với một kết luận, còn dạng suy luận là sơ đồ trừu tượng gồm các mệnh đề phức hợp chứa các biến mệnh đề; thay các biến mệnh đề bằng những mệnh đề cụ thể trong một dạng suy luận sẽ cho một lập luận cụ thể. Một dạng suy luận hợp lệ là dạng mà mọi phép thay biến làm cho các tiền đề đúng đều khiến kết luận đúng. Bản dịch Rosen (2003) dùng cụm \"các dạng ... của suy luận\" (tr. 209); cụm \"dạng suy luận\" là bản dịch chuẩn được khuyến nghị cho thuật ngữ này.",
    "status": "draft",
@@ -2165,8 +2169,8 @@
    "example_vi": "Với phép tìm kiếm tuyến tính trên $$n$$ phần tử, nếu phần tử cần tìm xuất hiện ở mỗi vị trí với xác suất như nhau thì số phép so sánh trung bình xấp xỉ $$\\displaystyle\\frac{n+1}{2}.$$",
    "notes": "",
    "see_also": [
-    "best-case-analysis",
-    "asymptotic-analysis"
+    "asymptotic-analysis",
+    "best-case-analysis"
    ],
    "vi_terms": [
     {

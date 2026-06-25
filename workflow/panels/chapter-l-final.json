@@ -304,10 +304,10 @@
     }
    ],
    "see_also": [
-    "theorem",
+    "conjecture",
     "corollary",
     "proof",
-    "conjecture"
+    "theorem"
    ],
    "notes": "Recommended term \"bổ đề\" is the standard Vietnamese term and is attested in the newest source (bib-leanhvinh-2020, 2020). The page-98 snippet shows the lemma-as-stepping-stone role (\"Dé chứng minh Định lý 4.8, ta cin một số bổ đề sau\", OCR for \"Để chứng minh Định lý 4.8, ta cần một số bổ đề sau\" = \"to prove Theorem 4.8 we need the following lemmas\"). It is also attested in bib-hoangchithanh-2007 (2007, OCR) and bib-ngodactan-2004 (2004, where it names Burnside's Lemma). The other two candidate terms returned ZERO hits in both normal and --loose modes across all sources: \"định lý phụ\" (0 hits) and \"mệnh đề phụ trợ\" (0 hits); they are dropped per citation hygiene (no verified=false empty-page terms kept since the recommended term is attested). vi_terms ordered newest-source first (2020 → 2007 → 2004).",
    "pos": "d.t."
@@ -476,13 +476,17 @@
    "example_vi": "Quan hệ truy hồi $$a_n = a_{n-1} + a_{n-2}$$ là một quan hệ truy hồi tuyến tính thuần nhất bậc $$2$$ với hệ số hằng, trong đó $$c_1 = c_2 = 1$$.",
    "vi_terms": [
     {
+     "term": "quan hệ truy hồi tuyến tính",
+     "recommended": true
+    },
+    {
      "term": "quan hệ truy hồi tuyến tính thuần nhất",
      "source_id": "bib-nguyenhoangthach-2020",
      "page": "tr. 38",
      "pdf_page": 40,
      "snippet": "Định nghĩa 3.1. Một quan hệ truy hồi tuyến tính thuần nhất bậc k là một",
      "verified": true,
-     "recommended": true
+     "recommended": false
     },
     {
      "term": "hệ thức truy hồi tuyến tính thuần nhất",
@@ -590,9 +594,9 @@
     }
    ],
    "see_also": [
+    "compound-proposition",
     "logically-equivalent",
     "tautology",
-    "compound-proposition",
     "truth-table"
    ],
    "notes": "Recommended term \"tương đương logic\" is attested in bib-nguyenhuudien-2019 (2019), the newest source in the corpus that uses this concept; no 2020 or older source attests any candidate term. The 2019 source uses three surface variants of the same concept: the plain \"tương đương logic\" (most frequent, e.g. pp. 17, 18, 21, 26 PDF), the noun form \"sự tương đương logic\" (section heading 1.3.2, pp. 13, 20 PDF), and the alternate spelling \"tương đương lôgic\" (p. 68 PDF) where \"lôgic\" is the Vietnamese phonetic rendering of \"logic\". Page 21 confirms the concept matches Rosen: two logical expressions are \"tương đương logic\" when they \"luôn luôn có cùng chân trị trong mọi\" (always have the same truth value in every assignment). OCR sources (bib-leanhvinh-2020, bib-hoangchithanh-2007) returned zero hits in both normal and --loose modes; the graph/combinatorics sources do not cover propositional logic.",
@@ -806,8 +810,8 @@
     }
    ],
    "see_also": [
-    "least-upper-bound",
-    "lattice"
+    "lattice",
+    "least-upper-bound"
    ],
    "notes": "Recommended term \"chặn dưới\" is attested with the exact poset definition in bib-nguyenhuudien-2019, p. 120 (PDF): \"x ∈ X là một chặn dưới của tập hợp A nếu và chỉ nếu với mọi a ∈ A ta có: x ≤ a\" — matching Rosen's definition of a lower bound of a subset of a partially ordered set. The variant spelling \"chận dưới\" appears in the same 2019 source (pp. 123–124) in the lattice context \"chận dưới lớn nhất\" (greatest lower bound); this reflects the alternate Vietnamese spelling chặn/chận. The variant \"cận dưới\" is attested in bib-ngodactan-2004, p. 164, listed alongside \"phần tử nhỏ nhất, phần tử cực tiểu\" in the order-theoretic sense. Many additional hits for \"chặn dưới\"/\"cận dưới\" in bib-leanhvinh-2020 and bib-nguyenducnghia-2006 use the term for a bound on a numeric quantity (Ramsey number, chromatic number, branch-and-bound objective), not the order-theoretic lower bound of a poset subset, and were excluded as off-concept. The candidate \"biên dưới\" had 0 hits in any source (normal and loose) and is dropped. see_also is restricted to same-chapter L-terms (least-upper-bound, lattice); upper-bound, greatest-lower-bound, and partial-order are cross-chapter forward references (U, G, P) and are not linked here.",
    "pos": "d.t."
@@ -868,11 +872,11 @@
     }
    ],
    "see_also": [
-    "graph",
-    "vertex",
     "edge",
-    "weighted-graph",
-    "graph-coloring"
+    "graph",
+    "graph-coloring",
+    "vertex",
+    "weighted-graph"
    ],
    "notes": "No Vietnamese corpus source (2004-2020) attests a noun denoting \"labeled graph\". All four candidates (đồ thị gán nhãn, đồ thị được gán nhãn, đồ thị có nhãn, đồ thị dán nhãn) returned 0 hits in normal search; in --loose search only \"đồ thị có nhãn\" returned a single hit, which is a FALSE POSITIVE identical to the \"đồ thị có nhân\" loose hit in bib-hoangchithanh-2007 (pdf tr. 34, \"Hinh 2.4 Đồ thị có nhân và đổ thị không có nhân\"): OCR cannot distinguish \"nhân\" from \"nhãn\", and Section 3.3 \"NHÂN CỦA ĐỒ THỊ\" (KERNEL OF THE GRAPH), Định nghĩa 3.3 (corpus lines 1164-1168), confirms \"nhân\" here means graph KERNEL (lõi/nhân), not label. The phrases \"gán nhãn\"/\"được gán nhãn\" appear frequently in bib-hoangchithanh-2007 (pdf tr. 92-93, 141) but only as the VERB \"to assign a label to a vertex\" inside BFS shortest-path, Dijkstra, and expression-tree labeling algorithms, never as the NOUN \"labeled graph\" (re-verified independently). Recommended term \"đồ thị gán nhãn\" is the standard modern Vietnamese rendering, kept so vi_terms is non-empty; verified=false because no source attests it as a noun. Variants (unattested): \"đồ thị được gán nhãn\", \"đồ thị có nhãn\", \"đồ thị dán nhãn\". definition_vi opens with the term, marks its first introduction with \\emph{...} OUTSIDE math (math delimiters wrap symbols only, e.g. $$G$$), and follows Rosen §10.3 (each vertex or edge assigned a distinct label so vertices/edges can be distinguished). example_vi is self-contained, introducing only the labels named in the definition. see_also targets are cross-chapter forward references (graph, weighted-graph in chapter D; graph-coloring in C; vertex in E; edge in A) — there is no chapter-L file yet, so no same-chapter links exist and none are rendered as links; weighted-graph is the closest kin (a graph whose edges carry distinguishing values) and graph-coloring is the adjacent vertex/edge-assignment notion.",
    "pos": "d.t."
@@ -915,9 +919,9 @@
     }
    ],
    "see_also": [
-    "graph",
-    "edge",
     "adjacent",
+    "edge",
+    "graph",
     "simple-graph",
     "vertex"
    ],
@@ -994,8 +998,8 @@
     }
    ],
    "see_also": [
-    "graph-coloring",
-    "chromatic-number"
+    "chromatic-number",
+    "graph-coloring"
    ],
    "notes": "No Vietnamese source in the corpus attests \"list coloring\" (tô màu danh sách / choosability) as a concept. The recommended rendering tô màu danh sách and the candidate variants tô màu theo danh sách, tô màu chọn, and tô màu từ danh sách all returned 0 hits in both normal and --loose modes across all sources, including the OCR sources bib-leanhvinh-2020 and bib-hoangchithanh-2007. Broader probes confirm the gap: the \"danh sách\" hits all denote \"danh sách kề\" (adjacency list, an unrelated data structure), and the single \"chọn màu\" hit (bib-hoangchithanh-2007, pdf p.57, \"Cách chọn màu cho đỉnh mới\") concerns greedy vertex coloring, not list coloring. Probes for \"danh sách màu\", \"danh sách cho phép\", \"sắc danh sách\", and English \"list coloring\"/\"choosability\" also returned 0 hits. List coloring / choosability is an advanced topic absent from these introductory Vietnamese textbooks. The recommended term tô màu danh sách is the standard Vietnamese rendering and is kept (verified=false, page empty) per the citation-hygiene rule so vi_terms is non-empty; the unattested candidate variants tô màu theo danh sách, tô màu chọn, and tô màu từ danh sách are recorded here only and dropped from vi_terms.",
    "pos": "d.t."
@@ -2190,10 +2194,10 @@
    ],
    "see_also": [
     "alphabet",
-    "string",
     "empty-string",
+    "nondeterministic-finite-automaton",
     "regular-expression",
-    "nondeterministic-finite-automaton"
+    "string"
    ],
    "notes": "Theo Rosen, ngôn ngữ là một tập con của $$\\Sigma^*$$ (tập tất cả các xâu trên bảng chữ cái $$\\Sigma$$), tức là một tập hợp các xâu chứ không phải một xâu riêng lẻ; cần phân biệt \"ngôn ngữ\" (tập các xâu) với \"xâu ký tự\" (một phần tử của tập đó). Trong các giáo trình tiếng Việt khác, \"ngôn ngữ\" thường xuất hiện theo nghĩa thông thường (ngôn ngữ lập trình, ngôn ngữ tự nhiên); nghĩa hình thức (tập các xâu) được nói rõ trong phần văn phạm và ngôn ngữ hình thức của Rosen.",
    "status": "draft",

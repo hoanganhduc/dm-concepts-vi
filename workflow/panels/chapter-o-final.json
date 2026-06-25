@@ -212,9 +212,9 @@
    "example_vi": "Tam giác $$C_3$$ và ngũ giác $$C_5$$ là các chu trình độ dài lẻ, vì chúng lần lượt có $$3$$ và $$5$$ cạnh.",
    "notes": "Recommended term is \"chu trình độ dài lẻ\" (cycle of odd length), the closest match to Rosen's definition (a cycle whose length is odd). It is attested in the newest source bib-leanhvinh-2020 (2020), where Section 7.5 is titled \"Chu trình độ dài lẻ\" (pdf p.200), and is the most widely attested form across all corpus eras (2020, 2019, 2007, 2004). The shorter variant \"chu trình lẻ\" (odd cycle) also appears in bib-leanhvinh-2020 (2020), both in running text (p.202) and as an index entry (p.257, \"chu trình lẻ, 18\"); recorded as a verified variant. Both forms denote the same concept; usage in the corpus centers on bipartite-graph (\"đồ thị hai phần\") characterizations (a graph is bipartite iff it has no odd cycle) and chromatic-number theorems (an odd cycle has chromatic number 3). The candidates \"mạch lẻ\" and \"vòng lẻ\" returned zero hits in all six sources under both normal and --loose searches, so they are not recorded. Snippets show OCR artifacts in bib-leanhvinh-2020 (e.g. \"hai phản\" for \"hai phần\", \"dé thị\" for \"đồ thị\"), but the term \"chu trình độ dài lẻ\" / \"chu trình lẻ\" itself is rendered cleanly and unambiguously confirms the concept.",
    "see_also": [
-    "cycle",
     "bipartite-graph",
-    "chromatic-number"
+    "chromatic-number",
+    "cycle"
    ],
    "vi_terms": [
     {
@@ -429,8 +429,12 @@
    "see_also": [],
    "vi_terms": [
     {
-     "term": "khoảng mở",
+     "term": "khoảng",
      "recommended": true
+    },
+    {
+     "term": "khoảng mở",
+     "recommended": false
     },
     {
      "term": "khoảng mở",
@@ -975,8 +979,8 @@
    "example_vi": "Một cây có gốc $$T$$ với gốc $$r$$ có ba con $$v_1, v_2, v_3$$ được liệt kê theo thứ tự từ trái sang phải; hoán đổi $$v_1$$ và $$v_3$$ tạo ra một cây có thứ tự khác, mặc dù xét như cây có gốc thì hai cây này như nhau.",
    "notes": "Mining outcome: NO Vietnamese source in the corpus attests any candidate term for \"ordered tree\" (cây có thứ tự / cây sắp thứ tự / cây có gốc được sắp / cây thứ tự). All four candidates returned 0 hits in both normal and --loose modes, including OCR sources (bib-leanhvinh-2020, bib-hoangchithanh-2007). Per the verified=false rule, exactly one standard term (\"cây có thứ tự\") is kept as recommended with page=\"\" so vi_terms is non-empty; the three non-recommended unattested variants are recorded here rather than in vi_terms: cây sắp thứ tự, cây có gốc được sắp, cây thứ tự.\n\nEXPOSITION EDIT: the synonym gloss '(hay \"cây phân cấp\")' and the bibliographic presentation aside ('Trong các giáo trình tiếng Việt, khái niệm này thường được trình bày ngầm thông qua dãy có thứ tự các cây con $$T_1, T_2, \\ldots, T_k$$ của một \"cây có gốc\"') were removed from definition_vi (no synonym glosses / self-contained definitions conventions); that discussion is recorded here in notes instead. The notation metadata field was normalized from the dollar-wrapped form to bare LaTeX \"T\".\n\nRelated concepts ARE present in the corpus but under different headwords, none of which is \"ordered tree\":\n- \"cây có gốc\" (rooted tree): bib-nguyenhoangthach-2020 tr. 84 (PDF) \"Định nghĩa 6.3. Một cây có gốc là một đồ thị có hướng...\"; bib-leanhvinh-2020 tr. 49 (PDF); bib-nguyenhuudien-2019 tr. 259 (PDF); bib-nguyenducnghia-2006 tr. 211 (PDF).\n- \"cây phân cấp\" (hierarchical/rooted tree): bib-hoangchithanh-2007 tr. 136 (PDF) \"Định nghĩa 11.3: Cây phân cấp là một cây, trong đó có một đỉnh...\"; bib-nguyenhuudien-2019 tr. 251 (PDF) \"Định nghĩa 10.3\". Their recursive definitions treat subtrees $$T_1, T_2, \\ldots, T_k$$ as an ordered sequence (implicitly the ordered-tree notion), but use no distinct \"ordered\" qualifier.\n- \"cây nhị phân\" (binary tree, with children distinguished left/right): bib-nguyenhuudien-2019 tr. 254 (PDF) \"Các cây con của một đỉnh ... được phân biệt là cây con trái và cây con phải\"; bib-hoangchithanh-2007 tr. 140 (PDF). This is the ordered-tree idea specialized to degree two, still not named \"ordered tree\".\n\nThe phrases \"có thứ tự\", \"được sắp\", \"sắp thứ tự\", \"thứ tự tuyến tính\" occur frequently in the corpus but denote ordered pairs/tuples, ordered/partially-ordered sets (posets), and linear orders — NOT ordered trees. The drafter renders the headword as \"cây có thứ tự\".",
    "see_also": [
-    "rooted-tree",
     "binary-tree",
+    "rooted-tree",
     "tree"
    ],
    "vi_terms": [
@@ -1021,8 +1025,8 @@
    "notes": "Recommended term \"định hướng\" is attested in the newest source (bib-leanhvinh-2020, 2020) both as a noun (\"một cách định hướng cạnh\", tr. 55) and as the verb-form act (\"định hướng các cạnh của đồ thị\", tr. 11/20/50/54/57/93), and as a clean noun in bib-ngodactan-2004 (\"một định hướng trên G\", tr. 281) and bib-nguyenducnghia-2006 (\"định hướng các cạnh\", \"định hướng được\" = orientable, tr. 158). The candidate \"phép định hướng\" is NOT a true attestation: every corpus occurrence is the string \"cho phép định hướng\" (= \"allows orienting\"), where \"phép\" belongs to the verb \"cho phép\" (to allow), not a standalone noun \"phép định hướng\"; dropped (verified=false, empty page). The candidate \"sự định hướng\" appears only once (bib-nguyenhuudien-2019, tr. 56) in the general-language phrase \"một sự định hướng chung\" (a general direction/orientation in a pedagogical context), NOT a graph orientation; dropped. The candidate \"hướng hóa\" has no true attestation: all hits are word-boundary fragments of \"vô hướng hoá\" (= to undirect) or \"vô hướng hoặc có hướng\"; dropped. Related verb-noun forms recorded: \"định hướng các cạnh\" (orient the edges), \"cách định hướng cạnh\" (an edge orientation), \"định hướng được\" (orientable graph, bib-nguyenducnghia-2006 tr. 158). Notation $$\\vec{G}$$ for the resulting directed graph is editorial (not source-specific), consistent with standard usage. EDITS: the markdown first-concept emphasis *định hướng* was dropped from definition_vi to match the no-emphasis chapter majority; the notation metadata field was normalized from the dollar-wrapped form to bare LaTeX \\vec{G} (the in-prose $$\\vec{G}$$ uses stay wrapped). rosen_ref §10.2 is the nearest directed-graph terminology section; orientation is an editorial/standard term not given a dedicated Rosen definition.",
    "see_also": [
     "directed-graph",
-    "undirected-graph",
-    "edge"
+    "edge",
+    "undirected-graph"
    ],
    "vi_terms": [
     {
@@ -1375,8 +1379,8 @@
    "example_vi": "Mọi chu trình $$C_n$$ đều là đồ thị phẳng ngoài, vì có thể vẽ nó trên mặt phẳng sao cho tất cả các đỉnh nằm trên biên của mặt ngoài; trái lại, đồ thị đầy đủ $$K_4$$ là đồ thị phẳng nhưng không là đồ thị phẳng ngoài, vì trong mọi biểu diễn phẳng của nó luôn có một đỉnh không nằm trên mặt ngoài.",
    "notes": "Không nguồn tiếng Việt nào trong kho ngữ liệu (bib-leanhvinh-2020, bib-nguyenhoangthach-2020, bib-nguyenhuudien-2019, bib-hoangchithanh-2007, bib-nguyenducnghia-2006, bib-ngodactan-2004, và cả bản dịch Rosen OCR bib-rosen-2003-vi) chứng thực thuật ngữ cho khái niệm này. Đã chạy cả tìm kiếm thường lẫn --loose (cho các nguồn OCR) cho cả bốn ứng viên (\"đồ thị phẳng ngoài\", \"đồ thị ngoại phẳng\", \"đồ thị phẳng ngoại\", \"đồ thị nửa phẳng\") và các biến thể rút gọn (\"phẳng ngoài\", \"ngoại phẳng\", \"phẳng ngoại\", \"nửa phẳng\", \"ngoài phẳng\"); tất cả đều 0 lượt khớp trên toàn bộ kho ngữ liệu. Khái niệm gốc \"đồ thị phẳng\" (planar graph) lại được chứng thực dày đặc (159 lượt \"đồ thị phẳng\"), nên kho ngữ liệu có phủ tính phẳng nhưng không phủ tinh chỉnh \"outerplanar\". Lượt khớp duy nhất của \"ngoài cùng\" (bib-ngodactan-2004, dòng 10448) nói về \"cặp ngoặc ngoài cùng\" trong biểu thức số học, không liên quan khái niệm này. Thuật ngữ khuyến nghị \"đồ thị phẳng ngoài\" là calque chuẩn của \"outer + planar\"; được giữ với verified=false, page=\"\" vì không nguồn nào chứng thực. Định nghĩa được dựng từ từ vựng đã được chứng thực: \"biểu diễn phẳng\" (bib-leanhvinh-2020, tr. 114-130) và \"mặt ngoài\" (bib-leanhvinh-2020, tr. 128, trong đó câu \"đỉnh ... nằm trên mặt ngoài\" chính là tính chất outerplanar), nên cách dịch khái niệm bám sát vốn từ chuẩn dù bản thân danh từ ghép \"đồ thị phẳng ngoài\" chưa được chứng thực. Các biến thể \"đồ thị ngoại phẳng\", \"đồ thị phẳng ngoại\", \"đồ thị nửa phẳng\" cũng không được chứng thực và đã lược bỏ khỏi vi_terms theo quy ước vệ sinh trích dẫn. see_also: đã sửa \"outer-face\" thành \"face\" vì khái niệm mặt ngoài (\"mặt ngoài\") nằm trong mục có id \"face\" (chương F, có chứng thực bib-leanhvinh-2020 tr. 128), không tồn tại id \"outer-face\"; \"planar-graph\" được giữ làm tham chiếu liên chương (forward reference, nhất quán với mục anh em \"nonplanar-graph\").",
    "see_also": [
-    "planar-graph",
-    "face"
+    "face",
+    "planar-graph"
    ],
    "vi_terms": [
     {

@@ -52,8 +52,8 @@
     }
    ],
    "see_also": [
-    "rooted-tree",
     "binary-tree",
+    "rooted-tree",
     "tree"
    ],
    "notes": "Mining covered all six corpus sources. The term \"cây m-phân\" is attested with a formal definition matching the concept in bib-nguyenhoangthach-2020 (2020, tr. 85 PDF): \"Định nghĩa 6.4. Một cây m-phân (m ≥ 2) là một cây mà mỗi đỉnh có không [quá m con]\" — a tree in which every vertex has at most $$m$$ children. It also appears in bib-nguyenhuudien-2019 (2019, tr. 252-253, 259 PDF). The candidate \"cây m phân\" (with a space instead of a hyphen) returned 0 hits in every source, so it is not recorded as a separate verified variant. The two OCR sources (bib-leanhvinh-2020, bib-hoangchithanh-2007) gave no hits under normal or --loose matching, and the older text sources (bib-nguyenducnghia-2006, bib-ngodactan-2004) gave no hits for any candidate. Recommended term \"cây m-phân\" is attested in both the 2020 and 2019 sources, with the 2020 citation listed first.\n\nROSEN ALIGNMENT (panel LOW fix): the definition keeps the source convention $$m \\geq 2$$ from bib-nguyenhoangthach-2020 (notation field reconciled to \"m \\geq 2\"). Standard Rosen §11.1 admits $$m \\geq 1$$ (a 1-ary tree is a path/chain); the entry follows the Vietnamese source's $$m \\geq 2$$ restriction, which differs from Rosen's $$m \\geq 1$$. The Vietnamese source definition says \"mỗi đỉnh có không quá m con\" (every vertex has at most m children); definition_vi uses \"mỗi đỉnh trong\" (each internal vertex) to align with Rosen's wording, equivalent since a leaf has no children. The example's \"tức là một cây nhị phân\" equivalence ($$2$$-phân = nhị phân) is a standard, harmless identity and binary-tree remains in see_also.",
@@ -115,10 +115,10 @@
     }
    ],
    "see_also": [
+    "bijection",
     "function",
     "injection",
-    "surjection",
-    "bijection"
+    "surjection"
    ],
    "notes": "\"ánh xạ\" is the standard Vietnamese term for a mapping (a function assigning to each element of one set exactly one element of another set), attested with the exact notation $$f: A \\to B$$ in the 2020 and 2019 sources; the recommended row is the 2020 source bib-nguyenhoangthach-2020 (p.21). The candidate \"ánh xạ đơn ánh\" returns 0 hits as a phrase; \"đơn ánh\" alone denotes the injective special case (one-to-one mapping), not the general mapping concept, so it is not recorded as a variant of THIS entry (see the separate injection/one-to-one entry). In the corpus \"ánh xạ\" and \"hàm\" are used interchangeably for $$f: A \\to B$$; e.g. bib-leanhvinh-2020 p.48 derives an ánh xạ from a hàm $$f$$. The hoangchithanh-2007 p.6 and ngodactan-2004 p.41 rows attest the word in incidental usage rather than a mapping definition, but the concept still matches. First-concept emphasis marked with \\emph{...}.",
    "pos": "d.t."
@@ -160,7 +160,7 @@
      "pdf_page": 0,
      "snippet": "",
      "verified": false,
-     "recommended": true
+     "recommended": false
     },
     {
      "term": "định lý Master",
@@ -169,7 +169,7 @@
      "pdf_page": 0,
      "snippet": "",
      "verified": false,
-     "recommended": false
+     "recommended": true
     }
    ],
    "see_also": [],
@@ -287,9 +287,9 @@
     }
    ],
    "see_also": [
-    "perfect-matching",
+    "bipartite-graph",
     "complete-matching",
-    "bipartite-graph"
+    "perfect-matching"
    ],
    "notes": "\"cặp ghép\" is the dominant noun for the matching set itself and is the recommended term; it is defined explicitly as the concept in bib-leanhvinh-2020 (tr. 67, PDF): a set of edges $$S \\subseteq E(G)$$ no two of which share an endpoint, and is also attested as a noun in bib-hoangchithanh-2007 (tr. 59). The variant \"ghép cặp\" is attested as a noun mainly inside problem/qualified forms: \"bài toán ghép cặp\" = matching problem (bib-nguyenhoangthach-2020, bib-nguyenducnghia-2006) and \"ghép cặp đầy đủ\" = complete matching (bib-ngodactan-2004, a distinct headword with its own see_also target complete-matching); in bib-leanhvinh-2020 the same form \"được ghép cặp bởi M\" is the verb \"matched by M\". Thus the standalone-noun usage of \"ghép cặp\" for the set $$M$$ is attested only as a problem/qualified form, which is why \"cặp ghép\" (a clean defining noun in two sources) is recommended. Candidate terms \"bộ ghép\" and \"đối sánh\" returned 0 hits in both normal and --loose searches across the whole corpus and are not attested. OCR sources (bib-leanhvinh-2020, bib-hoangchithanh-2007) were searched both normally and with --loose; all cited snippets came through cleanly. EDITOR (chapter M final): vi_terms reordered newest-first per the locked convention (2020 leanhvinh, 2020 nguyenhoangthach, 2007 hoangchithanh, 2006 nguyenducnghia, 2004 ngodactan); the redundant trailing \"; ký hiệu $$M$$\" was dropped from definition_vi since $$M$$ is introduced inline and lives in the notation field. see_also targets perfect-matching and complete-matching are same-chapter (M) forward references not yet authored in this batch; bipartite-graph is a cross-chapter (B) forward reference.",
    "pos": "d.t."
@@ -350,9 +350,9 @@
     }
    ],
    "see_also": [
-    "zero-one-matrix",
     "adjacency-matrix",
-    "incidence-matrix"
+    "incidence-matrix",
+    "zero-one-matrix"
    ],
    "notes": "Recommended term \"ma trận\" is the standard Vietnamese rendering of \"matrix\" (a rectangular array of numbers, Rosen §2.6) and is attested with the cấp $$m \\times n$$ / ma trận vuông cấp $$n$$ phrasing in the 2019 source bib-nguyenhuudien-2019 (tr. 107). EDITOR (chapter M final): applied the panel's structural-completeness fixes — added the missing rosen_ref \"Rosen §2.6\" (Matrices), populated the previously empty notation field with bare LaTeX \"A = [a_{ij}]\", added a self-contained example_vi (a concrete $$2 \\times 3$$ matrix exhibiting $$a_{ij}$$ at row $$i$$, column $$j$$ using only the cấp and $$a_{ij}$$ notions the definition introduces), and added cross-chapter see_also forward references (zero-one-matrix, adjacency-matrix, incidence-matrix). First-concept emphasis converted from markdown \"*ma trận*\" to LaTeX \"\\emph{ma trận}\" to match multigraph and the .tex convention. SYMBOL NOTE: the source snippet names the matrix $$M$$ while the entry uses $$A$$; the citation symbol need not match the definition symbol, so the row is kept as-is. The source uses \"các số\" (numbers) for entries, consistent with Rosen's \"rectangular array of numbers\"; the entry keeps the minimal definition without restricting entries to a specific number system.",
    "pos": "d.t."
@@ -1159,9 +1159,9 @@
    "example_vi": "Mã $$C=\\{000, 011, 101, 110\\}$$ có mọi cặp từ mã phân biệt cách nhau $$2$$, nên $$d(C)=2$$ và mã phát hiện được một bit sai.",
    "notes": "",
    "see_also": [
-    "hamming-distance",
+    "error-correcting-code",
     "error-detecting-code",
-    "error-correcting-code"
+    "hamming-distance"
    ],
    "vi_terms": [
     {
@@ -1690,12 +1690,12 @@
     }
    ],
    "see_also": [
-    "graph",
-    "simple-graph",
-    "pseudograph",
     "directed-graph",
-    "loop",
     "edge",
+    "graph",
+    "loop",
+    "pseudograph",
+    "simple-graph",
     "vertex"
    ],
    "notes": "Recommended term \"đa đồ thị\" is the standard Vietnamese rendering of \"multigraph\" and is attested in the newest 2020 source bib-nguyenhoangthach-2020 (p.62, definitional context: a multigraph with 6 vertices and 13 edges), so vi_terms are ordered newest-source first (2020 → 2007 → 2006 → 2004 within the recommended-term grouping). The cleanest defining snippet (multiple — two or more — edges between the same pair of vertices) is bib-nguyenducnghia-2006 p.154. The first introduction of the central concept is marked with \\emph{đa đồ thị} OUTSIDE math (math delimiters wrap only symbols such as $$G$$, $$V$$, $$E$$, $$u$$, $$v$$).\n\nEDITOR (chapter M final): applied the panel's MED correctness fix — added Rosen §10.1's distinguishing qualifier that a multigraph allows multiple parallel edges between a pair of vertices but does NOT allow loops (không có khuyên), in contrast to a pseudograph (which allows loops). This makes the multigraph/pseudograph boundary in see_also explicit. Within the \"đa đồ thị\" recommended group the rows are now ordered newest-first (2020 nguyenhoangthach, 2007 hoangchithanh, 2006 nguyenducnghia).\n\nThe candidate \"đa đồ thị có hướng\" (directed multigraph) is a directed variant; attested in bib-nguyenhoangthach-2020 (p.62), bib-ngodactan-2004 (p.21), and bib-hoangchithanh-2007. The variant \"đa đồ thị vô hướng\" (undirected multigraph) appears in bib-ngodactan-2004 (p.22) and bib-nguyenducnghia-2006 (p.190). These directed/undirected qualified forms attest the root \"đa đồ thị\"; they are NOT alternative names for the bare undirected multigraph, and a future directed-multigraph entry could take them as its own see_also forward reference. bib-leanhvinh-2020 attests \"đa đồ thị\" only as an OCR-mangled index entry (\"đa đỏ thị, 9\" at PDF p.257); not used as a verified citation since the content page could not be confirmed via snippet. The bib-nguyenhuudien-2019 placeholder row (no confirmed page, empty snippet) was dropped per citation hygiene since at least one verified recommended term remains.\n\nsee_also targets are cross-chapter forward references (graph in G, simple-graph/pseudograph in S/P, directed-graph in D, loop in L, edge/vertex in E/V); no other M-chapter entries exist to link as same-chapter references. bib-hoangchithanh-2007 confirmed in both normal and --loose modes (snippet \"...một cạnh thì được gọi là đa đồ thị.\" p.7 is clean). Exactly one recommended=true (2020 source).",
@@ -1732,8 +1732,8 @@
    "see_also": [
     "binomial-coefficient",
     "binomial-theorem",
-    "permutation",
-    "combination"
+    "combination",
+    "permutation"
    ],
    "notes": "Candidate \"hệ số đa thức bậc n\" returned 0 hits in every source (normal and --loose) and is dropped as unattested. The recommended standard term \"hệ số đa thức\" is attested only in bib-ngodactan-2004 (2004); no 2019-2020 source (bib-leanhvinh-2020, bib-nguyenhoangthach-2020) nor the 2019/2006 text sources (bib-nguyenhuudien-2019, bib-nguyenducnghia-2006) attest a Vietnamese name for the multinomial coefficient, so the newest available attestation is from 2004 — a recency exception surfaced per convention. The OCR sources (bib-leanhvinh-2020, bib-hoangchithanh-2007) returned 0 hits under both normal and --loose searches.\n\nCITATION-HYGIENE FIX (panel HIGH): the draft notes asserted a \"second verified occurrence\" at bib-ngodactan-2004 pdf_page 53 with no corresponding vi_terms row. That occurrence is now MATERIALIZED as a real vi_terms row (term \"hệ số đa thức\", verified=true, recommended=false, pdf_page 53, partition-count snippet \"$$|N| = n$$, $$|A_k| = i_k$$ cho $$k = 1, 2, \\ldots, p$$, là hệ số đa thức\"), so every verification claim maps to a recorded citation. In bib-ngodactan-2004 the term is thus defined two ways consistent with Rosen §6.4: pdf_page 47 as the coefficient of $$x_1 x_2 \\ldots x_m$$ in the multinomial expansion (công thức đa thức), and pdf_page 53 as the count of partitions $$(A_1, A_2, \\ldots, A_p)$$ of an $$n$$-set with $$|A_k| = i_k$$.\n\nRelated but distinct concepts found in newer sources: \"tổ hợp lặp\" (combinations with repetition) and \"hoán vị lặp\" (permutations with repetition) — not synonyms for the multinomial coefficient. The definition presents both Rosen §6.4 characterisations (partition count and expansion coefficient) and the closed form $$n!/(n_1! \\cdots n_k!)$$; the example is self-contained, using only the expansion and closed form the definition introduces. see_also targets are cross-chapter forward references (binomial-coefficient, binomial-theorem in chapter B; permutation, combination in chapters P/C). First-concept emphasis marked with \\emph{...}.",
    "pos": "d.t."
@@ -1890,9 +1890,9 @@
     }
    ],
    "see_also": [
-    "directed-multigraph",
     "directed-edge",
     "directed-graph",
+    "directed-multigraph",
     "multigraph"
    ],
    "notes": "Cạnh có hướng bội là phiên bản có hướng của khái niệm cạnh bội (cạnh song song) trong đồ thị vô hướng: thay vì hai cạnh vô hướng cùng nối một cặp đỉnh, ở đây là các cạnh có hướng phân biệt cùng nối một cặp đỉnh có thứ tự $$(u, v)$$ theo cùng một hướng. Số cạnh có hướng từ $$u$$ đến $$v$$ là bội của cặp $$(u, v)$$. Khái niệm này là cơ sở để định nghĩa đa đồ thị có hướng (directed multigraph). Thuật ngữ tiếng Việt khuyến nghị \"cạnh có hướng bội\" là bản dịch chuẩn ghép từ \"cạnh có hướng\" và \"cạnh bội\"; chưa tìm thấy dẫn chứng ngữ liệu cho cụm từ có hướng cụ thể này, nhưng thuật ngữ nền \"cạnh bội\" được dẫn chứng từ nguồn mới nhất bib-nguyenhoangthach-2020, củng cố bởi bib-nguyenhuudien-2019 và bản dịch Rosen tiếng Việt bib-rosen-2003-vi.",
@@ -1964,11 +1964,11 @@
     }
    ],
    "see_also": [
+    "edge",
+    "loop",
     "multigraph",
     "pseudograph",
-    "simple-graph",
-    "loop",
-    "edge"
+    "simple-graph"
    ],
    "notes": "Rosen §10.1 định nghĩa cạnh bội là các cạnh phân biệt cùng nối một cặp đỉnh; đây là khái niệm về các cạnh, KHÁC với \"multigraph\" (đa đồ thị) là loại đồ thị cho phép tồn tại cạnh bội. Vì vậy đây là một mục riêng, không phải biến thể đồng nghĩa của mục multigraph. Thuật ngữ khuyến nghị \"cạnh bội\" lấy từ nguồn mới nhất có dẫn chứng định nghĩa bib-nguyenhoangthach-2020 (tr. 62, ngữ cảnh biểu diễn cạnh bội bằng số bội). Dẫn chứng củng cố: bib-nguyenhuudien-2019 (tr. 154) đưa định nghĩa rõ nhất \"Hai cạnh được gọi là cạnh bội hay song song nếu chúng cùng...\", xác nhận \"cạnh bội\" và \"song song\" là đồng nghĩa; bản dịch Rosen tiếng Việt bib-rosen-2003-vi (tr. 496) cũng định nghĩa \"Các cạnh e1 và e2 được gọi là song song hay cạnh bội nếu f(e1) = f(e2)\"; bib-ngodactan-2004 (tr. 289) là dẫn chứng OCR bổ sung. Biến thể đồng nghĩa \"cạnh song song\" được dẫn chứng từ bib-leanhvinh-2020 (tr. 8), nguồn 2020. Đúng một thuật ngữ recommended=true. Khái niệm có hướng tương ứng nằm ở mục multiple-directed-edges. Khái niệm này không cho phép khuyên; đồ thị cho phép cạnh bội nhưng không có khuyên là đa đồ thị, còn đồ thị cho phép cả khuyên là giả đồ thị (pseudograph).",
    "status": "draft",
@@ -2127,8 +2127,8 @@
     }
    ],
    "see_also": [
-    "set",
-    "cardinality"
+    "cardinality",
+    "set"
    ],
    "notes": "Khái niệm \"multiset\" chỉ được chứng thực trong bib-ngodactan-2004 (2004), nơi định nghĩa rõ trên trang 31: \"được gọi là đa tập hợp hay ngắn gọn là đa tập\". Không có nguồn 2019-2020 nào (bib-leanhvinh-2020, bib-nguyenhoangthach-2020, bib-nguyenhuudien-2019) chứng thực bất kỳ thuật ngữ multiset nào (đã xác nhận lại: bib-leanhvinh-2020 cho 0 hit cả ở chế độ thường lẫn --loose), nên thuật ngữ khuyến nghị \"đa tập\" được chứng thực từ nguồn 2004 (không có nguồn mới hơn) — đây là một ngoại lệ về độ mới được nêu rõ theo quy ước. Thuật ngữ khuyến nghị là \"đa tập\" vì chính nguồn dùng nó làm dạng rút gọn (\"ngắn gọn là đa tập\") và dùng nhất quán trong định nghĩa lẫn ví dụ. Hai biến thể \"đa tập\" và \"đa tập hợp\" đến từ cùng một câu định nghĩa (\"đa tập hợp hay ngắn gọn là đa tập\"). Ứng viên \"tập bội\" cho 0 hit (không chứng thực); ứng viên \"bội tập\" cũng cho 0 hit. Ví dụ $$A = \\{a, a, a, b, c, c\\}$$ với $$|A| = 6$$ lấy trực tiếp từ Ví dụ 1.14 trên tr. 31 của nguồn; ký hiệu lực lượng $$|A|$$ được định nghĩa ngay trong mục này nên ví dụ tự chứa. EDITOR (chapter M final): notation field normalized from \"$$\\{a, a, b\\}$$\" to bare LaTeX \"\\{a, a, b\\}\" (encode-chapter.py strips $$); first-concept emphasis marked with \\emph{...}.",
    "pos": "d.t."

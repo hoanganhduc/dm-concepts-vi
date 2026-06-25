@@ -39,15 +39,19 @@ LICENSE_URL = "https://creativecommons.org/licenses/by-nc-sa/4.0/"
 # Release tag in CI (RELEASE_VERSION) or the build date for a plain web build.
 VERSION = os.environ.get("RELEASE_VERSION") or datetime.date.today().strftime("%Y.%m.%d")
 
-FOOTER_ANCHOR = '<div id="ptx-page-footer" class="ptx-page-footer">'
+# The theme hides #ptx-page-footer, so inject at the end of the visible main
+# content (just before </main>) instead, styled as a footer bar.
+FOOTER_ANCHOR = "</main>"
 FOOTER_BLOCK = (
-    '<div class="dm-web-footer" style="display:flex;align-items:center;gap:.8rem;'
-    'flex-wrap:wrap;font-size:.85rem;margin:.4rem 0;">'
+    '<div class="dm-web-footer" style="display:flex;align-items:center;'
+    'justify-content:center;gap:1.2rem;flex-wrap:wrap;font-size:.9rem;'
+    'max-width:840px;margin:2.5rem auto 1rem;padding-top:1rem;'
+    'border-top:1px solid #d0d7de;">'
     f'<a href="{RELEASES}" style="font-family:monospace;color:#2C7A7B;'
     f'text-decoration:none;">Release {VERSION}</a>'
     f'<a href="{LICENSE_URL}" title="CC BY-NC-SA 4.0">'
     '<img src="cc-by-nc-sa.png" alt="CC BY-NC-SA 4.0" '
-    'style="height:24px;vertical-align:middle;"></a>'
+    'style="height:28px;vertical-align:middle;"></a>'
     '</div>'
 )
 
@@ -75,9 +79,9 @@ def process(path: Path, html: str) -> str:
     # 2. cover card on the title page only
     if path.name == "frontmatter.html" and "dm-cover-card" not in html and COVER_ANCHOR in html:
         html = html.replace(COVER_ANCHOR, COVER_ANCHOR + COVER_CARD, 1)
-    # 3. footer (every page)
+    # 3. footer (every page): before </main> so it stays visible
     if "dm-web-footer" not in html and FOOTER_ANCHOR in html:
-        html = html.replace(FOOTER_ANCHOR, FOOTER_ANCHOR + FOOTER_BLOCK, 1)
+        html = html.replace(FOOTER_ANCHOR, FOOTER_BLOCK + FOOTER_ANCHOR, 1)
     return html
 
 

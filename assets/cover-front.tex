@@ -25,10 +25,10 @@
 \begin{tikzpicture}[x=1in,y=1in]
   % background
   \fill[paper] (0,0) rectangle (8.5,11);
-  % top title band + accent rules
-  \fill[ink]    (0,7.5) rectangle (8.5,11);
-  \fill[accent] (0,7.36) rectangle (8.5,7.5);
-  \fill[gold]   (0,7.30) rectangle (8.5,7.34);
+  % top title band + accent rules (band extended downward for a larger dark area)
+  \fill[ink]    (0,6.7) rectangle (8.5,11);
+  \fill[accent] (0,6.56) rectangle (8.5,6.7);
+  \fill[gold]   (0,6.50) rectangle (8.5,6.54);
   % gold kicker (the type of book), centred and letter-spaced at the top of the
   % dark band, above the title. Uppercase + tracking rather than small caps,
   % which TeX Gyre Termes does not provide for Vietnamese accents.
@@ -39,12 +39,11 @@
   % English title sits as the line immediately under the Vietnamese title (the
   % bilingual pair). The gold gloss line is now the centred kicker at the top.
   \node[anchor=west, text=paper] at (0.85,9.45)
-    {\resizebox{6.4in}{!}{Selected Terms in Discrete Mathematics and Computer Science}};
-  % editor credit, right-aligned; pulled up nearer the title block so the dark
-  % band reads as one group (kicker + titles + credit) with room below.
-  \node[anchor=east, text=gold] at (7.65,8.50)
+    {\resizebox{6.8in}{!}{Selected Terms in Discrete Mathematics and Computer Science}};
+  % editor credit, right-aligned, near the bottom of the (enlarged) dark band.
+  \node[anchor=east, text=gold] at (7.65,7.25)
     {\fontsize{15}{18}\selectfont\itshape Người biên soạn};
-  \node[anchor=east, text=white] at (7.65,8.20)
+  \node[anchor=east, text=white] at (7.65,6.95)
     {\fontsize{19}{23}\selectfont Duc A. Hoang (Hoàng Anh Đức)};
   % A–Z typographic motif (the lexicon is ordered A to Z)
   \node[text=faint] at (4.25,5.75)

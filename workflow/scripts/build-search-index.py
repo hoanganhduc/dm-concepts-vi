@@ -43,6 +43,24 @@ def main() -> int:
                 # PreTeXt renders a <definition xml:id="def-<id>"> on ch-<letter>.html.
                 "url": "ch-{0}.html#def-{1}".format(letter.lower(), e["id"]),
             })
+
+    # Unsettled-terms appendix: entries carry candidate translations (no single
+    # recommended term) and live on appendix-unsettled.html#apx-<id>.
+    apx_path = os.path.join(ROOT, "data", "terms", "appendix-unsettled.yaml")
+    if os.path.exists(apx_path):
+        with open(apx_path, encoding="utf-8") as fh:
+            apx = yaml.safe_load(fh) or {}
+        for e in apx.get("entries", []):
+            out.append({
+                "id": e["id"],
+                "letter": e.get("headword_en", "?")[:1].upper(),
+                "headword_en": e.get("headword_en", ""),
+                "notation": e.get("notation", ""),
+                "vi_terms": sorted({c.get("term", "") for c in e.get("candidates", [])}),
+                "definition_vi": to_mathjax(e.get("definition_vi")),
+                "url": "appendix-unsettled.html#apx-{0}".format(e["id"]),
+            })
+
     out.sort(key=lambda x: (x["letter"], x["headword_en"].lower()))
     dest = os.path.join(ROOT, "assets", "search", "entries.json")
     os.makedirs(os.path.dirname(dest), exist_ok=True)

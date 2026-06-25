@@ -20,12 +20,16 @@ def main():
         m = re.search(r'xml:id="(bib-[a-z0-9-]+)"', line)
         if m and m.group(1) in pubs:
             pub = (pubs[m.group(1)] or {}).get("publisher", "").strip()
-            if pub and pub.lower() not in ("", "none / unknown", "unknown") and "NXB" in pub or (pub and pub.startswith("NXB")):
-                # insert publisher before the trailing "YYYY.</biblio>"
-                new = re.sub(r"(\d{4})\.(</biblio>)", rf"{pub}, \1.\2", line, count=1)
-                if new != line:
-                    line = new
-                    changed += 1
+            if pub and pub.startswith("NXB"):
+                # Idempotent: skip if the publisher already precedes the year
+                # (re-running must not duplicate "NXB X, NXB X, YYYY").
+                already = re.search(rf"{re.escape(pub)},\s*\d{{4}}\.</biblio>", line)
+                if not already:
+                    # insert publisher before the trailing "YYYY.</biblio>"
+                    new = re.sub(r"(\d{4})\.(</biblio>)", rf"{pub}, \1.\2", line, count=1)
+                    if new != line:
+                        line = new
+                        changed += 1
         out.append(line)
     open(REFS, "w", encoding="utf-8").write("".join(out))
     print(f"updated {changed} biblio entries with publisher")

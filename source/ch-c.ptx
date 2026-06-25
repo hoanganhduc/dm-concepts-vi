@@ -9,204 +9,19 @@
     </p>
   </introduction>
 
-  <definition xml:id="def-chromatic-number">
-    <title>chromatic number (d.t.) — sắc số</title>
-    <idx><h>chromatic number</h></idx>
-    <idx><h>sắc số</h></idx>
+  <definition xml:id="def-cantor-diagonalization-argument">
+    <title>Cantor diagonalization argument (d.t.) — lập luận đường chéo của Cantor</title>
+    <idx><h>Cantor diagonalization argument</h></idx>
+    <idx><h>lập luận đường chéo của Cantor</h></idx>
+    <idx><h>phương pháp đường chéo</h></idx>
     <statement>
-      <p>Sắc số của một đồ thị <m>G</m>, ký hiệu <m>\chi(G)</m>, là số màu nhỏ nhất cần dùng để tô màu các đỉnh của <m>G</m> sao cho không có hai đỉnh kề nhau nào được tô cùng một màu (theo <xref ref="bib-rosen-2019" />, Rosen §10.8).</p>
+      <p>Lập luận đường chéo của Cantor là kỹ thuật chứng minh một tập hợp là không đếm được bằng phản chứng: giả sử tập đó đếm được nên có thể liệt kê các phần tử thành dãy, rồi xây dựng một phần tử mới khác phần tử thứ <m>n</m> trong dãy ở thành phần thứ <m>n</m> (chẳng hạn ở chữ số thứ <m>n</m> của khai triển thập phân), nên phần tử mới này không có mặt trong dãy, dẫn tới mâu thuẫn. Cantor dùng lập luận này để chứng minh tập các số thực <m>\mathbb{R}</m> là không đếm được (theo <xref ref="bib-rosen-2019" />, Rosen §2.5).</p>
       <p>Thuật ngữ tiếng Việt tương ứng:</p>
       <ul>
-        <li><p><term>sắc số</term> <xref ref="bib-leanhvinh-2020" /> (tr. 91); <xref ref="bib-nguyenhoangthach-2020" /> (tr. 79); <xref ref="bib-nguyenhuudien-2019" /> (tr. 228); <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 306) — cách dùng phổ biến.</p></li>
+        <li><p><term>lập luận đường chéo của Cantor</term> <em>(thuật ngữ chuẩn; chưa truy được trong kho văn bản)</em> — cách dùng phổ biến.</p></li>
+        <li><p><term>phương pháp đường chéo</term> <xref ref="bib-vudinhhoa-2010" />; <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 287).</p></li>
       </ul>
-      <p>Ví dụ: Sắc số của đồ thị đầy đủ <m>K_n</m> là <m>\chi(K_n) = n</m>, và sắc số của một đồ thị hai phía có ít nhất một cạnh là <m>2</m>.</p>
-      <p>Xem thêm <xref ref="def-bipartite-graph" text="title" />, <xref ref="def-complete-graph" text="title" />, <xref ref="def-graph-coloring" text="title" />.</p>
-    </statement>
-  </definition>
-  <definition xml:id="def-circuit">
-    <title>circuit (d.t.) — chu trình đơn</title>
-    <idx><h>circuit</h></idx>
-    <idx><h>chu trình đơn</h></idx>
-    <idx><h>mạch</h></idx>
-    <statement>
-      <p>Chu trình đơn trong một đồ thị <m>G</m> là một đường đi khép kín có độ dài <m>\geq 1</m>, tức là bắt đầu và kết thúc tại cùng một đỉnh, sao cho không có cạnh nào bị lặp lại (các đỉnh có thể được lặp lại). Trong Ngô Đắc Tân (2004), khái niệm này được gọi bằng từ đơn 'mạch'; xem ghi chú (theo <xref ref="bib-rosen-2019" />, Rosen §10.4).</p>
-      <p>Thuật ngữ tiếng Việt tương ứng:</p>
-      <ul>
-        <li><p><term>chu trình đơn</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 71); <xref ref="bib-nguyenhuudien-2019" /> (tr. 181); <xref ref="bib-hoangchithanh-2011" /> — cách dùng phổ biến.</p></li>
-        <li><p><term>mạch</term> <xref ref="bib-ngodactan-2004" /> (tr. 195); <xref ref="bib-rosen-2003-vi" /> (tr. 494).</p></li>
-      </ul>
-      <p>Ví dụ: Xét đồ thị gồm các cạnh <m>ab, bc, ca, bd, de, eb</m>. Dãy đỉnh <m>a, b, d, e, b, c, a</m> là một chu trình đơn: nó khép kín và không lặp lại cạnh nào (đỉnh <m>b</m> được lặp lại). Trái lại, dãy <m>a, b, a</m> không phải là chu trình đơn vì cạnh <m>ab</m> được dùng lại hai lần.</p>
-      <p>Xem thêm <xref ref="def-cycle" text="title" />, <xref ref="def-euler-circuit" text="title" />, <xref ref="def-trail" text="title" />, <xref ref="def-walk" text="title" />.</p>
-    </statement>
-  </definition>
-  <definition xml:id="def-clique">
-    <title>clique (d.t.) — clique</title>
-    <idx><h>clique</h></idx>
-    <idx><h>bè</h></idx>
-    <idx><h>đồ thị con đầy đủ cực đại</h></idx>
-    <statement>
-      <p>Một clique của đồ thị <m>G</m> là một tập con các đỉnh đôi một kề nhau, tức là một tập con cảm sinh một đồ thị con đầy đủ (theo <xref ref="bib-rosen-2019" />, Rosen §10.2).</p>
-      <p>Thuật ngữ tiếng Việt tương ứng:</p>
-      <ul>
-        <li><p><term>clique</term> <xref ref="bib-leanhvinh-2020" /> (tr. 96); <xref ref="bib-ngodactan-2004" /> (tr. 314); <xref ref="bib-cormen-2001-vi" /> (tr. 1053) — cách dùng phổ biến.</p></li>
-        <li><p><term>bè</term> <xref ref="bib-wikipedia-vi" />.</p></li>
-        <li><p><term>đồ thị con đầy đủ cực đại</term> <xref ref="bib-leanhvinh-2020" /> (tr. 102).</p></li>
-      </ul>
-      <p>Ví dụ: Trong đồ thị đầy đủ <m>K_n</m>, toàn bộ tập đỉnh là một clique, vì mọi cặp đỉnh đều kề nhau.</p>
-      <p>Xem thêm <xref ref="def-complete-graph" text="title" />.</p>
-    </statement>
-  </definition>
-  <definition xml:id="def-complement-of-a-graph">
-    <title>complement of a graph (d.t.) — đồ thị bù</title>
-    <idx><h>complement of a graph</h></idx>
-    <idx><h>đồ thị bù</h></idx>
-    <statement>
-      <p>Đồ thị bù của một đơn đồ thị <m>G</m>, ký hiệu <m>\overline{G}</m>, là đồ thị có cùng tập đỉnh với <m>G</m>, trong đó hai đỉnh phân biệt kề nhau khi và chỉ khi chúng không kề nhau trong <m>G</m> (theo <xref ref="bib-rosen-2019" />, Rosen §10.2).</p>
-      <p>Thuật ngữ tiếng Việt tương ứng:</p>
-      <ul>
-        <li><p><term>đồ thị bù</term> <xref ref="bib-leanhvinh-2020" /> (tr. 102); <xref ref="bib-nguyenhoangthach-2020" /> (tr. 70); <xref ref="bib-nguyenhuudien-2019" /> (tr. 167) — cách dùng phổ biến.</p></li>
-      </ul>
-      <p>Ví dụ: Đồ thị bù của đồ thị đầy đủ <m>K_n</m> là đồ thị rỗng trên <m>n</m> đỉnh, vì trong <m>K_n</m> mọi cặp đỉnh đều kề nhau nên không có cặp đỉnh nào kề nhau trong <m>\overline{K_n}</m>.</p>
-      <p>Xem thêm <xref ref="def-self-complementary-graph" text="title" />, <xref ref="def-simple-graph" text="title" />.</p>
-    </statement>
-  </definition>
-  <definition xml:id="def-complete-graph">
-    <title>complete graph (d.t.) — đồ thị đầy đủ</title>
-    <idx><h>complete graph</h></idx>
-    <idx><h>n-đồ thị đầy đủ</h></idx>
-    <idx><h>đồ thị đầy đủ</h></idx>
-    <statement>
-      <p>Đồ thị đầy đủ <m>n</m> đỉnh, ký hiệu <m>K_n</m>, là đơn đồ thị vô hướng mà giữa mọi cặp đỉnh phân biệt đều có một cạnh nối (theo <xref ref="bib-rosen-2019" />, Rosen §10.2).</p>
-      <p>Thuật ngữ tiếng Việt tương ứng:</p>
-      <ul>
-        <li><p><term>đồ thị đầy đủ</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 65); <xref ref="bib-leanhvinh-2020" /> (tr. 15); <xref ref="bib-nguyenhuudien-2019" /> (tr. 159) — cách dùng phổ biến.</p></li>
-        <li><p><term>n-đồ thị đầy đủ</term> <xref ref="bib-ngodactan-2004" /> (tr. 190).</p></li>
-      </ul>
-      <p>Ví dụ: <m>K_3</m> là tam giác gồm <m>3</m> đỉnh và <m>3</m> cạnh, trong đó mỗi cặp trong <m>3</m> đỉnh đều được nối với nhau.</p>
-      <p>Xem thêm <xref ref="def-chromatic-number" text="title" />, <xref ref="def-complete-bipartite-graph" text="title" />, <xref ref="def-clique" text="title" />, <xref ref="def-complement-of-a-graph" text="title" />.</p>
-    </statement>
-  </definition>
-  <definition xml:id="def-complete-bipartite-graph">
-    <title>complete bipartite graph (d.t.) — đồ thị hai phần đầy đủ</title>
-    <idx><h>complete bipartite graph</h></idx>
-    <idx><h>đồ thị hai phía đầy đủ</h></idx>
-    <idx><h>đồ thị hai phần đầy đủ</h></idx>
-    <idx><h>đồ thị lưỡng phân đầy đủ</h></idx>
-    <idx><h>đồ thị phân đôi đầy đủ</h></idx>
-    <statement>
-      <p>Đồ thị hai phía đầy đủ, ký hiệu <m>K_{m,n}</m>, là đồ thị đơn có tập đỉnh được phân hoạch thành hai tập rời nhau có kích thước <m>m</m> và <m>n</m>, trong đó mỗi đỉnh thuộc tập này được nối với mọi đỉnh thuộc tập kia bằng đúng một cạnh và không có cạnh nào nối hai đỉnh trong cùng một tập (theo <xref ref="bib-rosen-2019" />, Rosen §10.2).</p>
-      <p>Thuật ngữ tiếng Việt tương ứng:</p>
-      <ul>
-        <li><p><term>đồ thị hai phần đầy đủ</term> <xref ref="bib-leanhvinh-2020" /> (tr. 191); <xref ref="bib-nguyenhoangthach-2020" /> (tr. 65); <xref ref="bib-nguyenhuudien-2019" /> (tr. 233) — cách dùng phổ biến.</p></li>
-        <li><p><term>đồ thị hai phía đầy đủ</term> <xref ref="bib-nguyenducnghia-2006" />.</p></li>
-        <li><p><term>đồ thị lưỡng phân đầy đủ</term> <xref ref="bib-vudinhhoa-2003" /> (tr. 115); <xref ref="bib-vudinhhoa-2010" />.</p></li>
-        <li><p><term>đồ thị phân đôi đầy đủ</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 160); <xref ref="bib-doantamhoe-2009" />; <xref ref="bib-doducgiao-2009" /> (tr. 96).</p></li>
-      </ul>
-      <p>Ví dụ: Đồ thị <m>K_{2,3}</m> có một tập gồm <m>2</m> đỉnh và một tập gồm <m>3</m> đỉnh, với tổng cộng <m>6</m> cạnh nối mỗi đỉnh của tập thứ nhất tới mỗi đỉnh của tập thứ hai.</p>
-      <p>Xem thêm <xref ref="def-bipartite-graph" text="title" />, <xref ref="def-complete-graph" text="title" />.</p>
-    </statement>
-  </definition>
-  <definition xml:id="def-connected-graph">
-    <title>connected graph (d.t.) — đồ thị liên thông</title>
-    <idx><h>connected graph</h></idx>
-    <idx><h>liên thông</h></idx>
-    <idx><h>đồ thị liên thông</h></idx>
-    <statement>
-      <p>Một đồ thị vô hướng <m>G</m> được gọi là đồ thị liên thông nếu giữa mọi cặp đỉnh phân biệt của <m>G</m> luôn có một đường đi nối chúng (theo <xref ref="bib-rosen-2019" />, Rosen §10.4).</p>
-      <p>Thuật ngữ tiếng Việt tương ứng:</p>
-      <ul>
-        <li><p><term>đồ thị liên thông</term> <xref ref="bib-leanhvinh-2020" /> (tr. 18); <xref ref="bib-nguyenhoangthach-2020" /> (tr. 73); <xref ref="bib-nguyenhuudien-2019" /> (tr. 169) — cách dùng phổ biến.</p></li>
-        <li><p><term>liên thông</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 72); <xref ref="bib-nguyenhuudien-2019" /> (tr. 168); <xref ref="bib-leanhvinh-2020" /> (tr. 7); <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 24).</p></li>
-      </ul>
-      <p>Ví dụ: Đồ thị đầy đủ <m>K_n</m> với <m>n \geq 1</m> là một đồ thị liên thông, vì giữa hai đỉnh phân biệt bất kỳ luôn có một cạnh nối chúng.</p>
-      <p>Xem thêm <xref ref="def-connected-component" text="title" />, <xref ref="def-connectivity" text="title" />, <xref ref="def-cut-vertex" text="title" />, <xref ref="def-complete-graph" text="title" />.</p>
-    </statement>
-  </definition>
-  <definition xml:id="def-connectivity">
-    <title>connectivity (d.t.) — liên thông đỉnh, số liên thông đỉnh, độ liên thông, độ liên thông đỉnh</title>
-    <idx><h>connectivity</h></idx>
-    <idx><h>liên thông đỉnh</h></idx>
-    <idx><h>số liên thông đỉnh</h></idx>
-    <idx><h>độ liên thông</h></idx>
-    <idx><h>độ liên thông đỉnh</h></idx>
-    <statement><p>Xem <xref ref="def-vertex-connectivity" text="title" />.</p></statement>
-  </definition>
-  <definition xml:id="def-connected-component">
-    <title>connected component (d.t.) — thành phần liên thông</title>
-    <idx><h>connected component</h></idx>
-    <idx><h>mảng liên thông</h></idx>
-    <idx><h>thành phần liên thông</h></idx>
-    <statement>
-      <p>Thành phần liên thông của một đồ thị <m>G</m> là một đồ thị con liên thông cực đại của <m>G</m>, tức là một đồ thị con liên thông không chứa trong bất kỳ đồ thị con liên thông nào lớn hơn (theo <xref ref="bib-rosen-2019" />, Rosen §10.4).</p>
-      <p>Thuật ngữ tiếng Việt tương ứng:</p>
-      <ul>
-        <li><p><term>thành phần liên thông</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 72); <xref ref="bib-leanhvinh-2020" /> (tr. 18); <xref ref="bib-nguyenhuudien-2019" /> (tr. 168); <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 64) — cách dùng phổ biến.</p></li>
-        <li><p><term>mảng liên thông</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 180); <xref ref="bib-hoangchithanh-2007" /> (tr. 14); <xref ref="bib-hoangchithanh-2011" />.</p></li>
-      </ul>
-      <p>Ví dụ: Đồ thị gồm hai chu trình rời nhau <m>C_3</m> và <m>C_4</m> có đúng hai thành phần liên thông.</p>
-      <p>Xem thêm <xref ref="def-connected-graph" text="title" />, <xref ref="def-subgraph" text="title" />.</p>
-    </statement>
-  </definition>
-  <definition xml:id="def-cut-vertex">
-    <title>cut vertex (d.t.) — đỉnh cắt</title>
-    <idx><h>cut vertex</h></idx>
-    <idx><h>điểm cắt</h></idx>
-    <idx><h>điểm khớp</h></idx>
-    <idx><h>đỉnh cắt</h></idx>
-    <idx><h>đỉnh khớp</h></idx>
-    <idx><h>đỉnh rẽ nhánh</h></idx>
-    <statement>
-      <p>Đỉnh cắt của một đồ thị liên thông là đỉnh mà việc xoá nó cùng tất cả các cạnh kề làm cho đồ thị con thu được không liên thông (có nhiều hơn một thành phần liên thông) (theo <xref ref="bib-rosen-2019" />, Rosen §10.4).</p>
-      <p>Thuật ngữ tiếng Việt tương ứng:</p>
-      <ul>
-        <li><p><term>đỉnh cắt</term> <xref ref="bib-leanhvinh-2020" /> (tr. 26); <xref ref="bib-nguyenhuudien-2019" /> (tr. 169); <xref ref="bib-ngodactan-2004" /> (tr. 266) — cách dùng phổ biến.</p></li>
-        <li><p><term>điểm cắt</term> <xref ref="bib-wikipedia-vi" />; <xref ref="bib-leanhvinh-2020" /> (tr. 28); <xref ref="bib-vudinhhoa-2003" /> (tr. 95); <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 330).</p></li>
-        <li><p><term>điểm khớp</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 170); <xref ref="bib-nguyenhuyran-2000" />; <xref ref="bib-cormen-2001-vi" /> (tr. 555).</p></li>
-        <li><p><term>đỉnh khớp</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 73).</p></li>
-        <li><p><term>đỉnh rẽ nhánh</term> <xref ref="bib-nguyenducnghia-2006" />; <xref ref="bib-doducgiao-2009" /> (tr. 133); <xref ref="bib-cormen-2001-vi" /> (tr. 435).</p></li>
-      </ul>
-      <p>Ví dụ: Trong đồ thị đường đi <m>P_5</m> với các đỉnh <m>v_1, v_2, v_3, v_4, v_5</m>, đỉnh <m>v_3</m> là một đỉnh cắt vì khi xoá <m>v_3</m> thì đồ thị còn lại tách thành hai thành phần liên thông.</p>
-      <p>Xem thêm <xref ref="def-cut-edge" text="title" />, <xref ref="def-bridge" text="title" />, <xref ref="def-connected-component" text="title" />, <xref ref="def-connectivity" text="title" />.</p>
-    </statement>
-  </definition>
-  <definition xml:id="def-cycle">
-    <title>cycle (d.t.) — đồ thị vòng</title>
-    <idx><h>cycle</h></idx>
-    <idx><h>chu trình</h></idx>
-    <idx><h>đồ thị chu trình</h></idx>
-    <idx><h>đồ thị vòng</h></idx>
-    <statement>
-      <p>Đồ thị vòng, ký hiệu là <m>C_n</m> với <m>n \geq 3</m>, là đồ thị gồm <m>n</m> đỉnh <m>v_1, v_2, \ldots, v_n</m> và các cạnh <m>\{v_1,v_2\}, \{v_2,v_3\}, \ldots, \{v_{n-1},v_n\}, \{v_n,v_1\}</m>. Như vậy, mỗi đỉnh của <m>C_n</m> có bậc là <m>2</m> (theo <xref ref="bib-rosen-2019" />, Rosen §10.2).</p>
-      <p>Thuật ngữ tiếng Việt tương ứng:</p>
-      <ul>
-        <li><p><term>đồ thị vòng</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 159); <xref ref="bib-nguyenducnghia-2006" />; <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 212) — cách dùng phổ biến.</p></li>
-        <li><p><term>chu trình</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 65); <xref ref="bib-leanhvinh-2020" /> (tr. 5); <xref ref="bib-nguyenhuudien-2019" /> (tr. 7); <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 46).</p></li>
-        <li><p><term>đồ thị chu trình</term> <xref ref="bib-hoangchithanh-2007" /> (tr. 43); <xref ref="bib-doducgiao-2009" /> (tr. 106); <xref ref="bib-hoangchithanh-2011" />; <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 102).</p></li>
-      </ul>
-      <p>Ví dụ: <m>C_3</m> là tam giác với ba đỉnh <m>v_1, v_2, v_3</m> và ba cạnh <m>\{v_1,v_2\}, \{v_2,v_3\}, \{v_3,v_1\}</m>.</p>
-      <p>Xem thêm <xref ref="def-path" text="title" />, <xref ref="def-wheel" text="title" />, <xref ref="def-hamilton-circuit" text="title" />.</p>
-    </statement>
-  </definition>
-  <definition xml:id="def-combination">
-    <title>combination (d.t.) — tổ hợp</title>
-    <idx><h>combination</h></idx>
-    <idx><h>tổ hợp</h></idx>
-    <idx><h>tổ hợp chập k</h></idx>
-    <idx><h>tổ hợp chập k của n phần tử</h></idx>
-    <idx><h>tổ hợp chập r</h></idx>
-    <idx><h>tổ hợp không lặp chập k</h></idx>
-    <statement>
-      <p>Một tổ hợp chập <m>r</m> của một tập hợp là một cách chọn không có thứ tự <m>r</m> phần tử của tập hợp đó. Số tổ hợp chập <m>r</m> của một tập hợp gồm <m>n</m> phần tử, ký hiệu <m>\binom{n}{r}</m>, bằng <m>\binom{n}{r} = \dfrac{n!}{r!\,(n-r)!}</m> (theo <xref ref="bib-rosen-2019" />, Rosen §6.3).</p>
-      <p>Thuật ngữ tiếng Việt tương ứng:</p>
-      <ul>
-        <li><p><term>tổ hợp</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 19); <xref ref="bib-leanhvinh-2020" /> (tr. 138); <xref ref="bib-nguyenhuudien-2019" /> (tr. 3); <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 12) — cách dùng phổ biến.</p></li>
-        <li><p><term>tổ hợp chập k</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 19); <xref ref="bib-nguyenhuudien-2019" /> (tr. 93); <xref ref="bib-vudinhhoa-2010" />.</p></li>
-        <li><p><term>tổ hợp chập k của n phần tử</term> <xref ref="bib-ngodactan-2004" /> (tr. 29); <xref ref="bib-nguyenhoangthach-2020" /> (tr. 19); <xref ref="bib-vudinhhoa-2010" />.</p></li>
-        <li><p><term>tổ hợp chập r</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 89); <xref ref="bib-doducgiao-2008" /> (tr. 38); <xref ref="bib-vudinhhoa-2010" />; <xref ref="bib-phan-1976" /> (tr. 59).</p></li>
-        <li><p><term>tổ hợp không lặp chập k</term> <xref ref="bib-ngodactan-2004" /> (tr. 29).</p></li>
-      </ul>
-      <p>Ví dụ: Số tổ hợp chập <m>2</m> của tập hợp <m>\{a, b, c, d\}</m> là <m>\binom{4}{2} = 6</m>, ứng với các cách chọn <m>\{a,b\}, \{a,c\}, \{a,d\}, \{b,c\}, \{b,d\}, \{c,d\}</m>.</p>
-      <p>Xem thêm <xref ref="def-permutation" text="title" />, <xref ref="def-binomial-coefficient" text="title" />.</p>
+      <p>Ví dụ: Để chứng minh tập các số thực trong khoảng <m>(0,1)</m> là không đếm được, giả sử liệt kê được chúng thành dãy <m>r_1, r_2, r_3, \ldots</m> với khai triển thập phân <m>r_i = 0.d_{i1} d_{i2} d_{i3} \ldots</m>; chọn số <m>r = 0.e_1 e_2 e_3 \ldots</m> với <m>e_n \neq d_{nn}</m>, thì <m>r</m> khác mọi <m>r_n</m>, mâu thuẫn với giả thiết liệt kê đầy đủ.</p>
     </statement>
   </definition>
   <definition xml:id="def-cardinality">
@@ -233,35 +48,18 @@
       <p>Xem thêm <xref ref="def-countable-set" text="title" />, <xref ref="def-finite-set" text="title" />, <xref ref="def-infinite-set" text="title" />.</p>
     </statement>
   </definition>
-  <definition xml:id="def-countable-set">
-    <title>countable set (d.t.) — tập đếm được</title>
-    <idx><h>countable set</h></idx>
-    <idx><h>tập hợp đếm được</h></idx>
-    <idx><h>tập đếm được</h></idx>
+  <definition xml:id="def-carmichael-number">
+    <title>Carmichael number (d.t.) — số Carmichael</title>
+    <idx><h>Carmichael number</h></idx>
+    <idx><h>số Carmichael</h></idx>
     <statement>
-      <p>Một tập hợp được gọi là tập đếm được nếu nó hữu hạn hoặc có cùng lực lượng với tập các số nguyên dương. Khi một tập vô hạn là đếm được, ta nói nó vô hạn đếm được và lực lượng của nó được ký hiệu là <m>\aleph_0</m> (đọc là "aleph không") (theo <xref ref="bib-rosen-2019" />, Rosen §2.5).</p>
+      <p>Số Carmichael là một hợp số <m>n</m> sao cho <m>n</m> là số giả nguyên tố theo mọi cơ sở nguyên tố cùng nhau với <m>n</m> (theo <xref ref="bib-rosen-2019" />, Rosen §3.5).</p>
       <p>Thuật ngữ tiếng Việt tương ứng:</p>
       <ul>
-        <li><p><term>tập đếm được</term> <xref ref="bib-vudinhhoa-2003" /> (tr. 15) — cách dùng phổ biến.</p></li>
-        <li><p><term>tập hợp đếm được</term> <xref ref="bib-doducgiao-2000" /> (tr. 343); <xref ref="bib-doducgiao-2008" /> (tr. 140); <xref ref="bib-vudinhhoa-2010" />; <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 7).</p></li>
+        <li><p><term>số Carmichael</term> <xref ref="bib-rosen-2003-vi" /> (tr. 206); <xref ref="bib-sierpinski-2012" /> (tr. 143); <xref ref="bib-cormen-2001-vi" /> (tr. 931) — cách dùng phổ biến.</p></li>
       </ul>
-      <p>Ví dụ: Tập các số nguyên dương lẻ là tập đếm được, vì hàm <m>f(n) = 2n - 1</m> là một song ánh từ tập các số nguyên dương lên tập đó.</p>
-      <p>Xem thêm <xref ref="def-cardinality" text="title" />, <xref ref="def-uncountable-set" text="title" />.</p>
-    </statement>
-  </definition>
-  <definition xml:id="def-cantor-diagonalization-argument">
-    <title>Cantor diagonalization argument (d.t.) — lập luận đường chéo của Cantor</title>
-    <idx><h>Cantor diagonalization argument</h></idx>
-    <idx><h>lập luận đường chéo của Cantor</h></idx>
-    <idx><h>phương pháp đường chéo</h></idx>
-    <statement>
-      <p>Lập luận đường chéo của Cantor là kỹ thuật chứng minh một tập hợp là không đếm được bằng phản chứng: giả sử tập đó đếm được nên có thể liệt kê các phần tử thành dãy, rồi xây dựng một phần tử mới khác phần tử thứ <m>n</m> trong dãy ở thành phần thứ <m>n</m> (chẳng hạn ở chữ số thứ <m>n</m> của khai triển thập phân), nên phần tử mới này không có mặt trong dãy, dẫn tới mâu thuẫn. Cantor dùng lập luận này để chứng minh tập các số thực <m>\mathbb{R}</m> là không đếm được (theo <xref ref="bib-rosen-2019" />, Rosen §2.5).</p>
-      <p>Thuật ngữ tiếng Việt tương ứng:</p>
-      <ul>
-        <li><p><term>lập luận đường chéo của Cantor</term> <em>(thuật ngữ chuẩn; chưa truy được trong kho văn bản)</em> — cách dùng phổ biến.</p></li>
-        <li><p><term>phương pháp đường chéo</term> <xref ref="bib-vudinhhoa-2010" />; <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 287).</p></li>
-      </ul>
-      <p>Ví dụ: Để chứng minh tập các số thực trong khoảng <m>(0,1)</m> là không đếm được, giả sử liệt kê được chúng thành dãy <m>r_1, r_2, r_3, \ldots</m> với khai triển thập phân <m>r_i = 0.d_{i1} d_{i2} d_{i3} \ldots</m>; chọn số <m>r = 0.e_1 e_2 e_3 \ldots</m> với <m>e_n \neq d_{nn}</m>, thì <m>r</m> khác mọi <m>r_n</m>, mâu thuẫn với giả thiết liệt kê đầy đủ.</p>
+      <p>Ví dụ: Số <m>561 = 3 \cdot 11 \cdot 17</m> là số Carmichael nhỏ nhất: nó là hợp số, nhưng với mọi số nguyên <m>b</m> thỏa mãn <m>\gcd(b, 561) = 1</m> ta đều có <m>b^{560} \equiv 1 \pmod{561}</m>, nên <m>561</m> là số giả nguyên tố theo mọi cơ sở như vậy.</p>
+      <p>Xem thêm <xref ref="def-composite-number" text="title" />, <xref ref="def-prime-number" text="title" />.</p>
     </statement>
   </definition>
   <definition xml:id="def-carry">
@@ -331,6 +129,44 @@
       <p>Xem thêm <xref ref="def-eccentricity" text="title" />, <xref ref="def-diameter" text="title" />.</p>
     </statement>
   </definition>
+  <definition xml:id="def-chain-rule">
+    <title>chain rule (d.t.) — quy tắc dây chuyền</title>
+    <idx><h>chain rule</h></idx>
+    <idx><h>công thức nhân xác suất</h></idx>
+    <idx><h>quy tắc dây chuyền</h></idx>
+    <idx><h>quy tắc nhân xác suất</h></idx>
+    <statement>
+      <p><em>Quy tắc dây chuyền</em> (trong xác suất) cho phép viết xác suất của giao nhiều biến cố thành tích các xác suất có điều kiện liên tiếp: <m>\displaystyle P(A_1\cap\cdots\cap A_n)=\prod_{i=1}^{n}P\!\left(A_i\mid A_1\cap\cdots\cap A_{i-1}\right),</m> với quy ước số hạng đầu là <m>P(A_1)</m> (theo <xref ref="bib-libennowell-2022" />).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>quy tắc dây chuyền</term> <xref ref="bib-phan-1976" /> (tr. 371) — cách dùng phổ biến.</p></li>
+        <li><p><term>công thức nhân xác suất</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
+        <li><p><term>quy tắc nhân xác suất</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
+      </ul>
+      <p>Ví dụ: Với hai biến cố, <m>P(A\cap B)=P(A)\,P(B\mid A)</m>.</p>
+      <p>Xem thêm <xref ref="def-bayes-rule" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-character-cipher">
+    <title>character cipher (d.t.) — mật mã ký tự</title>
+    <idx><h>character cipher</h></idx>
+    <idx><h>mật mã</h></idx>
+    <idx><h>mật mã của Caesar</h></idx>
+    <idx><h>mật mã học</h></idx>
+    <idx><h>mật mã ký tự</h></idx>
+    <statement>
+      <p>Mật mã ký tự là một loại mật mã mã hóa thông điệp bằng cách mã hóa từng ký tự một. Mỗi ký tự của bản rõ được thay thế riêng lẻ bởi một ký tự khác theo một quy tắc cố định, độc lập với các ký tự còn lại (theo <xref ref="bib-rosen-2019" />, Rosen §4.6).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>mật mã ký tự</term> <em>(thuật ngữ chuẩn; chưa truy được trong kho văn bản)</em> — cách dùng phổ biến.</p></li>
+        <li><p><term>mật mã</term> <xref ref="bib-hoangchithanh-2011" />; <xref ref="bib-nguyenhuudien-2019" /> (tr. 161); <xref ref="bib-sierpinski-2012" />; <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 106).</p></li>
+        <li><p><term>mật mã của Caesar</term> <xref ref="bib-rosen-2003-vi" /> (tr. 164).</p></li>
+        <li><p><term>mật mã học</term> <xref ref="bib-hoangchithanh-2007" /> (tr. 146); <xref ref="bib-hoangchithanh-2011" />; <xref ref="bib-nguyenhuudien-2019" /> (tr. 258).</p></li>
+      </ul>
+      <p>Ví dụ: Mật mã Caesar là một ví dụ của mật mã ký tự. Mỗi chữ cái được biểu diễn bởi một số <m>p</m> với <m>0 \leq p \leq 25</m> và được mã hóa từng chữ một theo hàm <m>f(p) = (p + 3) \bmod 26</m>; chẳng hạn chữ B (ứng với <m>p = 1</m>) được chuyển thành chữ E (ứng với <m>4</m>).</p>
+      <p>Xem thêm <xref ref="def-private-key-cryptography" text="title" />, <xref ref="def-public-key-cryptography" text="title" />.</p>
+    </statement>
+  </definition>
   <definition xml:id="def-characteristic-polynomial">
     <title>characteristic polynomial (d.t.) — đa thức đặc trưng</title>
     <idx><h>characteristic polynomial</h></idx>
@@ -389,6 +225,183 @@
       <p>Ví dụ: Một người đưa thư cần đi qua tất cả các con phố (cạnh) trong khu vực rồi quay về bưu cục (đỉnh xuất phát) với tổng quãng đường đi ngắn nhất. Khi mọi đỉnh của đồ thị đều có bậc chẵn, đồ thị có chu trình Euler và đây chính là tuyến đường tối ưu cần tìm.</p>
     </statement>
   </definition>
+  <definition xml:id="def-chromatic-number">
+    <title>chromatic number (d.t.) — sắc số</title>
+    <idx><h>chromatic number</h></idx>
+    <idx><h>sắc số</h></idx>
+    <statement>
+      <p>Sắc số của một đồ thị <m>G</m>, ký hiệu <m>\chi(G)</m>, là số màu nhỏ nhất cần dùng để tô màu các đỉnh của <m>G</m> sao cho không có hai đỉnh kề nhau nào được tô cùng một màu (theo <xref ref="bib-rosen-2019" />, Rosen §10.8).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>sắc số</term> <xref ref="bib-leanhvinh-2020" /> (tr. 91); <xref ref="bib-nguyenhoangthach-2020" /> (tr. 79); <xref ref="bib-nguyenhuudien-2019" /> (tr. 228); <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 306) — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Sắc số của đồ thị đầy đủ <m>K_n</m> là <m>\chi(K_n) = n</m>, và sắc số của một đồ thị hai phía có ít nhất một cạnh là <m>2</m>.</p>
+      <p>Xem thêm <xref ref="def-bipartite-graph" text="title" />, <xref ref="def-complete-graph" text="title" />, <xref ref="def-graph-coloring" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-ciphertext">
+    <title>ciphertext (d.t.) — bản mã</title>
+    <idx><h>ciphertext</h></idx>
+    <idx><h>bản mã</h></idx>
+    <statement>
+      <p><em>Bản mã</em> là kết quả thu được sau khi áp dụng một phép mã hóa lên bản rõ, ở dạng không đọc được trực tiếp. Chỉ người nắm khóa giải mã thích hợp mới khôi phục được bản rõ từ bản mã (theo <xref ref="bib-libennowell-2022" />).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>bản mã</term> <xref ref="bib-cormen-2001-vi" />; <xref ref="bib-doxuanloi-2006" />; <xref ref="bib-nguyenhuudien-2019" /> — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Với mã Caesar dịch ba vị trí, bản rõ <m>\texttt{HELLO}</m> cho bản mã <m>\texttt{KHOOR}</m>; người nhận dịch ngược ba vị trí để khôi phục.</p>
+      <p>Xem thêm <xref ref="def-plaintext" text="title" />, <xref ref="def-public-key" text="title" />, <xref ref="def-private-key" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-circuit">
+    <title>circuit (d.t.) — chu trình đơn</title>
+    <idx><h>circuit</h></idx>
+    <idx><h>chu trình đơn</h></idx>
+    <idx><h>mạch</h></idx>
+    <statement>
+      <p>Chu trình đơn trong một đồ thị <m>G</m> là một đường đi khép kín có độ dài <m>\geq 1</m>, tức là bắt đầu và kết thúc tại cùng một đỉnh, sao cho không có cạnh nào bị lặp lại (các đỉnh có thể được lặp lại). Trong Ngô Đắc Tân (2004), khái niệm này được gọi bằng từ đơn 'mạch'; xem ghi chú (theo <xref ref="bib-rosen-2019" />, Rosen §10.4).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>chu trình đơn</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 71); <xref ref="bib-nguyenhuudien-2019" /> (tr. 181); <xref ref="bib-hoangchithanh-2011" /> — cách dùng phổ biến.</p></li>
+        <li><p><term>mạch</term> <xref ref="bib-ngodactan-2004" /> (tr. 195); <xref ref="bib-rosen-2003-vi" /> (tr. 494).</p></li>
+      </ul>
+      <p>Ví dụ: Xét đồ thị gồm các cạnh <m>ab, bc, ca, bd, de, eb</m>. Dãy đỉnh <m>a, b, d, e, b, c, a</m> là một chu trình đơn: nó khép kín và không lặp lại cạnh nào (đỉnh <m>b</m> được lặp lại). Trái lại, dãy <m>a, b, a</m> không phải là chu trình đơn vì cạnh <m>ab</m> được dùng lại hai lần.</p>
+      <p>Xem thêm <xref ref="def-cycle" text="title" />, <xref ref="def-euler-circuit" text="title" />, <xref ref="def-trail" text="title" />, <xref ref="def-walk" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-circular-reasoning">
+    <title>circular reasoning (d.t.) — lý luận quẩn</title>
+    <idx><h>circular reasoning</h></idx>
+    <idx><h>lý luận quẩn</h></idx>
+    <idx><h>lập luận luẩn quẩn</h></idx>
+    <idx><h>lập luận vòng quanh</h></idx>
+    <idx><h>lập luận vòng tròn</h></idx>
+    <idx><h>lập luận vòng vo</h></idx>
+    <idx><h>nguỵ biện dùng ngay câu hỏi</h></idx>
+    <idx><h>ngụy biện vòng tròn</h></idx>
+    <idx><h>suy luận quẩn</h></idx>
+    <statement>
+      <p>Suy luận quẩn là kiểu suy luận trong đó một phát biểu được chứng minh bằng cách dùng chính nó. Nói cách khác, một hay nhiều bước trong lập luận dựa trên chính mệnh đề cần chứng minh, nên không cho ta một chứng minh hợp lệ. Thuật ngữ tiếng Việt cho khái niệm này hiện chưa thống nhất (theo <xref ref="bib-rosen-2019" />, Rosen §1.7).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>lý luận quẩn</term> <xref ref="bib-rosen-2003-vi" /> (tr. 214) — cách dùng phổ biến.</p></li>
+        <li><p><term>lập luận luẩn quẩn</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
+        <li><p><term>lập luận vòng quanh</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
+        <li><p><term>lập luận vòng tròn</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
+        <li><p><term>lập luận vòng vo</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
+        <li><p><term>nguỵ biện dùng ngay câu hỏi</term> <xref ref="bib-rosen-2003-vi" /> (tr. 214).</p></li>
+        <li><p><term>ngụy biện vòng tròn</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
+        <li><p><term>suy luận quẩn</term> <xref ref="bib-rosen-2003-vi" /> (tr. 224).</p></li>
+      </ul>
+      <p>Ví dụ: Giả sử ta muốn chứng minh mệnh đề "nếu <m>n^2</m> là số chẵn thì <m>n</m> là số chẵn" bằng cách giả thiết "<m>n</m> là số chẵn" rồi suy ra <m>n^2</m> chẵn; khi đó ta đã dùng ngay điều cần chứng minh làm giả thiết, nên đây là một suy luận quẩn.</p>
+      <p>Xem thêm <xref ref="def-fallacy" text="title" />, <xref ref="def-valid-argument" text="title" />, <xref ref="def-proof" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-class-p">
+    <title>class P (d.t.) — lớp P</title>
+    <idx><h>class P</h></idx>
+    <idx><h>lớp P</h></idx>
+    <statement>
+      <p>Lớp <m>\mathsf{P}</m> là lớp các bài toán giải được trong thời gian đa thức, tức là các bài toán mà tồn tại một thuật toán giải chúng với độ phức tạp thời gian là một hàm đa thức theo kích thước đầu vào (theo <xref ref="bib-rosen-2019" />, Rosen §3.3).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>lớp P</term> <em>(thuật ngữ chuẩn; chưa truy được trong kho văn bản)</em> — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Bài toán sắp xếp một bảng kê gồm <m>n</m> phần tử thuộc lớp <m>\mathsf{P}</m> vì có thể giải được bằng thuật toán với độ phức tạp <m>O(n^2)</m>, là một hàm đa thức theo <m>n</m>; tương tự, bài toán tìm kiếm tuyến tính có độ phức tạp <m>O(n)</m> nên cũng thuộc lớp <m>\mathsf{P}</m>.</p>
+      <p>Xem thêm <xref ref="def-time-complexity" text="title" />, <xref ref="def-complexity" text="title" />, <xref ref="def-algorithm-analysis" text="title" />, <xref ref="def-polynomial" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-clique">
+    <title>clique (d.t.) — clique</title>
+    <idx><h>clique</h></idx>
+    <idx><h>bè</h></idx>
+    <idx><h>đồ thị con đầy đủ cực đại</h></idx>
+    <statement>
+      <p>Một clique của đồ thị <m>G</m> là một tập con các đỉnh đôi một kề nhau, tức là một tập con cảm sinh một đồ thị con đầy đủ (theo <xref ref="bib-rosen-2019" />, Rosen §10.2).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>clique</term> <xref ref="bib-leanhvinh-2020" /> (tr. 96); <xref ref="bib-ngodactan-2004" /> (tr. 314); <xref ref="bib-cormen-2001-vi" /> (tr. 1053) — cách dùng phổ biến.</p></li>
+        <li><p><term>bè</term> <xref ref="bib-wikipedia-vi" />.</p></li>
+        <li><p><term>đồ thị con đầy đủ cực đại</term> <xref ref="bib-leanhvinh-2020" /> (tr. 102).</p></li>
+      </ul>
+      <p>Ví dụ: Trong đồ thị đầy đủ <m>K_n</m>, toàn bộ tập đỉnh là một clique, vì mọi cặp đỉnh đều kề nhau.</p>
+      <p>Xem thêm <xref ref="def-complete-graph" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-closed-interval">
+    <title>closed interval (d.t.) — khoảng đóng</title>
+    <idx><h>closed interval</h></idx>
+    <idx><h>khoảng đóng</h></idx>
+    <idx><h>đoạn</h></idx>
+    <statement>
+      <p>Một <em>khoảng đóng</em> là tập các số thực nằm giữa hai đầu mút <m>a</m> và <m>b</m> (với <m>a\le b</m>), <em>kể cả</em> hai đầu mút đó, ký hiệu <m>[a,b]=\{x\in\mathbb{R}: a\le x\le b\}.</m> (theo <xref ref="bib-libennowell-2022" />).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>khoảng đóng</term> <xref ref="bib-cormen-2001-vi" />; <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 246) — cách dùng phổ biến.</p></li>
+        <li><p><term>đoạn</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
+      </ul>
+      <p>Ví dụ: Khoảng đóng <m>[0,1]</m> gồm mọi số thực <m>x</m> với <m>0\le x\le 1</m>, chứa cả <m>0</m> và <m>1</m>.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-closure">
+    <title>closure (d.t.) — bao đóng</title>
+    <idx><h>closure</h></idx>
+    <idx><h>bao đóng</h></idx>
+    <idx><h>bao đóng quan hệ</h></idx>
+    <statement>
+      <p><em>Bao đóng</em> của một quan hệ <m>R</m> ứng với một tính chất <m>P</m> (chẳng hạn phản xạ, đối xứng hoặc bắc cầu) là quan hệ nhỏ nhất chứa <m>R</m> và thỏa mãn tính chất <m>P</m>. Nói cách khác, đó là giao của tất cả các quan hệ chứa <m>R</m> và có tính chất <m>P</m> (theo <xref ref="bib-libennowell-2022" />).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>bao đóng</term> <xref ref="bib-cormen-2001-vi" />; <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-doantamhoe-2009" />; <xref ref="bib-doducgiao-2000" />; <xref ref="bib-doducgiao-2008" />; <xref ref="bib-doxuanloi-2006" />; <xref ref="bib-hoangchithanh-2007" />; <xref ref="bib-hoangchithanh-2011" />; <xref ref="bib-nguyenducnghia-2006" />; <xref ref="bib-phan-1976" /> (tr. 6) — cách dùng phổ biến.</p></li>
+        <li><p><term>bao đóng quan hệ</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
+      </ul>
+      <p>Ví dụ: Bao đóng bắc cầu của quan hệ <m>\{(1,2),(2,3)\}</m> trên <m>\{1,2,3\}</m> là <m>\{(1,2),(2,3),(1,3)\}.</m></p>
+    </statement>
+  </definition>
+  <definition xml:id="def-coarsening">
+    <title>coarsening (d.t.) — phép làm thô</title>
+    <idx><h>coarsening</h></idx>
+    <idx><h>phân hoạch thô hơn</h></idx>
+    <idx><h>phép làm thô</h></idx>
+    <statement>
+      <p>Một <em>phép làm thô</em> (hay <em>phân hoạch thô hơn</em>) của một phân hoạch <m>P</m> trên tập <m>S</m> là một phân hoạch <m>Q</m> của <m>S</m> sao cho mỗi khối của <m>Q</m> là hợp của một số khối của <m>P</m>. Nói cách khác, <m>Q</m> thu được bằng cách gộp một số khối của <m>P</m> lại với nhau; khi đó <m>P</m> được gọi là <em>mịn hơn</em> <m>Q</m> (theo <xref ref="bib-libennowell-2022" />).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>phép làm thô</term> <em>(thuật ngữ chuẩn; chưa truy được trong kho văn bản)</em> — cách dùng phổ biến.</p></li>
+        <li><p><term>phân hoạch thô hơn</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
+      </ul>
+      <p>Ví dụ: Với <m>S=\{1,2,3,4\}</m>, phân hoạch <m>\{\{1,2\},\{3,4\}\}</m> là một phép làm thô của <m>\{\{1\},\{2\},\{3,4\}\}</m>.</p>
+      <p>Xem thêm <xref ref="def-partition" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-code">
+    <title>code (d.t.) — mã</title>
+    <idx><h>code</h></idx>
+    <idx><h>mã</h></idx>
+    <statement>
+      <p>Một <em>mã</em> là một tập hợp các xâu (thường có cùng độ dài) trên một bảng chữ cái cho trước, dùng để biểu diễn thông tin sao cho có thể phát hiện hoặc sửa lỗi khi truyền tin. Mỗi phần tử của tập này được gọi là một từ mã; một <em>mã</em> nhị phân độ dài <m>n</m> là một tập con của <m>\{0,1\}^n</m> (theo <xref ref="bib-libennowell-2022" />).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>mã</term> <em>(thuật ngữ chuẩn; chưa truy được trong kho văn bản)</em> — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Tập <m>C=\{000, 111\}</m> là một mã nhị phân độ dài <m>3</m> gồm hai từ mã, lặp lại mỗi bit ba lần.</p>
+      <p>Xem thêm <xref ref="def-codeword" text="title" />, <xref ref="def-error-detecting-code" text="title" />, <xref ref="def-error-correcting-code" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-codeword">
+    <title>codeword (d.t.) — từ mã</title>
+    <idx><h>codeword</h></idx>
+    <idx><h>từ mã</h></idx>
+    <statement>
+      <p>Một <em>từ mã</em> là một phần tử của một mã <m>C</m>, tức là một xâu cụ thể được dùng để biểu diễn một đơn vị thông tin. Khi nhận được một xâu, máy thu so sánh nó với các từ mã của <m>C</m> để phát hiện lỗi hoặc khôi phục từ mã gần nhất (theo <xref ref="bib-libennowell-2022" />).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>từ mã</term> <xref ref="bib-cormen-2001-vi" />; <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-doantamhoe-2009" />; <xref ref="bib-doducgiao-2000" />; <xref ref="bib-doducgiao-2008" />; <xref ref="bib-doducgiao-2009" />; <xref ref="bib-doducthai-2010" />; <xref ref="bib-doxuanloi-2006" />; <xref ref="bib-leanhvinh-2020" />; <xref ref="bib-ngodactan-2004" />; <xref ref="bib-nguyenducnghia-2006" />; <xref ref="bib-nguyenhuuanh-2007" />; <xref ref="bib-nguyenhuudien-2019" />; <xref ref="bib-nguyenvanmau-2007" />; <xref ref="bib-phan-1976" /> (tr. 449); <xref ref="bib-sierpinski-2012" />; <xref ref="bib-vovantuandung-2007" />; <xref ref="bib-vudinhhoa-2010" /> — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Trong mã <m>C=\{000, 111\}</m>, các xâu <m>000</m> và <m>111</m> là các từ mã; xâu nhận được <m>101</m> không phải từ mã nên báo hiệu có lỗi.</p>
+      <p>Xem thêm <xref ref="def-code" text="title" />.</p>
+    </statement>
+  </definition>
   <definition xml:id="def-codomain">
     <title>codomain (d.t.) — miền giá trị, tập đích</title>
     <idx><h>codomain</h></idx>
@@ -427,6 +440,28 @@
       <p>Xem thêm <xref ref="def-binomial-coefficient" text="title" />, <xref ref="def-binomial-theorem" text="title" />, <xref ref="def-polynomial" text="title" />.</p>
     </statement>
   </definition>
+  <definition xml:id="def-combination">
+    <title>combination (d.t.) — tổ hợp</title>
+    <idx><h>combination</h></idx>
+    <idx><h>tổ hợp</h></idx>
+    <idx><h>tổ hợp chập k</h></idx>
+    <idx><h>tổ hợp chập k của n phần tử</h></idx>
+    <idx><h>tổ hợp chập r</h></idx>
+    <idx><h>tổ hợp không lặp chập k</h></idx>
+    <statement>
+      <p>Một tổ hợp chập <m>r</m> của một tập hợp là một cách chọn không có thứ tự <m>r</m> phần tử của tập hợp đó. Số tổ hợp chập <m>r</m> của một tập hợp gồm <m>n</m> phần tử, ký hiệu <m>\binom{n}{r}</m>, bằng <m>\binom{n}{r} = \dfrac{n!}{r!\,(n-r)!}</m> (theo <xref ref="bib-rosen-2019" />, Rosen §6.3).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>tổ hợp</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 19); <xref ref="bib-leanhvinh-2020" /> (tr. 138); <xref ref="bib-nguyenhuudien-2019" /> (tr. 3); <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 12) — cách dùng phổ biến.</p></li>
+        <li><p><term>tổ hợp chập k</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 19); <xref ref="bib-nguyenhuudien-2019" /> (tr. 93); <xref ref="bib-vudinhhoa-2010" />.</p></li>
+        <li><p><term>tổ hợp chập k của n phần tử</term> <xref ref="bib-ngodactan-2004" /> (tr. 29); <xref ref="bib-nguyenhoangthach-2020" /> (tr. 19); <xref ref="bib-vudinhhoa-2010" />.</p></li>
+        <li><p><term>tổ hợp chập r</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 89); <xref ref="bib-doducgiao-2008" /> (tr. 38); <xref ref="bib-vudinhhoa-2010" />; <xref ref="bib-phan-1976" /> (tr. 59).</p></li>
+        <li><p><term>tổ hợp không lặp chập k</term> <xref ref="bib-ngodactan-2004" /> (tr. 29).</p></li>
+      </ul>
+      <p>Ví dụ: Số tổ hợp chập <m>2</m> của tập hợp <m>\{a, b, c, d\}</m> là <m>\binom{4}{2} = 6</m>, ứng với các cách chọn <m>\{a,b\}, \{a,c\}, \{a,d\}, \{b,c\}, \{b,d\}, \{c,d\}</m>.</p>
+      <p>Xem thêm <xref ref="def-permutation" text="title" />, <xref ref="def-binomial-coefficient" text="title" />.</p>
+    </statement>
+  </definition>
   <definition xml:id="def-combinatorial-circuit">
     <title>combinatorial circuit (d.t.) — mạch tổ hợp</title>
     <idx><h>combinatorial circuit</h></idx>
@@ -438,6 +473,40 @@
         <li><p><term>mạch tổ hợp</term> <xref ref="bib-doducgiao-2000" /> (tr. 429); <xref ref="bib-vovantuandung-2007" />; <xref ref="bib-vudinhhoa-2010" /> — cách dùng phổ biến.</p></li>
       </ul>
       <p>Ví dụ: Mạch tổ hợp với hai đầu vào <m>x</m>, <m>y</m> gồm một cổng <m>\mathrm{AND}</m> nhận <m>x</m> và <m>y</m> rồi đưa qua một cổng <m>\mathrm{NOT}</m> sẽ tính hàm Boolean <m>\overline{x \cdot y}</m>.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-combinatorial-proof">
+    <title>combinatorial proof (d.t.) — chứng minh tổ hợp</title>
+    <idx><h>combinatorial proof</h></idx>
+    <idx><h>chứng minh tổ hợp</h></idx>
+    <statement>
+      <p>Chứng minh tổ hợp là một chứng minh sử dụng các lập luận đếm thay vì biến đổi đại số. Thông thường, một đẳng thức được chứng minh bằng cách đếm số phần tử của cùng một tập hợp hữu hạn theo hai cách khác nhau, hoặc bằng cách thiết lập một song ánh giữa hai tập hợp hữu hạn (theo <xref ref="bib-rosen-2019" />, Rosen §6.4).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>chứng minh tổ hợp</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 83); <xref ref="bib-nguyenhoangthach-2020" /> (tr. 21) — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Để chứng minh đẳng thức <m>\binom{n}{k} = \binom{n}{n-k}</m>, ta dùng một chứng minh tổ hợp: việc chọn ra <m>k</m> phần tử từ một tập <m>n</m> phần tử tương ứng một-một với việc chọn ra <m>n-k</m> phần tử bị loại, nên hai vế đếm cùng một số đối tượng.</p>
+      <p>Xem thêm <xref ref="def-double-counting-proof" text="title" />, <xref ref="def-bijection" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-combinatorics">
+    <title>combinatorics (d.t.) — lý thuyết tổ hợp</title>
+    <idx><h>combinatorics</h></idx>
+    <idx><h>lý thuyết tổ hợp</h></idx>
+    <idx><h>sắp xếp các đối tượng</h></idx>
+    <idx><h>toán học tổ hợp</h></idx>
+    <idx><h>toán tổ hợp</h></idx>
+    <statement>
+      <p>Lý thuyết tổ hợp là ngành nghiên cứu về cách sắp xếp các đối tượng. Nó gắn liền với việc đếm và nghiên cứu các cách bố trí những đối tượng của một tập hợp, có kể tới thứ tự hoặc không (theo <xref ref="bib-rosen-2019" />, Rosen §4.1).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>lý thuyết tổ hợp</term> <xref ref="bib-nguyenducnghia-2006" />; <xref ref="bib-leanhvinh-2020" /> (tr. 255); <xref ref="bib-nguyenhuudien-2019" /> (tr. 3); <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 422) — cách dùng phổ biến.</p></li>
+        <li><p><term>sắp xếp các đối tượng</term> <xref ref="bib-rosen-2003-vi" /> (tr. 290); <xref ref="bib-vudinhhoa-2010" />.</p></li>
+        <li><p><term>toán học tổ hợp</term> <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 59).</p></li>
+        <li><p><term>toán tổ hợp</term> <xref ref="bib-nguyenvanmau-2007" />; <xref ref="bib-doducthai-2010" /> (tr. 41); <xref ref="bib-vudinhhoa-2010" />.</p></li>
+      </ul>
+      <p>Ví dụ: Nhiều bài toán có thể diễn đạt dưới dạng sắp xếp các đối tượng của một tập hợp. Chẳng hạn, số cách sắp xếp có thứ tự <m>k</m> trong <m>n</m> đối tượng khác nhau là <m>\displaystyle\frac{n!}{(n-k)!}</m>, còn số cách chọn không kể thứ tự <m>k</m> trong <m>n</m> đối tượng là <m>\displaystyle\binom{n}{k}</m>. Việc đếm các sắp xếp như vậy là một bài toán cơ bản của lý thuyết tổ hợp.</p>
+      <p>Xem thêm <xref ref="def-addition-rule" text="title" />, <xref ref="def-combination" text="title" />, <xref ref="def-permutation" text="title" />.</p>
     </statement>
   </definition>
   <definition xml:id="def-common-difference">
@@ -466,11 +535,59 @@
       <p>Ví dụ: Dãy <m>3, 6, 12, 24, \dots</m> là một cấp số nhân với số hạng đầu <m>a = 3</m> và công bội <m>r = 2</m>, vì mỗi số hạng bằng số hạng liền trước nhân với <m>2</m>.</p>
     </statement>
   </definition>
+  <definition xml:id="def-comparable">
+    <title>comparable (t.t.) — so sánh được</title>
+    <idx><h>comparable</h></idx>
+    <idx><h>so sánh được</h></idx>
+    <statement>
+      <p>Hai phần tử <m>a</m> và <m>b</m> của một tập sắp thứ tự bộ phận được gọi là so sánh được nếu <m>a \preceq b</m> hoặc <m>b \preceq a</m>.</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>so sánh được</term> <xref ref="bib-ngodactan-2004" /> (tr. 164); <xref ref="bib-nguyenhuudien-2019" /> (tr. 140); <xref ref="bib-vudinhhoa-2010" />; <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 7) — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Trong tập sắp thứ tự bộ phận <m>(\mathbb{Z}^{+}, \mid)</m> với quan hệ chia hết, hai số <m>3</m> và <m>9</m> là so sánh được vì <m>3 \mid 9</m>, trong khi <m>2</m> và <m>3</m> không so sánh được vì không số nào chia hết số kia.</p>
+      <p>Xem thêm <xref ref="def-partial-order" text="title" />, <xref ref="def-poset" text="title" />, <xref ref="def-total-order" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-compatible-total-ordering">
+    <title>compatible total ordering (d.t.) — thứ tự toàn phần tương thích</title>
+    <idx><h>compatible total ordering</h></idx>
+    <idx><h>thứ tự toàn phần tương thích</h></idx>
+    <statement><p>Xem <xref ref="def-topological-sort" text="title" />.</p></statement>
+  </definition>
+  <definition xml:id="def-complement">
+    <title>complement (d.t.) — phần bù</title>
+    <idx><h>complement</h></idx>
+    <idx><h>phần bù</h></idx>
+    <statement>
+      <p>Trong toán rời rạc, <em>phần bù</em> của một đối tượng là phần "còn lại" của nó trong một ngữ cảnh cho trước, và xuất hiện ở nhiều ngữ cảnh khác nhau. Mục này chỉ nêu ý niệm chung; các trường hợp cụ thể được trình bày ở những mục riêng (xem mục Xem thêm).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>phần bù</term> <xref ref="bib-leanhvinh-2020" /> (tr. 99); <xref ref="bib-nguyenhoangthach-2020" /> (tr. 20); <xref ref="bib-nguyenhuudien-2019" /> (tr. 75); <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 62) — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Một vài ví dụ về phần bù: phần bù <m>\overline{A}</m> của một tập hợp <m>A</m> đối với tập vũ trụ; đồ thị bù <m>\overline{G}</m> của một đồ thị <m>G</m>; và biểu diễn bù 1, bù 2 của số nguyên trong máy tính.</p>
+      <p>Xem thêm <xref ref="def-complement-of-a-set" text="title" />, <xref ref="def-complement-of-a-graph" text="title" />, <xref ref="def-ones-complement-notation" text="title" />, <xref ref="def-twos-complement-notation" text="title" />.</p>
+    </statement>
+  </definition>
   <definition xml:id="def-complement-graph">
     <title>complement graph (d.t.) — đồ thị bù</title>
     <idx><h>complement graph</h></idx>
     <idx><h>đồ thị bù</h></idx>
     <statement><p>Xem <xref ref="def-complement-of-a-graph" text="title" />.</p></statement>
+  </definition>
+  <definition xml:id="def-complement-of-a-graph">
+    <title>complement of a graph (d.t.) — đồ thị bù</title>
+    <idx><h>complement of a graph</h></idx>
+    <idx><h>đồ thị bù</h></idx>
+    <statement>
+      <p>Đồ thị bù của một đơn đồ thị <m>G</m>, ký hiệu <m>\overline{G}</m>, là đồ thị có cùng tập đỉnh với <m>G</m>, trong đó hai đỉnh phân biệt kề nhau khi và chỉ khi chúng không kề nhau trong <m>G</m> (theo <xref ref="bib-rosen-2019" />, Rosen §10.2).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>đồ thị bù</term> <xref ref="bib-leanhvinh-2020" /> (tr. 102); <xref ref="bib-nguyenhoangthach-2020" /> (tr. 70); <xref ref="bib-nguyenhuudien-2019" /> (tr. 167) — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Đồ thị bù của đồ thị đầy đủ <m>K_n</m> là đồ thị rỗng trên <m>n</m> đỉnh, vì trong <m>K_n</m> mọi cặp đỉnh đều kề nhau nên không có cặp đỉnh nào kề nhau trong <m>\overline{K_n}</m>.</p>
+      <p>Xem thêm <xref ref="def-self-complementary-graph" text="title" />, <xref ref="def-simple-graph" text="title" />.</p>
+    </statement>
   </definition>
   <definition xml:id="def-complement-of-a-set">
     <title>complement of a set (d.t.) — phần bù</title>
@@ -483,6 +600,42 @@
         <li><p><term>phần bù</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 75); <xref ref="bib-leanhvinh-2020" /> (tr. 99); <xref ref="bib-nguyenhoangthach-2020" /> (tr. 20); <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 62) — cách dùng phổ biến.</p></li>
       </ul>
       <p>Ví dụ: Nếu <m>U = \{1,2,3,4,5\}</m> và <m>A = \{1,3,5\}</m> thì phần bù của <m>A</m> là <m>\overline{A} = \{2,4\}</m>.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-complete-bipartite-graph">
+    <title>complete bipartite graph (d.t.) — đồ thị hai phần đầy đủ</title>
+    <idx><h>complete bipartite graph</h></idx>
+    <idx><h>đồ thị hai phía đầy đủ</h></idx>
+    <idx><h>đồ thị hai phần đầy đủ</h></idx>
+    <idx><h>đồ thị lưỡng phân đầy đủ</h></idx>
+    <idx><h>đồ thị phân đôi đầy đủ</h></idx>
+    <statement>
+      <p>Đồ thị hai phía đầy đủ, ký hiệu <m>K_{m,n}</m>, là đồ thị đơn có tập đỉnh được phân hoạch thành hai tập rời nhau có kích thước <m>m</m> và <m>n</m>, trong đó mỗi đỉnh thuộc tập này được nối với mọi đỉnh thuộc tập kia bằng đúng một cạnh và không có cạnh nào nối hai đỉnh trong cùng một tập (theo <xref ref="bib-rosen-2019" />, Rosen §10.2).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>đồ thị hai phần đầy đủ</term> <xref ref="bib-leanhvinh-2020" /> (tr. 191); <xref ref="bib-nguyenhoangthach-2020" /> (tr. 65); <xref ref="bib-nguyenhuudien-2019" /> (tr. 233) — cách dùng phổ biến.</p></li>
+        <li><p><term>đồ thị hai phía đầy đủ</term> <xref ref="bib-nguyenducnghia-2006" />.</p></li>
+        <li><p><term>đồ thị lưỡng phân đầy đủ</term> <xref ref="bib-vudinhhoa-2003" /> (tr. 115); <xref ref="bib-vudinhhoa-2010" />.</p></li>
+        <li><p><term>đồ thị phân đôi đầy đủ</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 160); <xref ref="bib-doantamhoe-2009" />; <xref ref="bib-doducgiao-2009" /> (tr. 96).</p></li>
+      </ul>
+      <p>Ví dụ: Đồ thị <m>K_{2,3}</m> có một tập gồm <m>2</m> đỉnh và một tập gồm <m>3</m> đỉnh, với tổng cộng <m>6</m> cạnh nối mỗi đỉnh của tập thứ nhất tới mỗi đỉnh của tập thứ hai.</p>
+      <p>Xem thêm <xref ref="def-bipartite-graph" text="title" />, <xref ref="def-complete-graph" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-complete-graph">
+    <title>complete graph (d.t.) — đồ thị đầy đủ</title>
+    <idx><h>complete graph</h></idx>
+    <idx><h>n-đồ thị đầy đủ</h></idx>
+    <idx><h>đồ thị đầy đủ</h></idx>
+    <statement>
+      <p>Đồ thị đầy đủ <m>n</m> đỉnh, ký hiệu <m>K_n</m>, là đơn đồ thị vô hướng mà giữa mọi cặp đỉnh phân biệt đều có một cạnh nối (theo <xref ref="bib-rosen-2019" />, Rosen §10.2).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>đồ thị đầy đủ</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 65); <xref ref="bib-leanhvinh-2020" /> (tr. 15); <xref ref="bib-nguyenhuudien-2019" /> (tr. 159) — cách dùng phổ biến.</p></li>
+        <li><p><term>n-đồ thị đầy đủ</term> <xref ref="bib-ngodactan-2004" /> (tr. 190).</p></li>
+      </ul>
+      <p>Ví dụ: <m>K_3</m> là tam giác gồm <m>3</m> đỉnh và <m>3</m> cạnh, trong đó mỗi cặp trong <m>3</m> đỉnh đều được nối với nhau.</p>
+      <p>Xem thêm <xref ref="def-chromatic-number" text="title" />, <xref ref="def-complete-bipartite-graph" text="title" />, <xref ref="def-clique" text="title" />, <xref ref="def-complement-of-a-graph" text="title" />.</p>
     </statement>
   </definition>
   <definition xml:id="def-complete-matching">
@@ -519,6 +672,17 @@
       <p>Ví dụ: Thuật toán tìm kiếm tuyến tính trên danh sách <m>n</m> phần tử có độ phức tạp thời gian <m>O(n)</m>, còn tìm kiếm nhị phân có độ phức tạp <m>O(\log_2 n)</m>.</p>
     </statement>
   </definition>
+  <definition xml:id="def-composite">
+    <title>composite (t.t.)</title>
+    <idx><h>composite</h></idx>
+    <statement><p>Xem <xref ref="def-composite-number" text="title" />.</p></statement>
+  </definition>
+  <definition xml:id="def-composite-key">
+    <title>composite key (d.t.) — khóa phức hợp</title>
+    <idx><h>composite key</h></idx>
+    <idx><h>khóa phức hợp</h></idx>
+    <statement><p>Xem <xref ref="def-key" text="title" />.</p></statement>
+  </definition>
   <definition xml:id="def-composite-number">
     <title>composite number (d.t.) — hợp số</title>
     <idx><h>composite number</h></idx>
@@ -543,6 +707,95 @@
         <li><p><term>mệnh đề phức hợp</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 15); <xref ref="bib-doducgiao-2009" /> (tr. 228); <xref ref="bib-vudinhhoa-2010" />; <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 346) — cách dùng phổ biến.</p></li>
       </ul>
       <p>Ví dụ: Cho <m>p</m> là "Hôm nay trời mưa" và <m>q</m> là "Tôi ở nhà". Khi đó <m>p \wedge q</m>, <m>p \vee q</m> và <m>p \rightarrow q</m> đều là các mệnh đề phức hợp.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-computable-function">
+    <title>computable function (d.t.) — hàm tính được</title>
+    <idx><h>computable function</h></idx>
+    <idx><h>hàm khả tính</h></idx>
+    <idx><h>hàm số khả tính</h></idx>
+    <idx><h>hàm tính được</h></idx>
+    <statement>
+      <p>Hàm tính được là một hàm mà tồn tại một chương trình máy tính tìm được các giá trị của nó. Nói cách khác, một hàm <m>f</m> là tính được nếu có một chương trình máy tính, với mỗi đầu vào thuộc miền xác định, trả về giá trị tương ứng của <m>f</m> (theo <xref ref="bib-rosen-2019" />, Rosen §3.1).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>hàm tính được</term> <xref ref="bib-rosen-2003-vi" /> (tr. 833); <xref ref="bib-rosen-2003-vi" /> (tr. 862); <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 195) — cách dùng phổ biến.</p></li>
+        <li><p><term>hàm khả tính</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
+        <li><p><term>hàm số khả tính</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
+      </ul>
+      <p>Ví dụ: Hàm <m>f(n) = n!</m> trên tập số nguyên dương là tính được, vì có một chương trình tính giai thừa trả về giá trị <m>f(n)</m> với mọi <m>n</m>. Ngược lại, có những hàm không tính được, tức là không một chương trình máy tính nào tìm được mọi giá trị của chúng.</p>
+      <p>Xem thêm <xref ref="def-function" text="title" />, <xref ref="def-algorithm" text="title" />, <xref ref="def-recursive-function" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-concatenation">
+    <title>concatenation (d.t.) — phép ghép</title>
+    <idx><h>concatenation</h></idx>
+    <idx><h>ghép các xâu</h></idx>
+    <idx><h>ghép xâu</h></idx>
+    <idx><h>phép ghép</h></idx>
+    <statement>
+      <p>Phép ghép của hai xâu là xâu được tạo nên bằng cách viết các ký hiệu của xâu này nối tiếp vào sau xâu kia. Cụ thể, phép ghép của hai xâu <m>x</m> và <m>y</m>, ký hiệu <m>xy</m>, là xâu thu được bằng cách thêm các ký hiệu của <m>y</m> vào cuối xâu <m>x</m> (theo <xref ref="bib-rosen-2019" />, Rosen §5.3).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>phép ghép</term> <xref ref="bib-doxuanloi-2006" /> (tr. 15); <xref ref="bib-nguyenducnghia-2006" />; <xref ref="bib-cormen-2001-vi" /> (tr. 210); <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 252) — cách dùng phổ biến.</p></li>
+        <li><p><term>ghép các xâu</term> <xref ref="bib-rosen-2003-vi" /> (tr. 813).</p></li>
+        <li><p><term>ghép xâu</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
+      </ul>
+      <p>Ví dụ: Nếu <m>x = abra</m> và <m>y = cadabra</m> thì phép ghép của chúng là <m>xy = abracadabra</m>. Ghép một xâu bất kỳ với xâu rỗng <m>\lambda</m> giữ nguyên xâu đó, tức là <m>\lambda x = x \lambda = x</m>.</p>
+      <p>Xem thêm <xref ref="def-string" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-conclusion">
+    <title>conclusion (d.t.) — kết luận</title>
+    <idx><h>conclusion</h></idx>
+    <idx><h>kết luận</h></idx>
+    <statement>
+      <p>Kết luận là phát biểu cuối cùng trong một suy luận hoặc một dạng suy luận (theo <xref ref="bib-rosen-2019" />, Rosen §1.6).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>kết luận</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 29); <xref ref="bib-leanhvinh-2020" /> (tr. 186); <xref ref="bib-nguyenhoangthach-2020" /> (tr. 25); <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 68) — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Trong suy luận "Nếu trời mưa thì đường ướt; trời mưa; do đó đường ướt", các phát biểu <m>p \rightarrow q</m> và <m>p</m> là các giả thiết, còn phát biểu <m>q</m> ("đường ướt") là kết luận, tức là phát biểu cuối cùng được rút ra.</p>
+      <p>Xem thêm <xref ref="def-argument" text="title" />, <xref ref="def-argument-form" text="title" />, <xref ref="def-valid-argument" text="title" />, <xref ref="def-inference-rule" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-conditional-expectation">
+    <title>conditional expectation (d.t.) — kỳ vọng có điều kiện</title>
+    <idx><h>conditional expectation</h></idx>
+    <idx><h>kỳ vọng có điều kiện</h></idx>
+    <statement>
+      <p><em>Kỳ vọng có điều kiện</em> của biến ngẫu nhiên <m>X</m> khi biết biến cố <m>A</m> đã xảy ra (với <m>P(A) \gt 0</m>), ký hiệu <m>E[X\mid A]</m>, là giá trị trung bình của <m>X</m> tính theo phân phối có điều kiện đối với <m>A</m>, xác định bởi <m>\displaystyle E[X\mid A]=\sum_{x} x\cdot P(X=x\mid A)</m> (theo <xref ref="bib-libennowell-2022" />).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>kỳ vọng có điều kiện</term> <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-doducthai-2010" />; <xref ref="bib-phan-1976" /> (tr. 165) — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Tung một con xúc xắc cân đối, kỳ vọng số chấm khi biết kết quả là số chẵn là <m>E[X\mid A]=\frac{2+4+6}{3}=4</m>.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-conditional-independence">
+    <title>conditional independence (d.t.) — độc lập có điều kiện</title>
+    <idx><h>conditional independence</h></idx>
+    <idx><h>độc lập có điều kiện</h></idx>
+    <statement>
+      <p>Hai biến cố <m>A</m> và <m>B</m> được gọi là <em>độc lập có điều kiện</em> khi biết biến cố <m>C</m> (với <m>P(C) \gt 0</m>) nếu <m>P(A\cap B\mid C)=P(A\mid C)\cdot P(B\mid C)</m>. Khi đó việc biết <m>B</m> không cung cấp thêm thông tin về <m>A</m> một khi đã biết <m>C</m> (theo <xref ref="bib-libennowell-2022" />).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>độc lập có điều kiện</term> <xref ref="bib-cormen-2001-vi" /> — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Khi biết trời mưa (<m>C</m>), việc một người mang ô (<m>A</m>) và một người khác mang ô (<m>B</m>) có thể độc lập có điều kiện, dù không độc lập nếu chưa biết thời tiết.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-conditional-probability">
+    <title>conditional probability (d.t.) — xác suất có điều kiện</title>
+    <idx><h>conditional probability</h></idx>
+    <idx><h>xác suất có điều kiện</h></idx>
+    <statement>
+      <p><em>Xác suất có điều kiện</em> của biến cố <m>A</m> khi biết biến cố <m>B</m> đã xảy ra (với <m>P(B) \gt 0</m>), ký hiệu <m>P(A\mid B)</m>, được định nghĩa bởi <m>\displaystyle P(A\mid B)=\frac{P(A\cap B)}{P(B)}</m> (theo <xref ref="bib-libennowell-2022" />).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>xác suất có điều kiện</term> <xref ref="bib-cormen-2001-vi" />; <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-doducthai-2010" />; <xref ref="bib-phan-1976" /> (tr. 339) — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Tung hai con xúc xắc, xác suất tổng bằng <m>8</m> khi biết con thứ nhất ra <m>3</m> là <m>1/6</m>.</p>
     </statement>
   </definition>
   <definition xml:id="def-conditional-statement">
@@ -647,6 +900,92 @@
       <p>Ví dụ: Đồ thị đầy đủ <m>K_n</m> với <m>n \geq 1</m> là liên thông, vì giữa hai đỉnh bất kỳ luôn có một cạnh nối trực tiếp. Đồ thị gồm hai đỉnh không kề nhau và không có cạnh nào là không liên thông.</p>
     </statement>
   </definition>
+  <definition xml:id="def-connected-component">
+    <title>connected component (d.t.) — thành phần liên thông</title>
+    <idx><h>connected component</h></idx>
+    <idx><h>mảng liên thông</h></idx>
+    <idx><h>thành phần liên thông</h></idx>
+    <statement>
+      <p>Thành phần liên thông của một đồ thị <m>G</m> là một đồ thị con liên thông cực đại của <m>G</m>, tức là một đồ thị con liên thông không chứa trong bất kỳ đồ thị con liên thông nào lớn hơn (theo <xref ref="bib-rosen-2019" />, Rosen §10.4).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>thành phần liên thông</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 72); <xref ref="bib-leanhvinh-2020" /> (tr. 18); <xref ref="bib-nguyenhuudien-2019" /> (tr. 168); <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 64) — cách dùng phổ biến.</p></li>
+        <li><p><term>mảng liên thông</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 180); <xref ref="bib-hoangchithanh-2007" /> (tr. 14); <xref ref="bib-hoangchithanh-2011" />.</p></li>
+      </ul>
+      <p>Ví dụ: Đồ thị gồm hai chu trình rời nhau <m>C_3</m> và <m>C_4</m> có đúng hai thành phần liên thông.</p>
+      <p>Xem thêm <xref ref="def-connected-graph" text="title" />, <xref ref="def-subgraph" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-connected-graph">
+    <title>connected graph (d.t.) — đồ thị liên thông</title>
+    <idx><h>connected graph</h></idx>
+    <idx><h>liên thông</h></idx>
+    <idx><h>đồ thị liên thông</h></idx>
+    <statement>
+      <p>Một đồ thị vô hướng <m>G</m> được gọi là đồ thị liên thông nếu giữa mọi cặp đỉnh phân biệt của <m>G</m> luôn có một đường đi nối chúng (theo <xref ref="bib-rosen-2019" />, Rosen §10.4).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>đồ thị liên thông</term> <xref ref="bib-leanhvinh-2020" /> (tr. 18); <xref ref="bib-nguyenhoangthach-2020" /> (tr. 73); <xref ref="bib-nguyenhuudien-2019" /> (tr. 169) — cách dùng phổ biến.</p></li>
+        <li><p><term>liên thông</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 72); <xref ref="bib-nguyenhuudien-2019" /> (tr. 168); <xref ref="bib-leanhvinh-2020" /> (tr. 7); <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 24).</p></li>
+      </ul>
+      <p>Ví dụ: Đồ thị đầy đủ <m>K_n</m> với <m>n \geq 1</m> là một đồ thị liên thông, vì giữa hai đỉnh phân biệt bất kỳ luôn có một cạnh nối chúng.</p>
+      <p>Xem thêm <xref ref="def-connected-component" text="title" />, <xref ref="def-connectivity" text="title" />, <xref ref="def-cut-vertex" text="title" />, <xref ref="def-complete-graph" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-connectivity">
+    <title>connectivity (d.t.) — liên thông đỉnh, số liên thông đỉnh, độ liên thông, độ liên thông đỉnh</title>
+    <idx><h>connectivity</h></idx>
+    <idx><h>liên thông đỉnh</h></idx>
+    <idx><h>số liên thông đỉnh</h></idx>
+    <idx><h>độ liên thông</h></idx>
+    <idx><h>độ liên thông đỉnh</h></idx>
+    <statement><p>Xem <xref ref="def-vertex-connectivity" text="title" />.</p></statement>
+  </definition>
+  <definition xml:id="def-consistent-compound-propositions">
+    <title>consistent compound propositions (d.t.) — nhất quán</title>
+    <idx><h>consistent compound propositions</h></idx>
+    <idx><h>nhất quán</h></idx>
+    <statement>
+      <p>Một tập các mệnh đề phức hợp được gọi là nhất quán nếu tồn tại một phép gán các giá trị chân lý cho các biến mệnh đề làm cho tất cả các mệnh đề trong tập đó cùng nhận giá trị đúng (theo <xref ref="bib-rosen-2019" />, Rosen §1.1).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>nhất quán</term> <xref ref="bib-doxuanloi-2006" /> (tr. 117); <xref ref="bib-cormen-2001-vi" /> (tr. 240); <xref ref="bib-doducthai-2010" /> (tr. 3); <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 75) — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Hai mệnh đề <m>p \rightarrow q</m> và <m>p \wedge \neg q</m> là không nhất quán, vì không có phép gán giá trị chân lý nào làm cho cả hai cùng đúng: nếu <m>p \wedge \neg q</m> đúng thì <m>p</m> đúng và <m>q</m> sai, khi đó <m>p \rightarrow q</m> sai. Ngược lại, hai mệnh đề <m>p \vee q</m> và <m>p \rightarrow q</m> là nhất quán, vì phép gán <m>p</m> đúng và <m>q</m> đúng làm cho cả hai cùng đúng.</p>
+      <p>Xem thêm <xref ref="def-compound-proposition" text="title" />, <xref ref="def-proposition" text="title" />, <xref ref="def-tautology" text="title" />, <xref ref="def-contradiction" text="title" />, <xref ref="def-truth-table" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-constructive-existence-proof">
+    <title>constructive existence proof (d.t.) — chứng minh tồn tại kiến thiết</title>
+    <idx><h>constructive existence proof</h></idx>
+    <idx><h>chứng minh tồn tại</h></idx>
+    <idx><h>chứng minh tồn tại kiến thiết</h></idx>
+    <statement>
+      <p>Chứng minh tồn tại kiến thiết là một chứng minh khẳng định rằng tồn tại một phần tử có tính chất mong muốn bằng cách chỉ ra một cách tường minh một phần tử như vậy. Nói cách khác, để chứng minh mệnh đề <m>\exists x P(x)</m>, ta tìm được một phần tử <m>a</m> và chỉ ra rằng <m>P(a)</m> đúng (theo <xref ref="bib-rosen-2019" />, Rosen §1.7).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>chứng minh tồn tại kiến thiết</term> <xref ref="bib-rosen-2003-vi" /> (tr. 220); <xref ref="bib-rosen-2003-vi" /> (tr. 220); <xref ref="bib-vudinhhoa-2010" /> — cách dùng phổ biến.</p></li>
+        <li><p><term>chứng minh tồn tại</term> <xref ref="bib-nguyenvanmau-2007" />; <xref ref="bib-sierpinski-2012" /> (tr. 32); <xref ref="bib-vudinhhoa-2010" />.</p></li>
+      </ul>
+      <p>Ví dụ: Để chứng minh tồn tại một số nguyên dương biểu diễn được thành tổng các lập phương của các số nguyên dương theo hai cách khác nhau, ta chỉ ra tường minh số <m>1729 = 10^3 + 9^3 = 12^3 + 1^3</m>; việc trưng ra phần tử cụ thể này là một chứng minh tồn tại kiến thiết.</p>
+      <p>Xem thêm <xref ref="def-proof" text="title" />, <xref ref="def-indirect-proof" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-constructive-proof">
+    <title>constructive proof (d.t.) — chứng minh kiến thiết</title>
+    <idx><h>constructive proof</h></idx>
+    <idx><h>chứng minh kiến thiết</h></idx>
+    <idx><h>chứng minh xây dựng</h></idx>
+    <statement>
+      <p><em>Chứng minh kiến thiết</em> là chứng minh sự tồn tại của một đối tượng thỏa mãn tính chất cho trước bằng cách chỉ ra (xây dựng) một đối tượng cụ thể như vậy, hoặc đưa ra một thuật toán tạo ra nó. Khác với <em>chứng minh không kiến thiết</em>, vốn chỉ khẳng định sự tồn tại mà không chỉ ra đối tượng cụ thể (theo <xref ref="bib-libennowell-2022" />).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>chứng minh kiến thiết</term> <xref ref="bib-vudinhhoa-2010" /> — cách dùng phổ biến.</p></li>
+        <li><p><term>chứng minh xây dựng</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
+      </ul>
+      <p>Ví dụ: Để chứng minh tồn tại số nguyên tố lớn hơn <m>10</m>, ta chỉ ra số <m>11</m> là một ví dụ cụ thể.</p>
+    </statement>
+  </definition>
   <definition xml:id="def-contingency">
     <title>contingency (d.t.) — tiếp liên</title>
     <idx><h>contingency</h></idx>
@@ -660,6 +999,22 @@
         <li><p><term>mệnh đề tiếp liên</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
       </ul>
       <p>Ví dụ: Mệnh đề <m>p \vee q</m> là một tiếp liên, vì nó nhận giá trị đúng khi <m>p</m> đúng và nhận giá trị sai khi cả <m>p</m> và <m>q</m> đều sai.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-continuum-hypothesis">
+    <title>continuum hypothesis (d.t.) — giả thuyết continuum</title>
+    <idx><h>continuum hypothesis</h></idx>
+    <idx><h>giả thuyết continuum</h></idx>
+    <idx><h>giả thuyết liên tục</h></idx>
+    <statement>
+      <p>Giả thuyết continuum là phát biểu khẳng định rằng không có tập hợp nào có lực lượng nằm thực sự giữa lực lượng của tập các số nguyên và lực lượng của tập các số thực (theo <xref ref="bib-rosen-2019" />, Rosen §2.5).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>giả thuyết continuum</term> <xref ref="bib-sierpinski-2012" /> — cách dùng phổ biến.</p></li>
+        <li><p><term>giả thuyết liên tục</term> <xref ref="bib-wikipedia-vi" />.</p></li>
+      </ul>
+      <p>Ví dụ: Tập các số nguyên <m>\mathbb{Z}</m> có lực lượng <m>\aleph_0</m> và tập các số thực <m>\mathbb{R}</m> có lực lượng <m>2^{\aleph_0}</m>; giả thuyết continuum khẳng định không tồn tại tập hợp <m>S</m> với <m>\aleph_0  \lt  |S|  \lt  2^{\aleph_0}</m>, tức là <m>2^{\aleph_0} = \aleph_1</m>.</p>
+      <p>Xem thêm <xref ref="def-cardinality" text="title" />, <xref ref="def-countable-set" text="title" />, <xref ref="def-uncountable-set" text="title" />.</p>
     </statement>
   </definition>
   <definition xml:id="def-contradiction">
@@ -739,6 +1094,48 @@
       <p>Ví dụ: Để chứng minh tính đúng đắn của thuật toán <m>\mathrm{DFS}</m> trên đồ thị liên thông <m>G</m>, ta chỉ ra rằng thuật toán thăm mọi đỉnh của <m>G</m> đúng một lần và luôn kết thúc.</p>
     </statement>
   </definition>
+  <definition xml:id="def-correlated-events">
+    <title>correlated events (d.t.) — biến cố tương quan</title>
+    <idx><h>correlated events</h></idx>
+    <idx><h>biến cố tương quan</h></idx>
+    <statement>
+      <p>Hai biến cố <m>A</m> và <m>B</m> được gọi là <em>tương quan</em> nếu chúng không độc lập, tức là <m>P(A\cap B)\neq P(A)\cdot P(B)</m>. Chúng <em>tương quan dương</em> nếu <m>P(A\cap B) \gt P(A)\cdot P(B)</m> và <em>tương quan âm</em> nếu <m>P(A\cap B) \lt P(A)\cdot P(B)</m> (theo <xref ref="bib-libennowell-2022" />).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>biến cố tương quan</term> <em>(thuật ngữ chuẩn; chưa truy được trong kho văn bản)</em> — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Biến cố "trời mưa" và "có người mang ô" thường tương quan dương.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-count-of-an-itemset">
+    <title>count of an itemset (d.t.) — số đếm của tập mục</title>
+    <idx><h>count of an itemset</h></idx>
+    <idx><h>số đếm của tập mục</h></idx>
+    <statement>
+      <p>Số đếm của một tập mục là số giao dịch chứa tập mục đó.</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>số đếm của tập mục</term> <em>(thuật ngữ chuẩn; chưa truy được trong kho văn bản)</em> — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Giả sử ta có các giao dịch <m>T_1 = \{a, b, c\}</m>, <m>T_2 = \{a, c\}</m>, <m>T_3 = \{b, c\}</m> và <m>T_4 = \{a, b, c\}</m>. Khi đó số đếm của tập mục <m>\{a, c\}</m> bằng <m>3</m>, vì có ba giao dịch <m>T_1</m>, <m>T_2</m> và <m>T_4</m> chứa cả <m>a</m> và <m>c</m>.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-countable-set">
+    <title>countable set (d.t.) — tập đếm được</title>
+    <idx><h>countable set</h></idx>
+    <idx><h>tập hợp đếm được</h></idx>
+    <idx><h>tập đếm được</h></idx>
+    <statement>
+      <p>Một tập hợp được gọi là tập đếm được nếu nó hữu hạn hoặc có cùng lực lượng với tập các số nguyên dương. Khi một tập vô hạn là đếm được, ta nói nó vô hạn đếm được và lực lượng của nó được ký hiệu là <m>\aleph_0</m> (đọc là "aleph không") (theo <xref ref="bib-rosen-2019" />, Rosen §2.5).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>tập đếm được</term> <xref ref="bib-vudinhhoa-2003" /> (tr. 15) — cách dùng phổ biến.</p></li>
+        <li><p><term>tập hợp đếm được</term> <xref ref="bib-doducgiao-2000" /> (tr. 343); <xref ref="bib-doducgiao-2008" /> (tr. 140); <xref ref="bib-vudinhhoa-2010" />; <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 7).</p></li>
+      </ul>
+      <p>Ví dụ: Tập các số nguyên dương lẻ là tập đếm được, vì hàm <m>f(n) = 2n - 1</m> là một song ánh từ tập các số nguyên dương lên tập đó.</p>
+      <p>Xem thêm <xref ref="def-cardinality" text="title" />, <xref ref="def-uncountable-set" text="title" />.</p>
+    </statement>
+  </definition>
   <definition xml:id="def-counterexample">
     <title>counterexample (d.t.) — phản ví dụ</title>
     <idx><h>counterexample</h></idx>
@@ -770,273 +1167,6 @@
       </ul>
       <p>Ví dụ: Hai loại phủ thường gặp: phủ đỉnh — tập đỉnh sao cho mọi cạnh có ít nhất một đầu mút trong tập; và phủ cạnh — tập cạnh sao cho mọi đỉnh là đầu mút của một cạnh trong tập.</p>
       <p>Xem thêm <xref ref="def-vertex-cover" text="title" />, <xref ref="def-edge-cover" text="title" />.</p>
-    </statement>
-  </definition>
-  <definition xml:id="def-cut-edge">
-    <title>cut edge (d.t.) — cạnh cắt</title>
-    <idx><h>cut edge</h></idx>
-    <idx><h>cạnh cầu</h></idx>
-    <idx><h>cạnh cắt</h></idx>
-    <idx><h>cầu</h></idx>
-    <statement>
-      <p>Cạnh cắt (hay cầu) của một đồ thị <m>G</m> là một cạnh <m>e</m> mà khi bỏ đi sẽ làm tăng số thành phần liên thông của đồ thị, tức là <m>G - e</m> có nhiều thành phần liên thông hơn <m>G</m> (theo <xref ref="bib-rosen-2019" />, Rosen §10.4).</p>
-      <p>Thuật ngữ tiếng Việt tương ứng:</p>
-      <ul>
-        <li><p><term>cạnh cắt</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 73); <xref ref="bib-nguyenhuudien-2019" /> (tr. 169); <xref ref="bib-leanhvinh-2020" /> (tr. 137) — cách dùng phổ biến.</p></li>
-        <li><p><term>cạnh cầu</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 73); <xref ref="bib-leanhvinh-2020" /> (tr. 26); <xref ref="bib-doducgiao-2009" /> (tr. 133).</p></li>
-        <li><p><term>cầu</term> <xref ref="bib-leanhvinh-2020" /> (tr. 26); <xref ref="bib-rosen-2003-vi" /> (tr. 14).</p></li>
-      </ul>
-      <p>Ví dụ: Trong một đường đi <m>P_n</m>, mọi cạnh đều là cạnh cắt; ngược lại, trong một chu trình <m>C_n</m> không có cạnh nào là cạnh cắt.</p>
-    </statement>
-  </definition>
-  <definition xml:id="def-carmichael-number">
-    <title>Carmichael number (d.t.) — số Carmichael</title>
-    <idx><h>Carmichael number</h></idx>
-    <idx><h>số Carmichael</h></idx>
-    <statement>
-      <p>Số Carmichael là một hợp số <m>n</m> sao cho <m>n</m> là số giả nguyên tố theo mọi cơ sở nguyên tố cùng nhau với <m>n</m> (theo <xref ref="bib-rosen-2019" />, Rosen §3.5).</p>
-      <p>Thuật ngữ tiếng Việt tương ứng:</p>
-      <ul>
-        <li><p><term>số Carmichael</term> <xref ref="bib-rosen-2003-vi" /> (tr. 206); <xref ref="bib-sierpinski-2012" /> (tr. 143); <xref ref="bib-cormen-2001-vi" /> (tr. 931) — cách dùng phổ biến.</p></li>
-      </ul>
-      <p>Ví dụ: Số <m>561 = 3 \cdot 11 \cdot 17</m> là số Carmichael nhỏ nhất: nó là hợp số, nhưng với mọi số nguyên <m>b</m> thỏa mãn <m>\gcd(b, 561) = 1</m> ta đều có <m>b^{560} \equiv 1 \pmod{561}</m>, nên <m>561</m> là số giả nguyên tố theo mọi cơ sở như vậy.</p>
-      <p>Xem thêm <xref ref="def-composite-number" text="title" />, <xref ref="def-prime-number" text="title" />.</p>
-    </statement>
-  </definition>
-  <definition xml:id="def-character-cipher">
-    <title>character cipher (d.t.) — mật mã ký tự</title>
-    <idx><h>character cipher</h></idx>
-    <idx><h>mật mã</h></idx>
-    <idx><h>mật mã của Caesar</h></idx>
-    <idx><h>mật mã học</h></idx>
-    <idx><h>mật mã ký tự</h></idx>
-    <statement>
-      <p>Mật mã ký tự là một loại mật mã mã hóa thông điệp bằng cách mã hóa từng ký tự một. Mỗi ký tự của bản rõ được thay thế riêng lẻ bởi một ký tự khác theo một quy tắc cố định, độc lập với các ký tự còn lại (theo <xref ref="bib-rosen-2019" />, Rosen §4.6).</p>
-      <p>Thuật ngữ tiếng Việt tương ứng:</p>
-      <ul>
-        <li><p><term>mật mã ký tự</term> <em>(thuật ngữ chuẩn; chưa truy được trong kho văn bản)</em> — cách dùng phổ biến.</p></li>
-        <li><p><term>mật mã</term> <xref ref="bib-hoangchithanh-2011" />; <xref ref="bib-nguyenhuudien-2019" /> (tr. 161); <xref ref="bib-sierpinski-2012" />; <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 106).</p></li>
-        <li><p><term>mật mã của Caesar</term> <xref ref="bib-rosen-2003-vi" /> (tr. 164).</p></li>
-        <li><p><term>mật mã học</term> <xref ref="bib-hoangchithanh-2007" /> (tr. 146); <xref ref="bib-hoangchithanh-2011" />; <xref ref="bib-nguyenhuudien-2019" /> (tr. 258).</p></li>
-      </ul>
-      <p>Ví dụ: Mật mã Caesar là một ví dụ của mật mã ký tự. Mỗi chữ cái được biểu diễn bởi một số <m>p</m> với <m>0 \leq p \leq 25</m> và được mã hóa từng chữ một theo hàm <m>f(p) = (p + 3) \bmod 26</m>; chẳng hạn chữ B (ứng với <m>p = 1</m>) được chuyển thành chữ E (ứng với <m>4</m>).</p>
-      <p>Xem thêm <xref ref="def-private-key-cryptography" text="title" />, <xref ref="def-public-key-cryptography" text="title" />.</p>
-    </statement>
-  </definition>
-  <definition xml:id="def-circular-reasoning">
-    <title>circular reasoning (d.t.) — lý luận quẩn</title>
-    <idx><h>circular reasoning</h></idx>
-    <idx><h>lý luận quẩn</h></idx>
-    <idx><h>lập luận luẩn quẩn</h></idx>
-    <idx><h>lập luận vòng quanh</h></idx>
-    <idx><h>lập luận vòng tròn</h></idx>
-    <idx><h>lập luận vòng vo</h></idx>
-    <idx><h>nguỵ biện dùng ngay câu hỏi</h></idx>
-    <idx><h>ngụy biện vòng tròn</h></idx>
-    <idx><h>suy luận quẩn</h></idx>
-    <statement>
-      <p>Suy luận quẩn là kiểu suy luận trong đó một phát biểu được chứng minh bằng cách dùng chính nó. Nói cách khác, một hay nhiều bước trong lập luận dựa trên chính mệnh đề cần chứng minh, nên không cho ta một chứng minh hợp lệ. Thuật ngữ tiếng Việt cho khái niệm này hiện chưa thống nhất (theo <xref ref="bib-rosen-2019" />, Rosen §1.7).</p>
-      <p>Thuật ngữ tiếng Việt tương ứng:</p>
-      <ul>
-        <li><p><term>lý luận quẩn</term> <xref ref="bib-rosen-2003-vi" /> (tr. 214) — cách dùng phổ biến.</p></li>
-        <li><p><term>lập luận luẩn quẩn</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
-        <li><p><term>lập luận vòng quanh</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
-        <li><p><term>lập luận vòng tròn</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
-        <li><p><term>lập luận vòng vo</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
-        <li><p><term>nguỵ biện dùng ngay câu hỏi</term> <xref ref="bib-rosen-2003-vi" /> (tr. 214).</p></li>
-        <li><p><term>ngụy biện vòng tròn</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
-        <li><p><term>suy luận quẩn</term> <xref ref="bib-rosen-2003-vi" /> (tr. 224).</p></li>
-      </ul>
-      <p>Ví dụ: Giả sử ta muốn chứng minh mệnh đề "nếu <m>n^2</m> là số chẵn thì <m>n</m> là số chẵn" bằng cách giả thiết "<m>n</m> là số chẵn" rồi suy ra <m>n^2</m> chẵn; khi đó ta đã dùng ngay điều cần chứng minh làm giả thiết, nên đây là một suy luận quẩn.</p>
-      <p>Xem thêm <xref ref="def-fallacy" text="title" />, <xref ref="def-valid-argument" text="title" />, <xref ref="def-proof" text="title" />.</p>
-    </statement>
-  </definition>
-  <definition xml:id="def-class-p">
-    <title>class P (d.t.) — lớp P</title>
-    <idx><h>class P</h></idx>
-    <idx><h>lớp P</h></idx>
-    <statement>
-      <p>Lớp <m>\mathsf{P}</m> là lớp các bài toán giải được trong thời gian đa thức, tức là các bài toán mà tồn tại một thuật toán giải chúng với độ phức tạp thời gian là một hàm đa thức theo kích thước đầu vào (theo <xref ref="bib-rosen-2019" />, Rosen §3.3).</p>
-      <p>Thuật ngữ tiếng Việt tương ứng:</p>
-      <ul>
-        <li><p><term>lớp P</term> <em>(thuật ngữ chuẩn; chưa truy được trong kho văn bản)</em> — cách dùng phổ biến.</p></li>
-      </ul>
-      <p>Ví dụ: Bài toán sắp xếp một bảng kê gồm <m>n</m> phần tử thuộc lớp <m>\mathsf{P}</m> vì có thể giải được bằng thuật toán với độ phức tạp <m>O(n^2)</m>, là một hàm đa thức theo <m>n</m>; tương tự, bài toán tìm kiếm tuyến tính có độ phức tạp <m>O(n)</m> nên cũng thuộc lớp <m>\mathsf{P}</m>.</p>
-      <p>Xem thêm <xref ref="def-time-complexity" text="title" />, <xref ref="def-complexity" text="title" />, <xref ref="def-algorithm-analysis" text="title" />, <xref ref="def-polynomial" text="title" />.</p>
-    </statement>
-  </definition>
-  <definition xml:id="def-combinatorial-proof">
-    <title>combinatorial proof (d.t.) — chứng minh tổ hợp</title>
-    <idx><h>combinatorial proof</h></idx>
-    <idx><h>chứng minh tổ hợp</h></idx>
-    <statement>
-      <p>Chứng minh tổ hợp là một chứng minh sử dụng các lập luận đếm thay vì biến đổi đại số. Thông thường, một đẳng thức được chứng minh bằng cách đếm số phần tử của cùng một tập hợp hữu hạn theo hai cách khác nhau, hoặc bằng cách thiết lập một song ánh giữa hai tập hợp hữu hạn (theo <xref ref="bib-rosen-2019" />, Rosen §6.4).</p>
-      <p>Thuật ngữ tiếng Việt tương ứng:</p>
-      <ul>
-        <li><p><term>chứng minh tổ hợp</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 83); <xref ref="bib-nguyenhoangthach-2020" /> (tr. 21) — cách dùng phổ biến.</p></li>
-      </ul>
-      <p>Ví dụ: Để chứng minh đẳng thức <m>\binom{n}{k} = \binom{n}{n-k}</m>, ta dùng một chứng minh tổ hợp: việc chọn ra <m>k</m> phần tử từ một tập <m>n</m> phần tử tương ứng một-một với việc chọn ra <m>n-k</m> phần tử bị loại, nên hai vế đếm cùng một số đối tượng.</p>
-      <p>Xem thêm <xref ref="def-double-counting-proof" text="title" />, <xref ref="def-bijection" text="title" />.</p>
-    </statement>
-  </definition>
-  <definition xml:id="def-combinatorics">
-    <title>combinatorics (d.t.) — lý thuyết tổ hợp</title>
-    <idx><h>combinatorics</h></idx>
-    <idx><h>lý thuyết tổ hợp</h></idx>
-    <idx><h>sắp xếp các đối tượng</h></idx>
-    <idx><h>toán học tổ hợp</h></idx>
-    <idx><h>toán tổ hợp</h></idx>
-    <statement>
-      <p>Lý thuyết tổ hợp là ngành nghiên cứu về cách sắp xếp các đối tượng. Nó gắn liền với việc đếm và nghiên cứu các cách bố trí những đối tượng của một tập hợp, có kể tới thứ tự hoặc không (theo <xref ref="bib-rosen-2019" />, Rosen §4.1).</p>
-      <p>Thuật ngữ tiếng Việt tương ứng:</p>
-      <ul>
-        <li><p><term>lý thuyết tổ hợp</term> <xref ref="bib-nguyenducnghia-2006" />; <xref ref="bib-leanhvinh-2020" /> (tr. 255); <xref ref="bib-nguyenhuudien-2019" /> (tr. 3); <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 422) — cách dùng phổ biến.</p></li>
-        <li><p><term>sắp xếp các đối tượng</term> <xref ref="bib-rosen-2003-vi" /> (tr. 290); <xref ref="bib-vudinhhoa-2010" />.</p></li>
-        <li><p><term>toán học tổ hợp</term> <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 59).</p></li>
-        <li><p><term>toán tổ hợp</term> <xref ref="bib-nguyenvanmau-2007" />; <xref ref="bib-doducthai-2010" /> (tr. 41); <xref ref="bib-vudinhhoa-2010" />.</p></li>
-      </ul>
-      <p>Ví dụ: Nhiều bài toán có thể diễn đạt dưới dạng sắp xếp các đối tượng của một tập hợp. Chẳng hạn, số cách sắp xếp có thứ tự <m>k</m> trong <m>n</m> đối tượng khác nhau là <m>\displaystyle\frac{n!}{(n-k)!}</m>, còn số cách chọn không kể thứ tự <m>k</m> trong <m>n</m> đối tượng là <m>\displaystyle\binom{n}{k}</m>. Việc đếm các sắp xếp như vậy là một bài toán cơ bản của lý thuyết tổ hợp.</p>
-      <p>Xem thêm <xref ref="def-addition-rule" text="title" />, <xref ref="def-combination" text="title" />, <xref ref="def-permutation" text="title" />.</p>
-    </statement>
-  </definition>
-  <definition xml:id="def-comparable">
-    <title>comparable (t.t.) — so sánh được</title>
-    <idx><h>comparable</h></idx>
-    <idx><h>so sánh được</h></idx>
-    <statement>
-      <p>Hai phần tử <m>a</m> và <m>b</m> của một tập sắp thứ tự bộ phận được gọi là so sánh được nếu <m>a \preceq b</m> hoặc <m>b \preceq a</m>.</p>
-      <p>Thuật ngữ tiếng Việt tương ứng:</p>
-      <ul>
-        <li><p><term>so sánh được</term> <xref ref="bib-ngodactan-2004" /> (tr. 164); <xref ref="bib-nguyenhuudien-2019" /> (tr. 140); <xref ref="bib-vudinhhoa-2010" />; <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 7) — cách dùng phổ biến.</p></li>
-      </ul>
-      <p>Ví dụ: Trong tập sắp thứ tự bộ phận <m>(\mathbb{Z}^{+}, \mid)</m> với quan hệ chia hết, hai số <m>3</m> và <m>9</m> là so sánh được vì <m>3 \mid 9</m>, trong khi <m>2</m> và <m>3</m> không so sánh được vì không số nào chia hết số kia.</p>
-      <p>Xem thêm <xref ref="def-partial-order" text="title" />, <xref ref="def-poset" text="title" />, <xref ref="def-total-order" text="title" />.</p>
-    </statement>
-  </definition>
-  <definition xml:id="def-compatible-total-ordering">
-    <title>compatible total ordering (d.t.) — thứ tự toàn phần tương thích</title>
-    <idx><h>compatible total ordering</h></idx>
-    <idx><h>thứ tự toàn phần tương thích</h></idx>
-    <statement><p>Xem <xref ref="def-topological-sort" text="title" />.</p></statement>
-  </definition>
-  <definition xml:id="def-composite-key">
-    <title>composite key (d.t.) — khóa phức hợp</title>
-    <idx><h>composite key</h></idx>
-    <idx><h>khóa phức hợp</h></idx>
-    <statement><p>Xem <xref ref="def-key" text="title" />.</p></statement>
-  </definition>
-  <definition xml:id="def-composite">
-    <title>composite (t.t.)</title>
-    <idx><h>composite</h></idx>
-    <statement><p>Xem <xref ref="def-composite-number" text="title" />.</p></statement>
-  </definition>
-  <definition xml:id="def-computable-function">
-    <title>computable function (d.t.) — hàm tính được</title>
-    <idx><h>computable function</h></idx>
-    <idx><h>hàm khả tính</h></idx>
-    <idx><h>hàm số khả tính</h></idx>
-    <idx><h>hàm tính được</h></idx>
-    <statement>
-      <p>Hàm tính được là một hàm mà tồn tại một chương trình máy tính tìm được các giá trị của nó. Nói cách khác, một hàm <m>f</m> là tính được nếu có một chương trình máy tính, với mỗi đầu vào thuộc miền xác định, trả về giá trị tương ứng của <m>f</m> (theo <xref ref="bib-rosen-2019" />, Rosen §3.1).</p>
-      <p>Thuật ngữ tiếng Việt tương ứng:</p>
-      <ul>
-        <li><p><term>hàm tính được</term> <xref ref="bib-rosen-2003-vi" /> (tr. 833); <xref ref="bib-rosen-2003-vi" /> (tr. 862); <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 195) — cách dùng phổ biến.</p></li>
-        <li><p><term>hàm khả tính</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
-        <li><p><term>hàm số khả tính</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
-      </ul>
-      <p>Ví dụ: Hàm <m>f(n) = n!</m> trên tập số nguyên dương là tính được, vì có một chương trình tính giai thừa trả về giá trị <m>f(n)</m> với mọi <m>n</m>. Ngược lại, có những hàm không tính được, tức là không một chương trình máy tính nào tìm được mọi giá trị của chúng.</p>
-      <p>Xem thêm <xref ref="def-function" text="title" />, <xref ref="def-algorithm" text="title" />, <xref ref="def-recursive-function" text="title" />.</p>
-    </statement>
-  </definition>
-  <definition xml:id="def-concatenation">
-    <title>concatenation (d.t.) — phép ghép</title>
-    <idx><h>concatenation</h></idx>
-    <idx><h>ghép các xâu</h></idx>
-    <idx><h>ghép xâu</h></idx>
-    <idx><h>phép ghép</h></idx>
-    <statement>
-      <p>Phép ghép của hai xâu là xâu được tạo nên bằng cách viết các ký hiệu của xâu này nối tiếp vào sau xâu kia. Cụ thể, phép ghép của hai xâu <m>x</m> và <m>y</m>, ký hiệu <m>xy</m>, là xâu thu được bằng cách thêm các ký hiệu của <m>y</m> vào cuối xâu <m>x</m> (theo <xref ref="bib-rosen-2019" />, Rosen §5.3).</p>
-      <p>Thuật ngữ tiếng Việt tương ứng:</p>
-      <ul>
-        <li><p><term>phép ghép</term> <xref ref="bib-doxuanloi-2006" /> (tr. 15); <xref ref="bib-nguyenducnghia-2006" />; <xref ref="bib-cormen-2001-vi" /> (tr. 210); <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 252) — cách dùng phổ biến.</p></li>
-        <li><p><term>ghép các xâu</term> <xref ref="bib-rosen-2003-vi" /> (tr. 813).</p></li>
-        <li><p><term>ghép xâu</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
-      </ul>
-      <p>Ví dụ: Nếu <m>x = abra</m> và <m>y = cadabra</m> thì phép ghép của chúng là <m>xy = abracadabra</m>. Ghép một xâu bất kỳ với xâu rỗng <m>\lambda</m> giữ nguyên xâu đó, tức là <m>\lambda x = x \lambda = x</m>.</p>
-      <p>Xem thêm <xref ref="def-string" text="title" />.</p>
-    </statement>
-  </definition>
-  <definition xml:id="def-conclusion">
-    <title>conclusion (d.t.) — kết luận</title>
-    <idx><h>conclusion</h></idx>
-    <idx><h>kết luận</h></idx>
-    <statement>
-      <p>Kết luận là phát biểu cuối cùng trong một suy luận hoặc một dạng suy luận (theo <xref ref="bib-rosen-2019" />, Rosen §1.6).</p>
-      <p>Thuật ngữ tiếng Việt tương ứng:</p>
-      <ul>
-        <li><p><term>kết luận</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 29); <xref ref="bib-leanhvinh-2020" /> (tr. 186); <xref ref="bib-nguyenhoangthach-2020" /> (tr. 25); <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 68) — cách dùng phổ biến.</p></li>
-      </ul>
-      <p>Ví dụ: Trong suy luận "Nếu trời mưa thì đường ướt; trời mưa; do đó đường ướt", các phát biểu <m>p \rightarrow q</m> và <m>p</m> là các giả thiết, còn phát biểu <m>q</m> ("đường ướt") là kết luận, tức là phát biểu cuối cùng được rút ra.</p>
-      <p>Xem thêm <xref ref="def-argument" text="title" />, <xref ref="def-argument-form" text="title" />, <xref ref="def-valid-argument" text="title" />, <xref ref="def-inference-rule" text="title" />.</p>
-    </statement>
-  </definition>
-  <definition xml:id="def-consistent-compound-propositions">
-    <title>consistent compound propositions (d.t.) — nhất quán</title>
-    <idx><h>consistent compound propositions</h></idx>
-    <idx><h>nhất quán</h></idx>
-    <statement>
-      <p>Một tập các mệnh đề phức hợp được gọi là nhất quán nếu tồn tại một phép gán các giá trị chân lý cho các biến mệnh đề làm cho tất cả các mệnh đề trong tập đó cùng nhận giá trị đúng (theo <xref ref="bib-rosen-2019" />, Rosen §1.1).</p>
-      <p>Thuật ngữ tiếng Việt tương ứng:</p>
-      <ul>
-        <li><p><term>nhất quán</term> <xref ref="bib-doxuanloi-2006" /> (tr. 117); <xref ref="bib-cormen-2001-vi" /> (tr. 240); <xref ref="bib-doducthai-2010" /> (tr. 3); <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 75) — cách dùng phổ biến.</p></li>
-      </ul>
-      <p>Ví dụ: Hai mệnh đề <m>p \rightarrow q</m> và <m>p \wedge \neg q</m> là không nhất quán, vì không có phép gán giá trị chân lý nào làm cho cả hai cùng đúng: nếu <m>p \wedge \neg q</m> đúng thì <m>p</m> đúng và <m>q</m> sai, khi đó <m>p \rightarrow q</m> sai. Ngược lại, hai mệnh đề <m>p \vee q</m> và <m>p \rightarrow q</m> là nhất quán, vì phép gán <m>p</m> đúng và <m>q</m> đúng làm cho cả hai cùng đúng.</p>
-      <p>Xem thêm <xref ref="def-compound-proposition" text="title" />, <xref ref="def-proposition" text="title" />, <xref ref="def-tautology" text="title" />, <xref ref="def-contradiction" text="title" />, <xref ref="def-truth-table" text="title" />.</p>
-    </statement>
-  </definition>
-  <definition xml:id="def-constructive-existence-proof">
-    <title>constructive existence proof (d.t.) — chứng minh tồn tại kiến thiết</title>
-    <idx><h>constructive existence proof</h></idx>
-    <idx><h>chứng minh tồn tại</h></idx>
-    <idx><h>chứng minh tồn tại kiến thiết</h></idx>
-    <statement>
-      <p>Chứng minh tồn tại kiến thiết là một chứng minh khẳng định rằng tồn tại một phần tử có tính chất mong muốn bằng cách chỉ ra một cách tường minh một phần tử như vậy. Nói cách khác, để chứng minh mệnh đề <m>\exists x P(x)</m>, ta tìm được một phần tử <m>a</m> và chỉ ra rằng <m>P(a)</m> đúng (theo <xref ref="bib-rosen-2019" />, Rosen §1.7).</p>
-      <p>Thuật ngữ tiếng Việt tương ứng:</p>
-      <ul>
-        <li><p><term>chứng minh tồn tại kiến thiết</term> <xref ref="bib-rosen-2003-vi" /> (tr. 220); <xref ref="bib-rosen-2003-vi" /> (tr. 220); <xref ref="bib-vudinhhoa-2010" /> — cách dùng phổ biến.</p></li>
-        <li><p><term>chứng minh tồn tại</term> <xref ref="bib-nguyenvanmau-2007" />; <xref ref="bib-sierpinski-2012" /> (tr. 32); <xref ref="bib-vudinhhoa-2010" />.</p></li>
-      </ul>
-      <p>Ví dụ: Để chứng minh tồn tại một số nguyên dương biểu diễn được thành tổng các lập phương của các số nguyên dương theo hai cách khác nhau, ta chỉ ra tường minh số <m>1729 = 10^3 + 9^3 = 12^3 + 1^3</m>; việc trưng ra phần tử cụ thể này là một chứng minh tồn tại kiến thiết.</p>
-      <p>Xem thêm <xref ref="def-proof" text="title" />, <xref ref="def-indirect-proof" text="title" />.</p>
-    </statement>
-  </definition>
-  <definition xml:id="def-continuum-hypothesis">
-    <title>continuum hypothesis (d.t.) — giả thuyết continuum</title>
-    <idx><h>continuum hypothesis</h></idx>
-    <idx><h>giả thuyết continuum</h></idx>
-    <idx><h>giả thuyết liên tục</h></idx>
-    <statement>
-      <p>Giả thuyết continuum là phát biểu khẳng định rằng không có tập hợp nào có lực lượng nằm thực sự giữa lực lượng của tập các số nguyên và lực lượng của tập các số thực (theo <xref ref="bib-rosen-2019" />, Rosen §2.5).</p>
-      <p>Thuật ngữ tiếng Việt tương ứng:</p>
-      <ul>
-        <li><p><term>giả thuyết continuum</term> <xref ref="bib-sierpinski-2012" /> — cách dùng phổ biến.</p></li>
-        <li><p><term>giả thuyết liên tục</term> <xref ref="bib-wikipedia-vi" />.</p></li>
-      </ul>
-      <p>Ví dụ: Tập các số nguyên <m>\mathbb{Z}</m> có lực lượng <m>\aleph_0</m> và tập các số thực <m>\mathbb{R}</m> có lực lượng <m>2^{\aleph_0}</m>; giả thuyết continuum khẳng định không tồn tại tập hợp <m>S</m> với <m>\aleph_0  \lt  |S|  \lt  2^{\aleph_0}</m>, tức là <m>2^{\aleph_0} = \aleph_1</m>.</p>
-      <p>Xem thêm <xref ref="def-cardinality" text="title" />, <xref ref="def-countable-set" text="title" />, <xref ref="def-uncountable-set" text="title" />.</p>
-    </statement>
-  </definition>
-  <definition xml:id="def-count-of-an-itemset">
-    <title>count of an itemset (d.t.) — số đếm của tập mục</title>
-    <idx><h>count of an itemset</h></idx>
-    <idx><h>số đếm của tập mục</h></idx>
-    <statement>
-      <p>Số đếm của một tập mục là số giao dịch chứa tập mục đó.</p>
-      <p>Thuật ngữ tiếng Việt tương ứng:</p>
-      <ul>
-        <li><p><term>số đếm của tập mục</term> <em>(thuật ngữ chuẩn; chưa truy được trong kho văn bản)</em> — cách dùng phổ biến.</p></li>
-      </ul>
-      <p>Ví dụ: Giả sử ta có các giao dịch <m>T_1 = \{a, b, c\}</m>, <m>T_2 = \{a, c\}</m>, <m>T_3 = \{b, c\}</m> và <m>T_4 = \{a, b, c\}</m>. Khi đó số đếm của tập mục <m>\{a, c\}</m> bằng <m>3</m>, vì có ba giao dịch <m>T_1</m>, <m>T_2</m> và <m>T_4</m> chứa cả <m>a</m> và <m>c</m>.</p>
     </statement>
   </definition>
   <definition xml:id="def-cryptanalysis">
@@ -1077,18 +1207,61 @@
       <p>Xem thêm <xref ref="def-key" text="title" />, <xref ref="def-public-key-cryptography" text="title" />, <xref ref="def-private-key-cryptography" text="title" />.</p>
     </statement>
   </definition>
-  <definition xml:id="def-complement">
-    <title>complement (d.t.) — phần bù</title>
-    <idx><h>complement</h></idx>
-    <idx><h>phần bù</h></idx>
+  <definition xml:id="def-cut-edge">
+    <title>cut edge (d.t.) — cạnh cắt</title>
+    <idx><h>cut edge</h></idx>
+    <idx><h>cạnh cầu</h></idx>
+    <idx><h>cạnh cắt</h></idx>
+    <idx><h>cầu</h></idx>
     <statement>
-      <p>Trong toán rời rạc, <em>phần bù</em> của một đối tượng là phần "còn lại" của nó trong một ngữ cảnh cho trước, và xuất hiện ở nhiều ngữ cảnh khác nhau. Mục này chỉ nêu ý niệm chung; các trường hợp cụ thể được trình bày ở những mục riêng (xem mục Xem thêm).</p>
+      <p>Cạnh cắt (hay cầu) của một đồ thị <m>G</m> là một cạnh <m>e</m> mà khi bỏ đi sẽ làm tăng số thành phần liên thông của đồ thị, tức là <m>G - e</m> có nhiều thành phần liên thông hơn <m>G</m> (theo <xref ref="bib-rosen-2019" />, Rosen §10.4).</p>
       <p>Thuật ngữ tiếng Việt tương ứng:</p>
       <ul>
-        <li><p><term>phần bù</term> <xref ref="bib-leanhvinh-2020" /> (tr. 99); <xref ref="bib-nguyenhoangthach-2020" /> (tr. 20); <xref ref="bib-nguyenhuudien-2019" /> (tr. 75); <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 62) — cách dùng phổ biến.</p></li>
+        <li><p><term>cạnh cắt</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 73); <xref ref="bib-nguyenhuudien-2019" /> (tr. 169); <xref ref="bib-leanhvinh-2020" /> (tr. 137) — cách dùng phổ biến.</p></li>
+        <li><p><term>cạnh cầu</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 73); <xref ref="bib-leanhvinh-2020" /> (tr. 26); <xref ref="bib-doducgiao-2009" /> (tr. 133).</p></li>
+        <li><p><term>cầu</term> <xref ref="bib-leanhvinh-2020" /> (tr. 26); <xref ref="bib-rosen-2003-vi" /> (tr. 14).</p></li>
       </ul>
-      <p>Ví dụ: Một vài ví dụ về phần bù: phần bù <m>\overline{A}</m> của một tập hợp <m>A</m> đối với tập vũ trụ; đồ thị bù <m>\overline{G}</m> của một đồ thị <m>G</m>; và biểu diễn bù 1, bù 2 của số nguyên trong máy tính.</p>
-      <p>Xem thêm <xref ref="def-complement-of-a-set" text="title" />, <xref ref="def-complement-of-a-graph" text="title" />, <xref ref="def-ones-complement-notation" text="title" />, <xref ref="def-twos-complement-notation" text="title" />.</p>
+      <p>Ví dụ: Trong một đường đi <m>P_n</m>, mọi cạnh đều là cạnh cắt; ngược lại, trong một chu trình <m>C_n</m> không có cạnh nào là cạnh cắt.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-cut-vertex">
+    <title>cut vertex (d.t.) — đỉnh cắt</title>
+    <idx><h>cut vertex</h></idx>
+    <idx><h>điểm cắt</h></idx>
+    <idx><h>điểm khớp</h></idx>
+    <idx><h>đỉnh cắt</h></idx>
+    <idx><h>đỉnh khớp</h></idx>
+    <idx><h>đỉnh rẽ nhánh</h></idx>
+    <statement>
+      <p>Đỉnh cắt của một đồ thị liên thông là đỉnh mà việc xoá nó cùng tất cả các cạnh kề làm cho đồ thị con thu được không liên thông (có nhiều hơn một thành phần liên thông) (theo <xref ref="bib-rosen-2019" />, Rosen §10.4).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>đỉnh cắt</term> <xref ref="bib-leanhvinh-2020" /> (tr. 26); <xref ref="bib-nguyenhuudien-2019" /> (tr. 169); <xref ref="bib-ngodactan-2004" /> (tr. 266) — cách dùng phổ biến.</p></li>
+        <li><p><term>điểm cắt</term> <xref ref="bib-wikipedia-vi" />; <xref ref="bib-leanhvinh-2020" /> (tr. 28); <xref ref="bib-vudinhhoa-2003" /> (tr. 95); <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 330).</p></li>
+        <li><p><term>điểm khớp</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 170); <xref ref="bib-nguyenhuyran-2000" />; <xref ref="bib-cormen-2001-vi" /> (tr. 555).</p></li>
+        <li><p><term>đỉnh khớp</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 73).</p></li>
+        <li><p><term>đỉnh rẽ nhánh</term> <xref ref="bib-nguyenducnghia-2006" />; <xref ref="bib-doducgiao-2009" /> (tr. 133); <xref ref="bib-cormen-2001-vi" /> (tr. 435).</p></li>
+      </ul>
+      <p>Ví dụ: Trong đồ thị đường đi <m>P_5</m> với các đỉnh <m>v_1, v_2, v_3, v_4, v_5</m>, đỉnh <m>v_3</m> là một đỉnh cắt vì khi xoá <m>v_3</m> thì đồ thị còn lại tách thành hai thành phần liên thông.</p>
+      <p>Xem thêm <xref ref="def-cut-edge" text="title" />, <xref ref="def-bridge" text="title" />, <xref ref="def-connected-component" text="title" />, <xref ref="def-connectivity" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-cycle">
+    <title>cycle (d.t.) — đồ thị vòng</title>
+    <idx><h>cycle</h></idx>
+    <idx><h>chu trình</h></idx>
+    <idx><h>đồ thị chu trình</h></idx>
+    <idx><h>đồ thị vòng</h></idx>
+    <statement>
+      <p>Đồ thị vòng, ký hiệu là <m>C_n</m> với <m>n \geq 3</m>, là đồ thị gồm <m>n</m> đỉnh <m>v_1, v_2, \ldots, v_n</m> và các cạnh <m>\{v_1,v_2\}, \{v_2,v_3\}, \ldots, \{v_{n-1},v_n\}, \{v_n,v_1\}</m>. Như vậy, mỗi đỉnh của <m>C_n</m> có bậc là <m>2</m> (theo <xref ref="bib-rosen-2019" />, Rosen §10.2).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>đồ thị vòng</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 159); <xref ref="bib-nguyenducnghia-2006" />; <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 212) — cách dùng phổ biến.</p></li>
+        <li><p><term>chu trình</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 65); <xref ref="bib-leanhvinh-2020" /> (tr. 5); <xref ref="bib-nguyenhuudien-2019" /> (tr. 7); <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 46).</p></li>
+        <li><p><term>đồ thị chu trình</term> <xref ref="bib-hoangchithanh-2007" /> (tr. 43); <xref ref="bib-doducgiao-2009" /> (tr. 106); <xref ref="bib-hoangchithanh-2011" />; <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 102).</p></li>
+      </ul>
+      <p>Ví dụ: <m>C_3</m> là tam giác với ba đỉnh <m>v_1, v_2, v_3</m> và ba cạnh <m>\{v_1,v_2\}, \{v_2,v_3\}, \{v_3,v_1\}</m>.</p>
+      <p>Xem thêm <xref ref="def-path" text="title" />, <xref ref="def-wheel" text="title" />, <xref ref="def-hamilton-circuit" text="title" />.</p>
     </statement>
   </definition>
 </chapter>

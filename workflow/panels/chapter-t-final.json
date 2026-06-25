@@ -12,422 +12,6 @@
  "deferred_note": "Kept ALL 16 chapter-T entries; each retains exactly one recommended=true vi_term, every verified=true vi_term keeps source_id + pdf_page + page + snippet, and no fabricated citations were introduced. CORRECTNESS: (MED) tree — removed the redundant 'nói cách khác' restatement that paired Rosen's 'no simple circuit' condition with the non-equivalent paraphrase 'no circuit (acyclic)' presented as a synonym; the definition now states Rosen's single condition once ('không chứa chu trình đơn nào') and the example wording was aligned to 'không chứa chu trình đơn nào'. (LOW) tautology — removed the inline example 'Chẳng hạn, $$p \\vee \\neg p$$ là một mệnh đề hằng đúng.' embedded in definition_vi (book convention: examples self-contained, no example inside the definition); the modus-ponens instance in example_vi is retained. Remaining LOW correctness items (trail edge-scope, traversal connected-graph scope, topological-sort non-uniqueness, transitive-closure one-step example, transpose, tournament, terminal-vertex) were confirmed mathematically sound against Rosen and left substantively unchanged; trail's closing clause was tightened to scope 'đúng một lần' to the edges of the trail rather than implying every graph edge is used. TERMINOLOGY: (HIGH) truth-table — deleted the two verified=false empty-page variant rows ('bảng chân lý', 'bảng giá trị chân lý'); their 0-hit status already lives in notes. (HIGH) tournament — kept 'đồ thị có hướng đầy đủ' recommended (attested 2019 for the exactly-one-arc tournament concept) and added a disambiguation sentence to notes warning the same phrase can elsewhere denote the complete symmetric digraph (arcs in both directions), confirming the p.189 source restricts each pair to exactly one of $$(u,v)$$/$$(v,u)$$. (HIGH/MED) trail — kept the no-repeated-edge attestations (nguyenhoangthach-2020, nguyenhuudien-2019, nguyenducnghia-2006) and added an explicit one-line notes statement that the recommended reading is no-repeated-edge and that the example deliberately repeats vertex $$v_2$$ to distinguish trail from path; the example was made self-contained by giving the vertex set $$V=\\{v_1,\\ldots,v_5\\}$$ and the edge set. (MED) traversal — dropped the bib-nguyenducnghia-2006 'phép duyệt' row (tokenization artifact 'cho phép'+'duyệt'); the traversal concept in that source remains documented in notes via the '5.2 Các thuật toán duyệt' chapter. (MED) transitive-closure — tightened notes so the matrix-vs-relation attestation gap is unambiguous (only Warshall matrix form attested; no source states the relation-level minimal-transitive-relation definition verbatim). (MED) total-order — gave the recommended 'thứ tự toàn phần' a distinct standalone snippet from the topological-sort discussion (bib-nguyenhuudien-2019 tr. 121) so its evidence differs from the 'quan hệ thứ tự toàn phần' variant which shares the tr. 118 snippet. (LOW) tree — kept 'đồ thị cây' but the notes make explicit it is attested only inside 'đồ thị cây có gốc' (rooted-tree drawing), not as a standalone definitional term. (LOW) terminal-vertex — kept the two clean definitional attestations (nguyenhoangthach-2020 p.62-63, ngodactan-2004 p.185) as primary; the OCR incidence-matrix occurrences remain as supplementary evidence. EXPOSITION: (HIGH) truth-table — same two empty-page rows dropped (see TERMINOLOGY). (MED) trail — removed the in-definition English gloss '(trail)' from definition_vi. (MED) tournament — removed the in-definition English gloss '(tournament)' and the Markdown '*...*' emphasis from definition_vi. (LOW) tree — tightened definition to a single clause with notation moved to a natural position. (LOW) truth-table — trimmed the second sentence so it no longer restates the per-row content already implied by the first sentence. NOT APPLIED (optional / contradicts convention / out of scope): the optional suggestions to add non-uniqueness remarks (topological-sort), to swap the transitive-closure example for a multi-step one, to extend the tree-traversal example to also show inorder, to trim total-order's forward-reference notes sentence, and to drop trail's 'simple-path' see_also were treated as cosmetic 'may' items and not applied; the multi-step transitive-closure example is mathematically optional and the existing one-step example is correct. The transposition notes' standard-term-from-older-source decision (transitive-closure, transpose-of-a-matrix) was kept per the rule allowing recommended terms attested only in non-2019-2020 sources when no newer attestation exists. Per-entry notes are left in their original drafting language (mixed English/Vietnamese), matching sibling finalized chapters.",
  "final_entries": [
   {
-   "id": "tree",
-   "letter": "T",
-   "headword_en": "tree",
-   "notation": "T = (V, E)",
-   "rosen_ref": "Rosen §11.1",
-   "definition_vi": "Một cây, ký hiệu $$T = (V, E)$$, là một đồ thị vô hướng liên thông không chứa chu trình đơn nào.",
-   "example_vi": "Đồ thị $$T = (V, E)$$ với $$V = \\{a, b, c, d\\}$$ và $$E = \\{ab, bc, bd\\}$$ là một cây, vì nó liên thông và không chứa chu trình đơn nào.",
-   "notes": "Standard standalone term across the entire corpus is \"cây\", attested with a formal definition in all six sources (connected undirected graph with no cycle). The definition follows Rosen §11.1 exactly: a tree is a connected undirected graph with no simple circuits; the redundant restatement \"nói cách khác, ... không có chu trình\" (which paired the simple-circuit condition with a non-equivalent acyclic paraphrase) was removed so Rosen's single condition \"không chứa chu trình đơn\" stands alone. The corpus sources state the equivalent \"không có chu trình\" (acyclic), which coincides with the no-simple-circuit condition for a graph but is not presented here as a separate characterization. Recommended term \"cây\" is attested in two 2019-2020 sources: nguyenhoangthach-2020 (Định nghĩa 6.1, p.83: \"Một cây là một đồ thị vô hướng, liên thông, không có chu[ trình]\") and leanhvinh-2020 (Ch. 2 \"Cây\", p.38). The variant \"đồ thị cây\" appears in nguyenhoangthach-2020 p.85 only in the qualified form \"đồ thị cây có gốc\" (rooted tree graph) describing a drawing; it denotes the same concept but is NOT a standalone definitional term, so it is recorded as a non-recommended variant whose attested context is rooted-tree drawing only. Compound terms found in the corpus but NOT denoting this bare concept (excluded): \"cây bao trùm\"/\"cây khung\" (spanning tree), \"cây có gốc\" (rooted tree), \"cây nhị phân\" (binary tree), \"cây cầu\" (bridge, unrelated). Note nguyenducnghia-2006 and ngodactan-2004 use \"cây khung\"/\"cây\" with \"khuyên\" (loop) excluded explicitly in ngodactan: \"đồ thị vô hướng liên thông không có khuyên và không có chu trình\".",
-   "see_also": [
-    "binary-tree",
-    "forest",
-    "rooted-tree",
-    "spanning-tree"
-   ],
-   "vi_terms": [
-    {
-     "term": "cây",
-     "verified": true,
-     "recommended": true,
-     "source_id": "bib-nguyenhoangthach-2020",
-     "pdf_page": 83,
-     "page": "tr. 81",
-     "snippet": "Định nghĩa 6.1. Một cây là một đồ thị vô hướng, liên thông, không có chu[ trình]"
-    },
-    {
-     "term": "cây",
-     "verified": true,
-     "recommended": false,
-     "source_id": "bib-leanhvinh-2020",
-     "pdf_page": 38,
-     "page": "tr. 39",
-     "snippet": "Trong chương này, ta sẽ tìm hiểu một lớp đồ thị quan trọng, cây hay [...]. Trước hết, ta chứng minh dé thị liên thông Ơ là cây khi và chỉ khi"
-    },
-    {
-     "term": "đồ thị cây",
-     "verified": true,
-     "recommended": false,
-     "source_id": "bib-nguyenhoangthach-2020",
-     "pdf_page": 85,
-     "page": "tr. 83",
-     "snippet": "Khác với “cây” trong tự nhiên, khi vẽ các đồ thị cây có gốc, ta thường"
-    },
-    {
-     "term": "cây",
-     "verified": true,
-     "recommended": false,
-     "source_id": "bib-nguyenhuudien-2019",
-     "pdf_page": 242,
-     "page": "tr. 242",
-     "snippet": "Định nghĩa 10.1 Giả sử T = (V, E) là đồ thị vô hướng. Ta nói rằng đồ thị T là một cây"
-    }
-   ],
-   "pos": "d.t."
-  },
-  {
-   "id": "total-order",
-   "letter": "T",
-   "headword_en": "total order",
-   "notation": "\\preceq",
-   "rosen_ref": "Rosen §9.6",
-   "definition_vi": "Một thứ tự toàn phần (ký hiệu $$\\preceq$$) trên tập $$S$$ là một thứ tự bộ phận trong đó hai phần tử bất kỳ đều so sánh được, tức là với mọi $$a, b \\in S$$ ta có $$a \\preceq b$$ hoặc $$b \\preceq a$$.",
-   "example_vi": "Quan hệ $$\\leq$$ thông thường trên tập số thực $$\\mathbb{R}$$ là một thứ tự toàn phần, vì với mọi $$a, b \\in \\mathbb{R}$$ ta luôn có $$a \\leq b$$ hoặc $$b \\leq a$$.",
-   "vi_terms": [
-    {
-     "term": "thứ tự toàn phần",
-     "verified": true,
-     "recommended": true,
-     "source_id": "bib-nguyenhuudien-2019",
-     "pdf_page": 121,
-     "page": "tr. 121",
-     "snippet": "Việc xây dựng thứ tự toàn phần tương thích với một thứ tự cho trước được gọi là sắp xếp topo."
-    },
-    {
-     "term": "quan hệ thứ tự toàn phần",
-     "verified": true,
-     "recommended": false,
-     "source_id": "bib-nguyenhuudien-2019",
-     "pdf_page": 118,
-     "page": "tr. 118",
-     "snippet": "mọi x, y ∈ X ta có xRy hay yRx thì ta nói R là một quan hệ thứ tự toàn phần trên X."
-    },
-    {
-     "term": "thứ tự tuyến tính",
-     "verified": true,
-     "recommended": false,
-     "source_id": "bib-ngodactan-2004",
-     "pdf_page": 164,
-     "page": "tr. 164",
-     "snippet": "thứ tự tuyến tính, còn thứ tự bộ phận ở Ví dụ 5.2 và Ví dụ 5.3 không"
-    },
-    {
-     "term": "tập được sắp tuyến tính",
-     "verified": true,
-     "recommended": false,
-     "source_id": "bib-ngodactan-2004",
-     "pdf_page": 164,
-     "page": "tr. 164",
-     "snippet": "mệt tập được sắp tuyến tính, thì A cũng được gọi là một xích của X ."
-    },
-    {
-     "term": "thứ tự tuyến tính",
-     "source_id": "bib-doxuanloi-2006",
-     "page": "tr. 166",
-     "pdf_page": 164,
-     "snippet": "phải sắp xếp các môn học theo một thứ tự tuyến tính để sao cho khi học",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "thứ tự toàn phần",
-     "source_id": "bib-nguyenhuuanh-2007",
-     "page": "",
-     "pdf_page": 98,
-     "snippet": "thứ tự toàn phần",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "thứ tự toàn phần",
-     "source_id": "bib-vovantuandung-2007",
-     "page": "",
-     "pdf_page": 107,
-     "snippet": "(thứ tự toàn phần và thứ tự bán phần): Xét tập hợp có thứ ty (A, <).",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "thứ tự tuyến tính",
-     "source_id": "bib-cormen-2001-vi",
-     "page": "tr. 105",
-     "pdf_page": 103,
-     "snippet": "Một thứ tự từng phần R trên một tập hợp A là một thứ tự tuyến tính",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "thứ tự tuyến tính",
-     "source_id": "bib-cungkimtien-2004",
-     "page": "",
-     "pdf_page": 219,
-     "snippet": "linear order thứ tự tuyến tính",
-     "verified": true,
-     "recommended": false
-    }
-   ],
-   "see_also": [
-    "partial-order",
-    "comparable",
-    "totally-ordered-set"
-   ],
-   "notes": "Recommended term \"thứ tự toàn phần\" is the standard term, attested in the newest available source for this concept, nguyenhuudien-2019 (2019, discrete math), where a total order is defined as a partial order in which every two elements are comparable (tr. 118: \"mọi x, y ∈ X ta có xRy hay yRx thì ta nói R là một quan hệ thứ tự toàn phần trên X\"). The recommended row cites a distinct standalone occurrence of the bare head-noun \"thứ tự toàn phần\" from the topological-sort discussion (tr. 121: \"Việc xây dựng thứ tự toàn phần tương thích với một thứ tự cho trước được gọi là sắp xếp topo\"), so its snippet differs from the \"quan hệ thứ tự toàn phần\" variant which carries the tr. 118 definitional snippet. The same source gives $$\\leq$$ on $$\\mathbb{R}$$ as an example (tr. 118) and uses the term throughout tr. 121-123.\n\nThe OCR graph-theory sources bib-leanhvinh-2020 (2020) and bib-hoangchithanh-2007 (2007) yielded 0 hits under both normal and --loose matching for every candidate; these books are graph-algorithm focused and do not develop order theory, so no 2020-source attestation exists for this concept. Likewise bib-nguyenhoangthach-2020 and bib-nguyenducnghia-2006 returned 0 hits for the order-theoretic candidates.\n\nVariant \"thứ tự tuyến tính\" (linear order) is the older (2004) synonym from ngodactan-2004, where a total order is introduced as a partial order whose every two elements are comparable (so sánh được, tr. 164); a set carrying such an order is a \"tập được sắp tuyến tính\" (= xích / chain).\n\nExcluded as not denoting this concept: the phrase \"sắp thứ tự toàn bộ các cạnh\" in nguyenducnghia-2006 (tr. 210) means \"sort all the edges\" (an algorithmic sorting step), not the order-theoretic total order.\n\nThe example uses only the relation $$\\leq$$ on $$\\mathbb{R}$$ introduced as a standard instance in the recommended source; it introduces no derived quantity beyond the definition. The see_also id \"totally-ordered-set\" (the chain / tập được sắp tuyến tính concept) is a forward reference; if not authored in chapter T it remains a forward reference.",
-   "pos": "d.t."
-  },
-  {
-   "id": "transitive-closure",
-   "letter": "T",
-   "headword_en": "transitive closure",
-   "notation": "R^{*}",
-   "rosen_ref": "Rosen §9.4",
-   "definition_vi": "Bao đóng bắc cầu của một quan hệ $$R$$ trên tập $$A$$, ký hiệu $$R^{*}$$, là quan hệ bắc cầu nhỏ nhất trên $$A$$ chứa $$R$$.",
-   "example_vi": "Với quan hệ $$R = \\{(1,2),(2,3)\\}$$ trên tập $$A = \\{1,2,3\\}$$, bao đóng bắc cầu $$R^{*}$$ thu được bằng cách thêm cặp $$(1,3)$$, tức là $$R^{*} = \\{(1,2),(2,3),(1,3)\\}$$.",
-   "notes": "Recommended term \"bao đóng bắc cầu\" is the standard modern Vietnamese term for transitive closure. The ONLY corpus attestation is in the 2007 source bib-hoangchithanh-2007 (tr. 12 PDF), and there it occurs inside the phrase \"ma trận bao đóng bắc cầu\" (transitive closure MATRIX, computed via thuật toán Warshall): the corpus attests the matrix-closure construct, NOT the relation-level definition \"bao đóng bắc cầu của một quan hệ\" stated in definition_vi. No source states the relation-level minimal-transitive-relation definition verbatim, and no 2019-2020 source names the closure concept itself — the newer sources (bib-nguyenhuudien-2019, bib-leanhvinh-2020) discuss only the transitivity property \"tính bắc cầu\", not \"bao đóng bắc cầu\". Because the matrix and relation closures are the same operation and \"bao đóng bắc cầu\" remains the standard modern term with no newer attestation, it is kept as recommended despite the older, matrix-context-only citation. The candidate \"bao đóng truyền ứng\" has 0 hits anywhere (dropped): the 2006 source bib-nguyenducnghia-2006 uses \"truyền ứng\" (tr. 14 PDF) only for the transitivity property, never combined with \"bao đóng\". The bare term \"bao đóng\" appears only as a substring of \"bao đóng bắc cầu\" in the 2007 source, so it is not listed as an independent variant. The example closes in one step ($$(1,3)$$ added); a general transitive closure may require iterating over longer paths.",
-   "see_also": [
-    "binary-relation",
-    "transitive-relation"
-   ],
-   "vi_terms": [
-    {
-     "term": "bao đóng bắc cầu",
-     "verified": true,
-     "recommended": true,
-     "source_id": "bib-hoangchithanh-2007",
-     "pdf_page": 12,
-     "page": "tr. 12",
-     "snippet": "dùng thuật toán Warshall sau đây để tính ma trận bao đóng bắc cầu"
-    },
-    {
-     "term": "bao đóng bắc cầu",
-     "source_id": "bib-hoangchithanh-2011",
-     "page": "",
-     "pdf_page": 19,
-     "snippet": "1) Ma trận tổng 7 được gọi là bao đóng bắc câu của ma trận ké A.",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "bao đóng bắc cầu",
-     "source_id": "bib-doducgiao-2008",
-     "page": "tr. 5",
-     "pdf_page": 6,
-     "snippet": "§5. Bao đóng bắc cầu của quan hệ.......",
-     "verified": true,
-     "recommended": false
-    }
-   ],
-   "pos": "d.t."
-  },
-  {
-   "id": "transitive-relation",
-   "letter": "T",
-   "headword_en": "transitive relation",
-   "notation": "(a,b)\\in R \\wedge (b,c)\\in R \\Rightarrow (a,c)\\in R",
-   "rosen_ref": "Rosen §9.1",
-   "definition_vi": "Một quan hệ $$R$$ trên tập $$A$$ được gọi là có tính bắc cầu nếu với mọi $$a, b, c \\in A$$, hễ $$(a,b) \\in R$$ và $$(b,c) \\in R$$ thì $$(a,c) \\in R$$.",
-   "example_vi": "Trên tập $$A = \\{1, 2, 3\\}$$, quan hệ $$R = \\{(1,2), (2,3), (1,3)\\}$$ có tính bắc cầu, vì $$(1,2) \\in R$$ và $$(2,3) \\in R$$ kéo theo $$(1,3) \\in R$$.",
-   "notes": "Recommended term \"bắc cầu\" is the standard term for transitivity, attested in the newest 2020 graph-theory source (bib-leanhvinh-2020, p.17, where an equivalence relation is described as having three properties: phản xạ, đối xứng, bắc cầu) and consistently across all corpus eras. The recommended bare-adjective form \"bắc cầu\" and the definitional property-noun phrasing \"tính bắc cầu\" denote the same concept in adjectival vs nominal form; the property-noun variant \"tính bắc cầu\" appears in bib-nguyenhuudien-2019 (p.111, 113, 115). \"tính truyền\" (bib-nguyenhuudien-2019, p.24, 110) and \"truyền ứng\" (bib-nguyenducnghia-2006, p.14) are older/regional variants; bib-nguyenhuudien-2019 explicitly equates them (\"R có tính truyền hay bắc cầu (transitive)\"). Note: bib-hoangchithanh-2007 attests \"bắc cầu\" only inside \"bao đóng bắc cầu\" (transitive closure, p.12), which denotes the closure operation rather than the relation property itself, so it is not recorded as a definitional attestation of this concept. bib-nguyenhoangthach-2020 returned no hits for any candidate.",
-   "see_also": [
-    "reflexive-relation",
-    "symmetric-relation",
-    "antisymmetric-relation",
-    "equivalence-relation",
-    "transitive-closure"
-   ],
-   "vi_terms": [
-    {
-     "term": "bắc cầu",
-     "verified": true,
-     "recommended": true,
-     "source_id": "bib-leanhvinh-2020",
-     "pdf_page": 17,
-     "page": "tr. 18",
-     "snippet": "hệ liên thông có ba tính chất: phản xa, đối xứng và bắc cầu. Do đó,"
-    },
-    {
-     "term": "tính truyền",
-     "verified": true,
-     "recommended": false,
-     "source_id": "bib-nguyenhuudien-2019",
-     "pdf_page": 110,
-     "page": "tr. 110",
-     "snippet": "• Ta nói quan hệ R có tính truyền hay bắc cầu (transitive) nếu và chỉ nếu ( xRy và yRz) ⇒"
-    },
-    {
-     "term": "tính bắc cầu",
-     "verified": true,
-     "recommended": false,
-     "source_id": "bib-nguyenhuudien-2019",
-     "pdf_page": 115,
-     "page": "tr. 115",
-     "snippet": "• Tính bắc cầu đúng, vì giả sử a, b, c ∈ A và aRb, bRc tức là"
-    },
-    {
-     "term": "truyền ứng",
-     "verified": true,
-     "recommended": false,
-     "source_id": "bib-nguyenducnghia-2006",
-     "pdf_page": 14,
-     "page": "",
-     "snippet": "s truyền ứng (nếu a có quan hệ với b và b có quan hệ với c thì ø có quan hệ với"
-    },
-    {
-     "term": "truyền ứng",
-     "source_id": "bib-rosen-2003-vi",
-     "pdf_page": 457,
-     "page": "tr. 457",
-     "snippet": "dóng truyền ứng) của R.",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "bắc cầu",
-     "source_id": "bib-nguyenhuudien-2019",
-     "page": "tr. 24",
-     "pdf_page": 24,
-     "snippet": "tính truyền (hay bắc cầu), nhưng không có tính chất đối xứng.",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "truyền ứng",
-     "source_id": "bib-doxuanloi-2006",
-     "page": "tr. 158",
-     "pdf_page": 156,
-     "snippet": "7.4.1 Bài toán bao đóng truyền ứng (trasitive closure)",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "quan hệ bắc cầu",
-     "source_id": "bib-doantamhoe-2009",
-     "page": "",
-     "pdf_page": 148,
-     "snippet": "Vì quan hệ khả liên là quan hệ bắc cầu (v, khả liên từ v, và v,",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "bắc cầu",
-     "source_id": "bib-sierpinski-2012",
-     "page": "tr. 1",
-     "pdf_page": 15,
-     "snippet": "bắc cầu. Do đó nếu x | y thì x | ky với mọi số nguyên k .",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "tính bắc cầu",
-     "source_id": "bib-doducgiao-2008",
-     "page": "tr. 60",
-     "pdf_page": 61,
-     "snippet": "d) Tính bắc cầu",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "tính bắc cầu",
-     "source_id": "bib-vudinhhoa-2010",
-     "page": "",
-     "pdf_page": 20,
-     "snippet": "3. Nếu p© q vag œr thì p œr (tính bắc cầu).",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "quan hệ bắc cầu",
-     "source_id": "bib-doducgiao-2008",
-     "page": "tr. 70",
-     "pdf_page": 71,
-     "snippet": "[R] là quan hệ bắc cầu nhỏ nhất chứa R. Nói cách khác, nếu R là một quan",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "quan hệ bắc cầu",
-     "source_id": "bib-nguyenhuuanh-2007",
-     "page": "",
-     "pdf_page": 91,
-     "snippet": "ý 1. Các quan hệ ” =, =, //,< ” là các quan hệ bắc cầu.",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "bắc cầu",
-     "source_id": "bib-cungkimtien-2004",
-     "page": "",
-     "pdf_page": 44,
-     "snippet": "bridge connection nối bắc cầu",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "bắc cầu",
-     "source_id": "bib-phan-1976",
-     "page": "tr. 74",
-     "pdf_page": 74,
-     "snippet": "bridge c. nối bắc cầu",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "tính truyền",
-     "source_id": "bib-phan-1976",
-     "page": "tr. 429",
-     "pdf_page": 429,
-     "snippet": "transitivity tính bắc cầu, tính truyền ứng",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "tính bắc cầu",
-     "source_id": "bib-cungkimtien-2004",
-     "page": "",
-     "pdf_page": 387,
-     "snippet": "transitivity tính bac cầu, tính",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "tính bắc cầu",
-     "source_id": "bib-phan-1976",
-     "page": "tr. 429",
-     "pdf_page": 429,
-     "snippet": "transitivity tính bắc cầu, tính truyền ứng",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "truyền ứng",
-     "source_id": "bib-cungkimtien-2004",
-     "page": "",
-     "pdf_page": 199,
-     "snippet": "truyền ứng",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "truyền ứng",
-     "source_id": "bib-phan-1976",
-     "page": "tr. 247",
-     "pdf_page": 247,
-     "snippet": "intransitive Jog. không bắc cầu, không truyền ứng",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "quan hệ bắc cầu",
-     "source_id": "bib-cungkimtien-2004",
-     "page": "",
-     "pdf_page": 626,
-     "snippet": "quan hệ bắc câu transitive",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "quan hệ bắc cầu",
-     "source_id": "bib-phan-1976",
-     "page": "tr. 363",
-     "pdf_page": 363,
-     "snippet": "transitive r. quan hệ bắc cầu",
-     "verified": true,
-     "recommended": false
-    }
-   ],
-   "pos": "d.t."
-  },
-  {
    "id": "traversal",
    "letter": "T",
    "headword_en": "graph traversal",
@@ -520,119 +104,6 @@
      "page": "",
      "pdf_page": 4,
      "snippet": "PHÉP DUYỆT ĐỎ THỊ",
-     "verified": true,
-     "recommended": false
-    }
-   ],
-   "pos": "d.t."
-  },
-  {
-   "id": "truth-table",
-   "letter": "T",
-   "headword_en": "truth table",
-   "definition_vi": "Bảng chân trị của một mệnh đề phức hợp là bảng liệt kê chân trị của mệnh đề đó ứng với mỗi tổ hợp chân trị có thể có của các mệnh đề sơ cấp cấu thành nó. Mỗi mệnh đề sơ cấp nhận một trong hai chân trị, đúng (ký hiệu $$1$$) hoặc sai (ký hiệu $$0$$); với $$n$$ mệnh đề sơ cấp, bảng có $$2^{n}$$ dòng.",
-   "notation": "0, 1; 2^{n}",
-   "example_vi": "Bảng chân trị của phép phủ định $$\\neg p$$ có hai dòng: khi $$p$$ nhận chân trị $$0$$ thì $$\\neg p$$ nhận chân trị $$1$$, và khi $$p$$ nhận chân trị $$1$$ thì $$\\neg p$$ nhận chân trị $$0$$.",
-   "rosen_ref": "Rosen §1.1",
-   "notes": "Recommended term \"bảng chân trị\" is attested in the 2019 source bib-nguyenhuudien-2019 (truth table for compound propositions / logical operators), glossed in-text as \"(truth table)\". Verified against the PDF: page 15 reads \"Các phép toán logic được định nghĩa bằng bảng chân trị (truth table). Bảng chân trị chỉ...\" and page 16 expands the definition (\"Trong cột thứ nhất của bảng chân trị, ta liệt kê đầy đủ các trường hợp chân trị có thể có\"), matching the ground-truth definition. The candidate variants \"bảng chân lý\" and \"bảng giá trị chân lý\" returned zero hits in every corpus source (normal and --loose); they are recorded here as unattested variants only and are NOT carried as vi_terms (citation hygiene: verified=false + empty-page rows are dropped because a verified recommended term already exists). The 2006 source bib-nguyenducnghia-2006 (pdf pages 266, 268) uses \"bảng giá trị\" for the value table of a Boolean/logic function (\"hàm đại số lôgïc\"); this is the same tabular construct but used in the Boolean-algebra chapter rather than as the truth table of compound propositions, so it is listed as a related variant (recommended=false) with the concept distinction flagged here. The graph-theory sources (bib-leanhvinh-2020, bib-nguyenhoangthach-2020, bib-hoangchithanh-2007, bib-ngodactan-2004) do not attest this logic concept. The example uses only negation, which the definition's \"tổ hợp chân trị\" framework already covers, so no quantity outside the definition is introduced. see_also is empty: no other T-letter entries cover the propositional-logic dependencies, and cross-chapter terms (compound proposition, logical connective) are not linked per the same-chapter rule.",
-   "see_also": [],
-   "vi_terms": [
-    {
-     "term": "bảng chân trị",
-     "verified": true,
-     "recommended": true,
-     "source_id": "bib-nguyenhuudien-2019",
-     "pdf_page": 15,
-     "page": "tr. 15",
-     "snippet": "Các phép toán logic được định nghĩa bằng bảng chân trị (truth table). Bảng chân trị chỉ"
-    },
-    {
-     "term": "bảng giá trị",
-     "source_id": "bib-nguyenhuudien-2019",
-     "page": "tr. 171",
-     "pdf_page": 171,
-     "snippet": "là một số nguyên dương, bằng giá trị của phần tử dòng i cột j của ma trận Ar .",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "bảng giá trị chân lý",
-     "source_id": "bib-doducgiao-2009",
-     "page": "tr. 318",
-     "pdf_page": 319,
-     "snippet": "c) Lập bang giá trị chan lý của các mệnh dé phức hợp nhận được trong",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "bảng chân trị",
-     "source_id": "bib-nguyenhuuanh-2007",
-     "page": "",
-     "pdf_page": 8,
-     "snippet": "Nói cách khác phép nối liền được xác định bởi bang chan trị sau:",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "bảng chân trị",
-     "source_id": "bib-vovantuandung-2007",
-     "page": "",
-     "pdf_page": 7,
-     "snippet": "Bảng chân trị của PvQ là: | P | Q | PvQ",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "bảng giá trị",
-     "source_id": "bib-doducthai-2010",
-     "page": "tr. 104",
-     "pdf_page": 104,
-     "snippet": "Định lý 2.11. Giá trị kỳ vọng hình học luôn nhỏ hơn hoặc bằng giá trị",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "bảng giá trị",
-     "source_id": "bib-vudinhhoa-2010",
-     "page": "",
-     "pdf_page": 5,
-     "snippet": "1.2. Các toán tử logic và bảng giá trì chân NY ........seccsssseessccnveeecssssnesensssssapsnetessessnetecssseeesessaes 11",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "bảng giá trị chân lý",
-     "source_id": "bib-doducgiao-2008",
-     "page": "tr. 130",
-     "pdf_page": 131,
-     "snippet": "va sai trong các trường hợp còn lại. Bang giá trị chân lý của X @® Y là",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "bảng giá trị chân lý",
-     "source_id": "bib-vudinhhoa-2010",
-     "page": "",
-     "pdf_page": 10,
-     "snippet": "được bang giá trị chan lý của các mệnh đề để phát hiện được giá trị của các mệnh",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "bảng chân trị",
-     "source_id": "bib-cungkimtien-2004",
-     "page": "",
-     "pdf_page": 391,
-     "snippet": "truth table bang chan tri",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "bảng chân trị",
-     "source_id": "bib-phan-1976",
-     "page": "tr. 416",
-     "pdf_page": 416,
-     "snippet": "truth t. Jog. bang chân tri",
      "verified": true,
      "recommended": false
     }
@@ -768,443 +239,63 @@
    "pos": "d.t."
   },
   {
-   "id": "topological-sort",
+   "id": "term",
    "letter": "T",
-   "headword_en": "topological sort",
-   "notation": "",
-   "rosen_ref": "Rosen §9.6",
-   "definition_vi": "Sắp xếp topo của một tập sắp thứ tự bộ phận hữu hạn $$(S, \\preceq)$$ là một thứ tự toàn phần $$\\leq$$ trên $$S$$ tương thích với $$\\preceq$$, nghĩa là một cách sắp xếp tuyến tính các phần tử của $$S$$ sao cho $$a \\leq b$$ mỗi khi $$a \\preceq b$$.",
-   "example_vi": "Với tập $$S = \\{1, 2, 3, 6\\}$$ sắp thứ tự bộ phận bởi quan hệ chia hết, trong đó $$a \\preceq b$$ khi $$a$$ chia hết $$b$$, một sắp xếp topo cho ta thứ tự tuyến tính $$1 \\leq 2 \\leq 3 \\leq 6$$, vì mỗi phần tử đứng trước mọi phần tử mà nó chia hết.",
+   "headword_en": "term",
+   "notation": "a_n",
+   "rosen_ref": "Rosen §2.4",
+   "definition_vi": "Số hạng của một dãy số là mỗi phần tử $$a_n$$ của dãy đó, tức là giá trị mà hàm xác định dãy gán cho chỉ số $$n$$. Với một dãy $$\\{a_n\\}$$, số hạng $$a_n$$ (ký hiệu chỉ số $$n$$) là số hạng thứ $$n$$ của dãy.",
+   "example_vi": "Xét dãy $$\\{a_n\\}$$ với $$a_n = 2^n$$. Khi đó các số hạng đầu tiên là $$a_0 = 1$$, $$a_1 = 2$$, $$a_2 = 4$$, và số hạng tổng quát của dãy là $$a_n = 2^n$$ với mọi $$n \\geq 0$$.",
    "vi_terms": [
     {
-     "term": "sắp xếp topo",
+     "term": "số hạng",
+     "source_id": "bib-nguyenhoangthach-2020",
+     "pdf_page": 41,
+     "page": "tr. 39",
+     "snippet": "Vậy số hạng tổng quát của dãy (an ) là",
      "verified": true,
-     "recommended": true,
+     "recommended": true
+    },
+    {
+     "term": "số hạng",
      "source_id": "bib-nguyenhuudien-2019",
-     "pdf_page": 121,
-     "page": "tr. 121",
-     "snippet": "Việc xây dựng thứ tự toàn phần tương thích với một thứ tự cho trước được gọi là sắp xếp topo."
+     "pdf_page": 97,
+     "page": "tr. 97",
+     "snippet": "thức biểu diễn an qua một hay nhiều số hạng đi trước của dãy.",
+     "verified": true,
+     "recommended": false
     },
     {
-     "term": "thứ tự tôpô",
-     "source_id": "bib-wikipedia-vi",
+     "term": "số hạng",
+     "source_id": "bib-sierpinski-2012",
+     "page": "tr. 105",
+     "pdf_page": 119,
+     "snippet": "nhỏ hơn 1 và vì vậy sai số của cả tổng là nhỏ hơn số hạng tử, nghĩa là nhỏ hơn",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "số hạng",
+     "source_id": "bib-cungkimtien-2004",
      "page": "",
-     "pdf_page": 0,
-     "snippet": "https://vi.wikipedia.org/wiki/Sắp_xếp_tô_pô",
+     "pdf_page": 15,
+     "snippet": "algebraic term số hạng đại số",
      "verified": true,
      "recommended": false
     },
     {
-     "term": "sắp xếp topo",
-     "source_id": "bib-doxuanloi-2006",
-     "page": "tr. 164",
-     "pdf_page": 162,
-     "snippet": "7.4.3 Bài toán sắp xếp topo (topological sort)",
+     "term": "số hạng",
+     "source_id": "bib-phan-1976",
+     "page": "tr. 5",
+     "pdf_page": 5,
+     "snippet": "addend số hạng (của tổng)",
      "verified": true,
      "recommended": false
-    },
-    {
-     "term": "thứ tự tôpô",
-     "source_id": "bib-doxuanloi-2006",
-     "page": "tr. 166",
-     "pdf_page": 164,
-     "snippet": "Một thứ ty tuyến tính với đặc điểm như vậy gọi là thứ tự tôpô",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "sắp xếp topo",
-     "source_id": "bib-cormen-2001-vi",
-     "page": "tr. 544",
-     "pdf_page": 542,
-     "snippet": "thực hiện các đợt sắp xếp tôpô của dé thị phi chu trình có hướng [di-",
-     "verified": true,
-     "recommended": false
-    }
-   ],
-   "notes": "Recommended term \"sắp xếp topo\" is attested in the 2019 source bib-nguyenhuudien-2019 (Nguyễn Hữu Điển, discrete math), where it is defined exactly as in Rosen: \"Việc xây dựng thứ tự toàn phần tương thích với một thứ tự cho trước được gọi là sắp xếp topo\" (tr. 121 PDF). The same source uses it consistently for the algorithm and its output on tr. 121–123 (e.g. \"Thuật toán sắp xếp topo\", \"Dãy S = { a1 , a2 , ..., an } là một sự sắp xếp topo của ( X, ρ)\"). The candidate spelling variants \"sắp xếp tô pô\" and \"sắp xếp tô-pô\" returned 0 hits in every source under both normal and --loose matching, so they are dropped per citation hygiene. The OCR sources bib-leanhvinh-2020 (2020) and bib-hoangchithanh-2007 (2007) returned 0 hits under both normal and loose matching; they only mention \"topo/topologie\" in unrelated topological-graph contexts, not topological sort. The other text sources (bib-nguyenhoangthach-2020, bib-nguyenducnghia-2006, bib-ngodactan-2004) returned no hits. No 2020 source attests this concept; the newest available attestation is the 2019 source. The example's linear extension is not unique (e.g. $$1 \\leq 3 \\leq 2 \\leq 6$$ is equally valid, since $$2$$ and $$3$$ are incomparable under divisibility).",
-   "see_also": [
-    "partial-order",
-    "total-order",
-    "poset"
-   ],
-   "pos": "d.t."
-  },
-  {
-   "id": "trail",
-   "letter": "T",
-   "headword_en": "trail",
-   "see_ref": "simple-path",
-   "vi_terms": [
-    {
-     "term": "đường đi đơn",
-     "verified": false,
-     "recommended": false,
-     "source_id": "",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": ""
     }
    ],
    "see_also": [],
-   "notes": "Đồng nghĩa với Simple path.",
-   "pos": "d.t."
-  },
-  {
-   "id": "theorem",
-   "letter": "T",
-   "headword_en": "theorem",
-   "definition_vi": "Định lý là một mệnh đề toán học được chứng minh là đúng bằng một chứng minh hợp lệ, xuất phát từ các tiên đề, các định nghĩa và các kết quả đã được thiết lập trước đó.",
-   "notation": "",
-   "rosen_ref": "Rosen §1.7",
-   "example_vi": "Mệnh đề \"tổng tất cả các bậc của các đỉnh trong một đồ thị $$G$$ bằng hai lần số cạnh, tức là $$\\sum_{v \\in V(G)} \\deg_G(v) = 2|E(G)|$$\" là một định lý, vì nó được chứng minh đúng từ định nghĩa của bậc đỉnh.",
-   "notes": "Hai biến thể chính tả của cùng một thuật ngữ: \"định lý\" (chuẩn, phổ biến) và \"định lí\" (biến thể chính tả với \"i\"). \"định lý\" được dùng trong cả hai nguồn 2020 (bib-leanhvinh-2020, bib-nguyenhoangthach-2020) cũng như tất cả các nguồn khác, nên được chọn làm thuật ngữ khuyến nghị. Biến thể \"định lí\" chỉ xuất hiện trong bib-nguyenhuudien-2019. Hai nguồn OCR (bib-leanhvinh-2020, bib-hoangchithanh-2007) đã được kiểm tra cả chế độ thường và --loose; \"định lý\" được xác nhận trong cả hai chế độ.",
-   "see_also": [
-    "axiom",
-    "proof",
-    "lemma",
-    "corollary",
-    "conjecture"
-   ],
-   "vi_terms": [
-    {
-     "term": "định lý",
-     "verified": true,
-     "recommended": true,
-     "source_id": "bib-leanhvinh-2020",
-     "pdf_page": 16,
-     "page": "tr. 17",
-     "snippet": "Định lý 1.14. Cho hai đỉnh u và v của dé thị G. Mọi hành trình giữa"
-    },
-    {
-     "term": "định lý",
-     "verified": true,
-     "recommended": false,
-     "source_id": "bib-nguyenhoangthach-2020",
-     "pdf_page": 24,
-     "page": "tr. 22",
-     "snippet": "Định lý 2.12. Giả sử n và k là các số nguyên dương và n ≥ k. Khi đó:"
-    },
-    {
-     "term": "định lí",
-     "verified": true,
-     "recommended": false,
-     "source_id": "bib-nguyenhuudien-2019",
-     "pdf_page": 192,
-     "page": "tr. 192",
-     "snippet": "Chứng minh. Ta chứng minh bằng phản chứng, giả sử rằng định lí sai và cho G là đồ thị"
-    },
-    {
-     "term": "định lý",
-     "source_id": "bib-nguyenhuudien-2019",
-     "page": "tr. 10",
-     "pdf_page": 10,
-     "snippet": "7.14 Chứng minh Định lý Dirac . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 190",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "định lí",
-     "source_id": "bib-hoangchithanh-2011",
-     "page": "",
-     "pdf_page": 37,
-     "snippet": "3) _ đỉnh liên thông với nhau.",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "định lí",
-     "source_id": "bib-nguyenhoangthach-2020",
-     "page": "tr. 62",
-     "pdf_page": 64,
-     "snippet": "một đỉnh kế tiếp của u, u là một đỉnh liền trước của v, a là một cạnh đi ra",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "định lý",
-     "source_id": "bib-cungkimtien-2004",
-     "page": "",
-     "pdf_page": 32,
-     "snippet": "average value theorem định lý",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "định lý",
-     "source_id": "bib-phan-1976",
-     "page": "tr. 68",
-     "pdf_page": 68,
-     "snippet": "c. of a theorem hệ qua của một định lý",
-     "verified": true,
-     "recommended": false
-    }
-   ],
-   "pos": "d.t."
-  },
-  {
-   "id": "transpose-of-a-matrix",
-   "letter": "T",
-   "headword_en": "transpose of a matrix",
-   "notation": "A^{t}",
-   "rosen_ref": "Rosen §2.6",
-   "definition_vi": "Ma trận chuyển vị của một ma trận $$A$$ cỡ $$m \\times n$$ là ma trận cỡ $$n \\times m$$ thu được bằng cách đổi chỗ các hàng và các cột của $$A$$, ký hiệu $$A^{t}$$. Nói cách khác, phần tử ở vị trí $$(i,j)$$ của $$A^{t}$$ bằng phần tử ở vị trí $$(j,i)$$ của $$A$$ với mọi $$i$$ và $$j$$.",
-   "example_vi": "Với ma trận $$A$$ cỡ $$2 \\times 3$$ cho bởi\n```math\nA = \\begin{pmatrix} 1 & 2 & 3 \\\\ 4 & 5 & 6 \\end{pmatrix},\n```\nma trận chuyển vị $$A^{t}$$ là ma trận cỡ $$3 \\times 2$$\n```math\nA^{t} = \\begin{pmatrix} 1 & 4 \\\\ 2 & 5 \\\\ 3 & 6 \\end{pmatrix}.\n```\nChẳng hạn, phần tử ở vị trí $$(3,1)$$ của $$A^{t}$$ bằng $$3$$, đúng bằng phần tử ở vị trí $$(1,3)$$ của $$A$$.",
-   "notes": "Concept = transpose of an $$m \\times n$$ matrix $$A$$, the $$n \\times m$$ matrix whose $$(i,j)$$ entry is the $$(j,i)$$ entry of $$A$$ (notation $$A^{t}$$). Recommended term \"ma trận chuyển vị\" is the standard full form; \"chuyển vị\" is the head noun (used as \"chuyển vị của ma trận\"). Both candidate terms are attested only in the older sources bib-hoangchithanh-2007 (2007) and bib-ngodactan-2004 (2004); the 2019-2020 sources (bib-leanhvinh-2020, bib-nguyenhoangthach-2020, bib-nguyenhuudien-2019) do not attest the matrix-transpose concept under any spelling (verified via find-term.py, including --loose for OCR sources), so the newest available attestation (2007) is listed first and recommended. EXCLUDED: bib-hoangchithanh-2007 p.20 also has \"Chuyển vị của đồ thị định hướng\" (transpose of a DIRECTED GRAPH), a distinct concept not covered here. EXCLUDED: \"ma trận đối xứng\" (symmetric matrix) and \"hoán vị\" (permutation) are different concepts. Searched variants with zero hits: \"chuyển trí\", \"ma trận chuyển trí\", \"phép chuyển vị\", \"ma trận hoán vị\". see_also targets symmetric-matrix and zero-one-matrix are cross-chapter forward references (not yet authored); adjacency-matrix (A) and matrix (M) exist.",
-   "see_also": [
-    "adjacency-matrix",
-    "matrix",
-    "symmetric-matrix",
-    "zero-one-matrix"
-   ],
-   "vi_terms": [
-    {
-     "term": "ma trận chuyển vị",
-     "verified": true,
-     "recommended": true,
-     "source_id": "bib-hoangchithanh-2007",
-     "pdf_page": 20,
-     "page": "tr. 20",
-     "snippet": "(BÏ là ma trận chuyển vị của ma trận B)."
-    },
-    {
-     "term": "ma trận chuyển vị",
-     "verified": true,
-     "recommended": false,
-     "source_id": "bib-ngodactan-2004",
-     "pdf_page": 125,
-     "page": "tr. 125",
-     "snippet": "Ai là ma trận chuyển vị của ma trận A trong công thức nghịch đảo nhị"
-    },
-    {
-     "term": "chuyển vị",
-     "verified": true,
-     "recommended": false,
-     "source_id": "bib-hoangchithanh-2007",
-     "pdf_page": 20,
-     "page": "tr. 20",
-     "snippet": "(BÏ là ma trận chuyển vị của ma trận B)."
-    },
-    {
-     "term": "chuyển vị",
-     "source_id": "bib-hoangchithanh-2011",
-     "page": "",
-     "pdf_page": 27,
-     "snippet": "chuyên vị của ma trận B).",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "chuyển vị",
-     "source_id": "bib-doducthai-2010",
-     "page": "tr. 67",
-     "pdf_page": 67,
-     "snippet": "chuyển việc nghiên cứu mọi biến ngẫu nhiên về việc nghiên cứu các",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "ma trận chuyển vị",
-     "source_id": "bib-cungkimtien-2004",
-     "page": "",
-     "pdf_page": 560,
-     "snippet": "ma trận chuyển vi transposed",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "ma trận chuyển vị",
-     "source_id": "bib-phan-1976",
-     "page": "tr. 279",
-     "pdf_page": 279,
-     "snippet": "transposed m. ma trận chuyển vị",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "chuyển vị",
-     "source_id": "bib-cungkimtien-2004",
-     "page": "",
-     "pdf_page": 321,
-     "snippet": "chuyén vi chinh quy hod",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "chuyển vị",
-     "source_id": "bib-phan-1976",
-     "page": "tr. 74",
-     "pdf_page": 74,
-     "snippet": "transposse c. liên thông chuyển vị",
-     "verified": true,
-     "recommended": false
-    }
-   ],
-   "pos": "d.t."
-  },
-  {
-   "id": "tournament",
-   "letter": "T",
-   "headword_en": "tournament",
-   "notation": "",
-   "rosen_ref": "Rosen §10.2",
-   "definition_vi": "Một đồ thị có hướng đầy đủ là đồ thị có hướng nhận được bằng cách định hướng cho mỗi cạnh của một đồ thị đầy đủ $$K_n$$, sao cho mỗi cặp đỉnh $$u, v$$ được nối với nhau bởi đúng một trong hai cung $$(u,v)$$ hoặc $$(v,u)$$.",
-   "example_vi": "Với ba đỉnh $$a, b, c$$, định hướng ba cạnh của $$K_3$$ thành các cung $$(a,b)$$, $$(b,c)$$, $$(c,a)$$ cho ta một đồ thị có hướng đầy đủ trên ba đỉnh.",
-   "notes": "Recommended term \"đồ thị có hướng đầy đủ\" is attested in the 2019 target-era source nguyenhuudien-2019 (p. 189), where it is defined as a complete graph in which each pair of vertices $$u,v$$ is joined by exactly one of the arcs $$(u,v)$$ or $$(v,u)$$, and Rédei's theorem is stated for it (p. 190) — this matches the Rosen tournament concept exactly. DISAMBIGUATION: the literal phrase \"đồ thị có hướng đầy đủ\" reads as \"complete directed graph\" and in other Vietnamese usage can denote the complete SYMMETRIC digraph (a digraph with arcs in BOTH directions $$(u,v)$$ and $$(v,u)$$ between every pair), which is NOT a tournament; the p.189 source text restricts each pair to EXACTLY ONE of $$(u,v)$$/$$(v,u)$$, so the source's usage matches the tournament concept, and the unambiguous alternative \"đồ thị đấu loại\" is recorded as a variant. The variant \"đồ thị đấu loại\" (with the short form \"đấu loại\") appears in nguyenducnghia-2006 (p. 196), defined as a directed graph in which any two vertices are joined by exactly one arc; the source explains the name \"đấu loại\" (knock-out/competition) arises because such a graph models the outcome of a round-robin tournament. The candidate \"giải đấu\" (found in nguyenhoangthach-2020, p. 18) denotes a sports competition in a counting word problem (\"how many matches in the tournament\"), NOT the directed-graph object, so it is excluded. No tournament term is attested in the OCR sources leanhvinh-2020 and hoangchithanh-2007 (searched normal and --loose: 0 loose hits for \"đồ thị có hướng đầy đủ\" in both); the \"đầy đủ\" hits there refer to the complete UNDIRECTED graph \"đồ thị đầy đủ\" $$K_n$$ (e.g. leanhvinh-2020 p. 14), not a tournament. No tournament term is attested in ngodactan-2004. The Markdown asterisk emphasis on the term and the inline gloss \"(tournament)\" were removed from definition_vi per the chapter's plain-prose emphasis and no-in-definition-gloss conventions. vi_terms ordered newest-source first.",
-   "see_also": [
-    "complete-graph",
-    "directed-graph",
-    "hamiltonian-path"
-   ],
-   "vi_terms": [
-    {
-     "term": "đồ thị có hướng đầy đủ",
-     "verified": true,
-     "recommended": true,
-     "source_id": "bib-nguyenhuudien-2019",
-     "pdf_page": 189,
-     "page": "tr. 189",
-     "snippet": "cung (u, v) hoặc (v, u), đồ thị như thế được gọi là đồ thị có hướng đầy đủ. Từ Định lý 7.5"
-    },
-    {
-     "term": "đồ thị đấu loại",
-     "verified": true,
-     "recommended": false,
-     "source_id": "bib-nguyenducnghia-2006",
-     "pdf_page": 196,
-     "page": "",
-     "snippet": "như vậy là đồ thị đấu loại. Đồ /hỷ đấu loại là đồ thì có hướng mà trong đó 2 đỉnh bất kỳ"
-    },
-    {
-     "term": "đồ thị có hướng đầy đủ",
-     "source_id": "bib-doantamhoe-2009",
-     "page": "",
-     "pdf_page": 115,
-     "snippet": "Moi do thị có hướng đây đủ đêu có đường Hamilton.",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "đồ thị có hướng đầy đủ",
-     "source_id": "bib-hoangchithanh-2011",
-     "page": "",
-     "pdf_page": 55,
-     "snippet": "Đồ thị có hướng day dun đỉnh có bao nhiêu ham Grundy?",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "đồ thị đấu loại",
-     "source_id": "bib-doducgiao-2009",
-     "page": "tr. 162",
-     "pdf_page": 163,
-     "snippet": "15. Đồ thị có hướng day đủ đôi khi còn gọi là đồ thị đấu loại, tức là đồ",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "đấu loại",
-     "source_id": "bib-doducgiao-2009",
-     "page": "tr. 162",
-     "pdf_page": 163,
-     "snippet": "15. Đồ thị có hướng day đủ đôi khi còn gọi là đồ thị đấu loại, tức là đồ",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "đấu loại",
-     "source_id": "bib-doducgiao-2008",
-     "page": "tr. 210",
-     "pdf_page": 211,
-     "snippet": "\"đánh dấu loại bỏ\" các đỉnh cô lập mới đó. Kết quả thu được sẽ là một đồ thị",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "đấu loại",
-     "source_id": "bib-doducthai-2010",
-     "page": "tr. 33",
-     "pdf_page": 33,
-     "snippet": "Bài tập 1.5. Giả sử trong một giải bóng đá đấu loại trực tiếp có 8 đội",
-     "verified": true,
-     "recommended": false
-    }
-   ],
-   "pos": "d.t."
-  },
-  {
-   "id": "tree-traversal",
-   "letter": "T",
-   "headword_en": "tree traversal",
-   "notation": "",
-   "rosen_ref": "Rosen §11.3",
-   "definition_vi": "Duyệt cây là một thủ tục lần lượt thăm mọi đỉnh của một cây có gốc được sắp thứ tự $$T$$, đưa ra một danh sách tuyến tính liệt kê tất cả các đỉnh của cây, mỗi đỉnh đúng một lần. Ba cách duyệt cây thường gặp là duyệt theo thứ tự trước, duyệt theo thứ tự giữa và duyệt theo thứ tự sau, được định nghĩa đệ quy trên các cây con của gốc.",
-   "example_vi": "Xét cây có gốc được sắp thứ tự với gốc $$r$$ có hai cây con, cây con bên trái gồm đỉnh $$a$$ và cây con bên phải gồm đỉnh $$b$$. Duyệt theo thứ tự trước cho danh sách $$r, a, b$$, còn duyệt theo thứ tự sau cho danh sách $$a, b, r$$.",
-   "notes": "Recommended term \"duyệt cây\" is attested in the newest available text source bib-nguyenhuudien-2019 (2019), where the concept is defined directly: \"Duyệt cây là cách đưa ra một danh sách tuyến tính liệt kê tất cả các đỉnh của cây\" (tr. 253). The same definition appears in OCR source bib-hoangchithanh-2007 (tr. 139). The two 2020 sources (bib-leanhvinh-2020, bib-nguyenhoangthach-2020) do not cover tree traversal (0 hits, normal and loose), so 2019 is the newest attestation. Variant \"các cách duyệt cây\" (\"the ways of traversing a tree\") is the section-heading form naming the three traversals (preorder/inorder/postorder) in both 2019 and 2007 sources. Candidate \"phép duyệt cây\" returned 0 hits in all sources (normal and loose) and is therefore not recorded. The phrasing \"phương pháp duyệt cây\" also occurs once in bib-nguyenhuudien-2019 (tr. 252) but is a descriptive phrase (\"the methods of tree traversal\"), not a distinct standardized term. No hits in bib-nguyenducnghia-2006 or bib-ngodactan-2004.",
-   "see_also": [
-    "ordered-rooted-tree",
-    "rooted-tree",
-    "preorder-traversal",
-    "inorder-traversal",
-    "postorder-traversal",
-    "traversal"
-   ],
-   "vi_terms": [
-    {
-     "term": "duyệt cây",
-     "verified": true,
-     "recommended": true,
-     "source_id": "bib-nguyenhuudien-2019",
-     "pdf_page": 253,
-     "page": "tr. 253",
-     "snippet": "Duyệt cây là cách đưa ra một danh sách tuyến tính liệt kê tất cả các đỉnh của cây, mỗi"
-    },
-    {
-     "term": "các cách duyệt cây",
-     "verified": true,
-     "recommended": false,
-     "source_id": "bib-nguyenhuudien-2019",
-     "pdf_page": 253,
-     "page": "tr. 253",
-     "snippet": "10.5.2. Các cách duyệt cây"
-    },
-    {
-     "term": "các cách duyệt cây",
-     "verified": true,
-     "recommended": false,
-     "source_id": "bib-hoangchithanh-2007",
-     "pdf_page": 139,
-     "page": "tr. 139",
-     "snippet": "Các cách duyệt cây này được định nghĩa đệ quy như sau."
-    },
-    {
-     "term": "duyệt cây",
-     "source_id": "bib-hoangchithanh-2011",
-     "page": "",
-     "pdf_page": 11,
-     "snippet": "duyệt cây theo thứ tự trước",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "các cách duyệt cây",
-     "source_id": "bib-hoangchithanh-2011",
-     "page": "",
-     "pdf_page": 245,
-     "snippet": "Các cách duyệt cây này được định nghĩa đệ quy như sau.",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "duyệt cây",
-     "source_id": "bib-vudinhhoa-2010",
-     "page": "",
-     "pdf_page": 150,
-     "snippet": "là 1 (hoặc 0), còn đi tới con phải là 0 (hoặc 1). Quá trình mã hoá sẽ duyệt cây",
-     "verified": true,
-     "recommended": false
-    }
-   ],
+   "notes": "Thuật ngữ chuẩn của giáo trình MAT3500 là \"số hạng\". Bản dịch Rosen và các tài liệu rời rạc khác đều dùng \"số hạng\" để chỉ một phần tử $$a_n$$ của dãy; thường gặp cụm \"số hạng tổng quát\" cho công thức của $$a_n$$.",
+   "status": "draft",
    "pos": "d.t."
   },
   {
@@ -1321,128 +412,6 @@
      "recommended": false
     }
    ],
-   "pos": "d.t."
-  },
-  {
-   "id": "tree-diagram",
-   "letter": "T",
-   "headword_en": "tree diagram",
-   "notation": "",
-   "rosen_ref": "Rosen §6.1",
-   "definition_vi": "Cây liệt kê là một cây có gốc dùng trong phép đếm, trong đó mỗi nhánh biểu diễn một lựa chọn có thể có và mỗi lá biểu diễn một kết cục có thể có của một dãy các lựa chọn liên tiếp.",
-   "example_vi": "Để đếm số xâu nhị phân độ dài $$3$$, ta vẽ cây liệt kê có gốc tương ứng với xâu rỗng; tại mỗi mức ta rẽ thành hai nhánh ứng với việc chọn bit $$0$$ hoặc bit $$1$$, và sau $$3$$ mức cây có $$2^3 = 8$$ lá, mỗi lá ứng với một xâu nhị phân khác nhau.",
-   "notes": "Mined candidates: \"cây liệt kê\" and \"sơ đồ cây\". Only \"cây liệt kê\" is attested in the Vietnamese corpus (12 hits total): newest in bib-nguyenhuudien-2019 (2019, tr. 197 PDF, 1 hit), and repeatedly in bib-nguyenducnghia-2006 (2006, 11 hits across tr. 100-110, 197). Snippets confirm it denotes a rooted tree that enumerates all outcomes/solutions of a sequence of choices (binary strings of length 3, permutations of 1,2,3, combinations, backtracking solutions, Hamilton cycles), matching Rosen's tree-diagram concept. The candidate \"sơ đồ cây\" returned 0 hits in both normal and --loose searches across all sources and is NOT attested; related variants \"sơ đồ hình cây\" and \"cây quyết định\" also returned 0 hits. \"sơ đồ cây\" is a common informal rendering but is dropped from vi_terms per citation hygiene (verified=false, empty page) since the recommended term \"cây liệt kê\" is attested. OCR sources (bib-leanhvinh-2020, bib-hoangchithanh-2007) returned no hits even with --loose. Verifier re-ran all find-term.py queries; all snippets and pages reproduce exactly with no fabrication.",
-   "see_also": [
-    "tree",
-    "rooted-tree"
-   ],
-   "vi_terms": [
-    {
-     "term": "cây liệt kê",
-     "verified": true,
-     "recommended": true,
-     "source_id": "bib-nguyenhuudien-2019",
-     "pdf_page": 197,
-     "page": "tr. 197",
-     "snippet": "▷ 7.7. Chứng minh rằng đồ thị lập phương Qn là một đồ thị Hamilton. Vẽ cây liệt kê tất cả"
-    },
-    {
-     "term": "cây liệt kê",
-     "verified": true,
-     "recommended": false,
-     "source_id": "bib-nguyenducnghia-2006",
-     "pdf_page": 100,
-     "page": "",
-     "snippet": "Hình 1. Cây liệt kê lời giải theo thuật toán quay lui"
-    },
-    {
-     "term": "sơ đồ cây",
-     "source_id": "bib-wikipedia-vi",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": "https://vi.wikipedia.org/wiki/Sơ_đồ_cây",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "sơ đồ hình cây",
-     "source_id": "",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": "",
-     "verified": false,
-     "recommended": false
-    },
-    {
-     "term": "cây liệt kê",
-     "source_id": "bib-cormen-2001-vi",
-     "page": "tr. 330",
-     "pdf_page": 328,
-     "snippet": "Một tang cây nội cấp của cây liệt kê các nút được sắp xếp thứ tự theo điểm",
-     "verified": true,
-     "recommended": false
-    }
-   ],
-   "pos": "d.t."
-  },
-  {
-   "id": "term",
-   "letter": "T",
-   "headword_en": "term",
-   "notation": "a_n",
-   "rosen_ref": "Rosen §2.4",
-   "definition_vi": "Số hạng của một dãy số là mỗi phần tử $$a_n$$ của dãy đó, tức là giá trị mà hàm xác định dãy gán cho chỉ số $$n$$. Với một dãy $$\\{a_n\\}$$, số hạng $$a_n$$ (ký hiệu chỉ số $$n$$) là số hạng thứ $$n$$ của dãy.",
-   "example_vi": "Xét dãy $$\\{a_n\\}$$ với $$a_n = 2^n$$. Khi đó các số hạng đầu tiên là $$a_0 = 1$$, $$a_1 = 2$$, $$a_2 = 4$$, và số hạng tổng quát của dãy là $$a_n = 2^n$$ với mọi $$n \\geq 0$$.",
-   "vi_terms": [
-    {
-     "term": "số hạng",
-     "source_id": "bib-nguyenhoangthach-2020",
-     "pdf_page": 41,
-     "page": "tr. 39",
-     "snippet": "Vậy số hạng tổng quát của dãy (an ) là",
-     "verified": true,
-     "recommended": true
-    },
-    {
-     "term": "số hạng",
-     "source_id": "bib-nguyenhuudien-2019",
-     "pdf_page": 97,
-     "page": "tr. 97",
-     "snippet": "thức biểu diễn an qua một hay nhiều số hạng đi trước của dãy.",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "số hạng",
-     "source_id": "bib-sierpinski-2012",
-     "page": "tr. 105",
-     "pdf_page": 119,
-     "snippet": "nhỏ hơn 1 và vì vậy sai số của cả tổng là nhỏ hơn số hạng tử, nghĩa là nhỏ hơn",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "số hạng",
-     "source_id": "bib-cungkimtien-2004",
-     "page": "",
-     "pdf_page": 15,
-     "snippet": "algebraic term số hạng đại số",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "số hạng",
-     "source_id": "bib-phan-1976",
-     "page": "tr. 5",
-     "pdf_page": 5,
-     "snippet": "addend số hạng (của tổng)",
-     "verified": true,
-     "recommended": false
-    }
-   ],
-   "see_also": [],
-   "notes": "Thuật ngữ chuẩn của giáo trình MAT3500 là \"số hạng\". Bản dịch Rosen và các tài liệu rời rạc khác đều dùng \"số hạng\" để chỉ một phần tử $$a_n$$ của dãy; thường gặp cụm \"số hạng tổng quát\" cho công thức của $$a_n$$.",
-   "status": "draft",
    "pos": "d.t."
   },
   {
@@ -2386,6 +1355,98 @@
    "pos": "d.t."
   },
   {
+   "id": "theorem",
+   "letter": "T",
+   "headword_en": "theorem",
+   "definition_vi": "Định lý là một mệnh đề toán học được chứng minh là đúng bằng một chứng minh hợp lệ, xuất phát từ các tiên đề, các định nghĩa và các kết quả đã được thiết lập trước đó.",
+   "notation": "",
+   "rosen_ref": "Rosen §1.7",
+   "example_vi": "Mệnh đề \"tổng tất cả các bậc của các đỉnh trong một đồ thị $$G$$ bằng hai lần số cạnh, tức là $$\\sum_{v \\in V(G)} \\deg_G(v) = 2|E(G)|$$\" là một định lý, vì nó được chứng minh đúng từ định nghĩa của bậc đỉnh.",
+   "notes": "Hai biến thể chính tả của cùng một thuật ngữ: \"định lý\" (chuẩn, phổ biến) và \"định lí\" (biến thể chính tả với \"i\"). \"định lý\" được dùng trong cả hai nguồn 2020 (bib-leanhvinh-2020, bib-nguyenhoangthach-2020) cũng như tất cả các nguồn khác, nên được chọn làm thuật ngữ khuyến nghị. Biến thể \"định lí\" chỉ xuất hiện trong bib-nguyenhuudien-2019. Hai nguồn OCR (bib-leanhvinh-2020, bib-hoangchithanh-2007) đã được kiểm tra cả chế độ thường và --loose; \"định lý\" được xác nhận trong cả hai chế độ.",
+   "see_also": [
+    "axiom",
+    "proof",
+    "lemma",
+    "corollary",
+    "conjecture"
+   ],
+   "vi_terms": [
+    {
+     "term": "định lý",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-leanhvinh-2020",
+     "pdf_page": 16,
+     "page": "tr. 17",
+     "snippet": "Định lý 1.14. Cho hai đỉnh u và v của dé thị G. Mọi hành trình giữa"
+    },
+    {
+     "term": "định lý",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhoangthach-2020",
+     "pdf_page": 24,
+     "page": "tr. 22",
+     "snippet": "Định lý 2.12. Giả sử n và k là các số nguyên dương và n ≥ k. Khi đó:"
+    },
+    {
+     "term": "định lí",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 192,
+     "page": "tr. 192",
+     "snippet": "Chứng minh. Ta chứng minh bằng phản chứng, giả sử rằng định lí sai và cho G là đồ thị"
+    },
+    {
+     "term": "định lý",
+     "source_id": "bib-nguyenhuudien-2019",
+     "page": "tr. 10",
+     "pdf_page": 10,
+     "snippet": "7.14 Chứng minh Định lý Dirac . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 190",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "định lí",
+     "source_id": "bib-hoangchithanh-2011",
+     "page": "",
+     "pdf_page": 37,
+     "snippet": "3) _ đỉnh liên thông với nhau.",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "định lí",
+     "source_id": "bib-nguyenhoangthach-2020",
+     "page": "tr. 62",
+     "pdf_page": 64,
+     "snippet": "một đỉnh kế tiếp của u, u là một đỉnh liền trước của v, a là một cạnh đi ra",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "định lý",
+     "source_id": "bib-cungkimtien-2004",
+     "page": "",
+     "pdf_page": 32,
+     "snippet": "average value theorem định lý",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "định lý",
+     "source_id": "bib-phan-1976",
+     "page": "tr. 68",
+     "pdf_page": 68,
+     "snippet": "c. of a theorem hệ qua của một định lý",
+     "verified": true,
+     "recommended": false
+    }
+   ],
+   "pos": "d.t."
+  },
+  {
    "id": "time-complexity",
    "letter": "T",
    "headword_en": "time complexity",
@@ -2443,6 +1504,696 @@
    "see_also": [],
    "notes": "Thuật ngữ chuẩn của giáo trình MAT3500 là \"Độ phức tạp theo thời gian\". Bản dịch Rosen và tài liệu Nguyễn Hữu Điển (2019) dùng biến thể \"độ phức tạp thời gian\" cho cùng khái niệm. Cần phân biệt với \"độ phức tạp tính toán\" (computational complexity), là khái niệm rộng hơn bao gồm cả độ phức tạp theo không gian.",
    "status": "draft",
+   "pos": "d.t."
+  },
+  {
+   "id": "topological-ordering",
+   "letter": "T",
+   "headword_en": "topological ordering",
+   "pos": "d.t.",
+   "notation": "",
+   "ref_bib": "bib-libennowell-2022",
+   "rosen_ref": "",
+   "definition_vi": "\\emph{Thứ tự tô pô} của một đồ thị có hướng phi chu trình là một cách sắp xếp tuyến tính tất cả các đỉnh sao cho với mọi cung $$(u,v)$$, đỉnh $$u$$ đứng trước đỉnh $$v$$ trong thứ tự đó. Một đồ thị có hướng có thứ tự tô pô khi và chỉ khi nó không chứa chu trình.",
+   "example_vi": "Với các cung $$a \\to b$$ và $$a \\to c$$, $$b \\to c$$, một thứ tự tô pô hợp lệ là $$\\langle a, b, c \\rangle$$.",
+   "notes": "",
+   "see_also": [],
+   "vi_terms": [
+    {
+     "term": "thứ tự tô pô",
+     "recommended": true
+    }
+   ]
+  },
+  {
+   "id": "topological-sort",
+   "letter": "T",
+   "headword_en": "topological sort",
+   "notation": "",
+   "rosen_ref": "Rosen §9.6",
+   "definition_vi": "Sắp xếp topo của một tập sắp thứ tự bộ phận hữu hạn $$(S, \\preceq)$$ là một thứ tự toàn phần $$\\leq$$ trên $$S$$ tương thích với $$\\preceq$$, nghĩa là một cách sắp xếp tuyến tính các phần tử của $$S$$ sao cho $$a \\leq b$$ mỗi khi $$a \\preceq b$$.",
+   "example_vi": "Với tập $$S = \\{1, 2, 3, 6\\}$$ sắp thứ tự bộ phận bởi quan hệ chia hết, trong đó $$a \\preceq b$$ khi $$a$$ chia hết $$b$$, một sắp xếp topo cho ta thứ tự tuyến tính $$1 \\leq 2 \\leq 3 \\leq 6$$, vì mỗi phần tử đứng trước mọi phần tử mà nó chia hết.",
+   "vi_terms": [
+    {
+     "term": "sắp xếp topo",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 121,
+     "page": "tr. 121",
+     "snippet": "Việc xây dựng thứ tự toàn phần tương thích với một thứ tự cho trước được gọi là sắp xếp topo."
+    },
+    {
+     "term": "thứ tự tôpô",
+     "source_id": "bib-wikipedia-vi",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": "https://vi.wikipedia.org/wiki/Sắp_xếp_tô_pô",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "sắp xếp topo",
+     "source_id": "bib-doxuanloi-2006",
+     "page": "tr. 164",
+     "pdf_page": 162,
+     "snippet": "7.4.3 Bài toán sắp xếp topo (topological sort)",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "thứ tự tôpô",
+     "source_id": "bib-doxuanloi-2006",
+     "page": "tr. 166",
+     "pdf_page": 164,
+     "snippet": "Một thứ ty tuyến tính với đặc điểm như vậy gọi là thứ tự tôpô",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "sắp xếp topo",
+     "source_id": "bib-cormen-2001-vi",
+     "page": "tr. 544",
+     "pdf_page": 542,
+     "snippet": "thực hiện các đợt sắp xếp tôpô của dé thị phi chu trình có hướng [di-",
+     "verified": true,
+     "recommended": false
+    }
+   ],
+   "notes": "Recommended term \"sắp xếp topo\" is attested in the 2019 source bib-nguyenhuudien-2019 (Nguyễn Hữu Điển, discrete math), where it is defined exactly as in Rosen: \"Việc xây dựng thứ tự toàn phần tương thích với một thứ tự cho trước được gọi là sắp xếp topo\" (tr. 121 PDF). The same source uses it consistently for the algorithm and its output on tr. 121–123 (e.g. \"Thuật toán sắp xếp topo\", \"Dãy S = { a1 , a2 , ..., an } là một sự sắp xếp topo của ( X, ρ)\"). The candidate spelling variants \"sắp xếp tô pô\" and \"sắp xếp tô-pô\" returned 0 hits in every source under both normal and --loose matching, so they are dropped per citation hygiene. The OCR sources bib-leanhvinh-2020 (2020) and bib-hoangchithanh-2007 (2007) returned 0 hits under both normal and loose matching; they only mention \"topo/topologie\" in unrelated topological-graph contexts, not topological sort. The other text sources (bib-nguyenhoangthach-2020, bib-nguyenducnghia-2006, bib-ngodactan-2004) returned no hits. No 2020 source attests this concept; the newest available attestation is the 2019 source. The example's linear extension is not unique (e.g. $$1 \\leq 3 \\leq 2 \\leq 6$$ is equally valid, since $$2$$ and $$3$$ are incomparable under divisibility).",
+   "see_also": [
+    "partial-order",
+    "total-order",
+    "poset"
+   ],
+   "pos": "d.t."
+  },
+  {
+   "id": "total-order",
+   "letter": "T",
+   "headword_en": "total order",
+   "notation": "\\preceq",
+   "rosen_ref": "Rosen §9.6",
+   "definition_vi": "Một thứ tự toàn phần (ký hiệu $$\\preceq$$) trên tập $$S$$ là một thứ tự bộ phận trong đó hai phần tử bất kỳ đều so sánh được, tức là với mọi $$a, b \\in S$$ ta có $$a \\preceq b$$ hoặc $$b \\preceq a$$.",
+   "example_vi": "Quan hệ $$\\leq$$ thông thường trên tập số thực $$\\mathbb{R}$$ là một thứ tự toàn phần, vì với mọi $$a, b \\in \\mathbb{R}$$ ta luôn có $$a \\leq b$$ hoặc $$b \\leq a$$.",
+   "vi_terms": [
+    {
+     "term": "thứ tự toàn phần",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 121,
+     "page": "tr. 121",
+     "snippet": "Việc xây dựng thứ tự toàn phần tương thích với một thứ tự cho trước được gọi là sắp xếp topo."
+    },
+    {
+     "term": "quan hệ thứ tự toàn phần",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 118,
+     "page": "tr. 118",
+     "snippet": "mọi x, y ∈ X ta có xRy hay yRx thì ta nói R là một quan hệ thứ tự toàn phần trên X."
+    },
+    {
+     "term": "thứ tự tuyến tính",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-ngodactan-2004",
+     "pdf_page": 164,
+     "page": "tr. 164",
+     "snippet": "thứ tự tuyến tính, còn thứ tự bộ phận ở Ví dụ 5.2 và Ví dụ 5.3 không"
+    },
+    {
+     "term": "tập được sắp tuyến tính",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-ngodactan-2004",
+     "pdf_page": 164,
+     "page": "tr. 164",
+     "snippet": "mệt tập được sắp tuyến tính, thì A cũng được gọi là một xích của X ."
+    },
+    {
+     "term": "thứ tự tuyến tính",
+     "source_id": "bib-doxuanloi-2006",
+     "page": "tr. 166",
+     "pdf_page": 164,
+     "snippet": "phải sắp xếp các môn học theo một thứ tự tuyến tính để sao cho khi học",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "thứ tự toàn phần",
+     "source_id": "bib-nguyenhuuanh-2007",
+     "page": "",
+     "pdf_page": 98,
+     "snippet": "thứ tự toàn phần",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "thứ tự toàn phần",
+     "source_id": "bib-vovantuandung-2007",
+     "page": "",
+     "pdf_page": 107,
+     "snippet": "(thứ tự toàn phần và thứ tự bán phần): Xét tập hợp có thứ ty (A, <).",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "thứ tự tuyến tính",
+     "source_id": "bib-cormen-2001-vi",
+     "page": "tr. 105",
+     "pdf_page": 103,
+     "snippet": "Một thứ tự từng phần R trên một tập hợp A là một thứ tự tuyến tính",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "thứ tự tuyến tính",
+     "source_id": "bib-cungkimtien-2004",
+     "page": "",
+     "pdf_page": 219,
+     "snippet": "linear order thứ tự tuyến tính",
+     "verified": true,
+     "recommended": false
+    }
+   ],
+   "see_also": [
+    "partial-order",
+    "comparable",
+    "totally-ordered-set"
+   ],
+   "notes": "Recommended term \"thứ tự toàn phần\" is the standard term, attested in the newest available source for this concept, nguyenhuudien-2019 (2019, discrete math), where a total order is defined as a partial order in which every two elements are comparable (tr. 118: \"mọi x, y ∈ X ta có xRy hay yRx thì ta nói R là một quan hệ thứ tự toàn phần trên X\"). The recommended row cites a distinct standalone occurrence of the bare head-noun \"thứ tự toàn phần\" from the topological-sort discussion (tr. 121: \"Việc xây dựng thứ tự toàn phần tương thích với một thứ tự cho trước được gọi là sắp xếp topo\"), so its snippet differs from the \"quan hệ thứ tự toàn phần\" variant which carries the tr. 118 definitional snippet. The same source gives $$\\leq$$ on $$\\mathbb{R}$$ as an example (tr. 118) and uses the term throughout tr. 121-123.\n\nThe OCR graph-theory sources bib-leanhvinh-2020 (2020) and bib-hoangchithanh-2007 (2007) yielded 0 hits under both normal and --loose matching for every candidate; these books are graph-algorithm focused and do not develop order theory, so no 2020-source attestation exists for this concept. Likewise bib-nguyenhoangthach-2020 and bib-nguyenducnghia-2006 returned 0 hits for the order-theoretic candidates.\n\nVariant \"thứ tự tuyến tính\" (linear order) is the older (2004) synonym from ngodactan-2004, where a total order is introduced as a partial order whose every two elements are comparable (so sánh được, tr. 164); a set carrying such an order is a \"tập được sắp tuyến tính\" (= xích / chain).\n\nExcluded as not denoting this concept: the phrase \"sắp thứ tự toàn bộ các cạnh\" in nguyenducnghia-2006 (tr. 210) means \"sort all the edges\" (an algorithmic sorting step), not the order-theoretic total order.\n\nThe example uses only the relation $$\\leq$$ on $$\\mathbb{R}$$ introduced as a standard instance in the recommended source; it introduces no derived quantity beyond the definition. The see_also id \"totally-ordered-set\" (the chain / tập được sắp tuyến tính concept) is a forward reference; if not authored in chapter T it remains a forward reference.",
+   "pos": "d.t."
+  },
+  {
+   "id": "total-ordering",
+   "letter": "T",
+   "headword_en": "total ordering",
+   "see_ref": "total-order",
+   "vi_terms": [],
+   "status": "draft",
+   "pos": "d.t."
+  },
+  {
+   "id": "totally-ordered-set",
+   "letter": "T",
+   "headword_en": "totally ordered set",
+   "see_ref": "total-order",
+   "vi_terms": [
+    {
+     "term": "tập sắp thứ tự toàn phần",
+     "verified": false,
+     "recommended": false,
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": ""
+    }
+   ],
+   "status": "draft",
+   "pos": "d.t."
+  },
+  {
+   "id": "tournament",
+   "letter": "T",
+   "headword_en": "tournament",
+   "notation": "",
+   "rosen_ref": "Rosen §10.2",
+   "definition_vi": "Một đồ thị có hướng đầy đủ là đồ thị có hướng nhận được bằng cách định hướng cho mỗi cạnh của một đồ thị đầy đủ $$K_n$$, sao cho mỗi cặp đỉnh $$u, v$$ được nối với nhau bởi đúng một trong hai cung $$(u,v)$$ hoặc $$(v,u)$$.",
+   "example_vi": "Với ba đỉnh $$a, b, c$$, định hướng ba cạnh của $$K_3$$ thành các cung $$(a,b)$$, $$(b,c)$$, $$(c,a)$$ cho ta một đồ thị có hướng đầy đủ trên ba đỉnh.",
+   "notes": "Recommended term \"đồ thị có hướng đầy đủ\" is attested in the 2019 target-era source nguyenhuudien-2019 (p. 189), where it is defined as a complete graph in which each pair of vertices $$u,v$$ is joined by exactly one of the arcs $$(u,v)$$ or $$(v,u)$$, and Rédei's theorem is stated for it (p. 190) — this matches the Rosen tournament concept exactly. DISAMBIGUATION: the literal phrase \"đồ thị có hướng đầy đủ\" reads as \"complete directed graph\" and in other Vietnamese usage can denote the complete SYMMETRIC digraph (a digraph with arcs in BOTH directions $$(u,v)$$ and $$(v,u)$$ between every pair), which is NOT a tournament; the p.189 source text restricts each pair to EXACTLY ONE of $$(u,v)$$/$$(v,u)$$, so the source's usage matches the tournament concept, and the unambiguous alternative \"đồ thị đấu loại\" is recorded as a variant. The variant \"đồ thị đấu loại\" (with the short form \"đấu loại\") appears in nguyenducnghia-2006 (p. 196), defined as a directed graph in which any two vertices are joined by exactly one arc; the source explains the name \"đấu loại\" (knock-out/competition) arises because such a graph models the outcome of a round-robin tournament. The candidate \"giải đấu\" (found in nguyenhoangthach-2020, p. 18) denotes a sports competition in a counting word problem (\"how many matches in the tournament\"), NOT the directed-graph object, so it is excluded. No tournament term is attested in the OCR sources leanhvinh-2020 and hoangchithanh-2007 (searched normal and --loose: 0 loose hits for \"đồ thị có hướng đầy đủ\" in both); the \"đầy đủ\" hits there refer to the complete UNDIRECTED graph \"đồ thị đầy đủ\" $$K_n$$ (e.g. leanhvinh-2020 p. 14), not a tournament. No tournament term is attested in ngodactan-2004. The Markdown asterisk emphasis on the term and the inline gloss \"(tournament)\" were removed from definition_vi per the chapter's plain-prose emphasis and no-in-definition-gloss conventions. vi_terms ordered newest-source first.",
+   "see_also": [
+    "complete-graph",
+    "directed-graph",
+    "hamiltonian-path"
+   ],
+   "vi_terms": [
+    {
+     "term": "đồ thị có hướng đầy đủ",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 189,
+     "page": "tr. 189",
+     "snippet": "cung (u, v) hoặc (v, u), đồ thị như thế được gọi là đồ thị có hướng đầy đủ. Từ Định lý 7.5"
+    },
+    {
+     "term": "đồ thị đấu loại",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenducnghia-2006",
+     "pdf_page": 196,
+     "page": "",
+     "snippet": "như vậy là đồ thị đấu loại. Đồ /hỷ đấu loại là đồ thì có hướng mà trong đó 2 đỉnh bất kỳ"
+    },
+    {
+     "term": "đồ thị có hướng đầy đủ",
+     "source_id": "bib-doantamhoe-2009",
+     "page": "",
+     "pdf_page": 115,
+     "snippet": "Moi do thị có hướng đây đủ đêu có đường Hamilton.",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "đồ thị có hướng đầy đủ",
+     "source_id": "bib-hoangchithanh-2011",
+     "page": "",
+     "pdf_page": 55,
+     "snippet": "Đồ thị có hướng day dun đỉnh có bao nhiêu ham Grundy?",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "đồ thị đấu loại",
+     "source_id": "bib-doducgiao-2009",
+     "page": "tr. 162",
+     "pdf_page": 163,
+     "snippet": "15. Đồ thị có hướng day đủ đôi khi còn gọi là đồ thị đấu loại, tức là đồ",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "đấu loại",
+     "source_id": "bib-doducgiao-2009",
+     "page": "tr. 162",
+     "pdf_page": 163,
+     "snippet": "15. Đồ thị có hướng day đủ đôi khi còn gọi là đồ thị đấu loại, tức là đồ",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "đấu loại",
+     "source_id": "bib-doducgiao-2008",
+     "page": "tr. 210",
+     "pdf_page": 211,
+     "snippet": "\"đánh dấu loại bỏ\" các đỉnh cô lập mới đó. Kết quả thu được sẽ là một đồ thị",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "đấu loại",
+     "source_id": "bib-doducthai-2010",
+     "page": "tr. 33",
+     "pdf_page": 33,
+     "snippet": "Bài tập 1.5. Giả sử trong một giải bóng đá đấu loại trực tiếp có 8 đội",
+     "verified": true,
+     "recommended": false
+    }
+   ],
+   "pos": "d.t."
+  },
+  {
+   "id": "trail",
+   "letter": "T",
+   "headword_en": "trail",
+   "see_ref": "simple-path",
+   "vi_terms": [
+    {
+     "term": "đường đi đơn",
+     "verified": false,
+     "recommended": false,
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": ""
+    }
+   ],
+   "see_also": [],
+   "notes": "Đồng nghĩa với Simple path.",
+   "pos": "d.t."
+  },
+  {
+   "id": "transitive",
+   "letter": "T",
+   "headword_en": "transitive",
+   "see_ref": "transitive-relation",
+   "vi_terms": [],
+   "status": "draft",
+   "pos": "t.t."
+  },
+  {
+   "id": "transitive-closure",
+   "letter": "T",
+   "headword_en": "transitive closure",
+   "notation": "R^{*}",
+   "rosen_ref": "Rosen §9.4",
+   "definition_vi": "Bao đóng bắc cầu của một quan hệ $$R$$ trên tập $$A$$, ký hiệu $$R^{*}$$, là quan hệ bắc cầu nhỏ nhất trên $$A$$ chứa $$R$$.",
+   "example_vi": "Với quan hệ $$R = \\{(1,2),(2,3)\\}$$ trên tập $$A = \\{1,2,3\\}$$, bao đóng bắc cầu $$R^{*}$$ thu được bằng cách thêm cặp $$(1,3)$$, tức là $$R^{*} = \\{(1,2),(2,3),(1,3)\\}$$.",
+   "notes": "Recommended term \"bao đóng bắc cầu\" is the standard modern Vietnamese term for transitive closure. The ONLY corpus attestation is in the 2007 source bib-hoangchithanh-2007 (tr. 12 PDF), and there it occurs inside the phrase \"ma trận bao đóng bắc cầu\" (transitive closure MATRIX, computed via thuật toán Warshall): the corpus attests the matrix-closure construct, NOT the relation-level definition \"bao đóng bắc cầu của một quan hệ\" stated in definition_vi. No source states the relation-level minimal-transitive-relation definition verbatim, and no 2019-2020 source names the closure concept itself — the newer sources (bib-nguyenhuudien-2019, bib-leanhvinh-2020) discuss only the transitivity property \"tính bắc cầu\", not \"bao đóng bắc cầu\". Because the matrix and relation closures are the same operation and \"bao đóng bắc cầu\" remains the standard modern term with no newer attestation, it is kept as recommended despite the older, matrix-context-only citation. The candidate \"bao đóng truyền ứng\" has 0 hits anywhere (dropped): the 2006 source bib-nguyenducnghia-2006 uses \"truyền ứng\" (tr. 14 PDF) only for the transitivity property, never combined with \"bao đóng\". The bare term \"bao đóng\" appears only as a substring of \"bao đóng bắc cầu\" in the 2007 source, so it is not listed as an independent variant. The example closes in one step ($$(1,3)$$ added); a general transitive closure may require iterating over longer paths.",
+   "see_also": [
+    "binary-relation",
+    "transitive-relation"
+   ],
+   "vi_terms": [
+    {
+     "term": "bao đóng bắc cầu",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-hoangchithanh-2007",
+     "pdf_page": 12,
+     "page": "tr. 12",
+     "snippet": "dùng thuật toán Warshall sau đây để tính ma trận bao đóng bắc cầu"
+    },
+    {
+     "term": "bao đóng bắc cầu",
+     "source_id": "bib-hoangchithanh-2011",
+     "page": "",
+     "pdf_page": 19,
+     "snippet": "1) Ma trận tổng 7 được gọi là bao đóng bắc câu của ma trận ké A.",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "bao đóng bắc cầu",
+     "source_id": "bib-doducgiao-2008",
+     "page": "tr. 5",
+     "pdf_page": 6,
+     "snippet": "§5. Bao đóng bắc cầu của quan hệ.......",
+     "verified": true,
+     "recommended": false
+    }
+   ],
+   "pos": "d.t."
+  },
+  {
+   "id": "transitive-relation",
+   "letter": "T",
+   "headword_en": "transitive relation",
+   "notation": "(a,b)\\in R \\wedge (b,c)\\in R \\Rightarrow (a,c)\\in R",
+   "rosen_ref": "Rosen §9.1",
+   "definition_vi": "Một quan hệ $$R$$ trên tập $$A$$ được gọi là có tính bắc cầu nếu với mọi $$a, b, c \\in A$$, hễ $$(a,b) \\in R$$ và $$(b,c) \\in R$$ thì $$(a,c) \\in R$$.",
+   "example_vi": "Trên tập $$A = \\{1, 2, 3\\}$$, quan hệ $$R = \\{(1,2), (2,3), (1,3)\\}$$ có tính bắc cầu, vì $$(1,2) \\in R$$ và $$(2,3) \\in R$$ kéo theo $$(1,3) \\in R$$.",
+   "notes": "Recommended term \"bắc cầu\" is the standard term for transitivity, attested in the newest 2020 graph-theory source (bib-leanhvinh-2020, p.17, where an equivalence relation is described as having three properties: phản xạ, đối xứng, bắc cầu) and consistently across all corpus eras. The recommended bare-adjective form \"bắc cầu\" and the definitional property-noun phrasing \"tính bắc cầu\" denote the same concept in adjectival vs nominal form; the property-noun variant \"tính bắc cầu\" appears in bib-nguyenhuudien-2019 (p.111, 113, 115). \"tính truyền\" (bib-nguyenhuudien-2019, p.24, 110) and \"truyền ứng\" (bib-nguyenducnghia-2006, p.14) are older/regional variants; bib-nguyenhuudien-2019 explicitly equates them (\"R có tính truyền hay bắc cầu (transitive)\"). Note: bib-hoangchithanh-2007 attests \"bắc cầu\" only inside \"bao đóng bắc cầu\" (transitive closure, p.12), which denotes the closure operation rather than the relation property itself, so it is not recorded as a definitional attestation of this concept. bib-nguyenhoangthach-2020 returned no hits for any candidate.",
+   "see_also": [
+    "reflexive-relation",
+    "symmetric-relation",
+    "antisymmetric-relation",
+    "equivalence-relation",
+    "transitive-closure"
+   ],
+   "vi_terms": [
+    {
+     "term": "bắc cầu",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-leanhvinh-2020",
+     "pdf_page": 17,
+     "page": "tr. 18",
+     "snippet": "hệ liên thông có ba tính chất: phản xa, đối xứng và bắc cầu. Do đó,"
+    },
+    {
+     "term": "tính truyền",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 110,
+     "page": "tr. 110",
+     "snippet": "• Ta nói quan hệ R có tính truyền hay bắc cầu (transitive) nếu và chỉ nếu ( xRy và yRz) ⇒"
+    },
+    {
+     "term": "tính bắc cầu",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 115,
+     "page": "tr. 115",
+     "snippet": "• Tính bắc cầu đúng, vì giả sử a, b, c ∈ A và aRb, bRc tức là"
+    },
+    {
+     "term": "truyền ứng",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenducnghia-2006",
+     "pdf_page": 14,
+     "page": "",
+     "snippet": "s truyền ứng (nếu a có quan hệ với b và b có quan hệ với c thì ø có quan hệ với"
+    },
+    {
+     "term": "truyền ứng",
+     "source_id": "bib-rosen-2003-vi",
+     "pdf_page": 457,
+     "page": "tr. 457",
+     "snippet": "dóng truyền ứng) của R.",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "bắc cầu",
+     "source_id": "bib-nguyenhuudien-2019",
+     "page": "tr. 24",
+     "pdf_page": 24,
+     "snippet": "tính truyền (hay bắc cầu), nhưng không có tính chất đối xứng.",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "truyền ứng",
+     "source_id": "bib-doxuanloi-2006",
+     "page": "tr. 158",
+     "pdf_page": 156,
+     "snippet": "7.4.1 Bài toán bao đóng truyền ứng (trasitive closure)",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "quan hệ bắc cầu",
+     "source_id": "bib-doantamhoe-2009",
+     "page": "",
+     "pdf_page": 148,
+     "snippet": "Vì quan hệ khả liên là quan hệ bắc cầu (v, khả liên từ v, và v,",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "bắc cầu",
+     "source_id": "bib-sierpinski-2012",
+     "page": "tr. 1",
+     "pdf_page": 15,
+     "snippet": "bắc cầu. Do đó nếu x | y thì x | ky với mọi số nguyên k .",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "tính bắc cầu",
+     "source_id": "bib-doducgiao-2008",
+     "page": "tr. 60",
+     "pdf_page": 61,
+     "snippet": "d) Tính bắc cầu",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "tính bắc cầu",
+     "source_id": "bib-vudinhhoa-2010",
+     "page": "",
+     "pdf_page": 20,
+     "snippet": "3. Nếu p© q vag œr thì p œr (tính bắc cầu).",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "quan hệ bắc cầu",
+     "source_id": "bib-doducgiao-2008",
+     "page": "tr. 70",
+     "pdf_page": 71,
+     "snippet": "[R] là quan hệ bắc cầu nhỏ nhất chứa R. Nói cách khác, nếu R là một quan",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "quan hệ bắc cầu",
+     "source_id": "bib-nguyenhuuanh-2007",
+     "page": "",
+     "pdf_page": 91,
+     "snippet": "ý 1. Các quan hệ ” =, =, //,< ” là các quan hệ bắc cầu.",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "bắc cầu",
+     "source_id": "bib-cungkimtien-2004",
+     "page": "",
+     "pdf_page": 44,
+     "snippet": "bridge connection nối bắc cầu",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "bắc cầu",
+     "source_id": "bib-phan-1976",
+     "page": "tr. 74",
+     "pdf_page": 74,
+     "snippet": "bridge c. nối bắc cầu",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "tính truyền",
+     "source_id": "bib-phan-1976",
+     "page": "tr. 429",
+     "pdf_page": 429,
+     "snippet": "transitivity tính bắc cầu, tính truyền ứng",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "tính bắc cầu",
+     "source_id": "bib-cungkimtien-2004",
+     "page": "",
+     "pdf_page": 387,
+     "snippet": "transitivity tính bac cầu, tính",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "tính bắc cầu",
+     "source_id": "bib-phan-1976",
+     "page": "tr. 429",
+     "pdf_page": 429,
+     "snippet": "transitivity tính bắc cầu, tính truyền ứng",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "truyền ứng",
+     "source_id": "bib-cungkimtien-2004",
+     "page": "",
+     "pdf_page": 199,
+     "snippet": "truyền ứng",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "truyền ứng",
+     "source_id": "bib-phan-1976",
+     "page": "tr. 247",
+     "pdf_page": 247,
+     "snippet": "intransitive Jog. không bắc cầu, không truyền ứng",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "quan hệ bắc cầu",
+     "source_id": "bib-cungkimtien-2004",
+     "page": "",
+     "pdf_page": 626,
+     "snippet": "quan hệ bắc câu transitive",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "quan hệ bắc cầu",
+     "source_id": "bib-phan-1976",
+     "page": "tr. 363",
+     "pdf_page": 363,
+     "snippet": "transitive r. quan hệ bắc cầu",
+     "verified": true,
+     "recommended": false
+    }
+   ],
+   "pos": "d.t."
+  },
+  {
+   "id": "transpose-of-a-matrix",
+   "letter": "T",
+   "headword_en": "transpose of a matrix",
+   "notation": "A^{t}",
+   "rosen_ref": "Rosen §2.6",
+   "definition_vi": "Ma trận chuyển vị của một ma trận $$A$$ cỡ $$m \\times n$$ là ma trận cỡ $$n \\times m$$ thu được bằng cách đổi chỗ các hàng và các cột của $$A$$, ký hiệu $$A^{t}$$. Nói cách khác, phần tử ở vị trí $$(i,j)$$ của $$A^{t}$$ bằng phần tử ở vị trí $$(j,i)$$ của $$A$$ với mọi $$i$$ và $$j$$.",
+   "example_vi": "Với ma trận $$A$$ cỡ $$2 \\times 3$$ cho bởi\n```math\nA = \\begin{pmatrix} 1 & 2 & 3 \\\\ 4 & 5 & 6 \\end{pmatrix},\n```\nma trận chuyển vị $$A^{t}$$ là ma trận cỡ $$3 \\times 2$$\n```math\nA^{t} = \\begin{pmatrix} 1 & 4 \\\\ 2 & 5 \\\\ 3 & 6 \\end{pmatrix}.\n```\nChẳng hạn, phần tử ở vị trí $$(3,1)$$ của $$A^{t}$$ bằng $$3$$, đúng bằng phần tử ở vị trí $$(1,3)$$ của $$A$$.",
+   "notes": "Concept = transpose of an $$m \\times n$$ matrix $$A$$, the $$n \\times m$$ matrix whose $$(i,j)$$ entry is the $$(j,i)$$ entry of $$A$$ (notation $$A^{t}$$). Recommended term \"ma trận chuyển vị\" is the standard full form; \"chuyển vị\" is the head noun (used as \"chuyển vị của ma trận\"). Both candidate terms are attested only in the older sources bib-hoangchithanh-2007 (2007) and bib-ngodactan-2004 (2004); the 2019-2020 sources (bib-leanhvinh-2020, bib-nguyenhoangthach-2020, bib-nguyenhuudien-2019) do not attest the matrix-transpose concept under any spelling (verified via find-term.py, including --loose for OCR sources), so the newest available attestation (2007) is listed first and recommended. EXCLUDED: bib-hoangchithanh-2007 p.20 also has \"Chuyển vị của đồ thị định hướng\" (transpose of a DIRECTED GRAPH), a distinct concept not covered here. EXCLUDED: \"ma trận đối xứng\" (symmetric matrix) and \"hoán vị\" (permutation) are different concepts. Searched variants with zero hits: \"chuyển trí\", \"ma trận chuyển trí\", \"phép chuyển vị\", \"ma trận hoán vị\". see_also targets symmetric-matrix and zero-one-matrix are cross-chapter forward references (not yet authored); adjacency-matrix (A) and matrix (M) exist.",
+   "see_also": [
+    "adjacency-matrix",
+    "matrix",
+    "symmetric-matrix",
+    "zero-one-matrix"
+   ],
+   "vi_terms": [
+    {
+     "term": "ma trận chuyển vị",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-hoangchithanh-2007",
+     "pdf_page": 20,
+     "page": "tr. 20",
+     "snippet": "(BÏ là ma trận chuyển vị của ma trận B)."
+    },
+    {
+     "term": "ma trận chuyển vị",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-ngodactan-2004",
+     "pdf_page": 125,
+     "page": "tr. 125",
+     "snippet": "Ai là ma trận chuyển vị của ma trận A trong công thức nghịch đảo nhị"
+    },
+    {
+     "term": "chuyển vị",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-hoangchithanh-2007",
+     "pdf_page": 20,
+     "page": "tr. 20",
+     "snippet": "(BÏ là ma trận chuyển vị của ma trận B)."
+    },
+    {
+     "term": "chuyển vị",
+     "source_id": "bib-hoangchithanh-2011",
+     "page": "",
+     "pdf_page": 27,
+     "snippet": "chuyên vị của ma trận B).",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "chuyển vị",
+     "source_id": "bib-doducthai-2010",
+     "page": "tr. 67",
+     "pdf_page": 67,
+     "snippet": "chuyển việc nghiên cứu mọi biến ngẫu nhiên về việc nghiên cứu các",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "ma trận chuyển vị",
+     "source_id": "bib-cungkimtien-2004",
+     "page": "",
+     "pdf_page": 560,
+     "snippet": "ma trận chuyển vi transposed",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "ma trận chuyển vị",
+     "source_id": "bib-phan-1976",
+     "page": "tr. 279",
+     "pdf_page": 279,
+     "snippet": "transposed m. ma trận chuyển vị",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "chuyển vị",
+     "source_id": "bib-cungkimtien-2004",
+     "page": "",
+     "pdf_page": 321,
+     "snippet": "chuyén vi chinh quy hod",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "chuyển vị",
+     "source_id": "bib-phan-1976",
+     "page": "tr. 74",
+     "pdf_page": 74,
+     "snippet": "transposse c. liên thông chuyển vị",
+     "verified": true,
+     "recommended": false
+    }
+   ],
    "pos": "d.t."
   },
   {
@@ -2545,6 +2296,217 @@
    "pos": "d.t."
   },
   {
+   "id": "traveling-salesperson-problem",
+   "letter": "T",
+   "headword_en": "traveling salesperson problem",
+   "see_ref": "traveling-salesman-problem",
+   "vi_terms": [
+    {
+     "term": "bài toán người bán hàng",
+     "verified": false,
+     "recommended": false,
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": ""
+    }
+   ],
+   "status": "draft",
+   "pos": "d.t."
+  },
+  {
+   "id": "tree",
+   "letter": "T",
+   "headword_en": "tree",
+   "notation": "T = (V, E)",
+   "rosen_ref": "Rosen §11.1",
+   "definition_vi": "Một cây, ký hiệu $$T = (V, E)$$, là một đồ thị vô hướng liên thông không chứa chu trình đơn nào.",
+   "example_vi": "Đồ thị $$T = (V, E)$$ với $$V = \\{a, b, c, d\\}$$ và $$E = \\{ab, bc, bd\\}$$ là một cây, vì nó liên thông và không chứa chu trình đơn nào.",
+   "notes": "Standard standalone term across the entire corpus is \"cây\", attested with a formal definition in all six sources (connected undirected graph with no cycle). The definition follows Rosen §11.1 exactly: a tree is a connected undirected graph with no simple circuits; the redundant restatement \"nói cách khác, ... không có chu trình\" (which paired the simple-circuit condition with a non-equivalent acyclic paraphrase) was removed so Rosen's single condition \"không chứa chu trình đơn\" stands alone. The corpus sources state the equivalent \"không có chu trình\" (acyclic), which coincides with the no-simple-circuit condition for a graph but is not presented here as a separate characterization. Recommended term \"cây\" is attested in two 2019-2020 sources: nguyenhoangthach-2020 (Định nghĩa 6.1, p.83: \"Một cây là một đồ thị vô hướng, liên thông, không có chu[ trình]\") and leanhvinh-2020 (Ch. 2 \"Cây\", p.38). The variant \"đồ thị cây\" appears in nguyenhoangthach-2020 p.85 only in the qualified form \"đồ thị cây có gốc\" (rooted tree graph) describing a drawing; it denotes the same concept but is NOT a standalone definitional term, so it is recorded as a non-recommended variant whose attested context is rooted-tree drawing only. Compound terms found in the corpus but NOT denoting this bare concept (excluded): \"cây bao trùm\"/\"cây khung\" (spanning tree), \"cây có gốc\" (rooted tree), \"cây nhị phân\" (binary tree), \"cây cầu\" (bridge, unrelated). Note nguyenducnghia-2006 and ngodactan-2004 use \"cây khung\"/\"cây\" with \"khuyên\" (loop) excluded explicitly in ngodactan: \"đồ thị vô hướng liên thông không có khuyên và không có chu trình\".",
+   "see_also": [
+    "binary-tree",
+    "forest",
+    "rooted-tree",
+    "spanning-tree"
+   ],
+   "vi_terms": [
+    {
+     "term": "cây",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-nguyenhoangthach-2020",
+     "pdf_page": 83,
+     "page": "tr. 81",
+     "snippet": "Định nghĩa 6.1. Một cây là một đồ thị vô hướng, liên thông, không có chu[ trình]"
+    },
+    {
+     "term": "cây",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-leanhvinh-2020",
+     "pdf_page": 38,
+     "page": "tr. 39",
+     "snippet": "Trong chương này, ta sẽ tìm hiểu một lớp đồ thị quan trọng, cây hay [...]. Trước hết, ta chứng minh dé thị liên thông Ơ là cây khi và chỉ khi"
+    },
+    {
+     "term": "đồ thị cây",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhoangthach-2020",
+     "pdf_page": 85,
+     "page": "tr. 83",
+     "snippet": "Khác với “cây” trong tự nhiên, khi vẽ các đồ thị cây có gốc, ta thường"
+    },
+    {
+     "term": "cây",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 242,
+     "page": "tr. 242",
+     "snippet": "Định nghĩa 10.1 Giả sử T = (V, E) là đồ thị vô hướng. Ta nói rằng đồ thị T là một cây"
+    }
+   ],
+   "pos": "d.t."
+  },
+  {
+   "id": "tree-diagram",
+   "letter": "T",
+   "headword_en": "tree diagram",
+   "notation": "",
+   "rosen_ref": "Rosen §6.1",
+   "definition_vi": "Cây liệt kê là một cây có gốc dùng trong phép đếm, trong đó mỗi nhánh biểu diễn một lựa chọn có thể có và mỗi lá biểu diễn một kết cục có thể có của một dãy các lựa chọn liên tiếp.",
+   "example_vi": "Để đếm số xâu nhị phân độ dài $$3$$, ta vẽ cây liệt kê có gốc tương ứng với xâu rỗng; tại mỗi mức ta rẽ thành hai nhánh ứng với việc chọn bit $$0$$ hoặc bit $$1$$, và sau $$3$$ mức cây có $$2^3 = 8$$ lá, mỗi lá ứng với một xâu nhị phân khác nhau.",
+   "notes": "Mined candidates: \"cây liệt kê\" and \"sơ đồ cây\". Only \"cây liệt kê\" is attested in the Vietnamese corpus (12 hits total): newest in bib-nguyenhuudien-2019 (2019, tr. 197 PDF, 1 hit), and repeatedly in bib-nguyenducnghia-2006 (2006, 11 hits across tr. 100-110, 197). Snippets confirm it denotes a rooted tree that enumerates all outcomes/solutions of a sequence of choices (binary strings of length 3, permutations of 1,2,3, combinations, backtracking solutions, Hamilton cycles), matching Rosen's tree-diagram concept. The candidate \"sơ đồ cây\" returned 0 hits in both normal and --loose searches across all sources and is NOT attested; related variants \"sơ đồ hình cây\" and \"cây quyết định\" also returned 0 hits. \"sơ đồ cây\" is a common informal rendering but is dropped from vi_terms per citation hygiene (verified=false, empty page) since the recommended term \"cây liệt kê\" is attested. OCR sources (bib-leanhvinh-2020, bib-hoangchithanh-2007) returned no hits even with --loose. Verifier re-ran all find-term.py queries; all snippets and pages reproduce exactly with no fabrication.",
+   "see_also": [
+    "tree",
+    "rooted-tree"
+   ],
+   "vi_terms": [
+    {
+     "term": "cây liệt kê",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 197,
+     "page": "tr. 197",
+     "snippet": "▷ 7.7. Chứng minh rằng đồ thị lập phương Qn là một đồ thị Hamilton. Vẽ cây liệt kê tất cả"
+    },
+    {
+     "term": "cây liệt kê",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenducnghia-2006",
+     "pdf_page": 100,
+     "page": "",
+     "snippet": "Hình 1. Cây liệt kê lời giải theo thuật toán quay lui"
+    },
+    {
+     "term": "sơ đồ cây",
+     "source_id": "bib-wikipedia-vi",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": "https://vi.wikipedia.org/wiki/Sơ_đồ_cây",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "sơ đồ hình cây",
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": "",
+     "verified": false,
+     "recommended": false
+    },
+    {
+     "term": "cây liệt kê",
+     "source_id": "bib-cormen-2001-vi",
+     "page": "tr. 330",
+     "pdf_page": 328,
+     "snippet": "Một tang cây nội cấp của cây liệt kê các nút được sắp xếp thứ tự theo điểm",
+     "verified": true,
+     "recommended": false
+    }
+   ],
+   "pos": "d.t."
+  },
+  {
+   "id": "tree-traversal",
+   "letter": "T",
+   "headword_en": "tree traversal",
+   "notation": "",
+   "rosen_ref": "Rosen §11.3",
+   "definition_vi": "Duyệt cây là một thủ tục lần lượt thăm mọi đỉnh của một cây có gốc được sắp thứ tự $$T$$, đưa ra một danh sách tuyến tính liệt kê tất cả các đỉnh của cây, mỗi đỉnh đúng một lần. Ba cách duyệt cây thường gặp là duyệt theo thứ tự trước, duyệt theo thứ tự giữa và duyệt theo thứ tự sau, được định nghĩa đệ quy trên các cây con của gốc.",
+   "example_vi": "Xét cây có gốc được sắp thứ tự với gốc $$r$$ có hai cây con, cây con bên trái gồm đỉnh $$a$$ và cây con bên phải gồm đỉnh $$b$$. Duyệt theo thứ tự trước cho danh sách $$r, a, b$$, còn duyệt theo thứ tự sau cho danh sách $$a, b, r$$.",
+   "notes": "Recommended term \"duyệt cây\" is attested in the newest available text source bib-nguyenhuudien-2019 (2019), where the concept is defined directly: \"Duyệt cây là cách đưa ra một danh sách tuyến tính liệt kê tất cả các đỉnh của cây\" (tr. 253). The same definition appears in OCR source bib-hoangchithanh-2007 (tr. 139). The two 2020 sources (bib-leanhvinh-2020, bib-nguyenhoangthach-2020) do not cover tree traversal (0 hits, normal and loose), so 2019 is the newest attestation. Variant \"các cách duyệt cây\" (\"the ways of traversing a tree\") is the section-heading form naming the three traversals (preorder/inorder/postorder) in both 2019 and 2007 sources. Candidate \"phép duyệt cây\" returned 0 hits in all sources (normal and loose) and is therefore not recorded. The phrasing \"phương pháp duyệt cây\" also occurs once in bib-nguyenhuudien-2019 (tr. 252) but is a descriptive phrase (\"the methods of tree traversal\"), not a distinct standardized term. No hits in bib-nguyenducnghia-2006 or bib-ngodactan-2004.",
+   "see_also": [
+    "ordered-rooted-tree",
+    "rooted-tree",
+    "preorder-traversal",
+    "inorder-traversal",
+    "postorder-traversal",
+    "traversal"
+   ],
+   "vi_terms": [
+    {
+     "term": "duyệt cây",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 253,
+     "page": "tr. 253",
+     "snippet": "Duyệt cây là cách đưa ra một danh sách tuyến tính liệt kê tất cả các đỉnh của cây, mỗi"
+    },
+    {
+     "term": "các cách duyệt cây",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 253,
+     "page": "tr. 253",
+     "snippet": "10.5.2. Các cách duyệt cây"
+    },
+    {
+     "term": "các cách duyệt cây",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-hoangchithanh-2007",
+     "pdf_page": 139,
+     "page": "tr. 139",
+     "snippet": "Các cách duyệt cây này được định nghĩa đệ quy như sau."
+    },
+    {
+     "term": "duyệt cây",
+     "source_id": "bib-hoangchithanh-2011",
+     "page": "",
+     "pdf_page": 11,
+     "snippet": "duyệt cây theo thứ tự trước",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "các cách duyệt cây",
+     "source_id": "bib-hoangchithanh-2011",
+     "page": "",
+     "pdf_page": 245,
+     "snippet": "Các cách duyệt cây này được định nghĩa đệ quy như sau.",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "duyệt cây",
+     "source_id": "bib-vudinhhoa-2010",
+     "page": "",
+     "pdf_page": 150,
+     "snippet": "là 1 (hoặc 0), còn đi tới con phải là 0 (hoặc 1). Quá trình mã hoá sẽ duyệt cây",
+     "verified": true,
+     "recommended": false
+    }
+   ],
+   "pos": "d.t."
+  },
+  {
    "id": "trivial-proof",
    "letter": "T",
    "headword_en": "trivial proof",
@@ -2587,119 +2549,116 @@
    "pos": "d.t."
   },
   {
-   "id": "twos-complement-notation",
+   "id": "truth-table",
    "letter": "T",
-   "headword_en": "two's complement notation",
-   "notation": "",
-   "rosen_ref": "Rosen §4.2",
-   "definition_vi": "Ký hiệu phần bù hai là cách biểu diễn các số nguyên trên máy tính dùng $$n$$ bit, trong đó một số nguyên $$a$$ với $$-2^{n-1} \\leq a \\leq 2^{n-1}-1$$ được biểu diễn như sau: nếu $$a \\geq 0$$ thì dùng biểu diễn nhị phân $$n$$ bit của $$a$$ với bit dấu (bit ngoài cùng bên trái) bằng $$0$$; nếu $$a < 0$$ thì lấy biểu diễn nhị phân $$n$$ bit của số dương $$2^{n-1}+a$$ và đặt bit dấu bằng $$1$$. Một cách tương đương, biểu diễn phần bù hai của $$-a$$ nhận được bằng cách lấy phần bù từng bit của biểu diễn của $$a$$ rồi cộng thêm $$1$$.",
-   "example_vi": "Với $$n = 6$$ bit, số $$13$$ có biểu diễn phần bù hai là $$001101$$ (bit dấu $$0$$). Để biểu diễn $$-13$$, ta lấy phần bù từng bit của $$001101$$ được $$110010$$ rồi cộng $$1$$, thu được $$110011$$ (bit dấu $$1$$).",
-   "vi_terms": [
-    {
-     "term": "ký hiệu phần bù hai",
-     "source_id": "",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": "",
-     "verified": false,
-     "recommended": true
-    },
-    {
-     "term": "biểu diễn số nguyên dạng bù 2",
-     "source_id": "",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": "",
-     "verified": false,
-     "recommended": false
-    },
-    {
-     "term": "mã bù hai",
-     "source_id": "",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": "",
-     "verified": false,
-     "recommended": false
-    },
-    {
-     "term": "bù 2",
-     "source_id": "",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": "",
-     "verified": false,
-     "recommended": false
-    },
-    {
-     "term": "biểu diễn bù hai",
-     "recommended": false,
-     "source_id": "bib-wikipedia-vi",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": "https://vi.wikipedia.org/wiki/Bù_2",
-     "verified": true
-    }
-   ],
+   "headword_en": "truth table",
+   "definition_vi": "Bảng chân trị của một mệnh đề phức hợp là bảng liệt kê chân trị của mệnh đề đó ứng với mỗi tổ hợp chân trị có thể có của các mệnh đề sơ cấp cấu thành nó. Mỗi mệnh đề sơ cấp nhận một trong hai chân trị, đúng (ký hiệu $$1$$) hoặc sai (ký hiệu $$0$$); với $$n$$ mệnh đề sơ cấp, bảng có $$2^{n}$$ dòng.",
+   "notation": "0, 1; 2^{n}",
+   "example_vi": "Bảng chân trị của phép phủ định $$\\neg p$$ có hai dòng: khi $$p$$ nhận chân trị $$0$$ thì $$\\neg p$$ nhận chân trị $$1$$, và khi $$p$$ nhận chân trị $$1$$ thì $$\\neg p$$ nhận chân trị $$0$$.",
+   "rosen_ref": "Rosen §1.1",
+   "notes": "Recommended term \"bảng chân trị\" is attested in the 2019 source bib-nguyenhuudien-2019 (truth table for compound propositions / logical operators), glossed in-text as \"(truth table)\". Verified against the PDF: page 15 reads \"Các phép toán logic được định nghĩa bằng bảng chân trị (truth table). Bảng chân trị chỉ...\" and page 16 expands the definition (\"Trong cột thứ nhất của bảng chân trị, ta liệt kê đầy đủ các trường hợp chân trị có thể có\"), matching the ground-truth definition. The candidate variants \"bảng chân lý\" and \"bảng giá trị chân lý\" returned zero hits in every corpus source (normal and --loose); they are recorded here as unattested variants only and are NOT carried as vi_terms (citation hygiene: verified=false + empty-page rows are dropped because a verified recommended term already exists). The 2006 source bib-nguyenducnghia-2006 (pdf pages 266, 268) uses \"bảng giá trị\" for the value table of a Boolean/logic function (\"hàm đại số lôgïc\"); this is the same tabular construct but used in the Boolean-algebra chapter rather than as the truth table of compound propositions, so it is listed as a related variant (recommended=false) with the concept distinction flagged here. The graph-theory sources (bib-leanhvinh-2020, bib-nguyenhoangthach-2020, bib-hoangchithanh-2007, bib-ngodactan-2004) do not attest this logic concept. The example uses only negation, which the definition's \"tổ hợp chân trị\" framework already covers, so no quantity outside the definition is introduced. see_also is empty: no other T-letter entries cover the propositional-logic dependencies, and cross-chapter terms (compound proposition, logical connective) are not linked per the same-chapter rule.",
    "see_also": [],
-   "notes": "Thuật ngữ chuẩn của giáo trình MAT3500 là \"ký hiệu phần bù hai\". Không tìm thấy thuật ngữ này trong các nguồn ngữ liệu (các giáo trình toán rời rạc và đồ thị không bàn về biểu diễn số trên máy tính). Bản dịch Rosen có khái niệm gần kề là \"biểu diễn bù đối với một\" (one's complement, tr. 182 PDF), nhưng đây là khái niệm khác nên không được dùng làm dẫn chứng cho phần bù hai.",
-   "status": "draft",
-   "pos": "d.t."
-  },
-  {
-   "id": "total-ordering",
-   "letter": "T",
-   "headword_en": "total ordering",
-   "see_ref": "total-order",
-   "vi_terms": [],
-   "status": "draft",
-   "pos": "d.t."
-  },
-  {
-   "id": "totally-ordered-set",
-   "letter": "T",
-   "headword_en": "totally ordered set",
-   "see_ref": "total-order",
    "vi_terms": [
     {
-     "term": "tập sắp thứ tự toàn phần",
-     "verified": false,
-     "recommended": false,
-     "source_id": "",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": ""
-    }
-   ],
-   "status": "draft",
-   "pos": "d.t."
-  },
-  {
-   "id": "transitive",
-   "letter": "T",
-   "headword_en": "transitive",
-   "see_ref": "transitive-relation",
-   "vi_terms": [],
-   "status": "draft",
-   "pos": "t.t."
-  },
-  {
-   "id": "traveling-salesperson-problem",
-   "letter": "T",
-   "headword_en": "traveling salesperson problem",
-   "see_ref": "traveling-salesman-problem",
-   "vi_terms": [
+     "term": "bảng chân trị",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 15,
+     "page": "tr. 15",
+     "snippet": "Các phép toán logic được định nghĩa bằng bảng chân trị (truth table). Bảng chân trị chỉ"
+    },
     {
-     "term": "bài toán người bán hàng",
-     "verified": false,
-     "recommended": false,
-     "source_id": "",
+     "term": "bảng giá trị",
+     "source_id": "bib-nguyenhuudien-2019",
+     "page": "tr. 171",
+     "pdf_page": 171,
+     "snippet": "là một số nguyên dương, bằng giá trị của phần tử dòng i cột j của ma trận Ar .",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "bảng giá trị chân lý",
+     "source_id": "bib-doducgiao-2009",
+     "page": "tr. 318",
+     "pdf_page": 319,
+     "snippet": "c) Lập bang giá trị chan lý của các mệnh dé phức hợp nhận được trong",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "bảng chân trị",
+     "source_id": "bib-nguyenhuuanh-2007",
      "page": "",
-     "pdf_page": 0,
-     "snippet": ""
+     "pdf_page": 8,
+     "snippet": "Nói cách khác phép nối liền được xác định bởi bang chan trị sau:",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "bảng chân trị",
+     "source_id": "bib-vovantuandung-2007",
+     "page": "",
+     "pdf_page": 7,
+     "snippet": "Bảng chân trị của PvQ là: | P | Q | PvQ",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "bảng giá trị",
+     "source_id": "bib-doducthai-2010",
+     "page": "tr. 104",
+     "pdf_page": 104,
+     "snippet": "Định lý 2.11. Giá trị kỳ vọng hình học luôn nhỏ hơn hoặc bằng giá trị",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "bảng giá trị",
+     "source_id": "bib-vudinhhoa-2010",
+     "page": "",
+     "pdf_page": 5,
+     "snippet": "1.2. Các toán tử logic và bảng giá trì chân NY ........seccsssseessccnveeecssssnesensssssapsnetessessnetecssseeesessaes 11",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "bảng giá trị chân lý",
+     "source_id": "bib-doducgiao-2008",
+     "page": "tr. 130",
+     "pdf_page": 131,
+     "snippet": "va sai trong các trường hợp còn lại. Bang giá trị chân lý của X @® Y là",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "bảng giá trị chân lý",
+     "source_id": "bib-vudinhhoa-2010",
+     "page": "",
+     "pdf_page": 10,
+     "snippet": "được bang giá trị chan lý của các mệnh đề để phát hiện được giá trị của các mệnh",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "bảng chân trị",
+     "source_id": "bib-cungkimtien-2004",
+     "page": "",
+     "pdf_page": 391,
+     "snippet": "truth table bang chan tri",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "bảng chân trị",
+     "source_id": "bib-phan-1976",
+     "page": "tr. 416",
+     "pdf_page": 416,
+     "snippet": "truth t. Jog. bang chân tri",
+     "verified": true,
+     "recommended": false
     }
    ],
-   "status": "draft",
    "pos": "d.t."
   },
   {
@@ -2772,6 +2731,66 @@
     "tautology"
    ],
    "notes": "Giá trị chân trị là giá trị đúng (true, $$T$$) hoặc sai (false, $$F$$) gán cho một mệnh đề, và là cơ sở để lập bảng chân trị (truth table) của các mệnh đề phức hợp. Bản dịch Rosen (2003) dùng cụm \"giá trị chân lý\" (tr. 7); cụm \"giá trị chân trị\" theo nguồn mới hơn (Nguyễn Hữu Điển, 2019) là bản dịch được khuyến nghị, thống nhất với mục \"bảng chân trị\" (truth table) đã có trong sách.",
+   "status": "draft",
+   "pos": "d.t."
+  },
+  {
+   "id": "twos-complement-notation",
+   "letter": "T",
+   "headword_en": "two's complement notation",
+   "notation": "",
+   "rosen_ref": "Rosen §4.2",
+   "definition_vi": "Ký hiệu phần bù hai là cách biểu diễn các số nguyên trên máy tính dùng $$n$$ bit, trong đó một số nguyên $$a$$ với $$-2^{n-1} \\leq a \\leq 2^{n-1}-1$$ được biểu diễn như sau: nếu $$a \\geq 0$$ thì dùng biểu diễn nhị phân $$n$$ bit của $$a$$ với bit dấu (bit ngoài cùng bên trái) bằng $$0$$; nếu $$a < 0$$ thì lấy biểu diễn nhị phân $$n$$ bit của số dương $$2^{n-1}+a$$ và đặt bit dấu bằng $$1$$. Một cách tương đương, biểu diễn phần bù hai của $$-a$$ nhận được bằng cách lấy phần bù từng bit của biểu diễn của $$a$$ rồi cộng thêm $$1$$.",
+   "example_vi": "Với $$n = 6$$ bit, số $$13$$ có biểu diễn phần bù hai là $$001101$$ (bit dấu $$0$$). Để biểu diễn $$-13$$, ta lấy phần bù từng bit của $$001101$$ được $$110010$$ rồi cộng $$1$$, thu được $$110011$$ (bit dấu $$1$$).",
+   "vi_terms": [
+    {
+     "term": "ký hiệu phần bù hai",
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": "",
+     "verified": false,
+     "recommended": true
+    },
+    {
+     "term": "biểu diễn số nguyên dạng bù 2",
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": "",
+     "verified": false,
+     "recommended": false
+    },
+    {
+     "term": "mã bù hai",
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": "",
+     "verified": false,
+     "recommended": false
+    },
+    {
+     "term": "bù 2",
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": "",
+     "verified": false,
+     "recommended": false
+    },
+    {
+     "term": "biểu diễn bù hai",
+     "recommended": false,
+     "source_id": "bib-wikipedia-vi",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": "https://vi.wikipedia.org/wiki/Bù_2",
+     "verified": true
+    }
+   ],
+   "see_also": [],
+   "notes": "Thuật ngữ chuẩn của giáo trình MAT3500 là \"ký hiệu phần bù hai\". Không tìm thấy thuật ngữ này trong các nguồn ngữ liệu (các giáo trình toán rời rạc và đồ thị không bàn về biểu diễn số trên máy tính). Bản dịch Rosen có khái niệm gần kề là \"biểu diễn bù đối với một\" (one's complement, tr. 182 PDF), nhưng đây là khái niệm khác nên không được dùng làm dẫn chứng cho phần bù hai.",
    "status": "draft",
    "pos": "d.t."
   },

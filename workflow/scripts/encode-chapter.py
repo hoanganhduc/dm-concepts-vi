@@ -115,11 +115,14 @@ def render_entry(e, allowed_ids):
     # render inline (<m>) inside each entry's definition.
     lines.append("    <statement>")
     raw = (e.get("definition_vi", "") or "").rstrip()
-    if e.get("rosen_ref") and raw.endswith("."):
+    has_src = e.get("rosen_ref") or e.get("ref_bib")
+    if has_src and raw.endswith("."):
         raw = raw[:-1].rstrip()
     defn = to_ptx(raw)
-    if e.get("rosen_ref"):
-        defn += f' (theo <xref ref="bib-rosen-2019" />, {esc_text(e["rosen_ref"])}).'
+    if has_src:
+        ref_bib = e.get("ref_bib", "bib-rosen-2019")
+        loc = (", " + esc_text(e["rosen_ref"])) if e.get("rosen_ref") else ""
+        defn += f' (theo <xref ref="{ref_bib}" />{loc}).'
     lines.append(f"      <p>{defn}</p>")
     lines.append("      <p>Thuật ngữ tiếng Việt tương ứng:</p>")
     lines.append("      <ul>")
@@ -197,6 +200,7 @@ def main():
         ydoc["entries"].append({
             "id": e["id"], "letter": L, "headword_en": e["headword_en"],
             "notation": e.get("notation", ""), "rosen_ref": e.get("rosen_ref", ""),
+            "ref_bib": e.get("ref_bib", ""),
             "definition_vi": e.get("definition_vi", ""), "example_vi": e.get("example_vi", ""),
             "vi_terms": [{
                 "term": t.get("term", ""), "source_id": t.get("source_id", ""),

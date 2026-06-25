@@ -14,139 +14,549 @@
  "deferred_note": "Applied the panel's clearly-correct fixes and kept ALL 15 chapter-P entries; each retains exactly one recommended=true vi_term, every verified=true vi_term keeps source_id + pdf_page + page + snippet, and no fabricated citations were introduced. TERMINOLOGY: (HIGH) path — vi_terms previously bundled FIVE refinement rows (four 'đường đi đơn' = simple path, one 'đường đi sơ cấp' = elementary path) under the general path headword, contradicting the entry's own notes and the chapter-C circuit precedent (where the '...đơn' refinement gets its own headword whose vi_terms hold only that refinement's synonyms). The five refinement rows were removed from vi_terms; only the four genuine 'đường đi' attestations remain (nguyenhoangthach-2020 p73 recommended, leanhvinh-2020 p15, nguyenhuudien-2019 p168, hoangchithanh-2007 p7). The đường đi đơn / đường đi sơ cấp citations are recorded in notes as forward references to the dedicated simple-path entry. (HIGH) partial-order — recommends 'quan hệ thứ tự' (nguyenhuudien-2019 p118), the SAME term + citation as the already-finalized chapter-O order-relation entry. This is disclosed: a notes cross-reference now states the shared Vietnamese term is intentional (the 2019 corpus collapses 'order relation' and 'partial ordering' under 'quan hệ thứ tự'), and the see_also is made reciprocal with order-relation. The recommended term is kept (it is the lone 2019 attestation), with 'thứ tự bộ phận' (ngodactan-2004 p163) as the explicit-partial variant. (MED) proposition — $$\\textit{mệnh đề}$$ and $$\\textit{chân trị}$$ (prose words in math italics) normalized to \\emph{mệnh đề} / \\emph{chân trị}; $$T$$, $$F$$ stay math-wrapped. (MED) pseudograph — $$giả đồ thị$$ (spaced Vietnamese prose in math delimiters) normalized to \\emph{giả đồ thị}. (MED) perfect-matching — the notation field, a two-clause prose sentence, was reduced to bare LaTeX 'M \\subseteq E(G)'; the explanatory clause moved into definition_vi/notes. CORRECTNESS: (MED) partial-order — definition_vi now states the explicit partial qualifier, 'quan hệ thứ tự bộ phận (partial order)', parenthetically noting the recommended short form 'quan hệ thứ tự', so the partial-order meaning is unambiguous and consistent with the poset entry and chapter-O order-relation; the three axioms are unchanged. (LOW) poset — definition_vi aligned to 'quan hệ thứ tự bộ phận $$\\preceq$$' matching the partial-order entry; the $$(S, \\preceq)$$ notation and axioms are unchanged. (LOW) pascals-triangle — the duplicated parenthetical 'hệ số nhị thức $$\\binom{n}{k}$$ (ký hiệu $$\\binom{n}{k}$$ với ...)' was collapsed to a single occurrence with the range attached: 'hệ số nhị thức $$\\binom{n}{k}$$ với $$0 \\leq k \\leq n$$'; the recurrence is unchanged. EXPOSITION / EMPHASIS: (HIGH) poset — Markdown '*tập hợp có thứ tự*' emphasis normalized to \\emph{tập hợp có thứ tự}. (MED) partial-order notes — $$\\text{phản xạ}$$ / $$\\text{phản đối xứng}$$ / $$\\text{bắc cầu}$$ (prose words in math) unwrapped to plain Vietnamese; genuine symbols $$\\preceq$$, $$R$$ stay wrapped. (MED) planar-graph notes — the bib-nguyenhuudien-2019 'đồ thị phân đôi đầy đủ' mention is now flagged with the book-standard 'đồ thị hai phần' and 'đồ thị phân đôi' marked as a listed variant only. NOTATION-FIELD NORMALIZATION TO BARE LaTeX (LOW): path (u = v_0, v_1, \\ldots, v_n = v), prime-number (p), proposition (p, q, r, \\ldots; truth values T, F) un-$$-wrapped to match the O/N/B chapters; partial-order \\preceq, pascals-triangle \\binom{n}{k}, permutation P(n,r), poset (S, \\preceq), power-set \\mathcal{P}(S), predicate P(x) were already bare. SEE_ALSO FIXES: partial-order 'partially-ordered-set' -> 'poset' (the actual in-chapter id) and order-relation added for reciprocity; petersen-graph 'bipartite-graph' dropped as a misleading link (Petersen is non-bipartite, girth 5); planar-graph keeps its see_also and notes now document that all its ids are cross-chapter forward references and that bipartite is 'đồ thị hai phần'; perfect-matching keeps its forward references. EMPTY-see_also justifications added to notes for prime-number and pigeonhole-principle, matching the partition/power-set pattern. NOT APPLIED (correct as-is / optional / out of scope): the LOW optional permutation suggestions (splitting into permutation = hoán vị and r-permutation = chỉnh hợp; a half-line that the source uses k where the entry uses r) were left as-is — the recommended term, notation, and disclosing notes are already valid; the path closing-sentence restatement ('Số $$n$$ ... độ dài') was kept as a standard definitional naming of the quantity; perfect-matching's even-order consequence remains a non-Rosen derivable property recorded as optional; no new simple-path / elementary-path entries were created here (out of scope for the chapter-P editor) — their citations are surfaced as forward references in path's notes for the entry-author to place. power-set's verified=false + recommended=true (modern spelling 'tập lũy thừa') with the attested 2004 spelling 'tập luỹ thừa' recorded separately is kept exactly per the chapter-O ordered-tree precedent.",
  "final_entries": [
   {
-   "id": "path",
+   "id": "pairwise-independent-events",
    "letter": "P",
-   "headword_en": "path",
-   "notation": "u = v_0, v_1, \\ldots, v_n = v",
-   "rosen_ref": "Rosen §10.4",
-   "definition_vi": "Một đường đi độ dài $$n$$ từ đỉnh $$u$$ tới đỉnh $$v$$ trong đồ thị $$G$$ là một dãy gồm $$n$$ cạnh nối tiếp một dãy đỉnh $$u = v_0, v_1, \\ldots, v_n = v$$, trong đó mỗi cạnh nối hai đỉnh liên tiếp $$v_{i-1}$$ và $$v_i$$ của dãy với mọi $$1 \\leq i \\leq n$$. Số $$n$$ được gọi là độ dài của đường đi.",
-   "example_vi": "Trong đồ thị với các cạnh $$\\{a,b\\}$$, $$\\{b,c\\}$$, $$\\{c,d\\}$$, dãy đỉnh $$a, b, c, d$$ là một đường đi độ dài $$3$$ từ $$a$$ tới $$d$$, vì mỗi cặp đỉnh liên tiếp được nối bởi một cạnh.",
+   "headword_en": "pairwise independent events",
+   "notation": "p(E_i \\cap E_j) = p(E_i)p(E_j)",
+   "rosen_ref": "Rosen §7.2",
+   "definition_vi": "Các biến cố được gọi là độc lập đôi một nếu mọi cặp trong số chúng là độc lập. Nói cách khác, một họ biến cố $$E_1, E_2, \\ldots, E_n$$ là độc lập đôi một nếu với mọi cặp chỉ số $$i \\neq j$$ ta có $$p(E_i \\cap E_j) = p(E_i)p(E_j)$$.",
+   "example_vi": "Khi gieo một đồng xu cân đối hai lần, gọi $$E_1$$ là biến cố \"lần gieo đầu ra mặt ngửa\", $$E_2$$ là biến cố \"lần gieo thứ hai ra mặt ngửa\", và $$E_3$$ là biến cố \"hai lần gieo cho kết quả giống nhau\". Mỗi cặp trong ba biến cố này thỏa $$p(E_i \\cap E_j) = \\frac{1}{4} = \\frac{1}{2} \\cdot \\frac{1}{2} = p(E_i)p(E_j)$$, nên chúng độc lập đôi một (mặc dù không độc lập tương hỗ).",
    "vi_terms": [
     {
-     "term": "đường đi",
-     "source_id": "bib-nguyenhoangthach-2020",
-     "page": "tr. 71",
-     "pdf_page": 73,
-     "snippet": "Định nghĩa 5.25. Một đường đi độ dài ` từ đỉnh u tới đỉnh v là một dãy",
-     "verified": true,
+     "term": "biến cố độc lập đôi một",
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": "",
+     "verified": false,
      "recommended": true
     },
     {
-     "term": "đường đi",
+     "term": "biến cố",
      "source_id": "bib-leanhvinh-2020",
-     "page": "tr. 16",
-     "pdf_page": 15,
-     "snippet": "Tiếp theo ta sẽ định nghĩa hành trình, đường đi và chu trình trong",
+     "page": "tr. 158",
+     "pdf_page": 157,
+     "snippet": "Xét các biến cố Ái, Ag,..., A, trong một không gian xác suất bất",
      "verified": true,
      "recommended": false
     },
     {
-     "term": "đường đi",
+     "term": "biến cố độc lập từng đôi một",
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": "",
+     "verified": false,
+     "recommended": false
+    },
+    {
+     "term": "biến cố",
      "source_id": "bib-nguyenhuudien-2019",
-     "page": "tr. 168",
-     "pdf_page": 168,
-     "snippet": "Định nghĩa 6.18 Đường đi độ dài n từ đỉnh u đến đỉnh v, với n là một số nguyên dương,",
+     "page": "tr. 48",
+     "pdf_page": 48,
+     "snippet": "vị từ để có một vị từ mới theo các biến còn lại. Chẳng hạn, nếu P( x, y, . . .) là một vị từ",
      "verified": true,
      "recommended": false
     },
     {
-     "term": "đường đi",
+     "term": "biến cố",
+     "source_id": "bib-sierpinski-2012",
+     "page": "tr. 22",
+     "pdf_page": 36,
+     "snippet": "Đối với các phương trình Diophante nhiều biến có một số vấn đề sau đây được đặt ra: phương",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "biến cố",
      "source_id": "bib-cungkimtien-2004",
      "page": "",
-     "pdf_page": 155,
-     "snippet": "free parth đường di động tự do",
+     "pdf_page": 22,
+     "snippet": "antithetic(al) events biến cố xung",
      "verified": true,
      "recommended": false
     },
     {
-     "term": "đường đi",
+     "term": "biến cố",
      "source_id": "bib-phan-1976",
-     "page": "tr. 321",
-     "pdf_page": 321,
-     "snippet": "path bước, đường di; quỹ dao",
+     "page": "tr. 62",
+     "pdf_page": 62,
+     "snippet": "c. ofan event phần bù của một biến cố; biến đối lập",
      "verified": true,
      "recommended": false
     }
    ],
    "see_also": [
-    "simple-path",
-    "circuit",
-    "cycle",
-    "connected-graph"
+    "independent-events",
+    "mutually-independent-events",
+    "event"
    ],
-   "notes": "Recommended term \"đường đi\" (general path) is the base concept matching Rosen §10.4 and is attested in both 2020 sources: bib-nguyenhoangthach-2020 p73 (Định nghĩa 5.25: \"Một đường đi độ dài ` từ đỉnh u tới đỉnh v là một dãy ...\") and bib-leanhvinh-2020 p15-16, plus bib-nguyenhuudien-2019 p168 (Định nghĩa 6.18), bib-hoangchithanh-2007 p7. Vi_terms ordered newest-source first.\n\ndefinition_vi follows the recommended term and the wording of the recommended source (bib-nguyenhoangthach-2020 Định nghĩa 5.25), expressing Rosen's general path: a length-$$n$$ path is a sequence of $$n$$ edges successively connecting a vertex sequence from $$u$$ to $$v$$. The notation field gives the vertex sequence $$u = v_0, v_1, \\ldots, v_n = v$$ as in the source (stored as bare LaTeX; the renderer adds the math wrapping). The example is self-contained: it introduces only edges and the resulting path/length, no derived quantity beyond what the definition states.\n\nCONCEPT BOUNDARY (per panel terminology HIGH finding): two stricter refinements of the path concept appear in the corpus but denote notions narrower than Rosen's general \"đường đi\", so they are NOT listed as vi_terms of this entry. Following the chapter-C precedent (id=circuit, whose vi_terms hold only synonyms of the \"...đơn\" refinement, while the general \"chu trình\" lives under id=cycle), each refinement belongs to its own headword. They are recorded here as forward references for the simple-path entry (and an elementary-path entry if treated separately):\n- \"đường đi đơn\" = simple path: bib-nguyenhoangthach-2020 p73 (\"Một đường đi đơn (tương tự, chu trình đơn) là một đường đi ...\"), bib-nguyenhuudien-2019 p168 (\"Đường đi hoặc chu trình gọi là đơn nếu nó không chứa cùng một cạnh ... quá\"), bib-nguyenducnghia-2006 p156, bib-hoangchithanh-2007 p7 (\"Đường đi đơn là đường đi mà các đỉnh trên nó khác nhau từng đôi.\"). The Vietnamese \"đơn\" usage is the no-repeated-edge sense in nguyenhuudien-2019/nguyenducnghia-2006, aligning with Rosen's \"simple path\" (no repeated edge), but the vertex/edge convention varies by book.\n- \"đường đi sơ cấp\" = elementary path (distinct vertices): bib-nguyenhuudien-2019 p168-169 (\"... được gọi là đường đi hoặc chu trình sơ cấp\"); the hierarchy is explicit there (an elementary path is a simple path).\n\nbib-leanhvinh-2020 (OCR) and bib-hoangchithanh-2007 (OCR) were searched in BOTH normal and --loose modes; both attest \"đường đi\" cleanly. bib-ngodactan-2004 also uses \"đường đi\" (bib id present in references.ptx) but a clean definitional snippet was not isolated; the base term is already amply attested in newer sources.\n\nVerifier note: all cited bibliography ids confirmed to exist in source/references.ptx and data/sources/registry.yaml. The four remaining \"đường đi\" snippet/pdf_page pairs were re-mined against the corpus text and reconfirmed (OCR sources checked normal + --loose). No fabricated citations.\n\nsee_also: \"simple-path\" is the in-chapter refinement (đường đi đơn); \"circuit\"/\"cycle\"/\"connected-graph\" are related P/C-chapter concepts and remain cross-chapter forward references where not in chapter P.\n\nDiacritic note: snippets contain OCR artifacts in the 2020/2007 OCR sources (e.g., \"dé dài\" = \"độ dài\"). Clean text terms: đường đi (and the refinements đường đi đơn, đường đi sơ cấp, recorded above).",
+   "notes": "Độc lập đôi một là điều kiện yếu hơn độc lập tương hỗ (mutually independent). Các biến cố độc lập đôi một chỉ đòi hỏi đẳng thức $$p(E_i \\cap E_j) = p(E_i)p(E_j)$$ đúng cho mọi cặp $$i \\neq j$$, trong khi độc lập tương hỗ đòi hỏi $$p\\!\\left(\\bigcap_{i \\in I} E_i\\right) = \\prod_{i \\in I} p(E_i)$$ đúng cho mọi tập con $$I$$. Do đó độc lập tương hỗ kéo theo độc lập đôi một, nhưng điều ngược lại nói chung không đúng. Cụm \"biến cố độc lập đôi một\" là bản dịch chuẩn được khuyến nghị; bản dịch Rosen tiếng Việt (tr. 337) định nghĩa độc lập cho từng cặp biến cố. Cần phân biệt \"biến cố độc lập\" trong xác suất với \"tập độc lập\" (independent set) trong lý thuyết đồ thị.",
+   "status": "draft",
    "pos": "d.t."
   },
   {
-   "id": "planar-graph",
+   "id": "pairwise-relatively-prime",
    "letter": "P",
-   "headword_en": "planar graph",
-   "notation": "",
-   "rosen_ref": "Rosen §10.7",
-   "definition_vi": "Đồ thị $$G$$ được gọi là đồ thị phẳng nếu nó có thể được vẽ trên mặt phẳng sao cho không có hai cạnh nào của nó cắt nhau, nghĩa là các cạnh chỉ gặp nhau tại đầu mút chung của chúng. Một cách vẽ như vậy được gọi là một biểu diễn phẳng của $$G$$.",
-   "example_vi": "Đồ thị $$K_4$$ là đồ thị phẳng, vì nó có thể được vẽ trên mặt phẳng với một đỉnh nằm bên trong tam giác tạo bởi ba đỉnh còn lại sao cho không có hai cạnh nào cắt nhau.",
+   "headword_en": "pairwise relatively prime",
+   "notation": "\\gcd(a_i, a_j) = 1",
+   "rosen_ref": "Rosen §3.6",
+   "definition_vi": "Các số nguyên $$a_1, a_2, \\ldots, a_n$$ được gọi là đôi một nguyên tố cùng nhau nếu mỗi cặp hai số phân biệt trong chúng là nguyên tố cùng nhau, tức là $$\\gcd(a_i, a_j) = 1$$ với mọi $$1 \\leq i < j \\leq n$$.",
+   "example_vi": "Các số $$10$$, $$17$$, $$21$$ là đôi một nguyên tố cùng nhau vì $$\\gcd(10,17) = \\gcd(10,21) = \\gcd(17,21) = 1$$. Trong khi đó $$10$$, $$19$$, $$24$$ không đôi một nguyên tố cùng nhau vì $$\\gcd(10,24) = 2 \\neq 1$$.",
    "vi_terms": [
     {
-     "term": "đồ thị phẳng",
-     "source_id": "bib-leanhvinh-2020",
-     "page": "tr. 115",
-     "pdf_page": 114,
-     "snippet": "biểu diễn ƒ. Đồ thị G được gọi là đồ thị phẳng nếu Ơ có một biểu diễn",
+     "term": "đôi một nguyên tố cùng nhau",
+     "source_id": "bib-rosen-2003-vi",
+     "pdf_page": 157,
+     "page": "tr. 157",
+     "snippet": "ĐỊNH NGHĨA 6. Các số nguyên a), a, .. 0p, được gọi là đôi một nguyên tố cùng nhau",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "nguyên tố cùng nhau đôi một",
+     "source_id": "bib-nguyenhoangthach-2020",
+     "pdf_page": 55,
+     "page": "tr. 53",
+     "snippet": "Vì 3, 5, 7 nguyên tố cùng nhau đôi một nên A ∩ B, B ∩ C, C ∩ A lần lượt",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "nguyên tố cùng nhau từng đôi một",
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": "",
+     "verified": false,
+     "recommended": false
+    },
+    {
+     "term": "đôi một nguyên tố cùng nhau",
+     "source_id": "bib-nguyenvanmau-2007",
+     "page": "",
+     "pdf_page": 132,
+     "snippet": "Ví dụ. (Từ [MO 83) Cho các số a, b, c € N*, đôi một nguyên tố cùng nhau. Chứng",
      "verified": true,
      "recommended": true
     },
     {
-     "term": "đồ thị phẳng",
-     "source_id": "bib-nguyenhuudien-2019",
-     "page": "tr. 235",
-     "pdf_page": 235,
-     "snippet": "Figure 9.16: (a), (b) là đồ thị phẳng, (c) là đồ thị không phẳng",
+     "term": "đôi một nguyên tố cùng nhau",
+     "source_id": "bib-sierpinski-2012",
+     "page": "tr. 8",
+     "pdf_page": 22,
+     "snippet": "a  kb  k  0,1, 2,... chứa dãy con vô hạn các phần tử thuộc dãy là đôi một nguyên tố cùng nhau.",
      "verified": true,
      "recommended": false
-    },
+    }
+   ],
+   "see_also": [],
+   "notes": "Khái niệm mạnh hơn nguyên tố cùng nhau theo nghĩa cả tập (ước chung lớn nhất của toàn bộ tập bằng $$1$$): đôi một nguyên tố cùng nhau đòi hỏi mọi cặp đều nguyên tố cùng nhau. Điều kiện này được dùng trong Định lý số dư Trung Hoa.",
+   "status": "draft",
+   "pos": "d.t."
+  },
+  {
+   "id": "pairwise-relatively-prime-integers",
+   "letter": "P",
+   "headword_en": "pairwise relatively prime integers",
+   "see_ref": "pairwise-relatively-prime",
+   "vi_terms": [],
+   "status": "draft",
+   "pos": "d.t."
+  },
+  {
+   "id": "palindrome",
+   "letter": "P",
+   "headword_en": "palindrome",
+   "notation": "",
+   "rosen_ref": "Rosen §App. 2 (chuỗi/xâu ký tự)",
+   "definition_vi": "Chuỗi đối xứng (palindrome) là một xâu ký tự $$x_1 x_2 \\ldots x_n$$ đọc xuôi và đọc ngược đều như nhau, tức là $$x_i = x_{n+1-i}$$ với mọi $$i$$ thỏa $$1 \\leq i \\leq n$$.",
+   "example_vi": "Các xâu $$\\texttt{racecar}$$ và $$\\texttt{level}$$ là chuỗi đối xứng, còn xâu $$\\texttt{abc}$$ thì không.",
+   "vi_terms": [
     {
-     "term": "đồ thị không phẳng",
-     "source_id": "bib-leanhvinh-2020",
-     "page": "tr. 127",
-     "pdf_page": 126,
-     "snippet": "vẫn là đồ thị không phẳng. Một cách tương tự, nếu ta chia một cạnh",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "đồ thị không phẳng",
-     "source_id": "bib-nguyenhuudien-2019",
-     "page": "tr. 233",
-     "pdf_page": 233,
-     "snippet": "Định lý 9.12 Đồ thị đầy đủ K5 là một đồ thị không phẳng.",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "đồ thị phẳng",
-     "source_id": "bib-nguyenhoangthach-2020",
-     "page": "tr. 2",
-     "pdf_page": 4,
-     "snippet": "5.4 Đồ thị phẳng . . . . . . . . . . . . . . . . . . . . . . . . . . . . 77",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "đồ thị không phẳng",
-     "source_id": "bib-doantamhoe-2009",
+     "term": "chuỗi đối xứng",
+     "source_id": "",
      "page": "",
-     "pdf_page": 98,
-     "snippet": "do đó một đồ thị có đồ thị con không phẳng là đồ thị không phẳng.",
+     "pdf_page": 0,
+     "snippet": "",
+     "verified": false,
+     "recommended": true
+    },
+    {
+     "term": "xâu đối xứng",
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": "",
+     "verified": false,
+     "recommended": false
+    }
+   ],
+   "see_also": [],
+   "notes": "Khái niệm chuỗi đối xứng không xuất hiện trong các giáo trình tiếng Việt đã quét; \"đối xứng\" trong các nguồn này chỉ tính đối xứng của quan hệ, ma trận, hay nhóm. Một số tài liệu khác còn gọi là \"xâu đối xứng\".",
+   "status": "draft",
+   "pos": "d.t."
+  },
+  {
+   "id": "paradox",
+   "letter": "P",
+   "headword_en": "paradox",
+   "notation": "",
+   "rosen_ref": "Rosen §2.1",
+   "definition_vi": "Nghịch lý là một mệnh đề hoặc lập luận tự dẫn đến mâu thuẫn logic, tức là vừa đúng vừa sai. Một ví dụ kinh điển là nghịch lý Russell, xét tập hợp $$S = \\{x \\mid x \\notin x\\}$$ gồm mọi tập hợp không là phần tử của chính nó; khi đó câu hỏi liệu $$S \\in S$$ hay $$S \\notin S$$ đều dẫn đến mâu thuẫn.",
+   "example_vi": "Nghịch lý Russell: với $$S = \\{x \\mid x \\notin x\\}$$, nếu $$S \\in S$$ thì theo định nghĩa $$S \\notin S$$, còn nếu $$S \\notin S$$ thì $$S$$ thỏa điều kiện của $$S$$ nên $$S \\in S$$. Cả hai trường hợp đều mâu thuẫn.",
+   "vi_terms": [
+    {
+     "term": "nghịch lý",
+     "source_id": "bib-doducthai-2010",
+     "page": "tr. 4",
+     "pdf_page": 4,
+     "snippet": "Một số nghịch lý trong xác suất . . . . . . . . . . 53",
+     "verified": true,
+     "recommended": true
+    },
+    {
+     "term": "nghịch lý",
+     "source_id": "bib-cormen-2001-vi",
+     "page": "tr. 123",
+     "pdf_page": 121,
+     "snippet": "xác suất thông qua ba ví dụ: nghịch lý ngày sinh nhật, ném bóng ngẫu",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "nghịch lý",
+     "source_id": "bib-nguyenhuuanh-2007",
+     "page": "",
+     "pdf_page": 17,
+     "snippet": "hiệu quả là If p then (If ạ then r). Ở đây lại xảy ra nghịch lý là lệnh",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "nghịch lý",
+     "source_id": "bib-cungkimtien-2004",
+     "page": "",
+     "pdf_page": 22,
+     "snippet": "antinomy nghịch ly",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "nghịch lý",
+     "source_id": "bib-phan-1976",
+     "page": "tr. 16",
+     "pdf_page": 16,
+     "snippet": "antinomy nghịch lý",
+     "verified": true,
+     "recommended": false
+    }
+   ],
+   "see_also": [],
+   "notes": "Trong Rosen, nghịch lý Russell được dùng để minh họa giới hạn của định nghĩa tập hợp tùy ý; các mâu thuẫn logic này tránh được bằng cách hạn chế cách xây dựng tập hợp.",
+   "status": "draft",
+   "pos": "d.t."
+  },
+  {
+   "id": "parent",
+   "letter": "P",
+   "headword_en": "parent",
+   "notation": "",
+   "rosen_ref": "Rosen §10.1",
+   "definition_vi": "Đỉnh cha của một đỉnh $$v$$ (khác gốc) trong một cây có gốc $$T$$ là đỉnh duy nhất $$u$$ sao cho có một cạnh có hướng đi từ $$u$$ đến $$v$$. Mỗi đỉnh khác gốc có duy nhất một đỉnh cha.",
+   "example_vi": "Trong cây có gốc $$a$$ ở Hình 5 của Rosen, đỉnh cha của $$c$$ là $$b$$.",
+   "vi_terms": [
+    {
+     "term": "đỉnh cha",
+     "source_id": "bib-nguyenhoangthach-2020",
+     "pdf_page": 85,
+     "page": "tr. 83",
+     "snippet": "Mỗi đỉnh khác gốc có duy nhất một đỉnh cha. Mỗi đỉnh trong có ít nhất",
+     "verified": true,
+     "recommended": true
+    },
+    {
+     "term": "đỉnh cha",
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 252,
+     "page": "tr. 252",
+     "snippet": "Nếu mức của đỉnh cha là i thì mức của các đỉnh con là i + 1.",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "đỉnh cha",
+     "source_id": "bib-leanhvinh-2020",
+     "page": "tr. 129",
+     "pdf_page": 128,
+     "snippet": "gồm hai đỉnh. Do G là dé thị 3-lién thông, đỉnh mới (đỉnh chap của x",
+     "verified": true,
+     "recommended": false
+    }
+   ],
+   "see_also": [],
+   "notes": "Khái niệm dùng cho cây có gốc. Đỉnh ngược lại của đỉnh cha là đỉnh con; các đỉnh có cùng cha gọi là anh em.",
+   "status": "draft",
+   "pos": "d.t."
+  },
+  {
+   "id": "parity",
+   "letter": "P",
+   "headword_en": "parity",
+   "pos": "d.t.",
+   "notation": "",
+   "ref_bib": "bib-libennowell-2022",
+   "rosen_ref": "",
+   "definition_vi": "\\emph{Tính chẵn lẻ} của một số nguyên là việc nó là số chẵn hay số lẻ. Hai số nguyên \\emph{cùng tính chẵn lẻ} nếu cả hai cùng chẵn hoặc cùng lẻ, và \\emph{khác tính chẵn lẻ} nếu một số chẵn còn số kia lẻ. Tương đương, hai số nguyên cùng tính chẵn lẻ khi và chỉ khi hiệu của chúng là số chẵn.",
+   "example_vi": "$$4$$ và $$10$$ cùng tính chẵn lẻ (đều chẵn); $$4$$ và $$7$$ khác tính chẵn lẻ.",
+   "notes": "",
+   "see_also": [],
+   "vi_terms": [
+    {
+     "term": "tính chẵn lẻ",
+     "recommended": true
+    },
+    {
+     "term": "tính chẵn lẻ",
+     "source_id": "bib-cormen-2001-vi",
+     "page": "",
+     "pdf_page": 729,
+     "snippet": "(Nói chung, hàm tính chấn lẻ và hàm phần lớn có thể chấp. nhận bất",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "tính chẵn lẻ",
+     "source_id": "bib-cungkimtien-2004",
+     "page": "",
+     "pdf_page": 262,
+     "snippet": "odevity tính chắn lẻ",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "tính chẵn lẻ",
+     "source_id": "bib-hoangchithanh-2007",
+     "page": "",
+     "pdf_page": 53,
+     "snippet": "nhau tính chắn lé.",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "tính chẵn lẻ",
+     "source_id": "bib-hoangchithanh-2011",
+     "page": "",
+     "pdf_page": 39,
+     "snippet": "3) _ tính chăn lẻ của số cạnh không xác định.",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "tính chẵn lẻ",
+     "source_id": "bib-leanhvinh-2020",
+     "page": "",
+     "pdf_page": 84,
+     "snippet": "Do n chan, |S} và o(G\\S) có cùng tinh chan lẻ. Do đó, of G\\S) <",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "tính chẵn lẻ",
+     "source_id": "bib-ngodactan-2004",
+     "page": "",
+     "pdf_page": 285,
+     "snippet": "Pu và từ V tới X của p v có độ dài cùng tính chẵn lè vì độ dài của cả Pu",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "tính chẵn lẻ",
+     "source_id": "bib-nguyenhuuanh-2007",
+     "page": "",
+     "pdf_page": 77,
+     "snippet": "a) Chứng minh rằng n và f(n) khác tinh chan lẻ (một số chan va",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "tính chẵn lẻ",
+     "source_id": "bib-nguyenhuudien-2019",
+     "page": "",
+     "pdf_page": 229,
+     "snippet": "Vậy thì d( x ) + d(y) là một số lẻ, có nghĩa là d( x ) và d(y) khác nhau tính chẵn lẻ. Do vậy:",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "tính chẵn lẻ",
+     "source_id": "bib-phan-1976",
+     "page": "tr. 46",
+     "pdf_page": 46,
+     "snippet": "parity c. kiểm tra tính chan lẻ",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "tính chẵn lẻ",
+     "source_id": "bib-sierpinski-2012",
+     "page": "",
+     "pdf_page": 46,
+     "snippet": "Theo (26) suy ra 2x 2  z 2  t 2 . Vì vậy các số z và t có cùng tính chẵn lẻ. Suy ra các số z  t và",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "tính chẵn lẻ",
+     "source_id": "bib-vudinhhoa-2003",
+     "page": "",
+     "pdf_page": 94,
+     "snippet": "y Xét tính chan lẻ của tọa",
+     "verified": true,
+     "recommended": false
+    }
+   ]
+  },
+  {
+   "id": "partial-fraction-decomposition",
+   "letter": "P",
+   "headword_en": "partial fraction decomposition",
+   "notation": "",
+   "rosen_ref": "Rosen §8.4",
+   "definition_vi": "Phân tích thành phân số riêng là cách biểu diễn một phân thức hữu tỉ thành tổng của các phân thức đơn giản hơn có mẫu số là lũy thừa của các đa thức bất khả quy. Trong tổ hợp, kỹ thuật này được dùng để khai triển hàm sinh $$\\dfrac{p(x)}{q(x)}$$ thành tổng các phân thức dạng $$\\dfrac{A}{(1 - \\alpha x)^k}$$ nhằm tìm hệ số của chuỗi lũy thừa.",
+   "example_vi": "Để tìm hệ số trong khai triển của $$\\dfrac{1}{(1 - x)(1 - 2x)}$$, ta phân tích thành phân số riêng $$\\dfrac{1}{(1 - x)(1 - 2x)} = \\dfrac{-1}{1 - x} + \\dfrac{2}{1 - 2x}$$, từ đó hệ số của $$x^n$$ bằng $$2^{n+1} - 1$$.",
+   "vi_terms": [
+    {
+     "term": "phân thức đơn giản",
+     "source_id": "bib-ngodactan-2004",
+     "pdf_page": 89,
+     "page": "tr. 89",
+     "snippet": "phân thức đơn giản bằng phương pháp hệ số bất định.",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "phân tích phân thức thành tổng của các phân thức",
+     "source_id": "",
+     "pdf_page": 0,
+     "page": "",
+     "snippet": "",
+     "verified": false,
+     "recommended": false
+    },
+    {
+     "term": "phép tách phân thức",
+     "source_id": "bib-nguyenducnghia-2006",
+     "pdf_page": 43,
+     "page": "",
+     "snippet": "Sử dụng phép tách phân thức, ta viết #(x) dưới đạng",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "phân tích thành phân thức đơn giản",
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": "",
+     "verified": false,
+     "recommended": true
+    },
+    {
+     "term": "phân thức đơn giản",
+     "source_id": "bib-cungkimtien-2004",
+     "page": "",
+     "pdf_page": 139,
+     "snippet": "khai triển thành phan thức don giản",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "phân thức đơn giản",
+     "source_id": "bib-phan-1976",
+     "page": "tr. 164",
+     "pdf_page": 164,
+     "snippet": "e. in to partial fractions khai triển thành phần thức đơn giản",
+     "verified": true,
+     "recommended": false
+    }
+   ],
+   "see_also": [],
+   "notes": "Trong giáo trình, kỹ thuật này dùng để khai triển hàm sinh và tìm hệ số. Phương pháp tìm các hằng số là phương pháp hệ số bất định ($$\\geq$$ một hệ phương trình tuyến tính). Sách dịch Rosen không dùng thuật ngữ này cho khái niệm.",
+   "status": "draft",
+   "pos": "d.t."
+  },
+  {
+   "id": "partial-function",
+   "letter": "P",
+   "headword_en": "partial function",
+   "notation": "f : A \\rightharpoonup B",
+   "rosen_ref": "Rosen §1.8",
+   "definition_vi": "Hàm bộ phận $$f$$ từ tập $$A$$ đến tập $$B$$ là phép gán cho mỗi phần tử $$a$$ thuộc một tập con của $$A$$, gọi là miền xác định của $$f$$, nhiều nhất một phần tử $$b$$ thuộc $$B$$. Nói cách khác, mỗi phần tử của $$A$$ được gán không quá một phần tử của $$B$$, nên $$f$$ có thể không xác định tại một số phần tử của $$A$$.",
+   "example_vi": "Cho $$f : \\mathbb{Z} \\rightharpoonup \\mathbb{R}$$ với $$f(n) = \\sqrt{n}$$. Đây là một hàm bộ phận từ $$\\mathbb{Z}$$ đến $$\\mathbb{R}$$ vì $$f$$ không xác định khi $$n < 0$$; miền xác định của nó là tập các số nguyên không âm. Một hàm bộ phận xác định tại mọi phần tử của $$A$$ được gọi là hàm toàn phần.",
+   "vi_terms": [
+    {
+     "term": "hàm bộ phận",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-rosen-2003-vi",
+     "page": "tr. 96",
+     "pdf_page": 96,
+     "snippet": "bộ phan. Hàm bộ phận f ti tập A dén lập B la sự gan cho mỗi phần"
+    },
+    {
+     "term": "hàm bộ phận",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-rosen-2003-vi",
+     "page": "tr. 96",
+     "pdf_page": 96,
+     "snippet": "để ky hiệu f la ham bộ phận từ A dén B. (Chính ky hiệu nay cũng"
+    },
+    {
+     "term": "hàm từng phần",
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": "",
+     "verified": false,
+     "recommended": false
+    },
+    {
+     "term": "hàm riêng phần",
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": "",
+     "verified": false,
+     "recommended": false
+    },
+    {
+     "term": "hàm bộ phận",
+     "source_id": "bib-cungkimtien-2004",
+     "page": "",
+     "pdf_page": 276,
+     "snippet": "partial function ham bộ phận",
+     "verified": true,
+     "recommended": true
+    },
+    {
+     "term": "hàm bộ phận",
+     "source_id": "bib-phan-1976",
+     "page": "tr. 200",
+     "pdf_page": 200,
+     "snippet": "partial f. hàm bộ phan",
      "verified": true,
      "recommended": false
     }
    ],
    "see_also": [
-    "bipartite-graph",
-    "complete-graph",
-    "chromatic-number"
+    "function",
+    "domain",
+    "codomain"
    ],
-   "notes": "Recommended term \"đồ thị phẳng\" (planar graph) is the standard term, attested in the newest 2020 source (bib-leanhvinh-2020 p.114, formal definition) and across all corpus sources (2020, 2019, 2007, 2004). The negated form \"đồ thị không phẳng\" (nonplanar graph) is recorded as a closely related variant denoting graphs that are NOT planar; it is attested in bib-leanhvinh-2020 (p.126), bib-nguyenhuudien-2019 (p.233, theorem on K5), and bib-ngodactan-2004 (p.16). For the OCR sources (bib-hoangchithanh-2007, bib-leanhvinh-2020) both normal and --loose searches were run; loose added no new term forms. The phrase \"biểu diễn phẳng\" (planar representation/embedding) used in definition_vi follows the source wording \"biểu diễn\" in bib-leanhvinh-2020 p.114.\n\nTerminology consistency (per panel exposition finding): bib-nguyenhuudien-2019 renders complete bipartite locally as \"đồ thị phân đôi đầy đủ\", but the book-standard rendering for bipartite is \"đồ thị hai phần\" and \"đồ thị phân đôi\" is a listed variant only; the planar-graph term itself is consistently \"đồ thị phẳng\" in every source.\n\nsee_also: all three ids (bipartite-graph, complete-graph, chromatic-number) are cross-chapter forward references to be created in their own letter chapters, consistent with the path/poset entries which flag forward references.",
+   "notes": "Hàm bộ phận từ $$A$$ đến $$B$$ gán cho mỗi phần tử của $$A$$ nhiều nhất một phần tử của $$B$$, do đó nó có thể không xác định tại một số phần tử của $$A$$. Khái niệm này khác với hàm (hàm số) thông thường trong Rosen, vốn là hàm toàn phần xác định tại mọi phần tử của miền. Thuật ngữ \"hàm bộ phận\" được dẫn chứng trực tiếp trong bản dịch tiếng Việt của Rosen (tr. 96 PDF), nơi định nghĩa và ký hiệu của khái niệm được trình bày; phần đối nghĩa là \"hàm toàn phần\".",
+   "status": "draft",
    "pos": "d.t."
   },
   {
@@ -277,6 +687,25 @@
     "antisymmetric-relation",
     "transitive-relation"
    ],
+   "pos": "d.t."
+  },
+  {
+   "id": "partial-ordering",
+   "letter": "P",
+   "headword_en": "partial ordering",
+   "see_ref": "partial-order",
+   "vi_terms": [
+    {
+     "term": "quan hệ thứ tự bộ phận",
+     "verified": false,
+     "recommended": false,
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": ""
+    }
+   ],
+   "status": "draft",
    "pos": "d.t."
   },
   {
@@ -434,6 +863,139 @@
     "binomial-theorem"
    ],
    "notes": "Only one distinct Vietnamese term denotes this concept across the entire corpus: \"tam giác Pascal\". Verified in the newest source bib-nguyenhoangthach-2020 (2020) on pp. 24-25, where the surrounding text gives the defining recurrence (mỗi số bằng tổng hai số ở ngay trên nó) and links the entries to the binomial coefficients via Đẳng thức Pascal (Pascal's identity); also verified in bib-nguyenducnghia-2006 (pp. 21-22, 33) and bib-ngodactan-2004 (p. 43, index p. 339). Re-checked: no hits in bib-leanhvinh-2020, bib-nguyenhuudien-2019, or bib-hoangchithanh-2007 (OCR sources searched normal + --loose, both 0 hits). No transliterated variants (tam giác Pat-xcan / Pa-xcan / tam giác số) are attested. The OCR snippet from ngodactan-2004 shows \"tam giăc\" (mangled diacritic) but the index entry confirms the canonical spelling \"tam giác Pascal\". The recurrence in the definition is Pascal's identity, hence see_also includes pascals-identity; binomial-coefficient and binomial-theorem are the core related P-entries (cross-chapter forward references). EDIT (per panel correctness LOW): the duplicated parenthetical \"(ký hiệu $$\\binom{n}{k}$$ với ...)\" was collapsed in definition_vi so the symbol $$\\binom{n}{k}$$ appears once with the range $$0 \\leq k \\leq n$$ attached; the recurrence is unchanged.",
+   "pos": "d.t."
+  },
+  {
+   "id": "path",
+   "letter": "P",
+   "headword_en": "path",
+   "notation": "u = v_0, v_1, \\ldots, v_n = v",
+   "rosen_ref": "Rosen §10.4",
+   "definition_vi": "Một đường đi độ dài $$n$$ từ đỉnh $$u$$ tới đỉnh $$v$$ trong đồ thị $$G$$ là một dãy gồm $$n$$ cạnh nối tiếp một dãy đỉnh $$u = v_0, v_1, \\ldots, v_n = v$$, trong đó mỗi cạnh nối hai đỉnh liên tiếp $$v_{i-1}$$ và $$v_i$$ của dãy với mọi $$1 \\leq i \\leq n$$. Số $$n$$ được gọi là độ dài của đường đi.",
+   "example_vi": "Trong đồ thị với các cạnh $$\\{a,b\\}$$, $$\\{b,c\\}$$, $$\\{c,d\\}$$, dãy đỉnh $$a, b, c, d$$ là một đường đi độ dài $$3$$ từ $$a$$ tới $$d$$, vì mỗi cặp đỉnh liên tiếp được nối bởi một cạnh.",
+   "vi_terms": [
+    {
+     "term": "đường đi",
+     "source_id": "bib-nguyenhoangthach-2020",
+     "page": "tr. 71",
+     "pdf_page": 73,
+     "snippet": "Định nghĩa 5.25. Một đường đi độ dài ` từ đỉnh u tới đỉnh v là một dãy",
+     "verified": true,
+     "recommended": true
+    },
+    {
+     "term": "đường đi",
+     "source_id": "bib-leanhvinh-2020",
+     "page": "tr. 16",
+     "pdf_page": 15,
+     "snippet": "Tiếp theo ta sẽ định nghĩa hành trình, đường đi và chu trình trong",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "đường đi",
+     "source_id": "bib-nguyenhuudien-2019",
+     "page": "tr. 168",
+     "pdf_page": 168,
+     "snippet": "Định nghĩa 6.18 Đường đi độ dài n từ đỉnh u đến đỉnh v, với n là một số nguyên dương,",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "đường đi",
+     "source_id": "bib-cungkimtien-2004",
+     "page": "",
+     "pdf_page": 155,
+     "snippet": "free parth đường di động tự do",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "đường đi",
+     "source_id": "bib-phan-1976",
+     "page": "tr. 321",
+     "pdf_page": 321,
+     "snippet": "path bước, đường di; quỹ dao",
+     "verified": true,
+     "recommended": false
+    }
+   ],
+   "see_also": [
+    "simple-path",
+    "circuit",
+    "cycle",
+    "connected-graph"
+   ],
+   "notes": "Recommended term \"đường đi\" (general path) is the base concept matching Rosen §10.4 and is attested in both 2020 sources: bib-nguyenhoangthach-2020 p73 (Định nghĩa 5.25: \"Một đường đi độ dài ` từ đỉnh u tới đỉnh v là một dãy ...\") and bib-leanhvinh-2020 p15-16, plus bib-nguyenhuudien-2019 p168 (Định nghĩa 6.18), bib-hoangchithanh-2007 p7. Vi_terms ordered newest-source first.\n\ndefinition_vi follows the recommended term and the wording of the recommended source (bib-nguyenhoangthach-2020 Định nghĩa 5.25), expressing Rosen's general path: a length-$$n$$ path is a sequence of $$n$$ edges successively connecting a vertex sequence from $$u$$ to $$v$$. The notation field gives the vertex sequence $$u = v_0, v_1, \\ldots, v_n = v$$ as in the source (stored as bare LaTeX; the renderer adds the math wrapping). The example is self-contained: it introduces only edges and the resulting path/length, no derived quantity beyond what the definition states.\n\nCONCEPT BOUNDARY (per panel terminology HIGH finding): two stricter refinements of the path concept appear in the corpus but denote notions narrower than Rosen's general \"đường đi\", so they are NOT listed as vi_terms of this entry. Following the chapter-C precedent (id=circuit, whose vi_terms hold only synonyms of the \"...đơn\" refinement, while the general \"chu trình\" lives under id=cycle), each refinement belongs to its own headword. They are recorded here as forward references for the simple-path entry (and an elementary-path entry if treated separately):\n- \"đường đi đơn\" = simple path: bib-nguyenhoangthach-2020 p73 (\"Một đường đi đơn (tương tự, chu trình đơn) là một đường đi ...\"), bib-nguyenhuudien-2019 p168 (\"Đường đi hoặc chu trình gọi là đơn nếu nó không chứa cùng một cạnh ... quá\"), bib-nguyenducnghia-2006 p156, bib-hoangchithanh-2007 p7 (\"Đường đi đơn là đường đi mà các đỉnh trên nó khác nhau từng đôi.\"). The Vietnamese \"đơn\" usage is the no-repeated-edge sense in nguyenhuudien-2019/nguyenducnghia-2006, aligning with Rosen's \"simple path\" (no repeated edge), but the vertex/edge convention varies by book.\n- \"đường đi sơ cấp\" = elementary path (distinct vertices): bib-nguyenhuudien-2019 p168-169 (\"... được gọi là đường đi hoặc chu trình sơ cấp\"); the hierarchy is explicit there (an elementary path is a simple path).\n\nbib-leanhvinh-2020 (OCR) and bib-hoangchithanh-2007 (OCR) were searched in BOTH normal and --loose modes; both attest \"đường đi\" cleanly. bib-ngodactan-2004 also uses \"đường đi\" (bib id present in references.ptx) but a clean definitional snippet was not isolated; the base term is already amply attested in newer sources.\n\nVerifier note: all cited bibliography ids confirmed to exist in source/references.ptx and data/sources/registry.yaml. The four remaining \"đường đi\" snippet/pdf_page pairs were re-mined against the corpus text and reconfirmed (OCR sources checked normal + --loose). No fabricated citations.\n\nsee_also: \"simple-path\" is the in-chapter refinement (đường đi đơn); \"circuit\"/\"cycle\"/\"connected-graph\" are related P/C-chapter concepts and remain cross-chapter forward references where not in chapter P.\n\nDiacritic note: snippets contain OCR artifacts in the 2020/2007 OCR sources (e.g., \"dé dài\" = \"độ dài\"). Clean text terms: đường đi (and the refinements đường đi đơn, đường đi sơ cấp, recorded above).",
+   "pos": "d.t."
+  },
+  {
+   "id": "pendant-vertex",
+   "letter": "P",
+   "headword_en": "pendant vertex",
+   "notation": "\\deg_G(v) = 1",
+   "rosen_ref": "Rosen §10.2",
+   "definition_vi": "Đỉnh treo của một đồ thị $$G$$ là một đỉnh có bậc đúng bằng $$1$$, tức là $$\\deg_G(v) = 1$$. Cạnh duy nhất kề với một đỉnh treo được gọi là cạnh treo.",
+   "example_vi": "Trong đồ thị sao $$K_{1,n}$$ với đỉnh tâm $$s$$ có bậc $$n$$, mọi đỉnh còn lại đều là đỉnh treo vì mỗi đỉnh đó có bậc $$1$$.",
+   "vi_terms": [
+    {
+     "term": "đỉnh treo",
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 157,
+     "page": "tr. 157",
+     "snippet": "Đỉnh v gọi là đỉnh treo nếu deg(v) = 1 và gọi là đỉnh cô lập nếu deg(v) = 0.",
+     "verified": true,
+     "recommended": true
+    },
+    {
+     "term": "đỉnh treo",
+     "source_id": "bib-nguyenhoangthach-2020",
+     "pdf_page": 64,
+     "page": "tr. 62",
+     "snippet": "Một đỉnh bậc 0 được gọi là một đỉnh cô lập, một đỉnh bậc 1 được gọi là một đỉnh treo.",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "đỉnh treo",
+     "source_id": "bib-hoangchithanh-2011",
+     "page": "",
+     "pdf_page": 10,
+     "snippet": "dinh treo pendant vertex",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "đỉnh lá",
+     "source_id": "bib-leanhvinh-2020",
+     "page": "tr. 17",
+     "pdf_page": 16,
+     "snippet": "Trường hợp cơ sở, hành trình độ dài 0 hay u = v, khẳng định là",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "đỉnh lá",
+     "source_id": "bib-nguyenhoangthach-2020",
+     "page": "tr. 63",
+     "pdf_page": 65,
+     "snippet": "này, mỗi đồ thị tương ứng với một danh sách các đỉnh của nó, mỗi đỉnh lại",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "đỉnh lá",
+     "source_id": "bib-nguyenhuudien-2019",
+     "page": "tr. 28",
+     "pdf_page": 28,
+     "snippet": "được định nghĩa. Các tiên đề được giả định là đúng. Các định nghĩa được sử dụng để xây",
+     "verified": true,
+     "recommended": false
+    }
+   ],
+   "see_also": [],
+   "notes": "Đỉnh treo là đỉnh bậc 1, ký hiệu $$\\deg_G(v) = 1$$. Trong ngữ cảnh cây, đỉnh bậc 1 còn được gọi là \"đỉnh lá\" hoặc \"đỉnh cuối\" (xem Ngô Đắc Tân 2004).",
+   "status": "draft",
    "pos": "d.t."
   },
   {
@@ -661,476 +1223,6 @@
    "pos": "d.t."
   },
   {
-   "id": "pigeonhole-principle",
-   "letter": "P",
-   "headword_en": "pigeonhole principle",
-   "see_ref": "the-pigeonhole-principle",
-   "vi_terms": [
-    {
-     "term": "nguyên lý Dirichlet",
-     "verified": false,
-     "recommended": false,
-     "source_id": "",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": ""
-    },
-    {
-     "term": "nguyên lý chuồng bồ câu",
-     "verified": false,
-     "recommended": false,
-     "source_id": "",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": ""
-    },
-    {
-     "term": "nguyên lý ngăn khéo",
-     "verified": false,
-     "recommended": false,
-     "source_id": "",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": ""
-    }
-   ],
-   "see_also": [],
-   "notes": "Đồng nghĩa với The Pigeonhole Principle.",
-   "pos": "d.t."
-  },
-  {
-   "id": "poset",
-   "letter": "P",
-   "headword_en": "poset (partially ordered set)",
-   "notation": "(S, \\preceq)",
-   "rosen_ref": "Rosen §9.6",
-   "definition_vi": "Một \\emph{tập hợp có thứ tự} (poset) là một tập hợp $$S$$ cùng với một quan hệ thứ tự bộ phận $$\\preceq$$ trên $$S$$, tức là quan hệ có tính phản xạ, phản đối xứng và bắc cầu. Tập hợp có thứ tự này được ký hiệu là $$(S, \\preceq)$$.",
-   "example_vi": "Tập hợp các số nguyên dương $$S = \\{1, 2, 3, \\dots\\}$$ cùng với quan hệ chia hết $$\\preceq$$, trong đó $$a \\preceq b$$ khi và chỉ khi $$a$$ chia hết $$b$$, là một tập hợp có thứ tự $$(S, \\preceq)$$.",
-   "vi_terms": [
-    {
-     "term": "tập hợp có thứ tự",
-     "source_id": "bib-nguyenhuudien-2019",
-     "page": "tr. 119",
-     "pdf_page": 119,
-     "snippet": "Định nghĩa 4.13 Cho ( X, ≤) là một tập hợp có thứ tự, và A ⊂ X.",
-     "verified": true,
-     "recommended": true
-    },
-    {
-     "term": "tập được sắp bộ phận",
-     "source_id": "bib-ngodactan-2004",
-     "page": "tr. 164",
-     "pdf_page": 164,
-     "snippet": "Nếu < X, <> là tập được sắp bộ phận đối với thứ tự bộ phận < và",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "tập có thứ tự bộ phận",
-     "source_id": "",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": "",
-     "verified": false,
-     "recommended": false
-    },
-    {
-     "term": "tập được sắp thứ tự bộ phận",
-     "source_id": "",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": "",
-     "verified": false,
-     "recommended": false
-    },
-    {
-     "term": "tập hợp sắp thứ tự một phần",
-     "source_id": "",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": "",
-     "verified": false,
-     "recommended": false
-    },
-    {
-     "term": "tập hợp có thứ tự",
-     "source_id": "bib-nguyenvanmau-2007",
-     "page": "",
-     "pdf_page": 125,
-     "snippet": "cũng có thể được thay thế bằng một tập hợp có thứ tự tốt bất kỳ.",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "tập hợp có thứ tự",
-     "source_id": "bib-nguyenhuuanh-2007",
-     "page": "",
-     "pdf_page": 94,
-     "snippet": "2. Giả sử là một tập hợp con của tập hợp có thứ tự (A, <). Khi",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "tập hợp có thứ tự",
-     "source_id": "bib-cungkimtien-2004",
-     "page": "",
-     "pdf_page": 267,
-     "snippet": "ordering set tập hợp có thứ tự",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "tập hợp có thứ tự",
-     "source_id": "bib-phan-1976",
-     "page": "tr. 384",
-     "pdf_page": 384,
-     "snippet": "ordering s. tập hợp có thứ tự",
-     "verified": true,
-     "recommended": false
-    }
-   ],
-   "see_also": [
-    "partial-order",
-    "hasse-diagram",
-    "lattice",
-    "total-order",
-    "relation"
-   ],
-   "notes": "Concept: a poset is a set $$S$$ together with a partial order $$\\preceq$$ (reflexive, antisymmetric, transitive), written $$(S, \\preceq)$$ (Rosen §9.6).\n\nRecommended term \"tập hợp có thứ tự\" is taken from the newest attested order-theory source, bib-nguyenhuudien-2019 (2019), which gives the formal Định nghĩa 4.13 \"Cho $$(X, \\le)$$ là một tập hợp có thứ tự\" with the partial-order axioms (phản xạ, phản đối xứng, bắc cầu) and develops Hasse diagrams and lattices from it (pdf pages 119-125). In this source the \"bộ phận\"/\"partial\" qualifier is left implicit (a \"thứ tự\" satisfying the three axioms), so \"tập hợp có thứ tự\" is the surface form actually attested in 2019.\n\nVariant \"tập được sắp bộ phận\" is the explicit \"partially ordered set\" form from bib-ngodactan-2004 (2004, pdf pages 163-165), where \"thứ tự bộ phận\" (partial order) is defined and the poset is denoted $$\\langle X, \\preceq \\rangle$$ with Hasse-diagram development. The qualifier \"thứ tự bộ phận\" appears ONLY in bib-ngodactan-2004 across the whole corpus.\n\nConsistency with the partial-order entry (per panel finding): definition_vi uses \"quan hệ thứ tự bộ phận $$\\preceq$$\", matching the explicit-partial wording adopted in the partial-order entry's definition_vi so the two P-chapter entries describe the same underlying relation consistently; the recommended Vietnamese term in partial-order remains the attested \"quan hệ thứ tự\". First-concept emphasis was normalized from Markdown \"*...*\" to \\emph{tập hợp có thứ tự}.\n\nCandidate terms \"tập sắp thứ tự bộ phận\" and the full literal \"tập hợp có thứ tự bộ phận\" returned 0 hits in every source (normal and --loose) and are therefore not recorded as verified terms.\n\nThe OCR graph sources bib-leanhvinh-2020 (2020) and bib-hoangchithanh-2007 (2007), and the combinatorics source bib-nguyenhoangthach-2020 (2020), do not cover posets; their only \"sắp thứ tự\"/\"tập được sắp\" hits refer to ordered pairs/directed edges or to exercises \"sắp xếp\" (arranged) by difficulty, not to the partial-order concept. Both OCR sources were searched with --loose as well, with no poset attestation.",
-   "pos": "d.t."
-  },
-  {
-   "id": "power-set",
-   "letter": "P",
-   "headword_en": "power set",
-   "notation": "\\mathcal{P}(S)",
-   "rosen_ref": "Rosen §2.1",
-   "definition_vi": "Tập lũy thừa của một tập $$S$$, ký hiệu $$\\mathcal{P}(S)$$, là tập gồm tất cả các tập con của $$S$$. Nói cách khác, $$\\mathcal{P}(S) = \\{X : X \\subseteq S\\}$$.",
-   "example_vi": "Với $$X = \\{1, 2, 3\\}$$, tập lũy thừa của $$X$$ là $$\\mathcal{P}(X) = \\{\\emptyset, \\{1\\}, \\{2\\}, \\{3\\}, \\{1,2\\}, \\{1,3\\}, \\{2,3\\}, \\{1,2,3\\}\\}$$.",
-   "notes": "Recommended term \"tập lũy thừa\" (modern orthography) is the modern standard spelling (lũy) of the attested older \"luỹ\" form. The corpus only attests the older \"luỹ\" spelling: \"tập luỹ thừa\" appears in bib-ngodactan-2004 (2004) p. 164, 165, 179, where $$P(X)$$ is defined as the set of all subsets of $$X$$, with Example 5.5 (p. 165) using $$X=\\{1,2,3\\}$$. The modern \"tập lũy thừa\" returns 0 hits, so the recommended entry is marked verified=false (kept as the single standard recommended term so vi_terms is non-empty, per the citation-hygiene exception) and the attested 2004 spelling \"tập luỹ thừa\" is recorded separately with full citation. No 2019-2020 source in the corpus attests the power set concept under any spelling; the newer sources (nguyenhuudien-2019, nguyenhoangthach-2020, leanhvinh-2020) discuss subsets and the count $$2^n$$ but use no fixed \"power set\" term. Descriptive paraphrases such as \"tập tất cả các tập con của X\" / \"tập các tập con của X\" appear (e.g. bib-ngodactan-2004 p. 89, bib-nguyenducnghia-2006 p. 95, p. 116) but are not fixed terms for the power set and are not listed as variants. This verified=false-recommended + attested-old-spelling pattern matches the chapter-O ordered-tree precedent.",
-   "see_also": [
-    "subset"
-   ],
-   "vi_terms": [
-    {
-     "term": "tập luỹ thừa",
-     "source_id": "bib-ngodactan-2004",
-     "page": "tr. 164",
-     "pdf_page": 164,
-     "snippet": "trên tập luỹ thừa P{X) tấ t cả các tập con của tập X . □",
-     "verified": true,
-     "recommended": true
-    },
-    {
-     "term": "tập luỹ thừa",
-     "source_id": "bib-rosen-2003-vi",
-     "pdf_page": 59,
-     "page": "tr. 59",
-     "snippet": "tập con của S. Tập luỹ thừa của S được ký hiệu là P(S).",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "tập luỹ thừa",
-     "source_id": "bib-doducgiao-2009",
-     "page": "tr. 279",
-     "pdf_page": 280,
-     "snippet": "A(X}, X¿,..., Xạ) có độ phức tạp lũy thừa đối với n (số biến của công thức",
-     "verified": true,
-     "recommended": false
-    }
-   ],
-   "pos": "d.t."
-  },
-  {
-   "id": "predicate",
-   "letter": "P",
-   "headword_en": "predicate",
-   "notation": "P(x)",
-   "rosen_ref": "Rosen §1.4",
-   "definition_vi": "Một vị từ, ký hiệu $$P(x)$$, là một phát biểu phụ thuộc vào các biến lấy giá trị trên các miền xác định cho trước, sao cho khi mỗi biến được gán một giá trị cụ thể thuộc miền của nó thì $$P(x)$$ trở thành một mệnh đề có giá trị chân lý xác định.",
-   "example_vi": "Xét vị từ $$P(x)$$ là phát biểu \"$$x > 3$$\" với biến $$x$$ lấy giá trị trên tập số nguyên. Khi gán $$x = 4$$, ta được mệnh đề $$P(4)$$ là \"$$4 > 3$$\", có giá trị chân lý đúng; khi gán $$x = 2$$, ta được mệnh đề $$P(2)$$ là \"$$2 > 3$$\", có giá trị chân lý sai.",
-   "see_also": [
-    "domain-of-discourse",
-    "proposition",
-    "quantifier",
-    "universal-quantifier"
-   ],
-   "vi_terms": [
-    {
-     "term": "vị từ",
-     "source_id": "bib-nguyenhuudien-2019",
-     "page": "tr. 46",
-     "pdf_page": 46,
-     "snippet": "Định nghĩa 2.1 Một vị từ là một phát biểu P( x, y, . . .) phụ thuộc theo các biến x, y, . . . lấy giá trị trên các miền xác định A, B, . . . nào đó.",
-     "verified": true,
-     "recommended": true
-    }
-   ],
-   "notes": "Recommended term \"vị từ\" is attested with a formal definition in bib-nguyenhuudien-2019 (2019, Định nghĩa 2.1, tr. 46 PDF): \"Một vị từ là một phát biểu $$P(x, y, \\ldots)$$ phụ thuộc theo các biến $$x, y, \\ldots$$ lấy giá trị trên các miền xác định $$A, B, \\ldots$$ nào đó\" — an exact match for the Rosen concept (a statement that becomes a proposition once each variable is assigned a value from its domain). The same source uses \"vị từ\" consistently as the chapter title \"Lôgic vị từ\" (predicate logic) and throughout §2.1. The candidate variant \"hàm mệnh đề\" (propositional function) was NOT attested in any corpus source: 0 hits in both normal and --loose mode across all six books, so it is not retained as a vi_term (dropped per citation hygiene) but recorded here as a known variant. The two OCR sources (bib-leanhvinh-2020, bib-hoangchithanh-2007) returned 0 hits for \"vị từ\" in both normal and --loose mode (these are graph-theory/algorithm texts that do not cover predicate logic). The \"vị từ\" hits in bib-nguyenducnghia-2006 (pdf_page 97) are false positives from the substring \"hoán vị từ ... phần tử\" (permutations of elements), not the predicate concept, so 2006 is not cited. No 2020 source attests this concept; the newest valid attestation is the 2019 source.",
-   "pos": "d.t."
-  },
-  {
-   "id": "prime-number",
-   "letter": "P",
-   "headword_en": "prime number",
-   "notation": "p",
-   "rosen_ref": "Rosen §4.3",
-   "definition_vi": "Một số nguyên $$p > 1$$ được gọi là số nguyên tố nếu các ước nguyên dương duy nhất của $$p$$ là $$1$$ và $$p$$.",
-   "example_vi": "Số $$23$$ là số nguyên tố vì các ước nguyên dương duy nhất của nó là $$1$$ và $$23$$, trong khi $$6$$ không phải là số nguyên tố vì $$6 = 2 \\cdot 3$$.",
-   "notes": "Hai thuật ngữ đều chỉ khái niệm này. \"số nguyên tố\" là thuật ngữ chuẩn, đầy đủ, dùng cho danh từ (\"p là một số nguyên tố\"); được chứng thực trong cả hai nguồn 2020 (bib-leanhvinh-2020) và 2019 (bib-nguyenhuudien-2019). \"nguyên tố\" là dạng tính từ/rút gọn (\"với p nguyên tố\" = \"với p là số nguyên tố\"), chứng thực trong bib-leanhvinh-2020 (2020); lưu ý \"nguyên tố\" còn xuất hiện trong các cụm khác như \"nguyên tố cùng nhau\" (coprime) và \"ước nguyên tố\" (prime divisor) — các cụm này KHÔNG được tính là chứng thực cho khái niệm \"prime number\". Nguồn OCR bib-hoangchithanh-2007 chỉ khớp ở tên tác giả \"Nguyễn Tô Thành\", không chứng thực khái niệm này. see_also để trống: chương P không có mục cùng chương liên quan trực tiếp; các khái niệm liên quan (chia hết, $$\\gcd(a,b)$$, định lý cơ bản của số học) nằm ở các chữ cái khác và được giữ làm tham chiếu chuyển tiếp, theo đúng cách giải thích see_also trống của các mục partition/power-set.",
-   "see_also": [],
-   "vi_terms": [
-    {
-     "term": "số nguyên tố",
-     "source_id": "bib-leanhvinh-2020",
-     "page": "tr. 191",
-     "pdf_page": 190,
-     "snippet": "ta chọn p là một số nguyên tố nằm trong khoảng {(1—o0(1))./n, yn} và",
-     "verified": true,
-     "recommended": true
-    },
-    {
-     "term": "nguyên tố",
-     "source_id": "bib-leanhvinh-2020",
-     "page": "tr. 180",
-     "pdf_page": 179,
-     "snippet": "Với p nguyên tố, ta xét đỏ thị tích võ hướng đơn vị G với tập đỉnh",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "số nguyên tố",
-     "source_id": "bib-nguyenhuudien-2019",
-     "page": "tr. 40",
-     "pdf_page": 40,
-     "snippet": "b) 23 là số nguyên tố.",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "nguyên tố",
-     "source_id": "bib-nguyenhoangthach-2020",
-     "page": "tr. 53",
-     "pdf_page": 55,
-     "snippet": "Vì 3, 5, 7 nguyên tố cùng nhau đôi một nên A ∩ B, B ∩ C, C ∩ A lần lượt",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "nguyên tố",
-     "source_id": "bib-nguyenhuudien-2019",
-     "page": "tr. 14",
-     "pdf_page": 14,
-     "snippet": "1. 6 là một số nguyên tố.",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "số nguyên tố",
-     "source_id": "bib-sierpinski-2012",
-     "page": "",
-     "pdf_page": 5,
-     "snippet": "rằng số nguyên tố lớn nhất được tìm ra vào năm 1950 là số 2127  1 (số này có 39 chữ số) trong khi",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "số nguyên tố",
-     "source_id": "bib-cungkimtien-2004",
-     "page": "",
-     "pdf_page": 117,
-     "snippet": "bố các số nguyên tố",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "số nguyên tố",
-     "source_id": "bib-phan-1976",
-     "page": "tr. 257",
-     "pdf_page": 257,
-     "snippet": "1. of apparition of prime luật phân bố các số nguyên tố",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "nguyên tố",
-     "source_id": "bib-cungkimtien-2004",
-     "page": "",
-     "pdf_page": 16,
-     "snippet": "almost prime hâu nguyên tố",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "nguyên tố",
-     "source_id": "bib-phan-1976",
-     "page": "tr. 87",
-     "pdf_page": 87,
-     "snippet": "coprime nguyên tố cùng nhau",
-     "verified": true,
-     "recommended": false
-    }
-   ],
-   "pos": "d.t."
-  },
-  {
-   "id": "proposition",
-   "letter": "P",
-   "headword_en": "proposition",
-   "notation": "p, q, r, \\ldots (truth values T, F)",
-   "rosen_ref": "Rosen §1.1",
-   "definition_vi": "Một \\emph{mệnh đề} là một câu khẳng định nhận đúng một trong hai giá trị đúng hoặc sai, không thể đồng thời vừa đúng vừa sai. Giá trị đúng hoặc sai của một mệnh đề được gọi là \\emph{chân trị} của nó, thường ký hiệu $$T$$ (true) cho đúng và $$F$$ (false) cho sai.",
-   "example_vi": "Câu \"$$1 + 1 = 2$$\" là một mệnh đề có chân trị $$T$$, còn câu \"$$2$$ là số lẻ\" là một mệnh đề có chân trị $$F$$. Ngược lại, câu \"$$x + 1 = 2$$\" không phải là mệnh đề vì chân trị của nó phụ thuộc vào giá trị của $$x$$.",
-   "notes": "Recommended term \"mệnh đề\" is the standard Vietnamese term for THIS concept (a declarative statement that is either true or false, but not both), defined explicitly in bib-nguyenhuudien-2019 p.14 (\"một mệnh đề là nó đúng hoặc sai, và không thể vừa đúng vừa sai\"). The chapter heading there is \"Lôgic mệnh đề\" (propositional logic). Variant \"mệnh đề toán học\" (mathematical proposition) is attested on the same page and explicitly equated with \"mệnh đề\". The candidate \"mệnh đề logic\" returned 0 hits in any source and is dropped. Many corpus hits of the form \"Mệnh đề 2.2\" / \"Mệnh đề 1\" in bib-nguyenducnghia-2006 (and similarly in bib-nguyenhoangthach-2020, bib-ngodactan-2004) use \"Mệnh đề\" as a theorem-type label (English \"Proposition\" as a numbered statement), NOT this propositional-logic concept; those are excluded. The bib-nguyenducnghia-2006 p.13 hit IS this concept (proposition algebra: \"Các mệnh đề, cùng với các phép toán trên nó, lập nên một đại số, gọi là đại số mệnh đề\"). The 2020 graph theory source bib-leanhvinh-2020 has no propositional-logic coverage. The newest source actually defining the concept is the 2019 discrete-math text, so the recommended term is attested in 2019. The term \"chân trị\" (truth value) used in definition_vi and example_vi is drawn from the same defining snippet (bib-nguyenhuudien-2019 p.14: \"Giá trị đúng hoặc sai của một mệnh đề được gọi là chân trị của mệnh đề\"). EMPHASIS/NOTATION edits (per panel terminology MED + LOW): first-concept emphasis $$\\textit{mệnh đề}$$ / $$\\textit{chân trị}$$ (prose words in math italics) normalized to \\emph{mệnh đề} / \\emph{chân trị}; the genuine symbols $$T$$, $$F$$ stay math-wrapped. The notation field was un-$$-wrapped to bare LaTeX \"p, q, r, \\ldots (truth values T, F)\" to match the O/N/B convention.",
-   "see_also": [
-    "compound-proposition",
-    "predicate",
-    "tautology",
-    "truth-value"
-   ],
-   "vi_terms": [
-    {
-     "term": "mệnh đề",
-     "source_id": "bib-nguyenhuudien-2019",
-     "page": "tr. 14",
-     "pdf_page": 14,
-     "snippet": "một mệnh đề là nó đúng hoặc sai, và không thể vừa đúng vừa sai. Giá trị đúng hoặc sai của một mệnh đề được gọi là chân trị của mệnh đề.",
-     "verified": true,
-     "recommended": true
-    },
-    {
-     "term": "mệnh đề toán học",
-     "source_id": "bib-nguyenhuudien-2019",
-     "page": "tr. 14",
-     "pdf_page": 14,
-     "snippet": "nhiên trong chương này ta chỉ xét đến các mệnh đề toán học, và chúng ta nói vắn tắt các mệnh đề toán học là các mệnh đề.",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "mệnh đề",
-     "source_id": "bib-nguyenhoangthach-2020",
-     "page": "tr. 18",
-     "pdf_page": 20,
-     "snippet": "Mệnh đề 2.2. Số hoán vị của n phần tử1 là 1 × 2 × · · · × n.",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "mệnh đề toán học",
-     "source_id": "bib-nguyenvanmau-2007",
-     "page": "",
-     "pdf_page": 128,
-     "snippet": "các mệnh đề toán học nào đó thì:",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "mệnh đề",
-     "source_id": "bib-sierpinski-2012",
-     "page": "tr. 9",
-     "pdf_page": 23,
-     "snippet": "Mệnh đề sau đây cũng đúng: tích của n  2 số tự nhiên bằng với tích của ước số chung lớn nhất và",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "mệnh đề toán học",
-     "source_id": "bib-vovantuandung-2007",
-     "page": "",
-     "pdf_page": 24,
-     "snippet": "thường được sử dụng để chứng minh đôi với những mệnh đê toán học",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "mệnh đề",
-     "source_id": "bib-cungkimtien-2004",
-     "page": "",
-     "pdf_page": 14,
-     "snippet": "affirmative proposition mệnh đề",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "mệnh đề",
-     "source_id": "bib-phan-1976",
-     "page": "tr. 9",
-     "pdf_page": 9,
-     "snippet": "propositional a. đại số mệnh dé",
-     "verified": true,
-     "recommended": false
-    }
-   ],
-   "pos": "d.t."
-  },
-  {
-   "id": "pseudograph",
-   "letter": "P",
-   "headword_en": "pseudograph",
-   "notation": "",
-   "rosen_ref": "Rosen §10.1",
-   "definition_vi": "Một \\emph{giả đồ thị} là một đồ thị vô hướng $$G$$ trong đó cho phép có nhiều cạnh nối cùng một cặp đỉnh, đồng thời cho phép có khuyên, tức là cạnh nối một đỉnh với chính nó. Đây là loại đồ thị vô hướng tổng quát nhất, vì nó có thể chứa cả cạnh bội lẫn khuyên.",
-   "example_vi": "Xét đồ thị vô hướng trên tập đỉnh $$\\{a, b, c\\}$$ gồm hai cạnh nối $$a$$ với $$b$$, một cạnh nối $$b$$ với $$c$$, và một khuyên tại $$c$$. Vì có cặp đỉnh được nối bởi hai cạnh và có một cạnh nối $$c$$ với chính nó, đồ thị này là một giả đồ thị.",
-   "notes": "Hai thuật ngữ đều chỉ cùng khái niệm pseudograph. \"giả đồ thị\" (nguyenhuudien-2019) là cách dịch sát và chuẩn của \"pseudograph\", được nêu thành Định nghĩa 6.3 với mô tả là loại đồ thị vô hướng tổng quát nhất chứa cả khuyên lẫn cạnh bội; đây là thuật ngữ được khuyến nghị. \"đa đồ thị có khuyên\" (nguyenhoangthach-2020) là cách diễn đạt mô tả (đa đồ thị có thêm khuyên), xuất hiện trong chú thích hình đối chiếu với \"đồ thị đơn\". Các nguồn graph theory cũ hơn được mã hóa (leanhvinh-2020, hoangchithanh-2007) trình bày khuyên và cạnh song song nhưng không dùng riêng một thuật ngữ \"giả đồ thị\"; nguyenducnghia-2006 và ngodactan-2004 cũng không chứng thực thuật ngữ này. EMPHASIS edit (per panel terminology MED): first-concept emphasis $$giả đồ thị$$ (a spaced Vietnamese phrase wrapped directly in math delimiters, which would render run-together) was normalized to \\emph{giả đồ thị}; the genuine math ($$G$$, vertex/edge set braces) stays wrapped.",
-   "see_also": [
-    "multigraph",
-    "simple-graph",
-    "loop",
-    "multiple-edges",
-    "undirected-graph"
-   ],
-   "vi_terms": [
-    {
-     "term": "đa đồ thị có khuyên",
-     "source_id": "bib-nguyenhoangthach-2020",
-     "page": "tr. 60",
-     "pdf_page": 62,
-     "snippet": "Hình 5.1: Một đồ thị đơn (trái) và một đa đồ thị có khuyên (phải).",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "giả đồ thị",
-     "source_id": "bib-nguyenhuudien-2019",
-     "page": "tr. 155",
-     "pdf_page": 155,
-     "snippet": "Định nghĩa 6.3 Một giả đồ thị G = (V, E) gồm một tập khác rỗng V mà các phần tử",
-     "verified": true,
-     "recommended": true
-    },
-    {
-     "term": "đa đồ thị có khuyên",
-     "source_id": "bib-doducgiao-2009",
-     "page": "tr. 96",
-     "pdf_page": 97,
-     "snippet": "« Ta nói G là giả đồ thị khi và chỉ khi đồ thị G là đa đồ thị có khuyên.",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "giả đồ thị",
-     "source_id": "bib-doducgiao-2009",
-     "page": "tr. 95",
-     "pdf_page": 96,
-     "snippet": "giả đồ thị",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "giả đồ thị",
-     "source_id": "bib-doducgiao-2008",
-     "page": "tr. 193",
-     "pdf_page": 194,
-     "snippet": "ø Giả đồ thị",
-     "verified": true,
-     "recommended": false
-    }
-   ],
-   "pos": "d.t."
-  },
-  {
    "id": "petersen-graph",
    "letter": "P",
    "headword_en": "Petersen graph",
@@ -1175,34 +1267,26 @@
    "pos": "d.t."
   },
   {
-   "id": "pairwise-relatively-prime",
+   "id": "phrase-structure-grammar",
    "letter": "P",
-   "headword_en": "pairwise relatively prime",
-   "notation": "\\gcd(a_i, a_j) = 1",
-   "rosen_ref": "Rosen §3.6",
-   "definition_vi": "Các số nguyên $$a_1, a_2, \\ldots, a_n$$ được gọi là đôi một nguyên tố cùng nhau nếu mỗi cặp hai số phân biệt trong chúng là nguyên tố cùng nhau, tức là $$\\gcd(a_i, a_j) = 1$$ với mọi $$1 \\leq i < j \\leq n$$.",
-   "example_vi": "Các số $$10$$, $$17$$, $$21$$ là đôi một nguyên tố cùng nhau vì $$\\gcd(10,17) = \\gcd(10,21) = \\gcd(17,21) = 1$$. Trong khi đó $$10$$, $$19$$, $$24$$ không đôi một nguyên tố cùng nhau vì $$\\gcd(10,24) = 2 \\neq 1$$.",
+   "headword_en": "phrase-structure grammar",
+   "notation": "G = (V, T, S, P)",
+   "rosen_ref": "Rosen §11.4",
+   "definition_vi": "Một văn phạm cấu trúc câu mô tả một ngôn ngữ thông qua một bộ từ vựng, các ký hiệu kết thúc, một ký hiệu xuất phát và các quy tắc sản xuất. Cụ thể, một văn phạm cấu trúc câu $$G = (V, T, S, P)$$ gồm một từ vựng $$V$$, một tập con $$T \\subseteq V$$ các ký hiệu kết thúc, một ký hiệu xuất phát $$S \\in V$$ và một tập hợp $$P$$ các quy tắc sản xuất.",
+   "definition_en": "A description of a language by a vocabulary, terminals, a start symbol, and production rules.",
+   "example_vi": "Văn phạm $$G = (V, T, S, P)$$ với từ vựng $$V = \\{S, A, a, b\\}$$, các ký hiệu kết thúc $$T = \\{a, b\\}$$, ký hiệu xuất phát $$S$$ và các quy tắc sản xuất $$P = \\{S \\to aA,\\ A \\to b\\}$$ sinh ra ngôn ngữ $$L(G) = \\{ab\\}$$.",
    "vi_terms": [
     {
-     "term": "đôi một nguyên tố cùng nhau",
+     "term": "văn phạm cấu trúc câu",
      "source_id": "bib-rosen-2003-vi",
-     "pdf_page": 157,
-     "page": "tr. 157",
-     "snippet": "ĐỊNH NGHĨA 6. Các số nguyên a), a, .. 0p, được gọi là đôi một nguyên tố cùng nhau",
+     "page": "tr. 770",
+     "pdf_page": 770,
+     "snippet": "ĐINH NGHĨA 2. Một van phạm cau trúc câu G = (V, T, S, P) gồm một",
      "verified": true,
      "recommended": false
     },
     {
-     "term": "nguyên tố cùng nhau đôi một",
-     "source_id": "bib-nguyenhoangthach-2020",
-     "pdf_page": 55,
-     "page": "tr. 53",
-     "snippet": "Vì 3, 5, 7 nguyên tố cùng nhau đôi một nên A ∩ B, B ∩ C, C ∩ A lần lượt",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "nguyên tố cùng nhau từng đôi một",
+     "term": "văn phạm cấu trúc ngữ đoạn",
      "source_id": "",
      "page": "",
      "pdf_page": 0,
@@ -1211,300 +1295,87 @@
      "recommended": false
     },
     {
-     "term": "đôi một nguyên tố cùng nhau",
-     "source_id": "bib-nguyenvanmau-2007",
-     "page": "",
-     "pdf_page": 132,
-     "snippet": "Ví dụ. (Từ [MO 83) Cho các số a, b, c € N*, đôi một nguyên tố cùng nhau. Chứng",
-     "verified": true,
-     "recommended": true
-    },
-    {
-     "term": "đôi một nguyên tố cùng nhau",
-     "source_id": "bib-sierpinski-2012",
+     "term": "văn phạm cấu trúc câu",
+     "source_id": "bib-doducgiao-2009",
      "page": "tr. 8",
-     "pdf_page": 22,
-     "snippet": "a  kb  k  0,1, 2,... chứa dãy con vô hạn các phần tử thuộc dãy là đôi một nguyên tố cùng nhau.",
+     "pdf_page": 9,
+     "snippet": "là van phạm cấu trúc câu (còn gọi là văn phạm ngữ cấu).",
+     "verified": true,
+     "recommended": true
+    },
+    {
+     "term": "văn phạm ngữ cấu",
+     "source_id": "bib-doducgiao-2000",
+     "page": "tr. 218",
+     "pdf_page": 217,
+     "snippet": "Nhóm 0: Văn phạm ngữ cấu.",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "văn phạm ngữ cấu",
+     "source_id": "bib-doducgiao-2009",
+     "page": "tr. 8",
+     "pdf_page": 9,
+     "snippet": "là van phạm cấu trúc câu (còn gọi là văn phạm ngữ cấu).",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "văn phạm ngữ cấu",
+     "source_id": "bib-doducgiao-2008",
+     "page": "tr. 302",
+     "pdf_page": 303,
+     "snippet": "— Nhóm 0: Văn phạm ngữ cấu;",
      "verified": true,
      "recommended": false
     }
    ],
-   "see_also": [],
-   "notes": "Khái niệm mạnh hơn nguyên tố cùng nhau theo nghĩa cả tập (ước chung lớn nhất của toàn bộ tập bằng $$1$$): đôi một nguyên tố cùng nhau đòi hỏi mọi cặp đều nguyên tố cùng nhau. Điều kiện này được dùng trong Định lý số dư Trung Hoa.",
+   "see_also": [
+    "alphabet",
+    "string",
+    "empty-string"
+   ],
+   "notes": "Văn phạm cấu trúc câu $$G = (V, T, S, P)$$ gồm từ vựng $$V$$, tập ký hiệu kết thúc $$T$$, ký hiệu xuất phát $$S$$ và tập quy tắc sản xuất $$P$$; các phần tử của $$V$$ không thuộc $$T$$ được gọi là ký hiệu không kết thúc. Quy tắc sản xuất cho phép thay thế một xâu con này bằng một xâu con khác; ngôn ngữ $$L(G)$$ sinh bởi $$G$$ là tập tất cả các xâu chỉ gồm ký hiệu kết thúc dẫn xuất được từ $$S$$. Thuật ngữ \"văn phạm cấu trúc câu\" theo bản dịch Rosen-VI (ĐỊNH NGHĨA 2, tr. 770).",
    "status": "draft",
    "pos": "d.t."
   },
   {
-   "id": "palindrome",
+   "id": "pigeonhole-principle",
    "letter": "P",
-   "headword_en": "palindrome",
-   "notation": "",
-   "rosen_ref": "Rosen §App. 2 (chuỗi/xâu ký tự)",
-   "definition_vi": "Chuỗi đối xứng (palindrome) là một xâu ký tự $$x_1 x_2 \\ldots x_n$$ đọc xuôi và đọc ngược đều như nhau, tức là $$x_i = x_{n+1-i}$$ với mọi $$i$$ thỏa $$1 \\leq i \\leq n$$.",
-   "example_vi": "Các xâu $$\\texttt{racecar}$$ và $$\\texttt{level}$$ là chuỗi đối xứng, còn xâu $$\\texttt{abc}$$ thì không.",
+   "headword_en": "pigeonhole principle",
+   "see_ref": "the-pigeonhole-principle",
    "vi_terms": [
     {
-     "term": "chuỗi đối xứng",
+     "term": "nguyên lý Dirichlet",
+     "verified": false,
+     "recommended": false,
      "source_id": "",
      "page": "",
      "pdf_page": 0,
-     "snippet": "",
-     "verified": false,
-     "recommended": true
+     "snippet": ""
     },
     {
-     "term": "xâu đối xứng",
+     "term": "nguyên lý chuồng bồ câu",
+     "verified": false,
+     "recommended": false,
      "source_id": "",
      "page": "",
      "pdf_page": 0,
-     "snippet": "",
+     "snippet": ""
+    },
+    {
+     "term": "nguyên lý ngăn khéo",
      "verified": false,
-     "recommended": false
-    }
-   ],
-   "see_also": [],
-   "notes": "Khái niệm chuỗi đối xứng không xuất hiện trong các giáo trình tiếng Việt đã quét; \"đối xứng\" trong các nguồn này chỉ tính đối xứng của quan hệ, ma trận, hay nhóm. Một số tài liệu khác còn gọi là \"xâu đối xứng\".",
-   "status": "draft",
-   "pos": "d.t."
-  },
-  {
-   "id": "paradox",
-   "letter": "P",
-   "headword_en": "paradox",
-   "notation": "",
-   "rosen_ref": "Rosen §2.1",
-   "definition_vi": "Nghịch lý là một mệnh đề hoặc lập luận tự dẫn đến mâu thuẫn logic, tức là vừa đúng vừa sai. Một ví dụ kinh điển là nghịch lý Russell, xét tập hợp $$S = \\{x \\mid x \\notin x\\}$$ gồm mọi tập hợp không là phần tử của chính nó; khi đó câu hỏi liệu $$S \\in S$$ hay $$S \\notin S$$ đều dẫn đến mâu thuẫn.",
-   "example_vi": "Nghịch lý Russell: với $$S = \\{x \\mid x \\notin x\\}$$, nếu $$S \\in S$$ thì theo định nghĩa $$S \\notin S$$, còn nếu $$S \\notin S$$ thì $$S$$ thỏa điều kiện của $$S$$ nên $$S \\in S$$. Cả hai trường hợp đều mâu thuẫn.",
-   "vi_terms": [
-    {
-     "term": "nghịch lý",
-     "source_id": "bib-doducthai-2010",
-     "page": "tr. 4",
-     "pdf_page": 4,
-     "snippet": "Một số nghịch lý trong xác suất . . . . . . . . . . 53",
-     "verified": true,
-     "recommended": true
-    },
-    {
-     "term": "nghịch lý",
-     "source_id": "bib-cormen-2001-vi",
-     "page": "tr. 123",
-     "pdf_page": 121,
-     "snippet": "xác suất thông qua ba ví dụ: nghịch lý ngày sinh nhật, ném bóng ngẫu",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "nghịch lý",
-     "source_id": "bib-nguyenhuuanh-2007",
-     "page": "",
-     "pdf_page": 17,
-     "snippet": "hiệu quả là If p then (If ạ then r). Ở đây lại xảy ra nghịch lý là lệnh",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "nghịch lý",
-     "source_id": "bib-cungkimtien-2004",
-     "page": "",
-     "pdf_page": 22,
-     "snippet": "antinomy nghịch ly",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "nghịch lý",
-     "source_id": "bib-phan-1976",
-     "page": "tr. 16",
-     "pdf_page": 16,
-     "snippet": "antinomy nghịch lý",
-     "verified": true,
-     "recommended": false
-    }
-   ],
-   "see_also": [],
-   "notes": "Trong Rosen, nghịch lý Russell được dùng để minh họa giới hạn của định nghĩa tập hợp tùy ý; các mâu thuẫn logic này tránh được bằng cách hạn chế cách xây dựng tập hợp.",
-   "status": "draft",
-   "pos": "d.t."
-  },
-  {
-   "id": "parent",
-   "letter": "P",
-   "headword_en": "parent",
-   "notation": "",
-   "rosen_ref": "Rosen §10.1",
-   "definition_vi": "Đỉnh cha của một đỉnh $$v$$ (khác gốc) trong một cây có gốc $$T$$ là đỉnh duy nhất $$u$$ sao cho có một cạnh có hướng đi từ $$u$$ đến $$v$$. Mỗi đỉnh khác gốc có duy nhất một đỉnh cha.",
-   "example_vi": "Trong cây có gốc $$a$$ ở Hình 5 của Rosen, đỉnh cha của $$c$$ là $$b$$.",
-   "vi_terms": [
-    {
-     "term": "đỉnh cha",
-     "source_id": "bib-nguyenhoangthach-2020",
-     "pdf_page": 85,
-     "page": "tr. 83",
-     "snippet": "Mỗi đỉnh khác gốc có duy nhất một đỉnh cha. Mỗi đỉnh trong có ít nhất",
-     "verified": true,
-     "recommended": true
-    },
-    {
-     "term": "đỉnh cha",
-     "source_id": "bib-nguyenhuudien-2019",
-     "pdf_page": 252,
-     "page": "tr. 252",
-     "snippet": "Nếu mức của đỉnh cha là i thì mức của các đỉnh con là i + 1.",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "đỉnh cha",
-     "source_id": "bib-leanhvinh-2020",
-     "page": "tr. 129",
-     "pdf_page": 128,
-     "snippet": "gồm hai đỉnh. Do G là dé thị 3-lién thông, đỉnh mới (đỉnh chap của x",
-     "verified": true,
-     "recommended": false
-    }
-   ],
-   "see_also": [],
-   "notes": "Khái niệm dùng cho cây có gốc. Đỉnh ngược lại của đỉnh cha là đỉnh con; các đỉnh có cùng cha gọi là anh em.",
-   "status": "draft",
-   "pos": "d.t."
-  },
-  {
-   "id": "partial-fraction-decomposition",
-   "letter": "P",
-   "headword_en": "partial fraction decomposition",
-   "notation": "",
-   "rosen_ref": "Rosen §8.4",
-   "definition_vi": "Phân tích thành phân số riêng là cách biểu diễn một phân thức hữu tỉ thành tổng của các phân thức đơn giản hơn có mẫu số là lũy thừa của các đa thức bất khả quy. Trong tổ hợp, kỹ thuật này được dùng để khai triển hàm sinh $$\\dfrac{p(x)}{q(x)}$$ thành tổng các phân thức dạng $$\\dfrac{A}{(1 - \\alpha x)^k}$$ nhằm tìm hệ số của chuỗi lũy thừa.",
-   "example_vi": "Để tìm hệ số trong khai triển của $$\\dfrac{1}{(1 - x)(1 - 2x)}$$, ta phân tích thành phân số riêng $$\\dfrac{1}{(1 - x)(1 - 2x)} = \\dfrac{-1}{1 - x} + \\dfrac{2}{1 - 2x}$$, từ đó hệ số của $$x^n$$ bằng $$2^{n+1} - 1$$.",
-   "vi_terms": [
-    {
-     "term": "phân thức đơn giản",
-     "source_id": "bib-ngodactan-2004",
-     "pdf_page": 89,
-     "page": "tr. 89",
-     "snippet": "phân thức đơn giản bằng phương pháp hệ số bất định.",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "phân tích phân thức thành tổng của các phân thức",
-     "source_id": "",
-     "pdf_page": 0,
-     "page": "",
-     "snippet": "",
-     "verified": false,
-     "recommended": false
-    },
-    {
-     "term": "phép tách phân thức",
-     "source_id": "bib-nguyenducnghia-2006",
-     "pdf_page": 43,
-     "page": "",
-     "snippet": "Sử dụng phép tách phân thức, ta viết #(x) dưới đạng",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "phân tích thành phân thức đơn giản",
+     "recommended": false,
      "source_id": "",
      "page": "",
      "pdf_page": 0,
-     "snippet": "",
-     "verified": false,
-     "recommended": true
-    },
-    {
-     "term": "phân thức đơn giản",
-     "source_id": "bib-cungkimtien-2004",
-     "page": "",
-     "pdf_page": 139,
-     "snippet": "khai triển thành phan thức don giản",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "phân thức đơn giản",
-     "source_id": "bib-phan-1976",
-     "page": "tr. 164",
-     "pdf_page": 164,
-     "snippet": "e. in to partial fractions khai triển thành phần thức đơn giản",
-     "verified": true,
-     "recommended": false
+     "snippet": ""
     }
    ],
    "see_also": [],
-   "notes": "Trong giáo trình, kỹ thuật này dùng để khai triển hàm sinh và tìm hệ số. Phương pháp tìm các hằng số là phương pháp hệ số bất định ($$\\geq$$ một hệ phương trình tuyến tính). Sách dịch Rosen không dùng thuật ngữ này cho khái niệm.",
-   "status": "draft",
-   "pos": "d.t."
-  },
-  {
-   "id": "pendant-vertex",
-   "letter": "P",
-   "headword_en": "pendant vertex",
-   "notation": "\\deg_G(v) = 1",
-   "rosen_ref": "Rosen §10.2",
-   "definition_vi": "Đỉnh treo của một đồ thị $$G$$ là một đỉnh có bậc đúng bằng $$1$$, tức là $$\\deg_G(v) = 1$$. Cạnh duy nhất kề với một đỉnh treo được gọi là cạnh treo.",
-   "example_vi": "Trong đồ thị sao $$K_{1,n}$$ với đỉnh tâm $$s$$ có bậc $$n$$, mọi đỉnh còn lại đều là đỉnh treo vì mỗi đỉnh đó có bậc $$1$$.",
-   "vi_terms": [
-    {
-     "term": "đỉnh treo",
-     "source_id": "bib-nguyenhuudien-2019",
-     "pdf_page": 157,
-     "page": "tr. 157",
-     "snippet": "Đỉnh v gọi là đỉnh treo nếu deg(v) = 1 và gọi là đỉnh cô lập nếu deg(v) = 0.",
-     "verified": true,
-     "recommended": true
-    },
-    {
-     "term": "đỉnh treo",
-     "source_id": "bib-nguyenhoangthach-2020",
-     "pdf_page": 64,
-     "page": "tr. 62",
-     "snippet": "Một đỉnh bậc 0 được gọi là một đỉnh cô lập, một đỉnh bậc 1 được gọi là một đỉnh treo.",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "đỉnh treo",
-     "source_id": "bib-hoangchithanh-2011",
-     "page": "",
-     "pdf_page": 10,
-     "snippet": "dinh treo pendant vertex",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "đỉnh lá",
-     "source_id": "bib-leanhvinh-2020",
-     "page": "tr. 17",
-     "pdf_page": 16,
-     "snippet": "Trường hợp cơ sở, hành trình độ dài 0 hay u = v, khẳng định là",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "đỉnh lá",
-     "source_id": "bib-nguyenhoangthach-2020",
-     "page": "tr. 63",
-     "pdf_page": 65,
-     "snippet": "này, mỗi đồ thị tương ứng với một danh sách các đỉnh của nó, mỗi đỉnh lại",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "đỉnh lá",
-     "source_id": "bib-nguyenhuudien-2019",
-     "page": "tr. 28",
-     "pdf_page": 28,
-     "snippet": "được định nghĩa. Các tiên đề được giả định là đúng. Các định nghĩa được sử dụng để xây",
-     "verified": true,
-     "recommended": false
-    }
-   ],
-   "see_also": [],
-   "notes": "Đỉnh treo là đỉnh bậc 1, ký hiệu $$\\deg_G(v) = 1$$. Trong ngữ cảnh cây, đỉnh bậc 1 còn được gọi là \"đỉnh lá\" hoặc \"đỉnh cuối\" (xem Ngô Đắc Tân 2004).",
-   "status": "draft",
+   "notes": "Đồng nghĩa với The Pigeonhole Principle.",
    "pos": "d.t."
   },
   {
@@ -1547,6 +1418,101 @@
    "see_also": [],
    "notes": "Khái niệm chốt xuất hiện trong thuật toán sắp xếp nhanh. Bản dịch tiếng Việt của Rosen mô tả việc \"lấy phần tử đầu tiên\" làm phần tử phân hoạch nhưng không dùng một thuật ngữ danh từ riêng cho \"pivot\"; corpus không có nguồn nào chứng thực thuật ngữ này cho đúng khái niệm pivot.",
    "status": "draft",
+   "pos": "d.t."
+  },
+  {
+   "id": "plaintext",
+   "letter": "P",
+   "headword_en": "plaintext",
+   "pos": "d.t.",
+   "notation": "",
+   "ref_bib": "bib-libennowell-2022",
+   "rosen_ref": "",
+   "definition_vi": "\\emph{Bản rõ} là thông điệp gốc, ở dạng đọc được và chưa mã hóa, mà người gửi muốn truyền đi một cách bí mật. Qua một phép mã hóa, bản rõ được biến đổi thành bản mã trước khi gửi.",
+   "example_vi": "Với mã Caesar dịch ba vị trí, bản rõ $$\\texttt{HELLO}$$ được mã hóa thành bản mã $$\\texttt{KHOOR}$$.",
+   "notes": "",
+   "see_also": [
+    "ciphertext",
+    "public-key",
+    "private-key"
+   ],
+   "vi_terms": [
+    {
+     "term": "bản rõ",
+     "recommended": true
+    }
+   ]
+  },
+  {
+   "id": "planar-graph",
+   "letter": "P",
+   "headword_en": "planar graph",
+   "notation": "",
+   "rosen_ref": "Rosen §10.7",
+   "definition_vi": "Đồ thị $$G$$ được gọi là đồ thị phẳng nếu nó có thể được vẽ trên mặt phẳng sao cho không có hai cạnh nào của nó cắt nhau, nghĩa là các cạnh chỉ gặp nhau tại đầu mút chung của chúng. Một cách vẽ như vậy được gọi là một biểu diễn phẳng của $$G$$.",
+   "example_vi": "Đồ thị $$K_4$$ là đồ thị phẳng, vì nó có thể được vẽ trên mặt phẳng với một đỉnh nằm bên trong tam giác tạo bởi ba đỉnh còn lại sao cho không có hai cạnh nào cắt nhau.",
+   "vi_terms": [
+    {
+     "term": "đồ thị phẳng",
+     "source_id": "bib-leanhvinh-2020",
+     "page": "tr. 115",
+     "pdf_page": 114,
+     "snippet": "biểu diễn ƒ. Đồ thị G được gọi là đồ thị phẳng nếu Ơ có một biểu diễn",
+     "verified": true,
+     "recommended": true
+    },
+    {
+     "term": "đồ thị phẳng",
+     "source_id": "bib-nguyenhuudien-2019",
+     "page": "tr. 235",
+     "pdf_page": 235,
+     "snippet": "Figure 9.16: (a), (b) là đồ thị phẳng, (c) là đồ thị không phẳng",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "đồ thị không phẳng",
+     "source_id": "bib-leanhvinh-2020",
+     "page": "tr. 127",
+     "pdf_page": 126,
+     "snippet": "vẫn là đồ thị không phẳng. Một cách tương tự, nếu ta chia một cạnh",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "đồ thị không phẳng",
+     "source_id": "bib-nguyenhuudien-2019",
+     "page": "tr. 233",
+     "pdf_page": 233,
+     "snippet": "Định lý 9.12 Đồ thị đầy đủ K5 là một đồ thị không phẳng.",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "đồ thị phẳng",
+     "source_id": "bib-nguyenhoangthach-2020",
+     "page": "tr. 2",
+     "pdf_page": 4,
+     "snippet": "5.4 Đồ thị phẳng . . . . . . . . . . . . . . . . . . . . . . . . . . . . 77",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "đồ thị không phẳng",
+     "source_id": "bib-doantamhoe-2009",
+     "page": "",
+     "pdf_page": 98,
+     "snippet": "do đó một đồ thị có đồ thị con không phẳng là đồ thị không phẳng.",
+     "verified": true,
+     "recommended": false
+    }
+   ],
+   "see_also": [
+    "bipartite-graph",
+    "complete-graph",
+    "chromatic-number"
+   ],
+   "notes": "Recommended term \"đồ thị phẳng\" (planar graph) is the standard term, attested in the newest 2020 source (bib-leanhvinh-2020 p.114, formal definition) and across all corpus sources (2020, 2019, 2007, 2004). The negated form \"đồ thị không phẳng\" (nonplanar graph) is recorded as a closely related variant denoting graphs that are NOT planar; it is attested in bib-leanhvinh-2020 (p.126), bib-nguyenhuudien-2019 (p.233, theorem on K5), and bib-ngodactan-2004 (p.16). For the OCR sources (bib-hoangchithanh-2007, bib-leanhvinh-2020) both normal and --loose searches were run; loose added no new term forms. The phrase \"biểu diễn phẳng\" (planar representation/embedding) used in definition_vi follows the source wording \"biểu diễn\" in bib-leanhvinh-2020 p.114.\n\nTerminology consistency (per panel exposition finding): bib-nguyenhuudien-2019 renders complete bipartite locally as \"đồ thị phân đôi đầy đủ\", but the book-standard rendering for bipartite is \"đồ thị hai phần\" and \"đồ thị phân đôi\" is a listed variant only; the planar-graph term itself is consistently \"đồ thị phẳng\" in every source.\n\nsee_also: all three ids (bipartite-graph, complete-graph, chromatic-number) are cross-chapter forward references to be created in their own letter chapters, consistent with the path/poset entries which flag forward references.",
    "pos": "d.t."
   },
   {
@@ -1713,6 +1679,139 @@
    "notes": "Đa thức bậc $$0$$ là hằng số khác $$0$$; đa thức $$0$$ thường được quy ước không có bậc. Trong Rosen, đa thức xuất hiện chủ yếu khi đánh giá độ tăng của hàm và độ phức tạp đa thức của thuật toán.",
    "status": "draft",
    "pos": "d.t."
+  },
+  {
+   "id": "poset",
+   "letter": "P",
+   "headword_en": "poset (partially ordered set)",
+   "notation": "(S, \\preceq)",
+   "rosen_ref": "Rosen §9.6",
+   "definition_vi": "Một \\emph{tập hợp có thứ tự} (poset) là một tập hợp $$S$$ cùng với một quan hệ thứ tự bộ phận $$\\preceq$$ trên $$S$$, tức là quan hệ có tính phản xạ, phản đối xứng và bắc cầu. Tập hợp có thứ tự này được ký hiệu là $$(S, \\preceq)$$.",
+   "example_vi": "Tập hợp các số nguyên dương $$S = \\{1, 2, 3, \\dots\\}$$ cùng với quan hệ chia hết $$\\preceq$$, trong đó $$a \\preceq b$$ khi và chỉ khi $$a$$ chia hết $$b$$, là một tập hợp có thứ tự $$(S, \\preceq)$$.",
+   "vi_terms": [
+    {
+     "term": "tập hợp có thứ tự",
+     "source_id": "bib-nguyenhuudien-2019",
+     "page": "tr. 119",
+     "pdf_page": 119,
+     "snippet": "Định nghĩa 4.13 Cho ( X, ≤) là một tập hợp có thứ tự, và A ⊂ X.",
+     "verified": true,
+     "recommended": true
+    },
+    {
+     "term": "tập được sắp bộ phận",
+     "source_id": "bib-ngodactan-2004",
+     "page": "tr. 164",
+     "pdf_page": 164,
+     "snippet": "Nếu < X, <> là tập được sắp bộ phận đối với thứ tự bộ phận < và",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "tập có thứ tự bộ phận",
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": "",
+     "verified": false,
+     "recommended": false
+    },
+    {
+     "term": "tập được sắp thứ tự bộ phận",
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": "",
+     "verified": false,
+     "recommended": false
+    },
+    {
+     "term": "tập hợp sắp thứ tự một phần",
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": "",
+     "verified": false,
+     "recommended": false
+    },
+    {
+     "term": "tập hợp có thứ tự",
+     "source_id": "bib-nguyenvanmau-2007",
+     "page": "",
+     "pdf_page": 125,
+     "snippet": "cũng có thể được thay thế bằng một tập hợp có thứ tự tốt bất kỳ.",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "tập hợp có thứ tự",
+     "source_id": "bib-nguyenhuuanh-2007",
+     "page": "",
+     "pdf_page": 94,
+     "snippet": "2. Giả sử là một tập hợp con của tập hợp có thứ tự (A, <). Khi",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "tập hợp có thứ tự",
+     "source_id": "bib-cungkimtien-2004",
+     "page": "",
+     "pdf_page": 267,
+     "snippet": "ordering set tập hợp có thứ tự",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "tập hợp có thứ tự",
+     "source_id": "bib-phan-1976",
+     "page": "tr. 384",
+     "pdf_page": 384,
+     "snippet": "ordering s. tập hợp có thứ tự",
+     "verified": true,
+     "recommended": false
+    }
+   ],
+   "see_also": [
+    "partial-order",
+    "hasse-diagram",
+    "lattice",
+    "total-order",
+    "relation"
+   ],
+   "notes": "Concept: a poset is a set $$S$$ together with a partial order $$\\preceq$$ (reflexive, antisymmetric, transitive), written $$(S, \\preceq)$$ (Rosen §9.6).\n\nRecommended term \"tập hợp có thứ tự\" is taken from the newest attested order-theory source, bib-nguyenhuudien-2019 (2019), which gives the formal Định nghĩa 4.13 \"Cho $$(X, \\le)$$ là một tập hợp có thứ tự\" with the partial-order axioms (phản xạ, phản đối xứng, bắc cầu) and develops Hasse diagrams and lattices from it (pdf pages 119-125). In this source the \"bộ phận\"/\"partial\" qualifier is left implicit (a \"thứ tự\" satisfying the three axioms), so \"tập hợp có thứ tự\" is the surface form actually attested in 2019.\n\nVariant \"tập được sắp bộ phận\" is the explicit \"partially ordered set\" form from bib-ngodactan-2004 (2004, pdf pages 163-165), where \"thứ tự bộ phận\" (partial order) is defined and the poset is denoted $$\\langle X, \\preceq \\rangle$$ with Hasse-diagram development. The qualifier \"thứ tự bộ phận\" appears ONLY in bib-ngodactan-2004 across the whole corpus.\n\nConsistency with the partial-order entry (per panel finding): definition_vi uses \"quan hệ thứ tự bộ phận $$\\preceq$$\", matching the explicit-partial wording adopted in the partial-order entry's definition_vi so the two P-chapter entries describe the same underlying relation consistently; the recommended Vietnamese term in partial-order remains the attested \"quan hệ thứ tự\". First-concept emphasis was normalized from Markdown \"*...*\" to \\emph{tập hợp có thứ tự}.\n\nCandidate terms \"tập sắp thứ tự bộ phận\" and the full literal \"tập hợp có thứ tự bộ phận\" returned 0 hits in every source (normal and --loose) and are therefore not recorded as verified terms.\n\nThe OCR graph sources bib-leanhvinh-2020 (2020) and bib-hoangchithanh-2007 (2007), and the combinatorics source bib-nguyenhoangthach-2020 (2020), do not cover posets; their only \"sắp thứ tự\"/\"tập được sắp\" hits refer to ordered pairs/directed edges or to exercises \"sắp xếp\" (arranged) by difficulty, not to the partial-order concept. Both OCR sources were searched with --loose as well, with no poset attestation.",
+   "pos": "d.t."
+  },
+  {
+   "id": "positive-correlation",
+   "letter": "P",
+   "headword_en": "positive correlation",
+   "pos": "d.t.",
+   "notation": "",
+   "ref_bib": "bib-libennowell-2022",
+   "rosen_ref": "",
+   "definition_vi": "Hai biến cố $$A$$ và $$B$$ được gọi là \\emph{tương quan dương} (hay có \\emph{tương quan thuận}) nếu việc xảy ra biến cố này làm tăng khả năng xảy ra biến cố kia, tức là $$\\Pr[A \\cap B] > \\Pr[A]\\cdot\\Pr[B]$$. Điều này tương đương với $$\\Pr[A \\mid B] > \\Pr[A]$$ khi $$\\Pr[B]>0$$. Nếu xảy ra đẳng thức thì hai biến cố độc lập; nếu bất đẳng thức ngược lại thì chúng tương quan âm.",
+   "example_vi": "Khi rút ngẫu nhiên một lá từ bộ bài, biến cố \"lá đỏ\" và biến cố \"lá cơ\" tương quan dương vì biết lá là cơ làm tăng khả năng nó màu đỏ.",
+   "notes": "",
+   "see_also": [],
+   "vi_terms": [
+    {
+     "term": "tương quan dương",
+     "recommended": true
+    },
+    {
+     "term": "tương quan thuận",
+     "recommended": false
+    },
+    {
+     "term": "tương quan dương",
+     "source_id": "bib-phan-1976",
+     "page": "tr. 88",
+     "pdf_page": 88,
+     "snippet": "direct c. tương quan dương",
+     "verified": true,
+     "recommended": false
+    }
+   ]
   },
   {
    "id": "positive-integers",
@@ -1967,48 +2066,6 @@
    "pos": "d.t."
   },
   {
-   "id": "power-law",
-   "letter": "P",
-   "headword_en": "power law",
-   "notation": "",
-   "rosen_ref": "Rosen §10.4",
-   "definition_vi": "Luật lũy thừa là quy luật mô tả phân bố bậc của nhiều mạng lớn trong thực tế, theo đó tỷ lệ các đỉnh có bậc $$k$$ tỉ lệ với $$k^{-r}$$ với một hằng số $$r > 0$$ nào đó. Đồ thị có phân bố bậc tuân theo luật lũy thừa được gọi là đồ thị không tỷ lệ (scale-free), trong đó có một số ít đỉnh bậc rất lớn và rất nhiều đỉnh bậc nhỏ.",
-   "example_vi": "Trong nhiều mạng thực tế như mạng World Wide Web hay mạng xã hội, số đỉnh có bậc $$k$$ xấp xỉ tỉ lệ với $$k^{-r}$$, nên số trang web có rất nhiều liên kết là rất ít, trong khi số trang web có ít liên kết là rất nhiều.",
-   "vi_terms": [
-    {
-     "term": "luật lũy thừa",
-     "source_id": "",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": "",
-     "verified": false,
-     "recommended": true
-    },
-    {
-     "term": "quy luật lũy thừa",
-     "source_id": "",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": "",
-     "verified": false,
-     "recommended": false
-    },
-    {
-     "term": "định luật lũy thừa",
-     "source_id": "",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": "",
-     "verified": false,
-     "recommended": false
-    }
-   ],
-   "see_also": [],
-   "notes": "Thuật ngữ chuẩn của giáo trình MAT3500 là \"luật lũy thừa\". Khái niệm này thuộc phần cấu trúc của các đồ thị (mạng) lớn trong Rosen §10.4 và không được chứng thực trong các nguồn của kho ngữ liệu; trong các nguồn đó, cụm \"lũy thừa\" chỉ xuất hiện theo nghĩa lũy thừa đại số (chẳng hạn lũy thừa của số nguyên tố).",
-   "status": "draft",
-   "pos": "d.t."
-  },
-  {
    "id": "power",
    "letter": "P",
    "headword_en": "power",
@@ -2066,6 +2123,119 @@
    "see_also": [],
    "notes": "Thuật ngữ giáo trình MAT3500 dùng là \"lũy thừa\". Biến thể chính tả \"luỹ thừa\" xuất hiện trong các giáo trình cũ và mang cùng nghĩa. Khái niệm lũy thừa được dùng cho số ($$a^n$$), cho quan hệ ($$R^n$$, định nghĩa đệ quy) và cho ma trận ($$A^n$$). Cần phân biệt với \"tập lũy thừa\" (power set) là một khái niệm khác.",
    "status": "draft",
+   "pos": "d.t."
+  },
+  {
+   "id": "power-law",
+   "letter": "P",
+   "headword_en": "power law",
+   "notation": "",
+   "rosen_ref": "Rosen §10.4",
+   "definition_vi": "Luật lũy thừa là quy luật mô tả phân bố bậc của nhiều mạng lớn trong thực tế, theo đó tỷ lệ các đỉnh có bậc $$k$$ tỉ lệ với $$k^{-r}$$ với một hằng số $$r > 0$$ nào đó. Đồ thị có phân bố bậc tuân theo luật lũy thừa được gọi là đồ thị không tỷ lệ (scale-free), trong đó có một số ít đỉnh bậc rất lớn và rất nhiều đỉnh bậc nhỏ.",
+   "example_vi": "Trong nhiều mạng thực tế như mạng World Wide Web hay mạng xã hội, số đỉnh có bậc $$k$$ xấp xỉ tỉ lệ với $$k^{-r}$$, nên số trang web có rất nhiều liên kết là rất ít, trong khi số trang web có ít liên kết là rất nhiều.",
+   "vi_terms": [
+    {
+     "term": "luật lũy thừa",
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": "",
+     "verified": false,
+     "recommended": true
+    },
+    {
+     "term": "quy luật lũy thừa",
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": "",
+     "verified": false,
+     "recommended": false
+    },
+    {
+     "term": "định luật lũy thừa",
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": "",
+     "verified": false,
+     "recommended": false
+    }
+   ],
+   "see_also": [],
+   "notes": "Thuật ngữ chuẩn của giáo trình MAT3500 là \"luật lũy thừa\". Khái niệm này thuộc phần cấu trúc của các đồ thị (mạng) lớn trong Rosen §10.4 và không được chứng thực trong các nguồn của kho ngữ liệu; trong các nguồn đó, cụm \"lũy thừa\" chỉ xuất hiện theo nghĩa lũy thừa đại số (chẳng hạn lũy thừa của số nguyên tố).",
+   "status": "draft",
+   "pos": "d.t."
+  },
+  {
+   "id": "power-set",
+   "letter": "P",
+   "headword_en": "power set",
+   "notation": "\\mathcal{P}(S)",
+   "rosen_ref": "Rosen §2.1",
+   "definition_vi": "Tập lũy thừa của một tập $$S$$, ký hiệu $$\\mathcal{P}(S)$$, là tập gồm tất cả các tập con của $$S$$. Nói cách khác, $$\\mathcal{P}(S) = \\{X : X \\subseteq S\\}$$.",
+   "example_vi": "Với $$X = \\{1, 2, 3\\}$$, tập lũy thừa của $$X$$ là $$\\mathcal{P}(X) = \\{\\emptyset, \\{1\\}, \\{2\\}, \\{3\\}, \\{1,2\\}, \\{1,3\\}, \\{2,3\\}, \\{1,2,3\\}\\}$$.",
+   "notes": "Recommended term \"tập lũy thừa\" (modern orthography) is the modern standard spelling (lũy) of the attested older \"luỹ\" form. The corpus only attests the older \"luỹ\" spelling: \"tập luỹ thừa\" appears in bib-ngodactan-2004 (2004) p. 164, 165, 179, where $$P(X)$$ is defined as the set of all subsets of $$X$$, with Example 5.5 (p. 165) using $$X=\\{1,2,3\\}$$. The modern \"tập lũy thừa\" returns 0 hits, so the recommended entry is marked verified=false (kept as the single standard recommended term so vi_terms is non-empty, per the citation-hygiene exception) and the attested 2004 spelling \"tập luỹ thừa\" is recorded separately with full citation. No 2019-2020 source in the corpus attests the power set concept under any spelling; the newer sources (nguyenhuudien-2019, nguyenhoangthach-2020, leanhvinh-2020) discuss subsets and the count $$2^n$$ but use no fixed \"power set\" term. Descriptive paraphrases such as \"tập tất cả các tập con của X\" / \"tập các tập con của X\" appear (e.g. bib-ngodactan-2004 p. 89, bib-nguyenducnghia-2006 p. 95, p. 116) but are not fixed terms for the power set and are not listed as variants. This verified=false-recommended + attested-old-spelling pattern matches the chapter-O ordered-tree precedent.",
+   "see_also": [
+    "subset"
+   ],
+   "vi_terms": [
+    {
+     "term": "tập luỹ thừa",
+     "source_id": "bib-ngodactan-2004",
+     "page": "tr. 164",
+     "pdf_page": 164,
+     "snippet": "trên tập luỹ thừa P{X) tấ t cả các tập con của tập X . □",
+     "verified": true,
+     "recommended": true
+    },
+    {
+     "term": "tập luỹ thừa",
+     "source_id": "bib-rosen-2003-vi",
+     "pdf_page": 59,
+     "page": "tr. 59",
+     "snippet": "tập con của S. Tập luỹ thừa của S được ký hiệu là P(S).",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "tập luỹ thừa",
+     "source_id": "bib-doducgiao-2009",
+     "page": "tr. 279",
+     "pdf_page": 280,
+     "snippet": "A(X}, X¿,..., Xạ) có độ phức tạp lũy thừa đối với n (số biến của công thức",
+     "verified": true,
+     "recommended": false
+    }
+   ],
+   "pos": "d.t."
+  },
+  {
+   "id": "predicate",
+   "letter": "P",
+   "headword_en": "predicate",
+   "notation": "P(x)",
+   "rosen_ref": "Rosen §1.4",
+   "definition_vi": "Một vị từ, ký hiệu $$P(x)$$, là một phát biểu phụ thuộc vào các biến lấy giá trị trên các miền xác định cho trước, sao cho khi mỗi biến được gán một giá trị cụ thể thuộc miền của nó thì $$P(x)$$ trở thành một mệnh đề có giá trị chân lý xác định.",
+   "example_vi": "Xét vị từ $$P(x)$$ là phát biểu \"$$x > 3$$\" với biến $$x$$ lấy giá trị trên tập số nguyên. Khi gán $$x = 4$$, ta được mệnh đề $$P(4)$$ là \"$$4 > 3$$\", có giá trị chân lý đúng; khi gán $$x = 2$$, ta được mệnh đề $$P(2)$$ là \"$$2 > 3$$\", có giá trị chân lý sai.",
+   "see_also": [
+    "domain-of-discourse",
+    "proposition",
+    "quantifier",
+    "universal-quantifier"
+   ],
+   "vi_terms": [
+    {
+     "term": "vị từ",
+     "source_id": "bib-nguyenhuudien-2019",
+     "page": "tr. 46",
+     "pdf_page": 46,
+     "snippet": "Định nghĩa 2.1 Một vị từ là một phát biểu P( x, y, . . .) phụ thuộc theo các biến x, y, . . . lấy giá trị trên các miền xác định A, B, . . . nào đó.",
+     "verified": true,
+     "recommended": true
+    }
+   ],
+   "notes": "Recommended term \"vị từ\" is attested with a formal definition in bib-nguyenhuudien-2019 (2019, Định nghĩa 2.1, tr. 46 PDF): \"Một vị từ là một phát biểu $$P(x, y, \\ldots)$$ phụ thuộc theo các biến $$x, y, \\ldots$$ lấy giá trị trên các miền xác định $$A, B, \\ldots$$ nào đó\" — an exact match for the Rosen concept (a statement that becomes a proposition once each variable is assigned a value from its domain). The same source uses \"vị từ\" consistently as the chapter title \"Lôgic vị từ\" (predicate logic) and throughout §2.1. The candidate variant \"hàm mệnh đề\" (propositional function) was NOT attested in any corpus source: 0 hits in both normal and --loose mode across all six books, so it is not retained as a vi_term (dropped per citation hygiene) but recorded here as a known variant. The two OCR sources (bib-leanhvinh-2020, bib-hoangchithanh-2007) returned 0 hits for \"vị từ\" in both normal and --loose mode (these are graph-theory/algorithm texts that do not cover predicate logic). The \"vị từ\" hits in bib-nguyenducnghia-2006 (pdf_page 97) are false positives from the substring \"hoán vị từ ... phần tử\" (permutations of elements), not the predicate concept, so 2006 is not cited. No 2020 source attests this concept; the newest valid attestation is the 2019 source.",
    "pos": "d.t."
   },
   {
@@ -2152,6 +2322,70 @@
    ],
    "see_also": [],
    "notes": "Cùng tên \"nghịch ảnh\" được dùng cho nghịch ảnh của một phần tử $$f^{-1}(b)$$ và nghịch ảnh của một tập con $$f^{-1}(S)$$; ký hiệu $$f^{-1}$$ ở đây không đòi hỏi $$f$$ khả nghịch.",
+   "status": "draft",
+   "pos": "d.t."
+  },
+  {
+   "id": "premise",
+   "letter": "P",
+   "headword_en": "premise",
+   "notation": "",
+   "rosen_ref": "Rosen §1.6",
+   "definition_vi": "Tiền đề là một mệnh đề trong một lập luận (hoặc một dạng suy luận) khác với kết luận. Một lập luận gồm một dãy các tiền đề $$p_1, p_2, \\ldots, p_n$$ và một kết luận $$q$$ được suy ra từ các tiền đề đó.",
+   "example_vi": "Trong lập luận \"Nếu trời mưa thì đường ướt; trời mưa; do đó đường ướt\", hai câu đầu \"Nếu trời mưa thì đường ướt\" và \"trời mưa\" là các tiền đề, còn \"đường ướt\" là kết luận.",
+   "vi_terms": [
+    {
+     "term": "tiền đề",
+     "source_id": "bib-nguyenhuudien-2019",
+     "page": "tr. 34",
+     "pdf_page": 34,
+     "snippet": "nếu ta thêm giả thiết phụ vào tiền đề P mà chứng minh được có sự mâu thuẫn thì ta",
+     "verified": true,
+     "recommended": true
+    },
+    {
+     "term": "tiền đề",
+     "source_id": "bib-leanhvinh-2020",
+     "page": "tr. 224",
+     "pdf_page": 223,
+     "snippet": "đến 1 khi n tiến đến vô cùng. Một trong những tính chất quan trọng",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "tiền đề",
+     "source_id": "bib-sierpinski-2012",
+     "page": "",
+     "pdf_page": 10,
+     "snippet": "Sierpinski được biết tới với những cống hiến xuất sắc trong lý thuyết tập hợp, đặc biệt là về tiên đề",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "tiền đề",
+     "source_id": "bib-cungkimtien-2004",
+     "page": "",
+     "pdf_page": 32,
+     "snippet": "axiom tiên đề",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "tiền đề",
+     "source_id": "bib-phan-1976",
+     "page": "tr. 24",
+     "pdf_page": 24,
+     "snippet": "axiom tién dé",
+     "verified": true,
+     "recommended": false
+    }
+   ],
+   "see_also": [
+    "logical-argument",
+    "argument-form",
+    "valid-argument"
+   ],
+   "notes": "Tiền đề (premise) là các mệnh đề được giả định trong một lập luận, từ đó kết luận được rút ra; cần phân biệt với kết luận (conclusion) là mệnh đề được suy ra. Trong một dạng suy luận, các tiền đề thường được ký hiệu là $$p_1, p_2, \\ldots, p_n$$. Bản dịch Rosen (2003) và các nguồn tiếng Việt khác đều dùng \"tiền đề\" cho thuật ngữ này.",
    "status": "draft",
    "pos": "d.t."
   },
@@ -2243,6 +2477,351 @@
    "pos": "d.t."
   },
   {
+   "id": "primary-key",
+   "letter": "P",
+   "headword_en": "primary key",
+   "see_ref": "key",
+   "vi_terms": [
+    {
+     "term": "khóa chính",
+     "verified": false,
+     "recommended": false,
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": ""
+    }
+   ],
+   "status": "draft",
+   "pos": "d.t."
+  },
+  {
+   "id": "prime",
+   "letter": "P",
+   "headword_en": "prime",
+   "see_ref": "prime-number",
+   "vi_terms": [],
+   "status": "draft",
+   "pos": "d.t."
+  },
+  {
+   "id": "prime-factorization",
+   "letter": "P",
+   "headword_en": "prime factorization",
+   "pos": "d.t.",
+   "notation": "",
+   "ref_bib": "bib-libennowell-2022",
+   "rosen_ref": "",
+   "definition_vi": "\\emph{Phân tích ra thừa số nguyên tố} của một số nguyên dương $$n>1$$ là cách viết $$n$$ thành tích các số nguyên tố, $$\\displaystyle n=p_1^{a_1}p_2^{a_2}\\cdots p_k^{a_k}$$. Theo định lý cơ bản của số học, cách viết này là duy nhất nếu không kể thứ tự.",
+   "example_vi": "$$360=2^3\\cdot 3^2\\cdot 5$$.",
+   "notes": "",
+   "see_also": [],
+   "vi_terms": [
+    {
+     "term": "phân tích ra thừa số nguyên tố",
+     "recommended": true
+    },
+    {
+     "term": "phân tích ra thừa số nguyên tố",
+     "source_id": "bib-nguyenhuuanh-2007",
+     "page": "",
+     "pdf_page": 111,
+     "snippet": "Chứng minh: Xét mot phân tích ra thừa số nguyên tố khác của a:",
+     "verified": true,
+     "recommended": false
+    }
+   ]
+  },
+  {
+   "id": "prime-implicant",
+   "letter": "P",
+   "headword_en": "prime implicant",
+   "notation": "",
+   "rosen_ref": "Rosen §12.4",
+   "definition_vi": "Một nguyên nhân (implicant) của một hàm Boole là một hội sơ cấp (tích các literal) sao cho mỗi khi hội đó nhận giá trị $$1$$ thì hàm cũng nhận giá trị $$1$$. Một nguyên nhân nguyên tố của hàm là một nguyên nhân không bị kéo theo bởi bất kỳ nguyên nhân nào khác của hàm đó; nói cách khác, không thể bỏ đi literal nào của nó mà vẫn còn là một nguyên nhân của hàm.",
+   "example_vi": "Xét hàm Boole $$x + y$$ (tức $$x \\vee y$$). Các hội $$x$$ và $$y$$ đều là nguyên nhân nguyên tố của hàm này, vì mỗi khi $$x = 1$$ hoặc mỗi khi $$y = 1$$ thì $$x + y = 1$$, và không thể bỏ bớt literal nào. Trái lại, hội $$x \\wedge y$$ tuy là một nguyên nhân nhưng không phải nguyên nhân nguyên tố, vì nó bị kéo theo bởi nguyên nhân $$x$$ (và bởi $$y$$).",
+   "vi_terms": [
+    {
+     "term": "nguyên nhân nguyên tố",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-nguyenducnghia-2006",
+     "pdf_page": 274,
+     "page": "",
+     "snippet": "một nguyên nhân nguyên tố củaƒ, nếu Á là một nguyên nhân củaƒ, sao cho không thể"
+    },
+    {
+     "term": "nguyên nhân nguyên tố",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenducnghia-2006",
+     "pdf_page": 274,
+     "page": "",
+     "snippet": "Xy và x ÿ là các nguyên nhân nguyên tố của hàm x + y."
+    }
+   ],
+   "see_also": [
+    "minterm",
+    "boolean-function",
+    "disjunctive-normal-form",
+    "karnaugh-map",
+    "boolean-expression"
+   ],
+   "notes": "Khái niệm nguyên nhân nguyên tố là cốt lõi của việc tối thiểu hóa biểu thức Boole (bản đồ Karnaugh, phương pháp Quine–McCluskey). Một \"nguyên nhân\" (implicant) là một hội sơ cấp kéo theo hàm; nó là \"nguyên tố\" nếu không thể bỏ literal nào mà vẫn còn là nguyên nhân, tức không bị nguyên nhân nào khác kéo theo. Nguyễn Đức Nghĩa (2006, tr. 274) dùng \"nguyên nhân\" cho implicant và \"nguyên nhân nguyên tố\" cho prime implicant; tuyển của tất cả các nguyên nhân nguyên tố cho dạng tuyển chuẩn tắc thu gọn của hàm.",
+   "status": "draft",
+   "pos": "d.t."
+  },
+  {
+   "id": "prime-number",
+   "letter": "P",
+   "headword_en": "prime number",
+   "notation": "p",
+   "rosen_ref": "Rosen §4.3",
+   "definition_vi": "Một số nguyên $$p > 1$$ được gọi là số nguyên tố nếu các ước nguyên dương duy nhất của $$p$$ là $$1$$ và $$p$$.",
+   "example_vi": "Số $$23$$ là số nguyên tố vì các ước nguyên dương duy nhất của nó là $$1$$ và $$23$$, trong khi $$6$$ không phải là số nguyên tố vì $$6 = 2 \\cdot 3$$.",
+   "notes": "Hai thuật ngữ đều chỉ khái niệm này. \"số nguyên tố\" là thuật ngữ chuẩn, đầy đủ, dùng cho danh từ (\"p là một số nguyên tố\"); được chứng thực trong cả hai nguồn 2020 (bib-leanhvinh-2020) và 2019 (bib-nguyenhuudien-2019). \"nguyên tố\" là dạng tính từ/rút gọn (\"với p nguyên tố\" = \"với p là số nguyên tố\"), chứng thực trong bib-leanhvinh-2020 (2020); lưu ý \"nguyên tố\" còn xuất hiện trong các cụm khác như \"nguyên tố cùng nhau\" (coprime) và \"ước nguyên tố\" (prime divisor) — các cụm này KHÔNG được tính là chứng thực cho khái niệm \"prime number\". Nguồn OCR bib-hoangchithanh-2007 chỉ khớp ở tên tác giả \"Nguyễn Tô Thành\", không chứng thực khái niệm này. see_also để trống: chương P không có mục cùng chương liên quan trực tiếp; các khái niệm liên quan (chia hết, $$\\gcd(a,b)$$, định lý cơ bản của số học) nằm ở các chữ cái khác và được giữ làm tham chiếu chuyển tiếp, theo đúng cách giải thích see_also trống của các mục partition/power-set.",
+   "see_also": [],
+   "vi_terms": [
+    {
+     "term": "số nguyên tố",
+     "source_id": "bib-leanhvinh-2020",
+     "page": "tr. 191",
+     "pdf_page": 190,
+     "snippet": "ta chọn p là một số nguyên tố nằm trong khoảng {(1—o0(1))./n, yn} và",
+     "verified": true,
+     "recommended": true
+    },
+    {
+     "term": "nguyên tố",
+     "source_id": "bib-leanhvinh-2020",
+     "page": "tr. 180",
+     "pdf_page": 179,
+     "snippet": "Với p nguyên tố, ta xét đỏ thị tích võ hướng đơn vị G với tập đỉnh",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "số nguyên tố",
+     "source_id": "bib-nguyenhuudien-2019",
+     "page": "tr. 40",
+     "pdf_page": 40,
+     "snippet": "b) 23 là số nguyên tố.",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "nguyên tố",
+     "source_id": "bib-nguyenhoangthach-2020",
+     "page": "tr. 53",
+     "pdf_page": 55,
+     "snippet": "Vì 3, 5, 7 nguyên tố cùng nhau đôi một nên A ∩ B, B ∩ C, C ∩ A lần lượt",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "nguyên tố",
+     "source_id": "bib-nguyenhuudien-2019",
+     "page": "tr. 14",
+     "pdf_page": 14,
+     "snippet": "1. 6 là một số nguyên tố.",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "số nguyên tố",
+     "source_id": "bib-sierpinski-2012",
+     "page": "",
+     "pdf_page": 5,
+     "snippet": "rằng số nguyên tố lớn nhất được tìm ra vào năm 1950 là số 2127  1 (số này có 39 chữ số) trong khi",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "số nguyên tố",
+     "source_id": "bib-cungkimtien-2004",
+     "page": "",
+     "pdf_page": 117,
+     "snippet": "bố các số nguyên tố",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "số nguyên tố",
+     "source_id": "bib-phan-1976",
+     "page": "tr. 257",
+     "pdf_page": 257,
+     "snippet": "1. of apparition of prime luật phân bố các số nguyên tố",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "nguyên tố",
+     "source_id": "bib-cungkimtien-2004",
+     "page": "",
+     "pdf_page": 16,
+     "snippet": "almost prime hâu nguyên tố",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "nguyên tố",
+     "source_id": "bib-phan-1976",
+     "page": "tr. 87",
+     "pdf_page": 87,
+     "snippet": "coprime nguyên tố cùng nhau",
+     "verified": true,
+     "recommended": false
+    }
+   ],
+   "pos": "d.t."
+  },
+  {
+   "id": "prime-number-theorem",
+   "letter": "P",
+   "headword_en": "prime number theorem",
+   "pos": "d.t.",
+   "notation": "",
+   "ref_bib": "bib-libennowell-2022",
+   "rosen_ref": "",
+   "definition_vi": "\\emph{Định lý số nguyên tố} mô tả mật độ phân bố của các số nguyên tố. Gọi $$\\pi(n)$$ là số các số nguyên tố không vượt quá $$n$$; định lý khẳng định rằng $$\\pi(n)$$ tiệm cận với $$\\displaystyle \\frac{n}{\\ln n}$$ khi $$n\\to\\infty$$, tức là $$\\displaystyle \\lim_{n\\to\\infty}\\frac{\\pi(n)}{n/\\ln n}=1$$.",
+   "example_vi": "Với $$n=10^6$$, có $$\\pi(n)=78\\,498$$ số nguyên tố, còn $$n/\\ln n\\approx 72\\,382$$, khá gần nhau.",
+   "notes": "",
+   "see_also": [],
+   "vi_terms": [
+    {
+     "term": "định lý số nguyên tố",
+     "recommended": true
+    },
+    {
+     "term": "định lý số nguyên tố",
+     "source_id": "bib-cormen-2001-vi",
+     "page": "",
+     "pdf_page": 927,
+     "snippet": "bằng với 10, tức là, 2, 3, 5, và 7. Định lý số nguyên tố cung cấp một",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "định lý số nguyên tố",
+     "source_id": "bib-sierpinski-2012",
+     "page": "",
+     "pdf_page": 12,
+     "snippet": "20. Định lý số nguyên tố và các hệ quả",
+     "verified": true,
+     "recommended": false
+    }
+   ]
+  },
+  {
+   "id": "primitive-root",
+   "letter": "P",
+   "headword_en": "primitive root",
+   "notation": "",
+   "rosen_ref": "Rosen §3.7",
+   "definition_vi": "Một căn nguyên thủy modulo một số nguyên tố $$p$$ là một số nguyên $$r$$ mà các lũy thừa của nó sinh ra tất cả các thặng dư khác $$0$$ modulo $$p$$.",
+   "example_vi": "Số $$3$$ là một căn nguyên thủy modulo $$7$$, vì các lũy thừa $$3^1 = 3$$, $$3^2 = 2$$, $$3^3 = 6$$, $$3^4 = 4$$, $$3^5 = 5$$, $$3^6 = 1$$ (mọi phép tính lấy modulo $$7$$) sinh ra tất cả các thặng dư khác $$0$$ là $$1, 2, 3, 4, 5, 6$$ modulo $$7$$.",
+   "vi_terms": [
+    {
+     "term": "căn nguyên thủy",
+     "verified": false,
+     "recommended": false,
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": ""
+    },
+    {
+     "term": "căn nguyên thủy",
+     "source_id": "bib-cormen-2001-vi",
+     "page": "tr. 918",
+     "pdf_page": 916,
+     "snippet": "8, modulo ø, và ta nói rằng ø là một căn nguyên thủy hoặc một bộ sinh",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "căn nguyên thủy",
+     "source_id": "bib-sierpinski-2012",
+     "page": "",
+     "pdf_page": 12,
+     "snippet": "Sự tồn tại căn nguyên thủy của số nguyên tố",
+     "verified": true,
+     "recommended": true
+    },
+    {
+     "term": "căn nguyên thủy",
+     "source_id": "bib-cungkimtien-2004",
+     "page": "",
+     "pdf_page": 294,
+     "snippet": "primitive root căn nguyên thuỷ",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "căn nguyên thủy",
+     "source_id": "bib-phan-1976",
+     "page": "tr. 370",
+     "pdf_page": 370,
+     "snippet": "primitive r. căn nguyên thuỷ",
+     "verified": true,
+     "recommended": false
+    }
+   ],
+   "see_also": [
+    "quadratic-residue",
+    "modular-arithmetic",
+    "congruence"
+   ],
+   "notes": "Căn nguyên thủy modulo số nguyên tố $$p$$ là số nguyên $$r$$ sao cho các lũy thừa $$r^1, r^2, \\ldots, r^{p-1}$$ chạy qua tất cả $$p-1$$ thặng dư khác $$0$$ modulo $$p$$; nói cách khác, $$r$$ có bậc bằng $$p-1$$ modulo $$p$$. Mỗi số nguyên tố đều có căn nguyên thủy. Thuật ngữ \"căn nguyên thủy\" là cách dịch chuẩn; tuy nhiên khái niệm này chưa được dẫn chứng trực tiếp trong các nguồn dịch tiếng Việt thuộc ngữ liệu, kể cả bản dịch tiếng Việt của Rosen, nên thuật ngữ khuyến nghị để verified=false.",
+   "status": "draft",
+   "pos": "d.t."
+  },
+  {
+   "id": "private-key",
+   "letter": "P",
+   "headword_en": "private key",
+   "pos": "d.t.",
+   "notation": "",
+   "ref_bib": "bib-libennowell-2022",
+   "rosen_ref": "",
+   "definition_vi": "\\emph{Khóa bí mật} là khóa được giữ kín bởi chủ sở hữu trong một hệ mật mã khóa công khai, dùng để giải mã các thông điệp được mã hóa bằng khóa công khai tương ứng hoặc để tạo chữ ký số. Tính an toàn của hệ thống phụ thuộc vào việc khóa bí mật không bị tiết lộ.",
+   "example_vi": "Trong hệ RSA, khóa bí mật là số mũ $$d$$ thỏa $$ed \\equiv 1 \\pmod{\\varphi(n)}$$; người nhận giải mã bằng $$m = c^d \\bmod n$$.",
+   "notes": "",
+   "see_also": [
+    "public-key",
+    "plaintext",
+    "ciphertext"
+   ],
+   "vi_terms": [
+    {
+     "term": "khóa bí mật",
+     "recommended": true
+    },
+    {
+     "term": "khóa riêng",
+     "recommended": false
+    },
+    {
+     "term": "khóa riêng",
+     "source_id": "bib-cormen-2001-vi",
+     "page": "",
+     "pdf_page": 256,
+     "snippet": "Giả sử ta dùng một hàm ánh số # ngẫu nhiên để ánh số n khóa riêng",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "khóa bí mật",
+     "source_id": "bib-cormen-2001-vi",
+     "page": "",
+     "pdf_page": 920,
+     "snippet": "khóa công [public key] và một khóa bí mật [secret key]. Mỗi khóa là",
+     "verified": true,
+     "recommended": false
+    }
+   ]
+  },
+  {
    "id": "private-key-cryptography",
    "letter": "P",
    "headword_en": "private key cryptography",
@@ -2290,6 +2869,333 @@
    ],
    "see_also": [],
    "notes": "Còn gọi là mật mã khóa đối xứng, đối lập với mật mã khóa công khai. Corpus và bản dịch Rosen có trình bày mật mã (mật mã Caesar, mật mã dịch) nhưng không dùng thuật ngữ \"mật mã khóa bí mật\" như một khái niệm riêng, nên không bổ sung được biến thể nào có dẫn chứng.",
+   "status": "draft",
+   "pos": "d.t."
+  },
+  {
+   "id": "private-key-encryption",
+   "letter": "P",
+   "headword_en": "private key encryption",
+   "see_ref": "private-key-cryptography",
+   "vi_terms": [],
+   "status": "draft",
+   "pos": "d.t."
+  },
+  {
+   "id": "probabilistic-algorithm",
+   "letter": "P",
+   "headword_en": "probabilistic algorithm",
+   "notation": "",
+   "rosen_ref": "Rosen §3.1",
+   "definition_vi": "Thuật toán xác suất là một thuật toán có thực hiện các lựa chọn ngẫu nhiên trong quá trình thực thi của nó.",
+   "example_vi": "Trắc nghiệm tính nguyên tố theo kiểu xác suất, như trắc nghiệm Miller-Rabin, là một thuật toán xác suất: nó chọn ngẫu nhiên một số nguyên $$a$$ rồi kiểm tra một điều kiện đồng dư để kết luận một số $$n$$ là hợp số hay là số nguyên tố với xác suất sai nhỏ.",
+   "vi_terms": [
+    {
+     "term": "thuật toán xác suất",
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": "",
+     "verified": false,
+     "recommended": true
+    },
+    {
+     "term": "theo kiểu xác suất",
+     "source_id": "bib-rosen-2003-vi",
+     "page": "tr. 206",
+     "pdf_page": 206,
+     "snippet": "Hãy giải thích những trac nghiệm tính nguyên tố theo kiểu xác suất",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "thuật toán ngẫu nhiên",
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": "",
+     "verified": false,
+     "recommended": false
+    },
+    {
+     "term": "thuật toán ngẫu nhiên",
+     "source_id": "bib-cormen-2001-vi",
+     "page": "tr. 188",
+     "pdf_page": 186,
+     "snippet": "(Bài tập 8.3-4 yêu cầu một thuật toán ngẫu nhiên hoán vị các thành",
+     "verified": true,
+     "recommended": false
+    }
+   ],
+   "see_also": [
+    "algorithm",
+    "expected-value",
+    "prime-number"
+   ],
+   "notes": "Thuật toán xác suất khác với thuật toán tất định ở chỗ nó dùng các lựa chọn ngẫu nhiên trong khi chạy, nên với cùng một đầu vào nó có thể cho các kết quả hoặc thời gian chạy khác nhau ở những lần thực thi khác nhau. Bản dịch tiếng Việt của Rosen dùng cụm \"theo kiểu xác suất\" cho khái niệm probabilistic (ví dụ \"trắc nghiệm tính nguyên tố theo kiểu xác suất\"); cụm \"thuật toán xác suất\" là cách dịch chuẩn cho headword nhưng chưa thấy xuất hiện nguyên văn trong kho ngữ liệu.",
+   "status": "draft",
+   "pos": "d.t."
+  },
+  {
+   "id": "probabilistic-method",
+   "letter": "P",
+   "headword_en": "probabilistic method",
+   "notation": "",
+   "rosen_ref": "Rosen §7.2",
+   "definition_vi": "Phương pháp xác suất là một kỹ thuật để chứng minh sự tồn tại của một đối tượng bằng cách chỉ ra rằng xác suất để đối tượng đó xuất hiện là dương. Cụ thể, nếu khi chọn ngẫu nhiên một phần tử từ một tập hợp mà xác suất để phần tử đó có một tính chất nào đó lớn hơn $$0$$, thì tồn tại ít nhất một phần tử có tính chất ấy.",
+   "example_vi": "Để chứng minh tồn tại một đồ thị với số Ramsey lớn, ta tô màu ngẫu nhiên các cạnh của $$K_n$$ và chỉ ra rằng xác suất để không xuất hiện đơn sắc nào là dương; do đó tồn tại một cách tô màu không có tập đơn sắc, khẳng định sự tồn tại của đồ thị mong muốn.",
+   "vi_terms": [
+    {
+     "term": "phương pháp xác suất",
+     "source_id": "bib-leanhvinh-2020",
+     "page": "tr. 173",
+     "pdf_page": 172,
+     "snippet": "Bài tập 6.9. Sử dụng phương pháp xác suất của Erdős, chứng minh",
+     "verified": true,
+     "recommended": true
+    },
+    {
+     "term": "phương pháp xác suất",
+     "source_id": "bib-leanhvinh-2020",
+     "page": "tr. 192",
+     "pdf_page": 191,
+     "snippet": "phương pháp xác suất.",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "phương pháp xác suất",
+     "source_id": "bib-ngodactan-2004",
+     "page": "tr. 24",
+     "pdf_page": 24,
+     "snippet": "không kiến thiết như phương pháp xác suất). Tuy nhiên, chưa có một",
+     "verified": true,
+     "recommended": false
+    }
+   ],
+   "see_also": [
+    "ramsey-number",
+    "expected-value"
+   ],
+   "notes": "Phương pháp xác suất, do Erdős phát triển, là một kỹ thuật chứng minh không kiến thiết: nó khẳng định sự tồn tại của một đối tượng mà không cần xây dựng tường minh đối tượng đó. Ý tưởng chính là nếu xác suất để một đối tượng ngẫu nhiên có tính chất mong muốn là dương, thì phải tồn tại ít nhất một đối tượng có tính chất ấy.",
+   "status": "draft",
+   "pos": "d.t."
+  },
+  {
+   "id": "probability-distribution",
+   "letter": "P",
+   "headword_en": "probability distribution",
+   "notation": "p : S \\to [0,1]",
+   "rosen_ref": "Rosen §7.2",
+   "definition_vi": "Phân phối xác suất trên một không gian mẫu $$S$$ là một hàm $$p$$ gán cho mỗi kết cục (phần tử) $$s \\in S$$ một xác suất $$p(s)$$. Hàm này thỏa mãn $$0 \\leq p(s) \\leq 1$$ với mọi $$s \\in S$$ và $$\\sum_{s \\in S} p(s) = 1$$.",
+   "example_vi": "Khi tung một con xúc xắc cân đối, không gian mẫu là $$S = \\{1, 2, 3, 4, 5, 6\\}$$ và phân phối xác suất gán $$p(s) = 1/6$$ cho mỗi kết cục $$s \\in S$$; đây là phân phối đều. Nếu con xúc xắc không cân đối sao cho mặt $$1$$ xuất hiện với xác suất gấp đôi mỗi mặt còn lại, thì $$p(1) = 2/7$$ và $$p(s) = 1/7$$ với mỗi $$s \\in \\{2, 3, 4, 5, 6\\}$$.",
+   "vi_terms": [
+    {
+     "term": "phân phối xác suất",
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": "",
+     "verified": false,
+     "recommended": false
+    },
+    {
+     "term": "phân bố xác suất",
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": "",
+     "verified": false,
+     "recommended": false
+    },
+    {
+     "term": "phân bố xác suất",
+     "source_id": "bib-doducgiao-2000",
+     "page": "tr. 167",
+     "pdf_page": 166,
+     "snippet": "với tập các câu hỏi MCN. Ở day P là phân bổ xác suất rời rac",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "phân phối xác suất",
+     "source_id": "bib-cormen-2001-vi",
+     "page": "tr. 123",
+     "pdf_page": 121,
+     "snippet": "phân phối xác suất. Các biến ngẫu nhiên được trình bày trong Đoạn 6.3,",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "phân phối xác suất",
+     "source_id": "bib-doducthai-2010",
+     "page": "tr. 72",
+     "pdf_page": 72,
+     "snippet": "Định nghĩa 2.4. Hàm phân phối xác suất của phân bố xác suất PX",
+     "verified": true,
+     "recommended": true
+    },
+    {
+     "term": "phân bố xác suất",
+     "source_id": "bib-doducthai-2010",
+     "page": "tr. 3",
+     "pdf_page": 3,
+     "snippet": "1.2.2 Phân bố xác suất Bernoulli . . . . . . . . . . . . . . . . 29",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "phân phối xác suất",
+     "source_id": "bib-phan-1976",
+     "page": "tr. 258",
+     "pdf_page": 258,
+     "snippet": "elementary probability 1. mật độ phân phối xác suất",
+     "verified": true,
+     "recommended": false
+    }
+   ],
+   "see_also": [
+    "event",
+    "distribution-of-a-random-variable",
+    "expected-value"
+   ],
+   "notes": "Phân phối xác suất là hàm $$p$$ gán xác suất cho từng kết cục của không gian mẫu $$S$$, với điều kiện $$0 \\leq p(s) \\leq 1$$ và $$\\sum_{s \\in S} p(s) = 1$$. Trường hợp $$p(s) = 1/|S|$$ với mọi $$s$$ cho ta phân phối đều (uniform distribution). Cần phân biệt \"phân phối xác suất\" (hàm xác suất trên không gian mẫu $$S$$) với \"phân phối của biến ngẫu nhiên\" (tập các cặp $$(r, p(X = r))$$ ứng với các giá trị của một biến ngẫu nhiên $$X$$). Trong kho ngữ liệu hiện có chưa thấy cụm \"phân phối xác suất\" được dùng trực tiếp, nên thuật ngữ khuyến nghị là bản dịch chuẩn.",
+   "status": "draft",
+   "pos": "d.t."
+  },
+  {
+   "id": "probability-of-an-event",
+   "letter": "P",
+   "headword_en": "probability of an event",
+   "notation": "p(E)",
+   "rosen_ref": "Rosen §7.2",
+   "definition_vi": "Xác suất của một biến cố là tổng các xác suất của các kết cục nằm trong biến cố đó. Nói cách khác, nếu biến cố $$E$$ là một tập con của không gian mẫu thì $$p(E) = \\sum_{s \\in E} p(s)$$, trong đó $$p(s)$$ là xác suất của kết cục $$s$$.",
+   "example_vi": "Khi tung một con súc sắc cân đối, mỗi trong sáu kết cục có xác suất $$\\frac{1}{6}$$; biến cố \"số chấm là số chẵn\" gồm các kết cục $$2$$, $$4$$, $$6$$, nên xác suất của nó là $$\\frac{1}{6} + \\frac{1}{6} + \\frac{1}{6} = \\frac{1}{2}$$.",
+   "vi_terms": [
+    {
+     "term": "xác suất của một biến cố",
+     "source_id": "bib-rosen-2003-vi",
+     "page": "tr. 333",
+     "pdf_page": 333,
+     "snippet": "Nhiều khi việc tính trực tiếp xác suất của một biến cố lại tỏ ra kém",
+     "verified": true,
+     "recommended": true
+    },
+    {
+     "term": "xác suất của một biến cố",
+     "source_id": "bib-rosen-2003-vi",
+     "page": "tr. 361",
+     "pdf_page": 361,
+     "snippet": "13. a) Néu định nghĩa xác suất của một biến cố khỉ tất cả các kết cục",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "biến cố",
+     "source_id": "bib-leanhvinh-2020",
+     "page": "tr. 158",
+     "pdf_page": 157,
+     "snippet": "Xét các biến cố Ái, Ag,..., A, trong một không gian xác suất bất",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "xác suất của biến cố",
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": "",
+     "verified": false,
+     "recommended": false
+    },
+    {
+     "term": "biến cố",
+     "source_id": "bib-nguyenhuudien-2019",
+     "page": "tr. 48",
+     "pdf_page": 48,
+     "snippet": "vị từ để có một vị từ mới theo các biến còn lại. Chẳng hạn, nếu P( x, y, . . .) là một vị từ",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "biến cố",
+     "source_id": "bib-sierpinski-2012",
+     "page": "tr. 22",
+     "pdf_page": 36,
+     "snippet": "Đối với các phương trình Diophante nhiều biến có một số vấn đề sau đây được đặt ra: phương",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "biến cố",
+     "source_id": "bib-cungkimtien-2004",
+     "page": "",
+     "pdf_page": 22,
+     "snippet": "antithetic(al) events biến cố xung",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "biến cố",
+     "source_id": "bib-phan-1976",
+     "page": "tr. 62",
+     "pdf_page": 62,
+     "snippet": "c. ofan event phần bù của một biến cố; biến đối lập",
+     "verified": true,
+     "recommended": false
+    }
+   ],
+   "see_also": [
+    "sample-space",
+    "bernoulli-trial"
+   ],
+   "notes": "Xác suất của một biến cố $$E$$ trong một không gian mẫu hữu hạn là tổng xác suất của các kết cục thuộc $$E$$, tức $$p(E) = \\sum_{s \\in E} p(s)$$. Khi tất cả các kết cục đồng khả năng trong không gian mẫu gồm $$n$$ kết cục, công thức rút gọn thành $$p(E) = \\frac{|E|}{n}$$, là số kết cục thuận lợi chia cho tổng số kết cục. Thuật ngữ \"xác suất của một biến cố\" có dẫn chứng trực tiếp trong bản dịch Rosen; \"biến cố\" cũng được dùng trong ngữ liệu mới (Lê Anh Vinh, 2020). Cần phân biệt với \"không gian mẫu\" (tập tất cả các kết cục) và \"kết cục\" (một phần tử của không gian mẫu).",
+   "status": "draft",
+   "pos": "d.t."
+  },
+  {
+   "id": "product",
+   "letter": "P",
+   "headword_en": "product",
+   "notation": "",
+   "rosen_ref": "Rosen §2.1",
+   "definition_vi": "Trong toán rời rạc, \\emph{tích} chỉ kết quả của một phép nhân hay phép ghép theo cặp, và mang nhiều nghĩa tùy ngữ cảnh. Mục này chỉ nêu ý niệm chung; các trường hợp cụ thể được trình bày ở những mục riêng (xem mục Xem thêm).",
+   "example_vi": "Một vài ví dụ về tích: tích Đề các $$A \\times B$$ của hai tập hợp (tập các cặp có thứ tự); tích Boole của các biến lôgic; và tích thông thường của các số.",
+   "vi_terms": [
+    {
+     "term": "tích",
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": "",
+     "verified": false,
+     "recommended": true
+    }
+   ],
+   "see_also": [
+    "cartesian-product",
+    "boolean-product",
+    "the-product-rule"
+   ],
+   "notes": "Trong giáo trình MAT3500, \"tích\" chỉ tích Đề các của các tập hợp (theo Rosen §2.1). Hai biến thể phổ biến là \"tích Đề các\" và \"tích Descartes\"; cả hai cùng chỉ một khái niệm.",
+   "status": "draft",
+   "pos": "d.t."
+  },
+  {
+   "id": "product-rule-for-counting",
+   "letter": "P",
+   "headword_en": "product rule for counting",
+   "see_ref": "the-product-rule",
+   "vi_terms": [],
+   "status": "draft",
+   "pos": "d.t."
+  },
+  {
+   "id": "product-rule-for-sets",
+   "letter": "P",
+   "headword_en": "product rule for sets",
+   "see_ref": "the-product-rule",
+   "vi_terms": [],
    "status": "draft",
    "pos": "d.t."
   },
@@ -2345,30 +3251,197 @@
    "pos": "d.t."
   },
   {
-   "id": "product",
+   "id": "projection",
    "letter": "P",
-   "headword_en": "product",
-   "notation": "",
-   "rosen_ref": "Rosen §2.1",
-   "definition_vi": "Trong toán rời rạc, \\emph{tích} chỉ kết quả của một phép nhân hay phép ghép theo cặp, và mang nhiều nghĩa tùy ngữ cảnh. Mục này chỉ nêu ý niệm chung; các trường hợp cụ thể được trình bày ở những mục riêng (xem mục Xem thêm).",
-   "example_vi": "Một vài ví dụ về tích: tích Đề các $$A \\times B$$ của hai tập hợp (tập các cặp có thứ tự); tích Boole của các biến lôgic; và tích thông thường của các số.",
+   "headword_en": "projection",
+   "notation": "P_{i_1, i_2, \\ldots, i_m}",
+   "rosen_ref": "Rosen §11.4",
+   "definition_vi": "Phép chiếu là một thao tác tạo ra các quan hệ có bậc nhỏ hơn bằng cách xóa bỏ một số trường của một quan hệ $$n$$ ngôi. Phép chiếu $$P_{i_1, i_2, \\ldots, i_m}$$ ánh xạ mỗi bộ $$n$$ phần tử $$(a_1, a_2, \\ldots, a_n)$$ thành bộ $$m$$ phần tử $$(a_{i_1}, a_{i_2}, \\ldots, a_{i_m})$$, trong đó $$m \\leq n$$.",
+   "example_vi": "Áp dụng phép chiếu $$P_{1,3}$$ cho bộ 4 phần tử $$(2, 3, 4, 5)$$ ta thu được bộ 2 phần tử $$(2, 4)$$, tức là chỉ giữ lại trường thứ nhất và trường thứ ba và xóa bỏ các trường còn lại.",
    "vi_terms": [
     {
-     "term": "tích",
-     "source_id": "",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": "",
-     "verified": false,
+     "term": "phép chiếu",
+     "source_id": "bib-ngodactan-2004",
+     "page": "tr. 211",
+     "pdf_page": 211,
+     "snippet": "diễn phằng cho G nhận được bằng phép chiếu lên mặt phằng từ “cực",
+     "verified": true,
      "recommended": true
+    },
+    {
+     "term": "phép chiếu",
+     "source_id": "bib-doducthai-2010",
+     "page": "tr. 36",
+     "pdf_page": 36,
+     "snippet": "một phép chiếu tự nhiên bảo toàn xác suất từ không gian thứ hai lên",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "phép chiếu",
+     "source_id": "bib-nguyenhuuanh-2007",
+     "page": "",
+     "pdf_page": 138,
+     "snippet": "tiêu. Nhắc lại phép chiếu thứ i được cho bởi:",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "phép chiếu",
+     "source_id": "bib-cungkimtien-2004",
+     "page": "",
+     "pdf_page": 31,
+     "snippet": "auxiliary view phép chiếu phụ",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "phép chiếu",
+     "source_id": "bib-phan-1976",
+     "page": "tr. 144",
+     "pdf_page": 144,
+     "snippet": "elevation sự đưa lên, sự nâng lên; độ; phép chiếu thẳng góc",
+     "verified": true,
+     "recommended": false
     }
    ],
    "see_also": [
-    "cartesian-product",
-    "boolean-product",
-    "the-product-rule"
+    "n-ary-relation",
+    "relation"
    ],
-   "notes": "Trong giáo trình MAT3500, \"tích\" chỉ tích Đề các của các tập hợp (theo Rosen §2.1). Hai biến thể phổ biến là \"tích Đề các\" và \"tích Descartes\"; cả hai cùng chỉ một khái niệm.",
+   "notes": "Phép chiếu $$P_{i_1, \\ldots, i_m}$$ là một phép toán trong đại số quan hệ, dùng để tạo ra quan hệ mới có bậc nhỏ hơn từ một quan hệ $$n$$ ngôi bằng cách giữ lại các trường có chỉ số $$i_1, \\ldots, i_m$$ và xóa bỏ các trường còn lại. Khi áp dụng cho một tập các bộ, các bộ trùng nhau sau khi chiếu được gộp lại thành một bộ duy nhất.",
+   "status": "draft",
+   "pos": "d.t."
+  },
+  {
+   "id": "proof",
+   "letter": "P",
+   "headword_en": "proof",
+   "notation": "",
+   "rosen_ref": "Rosen §1.6",
+   "definition_vi": "Chứng minh của một mệnh đề toán học là một lập luận đúng đắn, gồm một dãy hữu hạn các khẳng định, mỗi khẳng định là tiên đề, giả thiết, hoặc được suy ra từ các khẳng định trước đó bằng các quy tắc suy diễn, nhằm thiết lập rằng mệnh đề đó là đúng. Một định lý đã được chứng minh là đúng được gọi là một định lý, và lập luận thiết lập tính đúng đắn của nó được gọi là chứng minh.",
+   "example_vi": "Để chứng minh mệnh đề \"nếu $$n$$ là số nguyên lẻ thì $$n^2$$ là số nguyên lẻ\", ta dùng chứng minh trực tiếp: giả sử $$n = 2k+1$$ với $$k$$ nguyên, khi đó $$n^2 = 4k^2 + 4k + 1 = 2(2k^2+2k)+1$$ là số nguyên lẻ.",
+   "vi_terms": [
+    {
+     "term": "chứng minh",
+     "source_id": "bib-nguyenhuudien-2019",
+     "page": "tr. 28",
+     "pdf_page": 28,
+     "snippet": "lý được gọi là chứng minh. Logic là một công cụ cho việc phân tích các chứng minh. Trong phần này chúng ta sẽ đề cập đến việc xây dựng một chứng minh toán học.",
+     "verified": true,
+     "recommended": true
+    },
+    {
+     "term": "chứng minh",
+     "source_id": "bib-leanhvinh-2020",
+     "page": "tr. 11",
+     "pdf_page": 10,
+     "snippet": "Chứng minh. Ta đếm N là số cặp (u,e) ∈ V × E sao cho đỉnh v kề với",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "chứng minh",
+     "source_id": "bib-nguyenhoangthach-2020",
+     "page": "tr. 19",
+     "pdf_page": 21,
+     "snippet": "Chứng minh. Một chỉnh hợp chập k của n phần tử có thể được xây dựng bằng",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "phép chứng minh",
+     "source_id": "bib-nguyenhuudien-2019",
+     "page": "tr. 58",
+     "pdf_page": 58,
+     "snippet": "Ngoài cách chứng minh phản chứng ta còn có thể thực hiện phép chứng minh",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "phép chứng minh",
+     "source_id": "bib-nguyenvanmau-2007",
+     "page": "",
+     "pdf_page": 122,
+     "snippet": "Cuối cùng, chúng ta sẽ kết thúc phần ví dụ mở đầu bằng phép chứng minh công",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "phương pháp chứng minh",
+     "source_id": "bib-doducgiao-2009",
+     "page": "tr. 333",
+     "pdf_page": 334,
+     "snippet": "5. Phương pháp chứng minh bằng phép quy nap toán học",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "phương pháp chứng minh",
+     "source_id": "bib-nguyenhuudien-2019",
+     "page": "tr. 5",
+     "pdf_page": 5,
+     "snippet": "2.3. Các phương pháp chứng minh cơ bản . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 55",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "phép chứng minh",
+     "source_id": "bib-sierpinski-2012",
+     "page": "",
+     "pdf_page": 10,
+     "snippet": "trong các phép chứng minh cũng chính là dấu vết của sự đẹp đẽ của toán học mà các bạn nên tiếp",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "phương pháp chứng minh",
+     "source_id": "bib-vudinhhoa-2010",
+     "page": "",
+     "pdf_page": 65,
+     "snippet": "Trong những cách suy luận thông dụng của toán học, phương pháp chứng minh",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "chứng minh",
+     "source_id": "bib-cungkimtien-2004",
+     "page": "",
+     "pdf_page": 19,
+     "snippet": "chứng minh giải tích",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "chứng minh",
+     "source_id": "bib-phan-1976",
+     "page": "tr. 19",
+     "pdf_page": 19,
+     "snippet": "argument agumen, đối số; góc cực; lý luận, chứng minh",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "phép chứng minh",
+     "source_id": "bib-cungkimtien-2004",
+     "page": "",
+     "pdf_page": 187,
+     "snippet": "indirect proof phép chứng minh",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "phép chứng minh",
+     "source_id": "bib-phan-1976",
+     "page": "tr. 111",
+     "pdf_page": 111,
+     "snippet": "analytic d. phép chứng minh giải tích",
+     "verified": true,
+     "recommended": false
+    }
+   ],
+   "see_also": [],
+   "notes": "Thuật ngữ chuẩn của MAT3500. Một chứng minh thiết lập tính đúng đắn của một định lý; các phương pháp chứng minh thường gặp gồm chứng minh trực tiếp, chứng minh phản chứng, chứng minh phản đảo và quy nạp toán học. Biến thể \"phép chứng minh\", \"phương pháp chứng minh\" cũng được dùng trong tài liệu.",
    "status": "draft",
    "pos": "d.t."
   },
@@ -2679,136 +3752,23 @@
    "pos": "d.t."
   },
   {
-   "id": "proof",
+   "id": "proof-by-mathematical-induction",
    "letter": "P",
-   "headword_en": "proof",
+   "headword_en": "proof by mathematical induction",
+   "pos": "d.t.",
    "notation": "",
-   "rosen_ref": "Rosen §1.6",
-   "definition_vi": "Chứng minh của một mệnh đề toán học là một lập luận đúng đắn, gồm một dãy hữu hạn các khẳng định, mỗi khẳng định là tiên đề, giả thiết, hoặc được suy ra từ các khẳng định trước đó bằng các quy tắc suy diễn, nhằm thiết lập rằng mệnh đề đó là đúng. Một định lý đã được chứng minh là đúng được gọi là một định lý, và lập luận thiết lập tính đúng đắn của nó được gọi là chứng minh.",
-   "example_vi": "Để chứng minh mệnh đề \"nếu $$n$$ là số nguyên lẻ thì $$n^2$$ là số nguyên lẻ\", ta dùng chứng minh trực tiếp: giả sử $$n = 2k+1$$ với $$k$$ nguyên, khi đó $$n^2 = 4k^2 + 4k + 1 = 2(2k^2+2k)+1$$ là số nguyên lẻ.",
+   "ref_bib": "bib-libennowell-2022",
+   "rosen_ref": "",
+   "definition_vi": "\\emph{Chứng minh bằng quy nạp toán học} là phương pháp chứng minh một mệnh đề $$P(n)$$ đúng với mọi số nguyên $$n\\ge n_0$$. Phương pháp gồm hai bước: \\emph{cơ sở quy nạp} chứng minh $$P(n_0)$$ đúng, và \\emph{bước quy nạp} chứng minh rằng nếu $$P(k)$$ đúng thì $$P(k+1)$$ cũng đúng với mọi $$k\\ge n_0$$. Từ hai bước này suy ra $$P(n)$$ đúng với mọi $$n\\ge n_0$$.",
+   "example_vi": "Để chứng minh $$\\displaystyle 1+2+\\cdots+n=\\frac{n(n+1)}{2}$$, ta kiểm tra với $$n=1$$ rồi chứng minh công thức cho $$k+1$$ từ giả thiết nó đúng cho $$k$$.",
+   "notes": "",
+   "see_also": [],
    "vi_terms": [
     {
-     "term": "chứng minh",
-     "source_id": "bib-nguyenhuudien-2019",
-     "page": "tr. 28",
-     "pdf_page": 28,
-     "snippet": "lý được gọi là chứng minh. Logic là một công cụ cho việc phân tích các chứng minh. Trong phần này chúng ta sẽ đề cập đến việc xây dựng một chứng minh toán học.",
-     "verified": true,
+     "term": "chứng minh bằng quy nạp toán học",
      "recommended": true
-    },
-    {
-     "term": "chứng minh",
-     "source_id": "bib-leanhvinh-2020",
-     "page": "tr. 11",
-     "pdf_page": 10,
-     "snippet": "Chứng minh. Ta đếm N là số cặp (u,e) ∈ V × E sao cho đỉnh v kề với",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "chứng minh",
-     "source_id": "bib-nguyenhoangthach-2020",
-     "page": "tr. 19",
-     "pdf_page": 21,
-     "snippet": "Chứng minh. Một chỉnh hợp chập k của n phần tử có thể được xây dựng bằng",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "phép chứng minh",
-     "source_id": "bib-nguyenhuudien-2019",
-     "page": "tr. 58",
-     "pdf_page": 58,
-     "snippet": "Ngoài cách chứng minh phản chứng ta còn có thể thực hiện phép chứng minh",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "phép chứng minh",
-     "source_id": "bib-nguyenvanmau-2007",
-     "page": "",
-     "pdf_page": 122,
-     "snippet": "Cuối cùng, chúng ta sẽ kết thúc phần ví dụ mở đầu bằng phép chứng minh công",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "phương pháp chứng minh",
-     "source_id": "bib-doducgiao-2009",
-     "page": "tr. 333",
-     "pdf_page": 334,
-     "snippet": "5. Phương pháp chứng minh bằng phép quy nap toán học",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "phương pháp chứng minh",
-     "source_id": "bib-nguyenhuudien-2019",
-     "page": "tr. 5",
-     "pdf_page": 5,
-     "snippet": "2.3. Các phương pháp chứng minh cơ bản . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 55",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "phép chứng minh",
-     "source_id": "bib-sierpinski-2012",
-     "page": "",
-     "pdf_page": 10,
-     "snippet": "trong các phép chứng minh cũng chính là dấu vết của sự đẹp đẽ của toán học mà các bạn nên tiếp",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "phương pháp chứng minh",
-     "source_id": "bib-vudinhhoa-2010",
-     "page": "",
-     "pdf_page": 65,
-     "snippet": "Trong những cách suy luận thông dụng của toán học, phương pháp chứng minh",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "chứng minh",
-     "source_id": "bib-cungkimtien-2004",
-     "page": "",
-     "pdf_page": 19,
-     "snippet": "chứng minh giải tích",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "chứng minh",
-     "source_id": "bib-phan-1976",
-     "page": "tr. 19",
-     "pdf_page": 19,
-     "snippet": "argument agumen, đối số; góc cực; lý luận, chứng minh",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "phép chứng minh",
-     "source_id": "bib-cungkimtien-2004",
-     "page": "",
-     "pdf_page": 187,
-     "snippet": "indirect proof phép chứng minh",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "phép chứng minh",
-     "source_id": "bib-phan-1976",
-     "page": "tr. 111",
-     "pdf_page": 111,
-     "snippet": "analytic d. phép chứng minh giải tích",
-     "verified": true,
-     "recommended": false
     }
-   ],
-   "see_also": [],
-   "notes": "Thuật ngữ chuẩn của MAT3500. Một chứng minh thiết lập tính đúng đắn của một định lý; các phương pháp chứng minh thường gặp gồm chứng minh trực tiếp, chứng minh phản chứng, chứng minh phản đảo và quy nạp toán học. Biến thể \"phép chứng minh\", \"phương pháp chứng minh\" cũng được dùng trong tài liệu.",
-   "status": "draft",
-   "pos": "d.t."
+   ]
   },
   {
    "id": "proper-subgraph",
@@ -2944,6 +3904,97 @@
    "pos": "d.t."
   },
   {
+   "id": "proposition",
+   "letter": "P",
+   "headword_en": "proposition",
+   "notation": "p, q, r, \\ldots (truth values T, F)",
+   "rosen_ref": "Rosen §1.1",
+   "definition_vi": "Một \\emph{mệnh đề} là một câu khẳng định nhận đúng một trong hai giá trị đúng hoặc sai, không thể đồng thời vừa đúng vừa sai. Giá trị đúng hoặc sai của một mệnh đề được gọi là \\emph{chân trị} của nó, thường ký hiệu $$T$$ (true) cho đúng và $$F$$ (false) cho sai.",
+   "example_vi": "Câu \"$$1 + 1 = 2$$\" là một mệnh đề có chân trị $$T$$, còn câu \"$$2$$ là số lẻ\" là một mệnh đề có chân trị $$F$$. Ngược lại, câu \"$$x + 1 = 2$$\" không phải là mệnh đề vì chân trị của nó phụ thuộc vào giá trị của $$x$$.",
+   "notes": "Recommended term \"mệnh đề\" is the standard Vietnamese term for THIS concept (a declarative statement that is either true or false, but not both), defined explicitly in bib-nguyenhuudien-2019 p.14 (\"một mệnh đề là nó đúng hoặc sai, và không thể vừa đúng vừa sai\"). The chapter heading there is \"Lôgic mệnh đề\" (propositional logic). Variant \"mệnh đề toán học\" (mathematical proposition) is attested on the same page and explicitly equated with \"mệnh đề\". The candidate \"mệnh đề logic\" returned 0 hits in any source and is dropped. Many corpus hits of the form \"Mệnh đề 2.2\" / \"Mệnh đề 1\" in bib-nguyenducnghia-2006 (and similarly in bib-nguyenhoangthach-2020, bib-ngodactan-2004) use \"Mệnh đề\" as a theorem-type label (English \"Proposition\" as a numbered statement), NOT this propositional-logic concept; those are excluded. The bib-nguyenducnghia-2006 p.13 hit IS this concept (proposition algebra: \"Các mệnh đề, cùng với các phép toán trên nó, lập nên một đại số, gọi là đại số mệnh đề\"). The 2020 graph theory source bib-leanhvinh-2020 has no propositional-logic coverage. The newest source actually defining the concept is the 2019 discrete-math text, so the recommended term is attested in 2019. The term \"chân trị\" (truth value) used in definition_vi and example_vi is drawn from the same defining snippet (bib-nguyenhuudien-2019 p.14: \"Giá trị đúng hoặc sai của một mệnh đề được gọi là chân trị của mệnh đề\"). EMPHASIS/NOTATION edits (per panel terminology MED + LOW): first-concept emphasis $$\\textit{mệnh đề}$$ / $$\\textit{chân trị}$$ (prose words in math italics) normalized to \\emph{mệnh đề} / \\emph{chân trị}; the genuine symbols $$T$$, $$F$$ stay math-wrapped. The notation field was un-$$-wrapped to bare LaTeX \"p, q, r, \\ldots (truth values T, F)\" to match the O/N/B convention.",
+   "see_also": [
+    "compound-proposition",
+    "predicate",
+    "tautology",
+    "truth-value"
+   ],
+   "vi_terms": [
+    {
+     "term": "mệnh đề",
+     "source_id": "bib-nguyenhuudien-2019",
+     "page": "tr. 14",
+     "pdf_page": 14,
+     "snippet": "một mệnh đề là nó đúng hoặc sai, và không thể vừa đúng vừa sai. Giá trị đúng hoặc sai của một mệnh đề được gọi là chân trị của mệnh đề.",
+     "verified": true,
+     "recommended": true
+    },
+    {
+     "term": "mệnh đề toán học",
+     "source_id": "bib-nguyenhuudien-2019",
+     "page": "tr. 14",
+     "pdf_page": 14,
+     "snippet": "nhiên trong chương này ta chỉ xét đến các mệnh đề toán học, và chúng ta nói vắn tắt các mệnh đề toán học là các mệnh đề.",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "mệnh đề",
+     "source_id": "bib-nguyenhoangthach-2020",
+     "page": "tr. 18",
+     "pdf_page": 20,
+     "snippet": "Mệnh đề 2.2. Số hoán vị của n phần tử1 là 1 × 2 × · · · × n.",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "mệnh đề toán học",
+     "source_id": "bib-nguyenvanmau-2007",
+     "page": "",
+     "pdf_page": 128,
+     "snippet": "các mệnh đề toán học nào đó thì:",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "mệnh đề",
+     "source_id": "bib-sierpinski-2012",
+     "page": "tr. 9",
+     "pdf_page": 23,
+     "snippet": "Mệnh đề sau đây cũng đúng: tích của n  2 số tự nhiên bằng với tích của ước số chung lớn nhất và",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "mệnh đề toán học",
+     "source_id": "bib-vovantuandung-2007",
+     "page": "",
+     "pdf_page": 24,
+     "snippet": "thường được sử dụng để chứng minh đôi với những mệnh đê toán học",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "mệnh đề",
+     "source_id": "bib-cungkimtien-2004",
+     "page": "",
+     "pdf_page": 14,
+     "snippet": "affirmative proposition mệnh đề",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "mệnh đề",
+     "source_id": "bib-phan-1976",
+     "page": "tr. 9",
+     "pdf_page": 9,
+     "snippet": "propositional a. đại số mệnh dé",
+     "verified": true,
+     "recommended": false
+    }
+   ],
+   "pos": "d.t."
+  },
+  {
    "id": "propositional-function",
    "letter": "P",
    "headword_en": "propositional function",
@@ -3009,6 +4060,71 @@
    ],
    "see_also": [],
    "notes": "Giáo trình MAT3500 và bản dịch Rosen dùng \"hàm mệnh đề\"; nhiều tài liệu lôgic tiếng Việt (Nguyễn Hữu Điển 2019) dùng \"vị từ\" cho cùng khái niệm. Khi mọi biến được lượng từ hóa hoặc gán giá trị, hàm mệnh đề trở thành một mệnh đề.",
+   "status": "draft",
+   "pos": "d.t."
+  },
+  {
+   "id": "propositional-variable",
+   "letter": "P",
+   "headword_en": "propositional variable",
+   "notation": "p, q, r",
+   "rosen_ref": "Rosen §1.1",
+   "definition_vi": "Biến mệnh đề là một biến dùng để biểu diễn một mệnh đề. Các biến mệnh đề thường được ký hiệu bởi $$p$$, $$q$$, $$r$$, $$\\ldots$$ và mỗi biến nhận một trong hai giá trị chân lý là đúng hoặc sai.",
+   "example_vi": "Ký hiệu $$p$$ dùng để biểu diễn mệnh đề \"Hà Nội là thủ đô của Việt Nam\" là một biến mệnh đề. Từ hai biến mệnh đề $$p$$ và $$q$$ ta xây dựng được biểu thức logic $$p \\wedge q$$.",
+   "vi_terms": [
+    {
+     "term": "biến mệnh đề",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-nguyenhuudien-2019",
+     "page": "tr. 20",
+     "pdf_page": 20,
+     "snippet": "trị của bộ biến mệnh đề. Với một biến mệnh đề, ta có 2 trường hợp là 0 (sai) hoặc 1 (đúng)."
+    },
+    {
+     "term": "biến mệnh đề",
+     "source_id": "bib-doducgiao-2009",
+     "page": "tr. 274",
+     "pdf_page": 275,
+     "snippet": "nữa) và gọi là biến mệnh dé. Trong lôgic mệnh dé, giá trị chân lý đúng ký",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "biến mệnh đề",
+     "source_id": "bib-vudinhhoa-2010",
+     "page": "",
+     "pdf_page": 17,
+     "snippet": "mệnh dé légic phức hợp và dai dòng, là một biến mệnh dé logic p đơn giản. Một",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "biến mệnh đề",
+     "source_id": "bib-cungkimtien-2004",
+     "page": "",
+     "pdf_page": 425,
+     "snippet": "biến mệnh đề proposition variable",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "biến mệnh đề",
+     "source_id": "bib-phan-1976",
+     "page": "tr. 441",
+     "pdf_page": 441,
+     "snippet": "proposition v. biến mệnh đề",
+     "verified": true,
+     "recommended": false
+    }
+   ],
+   "see_also": [
+    "proposition",
+    "atomic-proposition",
+    "boolean-variable",
+    "variable"
+   ],
+   "notes": "Trong Rosen §1.1, biến mệnh đề là biến biểu diễn một mệnh đề và thường được ký hiệu $$p$$, $$q$$, $$r$$. Cần phân biệt biến mệnh đề (ký hiệu thay cho một mệnh đề) với mệnh đề nguyên tử (bản thân một mệnh đề không phân tích được), và với biến Boole (biến nhận giá trị trong $$\\{0, 1\\}$$ trong đại số Boole).",
    "status": "draft",
    "pos": "d.t."
   },
@@ -3082,933 +4198,68 @@
    "pos": "d.t."
   },
   {
-   "id": "public-key-cryptography",
+   "id": "pseudograph",
    "letter": "P",
-   "headword_en": "public key cryptography",
+   "headword_en": "pseudograph",
    "notation": "",
-   "rosen_ref": "Rosen §4.6",
-   "definition_vi": "Mật mã khóa công khai là hệ mật mã trong đó mỗi người dùng có một cặp khóa: khóa công khai (ký hiệu $$(n, e)$$) dùng để mã hóa và được công bố cho mọi người, và khóa bí mật (ký hiệu $$d$$) dùng để giải mã và được giữ kín. Biết khóa công khai vẫn không dễ suy ra khóa bí mật, chẳng hạn trong hệ RSA độ an toàn dựa trên việc phân tích số nguyên lớn $$n = pq$$ thành thừa số nguyên tố là bài toán khó về mặt tính toán.",
-   "example_vi": "Trong hệ RSA, người nhận chọn hai số nguyên tố lớn $$p$$ và $$q$$, đặt $$n = pq$$ và chọn số mũ mã hóa $$e$$ nguyên tố cùng nhau với $$(p-1)(q-1)$$. Khóa công khai $$(n, e)$$ được công bố; bản rõ $$M$$ được mã hóa thành $$C \\equiv M^{e} \\pmod{n}$$, và chỉ người nắm khóa bí mật $$d$$ với $$ed \\equiv 1 \\pmod{(p-1)(q-1)}$$ mới khôi phục được $$M \\equiv C^{d} \\pmod{n}$$.",
-   "vi_terms": [
-    {
-     "term": "mật mã khóa công khai",
-     "source_id": "",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": "",
-     "verified": false,
-     "recommended": true
-    },
-    {
-     "term": "mật mã khóa bất đối xứng",
-     "source_id": "",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": "",
-     "verified": false,
-     "recommended": false
-    },
-    {
-     "term": "hệ mật mã khóa bất đối xứng",
-     "source_id": "",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": "",
-     "verified": false,
-     "recommended": false
-    },
-    {
-     "term": "mã khóa phi đối xứng",
-     "source_id": "",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": "",
-     "verified": false,
-     "recommended": false
-    }
+   "rosen_ref": "Rosen §10.1",
+   "definition_vi": "Một \\emph{giả đồ thị} là một đồ thị vô hướng $$G$$ trong đó cho phép có nhiều cạnh nối cùng một cặp đỉnh, đồng thời cho phép có khuyên, tức là cạnh nối một đỉnh với chính nó. Đây là loại đồ thị vô hướng tổng quát nhất, vì nó có thể chứa cả cạnh bội lẫn khuyên.",
+   "example_vi": "Xét đồ thị vô hướng trên tập đỉnh $$\\{a, b, c\\}$$ gồm hai cạnh nối $$a$$ với $$b$$, một cạnh nối $$b$$ với $$c$$, và một khuyên tại $$c$$. Vì có cặp đỉnh được nối bởi hai cạnh và có một cạnh nối $$c$$ với chính nó, đồ thị này là một giả đồ thị.",
+   "notes": "Hai thuật ngữ đều chỉ cùng khái niệm pseudograph. \"giả đồ thị\" (nguyenhuudien-2019) là cách dịch sát và chuẩn của \"pseudograph\", được nêu thành Định nghĩa 6.3 với mô tả là loại đồ thị vô hướng tổng quát nhất chứa cả khuyên lẫn cạnh bội; đây là thuật ngữ được khuyến nghị. \"đa đồ thị có khuyên\" (nguyenhoangthach-2020) là cách diễn đạt mô tả (đa đồ thị có thêm khuyên), xuất hiện trong chú thích hình đối chiếu với \"đồ thị đơn\". Các nguồn graph theory cũ hơn được mã hóa (leanhvinh-2020, hoangchithanh-2007) trình bày khuyên và cạnh song song nhưng không dùng riêng một thuật ngữ \"giả đồ thị\"; nguyenducnghia-2006 và ngodactan-2004 cũng không chứng thực thuật ngữ này. EMPHASIS edit (per panel terminology MED): first-concept emphasis $$giả đồ thị$$ (a spaced Vietnamese phrase wrapped directly in math delimiters, which would render run-together) was normalized to \\emph{giả đồ thị}; the genuine math ($$G$$, vertex/edge set braces) stays wrapped.",
+   "see_also": [
+    "multigraph",
+    "simple-graph",
+    "loop",
+    "multiple-edges",
+    "undirected-graph"
    ],
-   "see_also": [],
-   "notes": "Thuật ngữ chuẩn của giáo trình MAT3500 là \"mật mã khóa công khai\". Không tìm thấy thuật ngữ này trong kho ngữ liệu tham khảo (các giáo trình toán rời rạc và lý thuyết đồ thị), nên không có nguồn đối chứng bổ sung.",
-   "status": "draft",
-   "pos": "d.t."
-  },
-  {
-   "id": "pairwise-independent-events",
-   "letter": "P",
-   "headword_en": "pairwise independent events",
-   "notation": "p(E_i \\cap E_j) = p(E_i)p(E_j)",
-   "rosen_ref": "Rosen §7.2",
-   "definition_vi": "Các biến cố được gọi là độc lập đôi một nếu mọi cặp trong số chúng là độc lập. Nói cách khác, một họ biến cố $$E_1, E_2, \\ldots, E_n$$ là độc lập đôi một nếu với mọi cặp chỉ số $$i \\neq j$$ ta có $$p(E_i \\cap E_j) = p(E_i)p(E_j)$$.",
-   "example_vi": "Khi gieo một đồng xu cân đối hai lần, gọi $$E_1$$ là biến cố \"lần gieo đầu ra mặt ngửa\", $$E_2$$ là biến cố \"lần gieo thứ hai ra mặt ngửa\", và $$E_3$$ là biến cố \"hai lần gieo cho kết quả giống nhau\". Mỗi cặp trong ba biến cố này thỏa $$p(E_i \\cap E_j) = \\frac{1}{4} = \\frac{1}{2} \\cdot \\frac{1}{2} = p(E_i)p(E_j)$$, nên chúng độc lập đôi một (mặc dù không độc lập tương hỗ).",
    "vi_terms": [
     {
-     "term": "biến cố độc lập đôi một",
-     "source_id": "",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": "",
-     "verified": false,
-     "recommended": true
-    },
-    {
-     "term": "biến cố",
-     "source_id": "bib-leanhvinh-2020",
-     "page": "tr. 158",
-     "pdf_page": 157,
-     "snippet": "Xét các biến cố Ái, Ag,..., A, trong một không gian xác suất bất",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "biến cố độc lập từng đôi một",
-     "source_id": "",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": "",
-     "verified": false,
-     "recommended": false
-    },
-    {
-     "term": "biến cố",
-     "source_id": "bib-nguyenhuudien-2019",
-     "page": "tr. 48",
-     "pdf_page": 48,
-     "snippet": "vị từ để có một vị từ mới theo các biến còn lại. Chẳng hạn, nếu P( x, y, . . .) là một vị từ",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "biến cố",
-     "source_id": "bib-sierpinski-2012",
-     "page": "tr. 22",
-     "pdf_page": 36,
-     "snippet": "Đối với các phương trình Diophante nhiều biến có một số vấn đề sau đây được đặt ra: phương",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "biến cố",
-     "source_id": "bib-cungkimtien-2004",
-     "page": "",
-     "pdf_page": 22,
-     "snippet": "antithetic(al) events biến cố xung",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "biến cố",
-     "source_id": "bib-phan-1976",
-     "page": "tr. 62",
+     "term": "đa đồ thị có khuyên",
+     "source_id": "bib-nguyenhoangthach-2020",
+     "page": "tr. 60",
      "pdf_page": 62,
-     "snippet": "c. ofan event phần bù của một biến cố; biến đối lập",
+     "snippet": "Hình 5.1: Một đồ thị đơn (trái) và một đa đồ thị có khuyên (phải).",
      "verified": true,
      "recommended": false
-    }
-   ],
-   "see_also": [
-    "independent-events",
-    "mutually-independent-events",
-    "event"
-   ],
-   "notes": "Độc lập đôi một là điều kiện yếu hơn độc lập tương hỗ (mutually independent). Các biến cố độc lập đôi một chỉ đòi hỏi đẳng thức $$p(E_i \\cap E_j) = p(E_i)p(E_j)$$ đúng cho mọi cặp $$i \\neq j$$, trong khi độc lập tương hỗ đòi hỏi $$p\\!\\left(\\bigcap_{i \\in I} E_i\\right) = \\prod_{i \\in I} p(E_i)$$ đúng cho mọi tập con $$I$$. Do đó độc lập tương hỗ kéo theo độc lập đôi một, nhưng điều ngược lại nói chung không đúng. Cụm \"biến cố độc lập đôi một\" là bản dịch chuẩn được khuyến nghị; bản dịch Rosen tiếng Việt (tr. 337) định nghĩa độc lập cho từng cặp biến cố. Cần phân biệt \"biến cố độc lập\" trong xác suất với \"tập độc lập\" (independent set) trong lý thuyết đồ thị.",
-   "status": "draft",
-   "pos": "d.t."
-  },
-  {
-   "id": "pairwise-relatively-prime-integers",
-   "letter": "P",
-   "headword_en": "pairwise relatively prime integers",
-   "see_ref": "pairwise-relatively-prime",
-   "vi_terms": [],
-   "status": "draft",
-   "pos": "d.t."
-  },
-  {
-   "id": "partial-function",
-   "letter": "P",
-   "headword_en": "partial function",
-   "notation": "f : A \\rightharpoonup B",
-   "rosen_ref": "Rosen §1.8",
-   "definition_vi": "Hàm bộ phận $$f$$ từ tập $$A$$ đến tập $$B$$ là phép gán cho mỗi phần tử $$a$$ thuộc một tập con của $$A$$, gọi là miền xác định của $$f$$, nhiều nhất một phần tử $$b$$ thuộc $$B$$. Nói cách khác, mỗi phần tử của $$A$$ được gán không quá một phần tử của $$B$$, nên $$f$$ có thể không xác định tại một số phần tử của $$A$$.",
-   "example_vi": "Cho $$f : \\mathbb{Z} \\rightharpoonup \\mathbb{R}$$ với $$f(n) = \\sqrt{n}$$. Đây là một hàm bộ phận từ $$\\mathbb{Z}$$ đến $$\\mathbb{R}$$ vì $$f$$ không xác định khi $$n < 0$$; miền xác định của nó là tập các số nguyên không âm. Một hàm bộ phận xác định tại mọi phần tử của $$A$$ được gọi là hàm toàn phần.",
-   "vi_terms": [
-    {
-     "term": "hàm bộ phận",
-     "verified": true,
-     "recommended": false,
-     "source_id": "bib-rosen-2003-vi",
-     "page": "tr. 96",
-     "pdf_page": 96,
-     "snippet": "bộ phan. Hàm bộ phận f ti tập A dén lập B la sự gan cho mỗi phần"
     },
     {
-     "term": "hàm bộ phận",
-     "verified": true,
-     "recommended": false,
-     "source_id": "bib-rosen-2003-vi",
-     "page": "tr. 96",
-     "pdf_page": 96,
-     "snippet": "để ky hiệu f la ham bộ phận từ A dén B. (Chính ky hiệu nay cũng"
-    },
-    {
-     "term": "hàm từng phần",
-     "source_id": "",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": "",
-     "verified": false,
-     "recommended": false
-    },
-    {
-     "term": "hàm riêng phần",
-     "source_id": "",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": "",
-     "verified": false,
-     "recommended": false
-    },
-    {
-     "term": "hàm bộ phận",
-     "source_id": "bib-cungkimtien-2004",
-     "page": "",
-     "pdf_page": 276,
-     "snippet": "partial function ham bộ phận",
+     "term": "giả đồ thị",
+     "source_id": "bib-nguyenhuudien-2019",
+     "page": "tr. 155",
+     "pdf_page": 155,
+     "snippet": "Định nghĩa 6.3 Một giả đồ thị G = (V, E) gồm một tập khác rỗng V mà các phần tử",
      "verified": true,
      "recommended": true
     },
     {
-     "term": "hàm bộ phận",
-     "source_id": "bib-phan-1976",
-     "page": "tr. 200",
-     "pdf_page": 200,
-     "snippet": "partial f. hàm bộ phan",
-     "verified": true,
-     "recommended": false
-    }
-   ],
-   "see_also": [
-    "function",
-    "domain",
-    "codomain"
-   ],
-   "notes": "Hàm bộ phận từ $$A$$ đến $$B$$ gán cho mỗi phần tử của $$A$$ nhiều nhất một phần tử của $$B$$, do đó nó có thể không xác định tại một số phần tử của $$A$$. Khái niệm này khác với hàm (hàm số) thông thường trong Rosen, vốn là hàm toàn phần xác định tại mọi phần tử của miền. Thuật ngữ \"hàm bộ phận\" được dẫn chứng trực tiếp trong bản dịch tiếng Việt của Rosen (tr. 96 PDF), nơi định nghĩa và ký hiệu của khái niệm được trình bày; phần đối nghĩa là \"hàm toàn phần\".",
-   "status": "draft",
-   "pos": "d.t."
-  },
-  {
-   "id": "partial-ordering",
-   "letter": "P",
-   "headword_en": "partial ordering",
-   "see_ref": "partial-order",
-   "vi_terms": [
-    {
-     "term": "quan hệ thứ tự bộ phận",
-     "verified": false,
-     "recommended": false,
-     "source_id": "",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": ""
-    }
-   ],
-   "status": "draft",
-   "pos": "d.t."
-  },
-  {
-   "id": "phrase-structure-grammar",
-   "letter": "P",
-   "headword_en": "phrase-structure grammar",
-   "notation": "G = (V, T, S, P)",
-   "rosen_ref": "Rosen §11.4",
-   "definition_vi": "Một văn phạm cấu trúc câu mô tả một ngôn ngữ thông qua một bộ từ vựng, các ký hiệu kết thúc, một ký hiệu xuất phát và các quy tắc sản xuất. Cụ thể, một văn phạm cấu trúc câu $$G = (V, T, S, P)$$ gồm một từ vựng $$V$$, một tập con $$T \\subseteq V$$ các ký hiệu kết thúc, một ký hiệu xuất phát $$S \\in V$$ và một tập hợp $$P$$ các quy tắc sản xuất.",
-   "definition_en": "A description of a language by a vocabulary, terminals, a start symbol, and production rules.",
-   "example_vi": "Văn phạm $$G = (V, T, S, P)$$ với từ vựng $$V = \\{S, A, a, b\\}$$, các ký hiệu kết thúc $$T = \\{a, b\\}$$, ký hiệu xuất phát $$S$$ và các quy tắc sản xuất $$P = \\{S \\to aA,\\ A \\to b\\}$$ sinh ra ngôn ngữ $$L(G) = \\{ab\\}$$.",
-   "vi_terms": [
-    {
-     "term": "văn phạm cấu trúc câu",
-     "source_id": "bib-rosen-2003-vi",
-     "page": "tr. 770",
-     "pdf_page": 770,
-     "snippet": "ĐINH NGHĨA 2. Một van phạm cau trúc câu G = (V, T, S, P) gồm một",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "văn phạm cấu trúc ngữ đoạn",
-     "source_id": "",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": "",
-     "verified": false,
-     "recommended": false
-    },
-    {
-     "term": "văn phạm cấu trúc câu",
+     "term": "đa đồ thị có khuyên",
      "source_id": "bib-doducgiao-2009",
-     "page": "tr. 8",
-     "pdf_page": 9,
-     "snippet": "là van phạm cấu trúc câu (còn gọi là văn phạm ngữ cấu).",
-     "verified": true,
-     "recommended": true
-    },
-    {
-     "term": "văn phạm ngữ cấu",
-     "source_id": "bib-doducgiao-2000",
-     "page": "tr. 218",
-     "pdf_page": 217,
-     "snippet": "Nhóm 0: Văn phạm ngữ cấu.",
+     "page": "tr. 96",
+     "pdf_page": 97,
+     "snippet": "« Ta nói G là giả đồ thị khi và chỉ khi đồ thị G là đa đồ thị có khuyên.",
      "verified": true,
      "recommended": false
     },
     {
-     "term": "văn phạm ngữ cấu",
+     "term": "giả đồ thị",
      "source_id": "bib-doducgiao-2009",
-     "page": "tr. 8",
-     "pdf_page": 9,
-     "snippet": "là van phạm cấu trúc câu (còn gọi là văn phạm ngữ cấu).",
+     "page": "tr. 95",
+     "pdf_page": 96,
+     "snippet": "giả đồ thị",
      "verified": true,
      "recommended": false
     },
     {
-     "term": "văn phạm ngữ cấu",
+     "term": "giả đồ thị",
      "source_id": "bib-doducgiao-2008",
-     "page": "tr. 302",
-     "pdf_page": 303,
-     "snippet": "— Nhóm 0: Văn phạm ngữ cấu;",
+     "page": "tr. 193",
+     "pdf_page": 194,
+     "snippet": "ø Giả đồ thị",
      "verified": true,
      "recommended": false
     }
    ],
-   "see_also": [
-    "alphabet",
-    "string",
-    "empty-string"
-   ],
-   "notes": "Văn phạm cấu trúc câu $$G = (V, T, S, P)$$ gồm từ vựng $$V$$, tập ký hiệu kết thúc $$T$$, ký hiệu xuất phát $$S$$ và tập quy tắc sản xuất $$P$$; các phần tử của $$V$$ không thuộc $$T$$ được gọi là ký hiệu không kết thúc. Quy tắc sản xuất cho phép thay thế một xâu con này bằng một xâu con khác; ngôn ngữ $$L(G)$$ sinh bởi $$G$$ là tập tất cả các xâu chỉ gồm ký hiệu kết thúc dẫn xuất được từ $$S$$. Thuật ngữ \"văn phạm cấu trúc câu\" theo bản dịch Rosen-VI (ĐỊNH NGHĨA 2, tr. 770).",
-   "status": "draft",
-   "pos": "d.t."
-  },
-  {
-   "id": "premise",
-   "letter": "P",
-   "headword_en": "premise",
-   "notation": "",
-   "rosen_ref": "Rosen §1.6",
-   "definition_vi": "Tiền đề là một mệnh đề trong một lập luận (hoặc một dạng suy luận) khác với kết luận. Một lập luận gồm một dãy các tiền đề $$p_1, p_2, \\ldots, p_n$$ và một kết luận $$q$$ được suy ra từ các tiền đề đó.",
-   "example_vi": "Trong lập luận \"Nếu trời mưa thì đường ướt; trời mưa; do đó đường ướt\", hai câu đầu \"Nếu trời mưa thì đường ướt\" và \"trời mưa\" là các tiền đề, còn \"đường ướt\" là kết luận.",
-   "vi_terms": [
-    {
-     "term": "tiền đề",
-     "source_id": "bib-nguyenhuudien-2019",
-     "page": "tr. 34",
-     "pdf_page": 34,
-     "snippet": "nếu ta thêm giả thiết phụ vào tiền đề P mà chứng minh được có sự mâu thuẫn thì ta",
-     "verified": true,
-     "recommended": true
-    },
-    {
-     "term": "tiền đề",
-     "source_id": "bib-leanhvinh-2020",
-     "page": "tr. 224",
-     "pdf_page": 223,
-     "snippet": "đến 1 khi n tiến đến vô cùng. Một trong những tính chất quan trọng",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "tiền đề",
-     "source_id": "bib-sierpinski-2012",
-     "page": "",
-     "pdf_page": 10,
-     "snippet": "Sierpinski được biết tới với những cống hiến xuất sắc trong lý thuyết tập hợp, đặc biệt là về tiên đề",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "tiền đề",
-     "source_id": "bib-cungkimtien-2004",
-     "page": "",
-     "pdf_page": 32,
-     "snippet": "axiom tiên đề",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "tiền đề",
-     "source_id": "bib-phan-1976",
-     "page": "tr. 24",
-     "pdf_page": 24,
-     "snippet": "axiom tién dé",
-     "verified": true,
-     "recommended": false
-    }
-   ],
-   "see_also": [
-    "logical-argument",
-    "argument-form",
-    "valid-argument"
-   ],
-   "notes": "Tiền đề (premise) là các mệnh đề được giả định trong một lập luận, từ đó kết luận được rút ra; cần phân biệt với kết luận (conclusion) là mệnh đề được suy ra. Trong một dạng suy luận, các tiền đề thường được ký hiệu là $$p_1, p_2, \\ldots, p_n$$. Bản dịch Rosen (2003) và các nguồn tiếng Việt khác đều dùng \"tiền đề\" cho thuật ngữ này.",
-   "status": "draft",
-   "pos": "d.t."
-  },
-  {
-   "id": "primary-key",
-   "letter": "P",
-   "headword_en": "primary key",
-   "see_ref": "key",
-   "vi_terms": [
-    {
-     "term": "khóa chính",
-     "verified": false,
-     "recommended": false,
-     "source_id": "",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": ""
-    }
-   ],
-   "status": "draft",
-   "pos": "d.t."
-  },
-  {
-   "id": "prime-implicant",
-   "letter": "P",
-   "headword_en": "prime implicant",
-   "notation": "",
-   "rosen_ref": "Rosen §12.4",
-   "definition_vi": "Một nguyên nhân (implicant) của một hàm Boole là một hội sơ cấp (tích các literal) sao cho mỗi khi hội đó nhận giá trị $$1$$ thì hàm cũng nhận giá trị $$1$$. Một nguyên nhân nguyên tố của hàm là một nguyên nhân không bị kéo theo bởi bất kỳ nguyên nhân nào khác của hàm đó; nói cách khác, không thể bỏ đi literal nào của nó mà vẫn còn là một nguyên nhân của hàm.",
-   "example_vi": "Xét hàm Boole $$x + y$$ (tức $$x \\vee y$$). Các hội $$x$$ và $$y$$ đều là nguyên nhân nguyên tố của hàm này, vì mỗi khi $$x = 1$$ hoặc mỗi khi $$y = 1$$ thì $$x + y = 1$$, và không thể bỏ bớt literal nào. Trái lại, hội $$x \\wedge y$$ tuy là một nguyên nhân nhưng không phải nguyên nhân nguyên tố, vì nó bị kéo theo bởi nguyên nhân $$x$$ (và bởi $$y$$).",
-   "vi_terms": [
-    {
-     "term": "nguyên nhân nguyên tố",
-     "verified": true,
-     "recommended": true,
-     "source_id": "bib-nguyenducnghia-2006",
-     "pdf_page": 274,
-     "page": "",
-     "snippet": "một nguyên nhân nguyên tố củaƒ, nếu Á là một nguyên nhân củaƒ, sao cho không thể"
-    },
-    {
-     "term": "nguyên nhân nguyên tố",
-     "verified": true,
-     "recommended": false,
-     "source_id": "bib-nguyenducnghia-2006",
-     "pdf_page": 274,
-     "page": "",
-     "snippet": "Xy và x ÿ là các nguyên nhân nguyên tố của hàm x + y."
-    }
-   ],
-   "see_also": [
-    "minterm",
-    "boolean-function",
-    "disjunctive-normal-form",
-    "karnaugh-map",
-    "boolean-expression"
-   ],
-   "notes": "Khái niệm nguyên nhân nguyên tố là cốt lõi của việc tối thiểu hóa biểu thức Boole (bản đồ Karnaugh, phương pháp Quine–McCluskey). Một \"nguyên nhân\" (implicant) là một hội sơ cấp kéo theo hàm; nó là \"nguyên tố\" nếu không thể bỏ literal nào mà vẫn còn là nguyên nhân, tức không bị nguyên nhân nào khác kéo theo. Nguyễn Đức Nghĩa (2006, tr. 274) dùng \"nguyên nhân\" cho implicant và \"nguyên nhân nguyên tố\" cho prime implicant; tuyển của tất cả các nguyên nhân nguyên tố cho dạng tuyển chuẩn tắc thu gọn của hàm.",
-   "status": "draft",
-   "pos": "d.t."
-  },
-  {
-   "id": "prime",
-   "letter": "P",
-   "headword_en": "prime",
-   "see_ref": "prime-number",
-   "vi_terms": [],
-   "status": "draft",
-   "pos": "d.t."
-  },
-  {
-   "id": "primitive-root",
-   "letter": "P",
-   "headword_en": "primitive root",
-   "notation": "",
-   "rosen_ref": "Rosen §3.7",
-   "definition_vi": "Một căn nguyên thủy modulo một số nguyên tố $$p$$ là một số nguyên $$r$$ mà các lũy thừa của nó sinh ra tất cả các thặng dư khác $$0$$ modulo $$p$$.",
-   "example_vi": "Số $$3$$ là một căn nguyên thủy modulo $$7$$, vì các lũy thừa $$3^1 = 3$$, $$3^2 = 2$$, $$3^3 = 6$$, $$3^4 = 4$$, $$3^5 = 5$$, $$3^6 = 1$$ (mọi phép tính lấy modulo $$7$$) sinh ra tất cả các thặng dư khác $$0$$ là $$1, 2, 3, 4, 5, 6$$ modulo $$7$$.",
-   "vi_terms": [
-    {
-     "term": "căn nguyên thủy",
-     "verified": false,
-     "recommended": false,
-     "source_id": "",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": ""
-    },
-    {
-     "term": "căn nguyên thủy",
-     "source_id": "bib-cormen-2001-vi",
-     "page": "tr. 918",
-     "pdf_page": 916,
-     "snippet": "8, modulo ø, và ta nói rằng ø là một căn nguyên thủy hoặc một bộ sinh",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "căn nguyên thủy",
-     "source_id": "bib-sierpinski-2012",
-     "page": "",
-     "pdf_page": 12,
-     "snippet": "Sự tồn tại căn nguyên thủy của số nguyên tố",
-     "verified": true,
-     "recommended": true
-    },
-    {
-     "term": "căn nguyên thủy",
-     "source_id": "bib-cungkimtien-2004",
-     "page": "",
-     "pdf_page": 294,
-     "snippet": "primitive root căn nguyên thuỷ",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "căn nguyên thủy",
-     "source_id": "bib-phan-1976",
-     "page": "tr. 370",
-     "pdf_page": 370,
-     "snippet": "primitive r. căn nguyên thuỷ",
-     "verified": true,
-     "recommended": false
-    }
-   ],
-   "see_also": [
-    "quadratic-residue",
-    "modular-arithmetic",
-    "congruence"
-   ],
-   "notes": "Căn nguyên thủy modulo số nguyên tố $$p$$ là số nguyên $$r$$ sao cho các lũy thừa $$r^1, r^2, \\ldots, r^{p-1}$$ chạy qua tất cả $$p-1$$ thặng dư khác $$0$$ modulo $$p$$; nói cách khác, $$r$$ có bậc bằng $$p-1$$ modulo $$p$$. Mỗi số nguyên tố đều có căn nguyên thủy. Thuật ngữ \"căn nguyên thủy\" là cách dịch chuẩn; tuy nhiên khái niệm này chưa được dẫn chứng trực tiếp trong các nguồn dịch tiếng Việt thuộc ngữ liệu, kể cả bản dịch tiếng Việt của Rosen, nên thuật ngữ khuyến nghị để verified=false.",
-   "status": "draft",
-   "pos": "d.t."
-  },
-  {
-   "id": "private-key-encryption",
-   "letter": "P",
-   "headword_en": "private key encryption",
-   "see_ref": "private-key-cryptography",
-   "vi_terms": [],
-   "status": "draft",
-   "pos": "d.t."
-  },
-  {
-   "id": "probabilistic-algorithm",
-   "letter": "P",
-   "headword_en": "probabilistic algorithm",
-   "notation": "",
-   "rosen_ref": "Rosen §3.1",
-   "definition_vi": "Thuật toán xác suất là một thuật toán có thực hiện các lựa chọn ngẫu nhiên trong quá trình thực thi của nó.",
-   "example_vi": "Trắc nghiệm tính nguyên tố theo kiểu xác suất, như trắc nghiệm Miller-Rabin, là một thuật toán xác suất: nó chọn ngẫu nhiên một số nguyên $$a$$ rồi kiểm tra một điều kiện đồng dư để kết luận một số $$n$$ là hợp số hay là số nguyên tố với xác suất sai nhỏ.",
-   "vi_terms": [
-    {
-     "term": "thuật toán xác suất",
-     "source_id": "",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": "",
-     "verified": false,
-     "recommended": true
-    },
-    {
-     "term": "theo kiểu xác suất",
-     "source_id": "bib-rosen-2003-vi",
-     "page": "tr. 206",
-     "pdf_page": 206,
-     "snippet": "Hãy giải thích những trac nghiệm tính nguyên tố theo kiểu xác suất",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "thuật toán ngẫu nhiên",
-     "source_id": "",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": "",
-     "verified": false,
-     "recommended": false
-    },
-    {
-     "term": "thuật toán ngẫu nhiên",
-     "source_id": "bib-cormen-2001-vi",
-     "page": "tr. 188",
-     "pdf_page": 186,
-     "snippet": "(Bài tập 8.3-4 yêu cầu một thuật toán ngẫu nhiên hoán vị các thành",
-     "verified": true,
-     "recommended": false
-    }
-   ],
-   "see_also": [
-    "algorithm",
-    "expected-value",
-    "prime-number"
-   ],
-   "notes": "Thuật toán xác suất khác với thuật toán tất định ở chỗ nó dùng các lựa chọn ngẫu nhiên trong khi chạy, nên với cùng một đầu vào nó có thể cho các kết quả hoặc thời gian chạy khác nhau ở những lần thực thi khác nhau. Bản dịch tiếng Việt của Rosen dùng cụm \"theo kiểu xác suất\" cho khái niệm probabilistic (ví dụ \"trắc nghiệm tính nguyên tố theo kiểu xác suất\"); cụm \"thuật toán xác suất\" là cách dịch chuẩn cho headword nhưng chưa thấy xuất hiện nguyên văn trong kho ngữ liệu.",
-   "status": "draft",
-   "pos": "d.t."
-  },
-  {
-   "id": "probabilistic-method",
-   "letter": "P",
-   "headword_en": "probabilistic method",
-   "notation": "",
-   "rosen_ref": "Rosen §7.2",
-   "definition_vi": "Phương pháp xác suất là một kỹ thuật để chứng minh sự tồn tại của một đối tượng bằng cách chỉ ra rằng xác suất để đối tượng đó xuất hiện là dương. Cụ thể, nếu khi chọn ngẫu nhiên một phần tử từ một tập hợp mà xác suất để phần tử đó có một tính chất nào đó lớn hơn $$0$$, thì tồn tại ít nhất một phần tử có tính chất ấy.",
-   "example_vi": "Để chứng minh tồn tại một đồ thị với số Ramsey lớn, ta tô màu ngẫu nhiên các cạnh của $$K_n$$ và chỉ ra rằng xác suất để không xuất hiện đơn sắc nào là dương; do đó tồn tại một cách tô màu không có tập đơn sắc, khẳng định sự tồn tại của đồ thị mong muốn.",
-   "vi_terms": [
-    {
-     "term": "phương pháp xác suất",
-     "source_id": "bib-leanhvinh-2020",
-     "page": "tr. 173",
-     "pdf_page": 172,
-     "snippet": "Bài tập 6.9. Sử dụng phương pháp xác suất của Erdős, chứng minh",
-     "verified": true,
-     "recommended": true
-    },
-    {
-     "term": "phương pháp xác suất",
-     "source_id": "bib-leanhvinh-2020",
-     "page": "tr. 192",
-     "pdf_page": 191,
-     "snippet": "phương pháp xác suất.",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "phương pháp xác suất",
-     "source_id": "bib-ngodactan-2004",
-     "page": "tr. 24",
-     "pdf_page": 24,
-     "snippet": "không kiến thiết như phương pháp xác suất). Tuy nhiên, chưa có một",
-     "verified": true,
-     "recommended": false
-    }
-   ],
-   "see_also": [
-    "ramsey-number",
-    "expected-value"
-   ],
-   "notes": "Phương pháp xác suất, do Erdős phát triển, là một kỹ thuật chứng minh không kiến thiết: nó khẳng định sự tồn tại của một đối tượng mà không cần xây dựng tường minh đối tượng đó. Ý tưởng chính là nếu xác suất để một đối tượng ngẫu nhiên có tính chất mong muốn là dương, thì phải tồn tại ít nhất một đối tượng có tính chất ấy.",
-   "status": "draft",
-   "pos": "d.t."
-  },
-  {
-   "id": "probability-distribution",
-   "letter": "P",
-   "headword_en": "probability distribution",
-   "notation": "p : S \\to [0,1]",
-   "rosen_ref": "Rosen §7.2",
-   "definition_vi": "Phân phối xác suất trên một không gian mẫu $$S$$ là một hàm $$p$$ gán cho mỗi kết cục (phần tử) $$s \\in S$$ một xác suất $$p(s)$$. Hàm này thỏa mãn $$0 \\leq p(s) \\leq 1$$ với mọi $$s \\in S$$ và $$\\sum_{s \\in S} p(s) = 1$$.",
-   "example_vi": "Khi tung một con xúc xắc cân đối, không gian mẫu là $$S = \\{1, 2, 3, 4, 5, 6\\}$$ và phân phối xác suất gán $$p(s) = 1/6$$ cho mỗi kết cục $$s \\in S$$; đây là phân phối đều. Nếu con xúc xắc không cân đối sao cho mặt $$1$$ xuất hiện với xác suất gấp đôi mỗi mặt còn lại, thì $$p(1) = 2/7$$ và $$p(s) = 1/7$$ với mỗi $$s \\in \\{2, 3, 4, 5, 6\\}$$.",
-   "vi_terms": [
-    {
-     "term": "phân phối xác suất",
-     "source_id": "",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": "",
-     "verified": false,
-     "recommended": false
-    },
-    {
-     "term": "phân bố xác suất",
-     "source_id": "",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": "",
-     "verified": false,
-     "recommended": false
-    },
-    {
-     "term": "phân bố xác suất",
-     "source_id": "bib-doducgiao-2000",
-     "page": "tr. 167",
-     "pdf_page": 166,
-     "snippet": "với tập các câu hỏi MCN. Ở day P là phân bổ xác suất rời rac",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "phân phối xác suất",
-     "source_id": "bib-cormen-2001-vi",
-     "page": "tr. 123",
-     "pdf_page": 121,
-     "snippet": "phân phối xác suất. Các biến ngẫu nhiên được trình bày trong Đoạn 6.3,",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "phân phối xác suất",
-     "source_id": "bib-doducthai-2010",
-     "page": "tr. 72",
-     "pdf_page": 72,
-     "snippet": "Định nghĩa 2.4. Hàm phân phối xác suất của phân bố xác suất PX",
-     "verified": true,
-     "recommended": true
-    },
-    {
-     "term": "phân bố xác suất",
-     "source_id": "bib-doducthai-2010",
-     "page": "tr. 3",
-     "pdf_page": 3,
-     "snippet": "1.2.2 Phân bố xác suất Bernoulli . . . . . . . . . . . . . . . . 29",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "phân phối xác suất",
-     "source_id": "bib-phan-1976",
-     "page": "tr. 258",
-     "pdf_page": 258,
-     "snippet": "elementary probability 1. mật độ phân phối xác suất",
-     "verified": true,
-     "recommended": false
-    }
-   ],
-   "see_also": [
-    "event",
-    "distribution-of-a-random-variable",
-    "expected-value"
-   ],
-   "notes": "Phân phối xác suất là hàm $$p$$ gán xác suất cho từng kết cục của không gian mẫu $$S$$, với điều kiện $$0 \\leq p(s) \\leq 1$$ và $$\\sum_{s \\in S} p(s) = 1$$. Trường hợp $$p(s) = 1/|S|$$ với mọi $$s$$ cho ta phân phối đều (uniform distribution). Cần phân biệt \"phân phối xác suất\" (hàm xác suất trên không gian mẫu $$S$$) với \"phân phối của biến ngẫu nhiên\" (tập các cặp $$(r, p(X = r))$$ ứng với các giá trị của một biến ngẫu nhiên $$X$$). Trong kho ngữ liệu hiện có chưa thấy cụm \"phân phối xác suất\" được dùng trực tiếp, nên thuật ngữ khuyến nghị là bản dịch chuẩn.",
-   "status": "draft",
-   "pos": "d.t."
-  },
-  {
-   "id": "probability-of-an-event",
-   "letter": "P",
-   "headword_en": "probability of an event",
-   "notation": "p(E)",
-   "rosen_ref": "Rosen §7.2",
-   "definition_vi": "Xác suất của một biến cố là tổng các xác suất của các kết cục nằm trong biến cố đó. Nói cách khác, nếu biến cố $$E$$ là một tập con của không gian mẫu thì $$p(E) = \\sum_{s \\in E} p(s)$$, trong đó $$p(s)$$ là xác suất của kết cục $$s$$.",
-   "example_vi": "Khi tung một con súc sắc cân đối, mỗi trong sáu kết cục có xác suất $$\\frac{1}{6}$$; biến cố \"số chấm là số chẵn\" gồm các kết cục $$2$$, $$4$$, $$6$$, nên xác suất của nó là $$\\frac{1}{6} + \\frac{1}{6} + \\frac{1}{6} = \\frac{1}{2}$$.",
-   "vi_terms": [
-    {
-     "term": "xác suất của một biến cố",
-     "source_id": "bib-rosen-2003-vi",
-     "page": "tr. 333",
-     "pdf_page": 333,
-     "snippet": "Nhiều khi việc tính trực tiếp xác suất của một biến cố lại tỏ ra kém",
-     "verified": true,
-     "recommended": true
-    },
-    {
-     "term": "xác suất của một biến cố",
-     "source_id": "bib-rosen-2003-vi",
-     "page": "tr. 361",
-     "pdf_page": 361,
-     "snippet": "13. a) Néu định nghĩa xác suất của một biến cố khỉ tất cả các kết cục",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "biến cố",
-     "source_id": "bib-leanhvinh-2020",
-     "page": "tr. 158",
-     "pdf_page": 157,
-     "snippet": "Xét các biến cố Ái, Ag,..., A, trong một không gian xác suất bất",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "xác suất của biến cố",
-     "source_id": "",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": "",
-     "verified": false,
-     "recommended": false
-    },
-    {
-     "term": "biến cố",
-     "source_id": "bib-nguyenhuudien-2019",
-     "page": "tr. 48",
-     "pdf_page": 48,
-     "snippet": "vị từ để có một vị từ mới theo các biến còn lại. Chẳng hạn, nếu P( x, y, . . .) là một vị từ",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "biến cố",
-     "source_id": "bib-sierpinski-2012",
-     "page": "tr. 22",
-     "pdf_page": 36,
-     "snippet": "Đối với các phương trình Diophante nhiều biến có một số vấn đề sau đây được đặt ra: phương",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "biến cố",
-     "source_id": "bib-cungkimtien-2004",
-     "page": "",
-     "pdf_page": 22,
-     "snippet": "antithetic(al) events biến cố xung",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "biến cố",
-     "source_id": "bib-phan-1976",
-     "page": "tr. 62",
-     "pdf_page": 62,
-     "snippet": "c. ofan event phần bù của một biến cố; biến đối lập",
-     "verified": true,
-     "recommended": false
-    }
-   ],
-   "see_also": [
-    "sample-space",
-    "bernoulli-trial"
-   ],
-   "notes": "Xác suất của một biến cố $$E$$ trong một không gian mẫu hữu hạn là tổng xác suất của các kết cục thuộc $$E$$, tức $$p(E) = \\sum_{s \\in E} p(s)$$. Khi tất cả các kết cục đồng khả năng trong không gian mẫu gồm $$n$$ kết cục, công thức rút gọn thành $$p(E) = \\frac{|E|}{n}$$, là số kết cục thuận lợi chia cho tổng số kết cục. Thuật ngữ \"xác suất của một biến cố\" có dẫn chứng trực tiếp trong bản dịch Rosen; \"biến cố\" cũng được dùng trong ngữ liệu mới (Lê Anh Vinh, 2020). Cần phân biệt với \"không gian mẫu\" (tập tất cả các kết cục) và \"kết cục\" (một phần tử của không gian mẫu).",
-   "status": "draft",
-   "pos": "d.t."
-  },
-  {
-   "id": "product-rule-for-counting",
-   "letter": "P",
-   "headword_en": "product rule for counting",
-   "see_ref": "the-product-rule",
-   "vi_terms": [],
-   "status": "draft",
-   "pos": "d.t."
-  },
-  {
-   "id": "product-rule-for-sets",
-   "letter": "P",
-   "headword_en": "product rule for sets",
-   "see_ref": "the-product-rule",
-   "vi_terms": [],
-   "status": "draft",
-   "pos": "d.t."
-  },
-  {
-   "id": "projection",
-   "letter": "P",
-   "headword_en": "projection",
-   "notation": "P_{i_1, i_2, \\ldots, i_m}",
-   "rosen_ref": "Rosen §11.4",
-   "definition_vi": "Phép chiếu là một thao tác tạo ra các quan hệ có bậc nhỏ hơn bằng cách xóa bỏ một số trường của một quan hệ $$n$$ ngôi. Phép chiếu $$P_{i_1, i_2, \\ldots, i_m}$$ ánh xạ mỗi bộ $$n$$ phần tử $$(a_1, a_2, \\ldots, a_n)$$ thành bộ $$m$$ phần tử $$(a_{i_1}, a_{i_2}, \\ldots, a_{i_m})$$, trong đó $$m \\leq n$$.",
-   "example_vi": "Áp dụng phép chiếu $$P_{1,3}$$ cho bộ 4 phần tử $$(2, 3, 4, 5)$$ ta thu được bộ 2 phần tử $$(2, 4)$$, tức là chỉ giữ lại trường thứ nhất và trường thứ ba và xóa bỏ các trường còn lại.",
-   "vi_terms": [
-    {
-     "term": "phép chiếu",
-     "source_id": "bib-ngodactan-2004",
-     "page": "tr. 211",
-     "pdf_page": 211,
-     "snippet": "diễn phằng cho G nhận được bằng phép chiếu lên mặt phằng từ “cực",
-     "verified": true,
-     "recommended": true
-    },
-    {
-     "term": "phép chiếu",
-     "source_id": "bib-doducthai-2010",
-     "page": "tr. 36",
-     "pdf_page": 36,
-     "snippet": "một phép chiếu tự nhiên bảo toàn xác suất từ không gian thứ hai lên",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "phép chiếu",
-     "source_id": "bib-nguyenhuuanh-2007",
-     "page": "",
-     "pdf_page": 138,
-     "snippet": "tiêu. Nhắc lại phép chiếu thứ i được cho bởi:",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "phép chiếu",
-     "source_id": "bib-cungkimtien-2004",
-     "page": "",
-     "pdf_page": 31,
-     "snippet": "auxiliary view phép chiếu phụ",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "phép chiếu",
-     "source_id": "bib-phan-1976",
-     "page": "tr. 144",
-     "pdf_page": 144,
-     "snippet": "elevation sự đưa lên, sự nâng lên; độ; phép chiếu thẳng góc",
-     "verified": true,
-     "recommended": false
-    }
-   ],
-   "see_also": [
-    "n-ary-relation",
-    "relation"
-   ],
-   "notes": "Phép chiếu $$P_{i_1, \\ldots, i_m}$$ là một phép toán trong đại số quan hệ, dùng để tạo ra quan hệ mới có bậc nhỏ hơn từ một quan hệ $$n$$ ngôi bằng cách giữ lại các trường có chỉ số $$i_1, \\ldots, i_m$$ và xóa bỏ các trường còn lại. Khi áp dụng cho một tập các bộ, các bộ trùng nhau sau khi chiếu được gộp lại thành một bộ duy nhất.",
-   "status": "draft",
-   "pos": "d.t."
-  },
-  {
-   "id": "propositional-variable",
-   "letter": "P",
-   "headword_en": "propositional variable",
-   "notation": "p, q, r",
-   "rosen_ref": "Rosen §1.1",
-   "definition_vi": "Biến mệnh đề là một biến dùng để biểu diễn một mệnh đề. Các biến mệnh đề thường được ký hiệu bởi $$p$$, $$q$$, $$r$$, $$\\ldots$$ và mỗi biến nhận một trong hai giá trị chân lý là đúng hoặc sai.",
-   "example_vi": "Ký hiệu $$p$$ dùng để biểu diễn mệnh đề \"Hà Nội là thủ đô của Việt Nam\" là một biến mệnh đề. Từ hai biến mệnh đề $$p$$ và $$q$$ ta xây dựng được biểu thức logic $$p \\wedge q$$.",
-   "vi_terms": [
-    {
-     "term": "biến mệnh đề",
-     "verified": true,
-     "recommended": true,
-     "source_id": "bib-nguyenhuudien-2019",
-     "page": "tr. 20",
-     "pdf_page": 20,
-     "snippet": "trị của bộ biến mệnh đề. Với một biến mệnh đề, ta có 2 trường hợp là 0 (sai) hoặc 1 (đúng)."
-    },
-    {
-     "term": "biến mệnh đề",
-     "source_id": "bib-doducgiao-2009",
-     "page": "tr. 274",
-     "pdf_page": 275,
-     "snippet": "nữa) và gọi là biến mệnh dé. Trong lôgic mệnh dé, giá trị chân lý đúng ký",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "biến mệnh đề",
-     "source_id": "bib-vudinhhoa-2010",
-     "page": "",
-     "pdf_page": 17,
-     "snippet": "mệnh dé légic phức hợp và dai dòng, là một biến mệnh dé logic p đơn giản. Một",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "biến mệnh đề",
-     "source_id": "bib-cungkimtien-2004",
-     "page": "",
-     "pdf_page": 425,
-     "snippet": "biến mệnh đề proposition variable",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "biến mệnh đề",
-     "source_id": "bib-phan-1976",
-     "page": "tr. 441",
-     "pdf_page": 441,
-     "snippet": "proposition v. biến mệnh đề",
-     "verified": true,
-     "recommended": false
-    }
-   ],
-   "see_also": [
-    "proposition",
-    "atomic-proposition",
-    "boolean-variable",
-    "variable"
-   ],
-   "notes": "Trong Rosen §1.1, biến mệnh đề là biến biểu diễn một mệnh đề và thường được ký hiệu $$p$$, $$q$$, $$r$$. Cần phân biệt biến mệnh đề (ký hiệu thay cho một mệnh đề) với mệnh đề nguyên tử (bản thân một mệnh đề không phân tích được), và với biến Boole (biến nhận giá trị trong $$\\{0, 1\\}$$ trong đại số Boole).",
-   "status": "draft",
    "pos": "d.t."
   },
   {
@@ -4071,6 +4322,80 @@
     "fermats-little-theorem"
    ],
    "notes": "Số giả nguyên tố là hợp số \"giả dạng\" số nguyên tố vì nó vượt qua một phép kiểm tra tính nguyên tố ứng với một cơ sở $$b$$ cố định; chẳng hạn $$n$$ là số giả nguyên tố cơ sở $$b$$ nếu $$b^{n-1} \\equiv 1 \\pmod{n}$$ nhưng $$n$$ là hợp số. Một hợp số là số giả nguyên tố với mọi cơ sở $$b$$ nguyên tố cùng nhau với nó được gọi là số Carmichael.",
+   "status": "draft",
+   "pos": "d.t."
+  },
+  {
+   "id": "public-key",
+   "letter": "P",
+   "headword_en": "public key",
+   "pos": "d.t.",
+   "notation": "",
+   "ref_bib": "bib-libennowell-2022",
+   "rosen_ref": "",
+   "definition_vi": "\\emph{Khóa công khai} là khóa được công bố rộng rãi trong một hệ mật mã khóa công khai, dùng để mã hóa thông điệp hoặc kiểm tra chữ ký số. Khóa công khai được thiết kế sao cho việc suy ra khóa bí mật tương ứng từ nó là không khả thi về mặt tính toán.",
+   "example_vi": "Trong hệ RSA, khóa công khai là cặp $$(n, e)$$; người gửi mã hóa bản rõ $$m$$ thành $$c = m^e \\bmod n$$.",
+   "notes": "",
+   "see_also": [
+    "private-key",
+    "plaintext",
+    "ciphertext"
+   ],
+   "vi_terms": [
+    {
+     "term": "khóa công khai",
+     "recommended": true
+    }
+   ]
+  },
+  {
+   "id": "public-key-cryptography",
+   "letter": "P",
+   "headword_en": "public key cryptography",
+   "notation": "",
+   "rosen_ref": "Rosen §4.6",
+   "definition_vi": "Mật mã khóa công khai là hệ mật mã trong đó mỗi người dùng có một cặp khóa: khóa công khai (ký hiệu $$(n, e)$$) dùng để mã hóa và được công bố cho mọi người, và khóa bí mật (ký hiệu $$d$$) dùng để giải mã và được giữ kín. Biết khóa công khai vẫn không dễ suy ra khóa bí mật, chẳng hạn trong hệ RSA độ an toàn dựa trên việc phân tích số nguyên lớn $$n = pq$$ thành thừa số nguyên tố là bài toán khó về mặt tính toán.",
+   "example_vi": "Trong hệ RSA, người nhận chọn hai số nguyên tố lớn $$p$$ và $$q$$, đặt $$n = pq$$ và chọn số mũ mã hóa $$e$$ nguyên tố cùng nhau với $$(p-1)(q-1)$$. Khóa công khai $$(n, e)$$ được công bố; bản rõ $$M$$ được mã hóa thành $$C \\equiv M^{e} \\pmod{n}$$, và chỉ người nắm khóa bí mật $$d$$ với $$ed \\equiv 1 \\pmod{(p-1)(q-1)}$$ mới khôi phục được $$M \\equiv C^{d} \\pmod{n}$$.",
+   "vi_terms": [
+    {
+     "term": "mật mã khóa công khai",
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": "",
+     "verified": false,
+     "recommended": true
+    },
+    {
+     "term": "mật mã khóa bất đối xứng",
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": "",
+     "verified": false,
+     "recommended": false
+    },
+    {
+     "term": "hệ mật mã khóa bất đối xứng",
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": "",
+     "verified": false,
+     "recommended": false
+    },
+    {
+     "term": "mã khóa phi đối xứng",
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": "",
+     "verified": false,
+     "recommended": false
+    }
+   ],
+   "see_also": [],
+   "notes": "Thuật ngữ chuẩn của giáo trình MAT3500 là \"mật mã khóa công khai\". Không tìm thấy thuật ngữ này trong kho ngữ liệu tham khảo (các giáo trình toán rời rạc và lý thuyết đồ thị), nên không có nguồn đối chứng bổ sung.",
    "status": "draft",
    "pos": "d.t."
   },

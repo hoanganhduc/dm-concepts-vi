@@ -9,41 +9,19 @@
     </p>
   </introduction>
 
-  <definition xml:id="def-adjacent-vertices">
-    <title>adjacent vertices (d.t.) — các đỉnh kề</title>
-    <idx><h>adjacent vertices</h></idx>
-    <idx><h>các đỉnh kề</h></idx>
-    <idx><h>kề nhau</h></idx>
-    <idx><h>liền kề</h></idx>
+  <definition xml:id="def-absolute-value">
+    <title>absolute value (d.t.) — giá trị tuyệt đối</title>
+    <idx><h>absolute value</h></idx>
+    <idx><h>giá trị tuyệt đối</h></idx>
+    <idx><h>trị tuyệt đối</h></idx>
     <statement>
-      <p>Hai đỉnh <m>u</m> và <m>v</m> trong một đồ thị vô hướng <m>G</m> được gọi là <em>kề nhau</em> nếu chúng là hai đầu mút của một cạnh chung của <m>G</m>, tức là <m>uv \in E(G)</m>; ký hiệu <m>u \sim v</m> (theo <xref ref="bib-rosen-2019" />, Rosen §10.2).</p>
+      <p>Giá trị tuyệt đối của một số thực <m>x</m>, ký hiệu <m>|x|</m>, được định nghĩa bằng <m>x</m> nếu <m>x \geq 0</m> và bằng <m>-x</m> nếu <m>x  \lt  0</m>. Như vậy <m>|x|</m> luôn là một số không âm và biểu thị khoảng cách từ <m>x</m> đến <m>0</m> trên trục số (theo <xref ref="bib-rosen-2019" />, Rosen §2.3).</p>
       <p>Thuật ngữ tiếng Việt tương ứng:</p>
       <ul>
-        <li><p><term>các đỉnh kề</term> <xref ref="bib-leanhvinh-2020" /> (tr. 24); <xref ref="bib-nguyenhoangthach-2020" /> (tr. 61); <xref ref="bib-nguyenhuudien-2019" /> (tr. 11); <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 444) — cách dùng phổ biến.</p></li>
-        <li><p><term>kề nhau</term> <xref ref="bib-leanhvinh-2020" /> (tr. 10); <xref ref="bib-nguyenhoangthach-2020" /> (tr. 61); <xref ref="bib-nguyenhuudien-2019" /> (tr. 160).</p></li>
-        <li><p><term>liền kề</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 157); <xref ref="bib-leanhvinh-2020" /> (tr. 7); <xref ref="bib-nguyenhoangthach-2020" /> (tr. 42).</p></li>
+        <li><p><term>giá trị tuyệt đối</term> <xref ref="bib-sierpinski-2012" /> (tr. 3); <xref ref="bib-cormen-2001-vi" /> (tr. 647); <xref ref="bib-doducthai-2010" /> (tr. 98); <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 292) — cách dùng phổ biến.</p></li>
+        <li><p><term>trị tuyệt đối</term> <xref ref="bib-leanhvinh-2020" /> (tr. 246); <xref ref="bib-doducthai-2010" /> (tr. 98); <xref ref="bib-sierpinski-2012" /> (tr. 3); <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 292).</p></li>
       </ul>
-      <p>Ví dụ: Trong đồ thị <m>G</m> với tập đỉnh <m>V(G) = \{a, b, c\}</m> và tập cạnh <m>E(G) = \{ab, bc\}</m>, hai đỉnh <m>a</m> và <m>b</m> kề nhau vì <m>ab \in E(G)</m>, trong khi <m>a</m> và <m>c</m> không kề nhau vì <m>ac \notin E(G)</m>.</p>
-      <p>Xem thêm <xref ref="def-adjacency-matrix" text="title" />, <xref ref="def-complete-graph" text="title" />, <xref ref="def-edge" text="title" />, <xref ref="def-neighborhood" text="title" />.</p>
-    </statement>
-  </definition>
-  <definition xml:id="def-adjacency-matrix">
-    <title>adjacency matrix (d.t.) — ma trận kề</title>
-    <idx><h>adjacency matrix</h></idx>
-    <idx><h>ma trận kế cận</h></idx>
-    <idx><h>ma trận kề</h></idx>
-    <idx><h>ma trận liền kề</h></idx>
-    <statement>
-      <p>Ma trận kề của một đồ thị có tập đỉnh <m>\{v_1, v_2, \ldots, v_n\}</m>, ký hiệu <m>A = [a_{ij}]</m>, là ma trận vuông cấp <m>n</m> trong đó phần tử <m>a_{ij}</m> bằng số cạnh nối đỉnh <m>v_i</m> với đỉnh <m>v_j</m>. Với một đơn đồ thị, <m>a_{ij} = 1</m> nếu <m>v_i</m> và <m>v_j</m> kề nhau và <m>a_{ij} = 0</m> nếu ngược lại (theo <xref ref="bib-rosen-2019" />, Rosen §10.3).</p>
-      <p>Thuật ngữ tiếng Việt tương ứng:</p>
-      <ul>
-        <li><p><term>ma trận kề</term> <xref ref="bib-leanhvinh-2020" /> (tr. 55); <xref ref="bib-nguyenhoangthach-2020" /> (tr. 64); <xref ref="bib-nguyenhuudien-2019" /> (tr. 10) — cách dùng phổ biến.</p></li>
-        <li><p><term>ma trận kế cận</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
-        <li><p><term>ma trận liền kề</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 163); <xref ref="bib-doantamhoe-2009" />; <xref ref="bib-vudinhhoa-2010" />.</p></li>
-      </ul>
-      <p>Ví dụ: Xét đồ thị có tập đỉnh <m>\{v_1, v_2, v_3\}</m> với các cạnh <m>v_1 v_2</m> và <m>v_2 v_3</m>. Ma trận kề của nó là
-<me>A = \begin{bmatrix} 0  \amp  1  \amp  0 \\ 1  \amp  0  \amp  1 \\ 0  \amp  1  \amp  0 \end{bmatrix}.</me></p>
-      <p>Xem thêm <xref ref="def-adjacency-list" text="title" />, <xref ref="def-incidence-matrix" text="title" />, <xref ref="def-adjacent-vertices" text="title" />.</p>
+      <p>Ví dụ: Ta có <m>|5| = 5</m>, <m>|-7| = 7</m> và <m>|0| = 0</m>. Với mọi số thực <m>x</m> và <m>y</m> luôn có bất đẳng thức tam giác <m>|x + y| \leq |x| + |y|</m>.</p>
     </statement>
   </definition>
   <definition xml:id="def-acyclic-graph">
@@ -66,6 +44,83 @@
       <p>Xem thêm <xref ref="def-cycle" text="title" />, <xref ref="def-tree" text="title" />, <xref ref="def-forest" text="title" />, <xref ref="def-directed-acyclic-graph" text="title" />, <xref ref="def-arborescence" text="title" />.</p>
     </statement>
   </definition>
+  <definition xml:id="def-addition-rule">
+    <title>addition rule (d.t.) — nguyên lý cộng, quy tắc cộng</title>
+    <idx><h>addition rule</h></idx>
+    <idx><h>nguyên lý cộng</h></idx>
+    <idx><h>quy tắc cộng</h></idx>
+    <statement><p>Xem <xref ref="def-the-sum-rule" text="title" />.</p></statement>
+  </definition>
+  <definition xml:id="def-adjacency-list">
+    <title>adjacency list (d.t.) — danh sách kề</title>
+    <idx><h>adjacency list</h></idx>
+    <idx><h>danh sách kế cận</h></idx>
+    <idx><h>danh sách kề</h></idx>
+    <idx><h>danh sách liền kề</h></idx>
+    <statement>
+      <p>Danh sách kề của một đồ thị <m>G</m> là cách biểu diễn đồ thị bằng cách, với mỗi đỉnh <m>v \in V(G)</m>, liệt kê tất cả các đỉnh kề với <m>v</m> (ký hiệu danh sách này là <m>\mathrm{Ke}(v)</m>). Toàn bộ đồ thị được biểu diễn bởi một mảng gồm các danh sách kề của mọi đỉnh (theo <xref ref="bib-rosen-2019" />, Rosen §10.3).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>danh sách kề</term> <xref ref="bib-hoangchithanh-2007" /> (tr. 10); <xref ref="bib-nguyenhoangthach-2020" /> (tr. 63); <xref ref="bib-nguyenhuudien-2019" /> (tr. 176) — cách dùng phổ biến.</p></li>
+        <li><p><term>danh sách kế cận</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
+        <li><p><term>danh sách liền kề</term> <xref ref="bib-rosen-2003-vi" /> (tr. 520).</p></li>
+      </ul>
+      <p>Ví dụ: Với đồ thị đơn <m>G</m> có tập đỉnh <m>\{a, b, c, d\}</m> và các cạnh <m>ab, ac, bd, cd</m>, danh sách kề là <m>\mathrm{Ke}(a) = \{b, c\}</m>, <m>\mathrm{Ke}(b) = \{a, d\}</m>, <m>\mathrm{Ke}(c) = \{a, d\}</m>, <m>\mathrm{Ke}(d) = \{b, c\}</m>.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-adjacency-matrix">
+    <title>adjacency matrix (d.t.) — ma trận kề</title>
+    <idx><h>adjacency matrix</h></idx>
+    <idx><h>ma trận kế cận</h></idx>
+    <idx><h>ma trận kề</h></idx>
+    <idx><h>ma trận liền kề</h></idx>
+    <statement>
+      <p>Ma trận kề của một đồ thị có tập đỉnh <m>\{v_1, v_2, \ldots, v_n\}</m>, ký hiệu <m>A = [a_{ij}]</m>, là ma trận vuông cấp <m>n</m> trong đó phần tử <m>a_{ij}</m> bằng số cạnh nối đỉnh <m>v_i</m> với đỉnh <m>v_j</m>. Với một đơn đồ thị, <m>a_{ij} = 1</m> nếu <m>v_i</m> và <m>v_j</m> kề nhau và <m>a_{ij} = 0</m> nếu ngược lại (theo <xref ref="bib-rosen-2019" />, Rosen §10.3).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>ma trận kề</term> <xref ref="bib-leanhvinh-2020" /> (tr. 55); <xref ref="bib-nguyenhoangthach-2020" /> (tr. 64); <xref ref="bib-nguyenhuudien-2019" /> (tr. 10) — cách dùng phổ biến.</p></li>
+        <li><p><term>ma trận kế cận</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
+        <li><p><term>ma trận liền kề</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 163); <xref ref="bib-doantamhoe-2009" />; <xref ref="bib-vudinhhoa-2010" />.</p></li>
+      </ul>
+      <p>Ví dụ: Xét đồ thị có tập đỉnh <m>\{v_1, v_2, v_3\}</m> với các cạnh <m>v_1 v_2</m> và <m>v_2 v_3</m>. Ma trận kề của nó là
+<me>A = \begin{bmatrix} 0  \amp  1  \amp  0 \\ 1  \amp  0  \amp  1 \\ 0  \amp  1  \amp  0 \end{bmatrix}.</me></p>
+      <p>Xem thêm <xref ref="def-adjacency-list" text="title" />, <xref ref="def-incidence-matrix" text="title" />, <xref ref="def-adjacent-vertices" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-adjacent">
+    <title>adjacent (t.t.) — liền kề</title>
+    <idx><h>adjacent</h></idx>
+    <idx><h>kề nhau</h></idx>
+    <idx><h>liền kề</h></idx>
+    <statement>
+      <p>Hai đỉnh <m>u</m> và <m>v</m> của một đồ thị vô hướng <m>G = (V, E)</m> được gọi là liền kề (hay kề nhau) nếu <m>\{u, v\}</m> là một cạnh của <m>G</m>; khi đó cạnh <m>\{u, v\}</m> được gọi là liên thuộc với hai đỉnh <m>u</m> và <m>v</m> (theo <xref ref="bib-rosen-2019" />, Rosen §10.2).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>liền kề</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 157); <xref ref="bib-leanhvinh-2020" /> (tr. 7); <xref ref="bib-nguyenhoangthach-2020" /> (tr. 42) — cách dùng phổ biến.</p></li>
+        <li><p><term>kề nhau</term> <xref ref="bib-leanhvinh-2020" /> (tr. 10); <xref ref="bib-nguyenhoangthach-2020" /> (tr. 61); <xref ref="bib-nguyenhuudien-2019" /> (tr. 160).</p></li>
+      </ul>
+      <p>Ví dụ: Trong đồ thị đầy đủ <m>K_n</m>, hai đỉnh bất kỳ luôn liền kề, vì vậy mỗi đỉnh có bậc <m>n - 1</m>.</p>
+      <p>Xem thêm <xref ref="def-adjacent-vertices" text="title" />, <xref ref="def-adjacency-matrix" text="title" />, <xref ref="def-adjacency-list" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-adjacent-vertices">
+    <title>adjacent vertices (d.t.) — các đỉnh kề</title>
+    <idx><h>adjacent vertices</h></idx>
+    <idx><h>các đỉnh kề</h></idx>
+    <idx><h>kề nhau</h></idx>
+    <idx><h>liền kề</h></idx>
+    <statement>
+      <p>Hai đỉnh <m>u</m> và <m>v</m> trong một đồ thị vô hướng <m>G</m> được gọi là <em>kề nhau</em> nếu chúng là hai đầu mút của một cạnh chung của <m>G</m>, tức là <m>uv \in E(G)</m>; ký hiệu <m>u \sim v</m> (theo <xref ref="bib-rosen-2019" />, Rosen §10.2).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>các đỉnh kề</term> <xref ref="bib-leanhvinh-2020" /> (tr. 24); <xref ref="bib-nguyenhoangthach-2020" /> (tr. 61); <xref ref="bib-nguyenhuudien-2019" /> (tr. 11); <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 444) — cách dùng phổ biến.</p></li>
+        <li><p><term>kề nhau</term> <xref ref="bib-leanhvinh-2020" /> (tr. 10); <xref ref="bib-nguyenhoangthach-2020" /> (tr. 61); <xref ref="bib-nguyenhuudien-2019" /> (tr. 160).</p></li>
+        <li><p><term>liền kề</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 157); <xref ref="bib-leanhvinh-2020" /> (tr. 7); <xref ref="bib-nguyenhoangthach-2020" /> (tr. 42).</p></li>
+      </ul>
+      <p>Ví dụ: Trong đồ thị <m>G</m> với tập đỉnh <m>V(G) = \{a, b, c\}</m> và tập cạnh <m>E(G) = \{ab, bc\}</m>, hai đỉnh <m>a</m> và <m>b</m> kề nhau vì <m>ab \in E(G)</m>, trong khi <m>a</m> và <m>c</m> không kề nhau vì <m>ac \notin E(G)</m>.</p>
+      <p>Xem thêm <xref ref="def-adjacency-matrix" text="title" />, <xref ref="def-complete-graph" text="title" />, <xref ref="def-edge" text="title" />, <xref ref="def-neighborhood" text="title" />.</p>
+    </statement>
+  </definition>
   <definition xml:id="def-algorithm">
     <title>algorithm (d.t.) — thuật toán</title>
     <idx><h>algorithm</h></idx>
@@ -79,6 +134,100 @@
       <p>Ví dụ: Thuật toán tìm phần tử lớn nhất trong một dãy hữu hạn các số nguyên <m>a_1, a_2, \ldots, a_n</m>: khởi tạo giá trị lớn nhất tạm thời bằng <m>a_1</m>, rồi lần lượt so sánh với từng <m>a_i</m> và cập nhật giá trị lớn nhất tạm thời mỗi khi gặp <m>a_i</m> lớn hơn; sau khi duyệt hết dãy, giá trị lớn nhất tạm thời chính là phần tử lớn nhất.</p>
       <p>Xem thêm <xref ref="def-asymptotic-notation" text="title" />.</p>
     </statement>
+  </definition>
+  <definition xml:id="def-algorithm-analysis">
+    <title>algorithm analysis (d.t.) — phân tích thuật toán</title>
+    <idx><h>algorithm analysis</h></idx>
+    <idx><h>phân tích các thuật toán</h></idx>
+    <idx><h>phân tích thuật toán</h></idx>
+    <statement>
+      <p>Phân tích thuật toán là quá trình đánh giá lượng tài nguyên mà một thuật toán cần dùng, chủ yếu là thời gian chạy và bộ nhớ, theo kích thước <m>n</m> của dữ liệu vào. Độ phức tạp thời gian thường được biểu diễn qua số phép toán cơ bản và mô tả bằng ký hiệu tiệm cận <m>O(f(n))</m> cho cỡ lớn của <m>f(n)</m> (theo <xref ref="bib-rosen-2019" />, Rosen §3.3).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>phân tích thuật toán</term> <xref ref="bib-nguyenducnghia-2006" />; <xref ref="bib-nguyenhuuanh-2007" />; <xref ref="bib-vudinhhoa-2010" /> — cách dùng phổ biến.</p></li>
+        <li><p><term>phân tích các thuật toán</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 138); <xref ref="bib-rosen-2003-vi" /> (tr. 5); <xref ref="bib-cormen-2001-vi" /> (tr. 7).</p></li>
+      </ul>
+      <p>Ví dụ: Thuật toán tìm kiếm tuyến tính trên một dãy có <m>n</m> phần tử thực hiện trong trường hợp xấu nhất khoảng <m>n</m> phép so sánh, nên có độ phức tạp thời gian <m>O(n)</m>. Trong khi đó thuật toán tìm kiếm nhị phân trên dãy đã sắp xếp chỉ cần <m>O(\log n)</m> phép so sánh.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-alphabet">
+    <title>alphabet (d.t.) — bảng chữ cái</title>
+    <idx><h>alphabet</h></idx>
+    <idx><h>bảng chữ cái</h></idx>
+    <statement>
+      <p>Bảng chữ cái là một tập hợp chứa các phần tử được dùng để tạo thành các xâu ký tự. Một bảng chữ cái thường được ký hiệu là <m>\Sigma</m>, và mỗi xâu ký tự là một dãy hữu hạn các phần tử lấy từ <m>\Sigma</m> (theo <xref ref="bib-rosen-2019" />, Rosen §11.4).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>bảng chữ cái</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 91); <xref ref="bib-hoangchithanh-2011" />; <xref ref="bib-vudinhhoa-2010" />; <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 10) — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Tập <m>\Sigma = \{0, 1\}</m> là bảng chữ cái nhị phân, dùng để tạo các xâu bit như <m>0110</m>; bảng chữ cái tiếng Anh gồm <m>26</m> chữ cái được dùng để tạo thành các từ.</p>
+      <p>Xem thêm <xref ref="def-string" text="title" />, <xref ref="def-word" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-alphabetical-order">
+    <title>alphabetical order (d.t.) — thứ tự bảng chữ cái</title>
+    <idx><h>alphabetical order</h></idx>
+    <idx><h>thứ tự bảng chữ cái</h></idx>
+    <idx><h>thứ tự từ điển</h></idx>
+    <statement>
+      <p>Thứ tự bảng chữ cái là cách sắp xếp các từ hoặc các xâu ký tự dựa trên thứ tự của các chữ cái trong bảng chữ cái: so sánh hai xâu theo từng vị trí từ trái sang phải, và xâu nào có chữ cái đứng trước trong bảng chữ cái tại vị trí khác nhau đầu tiên thì đứng trước. Đây là trường hợp riêng của thứ tự từ điển khi tập nền là bảng chữ cái với thứ tự <m>a \leq b \leq \cdots \leq z</m> (theo <xref ref="bib-rosen-2019" />, Rosen §10.2).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>thứ tự bảng chữ cái</term> <xref ref="bib-rosen-2003-vi" /> (tr. 136); <xref ref="bib-cormen-2001-vi" /> (tr. 228) — cách dùng phổ biến.</p></li>
+        <li><p><term>thứ tự từ điển</term> <xref ref="bib-doducgiao-2009" /> (tr. 209); <xref ref="bib-nguyenhuudien-2019" /> (tr. 95); <xref ref="bib-vudinhhoa-2010" />; <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 313).</p></li>
+      </ul>
+      <p>Ví dụ: Với ba từ <m>discreet</m>, <m>discrete</m> và <m>discreetness</m>, thứ tự bảng chữ cái sắp xếp chúng thành <m>discreet \leq discreetness \leq discrete</m>, vì tại vị trí khác nhau đầu tiên ta có <m>e</m> đứng trước <m>t</m>, còn <m>discreet</m> là tiền tố của <m>discreetness</m>.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-ancestor">
+    <title>ancestor (d.t.) — tổ tiên</title>
+    <idx><h>ancestor</h></idx>
+    <idx><h>tổ tiên</h></idx>
+    <idx><h>đỉnh tổ tiên</h></idx>
+    <statement>
+      <p>Trong một cây có gốc, đỉnh <m>u</m> được gọi là tổ tiên của đỉnh <m>v</m> nếu <m>u</m> nằm trên đường đi duy nhất từ gốc đến <m>v</m> và <m>u \neq v</m> (theo <xref ref="bib-rosen-2019" />, Rosen §11.1).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>tổ tiên</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 82); <xref ref="bib-nguyenhuudien-2019" /> (tr. 252); <xref ref="bib-hoangchithanh-2011" /> — cách dùng phổ biến.</p></li>
+        <li><p><term>đỉnh tổ tiên</term> <xref ref="bib-hoangchithanh-2011" />.</p></li>
+      </ul>
+      <p>Ví dụ: Xét cây có gốc với gốc <m>r</m> và đường đi duy nhất từ <m>r</m> đến đỉnh <m>v</m> là <m>r, a, b, v</m>. Khi đó <m>r</m>, <m>a</m> và <m>b</m> đều là tổ tiên của <m>v</m>, còn <m>v</m> không phải là tổ tiên của chính nó.</p>
+      <p>Xem thêm <xref ref="def-child" text="title" />, <xref ref="def-parent" text="title" />, <xref ref="def-root" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-and-gate">
+    <title>AND gate (d.t.) — cổng AND</title>
+    <idx><h>AND gate</h></idx>
+    <idx><h>cổng AND</h></idx>
+    <idx><h>cổng VÀ</h></idx>
+    <statement>
+      <p>Cổng AND là một phần tử logic nhận nhiều đầu vào và tạo ra một đầu ra duy nhất bằng tích Boole của các giá trị đầu vào. Với hai đầu vào <m>x</m> và <m>y</m>, đầu ra của cổng AND là <m>x \cdot y</m> (ký hiệu là <m>xy</m>), nên đầu ra bằng <m>1</m> khi và chỉ khi mọi đầu vào đều bằng <m>1</m>, ngược lại bằng <m>0</m> (theo <xref ref="bib-rosen-2019" />, Rosen §12.3).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>cổng AND</term> <xref ref="bib-doducgiao-2000" /> (tr. 437); <xref ref="bib-nguyenhuuanh-2007" />; <xref ref="bib-vudinhhoa-2010" /> — cách dùng phổ biến.</p></li>
+        <li><p><term>cổng VÀ</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 14); <xref ref="bib-nguyenhuudien-2019" /> (tr. 61); <xref ref="bib-sierpinski-2012" /> (tr. 18); <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 5).</p></li>
+      </ul>
+      <p>Ví dụ: Một cổng AND với hai đầu vào <m>x</m> và <m>y</m> cho đầu ra <m>xy</m>: nếu <m>x = 1</m> và <m>y = 1</m> thì đầu ra bằng <m>1</m>, còn nếu <m>x = 1</m> và <m>y = 0</m> thì đầu ra bằng <m>0</m>. Cổng AND <m>n</m> đầu vào <m>x_1, x_2, \ldots, x_n</m> cho đầu ra <m>x_1 x_2 \cdots x_n</m>.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-antichain">
+    <title>antichain (d.t.) — phản xích</title>
+    <idx><h>antichain</h></idx>
+    <idx><h>phản xích</h></idx>
+    <statement>
+      <p>Phản xích của một tập sắp thứ tự bộ phận <m>X</m> là một tập con <m>A \subseteq X</m> sao cho hai phần tử khác nhau bất kỳ của <m>A</m> đều không so sánh được với nhau (theo <xref ref="bib-rosen-2019" />, Rosen §9.6).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>phản xích</term> <xref ref="bib-ngodactan-2004" /> (tr. 274); <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 16) — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Cho <m>X = \{2, 3, 4, 9\}</m> sắp thứ tự theo quan hệ chia hết. Khi đó <m>A = \{2, 3\}</m> là một phản xích của <m>X</m> vì <m>2</m> và <m>3</m> không so sánh được với nhau, trong khi <m>\{2, 4\}</m> không phải là phản xích vì <m>2 \mid 4</m>.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-antisymmetric">
+    <title>antisymmetric (t.t.) — phản đối xứng</title>
+    <idx><h>antisymmetric</h></idx>
+    <idx><h>phản đối xứng</h></idx>
+    <statement><p>Xem <xref ref="def-antisymmetric-relation" text="title" />.</p></statement>
   </definition>
   <definition xml:id="def-antisymmetric-relation">
     <title>antisymmetric relation (d.t.) — phản xứng</title>
@@ -110,6 +259,30 @@
     <idx><h>cạnh có hướng</h></idx>
     <statement><p>Xem <xref ref="def-directed-edge" text="title" />.</p></statement>
   </definition>
+  <definition xml:id="def-argument">
+    <title>argument (d.t.) — lập luận</title>
+    <idx><h>argument</h></idx>
+    <idx><h>lập luận</h></idx>
+    <statement><p>Xem <xref ref="def-logical-argument" text="title" />.</p></statement>
+  </definition>
+  <definition xml:id="def-argument-form">
+    <title>argument form (d.t.) — dạng suy luận</title>
+    <idx><h>argument form</h></idx>
+    <idx><h>dạng của suy luận</h></idx>
+    <idx><h>dạng suy luận</h></idx>
+    <idx><h>suy luận</h></idx>
+    <statement>
+      <p>Một dạng suy luận trong logic mệnh đề là một dãy các mệnh đề phức hợp chứa các biến mệnh đề. Một dạng suy luận là hợp lệ (đúng đắn) nếu cứ mỗi lần thay các biến mệnh đề trong dãy bằng những mệnh đề cụ thể mà tất cả các tiền đề trở thành đúng thì kết luận cũng trở thành đúng (theo <xref ref="bib-rosen-2019" />, Rosen §1.6).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>dạng suy luận</term> <xref ref="bib-nguyenvanmau-2007" />; <xref ref="bib-doducgiao-2008" /> (tr. 87) — cách dùng phổ biến.</p></li>
+        <li><p><term>dạng của suy luận</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
+        <li><p><term>suy luận</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 28); <xref ref="bib-doducthai-2010" /> (tr. 93); <xref ref="bib-vudinhhoa-2010" />; <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 237).</p></li>
+      </ul>
+      <p>Ví dụ: Dãy <m>p \to q</m>, <m>p</m>, do đó <m>q</m> là một dạng suy luận với các biến mệnh đề <m>p</m> và <m>q</m>. Thay <m>p</m> và <m>q</m> bằng các mệnh đề cụ thể bất kỳ, ta thu được một lập luận cụ thể; vì <m>((p \to q) \wedge p) \to q</m> là một hằng đúng nên đây là một dạng suy luận hợp lệ.</p>
+      <p>Xem thêm <xref ref="def-logical-argument" text="title" />, <xref ref="def-valid-argument" text="title" />, <xref ref="def-inference-rule" text="title" />, <xref ref="def-compound-proposition" text="title" />.</p>
+    </statement>
+  </definition>
   <definition xml:id="def-arithmetic-progression">
     <title>arithmetic progression (d.t.) — cấp số cộng</title>
     <idx><h>arithmetic progression</h></idx>
@@ -123,6 +296,23 @@
       <p>Ví dụ: Dãy <m>3, 7, 11, 15, \ldots</m> là một cấp số cộng với số hạng đầu <m>a = 3</m> và công sai <m>d = 4</m>; số hạng tổng quát của nó là <m>3 + 4n</m>.</p>
     </statement>
   </definition>
+  <definition xml:id="def-arithmetic-series">
+    <title>arithmetic series (d.t.) — chuỗi cấp số cộng</title>
+    <idx><h>arithmetic series</h></idx>
+    <idx><h>chuỗi cấp số cộng</h></idx>
+    <idx><h>chuỗi số học</h></idx>
+    <idx><h>tổng cấp số cộng</h></idx>
+    <statement>
+      <p>Một <em>chuỗi cấp số cộng</em> là tổng các số hạng liên tiếp của một cấp số cộng, tức một dãy mà hiệu giữa hai số hạng kề nhau là một hằng số <m>d</m>. Tổng của <m>n</m> số hạng đầu, bắt đầu từ <m>a</m>, bằng <m>\displaystyle\sum_{i=0}^{n-1}(a+i d)=\frac{n\bigl(2a+(n-1)d\bigr)}{2}.</m> (theo <xref ref="bib-libennowell-2022" />).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>chuỗi cấp số cộng</term> <xref ref="bib-cormen-2001-vi" /> — cách dùng phổ biến.</p></li>
+        <li><p><term>chuỗi số học</term> <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 381).</p></li>
+        <li><p><term>tổng cấp số cộng</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
+      </ul>
+      <p>Ví dụ: Tổng <m>1+2+3+\cdots+n</m> là một chuỗi cấp số cộng với <m>a=1,d=1</m>, bằng <m>\displaystyle\frac{n(n+1)}{2}.</m></p>
+    </statement>
+  </definition>
   <definition xml:id="def-articulation-point">
     <title>articulation point (d.t.) — điểm khớp, đỉnh cắt, đỉnh khớp, đỉnh rẽ nhánh</title>
     <idx><h>articulation point</h></idx>
@@ -131,187 +321,6 @@
     <idx><h>đỉnh khớp</h></idx>
     <idx><h>đỉnh rẽ nhánh</h></idx>
     <statement><p>Xem <xref ref="def-cut-vertex" text="title" />.</p></statement>
-  </definition>
-  <definition xml:id="def-automorphism">
-    <title>automorphism (d.t.) — tự đẳng cấu</title>
-    <idx><h>automorphism</h></idx>
-    <idx><h>phép tự đẳng cấu</h></idx>
-    <idx><h>tự đẳng cấu</h></idx>
-    <statement>
-      <p>Một <em>tự đẳng cấu</em> của đồ thị <m>G</m> là một đẳng cấu từ <m>G</m> vào chính nó, tức là một hoán vị <m>\sigma</m> của tập đỉnh <m>V(G)</m> sao cho <m>uv \in E(G)</m> khi và chỉ khi <m>\sigma(u)\sigma(v) \in E(G)</m>. Tập tất cả các tự đẳng cấu của <m>G</m>, ký hiệu <m>\mathrm{Aut}(G)</m>, lập thành một nhóm đối với phép hợp thành ánh xạ (theo <xref ref="bib-rosen-2019" />, Rosen §10.3).</p>
-      <p>Thuật ngữ tiếng Việt tương ứng:</p>
-      <ul>
-        <li><p><term>tự đẳng cấu</term> <xref ref="bib-leanhvinh-2020" /> (tr. 38); <xref ref="bib-ngodactan-2004" /> (tr. 140); <xref ref="bib-doxuanloi-2006" /> (tr. 23); <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 16) — cách dùng phổ biến.</p></li>
-        <li><p><term>phép tự đẳng cấu</term> <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 23).</p></li>
-      </ul>
-      <p>Ví dụ: Ánh xạ đồng nhất trên <m>V(G)</m> là một tự đẳng cấu của mọi đồ thị <m>G</m>. Đồ thị đầy đủ <m>K_n</m> có <m>n!</m> tự đẳng cấu, vì mọi hoán vị của tập đỉnh đều bảo toàn quan hệ kề.</p>
-      <p>Xem thêm <xref ref="def-isomorphism" text="title" />.</p>
-    </statement>
-  </definition>
-  <definition xml:id="def-addition-rule">
-    <title>addition rule (d.t.) — nguyên lý cộng, quy tắc cộng</title>
-    <idx><h>addition rule</h></idx>
-    <idx><h>nguyên lý cộng</h></idx>
-    <idx><h>quy tắc cộng</h></idx>
-    <statement><p>Xem <xref ref="def-the-sum-rule" text="title" />.</p></statement>
-  </definition>
-  <definition xml:id="def-average-degree">
-    <title>average degree (d.t.) — bậc trung bình</title>
-    <idx><h>average degree</h></idx>
-    <idx><h>bậc trung bình</h></idx>
-    <idx><h>bậc trung bình của đồ thị</h></idx>
-    <statement>
-      <p>Bậc trung bình của một đồ thị <m>G</m> với tập đỉnh <m>V(G)</m> và tập cạnh <m>E(G)</m> là trung bình cộng bậc của tất cả các đỉnh, ký hiệu <m>\bar{d}(G)</m> và bằng <m>\displaystyle \bar{d}(G) = \frac{2|E(G)|}{|V(G)|}</m> (theo <xref ref="bib-rosen-2019" />, Rosen §10.2).</p>
-      <p>Thuật ngữ tiếng Việt tương ứng:</p>
-      <ul>
-        <li><p><term>bậc trung bình</term> <xref ref="bib-leanhvinh-2020" /> (tr. 154) — cách dùng phổ biến.</p></li>
-        <li><p><term>bậc trung bình của đồ thị</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
-      </ul>
-      <p>Ví dụ: Xét đồ thị <m>G</m> có <m>|V(G)| = 4</m> đỉnh và <m>|E(G)| = 5</m> cạnh. Khi đó bậc trung bình của <m>G</m> là <m>\displaystyle \bar{d}(G) = \frac{2 \cdot 5}{4} = \frac{5}{2}</m>.</p>
-    </statement>
-  </definition>
-  <definition xml:id="def-ancestor">
-    <title>ancestor (d.t.) — tổ tiên</title>
-    <idx><h>ancestor</h></idx>
-    <idx><h>tổ tiên</h></idx>
-    <idx><h>đỉnh tổ tiên</h></idx>
-    <statement>
-      <p>Trong một cây có gốc, đỉnh <m>u</m> được gọi là tổ tiên của đỉnh <m>v</m> nếu <m>u</m> nằm trên đường đi duy nhất từ gốc đến <m>v</m> và <m>u \neq v</m> (theo <xref ref="bib-rosen-2019" />, Rosen §11.1).</p>
-      <p>Thuật ngữ tiếng Việt tương ứng:</p>
-      <ul>
-        <li><p><term>tổ tiên</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 82); <xref ref="bib-nguyenhuudien-2019" /> (tr. 252); <xref ref="bib-hoangchithanh-2011" /> — cách dùng phổ biến.</p></li>
-        <li><p><term>đỉnh tổ tiên</term> <xref ref="bib-hoangchithanh-2011" />.</p></li>
-      </ul>
-      <p>Ví dụ: Xét cây có gốc với gốc <m>r</m> và đường đi duy nhất từ <m>r</m> đến đỉnh <m>v</m> là <m>r, a, b, v</m>. Khi đó <m>r</m>, <m>a</m> và <m>b</m> đều là tổ tiên của <m>v</m>, còn <m>v</m> không phải là tổ tiên của chính nó.</p>
-      <p>Xem thêm <xref ref="def-child" text="title" />, <xref ref="def-parent" text="title" />, <xref ref="def-root" text="title" />.</p>
-    </statement>
-  </definition>
-  <definition xml:id="def-antichain">
-    <title>antichain (d.t.) — phản xích</title>
-    <idx><h>antichain</h></idx>
-    <idx><h>phản xích</h></idx>
-    <statement>
-      <p>Phản xích của một tập sắp thứ tự bộ phận <m>X</m> là một tập con <m>A \subseteq X</m> sao cho hai phần tử khác nhau bất kỳ của <m>A</m> đều không so sánh được với nhau (theo <xref ref="bib-rosen-2019" />, Rosen §9.6).</p>
-      <p>Thuật ngữ tiếng Việt tương ứng:</p>
-      <ul>
-        <li><p><term>phản xích</term> <xref ref="bib-ngodactan-2004" /> (tr. 274); <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 16) — cách dùng phổ biến.</p></li>
-      </ul>
-      <p>Ví dụ: Cho <m>X = \{2, 3, 4, 9\}</m> sắp thứ tự theo quan hệ chia hết. Khi đó <m>A = \{2, 3\}</m> là một phản xích của <m>X</m> vì <m>2</m> và <m>3</m> không so sánh được với nhau, trong khi <m>\{2, 4\}</m> không phải là phản xích vì <m>2 \mid 4</m>.</p>
-    </statement>
-  </definition>
-  <definition xml:id="def-asymptotic-notation">
-    <title>asymptotic notation (d.t.) — ký hiệu tiệm cận</title>
-    <idx><h>asymptotic notation</h></idx>
-    <idx><h>big-O</h></idx>
-    <idx><h>ký hiệu tiệm cận</h></idx>
-    <idx><h>ký pháp tiệm cận</h></idx>
-    <idx><h>quan hệ big-O</h></idx>
-    <idx><h>đánh giá big-O</h></idx>
-    <statement>
-      <p>Các ký hiệu tiệm cận gồm ký hiệu ô lớn <m>O</m>, ký hiệu Ômêga <m>\Omega</m> và ký hiệu têta <m>\Theta</m>, dùng để mô tả tốc độ tăng của một hàm <m>f(x)</m> so với một hàm tham chiếu <m>g(x)</m> khi <m>x \to \infty</m>. Ký hiệu <m>f(x) = O(g(x))</m> chỉ ra rằng <m>f</m> tăng không nhanh hơn một bội hằng số của <m>g</m>, <m>f(x) = \Omega(g(x))</m> chỉ ra rằng <m>f</m> tăng không chậm hơn một bội hằng số của <m>g</m>, và <m>f(x) = \Theta(g(x))</m> chỉ ra rằng <m>f</m> và <m>g</m> có cùng tốc độ tăng (theo <xref ref="bib-rosen-2019" />, Rosen §3.2).</p>
-      <p>Thuật ngữ tiếng Việt tương ứng:</p>
-      <ul>
-        <li><p><term>ký hiệu tiệm cận</term> <xref ref="bib-cormen-2001-vi" /> (tr. 7) — cách dùng phổ biến.</p></li>
-        <li><p><term>big-O</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 138); <xref ref="bib-rosen-2003-vi" /> (tr. 108).</p></li>
-        <li><p><term>ký pháp tiệm cận</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
-        <li><p><term>quan hệ big-O</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 138).</p></li>
-        <li><p><term>đánh giá big-O</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 150); <xref ref="bib-rosen-2003-vi" /> (tr. 113).</p></li>
-      </ul>
-      <p>Ví dụ: Với <m>f(x) = 3x^2 + 2x + 1</m> và <m>g(x) = x^2</m>, ta có <m>f(x) = \Theta(g(x))</m>, vì tồn tại các hằng số dương <m>c_1</m>, <m>c_2</m> và <m>k</m> sao cho <m>c_1 g(x) \leq f(x) \leq c_2 g(x)</m> với mọi <m>x \geq k</m>.</p>
-    </statement>
-  </definition>
-  <definition xml:id="def-absolute-value">
-    <title>absolute value (d.t.) — giá trị tuyệt đối</title>
-    <idx><h>absolute value</h></idx>
-    <idx><h>giá trị tuyệt đối</h></idx>
-    <idx><h>trị tuyệt đối</h></idx>
-    <statement>
-      <p>Giá trị tuyệt đối của một số thực <m>x</m>, ký hiệu <m>|x|</m>, được định nghĩa bằng <m>x</m> nếu <m>x \geq 0</m> và bằng <m>-x</m> nếu <m>x  \lt  0</m>. Như vậy <m>|x|</m> luôn là một số không âm và biểu thị khoảng cách từ <m>x</m> đến <m>0</m> trên trục số (theo <xref ref="bib-rosen-2019" />, Rosen §2.3).</p>
-      <p>Thuật ngữ tiếng Việt tương ứng:</p>
-      <ul>
-        <li><p><term>giá trị tuyệt đối</term> <xref ref="bib-sierpinski-2012" /> (tr. 3); <xref ref="bib-cormen-2001-vi" /> (tr. 647); <xref ref="bib-doducthai-2010" /> (tr. 98); <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 292) — cách dùng phổ biến.</p></li>
-        <li><p><term>trị tuyệt đối</term> <xref ref="bib-leanhvinh-2020" /> (tr. 246); <xref ref="bib-doducthai-2010" /> (tr. 98); <xref ref="bib-sierpinski-2012" /> (tr. 3); <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 292).</p></li>
-      </ul>
-      <p>Ví dụ: Ta có <m>|5| = 5</m>, <m>|-7| = 7</m> và <m>|0| = 0</m>. Với mọi số thực <m>x</m> và <m>y</m> luôn có bất đẳng thức tam giác <m>|x + y| \leq |x| + |y|</m>.</p>
-    </statement>
-  </definition>
-  <definition xml:id="def-adjacency-list">
-    <title>adjacency list (d.t.) — danh sách kề</title>
-    <idx><h>adjacency list</h></idx>
-    <idx><h>danh sách kế cận</h></idx>
-    <idx><h>danh sách kề</h></idx>
-    <idx><h>danh sách liền kề</h></idx>
-    <statement>
-      <p>Danh sách kề của một đồ thị <m>G</m> là cách biểu diễn đồ thị bằng cách, với mỗi đỉnh <m>v \in V(G)</m>, liệt kê tất cả các đỉnh kề với <m>v</m> (ký hiệu danh sách này là <m>\mathrm{Ke}(v)</m>). Toàn bộ đồ thị được biểu diễn bởi một mảng gồm các danh sách kề của mọi đỉnh (theo <xref ref="bib-rosen-2019" />, Rosen §10.3).</p>
-      <p>Thuật ngữ tiếng Việt tương ứng:</p>
-      <ul>
-        <li><p><term>danh sách kề</term> <xref ref="bib-hoangchithanh-2007" /> (tr. 10); <xref ref="bib-nguyenhoangthach-2020" /> (tr. 63); <xref ref="bib-nguyenhuudien-2019" /> (tr. 176) — cách dùng phổ biến.</p></li>
-        <li><p><term>danh sách kế cận</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
-        <li><p><term>danh sách liền kề</term> <xref ref="bib-rosen-2003-vi" /> (tr. 520).</p></li>
-      </ul>
-      <p>Ví dụ: Với đồ thị đơn <m>G</m> có tập đỉnh <m>\{a, b, c, d\}</m> và các cạnh <m>ab, ac, bd, cd</m>, danh sách kề là <m>\mathrm{Ke}(a) = \{b, c\}</m>, <m>\mathrm{Ke}(b) = \{a, d\}</m>, <m>\mathrm{Ke}(c) = \{a, d\}</m>, <m>\mathrm{Ke}(d) = \{b, c\}</m>.</p>
-    </statement>
-  </definition>
-  <definition xml:id="def-adjacent">
-    <title>adjacent (t.t.) — liền kề</title>
-    <idx><h>adjacent</h></idx>
-    <idx><h>kề nhau</h></idx>
-    <idx><h>liền kề</h></idx>
-    <statement>
-      <p>Hai đỉnh <m>u</m> và <m>v</m> của một đồ thị vô hướng <m>G = (V, E)</m> được gọi là liền kề (hay kề nhau) nếu <m>\{u, v\}</m> là một cạnh của <m>G</m>; khi đó cạnh <m>\{u, v\}</m> được gọi là liên thuộc với hai đỉnh <m>u</m> và <m>v</m> (theo <xref ref="bib-rosen-2019" />, Rosen §10.2).</p>
-      <p>Thuật ngữ tiếng Việt tương ứng:</p>
-      <ul>
-        <li><p><term>liền kề</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 157); <xref ref="bib-leanhvinh-2020" /> (tr. 7); <xref ref="bib-nguyenhoangthach-2020" /> (tr. 42) — cách dùng phổ biến.</p></li>
-        <li><p><term>kề nhau</term> <xref ref="bib-leanhvinh-2020" /> (tr. 10); <xref ref="bib-nguyenhoangthach-2020" /> (tr. 61); <xref ref="bib-nguyenhuudien-2019" /> (tr. 160).</p></li>
-      </ul>
-      <p>Ví dụ: Trong đồ thị đầy đủ <m>K_n</m>, hai đỉnh bất kỳ luôn liền kề, vì vậy mỗi đỉnh có bậc <m>n - 1</m>.</p>
-      <p>Xem thêm <xref ref="def-adjacent-vertices" text="title" />, <xref ref="def-adjacency-matrix" text="title" />, <xref ref="def-adjacency-list" text="title" />.</p>
-    </statement>
-  </definition>
-  <definition xml:id="def-algorithm-analysis">
-    <title>algorithm analysis (d.t.) — phân tích thuật toán</title>
-    <idx><h>algorithm analysis</h></idx>
-    <idx><h>phân tích các thuật toán</h></idx>
-    <idx><h>phân tích thuật toán</h></idx>
-    <statement>
-      <p>Phân tích thuật toán là quá trình đánh giá lượng tài nguyên mà một thuật toán cần dùng, chủ yếu là thời gian chạy và bộ nhớ, theo kích thước <m>n</m> của dữ liệu vào. Độ phức tạp thời gian thường được biểu diễn qua số phép toán cơ bản và mô tả bằng ký hiệu tiệm cận <m>O(f(n))</m> cho cỡ lớn của <m>f(n)</m> (theo <xref ref="bib-rosen-2019" />, Rosen §3.3).</p>
-      <p>Thuật ngữ tiếng Việt tương ứng:</p>
-      <ul>
-        <li><p><term>phân tích thuật toán</term> <xref ref="bib-nguyenducnghia-2006" />; <xref ref="bib-nguyenhuuanh-2007" />; <xref ref="bib-vudinhhoa-2010" /> — cách dùng phổ biến.</p></li>
-        <li><p><term>phân tích các thuật toán</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 138); <xref ref="bib-rosen-2003-vi" /> (tr. 5); <xref ref="bib-cormen-2001-vi" /> (tr. 7).</p></li>
-      </ul>
-      <p>Ví dụ: Thuật toán tìm kiếm tuyến tính trên một dãy có <m>n</m> phần tử thực hiện trong trường hợp xấu nhất khoảng <m>n</m> phép so sánh, nên có độ phức tạp thời gian <m>O(n)</m>. Trong khi đó thuật toán tìm kiếm nhị phân trên dãy đã sắp xếp chỉ cần <m>O(\log n)</m> phép so sánh.</p>
-    </statement>
-  </definition>
-  <definition xml:id="def-alphabetical-order">
-    <title>alphabetical order (d.t.) — thứ tự bảng chữ cái</title>
-    <idx><h>alphabetical order</h></idx>
-    <idx><h>thứ tự bảng chữ cái</h></idx>
-    <idx><h>thứ tự từ điển</h></idx>
-    <statement>
-      <p>Thứ tự bảng chữ cái là cách sắp xếp các từ hoặc các xâu ký tự dựa trên thứ tự của các chữ cái trong bảng chữ cái: so sánh hai xâu theo từng vị trí từ trái sang phải, và xâu nào có chữ cái đứng trước trong bảng chữ cái tại vị trí khác nhau đầu tiên thì đứng trước. Đây là trường hợp riêng của thứ tự từ điển khi tập nền là bảng chữ cái với thứ tự <m>a \leq b \leq \cdots \leq z</m> (theo <xref ref="bib-rosen-2019" />, Rosen §10.2).</p>
-      <p>Thuật ngữ tiếng Việt tương ứng:</p>
-      <ul>
-        <li><p><term>thứ tự bảng chữ cái</term> <xref ref="bib-rosen-2003-vi" /> (tr. 136); <xref ref="bib-cormen-2001-vi" /> (tr. 228) — cách dùng phổ biến.</p></li>
-        <li><p><term>thứ tự từ điển</term> <xref ref="bib-doducgiao-2009" /> (tr. 209); <xref ref="bib-nguyenhuudien-2019" /> (tr. 95); <xref ref="bib-vudinhhoa-2010" />; <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 313).</p></li>
-      </ul>
-      <p>Ví dụ: Với ba từ <m>discreet</m>, <m>discrete</m> và <m>discreetness</m>, thứ tự bảng chữ cái sắp xếp chúng thành <m>discreet \leq discreetness \leq discrete</m>, vì tại vị trí khác nhau đầu tiên ta có <m>e</m> đứng trước <m>t</m>, còn <m>discreet</m> là tiền tố của <m>discreetness</m>.</p>
-    </statement>
-  </definition>
-  <definition xml:id="def-and-gate">
-    <title>AND gate (d.t.) — cổng AND</title>
-    <idx><h>AND gate</h></idx>
-    <idx><h>cổng AND</h></idx>
-    <idx><h>cổng VÀ</h></idx>
-    <statement>
-      <p>Cổng AND là một phần tử logic nhận nhiều đầu vào và tạo ra một đầu ra duy nhất bằng tích Boole của các giá trị đầu vào. Với hai đầu vào <m>x</m> và <m>y</m>, đầu ra của cổng AND là <m>x \cdot y</m> (ký hiệu là <m>xy</m>), nên đầu ra bằng <m>1</m> khi và chỉ khi mọi đầu vào đều bằng <m>1</m>, ngược lại bằng <m>0</m> (theo <xref ref="bib-rosen-2019" />, Rosen §12.3).</p>
-      <p>Thuật ngữ tiếng Việt tương ứng:</p>
-      <ul>
-        <li><p><term>cổng AND</term> <xref ref="bib-doducgiao-2000" /> (tr. 437); <xref ref="bib-nguyenhuuanh-2007" />; <xref ref="bib-vudinhhoa-2010" /> — cách dùng phổ biến.</p></li>
-        <li><p><term>cổng VÀ</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 14); <xref ref="bib-nguyenhuudien-2019" /> (tr. 61); <xref ref="bib-sierpinski-2012" /> (tr. 18); <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 5).</p></li>
-      </ul>
-      <p>Ví dụ: Một cổng AND với hai đầu vào <m>x</m> và <m>y</m> cho đầu ra <m>xy</m>: nếu <m>x = 1</m> và <m>y = 1</m> thì đầu ra bằng <m>1</m>, còn nếu <m>x = 1</m> và <m>y = 0</m> thì đầu ra bằng <m>0</m>. Cổng AND <m>n</m> đầu vào <m>x_1, x_2, \ldots, x_n</m> cho đầu ra <m>x_1 x_2 \cdots x_n</m>.</p>
-    </statement>
   </definition>
   <definition xml:id="def-assignment">
     <title>assignment (d.t.) — phép gán</title>
@@ -347,6 +356,50 @@
       <p>Ví dụ: Với hệ thức truy hồi không thuần nhất <m>a_n = 3a_{n-1} + 2n</m>, hệ thức truy hồi thuần nhất tương ứng là <m>a_n = 3a_{n-1}</m>, có nghiệm tổng quát dạng <m>a_n = \alpha \cdot 3^n</m>.</p>
     </statement>
   </definition>
+  <definition xml:id="def-association-rule">
+    <title>association rule (d.t.) — luật kết hợp</title>
+    <idx><h>association rule</h></idx>
+    <idx><h>luật kết hợp</h></idx>
+    <statement>
+      <p>Một luật kết hợp là một kéo theo có dạng <m>I \to J</m> liên hệ hai tập mục <m>I</m> và <m>J</m>. Ở đây <m>I</m> và <m>J</m> là các tập con của một tập các mục cho trước, và luật biểu thị rằng các giao dịch chứa tập mục <m>I</m> có xu hướng chứa cả tập mục <m>J</m>.</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>luật kết hợp</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 21); <xref ref="bib-nguyenhuuanh-2007" />; <xref ref="bib-vudinhhoa-2010" />; <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 257) — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Trong phân tích giỏ hàng, nếu <m>I = \{\text{bánh mì}, \text{bơ}\}</m> và <m>J = \{\text{sữa}\}</m> thì luật kết hợp <m>I \to J</m> nói rằng các khách hàng mua cả bánh mì và bơ thường mua thêm sữa.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-asymmetry">
+    <title>asymmetry (d.t.) — tính bất đối xứng</title>
+    <idx><h>asymmetry</h></idx>
+    <idx><h>tính bất đối xứng</h></idx>
+    <idx><h>tính phi đối xứng</h></idx>
+    <statement>
+      <p><em>Tính bất đối xứng</em> là một tính chất của quan hệ hai ngôi <m>R</m> trên một tập <m>A</m>: với mọi <m>a,b\in A</m>, nếu <m>aRb</m> thì không có <m>bRa</m>. Một quan hệ bất đối xứng vừa không phản xạ (không phần tử nào quan hệ với chính nó) vừa phản đối xứng (theo <xref ref="bib-libennowell-2022" />).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>tính bất đối xứng</term> <em>(thuật ngữ chuẩn; chưa truy được trong kho văn bản)</em> — cách dùng phổ biến.</p></li>
+        <li><p><term>tính phi đối xứng</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
+      </ul>
+      <p>Ví dụ: Quan hệ <em>nhỏ hơn</em> <m> \lt </m> trên tập số nguyên là bất đối xứng, vì <m>a \lt b</m> kéo theo không có <m>b \lt a</m>.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-asymptotic-analysis">
+    <title>asymptotic analysis (d.t.) — phân tích tiệm cận</title>
+    <idx><h>asymptotic analysis</h></idx>
+    <idx><h>phân tích tiệm cận</h></idx>
+    <idx><h>phân tích tiệm tiến</h></idx>
+    <statement>
+      <p><em>Phân tích tiệm cận</em> là việc khảo sát tốc độ tăng của một hàm số (thường là thời gian chạy hoặc bộ nhớ của thuật toán) khi kích thước đầu vào tiến tới vô cực, bỏ qua các hằng số và các số hạng bậc thấp. Hành vi tiệm cận được mô tả bằng các ký hiệu như <m>O(\cdot)</m>, <m>\Omega(\cdot)</m> và <m>\Theta(\cdot)</m> (theo <xref ref="bib-libennowell-2022" />).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>phân tích tiệm cận</term> <xref ref="bib-cormen-2001-vi" /> — cách dùng phổ biến.</p></li>
+        <li><p><term>phân tích tiệm tiến</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
+      </ul>
+      <p>Ví dụ: Thuật toán có thời gian chạy <m>3n^2+5n+7</m> được mô tả tiệm cận là <m>\Theta(n^2)</m>.</p>
+      <p>Xem thêm <xref ref="def-average-case-analysis" text="title" />, <xref ref="def-best-case-analysis" text="title" />.</p>
+    </statement>
+  </definition>
   <definition xml:id="def-asymptotic-estimate">
     <title>asymptotic estimate (d.t.) — đánh giá tiệm cận</title>
     <idx><h>asymptotic estimate</h></idx>
@@ -364,6 +417,27 @@
       <p>Ví dụ: Đa thức <m>f(n) = 3n^2 + 5n + 1</m> có đánh giá tiệm cận <m>f(n) = O(n^2)</m>, vì với <m>n \geq 1</m> ta có <m>3n^2 + 5n + 1 \leq 9n^2</m>, nên có thể chọn <m>C = 9</m> và <m>k = 1</m>.</p>
     </statement>
   </definition>
+  <definition xml:id="def-asymptotic-notation">
+    <title>asymptotic notation (d.t.) — ký hiệu tiệm cận</title>
+    <idx><h>asymptotic notation</h></idx>
+    <idx><h>big-O</h></idx>
+    <idx><h>ký hiệu tiệm cận</h></idx>
+    <idx><h>ký pháp tiệm cận</h></idx>
+    <idx><h>quan hệ big-O</h></idx>
+    <idx><h>đánh giá big-O</h></idx>
+    <statement>
+      <p>Các ký hiệu tiệm cận gồm ký hiệu ô lớn <m>O</m>, ký hiệu Ômêga <m>\Omega</m> và ký hiệu têta <m>\Theta</m>, dùng để mô tả tốc độ tăng của một hàm <m>f(x)</m> so với một hàm tham chiếu <m>g(x)</m> khi <m>x \to \infty</m>. Ký hiệu <m>f(x) = O(g(x))</m> chỉ ra rằng <m>f</m> tăng không nhanh hơn một bội hằng số của <m>g</m>, <m>f(x) = \Omega(g(x))</m> chỉ ra rằng <m>f</m> tăng không chậm hơn một bội hằng số của <m>g</m>, và <m>f(x) = \Theta(g(x))</m> chỉ ra rằng <m>f</m> và <m>g</m> có cùng tốc độ tăng (theo <xref ref="bib-rosen-2019" />, Rosen §3.2).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>ký hiệu tiệm cận</term> <xref ref="bib-cormen-2001-vi" /> (tr. 7) — cách dùng phổ biến.</p></li>
+        <li><p><term>big-O</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 138); <xref ref="bib-rosen-2003-vi" /> (tr. 108).</p></li>
+        <li><p><term>ký pháp tiệm cận</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
+        <li><p><term>quan hệ big-O</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 138).</p></li>
+        <li><p><term>đánh giá big-O</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 150); <xref ref="bib-rosen-2003-vi" /> (tr. 113).</p></li>
+      </ul>
+      <p>Ví dụ: Với <m>f(x) = 3x^2 + 2x + 1</m> và <m>g(x) = x^2</m>, ta có <m>f(x) = \Theta(g(x))</m>, vì tồn tại các hằng số dương <m>c_1</m>, <m>c_2</m> và <m>k</m> sao cho <m>c_1 g(x) \leq f(x) \leq c_2 g(x)</m> với mọi <m>x \geq k</m>.</p>
+    </statement>
+  </definition>
   <definition xml:id="def-atomic-proposition">
     <title>atomic proposition (d.t.) — mệnh đề nguyên tử</title>
     <idx><h>atomic proposition</h></idx>
@@ -377,6 +451,53 @@
         <li><p><term>mệnh đề sơ cấp</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 15); <xref ref="bib-doducgiao-2009" /> (tr. 274); <xref ref="bib-doducgiao-2008" /> (tr. 78).</p></li>
       </ul>
       <p>Ví dụ: Mệnh đề <m>p</m>: "Hà Nội là thủ đô của Việt Nam" là một mệnh đề nguyên tử. Trái lại, mệnh đề <m>p \wedge q</m> là một mệnh đề phức hợp vì nó được tạo thành từ hai mệnh đề nguyên tử <m>p</m> và <m>q</m>.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-automorphism">
+    <title>automorphism (d.t.) — tự đẳng cấu</title>
+    <idx><h>automorphism</h></idx>
+    <idx><h>phép tự đẳng cấu</h></idx>
+    <idx><h>tự đẳng cấu</h></idx>
+    <statement>
+      <p>Một <em>tự đẳng cấu</em> của đồ thị <m>G</m> là một đẳng cấu từ <m>G</m> vào chính nó, tức là một hoán vị <m>\sigma</m> của tập đỉnh <m>V(G)</m> sao cho <m>uv \in E(G)</m> khi và chỉ khi <m>\sigma(u)\sigma(v) \in E(G)</m>. Tập tất cả các tự đẳng cấu của <m>G</m>, ký hiệu <m>\mathrm{Aut}(G)</m>, lập thành một nhóm đối với phép hợp thành ánh xạ (theo <xref ref="bib-rosen-2019" />, Rosen §10.3).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>tự đẳng cấu</term> <xref ref="bib-leanhvinh-2020" /> (tr. 38); <xref ref="bib-ngodactan-2004" /> (tr. 140); <xref ref="bib-doxuanloi-2006" /> (tr. 23); <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 16) — cách dùng phổ biến.</p></li>
+        <li><p><term>phép tự đẳng cấu</term> <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 23).</p></li>
+      </ul>
+      <p>Ví dụ: Ánh xạ đồng nhất trên <m>V(G)</m> là một tự đẳng cấu của mọi đồ thị <m>G</m>. Đồ thị đầy đủ <m>K_n</m> có <m>n!</m> tự đẳng cấu, vì mọi hoán vị của tập đỉnh đều bảo toàn quan hệ kề.</p>
+      <p>Xem thêm <xref ref="def-isomorphism" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-average-degree">
+    <title>average degree (d.t.) — bậc trung bình</title>
+    <idx><h>average degree</h></idx>
+    <idx><h>bậc trung bình</h></idx>
+    <idx><h>bậc trung bình của đồ thị</h></idx>
+    <statement>
+      <p>Bậc trung bình của một đồ thị <m>G</m> với tập đỉnh <m>V(G)</m> và tập cạnh <m>E(G)</m> là trung bình cộng bậc của tất cả các đỉnh, ký hiệu <m>\bar{d}(G)</m> và bằng <m>\displaystyle \bar{d}(G) = \frac{2|E(G)|}{|V(G)|}</m> (theo <xref ref="bib-rosen-2019" />, Rosen §10.2).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>bậc trung bình</term> <xref ref="bib-leanhvinh-2020" /> (tr. 154) — cách dùng phổ biến.</p></li>
+        <li><p><term>bậc trung bình của đồ thị</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
+      </ul>
+      <p>Ví dụ: Xét đồ thị <m>G</m> có <m>|V(G)| = 4</m> đỉnh và <m>|E(G)| = 5</m> cạnh. Khi đó bậc trung bình của <m>G</m> là <m>\displaystyle \bar{d}(G) = \frac{2 \cdot 5}{4} = \frac{5}{2}</m>.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-average-case-analysis">
+    <title>average-case analysis (d.t.) — phân tích trường hợp trung bình</title>
+    <idx><h>average-case analysis</h></idx>
+    <idx><h>phân tích trung bình</h></idx>
+    <idx><h>phân tích trường hợp trung bình</h></idx>
+    <statement>
+      <p><em>Phân tích trường hợp trung bình</em> là việc ước lượng chi phí (thời gian chạy hoặc tài nguyên) kỳ vọng của một thuật toán, lấy trung bình trên tất cả các đầu vào có cùng kích thước theo một phân phối xác suất giả định cho các đầu vào (theo <xref ref="bib-libennowell-2022" />).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>phân tích trường hợp trung bình</term> <xref ref="bib-cormen-2001-vi" /> — cách dùng phổ biến.</p></li>
+        <li><p><term>phân tích trung bình</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
+      </ul>
+      <p>Ví dụ: Với phép tìm kiếm tuyến tính trên <m>n</m> phần tử, nếu phần tử cần tìm xuất hiện ở mỗi vị trí với xác suất như nhau thì số phép so sánh trung bình xấp xỉ <m>\displaystyle\frac{n+1}{2}.</m></p>
+      <p>Xem thêm <xref ref="def-best-case-analysis" text="title" />, <xref ref="def-asymptotic-analysis" text="title" />.</p>
     </statement>
   </definition>
   <definition xml:id="def-average-case-complexity">
@@ -411,63 +532,6 @@
         <li><p><term>tiên đề</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 28); <xref ref="bib-leanhvinh-2020" /> (tr. 224); <xref ref="bib-sierpinski-2012" />; <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 24) — cách dùng phổ biến.</p></li>
       </ul>
       <p>Ví dụ: Trong lý thuyết tập hợp, tiên đề được sắp tốt khẳng định rằng mọi tập con khác rỗng của tập số nguyên dương đều có phần tử nhỏ nhất; đây là tiên đề dùng để chứng minh tính đúng đắn của quy nạp toán học.</p>
-    </statement>
-  </definition>
-  <definition xml:id="def-alphabet">
-    <title>alphabet (d.t.) — bảng chữ cái</title>
-    <idx><h>alphabet</h></idx>
-    <idx><h>bảng chữ cái</h></idx>
-    <statement>
-      <p>Bảng chữ cái là một tập hợp chứa các phần tử được dùng để tạo thành các xâu ký tự. Một bảng chữ cái thường được ký hiệu là <m>\Sigma</m>, và mỗi xâu ký tự là một dãy hữu hạn các phần tử lấy từ <m>\Sigma</m> (theo <xref ref="bib-rosen-2019" />, Rosen §11.4).</p>
-      <p>Thuật ngữ tiếng Việt tương ứng:</p>
-      <ul>
-        <li><p><term>bảng chữ cái</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 91); <xref ref="bib-hoangchithanh-2011" />; <xref ref="bib-vudinhhoa-2010" />; <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 10) — cách dùng phổ biến.</p></li>
-      </ul>
-      <p>Ví dụ: Tập <m>\Sigma = \{0, 1\}</m> là bảng chữ cái nhị phân, dùng để tạo các xâu bit như <m>0110</m>; bảng chữ cái tiếng Anh gồm <m>26</m> chữ cái được dùng để tạo thành các từ.</p>
-      <p>Xem thêm <xref ref="def-string" text="title" />, <xref ref="def-word" text="title" />.</p>
-    </statement>
-  </definition>
-  <definition xml:id="def-antisymmetric">
-    <title>antisymmetric (t.t.) — phản đối xứng</title>
-    <idx><h>antisymmetric</h></idx>
-    <idx><h>phản đối xứng</h></idx>
-    <statement><p>Xem <xref ref="def-antisymmetric-relation" text="title" />.</p></statement>
-  </definition>
-  <definition xml:id="def-argument-form">
-    <title>argument form (d.t.) — dạng suy luận</title>
-    <idx><h>argument form</h></idx>
-    <idx><h>dạng của suy luận</h></idx>
-    <idx><h>dạng suy luận</h></idx>
-    <idx><h>suy luận</h></idx>
-    <statement>
-      <p>Một dạng suy luận trong logic mệnh đề là một dãy các mệnh đề phức hợp chứa các biến mệnh đề. Một dạng suy luận là hợp lệ (đúng đắn) nếu cứ mỗi lần thay các biến mệnh đề trong dãy bằng những mệnh đề cụ thể mà tất cả các tiền đề trở thành đúng thì kết luận cũng trở thành đúng (theo <xref ref="bib-rosen-2019" />, Rosen §1.6).</p>
-      <p>Thuật ngữ tiếng Việt tương ứng:</p>
-      <ul>
-        <li><p><term>dạng suy luận</term> <xref ref="bib-nguyenvanmau-2007" />; <xref ref="bib-doducgiao-2008" /> (tr. 87) — cách dùng phổ biến.</p></li>
-        <li><p><term>dạng của suy luận</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
-        <li><p><term>suy luận</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 28); <xref ref="bib-doducthai-2010" /> (tr. 93); <xref ref="bib-vudinhhoa-2010" />; <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 237).</p></li>
-      </ul>
-      <p>Ví dụ: Dãy <m>p \to q</m>, <m>p</m>, do đó <m>q</m> là một dạng suy luận với các biến mệnh đề <m>p</m> và <m>q</m>. Thay <m>p</m> và <m>q</m> bằng các mệnh đề cụ thể bất kỳ, ta thu được một lập luận cụ thể; vì <m>((p \to q) \wedge p) \to q</m> là một hằng đúng nên đây là một dạng suy luận hợp lệ.</p>
-      <p>Xem thêm <xref ref="def-logical-argument" text="title" />, <xref ref="def-valid-argument" text="title" />, <xref ref="def-inference-rule" text="title" />, <xref ref="def-compound-proposition" text="title" />.</p>
-    </statement>
-  </definition>
-  <definition xml:id="def-argument">
-    <title>argument (d.t.) — lập luận</title>
-    <idx><h>argument</h></idx>
-    <idx><h>lập luận</h></idx>
-    <statement><p>Xem <xref ref="def-logical-argument" text="title" />.</p></statement>
-  </definition>
-  <definition xml:id="def-association-rule">
-    <title>association rule (d.t.) — luật kết hợp</title>
-    <idx><h>association rule</h></idx>
-    <idx><h>luật kết hợp</h></idx>
-    <statement>
-      <p>Một luật kết hợp là một kéo theo có dạng <m>I \to J</m> liên hệ hai tập mục <m>I</m> và <m>J</m>. Ở đây <m>I</m> và <m>J</m> là các tập con của một tập các mục cho trước, và luật biểu thị rằng các giao dịch chứa tập mục <m>I</m> có xu hướng chứa cả tập mục <m>J</m>.</p>
-      <p>Thuật ngữ tiếng Việt tương ứng:</p>
-      <ul>
-        <li><p><term>luật kết hợp</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 21); <xref ref="bib-nguyenhuuanh-2007" />; <xref ref="bib-vudinhhoa-2010" />; <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 257) — cách dùng phổ biến.</p></li>
-      </ul>
-      <p>Ví dụ: Trong phân tích giỏ hàng, nếu <m>I = \{\text{bánh mì}, \text{bơ}\}</m> và <m>J = \{\text{sữa}\}</m> thì luật kết hợp <m>I \to J</m> nói rằng các khách hàng mua cả bánh mì và bơ thường mua thêm sữa.</p>
     </statement>
   </definition>
 </chapter>

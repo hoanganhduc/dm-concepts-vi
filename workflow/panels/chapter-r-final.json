@@ -12,6 +12,876 @@
  "deferred_note": "Kept ALL 15 chapter-R entries; each retains exactly one recommended=true vi_term, every verified=true vi_term keeps source_id + pdf_page + page + snippet, and no fabricated citations were introduced. CORRECTNESS: (MED) residue — added the missing hypothesis that $$m$$ is a positive integer so the residue range $$0 \\leq r \\leq m-1$$ and the least-nonnegative residue are well-defined (matches Rosen §4.1 Division Algorithm). (MED) recursive-algorithm — rewrote the gcd illustration: dropped the spurious '$$a > b$$' precondition and restated the stopping rule precisely as 'rút gọn về $$\\gcd(b, a \\bmod b)$$, lặp lại cho tới khi đối số thứ hai bằng $$0$$, khi đó $$\\gcd(a,0)=a$$', so termination is on the second argument (the remainder), not on the vague 'smaller number'. (LOW) ring — kept the standard general-ring definition and rosen_ref but added a sentence noting the only attesting source treats the commutative-ring-with-unity case (consistent with the $$\\mathbb{Z}$$ example); the rosen_ref §4.6 mismatch is disclosed in notes rather than silently rewritten, matching how sibling chapters anchor weakly-anchored algebra headwords. (LOW) reachability — added that every vertex is reachable from itself via the trivial path, making Rosen's reflexive boundary case explicit. Remaining LOW correctness items (rooted-tree, regular-graph, ramsey-number, recurrence-relation, reflexive-relation, recursive-definition) were confirmed correct and left unchanged. TERMINOLOGY: (MED) residue — removed the two 'đồng dư' vi_term rows (they name the CONGRUENCE relation $$a \\equiv b \\pmod{m}$$, an adjacent concept, not the residue $$r$$); residue keeps three solid 'số dư' attestations (nguyenhoangthach-2020 p.54 recommended, nguyenhuudien-2019 p.142, nguyenducnghia-2006 p.14) and the cross-reference is carried by the see_also link congruence-modulo-m plus a prose note, mirroring how ramsey-number handles 'định lý Ramsey'. (LOW) regular-graph — added the attested short-form variant 'k-chính qui' (bib-ngodactan-2004 p.191, verified=true, recommended=false), confirmed on the same verified line '...hay ngắn gọn là k-chính qui'. EXPOSITION: (HIGH) regular-expression — replaced the LaTeX \\emph{Biểu thức chính quy} with Markdown *Biểu thức chính quy* to match the single chapter-wide emphasis style. (MED) rooted-tree — notation field un-wrapped from '$$(T, r)$$' to bare '(T, r)'. (MED) recursion — notation field reduced from a full sentence to the compact bare formula 'a_0;\\ a_{n+1} = f(a_0,\\ldots,a_n)', and the duplicate opening sentence in notes (a verbatim restatement of definition_vi) was deleted so notes begin with the attestation discussion. (MED) recursive-definition — notation field un-wrapped and reduced to bare 'f(0)=c;\\ f(n)=\\Phi(f(0),\\ldots,f(n-1))'. (MED) recursive-algorithm — see_also changed from [] to the same-chapter relatives ['recursion','recurrence-relation','recursive-definition'] now present in this batch, and the stale 'no other letter-R entries' claim in notes was updated. (LOW) recurrence-relation — added 'recursive-definition' to see_also so the same-chapter relationship is symmetric; cross-chapter relatives stay forward references in notes. (LOW) reachability — tightened the tautological closing sentence of definition_vi into a self-reachability/transitivity remark instead of a restatement. (LOW) residue — removed the in-line near-synonym gloss 'phần dư' from definition_vi (synonym glosses are not allowed inside the definition). NOT APPLIED (contradicts established book convention / optional / out of scope): the EXPOSITION (HIGH) request to translate ALL English notes into Vietnamese was NOT applied — sibling chapters N, P, and Q deliberately MIX English and Vietnamese notes (e.g. chapter-Q queue and quadratic-residue notes are English), so forcing chapter-R notes uniformly Vietnamese would make this chapter inconsistent with the rest of the book; this is a stylistic preference, not a defect, and the per-entry notes are left in their original drafting language. The optional 'trim recursion procedure-context corroborating rows' and 'add k-chính qui only if not a mere abbreviation' suggestions: the corroborating rows are all verified=true and the convention requires recording EVERY attested variant, so no verified citation was dropped; the k-chính qui short form WAS added as a distinct surface form. ring's rosen_ref was kept (not dropped) because the book anchors weakly-anchored headwords by topic section and the panel itself notes Rosen has no clean ring anchor. regular-expression's recommended verified=false lead row is kept under the registry-sanctioned lead-source policy (precedented by chapter-N nondeterministic-finite-automaton), with the 2003 attestation recorded as a separate verified=true corroborating row. Field-ordering normalization across entries was treated as cosmetic and not applied (it changes no rendered content). Same-chapter see_also for non-recursion entries remains as drafted because their related ids (degree-of-a-vertex, complete-graph, equivalence-relation, function, etc.) are genuinely cross-chapter forward references.",
  "final_entries": [
   {
+   "id": "r-combination",
+   "letter": "R",
+   "headword_en": "r-combination",
+   "see_ref": "combination",
+   "vi_terms": [
+    {
+     "term": "tổ hợp chập r",
+     "verified": false,
+     "recommended": false,
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": ""
+    }
+   ],
+   "status": "draft",
+   "pos": "d.t."
+  },
+  {
+   "id": "r-permutation",
+   "letter": "R",
+   "headword_en": "r-permutation",
+   "see_ref": "permutation",
+   "vi_terms": [
+    {
+     "term": "r-hoán vị",
+     "verified": false,
+     "recommended": false,
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": ""
+    }
+   ],
+   "status": "draft",
+   "pos": "d.t."
+  },
+  {
+   "id": "ramsey-number",
+   "letter": "R",
+   "headword_en": "Ramsey number",
+   "notation": "R(s,t)",
+   "rosen_ref": "Rosen §6.2",
+   "definition_vi": "Số Ramsey của hai số nguyên dương $$s$$ và $$t$$, ký hiệu $$R(s,t)$$, là số nguyên dương $$n$$ nhỏ nhất sao cho mọi cách tô màu các cạnh của đồ thị đầy đủ $$K_n$$ bằng hai màu đỏ và xanh đều chứa một $$K_s$$ đỏ hoặc một $$K_t$$ xanh.",
+   "example_vi": "Khi $$s = t = 3$$, ta có $$R(3,3) = 6$$: mọi cách tô các cạnh của $$K_6$$ bằng hai màu đỏ và xanh đều chứa một $$K_3$$ đỏ hoặc một $$K_3$$ xanh, nhưng tồn tại cách tô các cạnh của $$K_5$$ không chứa $$K_3$$ cùng màu nào.",
+   "vi_terms": [
+    {
+     "term": "số Ramsey",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-leanhvinh-2020",
+     "pdf_page": 143,
+     "page": "tr. 144",
+     "snippet": "Định nghĩa 6.2. (Số Ramsey) Với s,t nguyên dương, số Ramsey"
+    },
+    {
+     "term": "số Ramsey R(s,t)",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-leanhvinh-2020",
+     "pdf_page": 143,
+     "page": "tr. 144",
+     "snippet": "Trước hết, ta thấy rằng sự tồn tại của số Ramsey R(s,t) được suy"
+    },
+    {
+     "term": "số Ramsey",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-ngodactan-2004",
+     "pdf_page": 307,
+     "page": "tr. 307",
+     "snippet": "Các số R ^ ( s , t ) được gọi là các số Ramsey. Hơn thế nữa, các số"
+    },
+    {
+     "term": "số Ramsey",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenducnghia-2006",
+     "pdf_page": 67,
+     "page": "",
+     "snippet": "Định nghĩa 3. Số Ramsey R(j) là số nguyên dương nhỏ nhất có tính chất (¿J)-Ramsey."
+    }
+   ],
+   "see_also": [
+    "complete-graph",
+    "graph-coloring"
+   ],
+   "notes": "Recommended term: \"số Ramsey\", attested in the newest source bib-leanhvinh-2020 (2020), p.143, in a formal numbered definition \"Định nghĩa 6.2. (Số Ramsey) Với s,t nguyên dương, số Ramsey R(s,t) là số nguyên dương n nhỏ nhất thỏa mãn...\". The term is uniformly stable across the corpus: bib-ngodactan-2004 (p.307, \"các số Ramsey\"), bib-nguyenducnghia-2006 (p.67, \"Số Ramsey R(j)\" — uses combined index j for s,t).\n\nNotation: bib-leanhvinh-2020 writes $$R(s,t)$$ (sometimes $$A(s,t)$$ as an OCR misread, e.g. p.161 \"số Ramsey A(s,¢)\"); bib-ngodactan-2004 writes $$R(s,t)$$ and the generalized $$R(r;s,t)$$ for the hypergraph/multi-color case; bib-nguyenducnghia-2006 uses the single-argument $$R(j)$$ form. The variant \"số Ramsey R(s,t)\" simply appends the notation and is the same concept.\n\nDISTINCT concept, NOT included as a vi_term: \"định lý Ramsey\" (Ramsey's theorem) — the existence theorem guaranteeing that $$R(s,t)$$ is finite — is heavily attested (bib-leanhvinh-2020 p.142–143 \"Định lý 6.1. (Định lý Ramsey)\", bib-ngodactan-2004 p.305+ \"các định lý Ramsey cơ bản\", bib-nguyenducnghia-2006 p.69 \"Định lý 1 (Định lý Ramsey)\"). It denotes the theorem, not the number, so it is recorded here as a see_also/related term (ramsey-theorem), not as a Vietnamese term for the Ramsey number itself.\n\nNot attesting this concept: bib-nguyenhuudien-2019 mentions only \"lý thuyết Ramsey\" (Ramsey theory) generally at p.88, with no definition of the number $$R(s,t)$$. bib-nguyenhoangthach-2020 and bib-hoangchithanh-2007 (OCR, both normal+loose searched) return 0 hits for Ramsey. So no 2019 text attests the number itself; the recommended term is nonetheless anchored in the 2020 source bib-leanhvinh-2020.\n\nRelated coined terms in the corpus (not synonyms of the headword): \"số Ramsey cho siêu đồ thị\" $$R_r(s,t)$$ (Ramsey number for hypergraphs, bib-leanhvinh-2020 p.146), \"số Ramsey R(G,H)\" for general graphs G,H (bib-leanhvinh-2020 p.160), \"các số Ramsey mở rộng\" (generalized Ramsey numbers, bib-ngodactan-2004 p.309). These are generalizations, not the basic $$R(s,t)$$ for complete graphs.\n\nVerifier note: All four verified=true vi_terms re-mined and confirmed by snippet (leanhvinh-2020 p.143 normal+loose; ngodactan-2004 p.307 normal; nguyenducnghia-2006 p.67 normal). Exactly one recommended=true, anchored in the 2020 source. The R(3,3)=6 example and asymmetric R(s,t) are corroborated at bib-leanhvinh-2020 p.161 (\"đồ thị tới hạn cho các số Ramsey R(3,3), R(4,3), R(5,3) và R(4,4)\"). No fabricated citations.\n\nDefinition: written to match the English ground truth (smallest n such that every 2-coloring of K_n's edges yields a red K_s or blue K_t), opening with the term, giving notation with \"ký hiệu\", and using \"đồ thị đầy đủ\" for complete graph and \"tô màu các cạnh ... bằng hai màu\" for 2-edge-coloring. Example uses the standard self-contained fact R(3,3)=6 with the K_5 witness, introducing no quantity the definition did not already cover (K_n, red/blue K_s, K_t).",
+   "pos": "d.t."
+  },
+  {
+   "id": "ramseys-theorem",
+   "letter": "R",
+   "headword_en": "Ramsey's theorem",
+   "notation": "R(s,t)",
+   "rosen_ref": "Rosen §4.5",
+   "definition_vi": "Định lý Ramsey khẳng định rằng với mọi cặp số nguyên dương $$s$$ và $$t$$, tồn tại một số nguyên dương nhỏ nhất $$R(s,t)$$, gọi là số Ramsey, sao cho mọi cách tô màu các cạnh của đồ thị đầy đủ $$K_n$$ với $$n \\geq R(s,t)$$ bằng hai màu (đỏ và xanh) đều chứa một $$K_s$$ với tất cả các cạnh màu đỏ hoặc một $$K_t$$ với tất cả các cạnh màu xanh.",
+   "example_vi": "Trong một nhóm gồm $$6$$ người bất kỳ, luôn có $$3$$ người đôi một quen nhau hoặc $$3$$ người đôi một không quen nhau, tức là $$R(3,3) = 6$$.",
+   "vi_terms": [
+    {
+     "term": "định lý Ramsey",
+     "source_id": "bib-leanhvinh-2020",
+     "pdf_page": 143,
+     "page": "tr. 144",
+     "snippet": "Dinh lý 6.1. (Dinh lý Ramsey) Với các số nguyên dương s,t, luôn",
+     "verified": true,
+     "recommended": true
+    },
+    {
+     "term": "định lý Ramsey",
+     "source_id": "bib-nguyenducnghia-2006",
+     "pdf_page": 69,
+     "page": "",
+     "snippet": "Định lý ] (Định lý Ramsey). WVếu ¡ >2, > 2 là các số nguyên diương thì luôn tìm được",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "định lý Ramsey",
+     "source_id": "bib-ngodactan-2004",
+     "pdf_page": 306,
+     "page": "tr. 306",
+     "snippet": "10.1. Các định lý Ramsey cơ bẩn 307",
+     "verified": true,
+     "recommended": false
+    }
+   ],
+   "see_also": [],
+   "notes": "Trường hợp $$s = t = 3$$ cho $$R(3,3) = 6$$ là ví dụ quen thuộc về bữa tiệc. Định lý Ramsey là sự tổng quát hóa của nguyên lý Dirichlet.",
+   "status": "draft",
+   "pos": "d.t."
+  },
+  {
+   "id": "random-variable",
+   "letter": "R",
+   "headword_en": "random variable",
+   "notation": "X",
+   "rosen_ref": "Rosen §7.4",
+   "definition_vi": "Biến ngẫu nhiên là một hàm gán một số thực cho mỗi kết cục của một không gian mẫu. Nói cách khác, nếu $$S$$ là không gian mẫu của một phép thử thì biến ngẫu nhiên là một hàm $$X : S \\to \\mathbb{R}$$.",
+   "example_vi": "Khi tung một đồng xu hai lần, gọi $$X$$ là biến ngẫu nhiên đếm số lần xuất hiện mặt ngửa; khi đó $$X$$ gán giá trị $$2$$ cho kết cục $$\\mathrm{NN}$$, giá trị $$1$$ cho các kết cục $$\\mathrm{NS}$$ và $$\\mathrm{SN}$$, và giá trị $$0$$ cho kết cục $$\\mathrm{SS}$$.",
+   "vi_terms": [
+    {
+     "term": "biến ngẫu nhiên",
+     "source_id": "bib-leanhvinh-2020",
+     "page": "tr. 156",
+     "pdf_page": 155,
+     "snippet": "biến ngẫu nhiên đếm số các đồ thị con K, đơn sắc của K,, thi",
+     "verified": true,
+     "recommended": true
+    },
+    {
+     "term": "đại lượng ngẫu nhiên",
+     "source_id": "bib-wikipedia-vi",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": "https://vi.wikipedia.org/wiki/Biến_ngẫu_nhiên",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "biến số ngẫu nhiên",
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": "",
+     "verified": false,
+     "recommended": false
+    },
+    {
+     "term": "biến ngẫu nhiên",
+     "source_id": "bib-cormen-2001-vi",
+     "page": "tr. 8",
+     "pdf_page": 6,
+     "snippet": "63 Các biến ngẫu nhiên rời rạc i36",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "biến ngẫu nhiên",
+     "source_id": "bib-doducthai-2010",
+     "page": "tr. 4",
+     "pdf_page": 4,
+     "snippet": "Biến Ngẫu Nhiên . . . . . . . . . . . . . . . . . . . . 67",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "biến ngẫu nhiên",
+     "source_id": "bib-cungkimtien-2004",
+     "page": "",
+     "pdf_page": 14,
+     "snippet": "alcatory variable biến ngẫu nhiên",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "biến ngẫu nhiên",
+     "source_id": "bib-phan-1976",
+     "page": "tr. 193",
+     "pdf_page": 193,
+     "snippet": "f. of random variable xs. ham cua biến ngẫu nhiên",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "đại lượng ngẫu nhiên",
+     "source_id": "bib-phan-1976",
+     "page": "tr. 442",
+     "pdf_page": 442,
+     "snippet": "variate rk. biến ngẫu nhiên; đại lượng ngẫu nhiên",
+     "verified": true,
+     "recommended": false
+    }
+   ],
+   "see_also": [
+    "expected-value",
+    "function"
+   ],
+   "notes": "Biến ngẫu nhiên $$X$$ thực chất là một hàm $$X : S \\to \\mathbb{R}$$ trên không gian mẫu $$S$$, chứ không phải là một biến theo nghĩa thông thường. Thuật ngữ \"biến ngẫu nhiên\" được dùng nhất quán trong ngữ liệu (xem dẫn chứng từ bib-leanhvinh-2020, trong đó biến ngẫu nhiên đếm số các đồ thị con đơn sắc). Kỳ vọng $$E(X)$$ của biến ngẫu nhiên là giá trị trung bình theo xác suất của các giá trị mà $$X$$ nhận.",
+   "status": "draft",
+   "pos": "d.t."
+  },
+  {
+   "id": "range",
+   "letter": "R",
+   "headword_en": "range",
+   "see_ref": "range-of-a-function",
+   "vi_terms": [
+    {
+     "term": "tập ảnh",
+     "verified": false,
+     "recommended": false,
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": ""
+    },
+    {
+     "term": "miền giá trị",
+     "verified": false,
+     "recommended": false,
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": ""
+    },
+    {
+     "term": "tập giá trị",
+     "verified": false,
+     "recommended": false,
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": ""
+    }
+   ],
+   "see_also": [],
+   "notes": "Đồng nghĩa với Range of a function.",
+   "pos": "d.t."
+  },
+  {
+   "id": "range-of-a-function",
+   "letter": "R",
+   "headword_en": "range of a function",
+   "notation": "f(A) = \\{ f(a) : a \\in A \\}",
+   "rosen_ref": "Rosen §2.3",
+   "definition_vi": "Tập ảnh của một hàm $$f$$ từ $$A$$ đến $$B$$ là tập hợp tất cả các phần tử của tập đích $$B$$ là ảnh của ít nhất một phần tử thuộc $$A$$, tức là tập $$f(A) = \\{ f(a) : a \\in A \\}$$. Theo định nghĩa, tập ảnh $$f(A)$$ là một tập hợp con của $$B$$.",
+   "example_vi": "Cho hàm $$f \\colon A \\to B$$ với $$A = \\{1, 2, 3\\}$$, $$B = \\{a, b, c, d\\}$$, xác định bởi $$f(1) = a$$, $$f(2) = c$$ và $$f(3) = a$$. Khi đó tập ảnh là $$f(A) = \\{a, c\\}$$, một tập hợp con thực sự của $$B$$.",
+   "notes": "Recommended term \"tập ảnh\" is attested in the 2020 source bib-nguyenhoangthach-2020 (p. 33), where the range of a function $$f$$ from $$A$$ to $$B$$ is written as the image set $$f(A)$$, described as a subset of $$B$$ (\"tập ảnh f(A), là một tập hợp con của B\") — exactly this concept. Variant \"tập giá trị (của hàm)\" is attested in bib-hoangchithanh-2007 (p. 21, OCR) as the value set of a function (\"tập giá trị của hàm g trên F(x)\"). Variant \"miền giá trị\" is attested in bib-ngodactan-2004 (p. 128) as the value range of a function. The \"tập giá trị\" hit in bib-leanhvinh-2020 (p. 212) refers to the value set of a Rayleigh ratio / graph spectrum, a value-set usage but not the function-range definition, so it is not cited here. Other candidate forms (ảnh của hàm, ảnh của ánh xạ, miền ảnh, tập hợp ảnh) returned no attestation in any source.",
+   "see_also": [
+    "function",
+    "onto-function"
+   ],
+   "vi_terms": [
+    {
+     "term": "tập ảnh",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-nguyenhoangthach-2020",
+     "pdf_page": 33,
+     "page": "tr. 31",
+     "snippet": "vào tập ảnh f (A), là một tập hợp con của B. Từ đó, ta có một quy trình xây"
+    },
+    {
+     "term": "tập giá trị",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-hoangchithanh-2007",
+     "pdf_page": 21,
+     "page": "tr. 21",
+     "snippet": "trong số các số không thuộc tập giá trị của hàm g trên F(x)."
+    },
+    {
+     "term": "tập ảnh",
+     "source_id": "bib-doxuanloi-2006",
+     "page": "tr. 165",
+     "pdf_page": 163,
+     "snippet": "trong quá trình học tập anh ta sẽ phải hoàn thành một số môn học quy định,",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "tập giá trị",
+     "source_id": "bib-hoangchithanh-2011",
+     "page": "",
+     "pdf_page": 45,
+     "snippet": "Tính chat 1) chỉ ra rằng g(x) không nằm trong tập giá trị của hàm ø trên",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "tập giá trị",
+     "source_id": "bib-leanhvinh-2020",
+     "page": "tr. 213",
+     "pdf_page": 212,
+     "snippet": "Ay >... > Àu. Khi đó, tập giá trị của ti số (Ax,x) sẽ là đoạn thẳng",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "miền giá trị",
+     "source_id": "bib-doducgiao-2009",
+     "page": "tr. 366",
+     "pdf_page": 367,
+     "snippet": "b) Tìm miền giá trị đúng Eps E,, By + Hạ, Eạ „ Es,",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "miền giá trị",
+     "source_id": "bib-vovantuandung-2007",
+     "page": "",
+     "pdf_page": 41,
+     "snippet": "«ỔỎ ÍX):={yeY | ax € X, y = f(x)} gọi là miễn giá trị của f.",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "miền giá trị",
+     "source_id": "bib-vudinhhoa-2010",
+     "page": "",
+     "pdf_page": 40,
+     "snippet": "2. Tim miền giá trị và miền xác định của các hàm số sau:",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "miền giá trị",
+     "source_id": "bib-cungkimtien-2004",
+     "page": "",
+     "pdf_page": 311,
+     "snippet": "range of afunction miền giá trị",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "miền giá trị",
+     "source_id": "bib-phan-1976",
+     "page": "tr. 355",
+     "pdf_page": 355,
+     "snippet": ". of a function miền giá tri của một hàm",
+     "verified": true,
+     "recommended": false
+    }
+   ],
+   "pos": "d.t."
+  },
+  {
+   "id": "rate",
+   "letter": "R",
+   "headword_en": "rate",
+   "pos": "d.t.",
+   "notation": "",
+   "ref_bib": "bib-libennowell-2022",
+   "rosen_ref": "",
+   "definition_vi": "Trong lý thuyết mã hóa, \\emph{tỉ lệ} (hay \\emph{tốc độ}) của một mã là tỉ số giữa số bit thông tin và tổng số bit của từ mã. Với một mã khối ánh xạ mỗi khối $$k$$ bit dữ liệu thành một từ mã dài $$m$$ bit, tỉ lệ của mã là $$\\displaystyle \\frac{k}{m}$$. Tỉ lệ càng cao thì mã càng ít dư thừa, nhưng thường kém khả năng phát hiện và sửa lỗi hơn.",
+   "example_vi": "Mã lặp gửi mỗi bit ba lần có tỉ lệ $$\\displaystyle \\frac{1}{3}$$.",
+   "notes": "",
+   "see_also": [],
+   "vi_terms": [
+    {
+     "term": "tỉ lệ (của mã)",
+     "recommended": true
+    },
+    {
+     "term": "tốc độ mã",
+     "recommended": false
+    },
+    {
+     "term": "tốc độ mã",
+     "source_id": "bib-cormen-2001-vi",
+     "page": "",
+     "pdf_page": 643,
+     "snippet": "chất tại một điểm bất kỳ trong hệ thống theo trực giác là tốc độ mà vật",
+     "verified": true,
+     "recommended": false
+    }
+   ]
+  },
+  {
+   "id": "rational-numbers",
+   "letter": "R",
+   "headword_en": "rational numbers",
+   "notation": "\\mathbb{Q}",
+   "rosen_ref": "Rosen §2.3",
+   "definition_vi": "Số hữu tỷ là số thực có thể viết dưới dạng thương $$p/q$$ của hai số nguyên $$p$$ và $$q$$ với $$q \\neq 0$$. Tập tất cả các số hữu tỷ được ký hiệu là $$\\mathbb{Q}$$, và $$\\mathbb{Q}$$ là một tập đếm được.",
+   "example_vi": "Các số $$1/2$$, $$-3$$ và $$0$$ đều là số hữu tỷ; trong khi $$\\sqrt{2}$$ không phải là số hữu tỷ.",
+   "vi_terms": [
+    {
+     "term": "số hữu tỉ",
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 57,
+     "page": "tr. 57",
+     "snippet": "q= là một số hữu tỉ cho trước (m và n là các số nguyên dương) ta không biết làm thế",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "tập số hữu tỷ",
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": "",
+     "verified": false,
+     "recommended": true
+    },
+    {
+     "term": "số hữu tỉ",
+     "source_id": "bib-nguyenvanmau-2007",
+     "page": "",
+     "pdf_page": 31,
+     "snippet": "mạng lưới ô vuông là một số hữu tỉ, vô lí. Vậy, không thể dựng được tam giác đều có",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "số hữu tỷ",
+     "source_id": "bib-doducthai-2010",
+     "page": "tr. 196",
+     "pdf_page": 196,
+     "snippet": "dụ như tập hợp Q các số hữu tỷ), và đánh số thứ tự các số trong tập",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "số hữu tỷ",
+     "source_id": "bib-sierpinski-2012",
+     "page": "",
+     "pdf_page": 5,
+     "snippet": "dạng mở rộng của nó. Chẳng hạn bắt đầu từ số nguyên, ta có các số hữu tỷ, số thực và số phức. Từ",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "số hữu tỷ",
+     "source_id": "bib-vudinhhoa-2010",
+     "page": "",
+     "pdf_page": 25,
+     "snippet": "Z, tập hợp các số hữu tỷ Q, tập hợp các số thực R và tập hợp các số phức C.",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "số hữu tỉ",
+     "source_id": "bib-nguyenhuuanh-2007",
+     "page": "",
+     "pdf_page": 42,
+     "snippet": "d) Bình phương của mọi số hữu tỉ là số hữu tỉ",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "số hữu tỷ",
+     "source_id": "bib-cungkimtien-2004",
+     "page": "",
+     "pdf_page": 63,
+     "snippet": "commensurable number số hữu tỷ",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "số hữu tỷ",
+     "source_id": "bib-phan-1976",
+     "page": "tr. 190",
+     "pdf_page": 190,
+     "snippet": "rational algebraic f. phân thức đại số hữu ty",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "tập số hữu tỉ",
+     "recommended": false,
+     "source_id": "bib-wikipedia-vi",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": "https://vi.wikipedia.org/wiki/Số_hữu_tỉ",
+     "verified": true
+    }
+   ],
+   "see_also": [],
+   "notes": "Hai cách viết \"số hữu tỷ\" và \"số hữu tỉ\" đều được dùng trong tài liệu tiếng Việt. Ký hiệu chuẩn cho tập số hữu tỷ là $$\\mathbb{Q}$$.",
+   "status": "draft",
+   "pos": "d.t."
+  },
+  {
+   "id": "reachability",
+   "letter": "R",
+   "headword_en": "reachability",
+   "definition_vi": "Trong một đồ thị hoặc đồ thị có hướng $$G$$, một đỉnh $$v$$ được gọi là *đến được từ* một đỉnh $$u$$ nếu tồn tại một đường đi (đường đi có hướng nếu $$G$$ là đồ thị có hướng) từ $$u$$ đến $$v$$, ký hiệu $$u \\rightsquigarrow v$$. Theo quy ước, mỗi đỉnh luôn đến được từ chính nó qua đường đi tầm thường độ dài $$0$$; do đó tính đến được là một tiền thứ tự trên tập đỉnh, có tính phản xạ và bắc cầu.",
+   "example_vi": "Trong đồ thị có hướng với tập đỉnh $$\\{a, b, c\\}$$ và tập cung $$\\{(a, b), (b, c)\\}$$, đỉnh $$c$$ đến được từ đỉnh $$a$$ vì tồn tại đường đi có hướng $$a \\rightarrow b \\rightarrow c$$; ngược lại, $$a$$ không đến được từ $$c$$ vì không có đường đi có hướng nào từ $$c$$ về $$a$$.",
+   "notation": "u \\rightsquigarrow v",
+   "rosen_ref": "Rosen §10.4",
+   "notes": "Recommended term \"đến được từ\" (reachable from) is the fully-qualified reachability phrasing, attested in the newest graph-theory source bib-leanhvinh-2020 (tr. 75): \"các đỉnh của G có thể đến được từ u\" = the vertices of G reachable from u; also in bib-nguyenducnghia-2006 (tr. 246): \"đỉnh có thể đến được từ đỉnh s\". The bare verb form \"đến được\" (to reach) is attested across all four newer/older sources in traversal contexts and is recorded as a variant grounded in bib-leanhvinh-2020 (tr. 75). Variant \"tới được\" (reach/reachable) appears in bib-nguyenhuudien-2019 (tr. 217) and bib-hoangchithanh-2007 (tr. 110): \"đi tới được đỉnh phát x0\" = reach the source vertex. Candidate \"đạt tới\" was searched but its hits denote reaching a row/value/flow/output (đạt tới hàng, đạt tới luồng, đạt tới lối ra) rather than vertex-to-vertex reachability, so it is excluded; likewise \"đạt được\" (attain/achieve a value) does not denote this concept and is excluded. OCR sources bib-leanhvinh-2020 and bib-hoangchithanh-2007 were mined in both normal and --loose modes (identical hits). For digraphs, \"đến được từ\" corresponds to reachability via a directed path ($$u \\rightsquigarrow v$$). The squiggle arrow $$\\rightsquigarrow$$ is an editorial notation, not a source-derived symbol (the sources phrase reachability prosaically); definition_vi makes the reflexive boundary case (a vertex reaches itself via the trivial path) explicit, per Rosen's convention.",
+   "see_also": [
+    "connected-graph",
+    "directed-graph",
+    "path",
+    "strongly-connected"
+   ],
+   "vi_terms": [
+    {
+     "term": "đến được từ",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-leanhvinh-2020",
+     "pdf_page": 75,
+     "page": "tr. 76",
+     "snippet": "Gọi Z là tập tat cả các đỉnh của G có thể đến được từ u qua một"
+    },
+    {
+     "term": "đến được từ",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenducnghia-2006",
+     "pdf_page": 246,
+     "page": "",
+     "snippet": "đỉnh có thể đến được từ đỉnh s trong đồ thị Œ„ và đặt X = V \\ X. Khi đồ (X, X}) là lát cắt ,"
+    },
+    {
+     "term": "đến được",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-leanhvinh-2020",
+     "pdf_page": 75,
+     "page": "tr. 76",
+     "snippet": "Gọi Z là tập tat cả các đỉnh của G có thể đến được từ u qua một"
+    },
+    {
+     "term": "đến được",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 176,
+     "page": "tr. 176",
+     "snippet": "duyệt xong và quay trở lại tiếp tục duyệt từ đỉnh mà từ đó ta đến được đỉnh v."
+    },
+    {
+     "term": "tới được",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 217,
+     "page": "tr. 217",
+     "snippet": "Với cách đánh dấu này mà đi tới được đỉnh phát x0 thì ta đã tìm được"
+    },
+    {
+     "term": "đến được",
+     "source_id": "bib-hoangchithanh-2011",
+     "page": "",
+     "pdf_page": 107,
+     "snippet": "đến được đỉnh x:",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "tới được",
+     "source_id": "bib-hoangchithanh-2011",
+     "page": "",
+     "pdf_page": 191,
+     "snippet": "Với cách đánh dau này mà đi tới được đỉnh phat xp thì ta đã tìm được một",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "tới được",
+     "source_id": "bib-doducthai-2010",
+     "page": "tr. 16",
+     "pdf_page": 16,
+     "snippet": "bằng 1 (hay còn viết là 100%). Ví dụ như sự kiện “tôi được sinh ra từ",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "tới được",
+     "source_id": "bib-cungkimtien-2004",
+     "page": "",
+     "pdf_page": 8,
+     "snippet": "tới được, đạt được",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "tới được",
+     "source_id": "bib-phan-1976",
+     "page": "tr. 3",
+     "pdf_page": 3,
+     "snippet": "accessible tới được, đạt được",
+     "verified": true,
+     "recommended": false
+    }
+   ],
+   "pos": "d.t."
+  },
+  {
+   "id": "real-numbers",
+   "letter": "R",
+   "headword_en": "real numbers",
+   "notation": "\\mathbb{R}",
+   "rosen_ref": "Rosen §2.1",
+   "definition_vi": "Tập số thực, ký hiệu $$\\mathbb{R}$$, là tập hợp gồm tất cả các số thực, tức là tập $$\\{x \\mid x \\text{ là số thực}\\}$$ bao gồm cả số hữu tỉ và số vô tỉ. Tập số thực chứa tập số nguyên $$\\mathbb{Z}$$ và tập số hữu tỉ $$\\mathbb{Q}$$ như những tập con.",
+   "example_vi": "Các số $$0$$, $$-3$$, $$\\frac{2}{5}$$, $$\\sqrt{2}$$ và $$\\pi$$ đều là phần tử của $$\\mathbb{R}$$; chẳng hạn mệnh đề \"$$x^2 \\geq 0$$ với mọi số thực $$x$$\" là đúng trên $$\\mathbb{R}$$.",
+   "vi_terms": [
+    {
+     "term": "tập hợp các số thực",
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 74,
+     "page": "tr. 74",
+     "snippet": "tỉ, R là tập hợp các số thực, C là tập hợp các số phức.",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "số thực",
+     "source_id": "bib-nguyenhoangthach-2020",
+     "pdf_page": 48,
+     "page": "tr. 46",
+     "snippet": "Định lý 3.12 (Định lý nhị thức mở rộng). Với mọi số thực α:",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "tập số thực",
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": "",
+     "verified": false,
+     "recommended": false
+    },
+    {
+     "term": "tập các số thực",
+     "source_id": "bib-doducgiao-2009",
+     "page": "tr. 338",
+     "pdf_page": 339,
+     "snippet": "tập các số thực không âm.",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "số thực",
+     "source_id": "bib-leanhvinh-2020",
+     "page": "tr. 210",
+     "pdf_page": 209,
+     "snippet": "của Ag đều là các số thực. Dinh lý Perron-Frobenius cho ta thông tin",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "số thực",
+     "source_id": "bib-nguyenhuudien-2019",
+     "page": "tr. 48",
+     "pdf_page": 48,
+     "snippet": "3. Mệnh đề \"Ta có x2 > 0, với mọi số thực x khác 0\" có thể được viết là",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "tập số thực",
+     "source_id": "bib-doducgiao-2009",
+     "page": "tr. 339",
+     "pdf_page": 340,
+     "snippet": "c) Tìm miền đúng của các vị từ P(x, y) (i= 1, 2, 3) trên tập số thực R,",
+     "verified": true,
+     "recommended": true
+    },
+    {
+     "term": "tập số thực",
+     "source_id": "bib-vudinhhoa-2003",
+     "page": "tr. 12",
+     "pdf_page": 13,
+     "snippet": "b Ví dụ 3: Quan hệ bằng nhau trong tập số thực là quan hệ",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "tập hợp các số thực",
+     "source_id": "bib-sierpinski-2012",
+     "page": "tr. 157",
+     "pdf_page": 171,
+     "snippet": "  n  1 /   n  , n  1, 2,... là trù mật trong tập hợp các số thực hay không. A.Schinzel [3] đã chứng",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "tập hợp các số thực",
+     "source_id": "bib-vudinhhoa-2010",
+     "page": "",
+     "pdf_page": 25,
+     "snippet": "Z, tập hợp các số hữu tỷ Q, tập hợp các số thực R và tập hợp các số phức C.",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "tập các số thực",
+     "source_id": "bib-doducthai-2010",
+     "page": "tr. 125",
+     "pdf_page": 125,
+     "snippet": "Ở đây ta coi biến t nằm trong tập các số thực không âm. Với giả sử",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "tập các số thực",
+     "source_id": "bib-sierpinski-2012",
+     "page": "tr. 100",
+     "pdf_page": 114,
+     "snippet": "tỷ số p q , p và q là các số nguyên tố, là trù mật trong tập các số thực dương.",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "số thực",
+     "source_id": "bib-cungkimtien-2004",
+     "page": "",
+     "pdf_page": 3,
+     "snippet": "tích, giải tích hàm, hàm số phức, hàm số thực, phương trình vì",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "số thực",
+     "source_id": "bib-phan-1976",
+     "page": "tr. 28",
+     "pdf_page": 28,
+     "snippet": "orthogonal b. cơ sở thực giao",
+     "verified": true,
+     "recommended": false
+    }
+   ],
+   "see_also": [],
+   "notes": "Trong giáo trình MAT3500 dùng \"Tập số thực\". Rosen (bản dịch) định nghĩa rõ $$R = \\{x \\mid x \\text{ là số thực}\\}$$; ký hiệu chuẩn là $$\\mathbb{R}$$.",
+   "status": "draft",
+   "pos": "d.t."
+  },
+  {
+   "id": "real-valued-function",
+   "letter": "R",
+   "headword_en": "real-valued function",
+   "notation": "f \\colon A \\to \\mathbb{R}",
+   "rosen_ref": "Rosen §2.3",
+   "definition_vi": "Hàm thực là hàm số $$f$$ có miền giá trị là tập các số thực, tức là $$f\\colon A \\to \\mathbb{R}$$, gán cho mỗi phần tử $$a \\in A$$ một số thực $$f(a) \\in \\mathbb{R}$$ (ký hiệu $$\\mathbb{R}$$ là tập các số thực).",
+   "example_vi": "Hàm $$f\\colon \\mathbb{Z} \\to \\mathbb{R}$$ cho bởi $$f(n) = n^2$$ là một hàm thực. Với hai hàm thực $$f, g$$ cùng miền xác định, các hàm $$f+g$$ và $$fg$$ cũng là hàm thực, xác định bởi $$(f+g)(x) = f(x) + g(x)$$ và $$(fg)(x) = f(x)g(x)$$.",
+   "vi_terms": [
+    {
+     "term": "hàm thực",
+     "source_id": "bib-ngodactan-2004",
+     "pdf_page": 328,
+     "page": "tr. 328",
+     "snippet": "10.28 (**) Giả sử <72(2 ), . . . ,gn(x) là các hàm thực bị chặn và f ( x)",
+     "verified": true,
+     "recommended": true
+    },
+    {
+     "term": "hàm có giá trị thực",
+     "source_id": "bib-rosen-2003-vi",
+     "pdf_page": 83,
+     "page": "tr. 83",
+     "snippet": "Hai hàm co giá trị thực với cùng miền xác định có thể cộng hoặc nhân",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "hàm giá trị thực",
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": "",
+     "verified": false,
+     "recommended": false
+    },
+    {
+     "term": "hàm nhận giá trị thực",
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": "",
+     "verified": false,
+     "recommended": false
+    },
+    {
+     "term": "hàm thực",
+     "source_id": "bib-doducthai-2010",
+     "page": "tr. 124",
+     "pdf_page": 124,
+     "snippet": "đối xứng khi và chỉ khi hàm đặc trưng ΦX của nó là một hàm thực",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "hàm thực",
+     "source_id": "bib-vudinhhoa-2010",
+     "page": "",
+     "pdf_page": 36,
+     "snippet": "3. Cho A và B là hai tập hợp bắt kỳ, chứng minh các bao hàm thức=",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "hàm có giá trị thực",
+     "source_id": "bib-cormen-2001-vi",
+     "page": "tr. 646",
+     "pdf_page": 644,
+     "snippet": "hàm có giá trị thực ƒ: Vx V —› R thỏa ba tính chất dưới đây:",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "hàm thực",
+     "source_id": "bib-cungkimtien-2004",
+     "page": "",
+     "pdf_page": 184,
+     "snippet": "include of sefs bao hàm thức tập",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "hàm thực",
+     "source_id": "bib-phan-1976",
+     "page": "tr. 200",
+     "pdf_page": 200,
+     "snippet": "positive real f. hàm thực dương",
+     "verified": true,
+     "recommended": false
+    }
+   ],
+   "see_also": [],
+   "notes": "Tập giá trị là $$\\mathbb{R}$$. Trong giáo trình MAT3500 gọi là hàm thực; bản dịch Rosen dùng hàm có giá trị thực.",
+   "status": "draft",
+   "pos": "d.t."
+  },
+  {
+   "id": "realization",
+   "letter": "R",
+   "headword_en": "realization",
+   "pos": "d.t.",
+   "notation": "",
+   "ref_bib": "bib-libennowell-2022",
+   "rosen_ref": "",
+   "definition_vi": "Một \\emph{hiện thực hóa} của một dãy số nguyên không âm $$\\langle d_1, d_2, \\ldots, d_n \\rangle$$ là một đồ thị đơn có $$n$$ đỉnh sao cho bậc của các đỉnh đúng bằng các số trong dãy. Một dãy nhận được hiện thực hóa như vậy được gọi là \\emph{dãy đồ thị} (graphic sequence).",
+   "example_vi": "Dãy $$\\langle 2,2,2 \\rangle$$ có hiện thực hóa là chu trình $$C_3$$, trong đó mỗi đỉnh có bậc $$2$$.",
+   "notes": "",
+   "see_also": [],
+   "vi_terms": [
+    {
+     "term": "hiện thực hóa",
+     "recommended": true
+    }
+   ]
+  },
+  {
    "id": "recurrence-relation",
    "letter": "R",
    "headword_en": "recurrence relation",
@@ -271,580 +1141,177 @@
    "pos": "d.t."
   },
   {
-   "id": "reflexive-relation",
+   "id": "recursion-tree",
    "letter": "R",
-   "headword_en": "reflexive relation",
-   "notation": "\\forall a \\in A,\\ (a,a) \\in R",
-   "rosen_ref": "Rosen §9.1",
-   "definition_vi": "Một quan hệ hai ngôi $$R$$ trên tập $$A$$ có *tính phản xạ* nếu $$(a,a) \\in R$$ với mọi $$a \\in A$$. Nói cách khác, mỗi phần tử của $$A$$ đều có quan hệ với chính nó, tức là $$a\\,R\\,a$$ với mọi $$a \\in A$$.",
-   "example_vi": "Trên tập $$A = \\{1, 2, 3\\}$$, quan hệ $$R = \\{(1,1), (2,2), (3,3), (1,2)\\}$$ có tính phản xạ vì chứa $$(1,1)$$, $$(2,2)$$ và $$(3,3)$$. Quan hệ $$S = \\{(1,1), (2,2), (1,3)\\}$$ không có tính phản xạ vì $$(3,3) \\notin S$$.",
-   "notes": "Đây là khái niệm về tính phản xạ của một quan hệ hai ngôi $$R$$ trên tập $$A$$: $$R$$ phản xạ nếu $$(a,a) \\in R$$ với mọi $$a \\in A$$.\n\nThuật ngữ khuyến nghị \"tính phản xạ\" được chứng thực ở nguồn 2019 (bib-nguyenhuudien-2019, tr. 109 PDF) ngay tại định nghĩa: \"Ta nói quan hệ R có tính phản xạ (reflexive) nếu và chỉ nếu xRx với mọi x ∈ X.\", có kèm chú thích tiếng Anh \"(reflexive)\".\n\nBiến thể \"tính chất phản xạ\" được chứng thực ở nguồn mới nhất 2020 (bib-leanhvinh-2020, tr. 12 PDF) trong ngữ cảnh quan hệ tương đương (đẳng cấu), cũng như ở bib-nguyenhuudien-2019 và bib-nguyenducnghia-2006.\n\nDạng rút gọn \"phản xạ\" (chỉ tính chất của quan hệ) được chứng thực ở bib-ngodactan-2004 (tr. 163 PDF, định nghĩa quan hệ thứ tự: \"(i) phàn xạ nếu với mọi X...\" — bản OCR sai dấu) và bib-nguyenducnghia-2006 (tr. 14 PDF: \"* phản xạ (mọi phần tử có quan hệ với chính nó)\").\n\nLưu ý loại trừ: trong bib-ngodactan-2004, phần lớn lần xuất hiện của \"phản xạ\" (tr. 140–160) là \"phép phản xạ\" theo nghĩa hình học (phép đối xứng/biến hình trong nhóm nhị diện), KHÔNG phải tính phản xạ của quan hệ, nên không tính vào khái niệm này.\n\nỨng viên \"quan hệ phản xạ\" (cụm danh từ) không xuất hiện ở bất kỳ nguồn nào (0 hits cả thường lẫn --loose); các nguồn diễn đạt khái niệm này như một tính chất (\"tính phản xạ\" / \"tính chất phản xạ\") chứ không gọi tên trực tiếp \"quan hệ phản xạ\".",
-   "see_also": [
-    "equivalence-relation",
-    "symmetric-relation",
-    "transitive-relation",
-    "antisymmetric-relation",
-    "partial-order"
-   ],
+   "headword_en": "recursion tree",
+   "notation": "",
+   "rosen_ref": "Rosen §8.3",
+   "definition_vi": "Cây đệ quy là một cây có gốc dùng để mô hình hóa và phân tích một thuật toán đệ quy hay một hệ thức truy hồi: gốc biểu diễn bài toán ban đầu, mỗi nút biểu diễn một lời gọi đệ quy con với chi phí gắn kèm, và các nút con của một nút ứng với các bài toán con phát sinh từ lời gọi đó. Tổng chi phí của tất cả các nút trên cây cho ta chi phí toàn phần của thuật toán; chẳng hạn với hệ thức $$T(n) = aT(n/b) + f(n)$$ thì độ cao của cây là $$\\log_b n$$.",
+   "example_vi": "Với hệ thức truy hồi của thuật toán chia để trị $$T(n) = 2T(n/2) + n$$, cây đệ quy có $$\\log_2 n$$ mức, mỗi mức có tổng chi phí bằng $$n$$, nên $$T(n)$$ thuộc $$O(n \\log n)$$.",
    "vi_terms": [
     {
-     "term": "tính chất phản xạ",
-     "verified": true,
-     "recommended": false,
-     "source_id": "bib-leanhvinh-2020",
-     "pdf_page": 12,
-     "page": "tr. 13",
-     "snippet": "là, quan hệ đẳng cấu thỏa mãn ba tính chất phản xạ, đối xứng và"
-    },
-    {
-     "term": "tính phản xạ",
-     "verified": true,
-     "recommended": true,
-     "source_id": "bib-nguyenhuudien-2019",
-     "pdf_page": 109,
-     "page": "tr. 109",
-     "snippet": "• Ta nói quan hệ R có tính phản xạ (reflexive) nếu và chỉ nếu xRx với mọi x ∈ X."
-    },
-    {
-     "term": "tính chất phản xạ",
-     "verified": true,
-     "recommended": false,
-     "source_id": "bib-nguyenhuudien-2019",
-     "pdf_page": 110,
-     "page": "tr. 110",
-     "snippet": "• Một quan hệ có tính chất phản xạ khi và chỉ khi ma trận biểu diễn nó có tất cả các"
-    },
-    {
-     "term": "phản xạ",
-     "verified": true,
-     "recommended": false,
-     "source_id": "bib-nguyenhuudien-2019",
-     "pdf_page": 115,
-     "page": "tr. 115",
-     "snippet": "1) Phản xạ: Với mọi a ∈ A ta có aRa;"
-    },
-    {
-     "term": "phản xạ",
-     "source_id": "bib-leanhvinh-2020",
-     "page": "tr. 13",
-     "pdf_page": 12,
-     "snippet": "là, quan hệ đẳng cấu thỏa mãn ba tính chất phản xạ, đối xứng và",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "quan hệ phản xạ",
-     "source_id": "bib-hoangchithanh-2011",
+     "term": "cây đệ quy",
+     "source_id": "",
      "page": "",
-     "pdf_page": 32,
-     "snippet": "quan hệ phản xạ",
-     "verified": true,
+     "pdf_page": 0,
+     "snippet": "",
+     "verified": false,
      "recommended": false
     },
     {
-     "term": "tính chất phản xạ",
-     "source_id": "bib-doducgiao-2008",
-     "page": "tr. 62",
-     "pdf_page": 63,
-     "snippet": "— R có tinh chất phan xa, vi Va € A ta có a+ a= 2a là một số chan, do",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "tính phản xạ",
-     "source_id": "bib-doducthai-2010",
-     "page": "tr. 281",
-     "pdf_page": 281,
-     "snippet": "Bài tập 1.6. Tính phản xạ và tính đối xứng là hiển nhiên. Ta chứng",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "tính phản xạ",
-     "source_id": "bib-sierpinski-2012",
-     "page": "tr. 121",
-     "pdf_page": 135,
-     "snippet": "I . Tính phản xạ: mọi số nguyên là đồng dư với chính nó theo mọi modulo, nghĩa là a  a  mod m ",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "phản xạ",
-     "source_id": "bib-sierpinski-2012",
-     "page": "tr. 121",
-     "pdf_page": 135,
-     "snippet": "I . Tính phản xạ: mọi số nguyên là đồng dư với chính nó theo mọi modulo, nghĩa là a  a  mod m ",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "quan hệ phản xạ",
+     "term": "cây đệ quy",
      "source_id": "bib-cormen-2001-vi",
-     "page": "tr. 103",
-     "pdf_page": 101,
-     "snippet": "với tất cd a € A. Ví du, “=” và “<° là các quan hệ phản xạ trên N,",
+     "page": "tr. 80",
+     "pdf_page": 78,
+     "snippet": "Các cây đệ quy",
      "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "quan hệ phản xạ",
-     "source_id": "bib-nguyenhuuanh-2007",
-     "page": "",
-     "pdf_page": 90,
-     "snippet": "(vuông góc) trên £ không phải là một quan hệ phản xạ.",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "tính phản xạ",
-     "source_id": "bib-cungkimtien-2004",
-     "page": "",
-     "pdf_page": 319,
-     "snippet": "reflexivity tính phản xạ",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "tính phản xạ",
-     "source_id": "bib-phan-1976",
-     "page": "tr. 360",
-     "pdf_page": 360,
-     "snippet": "reflexivity tính phản xa",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "phản xạ",
-     "source_id": "bib-cungkimtien-2004",
-     "page": "",
-     "pdf_page": 20,
-     "snippet": "angle of reflection góc phan xa",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "phản xạ",
-     "source_id": "bib-phan-1976",
-     "page": "tr. 14",
-     "pdf_page": 14,
-     "snippet": ". of reflection góc phan xa",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "quan hệ phản xạ",
-     "source_id": "bib-cungkimtien-2004",
-     "page": "",
-     "pdf_page": 319,
-     "snippet": "reflexive relation quan hé phan xa",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "quan hệ phản xạ",
-     "source_id": "bib-phan-1976",
-     "page": "tr. 363",
-     "pdf_page": 363,
-     "snippet": "reflexive r. quan hệ phản xạ",
-     "verified": true,
-     "recommended": false
-    }
-   ],
-   "pos": "d.t."
-  },
-  {
-   "id": "regular-graph",
-   "letter": "R",
-   "headword_en": "regular graph",
-   "notation": "\\deg_G(v) = k\\ \\forall v \\in V(G)",
-   "rosen_ref": "Rosen §10.2",
-   "definition_vi": "Một đơn đồ thị $$G$$ được gọi là *đồ thị đều bậc $$k$$* nếu mọi đỉnh của nó đều có cùng bậc $$k$$, tức là $$\\deg_G(v) = k$$ với mọi $$v \\in V(G)$$. Số $$k$$ này được gọi là bậc của đồ thị đều.",
-   "example_vi": "Đồ thị đầy đủ $$K_n$$ là đồ thị đều bậc $$n-1$$, vì mỗi đỉnh kề với tất cả $$n-1$$ đỉnh còn lại, do đó $$\\deg_{K_n}(v) = n-1$$ với mọi $$v \\in V(K_n)$$.",
-   "notes": "Recommended term \"đồ thị đều bậc k\" (equivalently \"đồ thị đều bậc d\") is the primary form in the newest source bib-leanhvinh-2020 (tr. 10, PDF), whose definition reads: \"ta gọi $$G$$ là đồ thị đều bậc d (hay còn được gọi là đồ thị d chính quy)\". The variant \"đồ thị k chính quy\" / \"đồ thị d chính quy\" is also attested there (tr. 214). The bare candidate \"đồ thị chính quy\" is NOT recommended: in bib-leanhvinh-2020 the unqualified form \"đồ thị chính quy mạnh\" denotes a strongly regular graph (a different concept, Định nghĩa 8.14, tr. 214), so the qualifier k/d must be kept. Older sources use the spelling \"qui\": bib-ngodactan-2004 \"đồ thị chính qui bậc k\" with the explicit short form \"k-chính qui\" on the same line (tr. 191) and bib-nguyenducnghia-2006 \"chính qui bậc X\" (tr. 164). Note: \"đồ thị đều\" appearing alone in bib-hoangchithanh-2007 (tr. 13, 37, 47, 49), bib-nguyenducnghia-2006 (tr. 154, 162, ...), and bib-ngodactan-2004 (tr. 211) is the adverb \"đều\" meaning \"all/every\" (e.g. \"Mọi đồ thị đều có lõi\"), NOT the regular-graph term, so those hits are excluded. Example sourced from bib-leanhvinh-2020 (tr. 10, PDF): \"Đồ thị K_n là đồ thị đều bậc n − 1.\" The see_also ids degree-of-a-vertex, complete-graph, and bipartite-graph are cross-chapter forward references (chapters D, C, B); no other same-chapter R entries are related to this concept.",
-   "see_also": [
-    "bipartite-graph",
-    "complete-graph"
-   ],
-   "vi_terms": [
-    {
-     "term": "đồ thị đều bậc k",
-     "verified": true,
-     "recommended": true,
-     "source_id": "bib-leanhvinh-2020",
-     "pdf_page": 89,
-     "page": "tr. 90",
-     "snippet": "ta gọi G là đỏ thị đều bậc d (hay còn được gọi là dé thị d chính quy)."
-    },
-    {
-     "term": "đồ thị k chính quy",
-     "verified": true,
-     "recommended": false,
-     "source_id": "bib-leanhvinh-2020",
-     "pdf_page": 214,
-     "page": "tr. 215",
-     "snippet": "© Dé thị G là đồ thị đều bậc k, hay còn gợi là đồ thị k chính quy."
-    },
-    {
-     "term": "đồ thị chính qui bậc k",
-     "verified": true,
-     "recommended": false,
-     "source_id": "bib-ngodactan-2004",
-     "pdf_page": 191,
-     "page": "tr. 191",
-     "snippet": "và G được gọi là đồ thị chính qui bậc k hay ngắn gọn là k-chính qui."
-    },
-    {
-     "term": "k-chính qui",
-     "verified": true,
-     "recommended": false,
-     "source_id": "bib-ngodactan-2004",
-     "pdf_page": 191,
-     "page": "tr. 191",
-     "snippet": "và G được gọi là đồ thị chính qui bậc k hay ngắn gọn là k-chính qui."
-    },
-    {
-     "term": "chính qui bậc X",
-     "verified": true,
-     "recommended": false,
-     "source_id": "bib-nguyenducnghia-2006",
-     "pdf_page": 164,
-     "page": "",
-     "snippet": "10. Đồ thị vô hướng được gọi là chính qui bậc X nếu tất cả các đỉnh của nó đều có bậc"
-    },
-    {
-     "term": "đồ thị chính quy bậc k",
-     "source_id": "bib-wikipedia-vi",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": "https://vi.wikipedia.org/wiki/Đồ_thị_chính_quy",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "đồ thị chính quy",
-     "source_id": "bib-doantamhoe-2009",
-     "page": "",
-     "pdf_page": 179,
-     "snippet": "<M. Khi mỗi đỉnh có bậc bằng 2E/V thì gọi G là đồ thị chính quy. Hãy tìm n để",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "đồ thị chính quy",
-     "source_id": "bib-doducgiao-2009",
-     "page": "tr. 127",
-     "pdf_page": 128,
-     "snippet": "b) Tìm số đỉnh của một đồ thị chính quy bậc 4 có 10 cạnh. Vẽ đỏ thị đó.",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "đồ thị chính quy",
-     "source_id": "bib-leanhvinh-2020",
-     "page": "tr. 215",
-     "pdf_page": 214,
-     "snippet": "Dinh nghĩa 8.14. Dé thị G được gọi là đồ thị chính quy mạnh uới",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "đồ thị đều",
-     "source_id": "bib-hoangchithanh-2011",
-     "page": "",
-     "pdf_page": 39,
-     "snippet": "1.62. Nếu các đỉnh của đồ thị đều có bậc chin thì:",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "đồ thị đều",
-     "source_id": "bib-leanhvinh-2020",
-     "page": "tr. 11",
-     "pdf_page": 10,
-     "snippet": "ta gọi G là đỏ thị đều bậc d (hay còn được gọi là dé thị d chính quy).",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "đồ thị đều",
-     "source_id": "bib-nguyenhuudien-2019",
-     "page": "tr. 182",
-     "pdf_page": 182,
-     "snippet": "đồ thị đều có bậc chẵn.",
-     "verified": true,
-     "recommended": false
-    }
-   ],
-   "pos": "d.t."
-  },
-  {
-   "id": "relation",
-   "letter": "R",
-   "headword_en": "relation",
-   "see_ref": "binary-relation",
-   "vi_terms": [
-    {
-     "term": "quan hệ hai ngôi",
-     "verified": false,
-     "recommended": false,
-     "source_id": "",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": ""
-    },
-    {
-     "term": "quan hệ nhị nguyên",
-     "verified": false,
-     "recommended": false,
-     "source_id": "",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": ""
-    },
-    {
-     "term": "quan hệ",
-     "verified": false,
-     "recommended": false,
-     "source_id": "",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": ""
+     "recommended": true
     }
    ],
    "see_also": [],
-   "notes": "Đồng nghĩa với Binary relation.",
+   "notes": "Thuật ngữ \"cây đệ quy\" không xuất hiện trực tiếp trong các nguồn đối chiếu của kho ngữ liệu; chỉ khái niệm \"đệ quy\" (recursion) được dùng phổ biến (ví dụ Nguyễn Hữu Điển 2019, mục 5.5). Cây đệ quy là công cụ trực quan để phân tích hệ thức truy hồi của thuật toán chia để trị.",
+   "status": "draft",
    "pos": "d.t."
   },
   {
-   "id": "rooted-tree",
+   "id": "recursive-algorithm",
    "letter": "R",
-   "headword_en": "rooted tree",
-   "notation": "(T, r)",
-   "rosen_ref": "Rosen §11.1",
-   "definition_vi": "Cây có gốc là một cây $$T$$ trong đó một đỉnh $$r$$ được chọn làm gốc và mọi cạnh được định hướng ra xa khỏi $$r$$, ký hiệu $$(T, r)$$. Khi đó với mỗi đỉnh $$v \\neq r$$ tồn tại duy nhất một đường đi có hướng từ gốc $$r$$ đến $$v$$.",
-   "example_vi": "Xét cây $$T$$ với tập đỉnh $$\\{a, b, c, d\\}$$ và các cạnh $$ab$$, $$ac$$, $$cd$$. Chọn $$a$$ làm gốc và định hướng mọi cạnh ra xa khỏi $$a$$, ta được cây có gốc $$(T, a)$$ trong đó có đúng một đường đi có hướng từ $$a$$ đến mỗi đỉnh $$b$$, $$c$$, $$d$$.",
-   "notes": "Mining across all six sources (normal + --loose for OCR sources) found only one Vietnamese term for \"rooted tree\": \"cây có gốc\". It is the standard term and is attested in the newest corpus, including a formal definition in bib-nguyenhoangthach-2020 (Định nghĩa 6.3: \"Một cây có gốc là một đồ thị có hướng...\") which matches Rosen's concept of a directed tree with a designated root. Rosen §11.1 itself starts from an undirected tree, designates a root, and orients edges away from it (matching definition_vi), whereas the recommended source frames the object as an already-directed graph; the two formulations are equivalent. The term also appears in bib-leanhvinh-2020 (OCR-confirmed, pdf_page 49-50, both normal and loose), bib-nguyenhuudien-2019, and bib-nguyenducnghia-2006. Citations are ordered newest-source first; the recommended attestation is the 2020 formal definition.\n\nThe other supplied candidates have NO attestation in any source: \"cây gốc\" (0 hits, normal + loose, all sources) and \"cây được gốc hóa\" (0 hits). The alternative phrasing \"cây có rễ\" also returned 0 hits. These unattested terms are dropped per citation hygiene (verified=false with empty page), leaving only the single standard recommended term.\n\nNo attestation was found in bib-hoangchithanh-2007 (OCR, normal + loose) or bib-ngodactan-2004 for this concept under any tested phrasing.",
+   "headword_en": "recursive algorithm",
+   "notation": "",
+   "rosen_ref": "Rosen §5.4",
+   "definition_vi": "Một thuật toán được gọi là *thuật toán đệ quy* nếu nó giải một bài toán bằng cách rút gọn liên tiếp bài toán ban đầu về một hoặc nhiều bài toán cùng dạng nhưng có dữ liệu đầu vào nhỏ hơn, cho tới khi đạt tới *trường hợp cơ sở* được giải trực tiếp. Chẳng hạn, để tính $$\\gcd(a,b)$$ với $$b > 0$$, ta rút gọn về $$\\gcd(b, a \\bmod b)$$, lặp lại cho tới khi đối số thứ hai bằng $$0$$, khi đó $$\\gcd(a, 0) = a$$.",
+   "example_vi": "Thủ tục đệ quy tính giai thừa $$n!$$ với $$n$$ là số nguyên dương: nếu $$n = 0$$ thì trả về $$1$$ (trường hợp cơ sở), ngược lại trả về $$n \\cdot (n-1)!$$, rút gọn dần về các giá trị nhỏ hơn cho tới khi gặp $$n = 0$$.",
    "see_also": [
-    "tree",
-    "root",
-    "directed-graph"
+    "recursion",
+    "recurrence-relation",
+    "recursive-definition"
    ],
    "vi_terms": [
     {
-     "term": "cây có gốc",
+     "term": "thuật toán đệ quy",
      "verified": true,
      "recommended": true,
-     "source_id": "bib-nguyenhoangthach-2020",
-     "pdf_page": 84,
-     "page": "tr. 82",
-     "snippet": "Định nghĩa 6.3. Một cây có gốc là một đồ thị có hướng, trong đó:"
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 147,
+     "page": "tr. 147",
+     "snippet": "Định nghĩa 5.3 Một thuật toán được gọi là đệ quy nếu nó giải bài toán bằng cách rút"
     },
     {
-     "term": "cây có gốc",
-     "verified": true,
-     "recommended": false,
-     "source_id": "bib-leanhvinh-2020",
-     "pdf_page": 50,
-     "page": "tr. 51",
-     "snippet": "n—1 cạnh được định hướng đến khi thu được một cây có gốc. Tại mỗi"
-    },
-    {
-     "term": "cây có gốc",
+     "term": "thủ tục đệ quy",
      "verified": true,
      "recommended": false,
      "source_id": "bib-nguyenhuudien-2019",
-     "pdf_page": 259,
-     "page": "tr. 259",
-     "snippet": "có gốc chỉ gồm một đỉnh và với n = 3, 4, . . . cây có gốc T n được xây dựng từ gốc với Tn−1"
-    }
-   ],
-   "pos": "d.t."
-  },
-  {
-   "id": "ring",
-   "letter": "R",
-   "headword_en": "ring",
-   "notation": "(R, +, \\cdot)",
-   "rosen_ref": "Rosen §4.6",
-   "definition_vi": "Vành là một tập hợp $$R$$ được trang bị hai phép toán hai ngôi, phép cộng $$+$$ và phép nhân $$\\cdot$$, ký hiệu $$(R, +, \\cdot)$$, sao cho $$R$$ là một nhóm abel đối với phép cộng, phép nhân có tính kết hợp, và phép nhân phân phối đối với phép cộng. Nghĩa là, với mọi $$a, b, c \\in R$$ ta có $$a \\cdot (b + c) = a \\cdot b + a \\cdot c$$ và $$(a + b) \\cdot c = a \\cdot c + b \\cdot c$$. Nguồn tiếng Việt duy nhất chứng thực khái niệm này (bib-ngodactan-2004) trình bày trường hợp vành giao hoán có đơn vị, đúng với ví dụ $$\\mathbb{Z}$$ bên dưới.",
-   "example_vi": "Tập hợp các số nguyên $$\\mathbb{Z}$$ cùng với phép cộng và phép nhân thông thường tạo thành một vành $$(\\mathbb{Z}, +, \\cdot)$$.",
-   "vi_terms": [
-    {
-     "term": "vành",
-     "verified": true,
-     "recommended": true,
-     "source_id": "bib-ngodactan-2004",
-     "pdf_page": 60,
-     "page": "tr. 60",
-     "snippet": "thành một vành giao hoán có đơn vị 1 đối với phép cộng và phép nhân"
+     "pdf_page": 148,
+     "page": "tr. 148",
+     "snippet": "Ví dụ 5.16. Thủ tục đệ quy sau đây cho ta giá trị của n! với n là số nguyên dương."
     },
     {
-     "term": "vành giao hoán",
+     "term": "thủ tục đệ qui",
      "verified": true,
      "recommended": false,
-     "source_id": "bib-ngodactan-2004",
-     "pdf_page": 44,
-     "page": "tr. 44",
-     "snippet": "bất kỳ của một vành giao hoán K có đơn vị 1 và n là một số nguyên"
-    },
-    {
-     "term": "vành có đơn vị",
-     "verified": true,
-     "recommended": false,
-     "source_id": "bib-ngodactan-2004",
-     "pdf_page": 61,
-     "page": "tr. 61",
-     "snippet": "vành có đơn vị mà đồng thời cũng là không gián véc tơ trên K với phép"
-    },
-    {
-     "term": "vành",
-     "source_id": "bib-rosen-2003-vi",
-     "pdf_page": 337,
-     "page": "tr. 337",
-     "snippet": "31. Trên vành của bánh xe dùng để quay xổ số có gắn 38 con số, trung",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "vành giao hoán",
-     "source_id": "bib-nguyenhuuanh-2007",
+     "source_id": "bib-nguyenducnghia-2006",
+     "pdf_page": 100,
      "page": "",
-     "pdf_page": 93,
-     "snippet": "Ta nói Z„ cũng như Z là những vanh giao hoán có đơn vi",
-     "verified": true,
-     "recommended": false
+     "snippet": "Sau khi xây dựng thủ tục đệ qui 77y, đoạn chương trình chính giải bài toán liệt kê"
     },
     {
-     "term": "vành giao hoán",
-     "source_id": "bib-cungkimtien-2004",
+     "term": "giải thuật đệ quy",
+     "source_id": "",
      "page": "",
-     "pdf_page": 64,
-     "snippet": "commutative ring vành giao hoán",
+     "pdf_page": 0,
+     "snippet": "",
+     "verified": false,
+     "recommended": false
+    },
+    {
+     "term": "thủ tục đệ quy",
+     "source_id": "bib-doducgiao-2009",
+     "page": "tr. 207",
+     "pdf_page": 208,
+     "snippet": "Thủ tục đệ quy sau đây cho phép tạo lập cây tìm kiếm nhị phân cho một",
      "verified": true,
      "recommended": false
     },
     {
-     "term": "vành giao hoán",
-     "source_id": "bib-phan-1976",
-     "page": "tr. 369",
-     "pdf_page": 369,
-     "snippet": "commutative r. vành giao hoán",
-     "verified": true,
-     "recommended": false
-    }
-   ],
-   "notes": "Ring terminology appears only in bib-ngodactan-2004 (2004), the only corpus source that touches algebraic structures (in the context of the Newton binomial and Pólya enumeration over a ring). The base recommended term is \"vành\" (ring). No 2019-2020 source attests \"vành\" or any variant; the find-term.py search returned 0 hits in bib-leanhvinh-2020 and bib-nguyenhoangthach-2020 (2020), bib-nguyenhuudien-2019 (2019), bib-hoangchithanh-2007, and bib-nguyenducnghia-2006, including loose-mode searches on the two OCR sources (bib-leanhvinh-2020, bib-hoangchithanh-2007). The recommended term \"vành\" is therefore attested only in the 2004 source, which is the oldest available; no newer attestation exists in this combinatorics/graph-theory corpus. Variants record additional structural qualifiers: \"vành giao hoán\" = commutative ring, \"vành có đơn vị\" = ring with unity (multiplicative identity $$1$$). Both qualified forms also occur only in bib-ngodactan-2004. ROSEN-REF CAVEAT: rosen_ref \"Rosen §4.6\" is the modular-arithmetic/cryptography (RSA) section, where Rosen does not formally define a ring; the general-ring definition given here is the standard abstract-algebra definition, but the only attesting Vietnamese source treats the commutative-ring-with-unity case. The ref is retained as the topical anchor (the book anchors weakly-anchored algebra headwords by topic section) and the level-of-generality mismatch is disclosed in definition_vi and here rather than silently rewriting an anchor Rosen does not cleanly provide.",
-   "see_also": [
-    "field",
-    "group"
-   ],
-   "pos": "d.t."
-  },
-  {
-   "id": "range-of-a-function",
-   "letter": "R",
-   "headword_en": "range of a function",
-   "notation": "f(A) = \\{ f(a) : a \\in A \\}",
-   "rosen_ref": "Rosen §2.3",
-   "definition_vi": "Tập ảnh của một hàm $$f$$ từ $$A$$ đến $$B$$ là tập hợp tất cả các phần tử của tập đích $$B$$ là ảnh của ít nhất một phần tử thuộc $$A$$, tức là tập $$f(A) = \\{ f(a) : a \\in A \\}$$. Theo định nghĩa, tập ảnh $$f(A)$$ là một tập hợp con của $$B$$.",
-   "example_vi": "Cho hàm $$f \\colon A \\to B$$ với $$A = \\{1, 2, 3\\}$$, $$B = \\{a, b, c, d\\}$$, xác định bởi $$f(1) = a$$, $$f(2) = c$$ và $$f(3) = a$$. Khi đó tập ảnh là $$f(A) = \\{a, c\\}$$, một tập hợp con thực sự của $$B$$.",
-   "notes": "Recommended term \"tập ảnh\" is attested in the 2020 source bib-nguyenhoangthach-2020 (p. 33), where the range of a function $$f$$ from $$A$$ to $$B$$ is written as the image set $$f(A)$$, described as a subset of $$B$$ (\"tập ảnh f(A), là một tập hợp con của B\") — exactly this concept. Variant \"tập giá trị (của hàm)\" is attested in bib-hoangchithanh-2007 (p. 21, OCR) as the value set of a function (\"tập giá trị của hàm g trên F(x)\"). Variant \"miền giá trị\" is attested in bib-ngodactan-2004 (p. 128) as the value range of a function. The \"tập giá trị\" hit in bib-leanhvinh-2020 (p. 212) refers to the value set of a Rayleigh ratio / graph spectrum, a value-set usage but not the function-range definition, so it is not cited here. Other candidate forms (ảnh của hàm, ảnh của ánh xạ, miền ảnh, tập hợp ảnh) returned no attestation in any source.",
-   "see_also": [
-    "function",
-    "onto-function"
-   ],
-   "vi_terms": [
-    {
-     "term": "tập ảnh",
-     "verified": true,
-     "recommended": true,
-     "source_id": "bib-nguyenhoangthach-2020",
-     "pdf_page": 33,
-     "page": "tr. 31",
-     "snippet": "vào tập ảnh f (A), là một tập hợp con của B. Từ đó, ta có một quy trình xây"
-    },
-    {
-     "term": "tập giá trị",
-     "verified": true,
-     "recommended": false,
-     "source_id": "bib-hoangchithanh-2007",
-     "pdf_page": 21,
-     "page": "tr. 21",
-     "snippet": "trong số các số không thuộc tập giá trị của hàm g trên F(x)."
-    },
-    {
-     "term": "tập ảnh",
-     "source_id": "bib-doxuanloi-2006",
-     "page": "tr. 165",
-     "pdf_page": 163,
-     "snippet": "trong quá trình học tập anh ta sẽ phải hoàn thành một số môn học quy định,",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "tập giá trị",
+     "term": "thủ tục đệ quy",
      "source_id": "bib-hoangchithanh-2011",
      "page": "",
-     "pdf_page": 45,
-     "snippet": "Tính chat 1) chỉ ra rằng g(x) không nằm trong tập giá trị của hàm ø trên",
+     "pdf_page": 176,
+     "snippet": "ta dùng thủ tục đệ quy sau đây:",
      "verified": true,
      "recommended": false
     },
     {
-     "term": "tập giá trị",
-     "source_id": "bib-leanhvinh-2020",
-     "page": "tr. 213",
-     "pdf_page": 212,
-     "snippet": "Ay >... > Àu. Khi đó, tập giá trị của ti số (Ax,x) sẽ là đoạn thẳng",
+     "term": "thủ tục đệ qui",
+     "source_id": "bib-doxuanloi-2006",
+     "page": "tr. 42",
+     "pdf_page": 40,
+     "snippet": "3.2 Giải thuật dé qui và thủ tục đệ qui",
      "verified": true,
      "recommended": false
     },
     {
-     "term": "miền giá trị",
-     "source_id": "bib-doducgiao-2009",
-     "page": "tr. 366",
-     "pdf_page": 367,
-     "snippet": "b) Tìm miền giá trị đúng Eps E,, By + Hạ, Eạ „ Es,",
+     "term": "thuật toán đệ quy",
+     "source_id": "bib-doducgiao-2008",
+     "page": "tr. 32",
+     "pdf_page": 33,
+     "snippet": "‘13. Tìm thuật toán đệ quy tinh giá trị a” với a là số thực khác không và n là",
      "verified": true,
      "recommended": false
     },
     {
-     "term": "miền giá trị",
-     "source_id": "bib-vovantuandung-2007",
-     "page": "",
-     "pdf_page": 41,
-     "snippet": "«ỔỎ ÍX):={yeY | ax € X, y = f(x)} gọi là miễn giá trị của f.",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "miền giá trị",
+     "term": "thuật toán đệ quy",
      "source_id": "bib-vudinhhoa-2010",
      "page": "",
-     "pdf_page": 40,
-     "snippet": "2. Tim miền giá trị và miền xác định của các hàm số sau:",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "miền giá trị",
-     "source_id": "bib-cungkimtien-2004",
-     "page": "",
-     "pdf_page": 311,
-     "snippet": "range of afunction miền giá trị",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "miền giá trị",
-     "source_id": "bib-phan-1976",
-     "page": "tr. 355",
-     "pdf_page": 355,
-     "snippet": ". of a function miền giá tri của một hàm",
+     "pdf_page": 113,
+     "snippet": "6.5.1 Thuật toán đệ quy f \\ reat Vii",
      "verified": true,
      "recommended": false
     }
    ],
+   "notes": "Recommended term \"thuật toán đệ quy\" is attested in the newest text source bib-nguyenhuudien-2019 (2019), where the formal definition appears as Định nghĩa 5.3 on pdf_page 147 (\"Một thuật toán được gọi là đệ quy nếu nó giải bài toán bằng cách rút gọn liên tiếp bài toán ban đầu tới bài toán cũng như vậy nhưng có dữ liệu đầu vào nhỏ hơn.\"); the term recurs on pp. 100, 147-151 with worked examples (lũy thừa, UCLN, tìm kiếm tuyến tính/nhị phân, giai thừa, Fibonacci). The base-case wording in definition_vi (\"trường hợp cơ sở được giải trực tiếp\") is the ground-truth concept's base case; the source phrases this as reducing to a directly solvable case (p. 147). The gcd illustration follows Ví dụ 5.13 (p. 147): the source pseudocode computes UCLN(a mod b, b) with base case \"if b = 0 then UCLN(a,b) := a\"; the definition_vi states the standard textbook Euclidean recursion gcd(b, a mod b) which terminates when the SECOND argument (the remainder) reaches 0, where gcd(a,0)=a, and drops the unnecessary 'a > b' precondition (the identity gcd(a,b)=gcd(b, a mod b) holds for all a,b with b>0). The factorial example follows Ví dụ 5.16 (p. 148). The two other supplied candidates were NOT attested in any corpus source: \"giải thuật đệ quy\" returned 0 hits (normal and --loose), and \"thuật toán đệ quy chia đôi\" returned 0 hits (normal and --loose). Variant \"thủ tục đệ quy\" (recursive procedure) appears in the same 2019 source (p. 148) and, with the older spelling \"thủ tục đệ qui\", in bib-nguyenducnghia-2006 (p. 100); these denote the recursive-procedure realization of a recursive algorithm and are recorded as variants. The standalone older-spelling term \"thuật toán đệ qui\" returned 0 hits (normal and --loose), so no separate variant is recorded. OCR sources bib-hoangchithanh-2007 and bib-leanhvinh-2020 were searched both normally and with --loose; \"thuật toán đệ quy\" / \"thủ tục đệ quy\" returned 0 hits in these OCR sources for this headword. see_also: this R-chapter batch introduces the related entries recursion, recurrence-relation and recursive-definition together; per the same-chapter convention they are now linked (and recursive-definition reciprocally links back to recursive-algorithm). Cross-chapter relatives (algorithm [A], euclidean-algorithm [E], linear-recurrence-relation [L]) are forward references documented here and not linked.",
+   "pos": "d.t."
+  },
+  {
+   "id": "recursive-call",
+   "letter": "R",
+   "headword_en": "recursive call",
+   "notation": "",
+   "rosen_ref": "Rosen §5.4",
+   "definition_vi": "Lần gọi đệ quy là lần một thủ tục hoặc hàm đệ quy gọi đến chính nó trong khi thực hiện, với dữ liệu vào nhỏ hơn so với lần gọi hiện tại. Quá trình này lặp lại cho tới khi đạt tới trường hợp cơ sở (trường hợp không cần gọi đệ quy nữa).",
+   "example_vi": "Khi tính giai thừa bằng thủ tục đệ quy $$n! = n \\cdot (n-1)!$$, mỗi bước thực hiện một lần gọi đệ quy với đối số $$n-1$$, cho tới khi đạt trường hợp cơ sở $$0! = 1$$.",
+   "vi_terms": [
+    {
+     "term": "lần gọi đệ quy",
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": "",
+     "verified": false,
+     "recommended": false
+    },
+    {
+     "term": "lời gọi đệ quy",
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": "",
+     "verified": false,
+     "recommended": false
+    },
+    {
+     "term": "lần gọi đệ quy",
+     "source_id": "bib-cormen-2001-vi",
+     "page": "tr. 297",
+     "pdf_page": 295,
+     "snippet": "Tại mỗi lần gọi đệ quy của kỹ thuật sắp xếp nhanh, ta chọn một",
+     "verified": true,
+     "recommended": true
+    }
+   ],
+   "see_also": [],
+   "notes": "Khái niệm \"lần gọi đệ quy\" theo nghĩa hẹp (mỗi lần thủ tục đệ quy tự gọi lại) không xuất hiện như một thuật ngữ độc lập trong các nguồn tham khảo; các nguồn chỉ dùng khái niệm rộng hơn là \"đệ quy\" và \"thủ tục đệ quy\" (ví dụ bib-nguyenhuudien-2019, tr. 147–148).",
+   "status": "draft",
    "pos": "d.t."
   },
   {
@@ -955,945 +1422,6 @@
     "structural-induction"
    ],
    "example_vi": "Dãy giai thừa $$\\{n!\\}$$ được định nghĩa đệ quy bởi bước cơ sở $$0! = 1$$ và bước đệ quy $$n! = n \\cdot (n-1)!$$ với mọi số nguyên $$n \\geq 1$$.",
-   "pos": "d.t."
-  },
-  {
-   "id": "residue",
-   "letter": "R",
-   "headword_en": "residue",
-   "see_ref": "remainder",
-   "vi_terms": [
-    {
-     "term": "số dư",
-     "verified": false,
-     "recommended": false,
-     "source_id": "",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": ""
-    }
-   ],
-   "see_also": [],
-   "notes": "Đồng nghĩa với Remainder.",
-   "pos": "d.t."
-  },
-  {
-   "id": "regular-expression",
-   "letter": "R",
-   "headword_en": "regular expression",
-   "notation": "(ab)^{*} \\cup b",
-   "rosen_ref": "Rosen §13.4",
-   "definition_vi": "*Biểu thức chính quy* trên một bảng chữ cái $$I$$ là một xâu được xây dựng đệ quy từ các ký hiệu của $$I$$, các ký hiệu $$\\emptyset$$ (tập rỗng) và $$\\lambda$$ (xâu rỗng), cùng các phép ghép, hợp và bao đóng Kleene. Cụ thể, $$\\emptyset$$ và $$\\lambda$$ là các biểu thức chính quy, ký hiệu $$x$$ là một biểu thức chính quy với mọi $$x \\in I$$, và nếu $$A$$, $$B$$ là các biểu thức chính quy thì $$(AB)$$, $$(A \\cup B)$$ và $$A^{*}$$ cũng là các biểu thức chính quy; mỗi biểu thức chính quy mô tả một ngôn ngữ chính quy.",
-   "example_vi": "Trên bảng chữ cái $$I = \\{a, b\\}$$, xâu $$(ab)^{*} \\cup b$$ là một biểu thức chính quy, trong khi xâu ký hiệu $$\\cup a^{*} b$$ không phải là biểu thức chính quy vì không tuân theo quy tắc xây dựng đệ quy.",
-   "notes": "Recommended lead term \"biểu thức chính quy\" is the standard Vietnamese term for regular expression in computer-science / formal-language literature. It is attested in the corpus ONLY by bib-rosen-2003-vi (the 2003 OCR translation of Rosen), which covers Rosen's computation-models chapter: ĐỊNH NGHĨA 1 gives the complete recursive definition (Ø, λ, x∈I as base cases; (AB), (A∪B), A* as recursive cases) and p.810 defines the represented sets (Ø→tập rỗng; λ→{λ}; x→{x}; (AB)→ghép; A*→bao đóng Kleene), confirming this is exactly Rosen §13.4. The definition sits between @@PAGE 809@@ and @@PAGE 810@@, so pdf_page=809, matching the page-marker convention used by the sibling NFA entry. LEAD-SOURCE POLICY (registry terminology_policy; same precedent as chapter-N's nondeterministic-finite-automaton entry): bib-rosen-2003-vi has role=reference and the find-term.py corpus tool keeps it in EXCLUDE_DEFAULT (searching all 2004–2020 sources returns 0 hits; only an explicit bib-rosen-2003-vi pass returns the 30 hits), so it may NEVER be the recommended/lead term. Per that policy the recommended lead term is kept verified=false (empty citation) and the 2003 attestation is recorded as a separate recommended=false, verified=true corroborating row with its p.809 snippet; the downstream renderer surfaces the p.809 Rosen row as the recommendation's evidence so the verified=false flag is not read as \"unsupported\". Unattested variants (0 hits, normal and --loose, across all corpus sources): \"biểu thức chính tắc\" and \"biểu thức đều\" — kept as verified=false variant rows for completeness. The OCR mangled the alphabet symbol I to \"7\" and λ to \"4\"; these are normalized in the snippet, transparently. The notation field \"(ab)^{*} \\cup b\" matches Rosen's regular-expression syntax. see_also targets regular-language and regular-set are same-chapter (R) forward references — the languages/sets a regular expression describes (not yet authored in this batch); Kleene star/closure is chapter K (cross-chapter), so it is not linked here per the same-chapter see_also rule.",
-   "see_also": [
-    "regular-set"
-   ],
-   "vi_terms": [
-    {
-     "term": "biểu thức chính tắc",
-     "verified": false,
-     "recommended": false,
-     "source_id": "",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": ""
-    },
-    {
-     "term": "biểu thức chính quy",
-     "source_id": "bib-doducgiao-2000",
-     "page": "tr. 254",
-     "pdf_page": 253,
-     "snippet": "{2. NGON NGỮ CHÍNH QUY VA BIỂU THỨC CHÍNH QUY",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "biểu thức chính quy",
-     "source_id": "bib-doducgiao-2009",
-     "page": "tr. 22",
-     "pdf_page": 23,
-     "snippet": "NGÔN NGỮ CHÍNH QUY, BIỂU THỨC CHÍNH QUY",
-     "verified": true,
-     "recommended": true
-    },
-    {
-     "term": "biểu thức chính quy",
-     "source_id": "bib-doducgiao-2008",
-     "page": "tr. 8",
-     "pdf_page": 9,
-     "snippet": "2.2. Biểu thức chính quy...",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "biểu thức chính tắc",
-     "source_id": "bib-cungkimtien-2004",
-     "page": "",
-     "pdf_page": 427,
-     "snippet": "\"biểu thức chính tắc canonical",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "biểu thức chính tắc",
-     "source_id": "bib-phan-1976",
-     "page": "tr. 166",
-     "pdf_page": 166,
-     "snippet": "canonical e. biểu thức chính tắc",
-     "verified": true,
-     "recommended": false
-    }
-   ],
-   "pos": "d.t."
-  },
-  {
-   "id": "ramsey-number",
-   "letter": "R",
-   "headword_en": "Ramsey number",
-   "notation": "R(s,t)",
-   "rosen_ref": "Rosen §6.2",
-   "definition_vi": "Số Ramsey của hai số nguyên dương $$s$$ và $$t$$, ký hiệu $$R(s,t)$$, là số nguyên dương $$n$$ nhỏ nhất sao cho mọi cách tô màu các cạnh của đồ thị đầy đủ $$K_n$$ bằng hai màu đỏ và xanh đều chứa một $$K_s$$ đỏ hoặc một $$K_t$$ xanh.",
-   "example_vi": "Khi $$s = t = 3$$, ta có $$R(3,3) = 6$$: mọi cách tô các cạnh của $$K_6$$ bằng hai màu đỏ và xanh đều chứa một $$K_3$$ đỏ hoặc một $$K_3$$ xanh, nhưng tồn tại cách tô các cạnh của $$K_5$$ không chứa $$K_3$$ cùng màu nào.",
-   "vi_terms": [
-    {
-     "term": "số Ramsey",
-     "verified": true,
-     "recommended": true,
-     "source_id": "bib-leanhvinh-2020",
-     "pdf_page": 143,
-     "page": "tr. 144",
-     "snippet": "Định nghĩa 6.2. (Số Ramsey) Với s,t nguyên dương, số Ramsey"
-    },
-    {
-     "term": "số Ramsey R(s,t)",
-     "verified": true,
-     "recommended": false,
-     "source_id": "bib-leanhvinh-2020",
-     "pdf_page": 143,
-     "page": "tr. 144",
-     "snippet": "Trước hết, ta thấy rằng sự tồn tại của số Ramsey R(s,t) được suy"
-    },
-    {
-     "term": "số Ramsey",
-     "verified": true,
-     "recommended": false,
-     "source_id": "bib-ngodactan-2004",
-     "pdf_page": 307,
-     "page": "tr. 307",
-     "snippet": "Các số R ^ ( s , t ) được gọi là các số Ramsey. Hơn thế nữa, các số"
-    },
-    {
-     "term": "số Ramsey",
-     "verified": true,
-     "recommended": false,
-     "source_id": "bib-nguyenducnghia-2006",
-     "pdf_page": 67,
-     "page": "",
-     "snippet": "Định nghĩa 3. Số Ramsey R(j) là số nguyên dương nhỏ nhất có tính chất (¿J)-Ramsey."
-    }
-   ],
-   "see_also": [
-    "complete-graph",
-    "graph-coloring"
-   ],
-   "notes": "Recommended term: \"số Ramsey\", attested in the newest source bib-leanhvinh-2020 (2020), p.143, in a formal numbered definition \"Định nghĩa 6.2. (Số Ramsey) Với s,t nguyên dương, số Ramsey R(s,t) là số nguyên dương n nhỏ nhất thỏa mãn...\". The term is uniformly stable across the corpus: bib-ngodactan-2004 (p.307, \"các số Ramsey\"), bib-nguyenducnghia-2006 (p.67, \"Số Ramsey R(j)\" — uses combined index j for s,t).\n\nNotation: bib-leanhvinh-2020 writes $$R(s,t)$$ (sometimes $$A(s,t)$$ as an OCR misread, e.g. p.161 \"số Ramsey A(s,¢)\"); bib-ngodactan-2004 writes $$R(s,t)$$ and the generalized $$R(r;s,t)$$ for the hypergraph/multi-color case; bib-nguyenducnghia-2006 uses the single-argument $$R(j)$$ form. The variant \"số Ramsey R(s,t)\" simply appends the notation and is the same concept.\n\nDISTINCT concept, NOT included as a vi_term: \"định lý Ramsey\" (Ramsey's theorem) — the existence theorem guaranteeing that $$R(s,t)$$ is finite — is heavily attested (bib-leanhvinh-2020 p.142–143 \"Định lý 6.1. (Định lý Ramsey)\", bib-ngodactan-2004 p.305+ \"các định lý Ramsey cơ bản\", bib-nguyenducnghia-2006 p.69 \"Định lý 1 (Định lý Ramsey)\"). It denotes the theorem, not the number, so it is recorded here as a see_also/related term (ramsey-theorem), not as a Vietnamese term for the Ramsey number itself.\n\nNot attesting this concept: bib-nguyenhuudien-2019 mentions only \"lý thuyết Ramsey\" (Ramsey theory) generally at p.88, with no definition of the number $$R(s,t)$$. bib-nguyenhoangthach-2020 and bib-hoangchithanh-2007 (OCR, both normal+loose searched) return 0 hits for Ramsey. So no 2019 text attests the number itself; the recommended term is nonetheless anchored in the 2020 source bib-leanhvinh-2020.\n\nRelated coined terms in the corpus (not synonyms of the headword): \"số Ramsey cho siêu đồ thị\" $$R_r(s,t)$$ (Ramsey number for hypergraphs, bib-leanhvinh-2020 p.146), \"số Ramsey R(G,H)\" for general graphs G,H (bib-leanhvinh-2020 p.160), \"các số Ramsey mở rộng\" (generalized Ramsey numbers, bib-ngodactan-2004 p.309). These are generalizations, not the basic $$R(s,t)$$ for complete graphs.\n\nVerifier note: All four verified=true vi_terms re-mined and confirmed by snippet (leanhvinh-2020 p.143 normal+loose; ngodactan-2004 p.307 normal; nguyenducnghia-2006 p.67 normal). Exactly one recommended=true, anchored in the 2020 source. The R(3,3)=6 example and asymmetric R(s,t) are corroborated at bib-leanhvinh-2020 p.161 (\"đồ thị tới hạn cho các số Ramsey R(3,3), R(4,3), R(5,3) và R(4,4)\"). No fabricated citations.\n\nDefinition: written to match the English ground truth (smallest n such that every 2-coloring of K_n's edges yields a red K_s or blue K_t), opening with the term, giving notation with \"ký hiệu\", and using \"đồ thị đầy đủ\" for complete graph and \"tô màu các cạnh ... bằng hai màu\" for 2-edge-coloring. Example uses the standard self-contained fact R(3,3)=6 with the K_5 witness, introducing no quantity the definition did not already cover (K_n, red/blue K_s, K_t).",
-   "pos": "d.t."
-  },
-  {
-   "id": "recursive-algorithm",
-   "letter": "R",
-   "headword_en": "recursive algorithm",
-   "notation": "",
-   "rosen_ref": "Rosen §5.4",
-   "definition_vi": "Một thuật toán được gọi là *thuật toán đệ quy* nếu nó giải một bài toán bằng cách rút gọn liên tiếp bài toán ban đầu về một hoặc nhiều bài toán cùng dạng nhưng có dữ liệu đầu vào nhỏ hơn, cho tới khi đạt tới *trường hợp cơ sở* được giải trực tiếp. Chẳng hạn, để tính $$\\gcd(a,b)$$ với $$b > 0$$, ta rút gọn về $$\\gcd(b, a \\bmod b)$$, lặp lại cho tới khi đối số thứ hai bằng $$0$$, khi đó $$\\gcd(a, 0) = a$$.",
-   "example_vi": "Thủ tục đệ quy tính giai thừa $$n!$$ với $$n$$ là số nguyên dương: nếu $$n = 0$$ thì trả về $$1$$ (trường hợp cơ sở), ngược lại trả về $$n \\cdot (n-1)!$$, rút gọn dần về các giá trị nhỏ hơn cho tới khi gặp $$n = 0$$.",
-   "see_also": [
-    "recursion",
-    "recurrence-relation",
-    "recursive-definition"
-   ],
-   "vi_terms": [
-    {
-     "term": "thuật toán đệ quy",
-     "verified": true,
-     "recommended": true,
-     "source_id": "bib-nguyenhuudien-2019",
-     "pdf_page": 147,
-     "page": "tr. 147",
-     "snippet": "Định nghĩa 5.3 Một thuật toán được gọi là đệ quy nếu nó giải bài toán bằng cách rút"
-    },
-    {
-     "term": "thủ tục đệ quy",
-     "verified": true,
-     "recommended": false,
-     "source_id": "bib-nguyenhuudien-2019",
-     "pdf_page": 148,
-     "page": "tr. 148",
-     "snippet": "Ví dụ 5.16. Thủ tục đệ quy sau đây cho ta giá trị của n! với n là số nguyên dương."
-    },
-    {
-     "term": "thủ tục đệ qui",
-     "verified": true,
-     "recommended": false,
-     "source_id": "bib-nguyenducnghia-2006",
-     "pdf_page": 100,
-     "page": "",
-     "snippet": "Sau khi xây dựng thủ tục đệ qui 77y, đoạn chương trình chính giải bài toán liệt kê"
-    },
-    {
-     "term": "giải thuật đệ quy",
-     "source_id": "",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": "",
-     "verified": false,
-     "recommended": false
-    },
-    {
-     "term": "thủ tục đệ quy",
-     "source_id": "bib-doducgiao-2009",
-     "page": "tr. 207",
-     "pdf_page": 208,
-     "snippet": "Thủ tục đệ quy sau đây cho phép tạo lập cây tìm kiếm nhị phân cho một",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "thủ tục đệ quy",
-     "source_id": "bib-hoangchithanh-2011",
-     "page": "",
-     "pdf_page": 176,
-     "snippet": "ta dùng thủ tục đệ quy sau đây:",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "thủ tục đệ qui",
-     "source_id": "bib-doxuanloi-2006",
-     "page": "tr. 42",
-     "pdf_page": 40,
-     "snippet": "3.2 Giải thuật dé qui và thủ tục đệ qui",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "thuật toán đệ quy",
-     "source_id": "bib-doducgiao-2008",
-     "page": "tr. 32",
-     "pdf_page": 33,
-     "snippet": "‘13. Tìm thuật toán đệ quy tinh giá trị a” với a là số thực khác không và n là",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "thuật toán đệ quy",
-     "source_id": "bib-vudinhhoa-2010",
-     "page": "",
-     "pdf_page": 113,
-     "snippet": "6.5.1 Thuật toán đệ quy f \\ reat Vii",
-     "verified": true,
-     "recommended": false
-    }
-   ],
-   "notes": "Recommended term \"thuật toán đệ quy\" is attested in the newest text source bib-nguyenhuudien-2019 (2019), where the formal definition appears as Định nghĩa 5.3 on pdf_page 147 (\"Một thuật toán được gọi là đệ quy nếu nó giải bài toán bằng cách rút gọn liên tiếp bài toán ban đầu tới bài toán cũng như vậy nhưng có dữ liệu đầu vào nhỏ hơn.\"); the term recurs on pp. 100, 147-151 with worked examples (lũy thừa, UCLN, tìm kiếm tuyến tính/nhị phân, giai thừa, Fibonacci). The base-case wording in definition_vi (\"trường hợp cơ sở được giải trực tiếp\") is the ground-truth concept's base case; the source phrases this as reducing to a directly solvable case (p. 147). The gcd illustration follows Ví dụ 5.13 (p. 147): the source pseudocode computes UCLN(a mod b, b) with base case \"if b = 0 then UCLN(a,b) := a\"; the definition_vi states the standard textbook Euclidean recursion gcd(b, a mod b) which terminates when the SECOND argument (the remainder) reaches 0, where gcd(a,0)=a, and drops the unnecessary 'a > b' precondition (the identity gcd(a,b)=gcd(b, a mod b) holds for all a,b with b>0). The factorial example follows Ví dụ 5.16 (p. 148). The two other supplied candidates were NOT attested in any corpus source: \"giải thuật đệ quy\" returned 0 hits (normal and --loose), and \"thuật toán đệ quy chia đôi\" returned 0 hits (normal and --loose). Variant \"thủ tục đệ quy\" (recursive procedure) appears in the same 2019 source (p. 148) and, with the older spelling \"thủ tục đệ qui\", in bib-nguyenducnghia-2006 (p. 100); these denote the recursive-procedure realization of a recursive algorithm and are recorded as variants. The standalone older-spelling term \"thuật toán đệ qui\" returned 0 hits (normal and --loose), so no separate variant is recorded. OCR sources bib-hoangchithanh-2007 and bib-leanhvinh-2020 were searched both normally and with --loose; \"thuật toán đệ quy\" / \"thủ tục đệ quy\" returned 0 hits in these OCR sources for this headword. see_also: this R-chapter batch introduces the related entries recursion, recurrence-relation and recursive-definition together; per the same-chapter convention they are now linked (and recursive-definition reciprocally links back to recursive-algorithm). Cross-chapter relatives (algorithm [A], euclidean-algorithm [E], linear-recurrence-relation [L]) are forward references documented here and not linked.",
-   "pos": "d.t."
-  },
-  {
-   "id": "reachability",
-   "letter": "R",
-   "headword_en": "reachability",
-   "definition_vi": "Trong một đồ thị hoặc đồ thị có hướng $$G$$, một đỉnh $$v$$ được gọi là *đến được từ* một đỉnh $$u$$ nếu tồn tại một đường đi (đường đi có hướng nếu $$G$$ là đồ thị có hướng) từ $$u$$ đến $$v$$, ký hiệu $$u \\rightsquigarrow v$$. Theo quy ước, mỗi đỉnh luôn đến được từ chính nó qua đường đi tầm thường độ dài $$0$$; do đó tính đến được là một tiền thứ tự trên tập đỉnh, có tính phản xạ và bắc cầu.",
-   "example_vi": "Trong đồ thị có hướng với tập đỉnh $$\\{a, b, c\\}$$ và tập cung $$\\{(a, b), (b, c)\\}$$, đỉnh $$c$$ đến được từ đỉnh $$a$$ vì tồn tại đường đi có hướng $$a \\rightarrow b \\rightarrow c$$; ngược lại, $$a$$ không đến được từ $$c$$ vì không có đường đi có hướng nào từ $$c$$ về $$a$$.",
-   "notation": "u \\rightsquigarrow v",
-   "rosen_ref": "Rosen §10.4",
-   "notes": "Recommended term \"đến được từ\" (reachable from) is the fully-qualified reachability phrasing, attested in the newest graph-theory source bib-leanhvinh-2020 (tr. 75): \"các đỉnh của G có thể đến được từ u\" = the vertices of G reachable from u; also in bib-nguyenducnghia-2006 (tr. 246): \"đỉnh có thể đến được từ đỉnh s\". The bare verb form \"đến được\" (to reach) is attested across all four newer/older sources in traversal contexts and is recorded as a variant grounded in bib-leanhvinh-2020 (tr. 75). Variant \"tới được\" (reach/reachable) appears in bib-nguyenhuudien-2019 (tr. 217) and bib-hoangchithanh-2007 (tr. 110): \"đi tới được đỉnh phát x0\" = reach the source vertex. Candidate \"đạt tới\" was searched but its hits denote reaching a row/value/flow/output (đạt tới hàng, đạt tới luồng, đạt tới lối ra) rather than vertex-to-vertex reachability, so it is excluded; likewise \"đạt được\" (attain/achieve a value) does not denote this concept and is excluded. OCR sources bib-leanhvinh-2020 and bib-hoangchithanh-2007 were mined in both normal and --loose modes (identical hits). For digraphs, \"đến được từ\" corresponds to reachability via a directed path ($$u \\rightsquigarrow v$$). The squiggle arrow $$\\rightsquigarrow$$ is an editorial notation, not a source-derived symbol (the sources phrase reachability prosaically); definition_vi makes the reflexive boundary case (a vertex reaches itself via the trivial path) explicit, per Rosen's convention.",
-   "see_also": [
-    "connected-graph",
-    "directed-graph",
-    "path",
-    "strongly-connected"
-   ],
-   "vi_terms": [
-    {
-     "term": "đến được từ",
-     "verified": true,
-     "recommended": true,
-     "source_id": "bib-leanhvinh-2020",
-     "pdf_page": 75,
-     "page": "tr. 76",
-     "snippet": "Gọi Z là tập tat cả các đỉnh của G có thể đến được từ u qua một"
-    },
-    {
-     "term": "đến được từ",
-     "verified": true,
-     "recommended": false,
-     "source_id": "bib-nguyenducnghia-2006",
-     "pdf_page": 246,
-     "page": "",
-     "snippet": "đỉnh có thể đến được từ đỉnh s trong đồ thị Œ„ và đặt X = V \\ X. Khi đồ (X, X}) là lát cắt ,"
-    },
-    {
-     "term": "đến được",
-     "verified": true,
-     "recommended": false,
-     "source_id": "bib-leanhvinh-2020",
-     "pdf_page": 75,
-     "page": "tr. 76",
-     "snippet": "Gọi Z là tập tat cả các đỉnh của G có thể đến được từ u qua một"
-    },
-    {
-     "term": "đến được",
-     "verified": true,
-     "recommended": false,
-     "source_id": "bib-nguyenhuudien-2019",
-     "pdf_page": 176,
-     "page": "tr. 176",
-     "snippet": "duyệt xong và quay trở lại tiếp tục duyệt từ đỉnh mà từ đó ta đến được đỉnh v."
-    },
-    {
-     "term": "tới được",
-     "verified": true,
-     "recommended": false,
-     "source_id": "bib-nguyenhuudien-2019",
-     "pdf_page": 217,
-     "page": "tr. 217",
-     "snippet": "Với cách đánh dấu này mà đi tới được đỉnh phát x0 thì ta đã tìm được"
-    },
-    {
-     "term": "đến được",
-     "source_id": "bib-hoangchithanh-2011",
-     "page": "",
-     "pdf_page": 107,
-     "snippet": "đến được đỉnh x:",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "tới được",
-     "source_id": "bib-hoangchithanh-2011",
-     "page": "",
-     "pdf_page": 191,
-     "snippet": "Với cách đánh dau này mà đi tới được đỉnh phat xp thì ta đã tìm được một",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "tới được",
-     "source_id": "bib-doducthai-2010",
-     "page": "tr. 16",
-     "pdf_page": 16,
-     "snippet": "bằng 1 (hay còn viết là 100%). Ví dụ như sự kiện “tôi được sinh ra từ",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "tới được",
-     "source_id": "bib-cungkimtien-2004",
-     "page": "",
-     "pdf_page": 8,
-     "snippet": "tới được, đạt được",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "tới được",
-     "source_id": "bib-phan-1976",
-     "page": "tr. 3",
-     "pdf_page": 3,
-     "snippet": "accessible tới được, đạt được",
-     "verified": true,
-     "recommended": false
-    }
-   ],
-   "pos": "d.t."
-  },
-  {
-   "id": "restriction-of-a-function",
-   "letter": "R",
-   "headword_en": "restriction of a function",
-   "notation": "f|_S : S \\to B",
-   "rosen_ref": "Rosen §2.3",
-   "definition_vi": "Thu hẹp của một hàm $$f$$ từ $$A$$ đến $$B$$ trên một tập con $$S \\subseteq A$$, ký hiệu $$f|_S$$, là hàm $$f|_S : S \\to B$$ xác định bởi $$f|_S(x) = f(x)$$ với mọi $$x \\in S$$.",
-   "example_vi": "Cho hàm $$f : \\mathbb{Z} \\to \\mathbb{Z}$$ với $$f(x) = x^2$$ và tập con $$S = \\{0, 1, 2\\}$$. Khi đó thu hẹp $$f|_S : S \\to \\mathbb{Z}$$ thỏa mãn $$f|_S(0) = 0$$, $$f|_S(1) = 1$$ và $$f|_S(2) = 4$$.",
-   "see_also": [
-    "function",
-    "domain",
-    "function-composition",
-    "inverse-function"
-   ],
-   "notes": "Mining outcome: none of the four candidate phrases (thu hẹp của hàm, hạn chế của hàm, hàm thu hẹp, thu hẹp) appears as an exact noun phrase denoting function restriction in any corpus source. The recommended term \"thu hẹp\" is attested as the restriction verb in bib-nguyenhuudien-2019 p. 119, where the restriction of an order relation $$R$$ to a subset $$A \\subset X$$ is written \"quan hệ thứ tự $$R$$ thu hẹp trên $$A$$\" — the same set-theoretic restriction operation applied to a relation, confirming \"thu hẹp\" as the standard Vietnamese term for this concept in a 2019 discrete-math source. The full noun-phrase forms \"thu hẹp của hàm $$f$$\" and \"hàm thu hẹp\" are standard idiomatic usage built on this attested verb but are not found verbatim, so they are recorded as unverified variants. \"Hạn chế của hàm\" is a calque from the English/French \"restriction\"; all \"hạn chế\" hits in the corpus mean \"limited/restricted\" in the ordinary sense, not the restriction operation, so it is unverified for this concept. Note: \"thu gọn của hàm\" hits in bib-nguyenducnghia-2006 refer to the reduced normal form of a Boolean function (a distinct concept) and were excluded. Verifier note: the bib-nguyenducnghia-2006 p. 105 and bib-nguyenhuudien-2019 p. 135 hits for \"thu hẹp\" mean \"narrow down\" in the ordinary sense and were correctly excluded; OCR sources bib-leanhvinh-2020 and bib-hoangchithanh-2007 returned zero hits in both normal and loose modes. see_also: the original ids \"domain-of-a-function\" and \"codomain-of-a-function\" do not exist in the entry namespace; the canonical existing ids are \"domain\" (def-domain) and \"function\" (def-function), both confirmed present. No \"codomain\" or \"range\" entry exists yet, so they are omitted; \"function-composition\" (def-function-composition) and \"inverse-function\" (def-inverse-function) are linked as related function operations and confirmed present. All four are cross-chapter forward references (chapters D, F, I) relative to this R entry.",
-   "vi_terms": [
-    {
-     "term": "thu hẹp",
-     "verified": true,
-     "recommended": true,
-     "source_id": "bib-nguyenhuudien-2019",
-     "pdf_page": 119,
-     "page": "tr. 119",
-     "snippet": "Nhận xét. Nếu ( X, R) là một tập hợp có thứ tự và A ⊂ X thì quan hệ thứ R thu hẹp trên"
-    },
-    {
-     "term": "thu hẹp của hàm",
-     "verified": false,
-     "recommended": false,
-     "source_id": "",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": ""
-    },
-    {
-     "term": "hàm thu hẹp",
-     "verified": false,
-     "recommended": false,
-     "source_id": "",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": ""
-    },
-    {
-     "term": "hạn chế của hàm",
-     "verified": false,
-     "recommended": false,
-     "source_id": "",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": ""
-    },
-    {
-     "term": "thu hẹp",
-     "source_id": "bib-doantamhoe-2009",
-     "page": "",
-     "pdf_page": 24,
-     "snippet": "được thu hẹp, đồng thời khi xét dấu các đại lượng trong bảng đơn",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "thu hẹp",
-     "source_id": "bib-doducgiao-2008",
-     "page": "tr. 258",
-     "pdf_page": 259,
-     "snippet": "Kết quả sau mỗi lần so sánh số phần tử cần sắp xếp thu hẹp dần lại.",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "thu hẹp",
-     "source_id": "bib-cungkimtien-2004",
-     "page": "",
-     "pdf_page": 67,
-     "snippet": "choi thu hep hoan toan",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "thu hẹp",
-     "source_id": "bib-phan-1976",
-     "page": "tr. 205",
-     "pdf_page": 205,
-     "snippet": "completely reduced g. trò chơi thu hẹp hoàn toàn",
-     "verified": true,
-     "recommended": false
-    }
-   ],
-   "pos": "d.t."
-  },
-  {
-   "id": "ramseys-theorem",
-   "letter": "R",
-   "headword_en": "Ramsey's theorem",
-   "notation": "R(s,t)",
-   "rosen_ref": "Rosen §4.5",
-   "definition_vi": "Định lý Ramsey khẳng định rằng với mọi cặp số nguyên dương $$s$$ và $$t$$, tồn tại một số nguyên dương nhỏ nhất $$R(s,t)$$, gọi là số Ramsey, sao cho mọi cách tô màu các cạnh của đồ thị đầy đủ $$K_n$$ với $$n \\geq R(s,t)$$ bằng hai màu (đỏ và xanh) đều chứa một $$K_s$$ với tất cả các cạnh màu đỏ hoặc một $$K_t$$ với tất cả các cạnh màu xanh.",
-   "example_vi": "Trong một nhóm gồm $$6$$ người bất kỳ, luôn có $$3$$ người đôi một quen nhau hoặc $$3$$ người đôi một không quen nhau, tức là $$R(3,3) = 6$$.",
-   "vi_terms": [
-    {
-     "term": "định lý Ramsey",
-     "source_id": "bib-leanhvinh-2020",
-     "pdf_page": 143,
-     "page": "tr. 144",
-     "snippet": "Dinh lý 6.1. (Dinh lý Ramsey) Với các số nguyên dương s,t, luôn",
-     "verified": true,
-     "recommended": true
-    },
-    {
-     "term": "định lý Ramsey",
-     "source_id": "bib-nguyenducnghia-2006",
-     "pdf_page": 69,
-     "page": "",
-     "snippet": "Định lý ] (Định lý Ramsey). WVếu ¡ >2, > 2 là các số nguyên diương thì luôn tìm được",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "định lý Ramsey",
-     "source_id": "bib-ngodactan-2004",
-     "pdf_page": 306,
-     "page": "tr. 306",
-     "snippet": "10.1. Các định lý Ramsey cơ bẩn 307",
-     "verified": true,
-     "recommended": false
-    }
-   ],
-   "see_also": [],
-   "notes": "Trường hợp $$s = t = 3$$ cho $$R(3,3) = 6$$ là ví dụ quen thuộc về bữa tiệc. Định lý Ramsey là sự tổng quát hóa của nguyên lý Dirichlet.",
-   "status": "draft",
-   "pos": "d.t."
-  },
-  {
-   "id": "range",
-   "letter": "R",
-   "headword_en": "range",
-   "see_ref": "range-of-a-function",
-   "vi_terms": [
-    {
-     "term": "tập ảnh",
-     "verified": false,
-     "recommended": false,
-     "source_id": "",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": ""
-    },
-    {
-     "term": "miền giá trị",
-     "verified": false,
-     "recommended": false,
-     "source_id": "",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": ""
-    },
-    {
-     "term": "tập giá trị",
-     "verified": false,
-     "recommended": false,
-     "source_id": "",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": ""
-    }
-   ],
-   "see_also": [],
-   "notes": "Đồng nghĩa với Range of a function.",
-   "pos": "d.t."
-  },
-  {
-   "id": "rational-numbers",
-   "letter": "R",
-   "headword_en": "rational numbers",
-   "notation": "\\mathbb{Q}",
-   "rosen_ref": "Rosen §2.3",
-   "definition_vi": "Số hữu tỷ là số thực có thể viết dưới dạng thương $$p/q$$ của hai số nguyên $$p$$ và $$q$$ với $$q \\neq 0$$. Tập tất cả các số hữu tỷ được ký hiệu là $$\\mathbb{Q}$$, và $$\\mathbb{Q}$$ là một tập đếm được.",
-   "example_vi": "Các số $$1/2$$, $$-3$$ và $$0$$ đều là số hữu tỷ; trong khi $$\\sqrt{2}$$ không phải là số hữu tỷ.",
-   "vi_terms": [
-    {
-     "term": "số hữu tỉ",
-     "source_id": "bib-nguyenhuudien-2019",
-     "pdf_page": 57,
-     "page": "tr. 57",
-     "snippet": "q= là một số hữu tỉ cho trước (m và n là các số nguyên dương) ta không biết làm thế",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "tập số hữu tỷ",
-     "source_id": "",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": "",
-     "verified": false,
-     "recommended": true
-    },
-    {
-     "term": "số hữu tỉ",
-     "source_id": "bib-nguyenvanmau-2007",
-     "page": "",
-     "pdf_page": 31,
-     "snippet": "mạng lưới ô vuông là một số hữu tỉ, vô lí. Vậy, không thể dựng được tam giác đều có",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "số hữu tỷ",
-     "source_id": "bib-doducthai-2010",
-     "page": "tr. 196",
-     "pdf_page": 196,
-     "snippet": "dụ như tập hợp Q các số hữu tỷ), và đánh số thứ tự các số trong tập",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "số hữu tỷ",
-     "source_id": "bib-sierpinski-2012",
-     "page": "",
-     "pdf_page": 5,
-     "snippet": "dạng mở rộng của nó. Chẳng hạn bắt đầu từ số nguyên, ta có các số hữu tỷ, số thực và số phức. Từ",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "số hữu tỷ",
-     "source_id": "bib-vudinhhoa-2010",
-     "page": "",
-     "pdf_page": 25,
-     "snippet": "Z, tập hợp các số hữu tỷ Q, tập hợp các số thực R và tập hợp các số phức C.",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "số hữu tỉ",
-     "source_id": "bib-nguyenhuuanh-2007",
-     "page": "",
-     "pdf_page": 42,
-     "snippet": "d) Bình phương của mọi số hữu tỉ là số hữu tỉ",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "số hữu tỷ",
-     "source_id": "bib-cungkimtien-2004",
-     "page": "",
-     "pdf_page": 63,
-     "snippet": "commensurable number số hữu tỷ",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "số hữu tỷ",
-     "source_id": "bib-phan-1976",
-     "page": "tr. 190",
-     "pdf_page": 190,
-     "snippet": "rational algebraic f. phân thức đại số hữu ty",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "tập số hữu tỉ",
-     "recommended": false,
-     "source_id": "bib-wikipedia-vi",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": "https://vi.wikipedia.org/wiki/Số_hữu_tỉ",
-     "verified": true
-    }
-   ],
-   "see_also": [],
-   "notes": "Hai cách viết \"số hữu tỷ\" và \"số hữu tỉ\" đều được dùng trong tài liệu tiếng Việt. Ký hiệu chuẩn cho tập số hữu tỷ là $$\\mathbb{Q}$$.",
-   "status": "draft",
-   "pos": "d.t."
-  },
-  {
-   "id": "real-numbers",
-   "letter": "R",
-   "headword_en": "real numbers",
-   "notation": "\\mathbb{R}",
-   "rosen_ref": "Rosen §2.1",
-   "definition_vi": "Tập số thực, ký hiệu $$\\mathbb{R}$$, là tập hợp gồm tất cả các số thực, tức là tập $$\\{x \\mid x \\text{ là số thực}\\}$$ bao gồm cả số hữu tỉ và số vô tỉ. Tập số thực chứa tập số nguyên $$\\mathbb{Z}$$ và tập số hữu tỉ $$\\mathbb{Q}$$ như những tập con.",
-   "example_vi": "Các số $$0$$, $$-3$$, $$\\frac{2}{5}$$, $$\\sqrt{2}$$ và $$\\pi$$ đều là phần tử của $$\\mathbb{R}$$; chẳng hạn mệnh đề \"$$x^2 \\geq 0$$ với mọi số thực $$x$$\" là đúng trên $$\\mathbb{R}$$.",
-   "vi_terms": [
-    {
-     "term": "tập hợp các số thực",
-     "source_id": "bib-nguyenhuudien-2019",
-     "pdf_page": 74,
-     "page": "tr. 74",
-     "snippet": "tỉ, R là tập hợp các số thực, C là tập hợp các số phức.",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "số thực",
-     "source_id": "bib-nguyenhoangthach-2020",
-     "pdf_page": 48,
-     "page": "tr. 46",
-     "snippet": "Định lý 3.12 (Định lý nhị thức mở rộng). Với mọi số thực α:",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "tập số thực",
-     "source_id": "",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": "",
-     "verified": false,
-     "recommended": false
-    },
-    {
-     "term": "tập các số thực",
-     "source_id": "bib-doducgiao-2009",
-     "page": "tr. 338",
-     "pdf_page": 339,
-     "snippet": "tập các số thực không âm.",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "số thực",
-     "source_id": "bib-leanhvinh-2020",
-     "page": "tr. 210",
-     "pdf_page": 209,
-     "snippet": "của Ag đều là các số thực. Dinh lý Perron-Frobenius cho ta thông tin",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "số thực",
-     "source_id": "bib-nguyenhuudien-2019",
-     "page": "tr. 48",
-     "pdf_page": 48,
-     "snippet": "3. Mệnh đề \"Ta có x2 > 0, với mọi số thực x khác 0\" có thể được viết là",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "tập số thực",
-     "source_id": "bib-doducgiao-2009",
-     "page": "tr. 339",
-     "pdf_page": 340,
-     "snippet": "c) Tìm miền đúng của các vị từ P(x, y) (i= 1, 2, 3) trên tập số thực R,",
-     "verified": true,
-     "recommended": true
-    },
-    {
-     "term": "tập số thực",
-     "source_id": "bib-vudinhhoa-2003",
-     "page": "tr. 12",
-     "pdf_page": 13,
-     "snippet": "b Ví dụ 3: Quan hệ bằng nhau trong tập số thực là quan hệ",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "tập hợp các số thực",
-     "source_id": "bib-sierpinski-2012",
-     "page": "tr. 157",
-     "pdf_page": 171,
-     "snippet": "  n  1 /   n  , n  1, 2,... là trù mật trong tập hợp các số thực hay không. A.Schinzel [3] đã chứng",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "tập hợp các số thực",
-     "source_id": "bib-vudinhhoa-2010",
-     "page": "",
-     "pdf_page": 25,
-     "snippet": "Z, tập hợp các số hữu tỷ Q, tập hợp các số thực R và tập hợp các số phức C.",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "tập các số thực",
-     "source_id": "bib-doducthai-2010",
-     "page": "tr. 125",
-     "pdf_page": 125,
-     "snippet": "Ở đây ta coi biến t nằm trong tập các số thực không âm. Với giả sử",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "tập các số thực",
-     "source_id": "bib-sierpinski-2012",
-     "page": "tr. 100",
-     "pdf_page": 114,
-     "snippet": "tỷ số p q , p và q là các số nguyên tố, là trù mật trong tập các số thực dương.",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "số thực",
-     "source_id": "bib-cungkimtien-2004",
-     "page": "",
-     "pdf_page": 3,
-     "snippet": "tích, giải tích hàm, hàm số phức, hàm số thực, phương trình vì",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "số thực",
-     "source_id": "bib-phan-1976",
-     "page": "tr. 28",
-     "pdf_page": 28,
-     "snippet": "orthogonal b. cơ sở thực giao",
-     "verified": true,
-     "recommended": false
-    }
-   ],
-   "see_also": [],
-   "notes": "Trong giáo trình MAT3500 dùng \"Tập số thực\". Rosen (bản dịch) định nghĩa rõ $$R = \\{x \\mid x \\text{ là số thực}\\}$$; ký hiệu chuẩn là $$\\mathbb{R}$$.",
-   "status": "draft",
-   "pos": "d.t."
-  },
-  {
-   "id": "real-valued-function",
-   "letter": "R",
-   "headword_en": "real-valued function",
-   "notation": "f \\colon A \\to \\mathbb{R}",
-   "rosen_ref": "Rosen §2.3",
-   "definition_vi": "Hàm thực là hàm số $$f$$ có miền giá trị là tập các số thực, tức là $$f\\colon A \\to \\mathbb{R}$$, gán cho mỗi phần tử $$a \\in A$$ một số thực $$f(a) \\in \\mathbb{R}$$ (ký hiệu $$\\mathbb{R}$$ là tập các số thực).",
-   "example_vi": "Hàm $$f\\colon \\mathbb{Z} \\to \\mathbb{R}$$ cho bởi $$f(n) = n^2$$ là một hàm thực. Với hai hàm thực $$f, g$$ cùng miền xác định, các hàm $$f+g$$ và $$fg$$ cũng là hàm thực, xác định bởi $$(f+g)(x) = f(x) + g(x)$$ và $$(fg)(x) = f(x)g(x)$$.",
-   "vi_terms": [
-    {
-     "term": "hàm thực",
-     "source_id": "bib-ngodactan-2004",
-     "pdf_page": 328,
-     "page": "tr. 328",
-     "snippet": "10.28 (**) Giả sử <72(2 ), . . . ,gn(x) là các hàm thực bị chặn và f ( x)",
-     "verified": true,
-     "recommended": true
-    },
-    {
-     "term": "hàm có giá trị thực",
-     "source_id": "bib-rosen-2003-vi",
-     "pdf_page": 83,
-     "page": "tr. 83",
-     "snippet": "Hai hàm co giá trị thực với cùng miền xác định có thể cộng hoặc nhân",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "hàm giá trị thực",
-     "source_id": "",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": "",
-     "verified": false,
-     "recommended": false
-    },
-    {
-     "term": "hàm nhận giá trị thực",
-     "source_id": "",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": "",
-     "verified": false,
-     "recommended": false
-    },
-    {
-     "term": "hàm thực",
-     "source_id": "bib-doducthai-2010",
-     "page": "tr. 124",
-     "pdf_page": 124,
-     "snippet": "đối xứng khi và chỉ khi hàm đặc trưng ΦX của nó là một hàm thực",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "hàm thực",
-     "source_id": "bib-vudinhhoa-2010",
-     "page": "",
-     "pdf_page": 36,
-     "snippet": "3. Cho A và B là hai tập hợp bắt kỳ, chứng minh các bao hàm thức=",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "hàm có giá trị thực",
-     "source_id": "bib-cormen-2001-vi",
-     "page": "tr. 646",
-     "pdf_page": 644,
-     "snippet": "hàm có giá trị thực ƒ: Vx V —› R thỏa ba tính chất dưới đây:",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "hàm thực",
-     "source_id": "bib-cungkimtien-2004",
-     "page": "",
-     "pdf_page": 184,
-     "snippet": "include of sefs bao hàm thức tập",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "hàm thực",
-     "source_id": "bib-phan-1976",
-     "page": "tr. 200",
-     "pdf_page": 200,
-     "snippet": "positive real f. hàm thực dương",
-     "verified": true,
-     "recommended": false
-    }
-   ],
-   "see_also": [],
-   "notes": "Tập giá trị là $$\\mathbb{R}$$. Trong giáo trình MAT3500 gọi là hàm thực; bản dịch Rosen dùng hàm có giá trị thực.",
-   "status": "draft",
-   "pos": "d.t."
-  },
-  {
-   "id": "recursion-tree",
-   "letter": "R",
-   "headword_en": "recursion tree",
-   "notation": "",
-   "rosen_ref": "Rosen §8.3",
-   "definition_vi": "Cây đệ quy là một cây có gốc dùng để mô hình hóa và phân tích một thuật toán đệ quy hay một hệ thức truy hồi: gốc biểu diễn bài toán ban đầu, mỗi nút biểu diễn một lời gọi đệ quy con với chi phí gắn kèm, và các nút con của một nút ứng với các bài toán con phát sinh từ lời gọi đó. Tổng chi phí của tất cả các nút trên cây cho ta chi phí toàn phần của thuật toán; chẳng hạn với hệ thức $$T(n) = aT(n/b) + f(n)$$ thì độ cao của cây là $$\\log_b n$$.",
-   "example_vi": "Với hệ thức truy hồi của thuật toán chia để trị $$T(n) = 2T(n/2) + n$$, cây đệ quy có $$\\log_2 n$$ mức, mỗi mức có tổng chi phí bằng $$n$$, nên $$T(n)$$ thuộc $$O(n \\log n)$$.",
-   "vi_terms": [
-    {
-     "term": "cây đệ quy",
-     "source_id": "",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": "",
-     "verified": false,
-     "recommended": false
-    },
-    {
-     "term": "cây đệ quy",
-     "source_id": "bib-cormen-2001-vi",
-     "page": "tr. 80",
-     "pdf_page": 78,
-     "snippet": "Các cây đệ quy",
-     "verified": true,
-     "recommended": true
-    }
-   ],
-   "see_also": [],
-   "notes": "Thuật ngữ \"cây đệ quy\" không xuất hiện trực tiếp trong các nguồn đối chiếu của kho ngữ liệu; chỉ khái niệm \"đệ quy\" (recursion) được dùng phổ biến (ví dụ Nguyễn Hữu Điển 2019, mục 5.5). Cây đệ quy là công cụ trực quan để phân tích hệ thức truy hồi của thuật toán chia để trị.",
-   "status": "draft",
-   "pos": "d.t."
-  },
-  {
-   "id": "recursive-call",
-   "letter": "R",
-   "headword_en": "recursive call",
-   "notation": "",
-   "rosen_ref": "Rosen §5.4",
-   "definition_vi": "Lần gọi đệ quy là lần một thủ tục hoặc hàm đệ quy gọi đến chính nó trong khi thực hiện, với dữ liệu vào nhỏ hơn so với lần gọi hiện tại. Quá trình này lặp lại cho tới khi đạt tới trường hợp cơ sở (trường hợp không cần gọi đệ quy nữa).",
-   "example_vi": "Khi tính giai thừa bằng thủ tục đệ quy $$n! = n \\cdot (n-1)!$$, mỗi bước thực hiện một lần gọi đệ quy với đối số $$n-1$$, cho tới khi đạt trường hợp cơ sở $$0! = 1$$.",
-   "vi_terms": [
-    {
-     "term": "lần gọi đệ quy",
-     "source_id": "",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": "",
-     "verified": false,
-     "recommended": false
-    },
-    {
-     "term": "lời gọi đệ quy",
-     "source_id": "",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": "",
-     "verified": false,
-     "recommended": false
-    },
-    {
-     "term": "lần gọi đệ quy",
-     "source_id": "bib-cormen-2001-vi",
-     "page": "tr. 297",
-     "pdf_page": 295,
-     "snippet": "Tại mỗi lần gọi đệ quy của kỹ thuật sắp xếp nhanh, ta chọn một",
-     "verified": true,
-     "recommended": true
-    }
-   ],
-   "see_also": [],
-   "notes": "Khái niệm \"lần gọi đệ quy\" theo nghĩa hẹp (mỗi lần thủ tục đệ quy tự gọi lại) không xuất hiện như một thuật ngữ độc lập trong các nguồn tham khảo; các nguồn chỉ dùng khái niệm rộng hơn là \"đệ quy\" và \"thủ tục đệ quy\" (ví dụ bib-nguyenhuudien-2019, tr. 147–148).",
-   "status": "draft",
    "pos": "d.t."
   },
   {
@@ -2146,6 +1674,230 @@
    "pos": "d.t."
   },
   {
+   "id": "recursively-defined-structure",
+   "letter": "R",
+   "headword_en": "recursively defined structure",
+   "pos": "d.t.",
+   "notation": "",
+   "ref_bib": "bib-libennowell-2022",
+   "rosen_ref": "",
+   "definition_vi": "Một \\emph{cấu trúc định nghĩa đệ quy} là một tập đối tượng được mô tả bằng định nghĩa đệ quy gồm hai phần: \\emph{trường hợp cơ sở} liệt kê một số đối tượng nền tảng thuộc cấu trúc, và \\emph{quy tắc đệ quy} chỉ ra cách xây dựng các đối tượng mới từ những đối tượng đã có. Cấu trúc gồm đúng những đối tượng tạo được bằng một số hữu hạn lần áp dụng các quy tắc này.",
+   "example_vi": "Tập các xâu nhị phân có thể định nghĩa đệ quy: xâu rỗng thuộc tập; nếu $$w$$ thuộc tập thì $$w0$$ và $$w1$$ cũng thuộc tập.",
+   "notes": "",
+   "see_also": [],
+   "vi_terms": [
+    {
+     "term": "cấu trúc định nghĩa đệ quy",
+     "recommended": true
+    }
+   ]
+  },
+  {
+   "id": "refinement",
+   "letter": "R",
+   "headword_en": "refinement",
+   "pos": "d.t.",
+   "notation": "",
+   "ref_bib": "bib-libennowell-2022",
+   "rosen_ref": "",
+   "definition_vi": "Một phân hoạch $$P'$$ của một tập là \\emph{mịn hơn} (là một \\emph{phép làm mịn} của) một phân hoạch $$P$$ nếu mỗi khối của $$P'$$ nằm trọn trong một khối nào đó của $$P$$. Nói cách khác, $$P'$$ thu được bằng cách chia nhỏ tiếp các khối của $$P$$.",
+   "example_vi": "Trên tập $$\\{1,2,3,4\\}$$, phân hoạch $$\\{\\{1\\},\\{2\\},\\{3,4\\}\\}$$ là phép làm mịn của $$\\{\\{1,2\\},\\{3,4\\}\\}$$.",
+   "notes": "",
+   "see_also": [],
+   "vi_terms": [
+    {
+     "term": "mịn hóa",
+     "recommended": true
+    },
+    {
+     "term": "phép làm mịn",
+     "recommended": false
+    }
+   ]
+  },
+  {
+   "id": "reflexive-relation",
+   "letter": "R",
+   "headword_en": "reflexive relation",
+   "notation": "\\forall a \\in A,\\ (a,a) \\in R",
+   "rosen_ref": "Rosen §9.1",
+   "definition_vi": "Một quan hệ hai ngôi $$R$$ trên tập $$A$$ có *tính phản xạ* nếu $$(a,a) \\in R$$ với mọi $$a \\in A$$. Nói cách khác, mỗi phần tử của $$A$$ đều có quan hệ với chính nó, tức là $$a\\,R\\,a$$ với mọi $$a \\in A$$.",
+   "example_vi": "Trên tập $$A = \\{1, 2, 3\\}$$, quan hệ $$R = \\{(1,1), (2,2), (3,3), (1,2)\\}$$ có tính phản xạ vì chứa $$(1,1)$$, $$(2,2)$$ và $$(3,3)$$. Quan hệ $$S = \\{(1,1), (2,2), (1,3)\\}$$ không có tính phản xạ vì $$(3,3) \\notin S$$.",
+   "notes": "Đây là khái niệm về tính phản xạ của một quan hệ hai ngôi $$R$$ trên tập $$A$$: $$R$$ phản xạ nếu $$(a,a) \\in R$$ với mọi $$a \\in A$$.\n\nThuật ngữ khuyến nghị \"tính phản xạ\" được chứng thực ở nguồn 2019 (bib-nguyenhuudien-2019, tr. 109 PDF) ngay tại định nghĩa: \"Ta nói quan hệ R có tính phản xạ (reflexive) nếu và chỉ nếu xRx với mọi x ∈ X.\", có kèm chú thích tiếng Anh \"(reflexive)\".\n\nBiến thể \"tính chất phản xạ\" được chứng thực ở nguồn mới nhất 2020 (bib-leanhvinh-2020, tr. 12 PDF) trong ngữ cảnh quan hệ tương đương (đẳng cấu), cũng như ở bib-nguyenhuudien-2019 và bib-nguyenducnghia-2006.\n\nDạng rút gọn \"phản xạ\" (chỉ tính chất của quan hệ) được chứng thực ở bib-ngodactan-2004 (tr. 163 PDF, định nghĩa quan hệ thứ tự: \"(i) phàn xạ nếu với mọi X...\" — bản OCR sai dấu) và bib-nguyenducnghia-2006 (tr. 14 PDF: \"* phản xạ (mọi phần tử có quan hệ với chính nó)\").\n\nLưu ý loại trừ: trong bib-ngodactan-2004, phần lớn lần xuất hiện của \"phản xạ\" (tr. 140–160) là \"phép phản xạ\" theo nghĩa hình học (phép đối xứng/biến hình trong nhóm nhị diện), KHÔNG phải tính phản xạ của quan hệ, nên không tính vào khái niệm này.\n\nỨng viên \"quan hệ phản xạ\" (cụm danh từ) không xuất hiện ở bất kỳ nguồn nào (0 hits cả thường lẫn --loose); các nguồn diễn đạt khái niệm này như một tính chất (\"tính phản xạ\" / \"tính chất phản xạ\") chứ không gọi tên trực tiếp \"quan hệ phản xạ\".",
+   "see_also": [
+    "equivalence-relation",
+    "symmetric-relation",
+    "transitive-relation",
+    "antisymmetric-relation",
+    "partial-order"
+   ],
+   "vi_terms": [
+    {
+     "term": "tính chất phản xạ",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-leanhvinh-2020",
+     "pdf_page": 12,
+     "page": "tr. 13",
+     "snippet": "là, quan hệ đẳng cấu thỏa mãn ba tính chất phản xạ, đối xứng và"
+    },
+    {
+     "term": "tính phản xạ",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 109,
+     "page": "tr. 109",
+     "snippet": "• Ta nói quan hệ R có tính phản xạ (reflexive) nếu và chỉ nếu xRx với mọi x ∈ X."
+    },
+    {
+     "term": "tính chất phản xạ",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 110,
+     "page": "tr. 110",
+     "snippet": "• Một quan hệ có tính chất phản xạ khi và chỉ khi ma trận biểu diễn nó có tất cả các"
+    },
+    {
+     "term": "phản xạ",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 115,
+     "page": "tr. 115",
+     "snippet": "1) Phản xạ: Với mọi a ∈ A ta có aRa;"
+    },
+    {
+     "term": "phản xạ",
+     "source_id": "bib-leanhvinh-2020",
+     "page": "tr. 13",
+     "pdf_page": 12,
+     "snippet": "là, quan hệ đẳng cấu thỏa mãn ba tính chất phản xạ, đối xứng và",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "quan hệ phản xạ",
+     "source_id": "bib-hoangchithanh-2011",
+     "page": "",
+     "pdf_page": 32,
+     "snippet": "quan hệ phản xạ",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "tính chất phản xạ",
+     "source_id": "bib-doducgiao-2008",
+     "page": "tr. 62",
+     "pdf_page": 63,
+     "snippet": "— R có tinh chất phan xa, vi Va € A ta có a+ a= 2a là một số chan, do",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "tính phản xạ",
+     "source_id": "bib-doducthai-2010",
+     "page": "tr. 281",
+     "pdf_page": 281,
+     "snippet": "Bài tập 1.6. Tính phản xạ và tính đối xứng là hiển nhiên. Ta chứng",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "tính phản xạ",
+     "source_id": "bib-sierpinski-2012",
+     "page": "tr. 121",
+     "pdf_page": 135,
+     "snippet": "I . Tính phản xạ: mọi số nguyên là đồng dư với chính nó theo mọi modulo, nghĩa là a  a  mod m ",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "phản xạ",
+     "source_id": "bib-sierpinski-2012",
+     "page": "tr. 121",
+     "pdf_page": 135,
+     "snippet": "I . Tính phản xạ: mọi số nguyên là đồng dư với chính nó theo mọi modulo, nghĩa là a  a  mod m ",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "quan hệ phản xạ",
+     "source_id": "bib-cormen-2001-vi",
+     "page": "tr. 103",
+     "pdf_page": 101,
+     "snippet": "với tất cd a € A. Ví du, “=” và “<° là các quan hệ phản xạ trên N,",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "quan hệ phản xạ",
+     "source_id": "bib-nguyenhuuanh-2007",
+     "page": "",
+     "pdf_page": 90,
+     "snippet": "(vuông góc) trên £ không phải là một quan hệ phản xạ.",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "tính phản xạ",
+     "source_id": "bib-cungkimtien-2004",
+     "page": "",
+     "pdf_page": 319,
+     "snippet": "reflexivity tính phản xạ",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "tính phản xạ",
+     "source_id": "bib-phan-1976",
+     "page": "tr. 360",
+     "pdf_page": 360,
+     "snippet": "reflexivity tính phản xa",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "phản xạ",
+     "source_id": "bib-cungkimtien-2004",
+     "page": "",
+     "pdf_page": 20,
+     "snippet": "angle of reflection góc phan xa",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "phản xạ",
+     "source_id": "bib-phan-1976",
+     "page": "tr. 14",
+     "pdf_page": 14,
+     "snippet": ". of reflection góc phan xa",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "quan hệ phản xạ",
+     "source_id": "bib-cungkimtien-2004",
+     "page": "",
+     "pdf_page": 319,
+     "snippet": "reflexive relation quan hé phan xa",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "quan hệ phản xạ",
+     "source_id": "bib-phan-1976",
+     "page": "tr. 363",
+     "pdf_page": 363,
+     "snippet": "reflexive r. quan hệ phản xạ",
+     "verified": true,
+     "recommended": false
+    }
+   ],
+   "pos": "d.t."
+  },
+  {
    "id": "region",
    "letter": "R",
    "headword_en": "region",
@@ -2220,6 +1972,488 @@
    ],
    "see_also": [],
    "notes": "Thuật ngữ chuẩn của giáo trình MAT3500 là \"miền\". Một số tài liệu dùng biến thể \"mặt\" (Lê Anh Vinh 2020) hoặc \"diện\" (Hoàng Chí Thành 2007) cho cùng khái niệm; Ngô Đắc Tân (2004) ghi nhận \"nhiều tác giả cũng gọi miền là mặt\". Bản dịch Rosen trong kho ngữ liệu không chứng thực thuật ngữ này cho khái niệm miền của đồ thị phẳng.",
+   "status": "draft",
+   "pos": "d.t."
+  },
+  {
+   "id": "regions-of-a-planar-graph",
+   "letter": "R",
+   "headword_en": "regions of a planar graph",
+   "see_ref": "region",
+   "vi_terms": [],
+   "status": "draft",
+   "pos": "d.t."
+  },
+  {
+   "id": "regular-expression",
+   "letter": "R",
+   "headword_en": "regular expression",
+   "notation": "(ab)^{*} \\cup b",
+   "rosen_ref": "Rosen §13.4",
+   "definition_vi": "*Biểu thức chính quy* trên một bảng chữ cái $$I$$ là một xâu được xây dựng đệ quy từ các ký hiệu của $$I$$, các ký hiệu $$\\emptyset$$ (tập rỗng) và $$\\lambda$$ (xâu rỗng), cùng các phép ghép, hợp và bao đóng Kleene. Cụ thể, $$\\emptyset$$ và $$\\lambda$$ là các biểu thức chính quy, ký hiệu $$x$$ là một biểu thức chính quy với mọi $$x \\in I$$, và nếu $$A$$, $$B$$ là các biểu thức chính quy thì $$(AB)$$, $$(A \\cup B)$$ và $$A^{*}$$ cũng là các biểu thức chính quy; mỗi biểu thức chính quy mô tả một ngôn ngữ chính quy.",
+   "example_vi": "Trên bảng chữ cái $$I = \\{a, b\\}$$, xâu $$(ab)^{*} \\cup b$$ là một biểu thức chính quy, trong khi xâu ký hiệu $$\\cup a^{*} b$$ không phải là biểu thức chính quy vì không tuân theo quy tắc xây dựng đệ quy.",
+   "notes": "Recommended lead term \"biểu thức chính quy\" is the standard Vietnamese term for regular expression in computer-science / formal-language literature. It is attested in the corpus ONLY by bib-rosen-2003-vi (the 2003 OCR translation of Rosen), which covers Rosen's computation-models chapter: ĐỊNH NGHĨA 1 gives the complete recursive definition (Ø, λ, x∈I as base cases; (AB), (A∪B), A* as recursive cases) and p.810 defines the represented sets (Ø→tập rỗng; λ→{λ}; x→{x}; (AB)→ghép; A*→bao đóng Kleene), confirming this is exactly Rosen §13.4. The definition sits between @@PAGE 809@@ and @@PAGE 810@@, so pdf_page=809, matching the page-marker convention used by the sibling NFA entry. LEAD-SOURCE POLICY (registry terminology_policy; same precedent as chapter-N's nondeterministic-finite-automaton entry): bib-rosen-2003-vi has role=reference and the find-term.py corpus tool keeps it in EXCLUDE_DEFAULT (searching all 2004–2020 sources returns 0 hits; only an explicit bib-rosen-2003-vi pass returns the 30 hits), so it may NEVER be the recommended/lead term. Per that policy the recommended lead term is kept verified=false (empty citation) and the 2003 attestation is recorded as a separate recommended=false, verified=true corroborating row with its p.809 snippet; the downstream renderer surfaces the p.809 Rosen row as the recommendation's evidence so the verified=false flag is not read as \"unsupported\". Unattested variants (0 hits, normal and --loose, across all corpus sources): \"biểu thức chính tắc\" and \"biểu thức đều\" — kept as verified=false variant rows for completeness. The OCR mangled the alphabet symbol I to \"7\" and λ to \"4\"; these are normalized in the snippet, transparently. The notation field \"(ab)^{*} \\cup b\" matches Rosen's regular-expression syntax. see_also targets regular-language and regular-set are same-chapter (R) forward references — the languages/sets a regular expression describes (not yet authored in this batch); Kleene star/closure is chapter K (cross-chapter), so it is not linked here per the same-chapter see_also rule.",
+   "see_also": [
+    "regular-set"
+   ],
+   "vi_terms": [
+    {
+     "term": "biểu thức chính tắc",
+     "verified": false,
+     "recommended": false,
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": ""
+    },
+    {
+     "term": "biểu thức chính quy",
+     "source_id": "bib-doducgiao-2000",
+     "page": "tr. 254",
+     "pdf_page": 253,
+     "snippet": "{2. NGON NGỮ CHÍNH QUY VA BIỂU THỨC CHÍNH QUY",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "biểu thức chính quy",
+     "source_id": "bib-doducgiao-2009",
+     "page": "tr. 22",
+     "pdf_page": 23,
+     "snippet": "NGÔN NGỮ CHÍNH QUY, BIỂU THỨC CHÍNH QUY",
+     "verified": true,
+     "recommended": true
+    },
+    {
+     "term": "biểu thức chính quy",
+     "source_id": "bib-doducgiao-2008",
+     "page": "tr. 8",
+     "pdf_page": 9,
+     "snippet": "2.2. Biểu thức chính quy...",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "biểu thức chính tắc",
+     "source_id": "bib-cungkimtien-2004",
+     "page": "",
+     "pdf_page": 427,
+     "snippet": "\"biểu thức chính tắc canonical",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "biểu thức chính tắc",
+     "source_id": "bib-phan-1976",
+     "page": "tr. 166",
+     "pdf_page": 166,
+     "snippet": "canonical e. biểu thức chính tắc",
+     "verified": true,
+     "recommended": false
+    }
+   ],
+   "pos": "d.t."
+  },
+  {
+   "id": "regular-graph",
+   "letter": "R",
+   "headword_en": "regular graph",
+   "notation": "\\deg_G(v) = k\\ \\forall v \\in V(G)",
+   "rosen_ref": "Rosen §10.2",
+   "definition_vi": "Một đơn đồ thị $$G$$ được gọi là *đồ thị đều bậc $$k$$* nếu mọi đỉnh của nó đều có cùng bậc $$k$$, tức là $$\\deg_G(v) = k$$ với mọi $$v \\in V(G)$$. Số $$k$$ này được gọi là bậc của đồ thị đều.",
+   "example_vi": "Đồ thị đầy đủ $$K_n$$ là đồ thị đều bậc $$n-1$$, vì mỗi đỉnh kề với tất cả $$n-1$$ đỉnh còn lại, do đó $$\\deg_{K_n}(v) = n-1$$ với mọi $$v \\in V(K_n)$$.",
+   "notes": "Recommended term \"đồ thị đều bậc k\" (equivalently \"đồ thị đều bậc d\") is the primary form in the newest source bib-leanhvinh-2020 (tr. 10, PDF), whose definition reads: \"ta gọi $$G$$ là đồ thị đều bậc d (hay còn được gọi là đồ thị d chính quy)\". The variant \"đồ thị k chính quy\" / \"đồ thị d chính quy\" is also attested there (tr. 214). The bare candidate \"đồ thị chính quy\" is NOT recommended: in bib-leanhvinh-2020 the unqualified form \"đồ thị chính quy mạnh\" denotes a strongly regular graph (a different concept, Định nghĩa 8.14, tr. 214), so the qualifier k/d must be kept. Older sources use the spelling \"qui\": bib-ngodactan-2004 \"đồ thị chính qui bậc k\" with the explicit short form \"k-chính qui\" on the same line (tr. 191) and bib-nguyenducnghia-2006 \"chính qui bậc X\" (tr. 164). Note: \"đồ thị đều\" appearing alone in bib-hoangchithanh-2007 (tr. 13, 37, 47, 49), bib-nguyenducnghia-2006 (tr. 154, 162, ...), and bib-ngodactan-2004 (tr. 211) is the adverb \"đều\" meaning \"all/every\" (e.g. \"Mọi đồ thị đều có lõi\"), NOT the regular-graph term, so those hits are excluded. Example sourced from bib-leanhvinh-2020 (tr. 10, PDF): \"Đồ thị K_n là đồ thị đều bậc n − 1.\" The see_also ids degree-of-a-vertex, complete-graph, and bipartite-graph are cross-chapter forward references (chapters D, C, B); no other same-chapter R entries are related to this concept.",
+   "see_also": [
+    "bipartite-graph",
+    "complete-graph"
+   ],
+   "vi_terms": [
+    {
+     "term": "đồ thị đều bậc k",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-leanhvinh-2020",
+     "pdf_page": 89,
+     "page": "tr. 90",
+     "snippet": "ta gọi G là đỏ thị đều bậc d (hay còn được gọi là dé thị d chính quy)."
+    },
+    {
+     "term": "đồ thị k chính quy",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-leanhvinh-2020",
+     "pdf_page": 214,
+     "page": "tr. 215",
+     "snippet": "© Dé thị G là đồ thị đều bậc k, hay còn gợi là đồ thị k chính quy."
+    },
+    {
+     "term": "đồ thị chính qui bậc k",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-ngodactan-2004",
+     "pdf_page": 191,
+     "page": "tr. 191",
+     "snippet": "và G được gọi là đồ thị chính qui bậc k hay ngắn gọn là k-chính qui."
+    },
+    {
+     "term": "k-chính qui",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-ngodactan-2004",
+     "pdf_page": 191,
+     "page": "tr. 191",
+     "snippet": "và G được gọi là đồ thị chính qui bậc k hay ngắn gọn là k-chính qui."
+    },
+    {
+     "term": "chính qui bậc X",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenducnghia-2006",
+     "pdf_page": 164,
+     "page": "",
+     "snippet": "10. Đồ thị vô hướng được gọi là chính qui bậc X nếu tất cả các đỉnh của nó đều có bậc"
+    },
+    {
+     "term": "đồ thị chính quy bậc k",
+     "source_id": "bib-wikipedia-vi",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": "https://vi.wikipedia.org/wiki/Đồ_thị_chính_quy",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "đồ thị chính quy",
+     "source_id": "bib-doantamhoe-2009",
+     "page": "",
+     "pdf_page": 179,
+     "snippet": "<M. Khi mỗi đỉnh có bậc bằng 2E/V thì gọi G là đồ thị chính quy. Hãy tìm n để",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "đồ thị chính quy",
+     "source_id": "bib-doducgiao-2009",
+     "page": "tr. 127",
+     "pdf_page": 128,
+     "snippet": "b) Tìm số đỉnh của một đồ thị chính quy bậc 4 có 10 cạnh. Vẽ đỏ thị đó.",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "đồ thị chính quy",
+     "source_id": "bib-leanhvinh-2020",
+     "page": "tr. 215",
+     "pdf_page": 214,
+     "snippet": "Dinh nghĩa 8.14. Dé thị G được gọi là đồ thị chính quy mạnh uới",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "đồ thị đều",
+     "source_id": "bib-hoangchithanh-2011",
+     "page": "",
+     "pdf_page": 39,
+     "snippet": "1.62. Nếu các đỉnh của đồ thị đều có bậc chin thì:",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "đồ thị đều",
+     "source_id": "bib-leanhvinh-2020",
+     "page": "tr. 11",
+     "pdf_page": 10,
+     "snippet": "ta gọi G là đỏ thị đều bậc d (hay còn được gọi là dé thị d chính quy).",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "đồ thị đều",
+     "source_id": "bib-nguyenhuudien-2019",
+     "page": "tr. 182",
+     "pdf_page": 182,
+     "snippet": "đồ thị đều có bậc chẵn.",
+     "verified": true,
+     "recommended": false
+    }
+   ],
+   "pos": "d.t."
+  },
+  {
+   "id": "regular-set",
+   "letter": "R",
+   "headword_en": "regular set",
+   "notation": "",
+   "rosen_ref": "Rosen §13.4",
+   "definition_vi": "Một *tập chính quy* là một tập các xâu ký tự được mô tả bởi một biểu thức chính quy. Cụ thể, mỗi biểu thức chính quy trên một bảng chữ cái $$I$$ biểu diễn một tập chính quy: $$\\emptyset$$ biểu diễn tập rỗng, $$\\lambda$$ biểu diễn tập $$\\{\\lambda\\}$$ gồm xâu rỗng, ký hiệu $$x$$ biểu diễn tập $$\\{x\\}$$, và các phép ghép, hợp cùng bao đóng Kleene của các biểu thức chính quy biểu diễn các tập tương ứng được tạo từ các tập chính quy thành phần.",
+   "example_vi": "Trên bảng chữ cái $$I = \\{0, 1\\}$$, biểu thức chính quy $$0^{*}1$$ mô tả tập chính quy gồm các xâu kết thúc bằng đúng một ký hiệu $$1$$ và đứng trước là một số (có thể bằng $$0$$) ký hiệu $$0$$, tức là tập $$\\{1, 01, 001, 0001, \\ldots\\}$$.",
+   "vi_terms": [
+    {
+     "term": "tập chính quy",
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": "",
+     "verified": false,
+     "recommended": true
+    },
+    {
+     "term": "tập chính quy",
+     "source_id": "bib-rosen-2003-vi",
+     "page": "tr. 810",
+     "pdf_page": 810,
+     "snippet": "Mỗi biểu thức chính quy biểu diễn một tập, được mô tả bởi các tập chính quy, vì vậy khi ta nói tới tập chính quy A là muốn nói tới tập chính quy được biểu diễn bởi biểu thức chính quy A.",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "tập chính quy",
+     "source_id": "bib-rosen-2003-vi",
+     "page": "tr. 809",
+     "pdf_page": 809,
+     "snippet": "CÁC TẬP CHÍNH QUY. Các tập chính quy là các tập có thể được tạo bằng cách dùng các phép ghép, hợp và bao đóng Kleene.",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "ngôn ngữ chính quy",
+     "source_id": "bib-doantamhoe-2009",
+     "page": "",
+     "pdf_page": 173,
+     "snippet": "2. Mỗi ngôn ngữ chính quy là ngôn ngữ Petri; ton tại ngôn ngữ",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "ngôn ngữ chính quy",
+     "source_id": "bib-doducgiao-2009",
+     "page": "tr. 4",
+     "pdf_page": 5,
+     "snippet": "NGON NGỮ CHÍNH QUY SUY RỘNG.................................... 35",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "ngôn ngữ chính quy",
+     "source_id": "bib-doducgiao-2008",
+     "page": "tr. 8",
+     "pdf_page": 9,
+     "snippet": "§2. Ngôn ngữ chính quy và biểu thức chinh-quy.......",
+     "verified": true,
+     "recommended": false
+    }
+   ],
+   "see_also": [
+    "alphabet",
+    "language",
+    "nondeterministic-finite-automaton",
+    "regular-expression",
+    "string"
+   ],
+   "notes": "Theo Rosen §13.4, tập chính quy (regular set) là tập các xâu được mô tả bởi một biểu thức chính quy; cần phân biệt \"tập chính quy\" (một tập hợp các xâu) với \"biểu thức chính quy\" (một xâu mô tả tập đó). Định lý Kleene (1956) cho biết các tập chính quy đúng là các tập được chấp nhận bởi một ôtômat hữu hạn, nên \"tập chính quy\" trùng với \"ngôn ngữ chính quy\" (regular language) theo nghĩa của Rosen; hai thuật ngữ này được dùng lẫn nhau trong tài liệu hình thức. Thuật ngữ chuẩn tiếng Việt \"tập chính quy\" là thuật ngữ chuẩn cho regular set trong văn phạm và ngôn ngữ hình thức. Nó được chứng thực trong kho ngữ liệu CHỈ bởi bib-rosen-2003-vi (bản dịch OCR năm 2003 của Rosen, bao trùm chương mô hình tính toán): tr. 809 mở đầu mục \"CÁC TẬP CHÍNH QUY\" và định nghĩa các tập chính quy qua các phép ghép, hợp và bao đóng Kleene, còn tr. 810 nói rõ \"tập chính quy A\" nghĩa là tập được biểu diễn bởi biểu thức chính quy A, đúng Rosen §13.4. CHÍNH SÁCH NGUỒN DẪN ĐẦU (terminology_policy; cùng tiền lệ với entry nondeterministic-finite-automaton của chương N và regular-expression của chương R): bib-rosen-2003-vi có role=reference và công cụ find-term.py giữ nó trong EXCLUDE_DEFAULT (tìm trên mọi nguồn 2004–2020 trả về 0 hit cho \"tập chính quy\", cả thường lẫn --loose; chỉ một lượt bib-rosen-2003-vi tường minh mới trả về 33 hit), nên nó KHÔNG BAO GIỜ được làm thuật ngữ recommended/lead. Theo chính sách đó, thuật ngữ lead \"tập chính quy\" giữ verified=false (trích dẫn rỗng) còn các chứng thực 2003 được ghi thành các dòng recommended=false, verified=true bổ trợ với snippet tr. 809 và tr. 810; bộ render hạ nguồn sẽ hiển thị các dòng Rosen này làm bằng chứng cho khuyến nghị nên cờ verified=false không bị đọc là \"không có căn cứ\". Dòng \"ngôn ngữ chính quy\" (tr. 774) được giữ làm chứng thực bổ trợ verified=true, recommended=false cho khái niệm tương đương theo định lý Kleene. OCR đã làm sai một số dấu và ký tự; snippet đã được chuẩn hóa minh bạch. see_also dẫn tới regular-expression và regular-language (cùng chương R) là các tham chiếu cùng chương; biểu thức chính quy mô tả tập, còn ngôn ngữ chính quy là tên gọi tương đương của cùng tập đó.",
+   "status": "draft",
+   "pos": "d.t."
+  },
+  {
+   "id": "relation",
+   "letter": "R",
+   "headword_en": "relation",
+   "see_ref": "binary-relation",
+   "vi_terms": [
+    {
+     "term": "quan hệ hai ngôi",
+     "verified": false,
+     "recommended": false,
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": ""
+    },
+    {
+     "term": "quan hệ nhị nguyên",
+     "verified": false,
+     "recommended": false,
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": ""
+    },
+    {
+     "term": "quan hệ",
+     "verified": false,
+     "recommended": false,
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": ""
+    }
+   ],
+   "see_also": [],
+   "notes": "Đồng nghĩa với Binary relation.",
+   "pos": "d.t."
+  },
+  {
+   "id": "relation-on-a-set",
+   "letter": "R",
+   "headword_en": "relation on a set",
+   "see_ref": "binary-relation",
+   "vi_terms": [
+    {
+     "term": "quan hệ trên một tập hợp",
+     "verified": false,
+     "recommended": false,
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": ""
+    }
+   ],
+   "status": "draft",
+   "pos": "d.t."
+  },
+  {
+   "id": "relational-data-model",
+   "letter": "R",
+   "headword_en": "relational data model",
+   "notation": "",
+   "rosen_ref": "Rosen §9.2",
+   "definition_vi": "Mô hình quan hệ của dữ liệu là một mô hình để biểu diễn các cơ sở dữ liệu bằng các quan hệ $$n$$ ngôi. Mỗi cơ sở dữ liệu được biểu diễn bởi một quan hệ $$n$$ ngôi, trong đó mỗi bộ $$n$$ phần tử là một bản ghi gồm các giá trị của $$n$$ thuộc tính.",
+   "example_vi": "Một cơ sở dữ liệu sinh viên có thể được biểu diễn bằng quan hệ $$4$$ ngôi gồm các bộ $$(\\text{Tên}, \\text{Mã số}, \\text{Ngành}, \\text{Điểm})$$, chẳng hạn $$(\\text{An}, 1010, \\text{Toán}, 3.45)$$; mỗi bộ là một bản ghi của một sinh viên.",
+   "vi_terms": [
+    {
+     "term": "mô hình quan hệ",
+     "source_id": "bib-rosen-2003-vi",
+     "page": "tr. 440",
+     "pdf_page": 440,
+     "snippet": "một trong số các.phương pháp đó, nó có tên là mô hình quan hệ của",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "mô hình quan hệ của dữ liệu",
+     "source_id": "bib-rosen-2003-vi",
+     "page": "tr. 440",
+     "pdf_page": 440,
+     "snippet": "điểm bình quân của sinh viên đó. Mô hình quan hệ của dữ liéu biểu diễn",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "cơ sở dữ liệu theo mô hình quan hệ",
+     "source_id": "bib-rosen-2003-vi",
+     "page": "tr. 493",
+     "pdf_page": 493,
+     "snippet": "trình bay trong Tiết 6.2. Cơ sở dữ liệu theo mô hình quan hệ được",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "mô hình dữ liệu quan hệ",
+     "source_id": "bib-wikipedia-vi",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": "https://vi.wikipedia.org/wiki/Mô_hình_dữ_liệu_quan_hệ",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "mô hình quan hệ",
+     "source_id": "bib-nguyenhuuanh-2007",
+     "page": "",
+     "pdf_page": 88,
+     "snippet": ". 2. Trong Lý thuyết về cơ sở dữ liệu mô hình quan hệ, các tập",
+     "verified": true,
+     "recommended": true
+    }
+   ],
+   "see_also": [
+    "n-ary-relation",
+    "relation"
+   ],
+   "notes": "Mô hình quan hệ của dữ liệu (relational data model) biểu diễn cơ sở dữ liệu bằng các quan hệ $$n$$ ngôi: mỗi cơ sở dữ liệu là một quan hệ $$n$$ ngôi, mỗi bộ $$n$$ phần tử là một bản ghi, và mỗi thành phần ứng với một thuộc tính (xem Rosen §9.2). Cần phân biệt \"mô hình quan hệ của dữ liệu\" (cách tổ chức cơ sở dữ liệu) với \"quan hệ $$n$$ ngôi\" (đối tượng toán học dùng để biểu diễn). Thuật ngữ \"mô hình dữ liệu quan hệ\" cũng được dùng phổ biến với cùng nghĩa.",
+   "status": "draft",
+   "pos": "d.t."
+  },
+  {
+   "id": "relative-primality",
+   "letter": "R",
+   "headword_en": "relative primality",
+   "pos": "d.t.",
+   "notation": "",
+   "ref_bib": "bib-libennowell-2022",
+   "rosen_ref": "",
+   "definition_vi": "\\emph{Tính nguyên tố cùng nhau} là quan hệ giữa hai số nguyên không có ước chung lớn hơn $$1$$. Hai số nguyên $$a$$ và $$b$$ \\emph{nguyên tố cùng nhau} nếu $$\\gcd(a,b)=1$$. Một họ số nguyên được gọi là \\emph{đôi một nguyên tố cùng nhau} nếu mọi cặp trong họ đều nguyên tố cùng nhau.",
+   "example_vi": "$$8$$ và $$15$$ nguyên tố cùng nhau vì $$\\gcd(8,15)=1$$, dù bản thân chúng không phải số nguyên tố.",
+   "notes": "",
+   "see_also": [],
+   "vi_terms": [
+    {
+     "term": "tính nguyên tố cùng nhau",
+     "recommended": true
+    }
+   ]
+  },
+  {
+   "id": "relatively-prime-integers",
+   "letter": "R",
+   "headword_en": "relatively prime integers",
+   "notation": "\\gcd(a,b) = 1",
+   "rosen_ref": "Rosen §3.5",
+   "definition_vi": "Hai số nguyên $$a$$ và $$b$$ được gọi là nguyên tố cùng nhau nếu ước chung lớn nhất của chúng bằng $$1$$, tức là $$\\gcd(a,b) = 1$$.",
+   "example_vi": "Hai số $$17$$ và $$22$$ là nguyên tố cùng nhau vì $$\\gcd(17, 22) = 1$$, mặc dù bản thân $$22$$ không phải là số nguyên tố.",
+   "vi_terms": [
+    {
+     "term": "nguyên tố cùng nhau",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-nguyenhuudien-2019",
+     "page": "tr. 58",
+     "pdf_page": 58,
+     "snippet": "(3) m và n nguyên tố cùng nhau."
+    },
+    {
+     "term": "nguyên tố cùng nhau",
+     "source_id": "bib-nguyenhoangthach-2020",
+     "page": "tr. 53",
+     "pdf_page": 55,
+     "snippet": "Vì 3, 5, 7 nguyên tố cùng nhau đôi một nên A ∩ B, B ∩ C, C ∩ A lần lượt",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "nguyên tố cùng nhau",
+     "source_id": "bib-sierpinski-2012",
+     "page": "",
+     "pdf_page": 11,
+     "snippet": "Các số nguyên tố cùng nhau",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "nguyên tố cùng nhau",
+     "source_id": "bib-cungkimtien-2004",
+     "page": "",
+     "pdf_page": 85,
+     "snippet": "coprime nguyên tố cùng nhau",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "nguyên tố cùng nhau",
+     "source_id": "bib-phan-1976",
+     "page": "tr. 87",
+     "pdf_page": 87,
+     "snippet": "coprime nguyên tố cùng nhau",
+     "verified": true,
+     "recommended": false
+    }
+   ],
+   "see_also": [
+    "greatest-common-divisor",
+    "pairwise-relatively-prime",
+    "prime-number"
+   ],
+   "notes": "Hai số nguyên $$a$$ và $$b$$ là nguyên tố cùng nhau khi và chỉ khi $$\\gcd(a,b) = 1$$, nghĩa là chúng không có ước nguyên tố chung. Khái niệm này khác với \"đôi một nguyên tố cùng nhau\" (pairwise relatively prime): một tập số nguyên đôi một nguyên tố cùng nhau khi mọi cặp trong tập đều có ước chung lớn nhất bằng $$1$$, đây là điều kiện mạnh hơn. Thuật ngữ \"nguyên tố cùng nhau\" có dẫn chứng ngữ liệu trong cả nguồn năm 2019 và bản dịch Rosen.",
    "status": "draft",
    "pos": "d.t."
   },
@@ -2311,6 +2545,54 @@
    "pos": "d.t."
   },
   {
+   "id": "repetition-code",
+   "letter": "R",
+   "headword_en": "repetition code",
+   "pos": "d.t.",
+   "notation": "",
+   "ref_bib": "bib-libennowell-2022",
+   "rosen_ref": "",
+   "definition_vi": "\\emph{Mã lặp} là một mã sửa lỗi đơn giản, trong đó mỗi bit thông tin được lặp lại một số lẻ lần $$2t+1$$ trước khi truyền. Bên nhận giải mã mỗi khối theo nguyên tắc đa số, nhờ đó phát hiện và sửa được tối đa $$t$$ lỗi trên mỗi khối, đổi lại tỉ lệ mã thấp là $$\\displaystyle \\frac{1}{2t+1}$$.",
+   "example_vi": "Mã lặp 3 lần mã hóa bit $$1$$ thành $$111$$; nếu nhận được $$101$$, giải mã theo đa số cho lại $$1$$.",
+   "notes": "",
+   "see_also": [],
+   "vi_terms": [
+    {
+     "term": "mã lặp",
+     "recommended": true
+    },
+    {
+     "term": "mã lặp",
+     "source_id": "bib-sierpinski-2012",
+     "page": "",
+     "pdf_page": 282,
+     "snippet": "Bổ đề. Với mọi số tự nhiên n  2 thì luôn tồn tại số tự nhiên mà lập phương của nó là tổng của n",
+     "verified": true,
+     "recommended": false
+    }
+   ]
+  },
+  {
+   "id": "residue",
+   "letter": "R",
+   "headword_en": "residue",
+   "see_ref": "remainder",
+   "vi_terms": [
+    {
+     "term": "số dư",
+     "verified": false,
+     "recommended": false,
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": ""
+    }
+   ],
+   "see_also": [],
+   "notes": "Đồng nghĩa với Remainder.",
+   "pos": "d.t."
+  },
+  {
    "id": "resolution",
    "letter": "R",
    "headword_en": "resolution (rule of inference)",
@@ -2386,6 +2668,97 @@
    "see_also": [],
    "notes": "Thuật ngữ chuẩn của giáo trình MAT3500 là \"hợp giải\". Trong các tài liệu tiếng Việt khác, khái niệm này còn được gọi là \"phân giải\". Không có nguồn nào trong kho ngữ liệu chứng thực thuật ngữ này cho đúng khái niệm quy tắc hợp giải trong logic mệnh đề; các lần xuất hiện của \"phân giải\" trong bản dịch Rosen lại thuộc về khái niệm khác (phân giải hệ thức truy hồi).",
    "status": "draft",
+   "pos": "d.t."
+  },
+  {
+   "id": "restriction-of-a-function",
+   "letter": "R",
+   "headword_en": "restriction of a function",
+   "notation": "f|_S : S \\to B",
+   "rosen_ref": "Rosen §2.3",
+   "definition_vi": "Thu hẹp của một hàm $$f$$ từ $$A$$ đến $$B$$ trên một tập con $$S \\subseteq A$$, ký hiệu $$f|_S$$, là hàm $$f|_S : S \\to B$$ xác định bởi $$f|_S(x) = f(x)$$ với mọi $$x \\in S$$.",
+   "example_vi": "Cho hàm $$f : \\mathbb{Z} \\to \\mathbb{Z}$$ với $$f(x) = x^2$$ và tập con $$S = \\{0, 1, 2\\}$$. Khi đó thu hẹp $$f|_S : S \\to \\mathbb{Z}$$ thỏa mãn $$f|_S(0) = 0$$, $$f|_S(1) = 1$$ và $$f|_S(2) = 4$$.",
+   "see_also": [
+    "function",
+    "domain",
+    "function-composition",
+    "inverse-function"
+   ],
+   "notes": "Mining outcome: none of the four candidate phrases (thu hẹp của hàm, hạn chế của hàm, hàm thu hẹp, thu hẹp) appears as an exact noun phrase denoting function restriction in any corpus source. The recommended term \"thu hẹp\" is attested as the restriction verb in bib-nguyenhuudien-2019 p. 119, where the restriction of an order relation $$R$$ to a subset $$A \\subset X$$ is written \"quan hệ thứ tự $$R$$ thu hẹp trên $$A$$\" — the same set-theoretic restriction operation applied to a relation, confirming \"thu hẹp\" as the standard Vietnamese term for this concept in a 2019 discrete-math source. The full noun-phrase forms \"thu hẹp của hàm $$f$$\" and \"hàm thu hẹp\" are standard idiomatic usage built on this attested verb but are not found verbatim, so they are recorded as unverified variants. \"Hạn chế của hàm\" is a calque from the English/French \"restriction\"; all \"hạn chế\" hits in the corpus mean \"limited/restricted\" in the ordinary sense, not the restriction operation, so it is unverified for this concept. Note: \"thu gọn của hàm\" hits in bib-nguyenducnghia-2006 refer to the reduced normal form of a Boolean function (a distinct concept) and were excluded. Verifier note: the bib-nguyenducnghia-2006 p. 105 and bib-nguyenhuudien-2019 p. 135 hits for \"thu hẹp\" mean \"narrow down\" in the ordinary sense and were correctly excluded; OCR sources bib-leanhvinh-2020 and bib-hoangchithanh-2007 returned zero hits in both normal and loose modes. see_also: the original ids \"domain-of-a-function\" and \"codomain-of-a-function\" do not exist in the entry namespace; the canonical existing ids are \"domain\" (def-domain) and \"function\" (def-function), both confirmed present. No \"codomain\" or \"range\" entry exists yet, so they are omitted; \"function-composition\" (def-function-composition) and \"inverse-function\" (def-inverse-function) are linked as related function operations and confirmed present. All four are cross-chapter forward references (chapters D, F, I) relative to this R entry.",
+   "vi_terms": [
+    {
+     "term": "thu hẹp",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 119,
+     "page": "tr. 119",
+     "snippet": "Nhận xét. Nếu ( X, R) là một tập hợp có thứ tự và A ⊂ X thì quan hệ thứ R thu hẹp trên"
+    },
+    {
+     "term": "thu hẹp của hàm",
+     "verified": false,
+     "recommended": false,
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": ""
+    },
+    {
+     "term": "hàm thu hẹp",
+     "verified": false,
+     "recommended": false,
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": ""
+    },
+    {
+     "term": "hạn chế của hàm",
+     "verified": false,
+     "recommended": false,
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": ""
+    },
+    {
+     "term": "thu hẹp",
+     "source_id": "bib-doantamhoe-2009",
+     "page": "",
+     "pdf_page": 24,
+     "snippet": "được thu hẹp, đồng thời khi xét dấu các đại lượng trong bảng đơn",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "thu hẹp",
+     "source_id": "bib-doducgiao-2008",
+     "page": "tr. 258",
+     "pdf_page": 259,
+     "snippet": "Kết quả sau mỗi lần so sánh số phần tử cần sắp xếp thu hẹp dần lại.",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "thu hẹp",
+     "source_id": "bib-cungkimtien-2004",
+     "page": "",
+     "pdf_page": 67,
+     "snippet": "choi thu hep hoan toan",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "thu hẹp",
+     "source_id": "bib-phan-1976",
+     "page": "tr. 205",
+     "pdf_page": 205,
+     "snippet": "completely reduced g. trò chơi thu hẹp hoàn toàn",
+     "verified": true,
+     "recommended": false
+    }
+   ],
    "pos": "d.t."
   },
   {
@@ -2563,6 +2936,86 @@
    "pos": "d.t."
   },
   {
+   "id": "ring",
+   "letter": "R",
+   "headword_en": "ring",
+   "notation": "(R, +, \\cdot)",
+   "rosen_ref": "Rosen §4.6",
+   "definition_vi": "Vành là một tập hợp $$R$$ được trang bị hai phép toán hai ngôi, phép cộng $$+$$ và phép nhân $$\\cdot$$, ký hiệu $$(R, +, \\cdot)$$, sao cho $$R$$ là một nhóm abel đối với phép cộng, phép nhân có tính kết hợp, và phép nhân phân phối đối với phép cộng. Nghĩa là, với mọi $$a, b, c \\in R$$ ta có $$a \\cdot (b + c) = a \\cdot b + a \\cdot c$$ và $$(a + b) \\cdot c = a \\cdot c + b \\cdot c$$. Nguồn tiếng Việt duy nhất chứng thực khái niệm này (bib-ngodactan-2004) trình bày trường hợp vành giao hoán có đơn vị, đúng với ví dụ $$\\mathbb{Z}$$ bên dưới.",
+   "example_vi": "Tập hợp các số nguyên $$\\mathbb{Z}$$ cùng với phép cộng và phép nhân thông thường tạo thành một vành $$(\\mathbb{Z}, +, \\cdot)$$.",
+   "vi_terms": [
+    {
+     "term": "vành",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-ngodactan-2004",
+     "pdf_page": 60,
+     "page": "tr. 60",
+     "snippet": "thành một vành giao hoán có đơn vị 1 đối với phép cộng và phép nhân"
+    },
+    {
+     "term": "vành giao hoán",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-ngodactan-2004",
+     "pdf_page": 44,
+     "page": "tr. 44",
+     "snippet": "bất kỳ của một vành giao hoán K có đơn vị 1 và n là một số nguyên"
+    },
+    {
+     "term": "vành có đơn vị",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-ngodactan-2004",
+     "pdf_page": 61,
+     "page": "tr. 61",
+     "snippet": "vành có đơn vị mà đồng thời cũng là không gián véc tơ trên K với phép"
+    },
+    {
+     "term": "vành",
+     "source_id": "bib-rosen-2003-vi",
+     "pdf_page": 337,
+     "page": "tr. 337",
+     "snippet": "31. Trên vành của bánh xe dùng để quay xổ số có gắn 38 con số, trung",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "vành giao hoán",
+     "source_id": "bib-nguyenhuuanh-2007",
+     "page": "",
+     "pdf_page": 93,
+     "snippet": "Ta nói Z„ cũng như Z là những vanh giao hoán có đơn vi",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "vành giao hoán",
+     "source_id": "bib-cungkimtien-2004",
+     "page": "",
+     "pdf_page": 64,
+     "snippet": "commutative ring vành giao hoán",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "vành giao hoán",
+     "source_id": "bib-phan-1976",
+     "page": "tr. 369",
+     "pdf_page": 369,
+     "snippet": "commutative r. vành giao hoán",
+     "verified": true,
+     "recommended": false
+    }
+   ],
+   "notes": "Ring terminology appears only in bib-ngodactan-2004 (2004), the only corpus source that touches algebraic structures (in the context of the Newton binomial and Pólya enumeration over a ring). The base recommended term is \"vành\" (ring). No 2019-2020 source attests \"vành\" or any variant; the find-term.py search returned 0 hits in bib-leanhvinh-2020 and bib-nguyenhoangthach-2020 (2020), bib-nguyenhuudien-2019 (2019), bib-hoangchithanh-2007, and bib-nguyenducnghia-2006, including loose-mode searches on the two OCR sources (bib-leanhvinh-2020, bib-hoangchithanh-2007). The recommended term \"vành\" is therefore attested only in the 2004 source, which is the oldest available; no newer attestation exists in this combinatorics/graph-theory corpus. Variants record additional structural qualifiers: \"vành giao hoán\" = commutative ring, \"vành có đơn vị\" = ring with unity (multiplicative identity $$1$$). Both qualified forms also occur only in bib-ngodactan-2004. ROSEN-REF CAVEAT: rosen_ref \"Rosen §4.6\" is the modular-arithmetic/cryptography (RSA) section, where Rosen does not formally define a ring; the general-ring definition given here is the standard abstract-algebra definition, but the only attesting Vietnamese source treats the commutative-ring-with-unity case. The ref is retained as the topical anchor (the book anchors weakly-anchored algebra headwords by topic section) and the level-of-generality mismatch is disclosed in definition_vi and here rather than silently rewriting an anchor Rosen does not cleanly provide.",
+   "see_also": [
+    "field",
+    "group"
+   ],
+   "pos": "d.t."
+  },
+  {
    "id": "root",
    "letter": "R",
    "headword_en": "root",
@@ -2713,361 +3166,48 @@
    "pos": "d.t."
   },
   {
-   "id": "r-combination",
+   "id": "rooted-tree",
    "letter": "R",
-   "headword_en": "r-combination",
-   "see_ref": "combination",
-   "vi_terms": [
-    {
-     "term": "tổ hợp chập r",
-     "verified": false,
-     "recommended": false,
-     "source_id": "",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": ""
-    }
-   ],
-   "status": "draft",
-   "pos": "d.t."
-  },
-  {
-   "id": "r-permutation",
-   "letter": "R",
-   "headword_en": "r-permutation",
-   "see_ref": "permutation",
-   "vi_terms": [
-    {
-     "term": "r-hoán vị",
-     "verified": false,
-     "recommended": false,
-     "source_id": "",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": ""
-    }
-   ],
-   "status": "draft",
-   "pos": "d.t."
-  },
-  {
-   "id": "random-variable",
-   "letter": "R",
-   "headword_en": "random variable",
-   "notation": "X",
-   "rosen_ref": "Rosen §7.4",
-   "definition_vi": "Biến ngẫu nhiên là một hàm gán một số thực cho mỗi kết cục của một không gian mẫu. Nói cách khác, nếu $$S$$ là không gian mẫu của một phép thử thì biến ngẫu nhiên là một hàm $$X : S \\to \\mathbb{R}$$.",
-   "example_vi": "Khi tung một đồng xu hai lần, gọi $$X$$ là biến ngẫu nhiên đếm số lần xuất hiện mặt ngửa; khi đó $$X$$ gán giá trị $$2$$ cho kết cục $$\\mathrm{NN}$$, giá trị $$1$$ cho các kết cục $$\\mathrm{NS}$$ và $$\\mathrm{SN}$$, và giá trị $$0$$ cho kết cục $$\\mathrm{SS}$$.",
-   "vi_terms": [
-    {
-     "term": "biến ngẫu nhiên",
-     "source_id": "bib-leanhvinh-2020",
-     "page": "tr. 156",
-     "pdf_page": 155,
-     "snippet": "biến ngẫu nhiên đếm số các đồ thị con K, đơn sắc của K,, thi",
-     "verified": true,
-     "recommended": true
-    },
-    {
-     "term": "đại lượng ngẫu nhiên",
-     "source_id": "bib-wikipedia-vi",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": "https://vi.wikipedia.org/wiki/Biến_ngẫu_nhiên",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "biến số ngẫu nhiên",
-     "source_id": "",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": "",
-     "verified": false,
-     "recommended": false
-    },
-    {
-     "term": "biến ngẫu nhiên",
-     "source_id": "bib-cormen-2001-vi",
-     "page": "tr. 8",
-     "pdf_page": 6,
-     "snippet": "63 Các biến ngẫu nhiên rời rạc i36",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "biến ngẫu nhiên",
-     "source_id": "bib-doducthai-2010",
-     "page": "tr. 4",
-     "pdf_page": 4,
-     "snippet": "Biến Ngẫu Nhiên . . . . . . . . . . . . . . . . . . . . 67",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "biến ngẫu nhiên",
-     "source_id": "bib-cungkimtien-2004",
-     "page": "",
-     "pdf_page": 14,
-     "snippet": "alcatory variable biến ngẫu nhiên",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "biến ngẫu nhiên",
-     "source_id": "bib-phan-1976",
-     "page": "tr. 193",
-     "pdf_page": 193,
-     "snippet": "f. of random variable xs. ham cua biến ngẫu nhiên",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "đại lượng ngẫu nhiên",
-     "source_id": "bib-phan-1976",
-     "page": "tr. 442",
-     "pdf_page": 442,
-     "snippet": "variate rk. biến ngẫu nhiên; đại lượng ngẫu nhiên",
-     "verified": true,
-     "recommended": false
-    }
-   ],
+   "headword_en": "rooted tree",
+   "notation": "(T, r)",
+   "rosen_ref": "Rosen §11.1",
+   "definition_vi": "Cây có gốc là một cây $$T$$ trong đó một đỉnh $$r$$ được chọn làm gốc và mọi cạnh được định hướng ra xa khỏi $$r$$, ký hiệu $$(T, r)$$. Khi đó với mỗi đỉnh $$v \\neq r$$ tồn tại duy nhất một đường đi có hướng từ gốc $$r$$ đến $$v$$.",
+   "example_vi": "Xét cây $$T$$ với tập đỉnh $$\\{a, b, c, d\\}$$ và các cạnh $$ab$$, $$ac$$, $$cd$$. Chọn $$a$$ làm gốc và định hướng mọi cạnh ra xa khỏi $$a$$, ta được cây có gốc $$(T, a)$$ trong đó có đúng một đường đi có hướng từ $$a$$ đến mỗi đỉnh $$b$$, $$c$$, $$d$$.",
+   "notes": "Mining across all six sources (normal + --loose for OCR sources) found only one Vietnamese term for \"rooted tree\": \"cây có gốc\". It is the standard term and is attested in the newest corpus, including a formal definition in bib-nguyenhoangthach-2020 (Định nghĩa 6.3: \"Một cây có gốc là một đồ thị có hướng...\") which matches Rosen's concept of a directed tree with a designated root. Rosen §11.1 itself starts from an undirected tree, designates a root, and orients edges away from it (matching definition_vi), whereas the recommended source frames the object as an already-directed graph; the two formulations are equivalent. The term also appears in bib-leanhvinh-2020 (OCR-confirmed, pdf_page 49-50, both normal and loose), bib-nguyenhuudien-2019, and bib-nguyenducnghia-2006. Citations are ordered newest-source first; the recommended attestation is the 2020 formal definition.\n\nThe other supplied candidates have NO attestation in any source: \"cây gốc\" (0 hits, normal + loose, all sources) and \"cây được gốc hóa\" (0 hits). The alternative phrasing \"cây có rễ\" also returned 0 hits. These unattested terms are dropped per citation hygiene (verified=false with empty page), leaving only the single standard recommended term.\n\nNo attestation was found in bib-hoangchithanh-2007 (OCR, normal + loose) or bib-ngodactan-2004 for this concept under any tested phrasing.",
    "see_also": [
-    "expected-value",
-    "function"
+    "tree",
+    "root",
+    "directed-graph"
    ],
-   "notes": "Biến ngẫu nhiên $$X$$ thực chất là một hàm $$X : S \\to \\mathbb{R}$$ trên không gian mẫu $$S$$, chứ không phải là một biến theo nghĩa thông thường. Thuật ngữ \"biến ngẫu nhiên\" được dùng nhất quán trong ngữ liệu (xem dẫn chứng từ bib-leanhvinh-2020, trong đó biến ngẫu nhiên đếm số các đồ thị con đơn sắc). Kỳ vọng $$E(X)$$ của biến ngẫu nhiên là giá trị trung bình theo xác suất của các giá trị mà $$X$$ nhận.",
-   "status": "draft",
-   "pos": "d.t."
-  },
-  {
-   "id": "regions-of-a-planar-graph",
-   "letter": "R",
-   "headword_en": "regions of a planar graph",
-   "see_ref": "region",
-   "vi_terms": [],
-   "status": "draft",
-   "pos": "d.t."
-  },
-  {
-   "id": "regular-set",
-   "letter": "R",
-   "headword_en": "regular set",
-   "notation": "",
-   "rosen_ref": "Rosen §13.4",
-   "definition_vi": "Một *tập chính quy* là một tập các xâu ký tự được mô tả bởi một biểu thức chính quy. Cụ thể, mỗi biểu thức chính quy trên một bảng chữ cái $$I$$ biểu diễn một tập chính quy: $$\\emptyset$$ biểu diễn tập rỗng, $$\\lambda$$ biểu diễn tập $$\\{\\lambda\\}$$ gồm xâu rỗng, ký hiệu $$x$$ biểu diễn tập $$\\{x\\}$$, và các phép ghép, hợp cùng bao đóng Kleene của các biểu thức chính quy biểu diễn các tập tương ứng được tạo từ các tập chính quy thành phần.",
-   "example_vi": "Trên bảng chữ cái $$I = \\{0, 1\\}$$, biểu thức chính quy $$0^{*}1$$ mô tả tập chính quy gồm các xâu kết thúc bằng đúng một ký hiệu $$1$$ và đứng trước là một số (có thể bằng $$0$$) ký hiệu $$0$$, tức là tập $$\\{1, 01, 001, 0001, \\ldots\\}$$.",
    "vi_terms": [
     {
-     "term": "tập chính quy",
-     "source_id": "",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": "",
-     "verified": false,
-     "recommended": true
-    },
-    {
-     "term": "tập chính quy",
-     "source_id": "bib-rosen-2003-vi",
-     "page": "tr. 810",
-     "pdf_page": 810,
-     "snippet": "Mỗi biểu thức chính quy biểu diễn một tập, được mô tả bởi các tập chính quy, vì vậy khi ta nói tới tập chính quy A là muốn nói tới tập chính quy được biểu diễn bởi biểu thức chính quy A.",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "tập chính quy",
-     "source_id": "bib-rosen-2003-vi",
-     "page": "tr. 809",
-     "pdf_page": 809,
-     "snippet": "CÁC TẬP CHÍNH QUY. Các tập chính quy là các tập có thể được tạo bằng cách dùng các phép ghép, hợp và bao đóng Kleene.",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "ngôn ngữ chính quy",
-     "source_id": "bib-doantamhoe-2009",
-     "page": "",
-     "pdf_page": 173,
-     "snippet": "2. Mỗi ngôn ngữ chính quy là ngôn ngữ Petri; ton tại ngôn ngữ",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "ngôn ngữ chính quy",
-     "source_id": "bib-doducgiao-2009",
-     "page": "tr. 4",
-     "pdf_page": 5,
-     "snippet": "NGON NGỮ CHÍNH QUY SUY RỘNG.................................... 35",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "ngôn ngữ chính quy",
-     "source_id": "bib-doducgiao-2008",
-     "page": "tr. 8",
-     "pdf_page": 9,
-     "snippet": "§2. Ngôn ngữ chính quy và biểu thức chinh-quy.......",
-     "verified": true,
-     "recommended": false
-    }
-   ],
-   "see_also": [
-    "alphabet",
-    "language",
-    "nondeterministic-finite-automaton",
-    "regular-expression",
-    "string"
-   ],
-   "notes": "Theo Rosen §13.4, tập chính quy (regular set) là tập các xâu được mô tả bởi một biểu thức chính quy; cần phân biệt \"tập chính quy\" (một tập hợp các xâu) với \"biểu thức chính quy\" (một xâu mô tả tập đó). Định lý Kleene (1956) cho biết các tập chính quy đúng là các tập được chấp nhận bởi một ôtômat hữu hạn, nên \"tập chính quy\" trùng với \"ngôn ngữ chính quy\" (regular language) theo nghĩa của Rosen; hai thuật ngữ này được dùng lẫn nhau trong tài liệu hình thức. Thuật ngữ chuẩn tiếng Việt \"tập chính quy\" là thuật ngữ chuẩn cho regular set trong văn phạm và ngôn ngữ hình thức. Nó được chứng thực trong kho ngữ liệu CHỈ bởi bib-rosen-2003-vi (bản dịch OCR năm 2003 của Rosen, bao trùm chương mô hình tính toán): tr. 809 mở đầu mục \"CÁC TẬP CHÍNH QUY\" và định nghĩa các tập chính quy qua các phép ghép, hợp và bao đóng Kleene, còn tr. 810 nói rõ \"tập chính quy A\" nghĩa là tập được biểu diễn bởi biểu thức chính quy A, đúng Rosen §13.4. CHÍNH SÁCH NGUỒN DẪN ĐẦU (terminology_policy; cùng tiền lệ với entry nondeterministic-finite-automaton của chương N và regular-expression của chương R): bib-rosen-2003-vi có role=reference và công cụ find-term.py giữ nó trong EXCLUDE_DEFAULT (tìm trên mọi nguồn 2004–2020 trả về 0 hit cho \"tập chính quy\", cả thường lẫn --loose; chỉ một lượt bib-rosen-2003-vi tường minh mới trả về 33 hit), nên nó KHÔNG BAO GIỜ được làm thuật ngữ recommended/lead. Theo chính sách đó, thuật ngữ lead \"tập chính quy\" giữ verified=false (trích dẫn rỗng) còn các chứng thực 2003 được ghi thành các dòng recommended=false, verified=true bổ trợ với snippet tr. 809 và tr. 810; bộ render hạ nguồn sẽ hiển thị các dòng Rosen này làm bằng chứng cho khuyến nghị nên cờ verified=false không bị đọc là \"không có căn cứ\". Dòng \"ngôn ngữ chính quy\" (tr. 774) được giữ làm chứng thực bổ trợ verified=true, recommended=false cho khái niệm tương đương theo định lý Kleene. OCR đã làm sai một số dấu và ký tự; snippet đã được chuẩn hóa minh bạch. see_also dẫn tới regular-expression và regular-language (cùng chương R) là các tham chiếu cùng chương; biểu thức chính quy mô tả tập, còn ngôn ngữ chính quy là tên gọi tương đương của cùng tập đó.",
-   "status": "draft",
-   "pos": "d.t."
-  },
-  {
-   "id": "relation-on-a-set",
-   "letter": "R",
-   "headword_en": "relation on a set",
-   "see_ref": "binary-relation",
-   "vi_terms": [
-    {
-     "term": "quan hệ trên một tập hợp",
-     "verified": false,
-     "recommended": false,
-     "source_id": "",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": ""
-    }
-   ],
-   "status": "draft",
-   "pos": "d.t."
-  },
-  {
-   "id": "relational-data-model",
-   "letter": "R",
-   "headword_en": "relational data model",
-   "notation": "",
-   "rosen_ref": "Rosen §9.2",
-   "definition_vi": "Mô hình quan hệ của dữ liệu là một mô hình để biểu diễn các cơ sở dữ liệu bằng các quan hệ $$n$$ ngôi. Mỗi cơ sở dữ liệu được biểu diễn bởi một quan hệ $$n$$ ngôi, trong đó mỗi bộ $$n$$ phần tử là một bản ghi gồm các giá trị của $$n$$ thuộc tính.",
-   "example_vi": "Một cơ sở dữ liệu sinh viên có thể được biểu diễn bằng quan hệ $$4$$ ngôi gồm các bộ $$(\\text{Tên}, \\text{Mã số}, \\text{Ngành}, \\text{Điểm})$$, chẳng hạn $$(\\text{An}, 1010, \\text{Toán}, 3.45)$$; mỗi bộ là một bản ghi của một sinh viên.",
-   "vi_terms": [
-    {
-     "term": "mô hình quan hệ",
-     "source_id": "bib-rosen-2003-vi",
-     "page": "tr. 440",
-     "pdf_page": 440,
-     "snippet": "một trong số các.phương pháp đó, nó có tên là mô hình quan hệ của",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "mô hình quan hệ của dữ liệu",
-     "source_id": "bib-rosen-2003-vi",
-     "page": "tr. 440",
-     "pdf_page": 440,
-     "snippet": "điểm bình quân của sinh viên đó. Mô hình quan hệ của dữ liéu biểu diễn",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "cơ sở dữ liệu theo mô hình quan hệ",
-     "source_id": "bib-rosen-2003-vi",
-     "page": "tr. 493",
-     "pdf_page": 493,
-     "snippet": "trình bay trong Tiết 6.2. Cơ sở dữ liệu theo mô hình quan hệ được",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "mô hình dữ liệu quan hệ",
-     "source_id": "bib-wikipedia-vi",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": "https://vi.wikipedia.org/wiki/Mô_hình_dữ_liệu_quan_hệ",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "mô hình quan hệ",
-     "source_id": "bib-nguyenhuuanh-2007",
-     "page": "",
-     "pdf_page": 88,
-     "snippet": ". 2. Trong Lý thuyết về cơ sở dữ liệu mô hình quan hệ, các tập",
-     "verified": true,
-     "recommended": true
-    }
-   ],
-   "see_also": [
-    "n-ary-relation",
-    "relation"
-   ],
-   "notes": "Mô hình quan hệ của dữ liệu (relational data model) biểu diễn cơ sở dữ liệu bằng các quan hệ $$n$$ ngôi: mỗi cơ sở dữ liệu là một quan hệ $$n$$ ngôi, mỗi bộ $$n$$ phần tử là một bản ghi, và mỗi thành phần ứng với một thuộc tính (xem Rosen §9.2). Cần phân biệt \"mô hình quan hệ của dữ liệu\" (cách tổ chức cơ sở dữ liệu) với \"quan hệ $$n$$ ngôi\" (đối tượng toán học dùng để biểu diễn). Thuật ngữ \"mô hình dữ liệu quan hệ\" cũng được dùng phổ biến với cùng nghĩa.",
-   "status": "draft",
-   "pos": "d.t."
-  },
-  {
-   "id": "relatively-prime-integers",
-   "letter": "R",
-   "headword_en": "relatively prime integers",
-   "notation": "\\gcd(a,b) = 1",
-   "rosen_ref": "Rosen §3.5",
-   "definition_vi": "Hai số nguyên $$a$$ và $$b$$ được gọi là nguyên tố cùng nhau nếu ước chung lớn nhất của chúng bằng $$1$$, tức là $$\\gcd(a,b) = 1$$.",
-   "example_vi": "Hai số $$17$$ và $$22$$ là nguyên tố cùng nhau vì $$\\gcd(17, 22) = 1$$, mặc dù bản thân $$22$$ không phải là số nguyên tố.",
-   "vi_terms": [
-    {
-     "term": "nguyên tố cùng nhau",
+     "term": "cây có gốc",
      "verified": true,
      "recommended": true,
-     "source_id": "bib-nguyenhuudien-2019",
-     "page": "tr. 58",
-     "pdf_page": 58,
-     "snippet": "(3) m và n nguyên tố cùng nhau."
-    },
-    {
-     "term": "nguyên tố cùng nhau",
      "source_id": "bib-nguyenhoangthach-2020",
-     "page": "tr. 53",
-     "pdf_page": 55,
-     "snippet": "Vì 3, 5, 7 nguyên tố cùng nhau đôi một nên A ∩ B, B ∩ C, C ∩ A lần lượt",
-     "verified": true,
-     "recommended": false
+     "pdf_page": 84,
+     "page": "tr. 82",
+     "snippet": "Định nghĩa 6.3. Một cây có gốc là một đồ thị có hướng, trong đó:"
     },
     {
-     "term": "nguyên tố cùng nhau",
-     "source_id": "bib-sierpinski-2012",
-     "page": "",
-     "pdf_page": 11,
-     "snippet": "Các số nguyên tố cùng nhau",
+     "term": "cây có gốc",
      "verified": true,
-     "recommended": false
+     "recommended": false,
+     "source_id": "bib-leanhvinh-2020",
+     "pdf_page": 50,
+     "page": "tr. 51",
+     "snippet": "n—1 cạnh được định hướng đến khi thu được một cây có gốc. Tại mỗi"
     },
     {
-     "term": "nguyên tố cùng nhau",
-     "source_id": "bib-cungkimtien-2004",
-     "page": "",
-     "pdf_page": 85,
-     "snippet": "coprime nguyên tố cùng nhau",
+     "term": "cây có gốc",
      "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "nguyên tố cùng nhau",
-     "source_id": "bib-phan-1976",
-     "page": "tr. 87",
-     "pdf_page": 87,
-     "snippet": "coprime nguyên tố cùng nhau",
-     "verified": true,
-     "recommended": false
+     "recommended": false,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 259,
+     "page": "tr. 259",
+     "snippet": "có gốc chỉ gồm một đỉnh và với n = 3, 4, . . . cây có gốc T n được xây dựng từ gốc với Tn−1"
     }
    ],
-   "see_also": [
-    "greatest-common-divisor",
-    "pairwise-relatively-prime",
-    "prime-number"
-   ],
-   "notes": "Hai số nguyên $$a$$ và $$b$$ là nguyên tố cùng nhau khi và chỉ khi $$\\gcd(a,b) = 1$$, nghĩa là chúng không có ước nguyên tố chung. Khái niệm này khác với \"đôi một nguyên tố cùng nhau\" (pairwise relatively prime): một tập số nguyên đôi một nguyên tố cùng nhau khi mọi cặp trong tập đều có ước chung lớn nhất bằng $$1$$, đây là điều kiện mạnh hơn. Thuật ngữ \"nguyên tố cùng nhau\" có dẫn chứng ngữ liệu trong cả nguồn năm 2019 và bản dịch Rosen.",
-   "status": "draft",
    "pos": "d.t."
   },
   {
@@ -3242,6 +3382,43 @@
    ],
    "status": "draft",
    "pos": "d.t."
+  },
+  {
+   "id": "running-time",
+   "letter": "R",
+   "headword_en": "running time",
+   "pos": "d.t.",
+   "notation": "T(n)",
+   "ref_bib": "bib-libennowell-2022",
+   "rosen_ref": "",
+   "definition_vi": "\\emph{Thời gian chạy} của một thuật toán là số bước (hay phép toán cơ bản) mà thuật toán thực hiện, thường biểu diễn như một hàm $$T(n)$$ theo kích thước đầu vào $$n$$. Trong phân tích thuật toán, thời gian chạy thường được mô tả theo cấp tiệm cận, chẳng hạn trường hợp xấu nhất hay trung bình, bằng ký hiệu $$O$$, $$\\Theta$$, hoặc $$\\Omega$$.",
+   "example_vi": "Thuật toán tìm kiếm tuyến tính trên mảng $$n$$ phần tử có thời gian chạy trường hợp xấu nhất là $$O(n)$$.",
+   "notes": "",
+   "see_also": [],
+   "vi_terms": [
+    {
+     "term": "thời gian chạy",
+     "recommended": true
+    },
+    {
+     "term": "thời gian chạy",
+     "source_id": "bib-doantamhoe-2009",
+     "page": "",
+     "pdf_page": 64,
+     "snippet": "tất cả các máy và giải tiếp. Nếu với thời gian chạy máy đủ lớn mà k",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "thời gian chạy",
+     "source_id": "bib-vudinhhoa-2010",
+     "page": "",
+     "pdf_page": 75,
+     "snippet": "phan còn lại là phải chứng minh chương trình luôn đừng sau một thời gian chạy hữu",
+     "verified": true,
+     "recommended": false
+    }
+   ]
   }
  ]
 }

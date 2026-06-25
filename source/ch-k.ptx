@@ -9,6 +9,12 @@
     </p>
   </introduction>
 
+  <definition xml:id="def-k-ary-tree">
+    <title>k-ary tree (d.t.) — cây m-phân</title>
+    <idx><h>k-ary tree</h></idx>
+    <idx><h>cây m-phân</h></idx>
+    <statement><p>Xem <xref ref="def-m-ary-tree" text="title" />.</p></statement>
+  </definition>
   <definition xml:id="def-k-coloring">
     <title>k-coloring (d.t.) — tô màu một đồ thị đơn bằng k màu</title>
     <idx><h>k-coloring</h></idx>
@@ -53,6 +59,20 @@
       <p>Xem thêm <xref ref="def-connectivity" text="title" />, <xref ref="def-vertex-connectivity" text="title" />, <xref ref="def-edge-connectivity" text="title" />, <xref ref="def-cut-vertex" text="title" />.</p>
     </statement>
   </definition>
+  <definition xml:id="def-k-cube">
+    <title>k-cube (d.t.) — mạng kiểu siêu khối, siêu khối, đồ thị lập phương, đồ thị siêu lập phương</title>
+    <idx><h>k-cube</h></idx>
+    <idx><h>mạng kiểu siêu khối</h></idx>
+    <idx><h>siêu khối</h></idx>
+    <idx><h>đồ thị lập phương</h></idx>
+    <idx><h>đồ thị siêu lập phương</h></idx>
+    <statement><p>Xem <xref ref="def-hypercube" text="title" />.</p></statement>
+  </definition>
+  <definition xml:id="def-k-map">
+    <title>K-map (d.t.)</title>
+    <idx><h>K-map</h></idx>
+    <statement><p>Xem <xref ref="def-karnaugh-map" text="title" />.</p></statement>
+  </definition>
   <definition xml:id="def-k-regular-graph">
     <title>k-regular graph (d.t.) — đồ thị k chính quy</title>
     <idx><h>k-regular graph</h></idx>
@@ -75,34 +95,28 @@
       <p>Xem thêm <xref ref="def-bipartite-graph" text="title" />, <xref ref="def-complete-graph" text="title" />, <xref ref="def-regular-graph" text="title" />.</p>
     </statement>
   </definition>
-  <definition xml:id="def-kruskals-algorithm">
-    <title>Kruskal's algorithm (d.t.) — thuật toán Kruskal</title>
-    <idx><h>Kruskal's algorithm</h></idx>
-    <idx><h>thuật toán Kruskal</h></idx>
+  <definition xml:id="def-k-tuple">
+    <title>k-tuple (d.t.) — bộ sắp thứ tự</title>
+    <idx><h>k-tuple</h></idx>
+    <idx><h>bộ có thứ tự</h></idx>
+    <idx><h>bộ có thứ tự gồm k thành phần</h></idx>
+    <idx><h>bộ sắp thứ tự</h></idx>
+    <idx><h>bộ sắp thứ tự gồm k phần tử</h></idx>
+    <idx><h>bộ thứ tự</h></idx>
+    <idx><h>k-bộ có thứ tự</h></idx>
     <statement>
-      <p><em>Thuật toán Kruskal</em> là thuật toán tìm cây bao trùm nhỏ nhất của một đồ thị liên thông, vô hướng và có trọng số <m>G = (V, E)</m> với hàm trọng số <m>c \colon E \to \mathbb{R}</m>. Bắt đầu từ rừng gồm <m>|V|</m> đỉnh rời nhau và không có cạnh, ở mỗi bước thuật toán xét các cạnh theo thứ tự trọng số tăng dần và thêm vào cạnh có trọng số nhỏ nhất trong số các cạnh còn lại mà không tạo thành một chu trình, cho đến khi thu được một cây bao trùm (theo <xref ref="bib-rosen-2019" />, Rosen §11.5).</p>
+      <p>Một \emph{<m>k</m>-bộ sắp thứ tự} là một dãy gồm <m>k</m> đối tượng được liệt kê theo một thứ tự xác định, ký hiệu <m>(a_1, a_2, \ldots, a_k)</m>, trong đó <m>a_i</m> là thành phần thứ <m>i</m>. Thứ tự của các thành phần là quan trọng và các thành phần được phép lặp lại, nên <m>(a_1, a_2, \ldots, a_k) = (b_1, b_2, \ldots, b_k)</m> khi và chỉ khi <m>a_i = b_i</m> với mọi <m>i</m> thỏa <m>1 \leq i \leq k</m> (theo <xref ref="bib-rosen-2019" />, Rosen §2.1).</p>
       <p>Thuật ngữ tiếng Việt tương ứng:</p>
       <ul>
-        <li><p><term>thuật toán Kruskal</term> <xref ref="bib-leanhvinh-2020" /> (tr. 62); <xref ref="bib-nguyenhoangthach-2020" /> (tr. 93); <xref ref="bib-nguyenhuudien-2019" /> (tr. 250) — cách dùng phổ biến.</p></li>
+        <li><p><term>bộ sắp thứ tự</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 19); <xref ref="bib-doducgiao-2000" /> (tr. 216); <xref ref="bib-doducgiao-2008" /> (tr. 300) — cách dùng phổ biến.</p></li>
+        <li><p><term>bộ có thứ tự</term> <xref ref="bib-nguyenducnghia-2006" />; <xref ref="bib-ngodactan-2004" /> (tr. 26); <xref ref="bib-vovantuandung-2007" />.</p></li>
+        <li><p><term>bộ có thứ tự gồm k thành phần</term> <xref ref="bib-ngodactan-2004" /> (tr. 27).</p></li>
+        <li><p><term>bộ sắp thứ tự gồm k phần tử</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 18).</p></li>
+        <li><p><term>bộ thứ tự</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 236); <xref ref="bib-nguyenvanmau-2007" />.</p></li>
+        <li><p><term>k-bộ có thứ tự</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
       </ul>
-      <p>Ví dụ: Xét đồ thị liên thông <m>G</m> trên bốn đỉnh <m>\{a, b, c, d\}</m> với các cạnh có trọng số <m>c(ab) = 1</m>, <m>c(bc) = 2</m>, <m>c(cd) = 3</m> và <m>c(ac) = 4</m>. Thuật toán Kruskal lần lượt chọn <m>ab</m>, <m>bc</m>, rồi <m>cd</m>; cạnh <m>ac</m> bị bỏ qua vì nó tạo thành chu trình với <m>ab</m> và <m>bc</m>, và ta thu được cây bao trùm nhỏ nhất gồm các cạnh <m>ab</m>, <m>bc</m>, <m>cd</m> với tổng trọng số <m>6</m>.</p>
-      <p>Xem thêm <xref ref="def-minimum-spanning-tree" text="title" />, <xref ref="def-spanning-tree" text="title" />, <xref ref="def-weighted-graph" text="title" />.</p>
-    </statement>
-  </definition>
-  <definition xml:id="def-kuratowskis-theorem">
-    <title>Kuratowski's theorem (d.t.) — định lý Kuratowski</title>
-    <idx><h>Kuratowski's theorem</h></idx>
-    <idx><h>định lý Kuratowski</h></idx>
-    <idx><h>định lý Kuratowski - Pontragin</h></idx>
-    <statement>
-      <p><em>Định lý Kuratowski</em> khẳng định rằng một đồ thị <m>G</m> là phẳng khi và chỉ khi nó không chứa đồ thị con nào đồng phôi với đồ thị đầy đủ <m>K_5</m> hoặc đồ thị hai phần đầy đủ <m>K_{3,3}</m> (theo <xref ref="bib-rosen-2019" />, Rosen §10.7).</p>
-      <p>Thuật ngữ tiếng Việt tương ứng:</p>
-      <ul>
-        <li><p><term>định lý Kuratowski</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 79); <xref ref="bib-leanhvinh-2020" /> (tr. 128); <xref ref="bib-nguyenhuudien-2019" /> (tr. 234) — cách dùng phổ biến.</p></li>
-        <li><p><term>định lý Kuratowski - Pontragin</term> <xref ref="bib-ngodactan-2004" /> (tr. 210).</p></li>
-      </ul>
-      <p>Ví dụ: Đồ thị hai phần đầy đủ <m>K_{3,3}</m> không phẳng: bản thân nó là một đồ thị con đồng phôi với <m>K_{3,3}</m>, nên theo định lý Kuratowski thì <m>K_{3,3}</m> không là đồ thị phẳng.</p>
-      <p>Xem thêm <xref ref="def-planar-graph" text="title" />, <xref ref="def-complete-graph" text="title" />, <xref ref="def-complete-bipartite-graph" text="title" />, <xref ref="def-homeomorphic-graphs" text="title" />.</p>
+      <p>Ví dụ: Bộ <m>(2, 1, 2)</m> là một <m>3</m>-bộ sắp thứ tự với <m>a_1 = 2</m>, <m>a_2 = 1</m>, <m>a_3 = 2</m>; nó khác với bộ <m>(1, 2, 2)</m> vì thứ tự các thành phần khác nhau, mặc dù cả hai cùng dùng các phần tử <m>1</m> và <m>2</m>.</p>
+      <p>Xem thêm <xref ref="def-ordered-pair" text="title" />, <xref ref="def-cartesian-product" text="title" />, <xref ref="def-sequence" text="title" />.</p>
     </statement>
   </definition>
   <definition xml:id="def-karnaugh-map">
@@ -144,28 +158,48 @@
       <p>Xem thêm <xref ref="def-independent-set" text="title" />, <xref ref="def-directed-graph" text="title" />.</p>
     </statement>
   </definition>
-  <definition xml:id="def-konigsberg-bridge-problem">
-    <title>Königsberg bridge problem (d.t.) — bài toán bảy cây cầu</title>
-    <idx><h>Königsberg bridge problem</h></idx>
-    <idx><h>bài toán 7 cây cầu ở Konigsberg</h></idx>
-    <idx><h>bài toán bảy cây cầu</h></idx>
-    <idx><h>bài toán cầu Königsberg</h></idx>
-    <idx><h>bài toán về bảy chiếc cầu ở Königsberg</h></idx>
-    <idx><h>bảy cái cầu ở Konigsberg</h></idx>
-    <idx><h>bảy cầu của thành phố Konigsberg</h></idx>
+  <definition xml:id="def-key">
+    <title>key (d.t.) — khóa</title>
+    <idx><h>key</h></idx>
+    <idx><h>khóa</h></idx>
     <statement>
-      <p><em>Bài toán bảy cây cầu Königsberg</em> hỏi liệu có thể đi dạo qua thành phố sao cho mỗi cây trong bảy cây cầu được đi qua đúng một lần hay không. Mô hình hóa thành phố bằng một đa đồ thị <m>G</m> trong đó mỗi vùng đất là một đỉnh và mỗi cây cầu là một cạnh, câu hỏi tương đương với việc <m>G</m> có một đường đi Euler (hoặc một chu trình Euler nếu yêu cầu quay về điểm xuất phát) hay không. Một đa đồ thị liên thông có một đường đi Euler khi và chỉ khi nó có đúng <m>0</m> hoặc <m>2</m> đỉnh bậc lẻ, và có một chu trình Euler khi và chỉ khi mọi đỉnh đều có bậc chẵn; Euler đã chứng minh rằng với Königsberg điều này là không thể (theo <xref ref="bib-rosen-2019" />, Rosen §10.5).</p>
+      <p>Một <em>khóa</em> của một quan hệ <m>n</m>-ngôi <m>R \subseteq A_1 \times A_2 \times \cdots \times A_n</m> là một miền <m>A_i</m> hoặc một tập các miền sao cho các giá trị trên đó xác định duy nhất mỗi bộ <m>n</m> phần tử của <m>R</m>; nghĩa là, không có hai bộ phân biệt nào của <m>R</m> trùng nhau trên tất cả các thành phần thuộc khóa (theo <xref ref="bib-rosen-2019" />, Rosen §9.2).</p>
       <p>Thuật ngữ tiếng Việt tương ứng:</p>
       <ul>
-        <li><p><term>bài toán bảy cây cầu</term> <xref ref="bib-leanhvinh-2020" /> (tr. 21); <xref ref="bib-hoangchithanh-2011" /> — cách dùng phổ biến.</p></li>
-        <li><p><term>bài toán 7 cây cầu ở Konigsberg</term> <xref ref="bib-hoangchithanh-2007" /> (tr. 76); <xref ref="bib-hoangchithanh-2011" />.</p></li>
-        <li><p><term>bài toán cầu Königsberg</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
-        <li><p><term>bài toán về bảy chiếc cầu ở Königsberg</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
-        <li><p><term>bảy cái cầu ở Konigsberg</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 181).</p></li>
-        <li><p><term>bảy cầu của thành phố Konigsberg</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 181).</p></li>
+        <li><p><term>khóa</term> <em>(thuật ngữ chuẩn; chưa truy được trong kho văn bản)</em> — cách dùng phổ biến.</p></li>
       </ul>
-      <p>Ví dụ: Đa đồ thị mô hình hóa bốn vùng đất của Königsberg có bốn đỉnh, mỗi đỉnh đều có bậc lẻ. Vì một đường đi Euler đòi hỏi không quá hai đỉnh bậc lẻ, nên không tồn tại hành trình đi qua mỗi cây cầu đúng một lần.</p>
-      <p>Xem thêm <xref ref="def-graph" text="title" />, <xref ref="def-multigraph" text="title" />, <xref ref="def-euler-circuit" text="title" />, <xref ref="def-euler-path" text="title" />.</p>
+      <p>Ví dụ: Xét quan hệ <m>R</m> gồm các bộ ba <m>(\text{Mã số}, \text{Họ tên}, \text{Điểm})</m>. Nếu mỗi sinh viên có một mã số riêng biệt thì miền <m>\text{Mã số}</m> là một khóa của <m>R</m>, vì giá trị mã số xác định duy nhất một bộ trong <m>R</m>.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-key-exchange-protocol">
+    <title>key exchange protocol (d.t.) — giao thức trao đổi khóa</title>
+    <idx><h>key exchange protocol</h></idx>
+    <idx><h>giao thức thỏa thuận khóa</h></idx>
+    <idx><h>giao thức trao đổi khóa</h></idx>
+    <statement>
+      <p>Giao thức trao đổi khóa là một giao thức được hai bên sử dụng để cùng thống nhất về một khóa bí mật dùng chung. Khóa bí mật chung này sau đó có thể được dùng để mã hóa và giải mã các thông điệp trao đổi giữa hai bên (theo <xref ref="bib-rosen-2019" />, Rosen §4.6).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>giao thức trao đổi khóa</term> <em>(thuật ngữ chuẩn; chưa truy được trong kho văn bản)</em> — cách dùng phổ biến.</p></li>
+        <li><p><term>giao thức thỏa thuận khóa</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
+      </ul>
+      <p>Ví dụ: Trong giao thức trao đổi khóa Diffie–Hellman, hai bên công khai chọn một số nguyên tố <m>p</m> và một số nguyên <m>a</m> với <m>2 \leq a \leq p-1</m>. Mỗi bên chọn riêng một số mũ bí mật, lần lượt là <m>k_1</m> và <m>k_2</m> với <m>1 \leq k_1, k_2 \leq p-1</m>, rồi gửi cho bên kia các giá trị <m>a^{k_1} \bmod p</m> và <m>a^{k_2} \bmod p</m>. Khi đó cả hai bên đều tính được cùng một khóa bí mật chung <m>a^{k_1 k_2} \bmod p</m>, trong khi một bên thứ ba chỉ biết <m>p</m>, <m>a</m>, <m>a^{k_1} \bmod p</m> và <m>a^{k_2} \bmod p</m> vẫn rất khó suy ra khóa này.</p>
+      <p>Xem thêm <xref ref="def-public-key-cryptography" text="title" />, <xref ref="def-private-key-cryptography" text="title" />, <xref ref="def-key" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-key-generation">
+    <title>key generation (d.t.) — sinh khóa</title>
+    <idx><h>key generation</h></idx>
+    <idx><h>sinh khóa</h></idx>
+    <idx><h>tạo khóa</h></idx>
+    <statement>
+      <p><em>Sinh khóa</em> là quá trình tạo ra các khóa dùng trong một hệ mật mã. Với mật mã khóa đối xứng, quá trình này sinh ra một khóa bí mật dùng chung; với mật mã khóa công khai, nó sinh ra một cặp gồm khóa công khai và khóa riêng có quan hệ toán học với nhau (theo <xref ref="bib-libennowell-2022" />).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>sinh khóa</term> <em>(thuật ngữ chuẩn; chưa truy được trong kho văn bản)</em> — cách dùng phổ biến.</p></li>
+        <li><p><term>tạo khóa</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
+      </ul>
+      <p>Ví dụ: Trong hệ RSA, bước sinh khóa chọn hai số nguyên tố lớn <m>p</m> và <m>q</m>, đặt <m>n = pq</m>, rồi tính cặp số mũ công khai và riêng từ <m>\varphi(n) = (p-1)(q-1)</m>.</p>
     </statement>
   </definition>
   <definition xml:id="def-knapsack-problem">
@@ -205,56 +239,18 @@
       <p>Xem thêm <xref ref="def-hamiltonian-path" text="title" />.</p>
     </statement>
   </definition>
-  <definition xml:id="def-k-ary-tree">
-    <title>k-ary tree (d.t.) — cây m-phân</title>
-    <idx><h>k-ary tree</h></idx>
-    <idx><h>cây m-phân</h></idx>
-    <statement><p>Xem <xref ref="def-m-ary-tree" text="title" />.</p></statement>
-  </definition>
-  <definition xml:id="def-k-cube">
-    <title>k-cube (d.t.) — mạng kiểu siêu khối, siêu khối, đồ thị lập phương, đồ thị siêu lập phương</title>
-    <idx><h>k-cube</h></idx>
-    <idx><h>mạng kiểu siêu khối</h></idx>
-    <idx><h>siêu khối</h></idx>
-    <idx><h>đồ thị lập phương</h></idx>
-    <idx><h>đồ thị siêu lập phương</h></idx>
-    <statement><p>Xem <xref ref="def-hypercube" text="title" />.</p></statement>
-  </definition>
-  <definition xml:id="def-k-tuple">
-    <title>k-tuple (d.t.) — bộ sắp thứ tự</title>
-    <idx><h>k-tuple</h></idx>
-    <idx><h>bộ có thứ tự</h></idx>
-    <idx><h>bộ có thứ tự gồm k thành phần</h></idx>
-    <idx><h>bộ sắp thứ tự</h></idx>
-    <idx><h>bộ sắp thứ tự gồm k phần tử</h></idx>
-    <idx><h>bộ thứ tự</h></idx>
-    <idx><h>k-bộ có thứ tự</h></idx>
+  <definition xml:id="def-kruskals-algorithm">
+    <title>Kruskal's algorithm (d.t.) — thuật toán Kruskal</title>
+    <idx><h>Kruskal's algorithm</h></idx>
+    <idx><h>thuật toán Kruskal</h></idx>
     <statement>
-      <p>Một \emph{<m>k</m>-bộ sắp thứ tự} là một dãy gồm <m>k</m> đối tượng được liệt kê theo một thứ tự xác định, ký hiệu <m>(a_1, a_2, \ldots, a_k)</m>, trong đó <m>a_i</m> là thành phần thứ <m>i</m>. Thứ tự của các thành phần là quan trọng và các thành phần được phép lặp lại, nên <m>(a_1, a_2, \ldots, a_k) = (b_1, b_2, \ldots, b_k)</m> khi và chỉ khi <m>a_i = b_i</m> với mọi <m>i</m> thỏa <m>1 \leq i \leq k</m> (theo <xref ref="bib-rosen-2019" />, Rosen §2.1).</p>
+      <p><em>Thuật toán Kruskal</em> là thuật toán tìm cây bao trùm nhỏ nhất của một đồ thị liên thông, vô hướng và có trọng số <m>G = (V, E)</m> với hàm trọng số <m>c \colon E \to \mathbb{R}</m>. Bắt đầu từ rừng gồm <m>|V|</m> đỉnh rời nhau và không có cạnh, ở mỗi bước thuật toán xét các cạnh theo thứ tự trọng số tăng dần và thêm vào cạnh có trọng số nhỏ nhất trong số các cạnh còn lại mà không tạo thành một chu trình, cho đến khi thu được một cây bao trùm (theo <xref ref="bib-rosen-2019" />, Rosen §11.5).</p>
       <p>Thuật ngữ tiếng Việt tương ứng:</p>
       <ul>
-        <li><p><term>bộ sắp thứ tự</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 19); <xref ref="bib-doducgiao-2000" /> (tr. 216); <xref ref="bib-doducgiao-2008" /> (tr. 300) — cách dùng phổ biến.</p></li>
-        <li><p><term>bộ có thứ tự</term> <xref ref="bib-nguyenducnghia-2006" />; <xref ref="bib-ngodactan-2004" /> (tr. 26); <xref ref="bib-vovantuandung-2007" />.</p></li>
-        <li><p><term>bộ có thứ tự gồm k thành phần</term> <xref ref="bib-ngodactan-2004" /> (tr. 27).</p></li>
-        <li><p><term>bộ sắp thứ tự gồm k phần tử</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 18).</p></li>
-        <li><p><term>bộ thứ tự</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 236); <xref ref="bib-nguyenvanmau-2007" />.</p></li>
-        <li><p><term>k-bộ có thứ tự</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
+        <li><p><term>thuật toán Kruskal</term> <xref ref="bib-leanhvinh-2020" /> (tr. 62); <xref ref="bib-nguyenhoangthach-2020" /> (tr. 93); <xref ref="bib-nguyenhuudien-2019" /> (tr. 250) — cách dùng phổ biến.</p></li>
       </ul>
-      <p>Ví dụ: Bộ <m>(2, 1, 2)</m> là một <m>3</m>-bộ sắp thứ tự với <m>a_1 = 2</m>, <m>a_2 = 1</m>, <m>a_3 = 2</m>; nó khác với bộ <m>(1, 2, 2)</m> vì thứ tự các thành phần khác nhau, mặc dù cả hai cùng dùng các phần tử <m>1</m> và <m>2</m>.</p>
-      <p>Xem thêm <xref ref="def-ordered-pair" text="title" />, <xref ref="def-cartesian-product" text="title" />, <xref ref="def-sequence" text="title" />.</p>
-    </statement>
-  </definition>
-  <definition xml:id="def-key">
-    <title>key (d.t.) — khóa</title>
-    <idx><h>key</h></idx>
-    <idx><h>khóa</h></idx>
-    <statement>
-      <p>Một <em>khóa</em> của một quan hệ <m>n</m>-ngôi <m>R \subseteq A_1 \times A_2 \times \cdots \times A_n</m> là một miền <m>A_i</m> hoặc một tập các miền sao cho các giá trị trên đó xác định duy nhất mỗi bộ <m>n</m> phần tử của <m>R</m>; nghĩa là, không có hai bộ phân biệt nào của <m>R</m> trùng nhau trên tất cả các thành phần thuộc khóa (theo <xref ref="bib-rosen-2019" />, Rosen §9.2).</p>
-      <p>Thuật ngữ tiếng Việt tương ứng:</p>
-      <ul>
-        <li><p><term>khóa</term> <em>(thuật ngữ chuẩn; chưa truy được trong kho văn bản)</em> — cách dùng phổ biến.</p></li>
-      </ul>
-      <p>Ví dụ: Xét quan hệ <m>R</m> gồm các bộ ba <m>(\text{Mã số}, \text{Họ tên}, \text{Điểm})</m>. Nếu mỗi sinh viên có một mã số riêng biệt thì miền <m>\text{Mã số}</m> là một khóa của <m>R</m>, vì giá trị mã số xác định duy nhất một bộ trong <m>R</m>.</p>
+      <p>Ví dụ: Xét đồ thị liên thông <m>G</m> trên bốn đỉnh <m>\{a, b, c, d\}</m> với các cạnh có trọng số <m>c(ab) = 1</m>, <m>c(bc) = 2</m>, <m>c(cd) = 3</m> và <m>c(ac) = 4</m>. Thuật toán Kruskal lần lượt chọn <m>ab</m>, <m>bc</m>, rồi <m>cd</m>; cạnh <m>ac</m> bị bỏ qua vì nó tạo thành chu trình với <m>ab</m> và <m>bc</m>, và ta thu được cây bao trùm nhỏ nhất gồm các cạnh <m>ab</m>, <m>bc</m>, <m>cd</m> với tổng trọng số <m>6</m>.</p>
+      <p>Xem thêm <xref ref="def-minimum-spanning-tree" text="title" />, <xref ref="def-spanning-tree" text="title" />, <xref ref="def-weighted-graph" text="title" />.</p>
     </statement>
   </definition>
   <definition xml:id="def-kuratowskis-subgraph">
@@ -270,25 +266,44 @@
       <p>Ví dụ: Đồ thị Petersen chứa một đồ thị con đồng phôi với <m>K_{3,3}</m>, do đó nó có một đồ thị con Kuratowski và không phẳng. Ngược lại, đồ thị đầy đủ <m>K_4</m> không chứa đồ thị con nào đồng phôi với <m>K_5</m> hay <m>K_{3,3}</m> nên <m>K_4</m> là đồ thị phẳng.</p>
     </statement>
   </definition>
-  <definition xml:id="def-k-map">
-    <title>K-map (d.t.)</title>
-    <idx><h>K-map</h></idx>
-    <statement><p>Xem <xref ref="def-karnaugh-map" text="title" />.</p></statement>
-  </definition>
-  <definition xml:id="def-key-exchange-protocol">
-    <title>key exchange protocol (d.t.) — giao thức trao đổi khóa</title>
-    <idx><h>key exchange protocol</h></idx>
-    <idx><h>giao thức thỏa thuận khóa</h></idx>
-    <idx><h>giao thức trao đổi khóa</h></idx>
+  <definition xml:id="def-kuratowskis-theorem">
+    <title>Kuratowski's theorem (d.t.) — định lý Kuratowski</title>
+    <idx><h>Kuratowski's theorem</h></idx>
+    <idx><h>định lý Kuratowski</h></idx>
+    <idx><h>định lý Kuratowski - Pontragin</h></idx>
     <statement>
-      <p>Giao thức trao đổi khóa là một giao thức được hai bên sử dụng để cùng thống nhất về một khóa bí mật dùng chung. Khóa bí mật chung này sau đó có thể được dùng để mã hóa và giải mã các thông điệp trao đổi giữa hai bên (theo <xref ref="bib-rosen-2019" />, Rosen §4.6).</p>
+      <p><em>Định lý Kuratowski</em> khẳng định rằng một đồ thị <m>G</m> là phẳng khi và chỉ khi nó không chứa đồ thị con nào đồng phôi với đồ thị đầy đủ <m>K_5</m> hoặc đồ thị hai phần đầy đủ <m>K_{3,3}</m> (theo <xref ref="bib-rosen-2019" />, Rosen §10.7).</p>
       <p>Thuật ngữ tiếng Việt tương ứng:</p>
       <ul>
-        <li><p><term>giao thức trao đổi khóa</term> <em>(thuật ngữ chuẩn; chưa truy được trong kho văn bản)</em> — cách dùng phổ biến.</p></li>
-        <li><p><term>giao thức thỏa thuận khóa</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
+        <li><p><term>định lý Kuratowski</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 79); <xref ref="bib-leanhvinh-2020" /> (tr. 128); <xref ref="bib-nguyenhuudien-2019" /> (tr. 234) — cách dùng phổ biến.</p></li>
+        <li><p><term>định lý Kuratowski - Pontragin</term> <xref ref="bib-ngodactan-2004" /> (tr. 210).</p></li>
       </ul>
-      <p>Ví dụ: Trong giao thức trao đổi khóa Diffie–Hellman, hai bên công khai chọn một số nguyên tố <m>p</m> và một số nguyên <m>a</m> với <m>2 \leq a \leq p-1</m>. Mỗi bên chọn riêng một số mũ bí mật, lần lượt là <m>k_1</m> và <m>k_2</m> với <m>1 \leq k_1, k_2 \leq p-1</m>, rồi gửi cho bên kia các giá trị <m>a^{k_1} \bmod p</m> và <m>a^{k_2} \bmod p</m>. Khi đó cả hai bên đều tính được cùng một khóa bí mật chung <m>a^{k_1 k_2} \bmod p</m>, trong khi một bên thứ ba chỉ biết <m>p</m>, <m>a</m>, <m>a^{k_1} \bmod p</m> và <m>a^{k_2} \bmod p</m> vẫn rất khó suy ra khóa này.</p>
-      <p>Xem thêm <xref ref="def-public-key-cryptography" text="title" />, <xref ref="def-private-key-cryptography" text="title" />, <xref ref="def-key" text="title" />.</p>
+      <p>Ví dụ: Đồ thị hai phần đầy đủ <m>K_{3,3}</m> không phẳng: bản thân nó là một đồ thị con đồng phôi với <m>K_{3,3}</m>, nên theo định lý Kuratowski thì <m>K_{3,3}</m> không là đồ thị phẳng.</p>
+      <p>Xem thêm <xref ref="def-planar-graph" text="title" />, <xref ref="def-complete-graph" text="title" />, <xref ref="def-complete-bipartite-graph" text="title" />, <xref ref="def-homeomorphic-graphs" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-konigsberg-bridge-problem">
+    <title>Königsberg bridge problem (d.t.) — bài toán bảy cây cầu</title>
+    <idx><h>Königsberg bridge problem</h></idx>
+    <idx><h>bài toán 7 cây cầu ở Konigsberg</h></idx>
+    <idx><h>bài toán bảy cây cầu</h></idx>
+    <idx><h>bài toán cầu Königsberg</h></idx>
+    <idx><h>bài toán về bảy chiếc cầu ở Königsberg</h></idx>
+    <idx><h>bảy cái cầu ở Konigsberg</h></idx>
+    <idx><h>bảy cầu của thành phố Konigsberg</h></idx>
+    <statement>
+      <p><em>Bài toán bảy cây cầu Königsberg</em> hỏi liệu có thể đi dạo qua thành phố sao cho mỗi cây trong bảy cây cầu được đi qua đúng một lần hay không. Mô hình hóa thành phố bằng một đa đồ thị <m>G</m> trong đó mỗi vùng đất là một đỉnh và mỗi cây cầu là một cạnh, câu hỏi tương đương với việc <m>G</m> có một đường đi Euler (hoặc một chu trình Euler nếu yêu cầu quay về điểm xuất phát) hay không. Một đa đồ thị liên thông có một đường đi Euler khi và chỉ khi nó có đúng <m>0</m> hoặc <m>2</m> đỉnh bậc lẻ, và có một chu trình Euler khi và chỉ khi mọi đỉnh đều có bậc chẵn; Euler đã chứng minh rằng với Königsberg điều này là không thể (theo <xref ref="bib-rosen-2019" />, Rosen §10.5).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>bài toán bảy cây cầu</term> <xref ref="bib-leanhvinh-2020" /> (tr. 21); <xref ref="bib-hoangchithanh-2011" /> — cách dùng phổ biến.</p></li>
+        <li><p><term>bài toán 7 cây cầu ở Konigsberg</term> <xref ref="bib-hoangchithanh-2007" /> (tr. 76); <xref ref="bib-hoangchithanh-2011" />.</p></li>
+        <li><p><term>bài toán cầu Königsberg</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
+        <li><p><term>bài toán về bảy chiếc cầu ở Königsberg</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
+        <li><p><term>bảy cái cầu ở Konigsberg</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 181).</p></li>
+        <li><p><term>bảy cầu của thành phố Konigsberg</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 181).</p></li>
+      </ul>
+      <p>Ví dụ: Đa đồ thị mô hình hóa bốn vùng đất của Königsberg có bốn đỉnh, mỗi đỉnh đều có bậc lẻ. Vì một đường đi Euler đòi hỏi không quá hai đỉnh bậc lẻ, nên không tồn tại hành trình đi qua mỗi cây cầu đúng một lần.</p>
+      <p>Xem thêm <xref ref="def-graph" text="title" />, <xref ref="def-multigraph" text="title" />, <xref ref="def-euler-circuit" text="title" />, <xref ref="def-euler-path" text="title" />.</p>
     </statement>
   </definition>
 </chapter>

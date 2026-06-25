@@ -9,6 +9,184 @@
     </p>
   </introduction>
 
+  <definition xml:id="def-backtracking">
+    <title>backtracking (d.t.) — kỹ thuật quay lui</title>
+    <idx><h>backtracking</h></idx>
+    <idx><h>kỹ thuật quay lui</h></idx>
+    <idx><h>phương pháp quay lui</h></idx>
+    <idx><h>thuật toán quay lui</h></idx>
+    <statement>
+      <p>Kỹ thuật quay lui là một phương pháp tìm lời giải bằng cách xây dựng dần dãy quyết định và duyệt cây tìm kiếm: tại mỗi bước ta mở rộng lời giải bộ phận, và nếu từ trạng thái hiện tại không thể dẫn tới lời giải thì ta quay lui trở lại trạng thái trước đó để thử lựa chọn khác. Quá trình tìm kiếm theo kỹ thuật này thường được mô tả bằng cây tìm kiếm, trong đó mỗi đỉnh ứng với một dãy quyết định bộ phận (theo <xref ref="bib-rosen-2019" />, Rosen §11.2).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>kỹ thuật quay lui</term> <xref ref="bib-doducgiao-2000" /> (tr. 211); <xref ref="bib-doducgiao-2009" /> (tr. 270); <xref ref="bib-doducgiao-2008" /> (tr. 295) — cách dùng phổ biến.</p></li>
+        <li><p><term>phương pháp quay lui</term> <xref ref="bib-doducgiao-2000" /> (tr. 30); <xref ref="bib-doducgiao-2008" /> (tr. 23).</p></li>
+        <li><p><term>thuật toán quay lui</term> <xref ref="bib-nguyenducnghia-2006" />; <xref ref="bib-doducgiao-2008" /> (tr. 22); <xref ref="bib-vudinhhoa-2010" />.</p></li>
+      </ul>
+      <p>Ví dụ: Bài toán <m>n</m> quân hậu được giải bằng kỹ thuật quay lui: ta lần lượt đặt quân hậu vào từng cột; khi một cách đặt vi phạm điều kiện không ăn nhau thì quay lui lại để thử vị trí khác.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-balanced-tree">
+    <title>balanced tree (d.t.) — cây cân bằng</title>
+    <idx><h>balanced tree</h></idx>
+    <idx><h>cây cân bằng</h></idx>
+    <statement>
+      <p>Một cây có chiều cao <m>h</m> được gọi là cân bằng nếu mọi lá của nó đều nằm ở mức <m>h</m> hoặc mức <m>h - 1</m>, trong đó <m>h</m> là chiều cao của cây (theo <xref ref="bib-rosen-2019" />, Rosen §11.1).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>cây cân bằng</term> <em>(thuật ngữ chuẩn; chưa truy được trong kho văn bản)</em> — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Một cây nhị phân đầy đủ với mọi lá nằm ở mức <m>h</m> là cân bằng; nếu một số lá nằm ở mức <m>h</m> và các lá còn lại nằm ở mức <m>h - 1</m> thì cây vẫn cân bằng, nhưng nếu có một lá nằm ở mức <m>h - 2</m> thì cây không cân bằng.</p>
+      <p>Xem thêm <xref ref="def-height-of-a-tree" text="title" />, <xref ref="def-m-ary-tree" text="title" />, <xref ref="def-full-binary-tree" text="title" />, <xref ref="def-level-of-a-tree" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-ball">
+    <title>ball (d.t.) — hình cầu</title>
+    <idx><h>ball</h></idx>
+    <idx><h>hình cầu</h></idx>
+    <idx><h>khối cầu</h></idx>
+    <idx><h>quả cầu</h></idx>
+    <statement>
+      <p>Cho một không gian mêtric với hàm khoảng cách <m>d</m>, một điểm tâm cố định <m>x</m> và một bán kính <m>r \geq 0</m>. <em>Hình cầu</em> tâm <m>x</m> bán kính <m>r</m> là tập hợp tất cả các điểm <m>y</m> có khoảng cách từ <m>x</m> không vượt quá <m>r</m>, tức là <m>d(x, y) \leq r</m>; ký hiệu <m>B(x, r) = \{ y : d(x, y) \leq r \}</m> (theo <xref ref="bib-rosen-2019" />, Rosen §9.1).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>hình cầu</term> <xref ref="bib-leanhvinh-2020" /> (tr. 191); <xref ref="bib-nguyenvanmau-2007" />; <xref ref="bib-sierpinski-2012" /> (tr. 55); <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 27) — cách dùng phổ biến.</p></li>
+        <li><p><term>khối cầu</term> <xref ref="bib-doxuanloi-2006" /> (tr. 189); <xref ref="bib-vovantuandung-2007" />; <xref ref="bib-vudinhhoa-2010" />.</p></li>
+        <li><p><term>quả cầu</term> <xref ref="bib-nguyenducnghia-2006" />; <xref ref="bib-cormen-2001-vi" /> (tr. 664); <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 27).</p></li>
+      </ul>
+      <p>Ví dụ: Trên đường thẳng thực với khoảng cách <m>d(x, y) = |x - y|</m>, hình cầu tâm <m>x = 0</m> bán kính <m>r = 2</m> là tập <m>B(0, 2) = \{ y : |y| \leq 2 \}</m>, tức là đoạn <m>[-2, 2]</m>.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-base">
+    <title>base (d.t.) — hệ cơ số</title>
+    <idx><h>base</h></idx>
+    <idx><h>cơ số</h></idx>
+    <idx><h>hệ cơ số</h></idx>
+    <statement>
+      <p>Cơ số <m>b</m> (hay hệ cơ số <m>b</m>) là một số nguyên <m>b \geq 2</m> được dùng làm nền tảng để biểu diễn các số nguyên: mọi số nguyên dương <m>n</m> đều viết được duy nhất dưới dạng khai triển theo cơ số <m>b</m>, tức là <m>n = a_k b^k + a_{k-1} b^{k-1} + \cdots + a_1 b + a_0</m>, trong đó mỗi chữ số thỏa <m>0 \leq a_i  \lt  b</m> và <m>a_k \neq 0</m>, ký hiệu là <m>(a_k a_{k-1} \ldots a_1 a_0)_b</m> (theo <xref ref="bib-rosen-2019" />, Rosen §4.2).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>hệ cơ số</term> <xref ref="bib-leanhvinh-2020" /> (tr. 213); <xref ref="bib-nguyenhuudien-2019" /> (tr. 247); <xref ref="bib-sierpinski-2012" />; <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 414) — cách dùng phổ biến.</p></li>
+        <li><p><term>cơ số</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 143); <xref ref="bib-rosen-2003-vi" /> (tr. 174).</p></li>
+      </ul>
+      <p>Ví dụ: Với cơ số <m>b = 8</m>, khai triển của <m>(12345)_{10}</m> là <m>(30071)_8</m>, vì <m>12345 = 3 \cdot 8^4 + 0 \cdot 8^3 + 0 \cdot 8^2 + 7 \cdot 8 + 1</m>.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-basis-step">
+    <title>basis step (d.t.) — bước cơ sở</title>
+    <idx><h>basis step</h></idx>
+    <idx><h>bước cơ sở</h></idx>
+    <idx><h>trường hợp cơ sở</h></idx>
+    <statement>
+      <p>Bước cơ sở là bước đầu tiên của một chứng minh quy nạp, trong đó ta kiểm chứng rằng mệnh đề <m>P(n_0)</m> là đúng tại giá trị xuất phát <m>n_0</m> (thường là <m>n_0 = 0</m> hoặc <m>n_0 = 1</m>). Cùng với bước quy nạp, bước cơ sở bảo đảm rằng <m>P(n)</m> đúng với mọi số nguyên <m>n \geq n_0</m> (theo <xref ref="bib-rosen-2019" />, Rosen §5.1).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>bước cơ sở</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 62); <xref ref="bib-vovantuandung-2007" />; <xref ref="bib-vudinhhoa-2010" /> — cách dùng phổ biến.</p></li>
+        <li><p><term>trường hợp cơ sở</term> <xref ref="bib-leanhvinh-2020" /> (tr. 17); <xref ref="bib-doxuanloi-2006" /> (tr. 55); <xref ref="bib-nguyenhuudien-2019" /> (tr. 35).</p></li>
+      </ul>
+      <p>Ví dụ: Khi chứng minh <m>1 + 2 + \cdots + n = \frac{n(n+1)}{2}</m> bằng quy nạp, bước cơ sở là kiểm tra <m>P(1)</m>, tức là <m>1 = \frac{1 \cdot 2}{2} = 1</m>, đúng.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-bayes-rule">
+    <title>Bayes' rule (d.t.) — công thức Bayes</title>
+    <idx><h>Bayes' rule</h></idx>
+    <idx><h>công thức Bayes</h></idx>
+    <idx><h>quy tắc Bayes</h></idx>
+    <idx><h>định lý Bayes</h></idx>
+    <statement>
+      <p><em>Công thức Bayes</em> là công thức liên hệ giữa hai xác suất có điều kiện ngược nhau, cho phép tính <m>P(A\mid B)</m> qua <m>P(B\mid A)</m>. Với hai biến cố <m>A</m> và <m>B</m> sao cho <m>P(B) \gt 0</m>, ta có <m>\displaystyle P(A\mid B)=\frac{P(B\mid A)\,P(A)}{P(B)}.</m> (theo <xref ref="bib-libennowell-2022" />).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>công thức Bayes</term> <xref ref="bib-doducthai-2010" /> — cách dùng phổ biến.</p></li>
+        <li><p><term>quy tắc Bayes</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
+        <li><p><term>định lý Bayes</term> <xref ref="bib-cormen-2001-vi" />.</p></li>
+      </ul>
+      <p>Ví dụ: Một xét nghiệm bệnh có độ nhạy <m>P(\text{dương}\mid\text{bệnh})=0{,}99</m>; nếu tỉ lệ mắc bệnh là <m>P(\text{bệnh})=0{,}01</m> thì công thức Bayes cho phép tính lại <m>P(\text{bệnh}\mid\text{dương})</m>.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-bernoulli-distribution">
+    <title>Bernoulli distribution (d.t.) — phân phối Bernoulli</title>
+    <idx><h>Bernoulli distribution</h></idx>
+    <idx><h>phân bố Bernoulli</h></idx>
+    <idx><h>phân phối Bernoulli</h></idx>
+    <statement>
+      <p><em>Phân phối Bernoulli</em> là phân phối xác suất của một biến ngẫu nhiên <m>X</m> chỉ nhận hai giá trị, <m>1</m> (thành công) với xác suất <m>p</m> và <m>0</m> (thất bại) với xác suất <m>1-p</m>, trong đó <m>0\le p\le 1</m>. Nó mô hình hóa một phép thử ngẫu nhiên có đúng hai kết cục (theo <xref ref="bib-libennowell-2022" />).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>phân phối Bernoulli</term> <em>(thuật ngữ chuẩn; chưa truy được trong kho văn bản)</em> — cách dùng phổ biến.</p></li>
+        <li><p><term>phân bố Bernoulli</term> <xref ref="bib-doducthai-2010" />.</p></li>
+      </ul>
+      <p>Ví dụ: Tung một đồng xu cân đối, gọi <m>X=1</m> nếu được mặt ngửa, <m>X=0</m> nếu được mặt sấp; khi đó <m>X</m> tuân theo phân phối Bernoulli với <m>p=\tfrac{1}{2}</m>.</p>
+      <p>Xem thêm <xref ref="def-binomial-distribution" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-bernoulli-trial">
+    <title>Bernoulli trial (d.t.) — phép thử Bernoulli</title>
+    <idx><h>Bernoulli trial</h></idx>
+    <idx><h>phép thử Bernoulli</h></idx>
+    <statement>
+      <p>Phép thử Bernoulli là một phép thử chỉ có hai kết cục có thể xảy ra. Hai kết cục này thường được gọi là "thành công" và "thất bại" (theo <xref ref="bib-rosen-2019" />, Rosen §7.2).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>phép thử Bernoulli</term> <xref ref="bib-doducthai-2010" /> (tr. 308) — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Tung một đồng xu một lần là một phép thử Bernoulli với hai kết cục "mặt ngửa" và "mặt sấp"; nếu xác suất thành công là <m>p</m> thì xác suất thất bại là <m>q = 1 - p</m>.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-best-case-analysis">
+    <title>best-case analysis (d.t.) — phân tích trường hợp tốt nhất</title>
+    <idx><h>best-case analysis</h></idx>
+    <idx><h>phân tích trường hợp tốt nhất</h></idx>
+    <idx><h>phân tích tình huống tốt nhất</h></idx>
+    <statement>
+      <p><em>Phân tích trường hợp tốt nhất</em> là việc xác định chi phí nhỏ nhất (thời gian chạy hoặc tài nguyên) mà một thuật toán có thể đạt được trên các đầu vào có cùng kích thước <m>n</m>, tức là cận dưới của chi phí ứng với đầu vào thuận lợi nhất (theo <xref ref="bib-libennowell-2022" />).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>phân tích trường hợp tốt nhất</term> <em>(thuật ngữ chuẩn; chưa truy được trong kho văn bản)</em> — cách dùng phổ biến.</p></li>
+        <li><p><term>phân tích tình huống tốt nhất</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
+      </ul>
+      <p>Ví dụ: Trong phép tìm kiếm tuyến tính, trường hợp tốt nhất xảy ra khi phần tử cần tìm nằm ngay ở vị trí đầu tiên, chỉ cần <m>1</m> phép so sánh.</p>
+      <p>Xem thêm <xref ref="def-average-case-analysis" text="title" />, <xref ref="def-asymptotic-analysis" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-best-case-complexity">
+    <title>best-case complexity (d.t.) — độ phức tạp trường hợp tốt nhất</title>
+    <idx><h>best-case complexity</h></idx>
+    <idx><h>thời gian tính tốt nhất</h></idx>
+    <idx><h>trường hợp tốt nhất</h></idx>
+    <idx><h>độ phức tạp trường hợp tốt nhất</h></idx>
+    <idx><h>độ phức tạp tốt nhất</h></idx>
+    <statement>
+      <p>Độ phức tạp trường hợp tốt nhất của một thuật toán là số phép toán ít nhất mà thuật toán cần thực hiện trên mọi đầu vào có cùng kích thước <m>n</m>. Nếu kích thước đầu vào là <m>n</m> thì độ phức tạp này là hàm theo <m>n</m> cho biết chi phí nhỏ nhất trong tất cả các đầu vào kích thước <m>n</m> (theo <xref ref="bib-rosen-2019" />, Rosen §3.3).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>độ phức tạp trường hợp tốt nhất</term> <em>(thuật ngữ chuẩn; chưa truy được trong kho văn bản)</em> — cách dùng phổ biến.</p></li>
+        <li><p><term>thời gian tính tốt nhất</term> <xref ref="bib-nguyenducnghia-2006" />; <xref ref="bib-vovantuandung-2007" />.</p></li>
+        <li><p><term>trường hợp tốt nhất</term> <xref ref="bib-rosen-2003-vi" /> (tr. 199); <xref ref="bib-doxuanloi-2006" /> (tr. 219); <xref ref="bib-cormen-2001-vi" /> (tr. 26).</p></li>
+        <li><p><term>độ phức tạp tốt nhất</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
+      </ul>
+      <p>Ví dụ: Khi tìm kiếm tuyến tính một phần tử <m>x</m> trong danh sách <m>a_1, a_2, \ldots, a_n</m>, trường hợp tốt nhất xảy ra khi <m>x = a_1</m>, lúc đó thuật toán chỉ cần một phép so sánh, nên độ phức tạp trường hợp tốt nhất là <m>O(1)</m>.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-bi-implication">
+    <title>bi-implication (d.t.) — mệnh đề tương đương</title>
+    <idx><h>bi-implication</h></idx>
+    <idx><h>mệnh đề tương đương</h></idx>
+    <idx><h>phép kéo theo hai chiều</h></idx>
+    <idx><h>phép tương đương</h></idx>
+    <idx><h>tương đương</h></idx>
+    <statement>
+      <p>Phép tương đương (phép kéo theo hai chiều) của hai mệnh đề <m>p</m> và <m>q</m>, ký hiệu <m>p \leftrightarrow q</m>, là mệnh đề nhận giá trị đúng khi <m>p</m> và <m>q</m> có cùng giá trị chân lý, và nhận giá trị sai trong các trường hợp còn lại. Mệnh đề <m>p \leftrightarrow q</m> được đọc là "<m>p</m> nếu và chỉ nếu <m>q</m>" (theo <xref ref="bib-rosen-2019" />, Rosen §1.1).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>mệnh đề tương đương</term> <xref ref="bib-doducgiao-2009" /> (tr. 329); <xref ref="bib-doducgiao-2008" /> (tr. 78); <xref ref="bib-nguyenhuuanh-2007" />; <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 346) — cách dùng phổ biến.</p></li>
+        <li><p><term>phép kéo theo hai chiều</term> <xref ref="bib-nguyenhuuanh-2007" />.</p></li>
+        <li><p><term>phép tương đương</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 19); <xref ref="bib-vovantuandung-2007" />; <xref ref="bib-vudinhhoa-2010" />.</p></li>
+        <li><p><term>tương đương</term> <xref ref="bib-leanhvinh-2020" /> (tr. 13); <xref ref="bib-nguyenhoangthach-2020" /> (tr. 19); <xref ref="bib-nguyenhuudien-2019" /> (tr. 6); <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 7).</p></li>
+      </ul>
+      <p>Ví dụ: Mệnh đề "Một số nguyên <m>n</m> là chẵn nếu và chỉ nếu <m>n^2</m> là chẵn" có dạng <m>p \leftrightarrow q</m> với <m>p</m> là "<m>n</m> chẵn" và <m>q</m> là "<m>n^2</m> chẵn"; mệnh đề này luôn đúng.</p>
+    </statement>
+  </definition>
   <definition xml:id="def-bijection">
     <title>bijection (d.t.) — song ánh</title>
     <idx><h>bijection</h></idx>
@@ -25,6 +203,60 @@
       </ul>
       <p>Ví dụ: Ánh xạ <m>f : \mathbb{Z} \to \mathbb{Z}</m> cho bởi <m>f(x) = x + 1</m> là một song ánh, vì mỗi số nguyên <m>y</m> là ảnh của đúng một số nguyên <m>x = y - 1</m>.</p>
       <p>Xem thêm <xref ref="def-graph-isomorphism" text="title" />, <xref ref="def-injection" text="title" />, <xref ref="def-inverse-function" text="title" />, <xref ref="def-surjection" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-binary">
+    <title>binary (t.t.) — nhị phân</title>
+    <idx><h>binary</h></idx>
+    <idx><h>nhị phân</h></idx>
+    <statement>
+      <p>Trong toán rời rạc, <em>nhị phân</em> (binary) chỉ việc dùng hai trạng thái, hai giá trị hoặc cơ số <m>2</m>, và xuất hiện trong nhiều ngữ cảnh khác nhau. Mục này chỉ nêu ý niệm chung; các trường hợp cụ thể được trình bày ở những mục riêng (xem mục Xem thêm).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>nhị phân</term> <xref ref="bib-leanhvinh-2020" /> (tr. 59); <xref ref="bib-nguyenhoangthach-2020" /> (tr. 12); <xref ref="bib-nguyenhuudien-2019" /> (tr. 8); <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 31) — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Một vài ví dụ: hệ nhị phân và số nhị phân dùng cơ số <m>2</m>; cây nhị phân, trong đó mỗi đỉnh có tối đa hai con; trong khi đó "binary" ở quan hệ hai ngôi và toán tử hai ngôi lại được dịch là "hai ngôi".</p>
+      <p>Xem thêm <xref ref="def-binary-numeral-system" text="title" />, <xref ref="def-binary-representation" text="title" />, <xref ref="def-binary-tree" text="title" />, <xref ref="def-binary-relation" text="title" />, <xref ref="def-binary-operator" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-binary-numeral-system">
+    <title>binary numeral system (d.t.) — hệ nhị phân</title>
+    <idx><h>binary numeral system</h></idx>
+    <idx><h>biểu diễn cơ số 2</h></idx>
+    <idx><h>biểu diễn nhị phân</h></idx>
+    <idx><h>hệ cơ số $2$ (nhị phân</h></idx>
+    <idx><h>hệ nhị phân</h></idx>
+    <idx><h>hệ đếm nhị phân</h></idx>
+    <idx><h>khai triển nhị phân</h></idx>
+    <statement>
+      <p>Hệ nhị phân (hệ cơ số <m>2</m>) là hệ đếm dùng cơ số <m>b = 2</m> với hai chữ số <m>0</m> và <m>1</m>. Mỗi số nguyên không âm <m>n</m> có duy nhất một khai triển nhị phân <m>n = a_{k-1} 2^{k-1} + \dots + a_1 2^1 + a_0 2^0</m>, trong đó mỗi chữ số <m>a_i \in \{0, 1\}</m>, ký hiệu <m>(a_{k-1} \dots a_1 a_0)_2</m> (theo <xref ref="bib-rosen-2019" />, Rosen §4.2).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>hệ nhị phân</term> <xref ref="bib-doxuanloi-2006" /> (tr. 83); <xref ref="bib-nguyenhuyran-2000" />; <xref ref="bib-cormen-2001-vi" /> (tr. 103); <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 413) — cách dùng phổ biến.</p></li>
+        <li><p><term>biểu diễn cơ số 2</term> <xref ref="bib-rosen-2003-vi" /> (tr. 130); <xref ref="bib-doxuanloi-2006" /> (tr. 84); <xref ref="bib-sierpinski-2012" /> (tr. 180).</p></li>
+        <li><p><term>biểu diễn nhị phân</term> <xref ref="bib-hoangchithanh-2007" /> (tr. 27); <xref ref="bib-hoangchithanh-2011" />; <xref ref="bib-nguyenhuudien-2019" /> (tr. 96); <xref ref="bib-cungkimtien-2004" />.</p></li>
+        <li><p><term>hệ cơ số $2$ (nhị phân</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
+        <li><p><term>hệ đếm nhị phân</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
+        <li><p><term>khai triển nhị phân</term> <xref ref="bib-rosen-2003-vi" /> (tr. 130); <xref ref="bib-nguyenhuudien-2019" /> (tr. 144); <xref ref="bib-nguyenhuyran-2000" />.</p></li>
+      </ul>
+      <p>Ví dụ: Số <m>19</m> có khai triển nhị phân là <m>(10011)_2</m>, vì <m>19 = 1 \cdot 2^4 + 0 \cdot 2^3 + 0 \cdot 2^2 + 1 \cdot 2^1 + 1 \cdot 2^0</m>.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-binary-operator">
+    <title>binary operator (d.t.) — toán tử hai ngôi</title>
+    <idx><h>binary operator</h></idx>
+    <idx><h>toán tử</h></idx>
+    <idx><h>toán tử hai ngôi</h></idx>
+    <idx><h>toán tử logic</h></idx>
+    <statement>
+      <p>Toán tử hai ngôi là một toán tử logic tác động lên hai toán hạng, tức là kết hợp hai mệnh đề <m>p</m> và <m>q</m> để tạo thành một mệnh đề phức hợp mới. Các toán tử hai ngôi cơ bản trong logic mệnh đề gồm hội (ký hiệu <m>\wedge</m>), tuyển (ký hiệu <m>\vee</m>), tuyển loại trừ (ký hiệu <m>\oplus</m>), kéo theo (ký hiệu <m>\rightarrow</m>) và tương đương (ký hiệu <m>\leftrightarrow</m>) (theo <xref ref="bib-rosen-2019" />, Rosen §1.1).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>toán tử hai ngôi</term> <xref ref="bib-rosen-2003-vi" /> (tr. 658) — cách dùng phổ biến.</p></li>
+        <li><p><term>toán tử</term> <xref ref="bib-leanhvinh-2020" /> (tr. 81); <xref ref="bib-nguyenhuudien-2019" /> (tr. 13); <xref ref="bib-sierpinski-2012" />; <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 6).</p></li>
+        <li><p><term>toán tử logic</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 19); <xref ref="bib-vovantuandung-2007" />; <xref ref="bib-vudinhhoa-2010" />.</p></li>
+      </ul>
+      <p>Ví dụ: Toán tử hội <m>\wedge</m> là một toán tử hai ngôi: từ hai mệnh đề <m>p</m> và <m>q</m> nó tạo ra mệnh đề <m>p \wedge q</m>, đúng khi và chỉ khi cả <m>p</m> và <m>q</m> đều đúng. Trái lại, phủ định <m>\neg</m> chỉ tác động lên một mệnh đề nên là toán tử một ngôi.</p>
     </statement>
   </definition>
   <definition xml:id="def-binary-relation">
@@ -49,18 +281,26 @@
       <p>Xem thêm <xref ref="def-cartesian-product" text="title" />.</p>
     </statement>
   </definition>
-  <definition xml:id="def-binary-tree">
-    <title>binary tree (d.t.) — cây nhị phân</title>
-    <idx><h>binary tree</h></idx>
-    <idx><h>cây nhị phân</h></idx>
+  <definition xml:id="def-binary-representation">
+    <title>binary representation (d.t.) — biểu diễn nhị phân</title>
+    <idx><h>binary representation</h></idx>
+    <idx><h>biểu diễn nhị phân</h></idx>
+    <statement><p>Xem <xref ref="def-binary-numeral-system" text="title" />.</p></statement>
+  </definition>
+  <definition xml:id="def-binary-search-algorithm">
+    <title>binary search algorithm (d.t.) — thuật toán tìm kiếm nhị phân</title>
+    <idx><h>binary search algorithm</h></idx>
+    <idx><h>thuật toán tìm kiếm nhị phân</h></idx>
+    <idx><h>tìm kiếm nhị phân</h></idx>
     <statement>
-      <p>Cây nhị phân là một cây có gốc trong đó mỗi đỉnh có không quá hai con, và mỗi con được phân biệt là con trái hoặc con phải. Một cây nhị phân thường được ký hiệu là <m>T</m> (theo <xref ref="bib-rosen-2019" />, Rosen §11.1).</p>
+      <p>Thuật toán tìm kiếm nhị phân là một thủ tục để tìm kiếm một phần tử trong một bảng kê đã được sắp thứ tự bằng cách liên tiếp chia đôi khoảng tìm kiếm. Tại mỗi bước, thuật toán so sánh phần tử cần tìm với phần tử ở giữa khoảng còn lại để loại bỏ một nửa số phần tử, cho tới khi khoảng tìm kiếm chỉ còn một phần tử (theo <xref ref="bib-rosen-2019" />, Rosen §3.1).</p>
       <p>Thuật ngữ tiếng Việt tương ứng:</p>
       <ul>
-        <li><p><term>cây nhị phân</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 83); <xref ref="bib-nguyenhuudien-2019" /> (tr. 254); <xref ref="bib-hoangchithanh-2011" /> — cách dùng phổ biến.</p></li>
+        <li><p><term>thuật toán tìm kiếm nhị phân</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 134); <xref ref="bib-doducgiao-2008" /> (tr. 17); <xref ref="bib-vovantuandung-2007" /> — cách dùng phổ biến.</p></li>
+        <li><p><term>tìm kiếm nhị phân</term> <xref ref="bib-doducgiao-2009" /> (tr. 206); <xref ref="bib-nguyenhuudien-2019" /> (tr. 100); <xref ref="bib-doducgiao-2008" /> (tr. 7).</p></li>
       </ul>
-      <p>Ví dụ: Xét cây có gốc <m>T</m> với gốc <m>r</m>, trong đó <m>r</m> có con trái <m>a</m> và con phải <m>b</m>, đỉnh <m>a</m> có con trái <m>c</m> và không có con phải, còn <m>b</m> là lá. Vì mỗi đỉnh có không quá hai con và mỗi con được phân biệt là con trái hay con phải, <m>T</m> là một cây nhị phân.</p>
-      <p>Xem thêm <xref ref="def-rooted-tree" text="title" />, <xref ref="def-ordered-rooted-tree" text="title" />, <xref ref="def-full-binary-tree" text="title" />, <xref ref="def-tree" text="title" />.</p>
+      <p>Ví dụ: Để tìm <m>x = 19</m> trong bảng kê đã sắp thứ tự <m>1, 3, 5, 7, 9, 11, 13, 15, 17, 19</m> gồm <m>10</m> phần tử, ta so sánh <m>x</m> với phần tử giữa rồi loại bỏ nửa bảng kê không chứa <m>x</m> ở mỗi bước; sau khoảng <m>\log_2 n</m> bước, khoảng tìm kiếm thu về một phần tử và ta xác định được vị trí của <m>19</m>.</p>
+      <p>Xem thêm <xref ref="def-algorithm" text="title" />, <xref ref="def-binary-search-tree" text="title" />, <xref ref="def-divide-and-conquer" text="title" />.</p>
     </statement>
   </definition>
   <definition xml:id="def-binary-search-tree">
@@ -77,6 +317,20 @@
       </ul>
       <p>Ví dụ: Với danh sách từ mathematics, physics, geography, zoology theo thứ tự từ điển, lấy mathematics làm khóa của gốc. Vì physics đứng sau mathematics nên physics là khóa của con bên phải gốc. Vì geography đứng trước mathematics nên geography là khóa của con bên trái gốc. Cuối cùng, zoology đứng sau cả mathematics lẫn physics nên là khóa của con bên phải của đỉnh có khóa physics.</p>
       <p>Xem thêm <xref ref="def-binary-tree" text="title" />, <xref ref="def-rooted-tree" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-binary-tree">
+    <title>binary tree (d.t.) — cây nhị phân</title>
+    <idx><h>binary tree</h></idx>
+    <idx><h>cây nhị phân</h></idx>
+    <statement>
+      <p>Cây nhị phân là một cây có gốc trong đó mỗi đỉnh có không quá hai con, và mỗi con được phân biệt là con trái hoặc con phải. Một cây nhị phân thường được ký hiệu là <m>T</m> (theo <xref ref="bib-rosen-2019" />, Rosen §11.1).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>cây nhị phân</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 83); <xref ref="bib-nguyenhuudien-2019" /> (tr. 254); <xref ref="bib-hoangchithanh-2011" /> — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Xét cây có gốc <m>T</m> với gốc <m>r</m>, trong đó <m>r</m> có con trái <m>a</m> và con phải <m>b</m>, đỉnh <m>a</m> có con trái <m>c</m> và không có con phải, còn <m>b</m> là lá. Vì mỗi đỉnh có không quá hai con và mỗi con được phân biệt là con trái hay con phải, <m>T</m> là một cây nhị phân.</p>
+      <p>Xem thêm <xref ref="def-rooted-tree" text="title" />, <xref ref="def-ordered-rooted-tree" text="title" />, <xref ref="def-full-binary-tree" text="title" />, <xref ref="def-tree" text="title" />.</p>
     </statement>
   </definition>
   <definition xml:id="def-binomial-coefficient">
@@ -99,6 +353,22 @@
       </ul>
       <p>Ví dụ: Với <m>n = 4</m> và <m>k = 2</m>, ta có <m>\displaystyle \binom{4}{2} = \frac{4!}{2!\,2!} = 6</m>, ứng với <m>6</m> tập con gồm <m>2</m> phần tử của tập <m>\{1,2,3,4\}</m>.</p>
       <p>Xem thêm <xref ref="def-combination" text="title" />, <xref ref="def-binomial-theorem" text="title" />, <xref ref="def-pascals-triangle" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-binomial-distribution">
+    <title>binomial distribution (d.t.) — phân phối nhị thức</title>
+    <idx><h>binomial distribution</h></idx>
+    <idx><h>phân bố nhị thức</h></idx>
+    <idx><h>phân phối nhị thức</h></idx>
+    <statement>
+      <p><em>Phân phối nhị thức</em> là phân phối xác suất của số lần thành công <m>X</m> trong <m>n</m> phép thử Bernoulli độc lập, mỗi phép thử thành công với xác suất <m>p</m>. Với <m>k\in\{0,1,\ldots,n\}</m> ta có <m>\displaystyle P(X=k)=\binom{n}{k}p^{k}(1-p)^{n-k}.</m> (theo <xref ref="bib-libennowell-2022" />).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>phân phối nhị thức</term> <xref ref="bib-cormen-2001-vi" />; <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-doducthai-2010" />; <xref ref="bib-phan-1976" /> (tr. 129) — cách dùng phổ biến.</p></li>
+        <li><p><term>phân bố nhị thức</term> <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-doducthai-2010" />.</p></li>
+      </ul>
+      <p>Ví dụ: Tung một đồng xu cân đối <m>n=3</m> lần, xác suất được đúng <m>k=2</m> mặt ngửa là <m>\displaystyle\binom{3}{2}\Bigl(\tfrac{1}{2}\Bigr)^{2}\Bigl(\tfrac{1}{2}\Bigr)^{1}=\tfrac{3}{8}.</m></p>
+      <p>Xem thêm <xref ref="def-bernoulli-distribution" text="title" />.</p>
     </statement>
   </definition>
   <definition xml:id="def-binomial-theorem">
@@ -143,6 +413,65 @@
       <p>Xem thêm <xref ref="def-complete-bipartite-graph" text="title" />, <xref ref="def-matching" text="title" />, <xref ref="def-graph" text="title" />.</p>
     </statement>
   </definition>
+  <definition xml:id="def-bit">
+    <title>bit (d.t.) — bit</title>
+    <idx><h>bit</h></idx>
+    <statement>
+      <p>Một bit là một chữ số nhị phân, nghĩa là nó có giá trị <m>0</m> hoặc <m>1</m>. Bit được dùng để biểu diễn thông tin trong máy tính; chẳng hạn, có thể dùng bit <m>1</m> để biểu diễn giá trị chân lý đúng và bit <m>0</m> để biểu diễn giá trị chân lý sai (theo <xref ref="bib-rosen-2019" />, Rosen §1.1).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>bit</term> <xref ref="bib-rosen-2003-vi" /> (tr. 14); <xref ref="bib-nguyenhuudien-2019" /> (tr. 76) — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Một biến Boole nhận một trong hai giá trị đúng hoặc sai, nên có thể được biểu diễn bằng một bit: dùng <m>1</m> cho đúng và <m>0</m> cho sai. Một dãy gồm <m>n</m> bit, gọi là một xâu bit có chiều dài <m>n</m>, có thể biểu diễn một tập con của một tập gồm <m>n</m> phần tử, trong đó bit thứ <m>i</m> bằng <m>1</m> khi và chỉ khi phần tử thứ <m>i</m> thuộc tập con đó.</p>
+      <p>Xem thêm <xref ref="def-boolean-variable" text="title" />, <xref ref="def-binary-representation" text="title" />, <xref ref="def-binary" text="title" />, <xref ref="def-xor-bit-operation" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-bit-operation">
+    <title>bit operation (d.t.) — phép toán bit</title>
+    <idx><h>bit operation</h></idx>
+    <idx><h>phép toán bit</h></idx>
+    <idx><h>phép toán thao tác bit</h></idx>
+    <idx><h>phép toán với bit</h></idx>
+    <statement>
+      <p>Phép toán bit là một phép toán thực hiện trên một bit hoặc trên nhiều bit. Các phép toán bit trong máy tính tương ứng với các liên từ logic: thay các giá trị chân lý đúng và sai bằng các bit <m>1</m> và <m>0</m>, ta nhận được các phép toán bit tương ứng với các toán tử <m>\wedge</m>, <m>\vee</m> và <m>\oplus</m> (theo <xref ref="bib-rosen-2019" />, Rosen §1.1).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>phép toán bit</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 144); <xref ref="bib-doducgiao-2008" /> (tr. 31); <xref ref="bib-vudinhhoa-2010" /> — cách dùng phổ biến.</p></li>
+        <li><p><term>phép toán thao tác bit</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
+        <li><p><term>phép toán với bit</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
+      </ul>
+      <p>Ví dụ: Các phép toán bit OR, AND và XOR, ký hiệu lần lượt là <m>\vee</m>, <m>\wedge</m> và <m>\oplus</m>, được định nghĩa trên từng cặp bit theo bảng giá trị của các liên từ logic tương ứng. Chẳng hạn, <m>1 \vee 0 = 1</m>, <m>1 \wedge 0 = 0</m> và <m>1 \oplus 0 = 1</m>. Các phép toán này được mở rộng cho các xâu bit cùng chiều dài bằng cách thực hiện trên từng vị trí: <m>01101 \oplus 11001 = 10100</m>.</p>
+      <p>Xem thêm <xref ref="def-bit" text="title" />, <xref ref="def-xor-bit-operation" text="title" />, <xref ref="def-boolean-variable" text="title" />, <xref ref="def-logical-operator" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-bit-string">
+    <title>bit string (d.t.) — xâu bit</title>
+    <idx><h>bit string</h></idx>
+    <idx><h>chuỗi bit</h></idx>
+    <idx><h>chuỗi nhị phân</h></idx>
+    <idx><h>dãy bit</h></idx>
+    <idx><h>xâu bit</h></idx>
+    <idx><h>xâu nhị phân</h></idx>
+    <statement>
+      <p>Một xâu bit là một dãy các bit, tức là một dãy hữu hạn các chữ số <m>0</m> và <m>1</m>. Số bit trong dãy được gọi là chiều dài (độ dài) của xâu bit (theo <xref ref="bib-rosen-2019" />, Rosen §1.1).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>xâu bit</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 76); <xref ref="bib-doantamhoe-2009" />; <xref ref="bib-vudinhhoa-2010" /> — cách dùng phổ biến.</p></li>
+        <li><p><term>chuỗi bit</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 81); <xref ref="bib-doantamhoe-2009" />; <xref ref="bib-cormen-2001-vi" /> (tr. 295).</p></li>
+        <li><p><term>chuỗi nhị phân</term> <xref ref="bib-doducgiao-2000" /> (tr. 34); <xref ref="bib-cormen-2001-vi" /> (tr. 124); <xref ref="bib-doducgiao-2008" /> (tr. 25).</p></li>
+        <li><p><term>dãy bit</term> <xref ref="bib-cormen-2001-vi" /> (tr. 715).</p></li>
+        <li><p><term>xâu nhị phân</term> <xref ref="bib-doducgiao-2009" /> (tr. 20); <xref ref="bib-nguyenhuudien-2019" /> (tr. 86); <xref ref="bib-vudinhhoa-2010" />.</p></li>
+      </ul>
+      <p>Ví dụ: Dãy <m>101010011</m> là một xâu bit có chiều dài <m>9</m>. Các phép toán bit như OR, AND và XOR có thể được mở rộng cho hai xâu bit có cùng chiều dài bằng cách thực hiện phép toán trên từng cặp bit tương ứng.</p>
+      <p>Xem thêm <xref ref="def-string" text="title" />, <xref ref="def-binary" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-bitwise-operation">
+    <title>bitwise operation (d.t.) — phép toán theo từng bit</title>
+    <idx><h>bitwise operation</h></idx>
+    <idx><h>phép toán theo từng bit</h></idx>
+    <statement><p>Xem <xref ref="def-bit-operation" text="title" />.</p></statement>
+  </definition>
   <definition xml:id="def-block">
     <title>block (d.t.) — khối</title>
     <idx><h>block</h></idx>
@@ -161,6 +490,24 @@
       <p>Xem thêm <xref ref="def-bridge" text="title" />, <xref ref="def-connected-graph" text="title" />, <xref ref="def-cut-vertex" text="title" />.</p>
     </statement>
   </definition>
+  <definition xml:id="def-block-cipher">
+    <title>block cipher (d.t.) — mật mã khối</title>
+    <idx><h>block cipher</h></idx>
+    <idx><h>mã hóa khối</h></idx>
+    <idx><h>mã khối</h></idx>
+    <idx><h>mật mã khối</h></idx>
+    <statement>
+      <p>Mật mã khối là một hệ mật mã mã hóa các khối ký tự có độ dài cố định. Thay vì mã hóa từng ký tự một, mỗi khối gồm một số ký tự được mã hóa cùng nhau thành một khối bản mã có độ dài tương ứng (theo <xref ref="bib-rosen-2019" />, Rosen §4.6).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>mật mã khối</term> <em>(thuật ngữ chuẩn; chưa truy được trong kho văn bản)</em> — cách dùng phổ biến.</p></li>
+        <li><p><term>mã hóa khối</term> <xref ref="bib-wikipedia-vi" />.</p></li>
+        <li><p><term>mã khối</term> <xref ref="bib-doxuanloi-2006" /> (tr. 34).</p></li>
+      </ul>
+      <p>Ví dụ: Mật mã chuyển vị theo khối là một ví dụ của mật mã khối: bản rõ được chia thành các khối có cùng độ dài cố định <m>m</m>, và trong mỗi khối các ký tự được hoán vị theo cùng một quy tắc, chẳng hạn theo một hoán vị <m>\sigma</m> của các vị trí <m>\{1, 2, \ldots, m\}</m>.</p>
+      <p>Xem thêm <xref ref="def-private-key-cryptography" text="title" />, <xref ref="def-public-key-cryptography" text="title" />, <xref ref="def-block" text="title" />.</p>
+    </statement>
+  </definition>
   <definition xml:id="def-boolean-algebra">
     <title>Boolean algebra (d.t.) — đại số Boole</title>
     <idx><h>Boolean algebra</h></idx>
@@ -175,6 +522,21 @@
       </ul>
       <p>Ví dụ: Tập hợp <m>B = \{0, 1\}</m> với phép tuyển <m>\vee</m>, phép hội <m>\wedge</m>, phép lấy phần bù <m>\overline{\phantom{x}}</m> xác định bởi <m>\overline{0} = 1</m> và <m>\overline{1} = 0</m>, cùng hai phần tử <m>0</m> và <m>1</m>, tạo thành một đại số Boole.</p>
       <p>Xem thêm <xref ref="def-boolean-function" text="title" />, <xref ref="def-boolean-expression" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-boolean-expression">
+    <title>Boolean expression (d.t.) — biểu thức Boole</title>
+    <idx><h>Boolean expression</h></idx>
+    <idx><h>biểu thức Boole</h></idx>
+    <idx><h>biểu thức Boolean</h></idx>
+    <statement>
+      <p>Biểu thức Boole theo các biến <m>x_1, x_2, \ldots, x_n</m> được định nghĩa đệ quy như sau: <m>0</m>, <m>1</m>, <m>x_1</m>, <m>x_2</m>, <m>\ldots</m>, <m>x_n</m> là các biểu thức Boole; và nếu <m>E_1</m> và <m>E_2</m> là các biểu thức Boole thì <m>\overline{E_1}</m>, <m>(E_1 E_2)</m> và <m>(E_1 + E_2)</m> cũng là các biểu thức Boole. Mỗi biểu thức Boole theo <m>n</m> biến biểu diễn một hàm Boole <m>F : B^n \to B</m>, trong đó <m>B = \{0, 1\}</m> (theo <xref ref="bib-rosen-2019" />, Rosen §12.1).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>biểu thức Boole</term> <xref ref="bib-doducgiao-2000" /> (tr. 429); <xref ref="bib-vovantuandung-2007" />; <xref ref="bib-vudinhhoa-2010" /> — cách dùng phổ biến.</p></li>
+        <li><p><term>biểu thức Boolean</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
+      </ul>
+      <p>Ví dụ: Biểu thức <m>x_1 \overline{x_2} + x_3</m> là một biểu thức Boole theo ba biến <m>x_1</m>, <m>x_2</m>, <m>x_3</m>; nó biểu diễn hàm Boole nhận giá trị <m>1</m> khi <m>x_1 = 1</m> và <m>x_2 = 0</m>, hoặc khi <m>x_3 = 1</m>.</p>
     </statement>
   </definition>
   <definition xml:id="def-boolean-function">
@@ -195,6 +557,94 @@
       </ul>
       <p>Ví dụ: Với <m>n = 2</m>, hàm <m>f : \{0,1\}^2 \to \{0,1\}</m> xác định bởi <m>f(0,0) = 0</m>, <m>f(0,1) = 1</m>, <m>f(1,0) = 1</m> và <m>f(1,1) = 1</m> là một hàm Boole <m>2</m> biến.</p>
       <p>Xem thêm <xref ref="def-boolean-algebra" text="title" />, <xref ref="def-boolean-expression" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-boolean-product">
+    <title>Boolean product (d.t.) — tích Boole</title>
+    <idx><h>Boolean product</h></idx>
+    <idx><h>tích Boole</h></idx>
+    <idx><h>tích Boolean</h></idx>
+    <statement>
+      <p>Tích Boole của hai ma trận không-một <m>A = [a_{ij}]</m> cỡ <m>m \times k</m> và <m>B = [b_{ij}]</m> cỡ <m>k \times n</m>, ký hiệu là <m>A \odot B</m>, là ma trận không-một <m>C = [c_{ij}]</m> cỡ <m>m \times n</m> với phần tử <m>c_{ij} = (a_{i1} \wedge b_{1j}) \vee (a_{i2} \wedge b_{2j}) \vee \cdots \vee (a_{ik} \wedge b_{kj})</m>, trong đó <m>\vee</m> là tổng Boole và <m>\wedge</m> là tích Boole trên tập <m>\{0, 1\}</m>. Phép tính này tương tự nhân ma trận thông thường nhưng thay phép cộng bằng <m>\vee</m> và phép nhân bằng <m>\wedge</m> (theo <xref ref="bib-rosen-2019" />, Rosen §2.6).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>tích Boole</term> <xref ref="bib-doducgiao-2000" /> (tr. 41); <xref ref="bib-doducgiao-2008" /> (tr. 31); <xref ref="bib-vudinhhoa-2010" /> — cách dùng phổ biến.</p></li>
+        <li><p><term>tích Boolean</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
+      </ul>
+      <p>Ví dụ: Với <m>A = \begin{bmatrix} 1  \amp  0 \\ 0  \amp  1 \\ 1  \amp  0 \end{bmatrix}</m> và <m>B = \begin{bmatrix} 1  \amp  1  \amp  0 \\ 0  \amp  1  \amp  1 \end{bmatrix}</m>, tích Boole là <m>A \odot B = \begin{bmatrix} 1  \amp  1  \amp  0 \\ 0  \amp  1  \amp  1 \\ 1  \amp  1  \amp  0 \end{bmatrix}</m>.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-boolean-sum">
+    <title>Boolean sum (d.t.) — tổng Boole</title>
+    <idx><h>Boolean sum</h></idx>
+    <idx><h>tổng Boole</h></idx>
+    <idx><h>tổng Boolean</h></idx>
+    <statement>
+      <p>Tổng Boole của hai phần tử <m>x</m> và <m>y</m> trong đại số Boole <m>\{0,1\}</m>, ký hiệu <m>x + y</m> (hoặc OR), nhận giá trị <m>1</m> nếu ít nhất một trong hai phần tử bằng <m>1</m> và nhận giá trị <m>0</m> trong trường hợp ngược lại. Như vậy <m>1+1=1</m>, <m>1+0=1</m>, <m>0+1=1</m> và <m>0+0=0</m> (theo <xref ref="bib-rosen-2019" />, Rosen §12.1).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>tổng Boole</term> <xref ref="bib-rosen-2003-vi" /> (tr. 712); <xref ref="bib-vovantuandung-2007" />; <xref ref="bib-vudinhhoa-2010" /> — cách dùng phổ biến.</p></li>
+        <li><p><term>tổng Boolean</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
+      </ul>
+      <p>Ví dụ: Tổng Boole <m>F+G</m> của hai hàm Boole bậc <m>n</m> được định nghĩa theo từng điểm bởi <m>(F+G)(x_1,\dots,x_n)=F(x_1,\dots,x_n)+G(x_1,\dots,x_n)</m>.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-boolean-variable">
+    <title>Boolean variable (d.t.) — biến logic</title>
+    <idx><h>Boolean variable</h></idx>
+    <idx><h>biến Boole</h></idx>
+    <idx><h>biến Boolean</h></idx>
+    <idx><h>biến logic</h></idx>
+    <statement>
+      <p>Biến Boole là một biến <m>x</m> chỉ nhận giá trị trong tập <m>B = \{0, 1\}</m> (ký hiệu <m>1</m> cho giá trị đúng và <m>0</m> cho giá trị sai). Các biến Boole kết hợp với các phép toán Boole tạo thành biểu thức Boole (theo <xref ref="bib-rosen-2019" />, Rosen §12.1).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>biến logic</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 14); <xref ref="bib-nguyenhuuanh-2007" />; <xref ref="bib-vudinhhoa-2010" /> — cách dùng phổ biến.</p></li>
+        <li><p><term>biến Boole</term> <xref ref="bib-doducgiao-2000" /> (tr. 429); <xref ref="bib-vovantuandung-2007" />; <xref ref="bib-vudinhhoa-2010" />.</p></li>
+        <li><p><term>biến Boolean</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
+      </ul>
+      <p>Ví dụ: Với <m>B = \{0, 1\}</m>, nếu <m>x</m> là một biến Boole thì <m>x</m> chỉ có thể bằng <m>0</m> hoặc <m>1</m>; chẳng hạn biểu thức <m>x \cdot y + \bar{x}</m> là một hàm theo hai biến Boole <m>x</m> và <m>y</m>.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-bound">
+    <title>bound (d.t.) — cận</title>
+    <idx><h>bound</h></idx>
+    <idx><h>chặn</h></idx>
+    <idx><h>chặn dưới</h></idx>
+    <idx><h>chặn trên</h></idx>
+    <idx><h>cận</h></idx>
+    <idx><h>cận dưới</h></idx>
+    <idx><h>cận trên</h></idx>
+    <statement>
+      <p>Cho một tập con <m>A</m> của một tập sắp thứ tự bộ phận <m>(X, \preceq)</m>. Một phần tử <m>x \in X</m> được gọi là một cận trên của <m>A</m> nếu <m>a \preceq x</m> với mọi <m>a \in A</m>, và được gọi là một cận dưới của <m>A</m> nếu <m>x \preceq a</m> với mọi <m>a \in A</m> (theo <xref ref="bib-rosen-2019" />, Rosen §9.6).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>cận</term> <xref ref="bib-ngodactan-2004" /> (tr. 164); <xref ref="bib-ngodactan-2004" /> (tr. 22); <xref ref="bib-rosen-2003-vi" /> (tr. 3) — cách dùng phổ biến.</p></li>
+        <li><p><term>chặn</term> <xref ref="bib-leanhvinh-2020" /> (tr. 136); <xref ref="bib-rosen-2003-vi" /> (tr. 865).</p></li>
+        <li><p><term>chặn dưới</term> <xref ref="bib-leanhvinh-2020" /> (tr. 96); <xref ref="bib-nguyenhuudien-2019" /> (tr. 120); <xref ref="bib-sierpinski-2012" /> (tr. 94); <xref ref="bib-cungkimtien-2004" />.</p></li>
+        <li><p><term>chặn trên</term> <xref ref="bib-leanhvinh-2020" /> (tr. 136); <xref ref="bib-nguyenhuudien-2019" /> (tr. 120); <xref ref="bib-sierpinski-2012" /> (tr. 110); <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 244).</p></li>
+        <li><p><term>cận dưới</term> <xref ref="bib-doantamhoe-2009" />; <xref ref="bib-doducgiao-2009" /> (tr. 230); <xref ref="bib-doducgiao-2008" /> (tr. 285); <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 33).</p></li>
+        <li><p><term>cận trên</term> <xref ref="bib-doantamhoe-2009" />; <xref ref="bib-doducgiao-2009" /> (tr. 230); <xref ref="bib-vudinhhoa-2010" />; <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 33).</p></li>
+      </ul>
+      <p>Ví dụ: Trong tập sắp thứ tự <m>(\{1, 2, 3, 4, 6, 12\}, \mid)</m> với quan hệ chia hết, xét tập con <m>A = \{2, 3\}</m>. Khi đó <m>6</m> và <m>12</m> là các cận trên của <m>A</m>, còn <m>1</m> là một cận dưới của <m>A</m>.</p>
+      <p>Xem thêm <xref ref="def-partial-order" text="title" />, <xref ref="def-poset" text="title" />, <xref ref="def-least-upper-bound" text="title" />, <xref ref="def-greatest-lower-bound" text="title" />, <xref ref="def-maximal-element" text="title" />, <xref ref="def-greatest-element" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-bound-variable">
+    <title>bound variable (d.t.) — biến ràng buộc</title>
+    <idx><h>bound variable</h></idx>
+    <idx><h>biến buộc</h></idx>
+    <idx><h>biến bị ràng buộc</h></idx>
+    <idx><h>biến ràng buộc</h></idx>
+    <statement>
+      <p>Biến ràng buộc là một biến trong hàm mệnh đề được gắn (ràng buộc) bởi một lượng từ hoặc được gán một giá trị cụ thể, do đó nằm trong phạm vi tác động của lượng từ đó. Chẳng hạn, trong biểu thức <m>\forall x\, P(x)</m> biến <m>x</m> là biến ràng buộc, trái ngược với biến tự do không bị bất kỳ lượng từ nào ràng buộc (theo <xref ref="bib-rosen-2019" />, Rosen §1.4).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>biến ràng buộc</term> <xref ref="bib-doducgiao-2000" /> (tr. 403); <xref ref="bib-doducgiao-2008" /> (tr. 104); <xref ref="bib-vudinhhoa-2010" /> — cách dùng phổ biến.</p></li>
+        <li><p><term>biến buộc</term> <xref ref="bib-doantamhoe-2009" />; <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 440).</p></li>
+        <li><p><term>biến bị ràng buộc</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 50); <xref ref="bib-rosen-2003-vi" /> (tr. 39).</p></li>
+      </ul>
+      <p>Ví dụ: Trong biểu thức <m>\forall x\, (P(x) \wedge Q(x, y))</m> biến <m>x</m> là biến ràng buộc vì nó bị lượng từ <m>\forall</m> ràng buộc, còn biến <m>y</m> là biến tự do.</p>
     </statement>
   </definition>
   <definition xml:id="def-boundary">
@@ -259,391 +709,6 @@
       </ul>
       <p>Ví dụ: Trong đồ thị đường đi <m>P_5</m> với các đỉnh <m>v_1, v_2, v_3, v_4, v_5</m>, cạnh <m>\{v_3, v_4\}</m> là một cầu, vì khi xoá cạnh này thì đồ thị còn lại tách thành hai thành phần liên thông.</p>
       <p>Xem thêm <xref ref="def-cut-vertex" text="title" />, <xref ref="def-connected-graph" text="title" />, <xref ref="def-connected-component" text="title" />.</p>
-    </statement>
-  </definition>
-  <definition xml:id="def-bound">
-    <title>bound (d.t.) — cận</title>
-    <idx><h>bound</h></idx>
-    <idx><h>chặn</h></idx>
-    <idx><h>chặn dưới</h></idx>
-    <idx><h>chặn trên</h></idx>
-    <idx><h>cận</h></idx>
-    <idx><h>cận dưới</h></idx>
-    <idx><h>cận trên</h></idx>
-    <statement>
-      <p>Cho một tập con <m>A</m> của một tập sắp thứ tự bộ phận <m>(X, \preceq)</m>. Một phần tử <m>x \in X</m> được gọi là một cận trên của <m>A</m> nếu <m>a \preceq x</m> với mọi <m>a \in A</m>, và được gọi là một cận dưới của <m>A</m> nếu <m>x \preceq a</m> với mọi <m>a \in A</m> (theo <xref ref="bib-rosen-2019" />, Rosen §9.6).</p>
-      <p>Thuật ngữ tiếng Việt tương ứng:</p>
-      <ul>
-        <li><p><term>cận</term> <xref ref="bib-ngodactan-2004" /> (tr. 164); <xref ref="bib-ngodactan-2004" /> (tr. 22); <xref ref="bib-rosen-2003-vi" /> (tr. 3) — cách dùng phổ biến.</p></li>
-        <li><p><term>chặn</term> <xref ref="bib-leanhvinh-2020" /> (tr. 136); <xref ref="bib-rosen-2003-vi" /> (tr. 865).</p></li>
-        <li><p><term>chặn dưới</term> <xref ref="bib-leanhvinh-2020" /> (tr. 96); <xref ref="bib-nguyenhuudien-2019" /> (tr. 120); <xref ref="bib-sierpinski-2012" /> (tr. 94); <xref ref="bib-cungkimtien-2004" />.</p></li>
-        <li><p><term>chặn trên</term> <xref ref="bib-leanhvinh-2020" /> (tr. 136); <xref ref="bib-nguyenhuudien-2019" /> (tr. 120); <xref ref="bib-sierpinski-2012" /> (tr. 110); <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 244).</p></li>
-        <li><p><term>cận dưới</term> <xref ref="bib-doantamhoe-2009" />; <xref ref="bib-doducgiao-2009" /> (tr. 230); <xref ref="bib-doducgiao-2008" /> (tr. 285); <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 33).</p></li>
-        <li><p><term>cận trên</term> <xref ref="bib-doantamhoe-2009" />; <xref ref="bib-doducgiao-2009" /> (tr. 230); <xref ref="bib-vudinhhoa-2010" />; <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 33).</p></li>
-      </ul>
-      <p>Ví dụ: Trong tập sắp thứ tự <m>(\{1, 2, 3, 4, 6, 12\}, \mid)</m> với quan hệ chia hết, xét tập con <m>A = \{2, 3\}</m>. Khi đó <m>6</m> và <m>12</m> là các cận trên của <m>A</m>, còn <m>1</m> là một cận dưới của <m>A</m>.</p>
-      <p>Xem thêm <xref ref="def-partial-order" text="title" />, <xref ref="def-poset" text="title" />, <xref ref="def-least-upper-bound" text="title" />, <xref ref="def-greatest-lower-bound" text="title" />, <xref ref="def-maximal-element" text="title" />, <xref ref="def-greatest-element" text="title" />.</p>
-    </statement>
-  </definition>
-  <definition xml:id="def-ball">
-    <title>ball (d.t.) — hình cầu</title>
-    <idx><h>ball</h></idx>
-    <idx><h>hình cầu</h></idx>
-    <idx><h>khối cầu</h></idx>
-    <idx><h>quả cầu</h></idx>
-    <statement>
-      <p>Cho một không gian mêtric với hàm khoảng cách <m>d</m>, một điểm tâm cố định <m>x</m> và một bán kính <m>r \geq 0</m>. <em>Hình cầu</em> tâm <m>x</m> bán kính <m>r</m> là tập hợp tất cả các điểm <m>y</m> có khoảng cách từ <m>x</m> không vượt quá <m>r</m>, tức là <m>d(x, y) \leq r</m>; ký hiệu <m>B(x, r) = \{ y : d(x, y) \leq r \}</m> (theo <xref ref="bib-rosen-2019" />, Rosen §9.1).</p>
-      <p>Thuật ngữ tiếng Việt tương ứng:</p>
-      <ul>
-        <li><p><term>hình cầu</term> <xref ref="bib-leanhvinh-2020" /> (tr. 191); <xref ref="bib-nguyenvanmau-2007" />; <xref ref="bib-sierpinski-2012" /> (tr. 55); <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 27) — cách dùng phổ biến.</p></li>
-        <li><p><term>khối cầu</term> <xref ref="bib-doxuanloi-2006" /> (tr. 189); <xref ref="bib-vovantuandung-2007" />; <xref ref="bib-vudinhhoa-2010" />.</p></li>
-        <li><p><term>quả cầu</term> <xref ref="bib-nguyenducnghia-2006" />; <xref ref="bib-cormen-2001-vi" /> (tr. 664); <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 27).</p></li>
-      </ul>
-      <p>Ví dụ: Trên đường thẳng thực với khoảng cách <m>d(x, y) = |x - y|</m>, hình cầu tâm <m>x = 0</m> bán kính <m>r = 2</m> là tập <m>B(0, 2) = \{ y : |y| \leq 2 \}</m>, tức là đoạn <m>[-2, 2]</m>.</p>
-    </statement>
-  </definition>
-  <definition xml:id="def-backtracking">
-    <title>backtracking (d.t.) — kỹ thuật quay lui</title>
-    <idx><h>backtracking</h></idx>
-    <idx><h>kỹ thuật quay lui</h></idx>
-    <idx><h>phương pháp quay lui</h></idx>
-    <idx><h>thuật toán quay lui</h></idx>
-    <statement>
-      <p>Kỹ thuật quay lui là một phương pháp tìm lời giải bằng cách xây dựng dần dãy quyết định và duyệt cây tìm kiếm: tại mỗi bước ta mở rộng lời giải bộ phận, và nếu từ trạng thái hiện tại không thể dẫn tới lời giải thì ta quay lui trở lại trạng thái trước đó để thử lựa chọn khác. Quá trình tìm kiếm theo kỹ thuật này thường được mô tả bằng cây tìm kiếm, trong đó mỗi đỉnh ứng với một dãy quyết định bộ phận (theo <xref ref="bib-rosen-2019" />, Rosen §11.2).</p>
-      <p>Thuật ngữ tiếng Việt tương ứng:</p>
-      <ul>
-        <li><p><term>kỹ thuật quay lui</term> <xref ref="bib-doducgiao-2000" /> (tr. 211); <xref ref="bib-doducgiao-2009" /> (tr. 270); <xref ref="bib-doducgiao-2008" /> (tr. 295) — cách dùng phổ biến.</p></li>
-        <li><p><term>phương pháp quay lui</term> <xref ref="bib-doducgiao-2000" /> (tr. 30); <xref ref="bib-doducgiao-2008" /> (tr. 23).</p></li>
-        <li><p><term>thuật toán quay lui</term> <xref ref="bib-nguyenducnghia-2006" />; <xref ref="bib-doducgiao-2008" /> (tr. 22); <xref ref="bib-vudinhhoa-2010" />.</p></li>
-      </ul>
-      <p>Ví dụ: Bài toán <m>n</m> quân hậu được giải bằng kỹ thuật quay lui: ta lần lượt đặt quân hậu vào từng cột; khi một cách đặt vi phạm điều kiện không ăn nhau thì quay lui lại để thử vị trí khác.</p>
-    </statement>
-  </definition>
-  <definition xml:id="def-base">
-    <title>base (d.t.) — hệ cơ số</title>
-    <idx><h>base</h></idx>
-    <idx><h>cơ số</h></idx>
-    <idx><h>hệ cơ số</h></idx>
-    <statement>
-      <p>Cơ số <m>b</m> (hay hệ cơ số <m>b</m>) là một số nguyên <m>b \geq 2</m> được dùng làm nền tảng để biểu diễn các số nguyên: mọi số nguyên dương <m>n</m> đều viết được duy nhất dưới dạng khai triển theo cơ số <m>b</m>, tức là <m>n = a_k b^k + a_{k-1} b^{k-1} + \cdots + a_1 b + a_0</m>, trong đó mỗi chữ số thỏa <m>0 \leq a_i  \lt  b</m> và <m>a_k \neq 0</m>, ký hiệu là <m>(a_k a_{k-1} \ldots a_1 a_0)_b</m> (theo <xref ref="bib-rosen-2019" />, Rosen §4.2).</p>
-      <p>Thuật ngữ tiếng Việt tương ứng:</p>
-      <ul>
-        <li><p><term>hệ cơ số</term> <xref ref="bib-leanhvinh-2020" /> (tr. 213); <xref ref="bib-nguyenhuudien-2019" /> (tr. 247); <xref ref="bib-sierpinski-2012" />; <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 414) — cách dùng phổ biến.</p></li>
-        <li><p><term>cơ số</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 143); <xref ref="bib-rosen-2003-vi" /> (tr. 174).</p></li>
-      </ul>
-      <p>Ví dụ: Với cơ số <m>b = 8</m>, khai triển của <m>(12345)_{10}</m> là <m>(30071)_8</m>, vì <m>12345 = 3 \cdot 8^4 + 0 \cdot 8^3 + 0 \cdot 8^2 + 7 \cdot 8 + 1</m>.</p>
-    </statement>
-  </definition>
-  <definition xml:id="def-basis-step">
-    <title>basis step (d.t.) — bước cơ sở</title>
-    <idx><h>basis step</h></idx>
-    <idx><h>bước cơ sở</h></idx>
-    <idx><h>trường hợp cơ sở</h></idx>
-    <statement>
-      <p>Bước cơ sở là bước đầu tiên của một chứng minh quy nạp, trong đó ta kiểm chứng rằng mệnh đề <m>P(n_0)</m> là đúng tại giá trị xuất phát <m>n_0</m> (thường là <m>n_0 = 0</m> hoặc <m>n_0 = 1</m>). Cùng với bước quy nạp, bước cơ sở bảo đảm rằng <m>P(n)</m> đúng với mọi số nguyên <m>n \geq n_0</m> (theo <xref ref="bib-rosen-2019" />, Rosen §5.1).</p>
-      <p>Thuật ngữ tiếng Việt tương ứng:</p>
-      <ul>
-        <li><p><term>bước cơ sở</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 62); <xref ref="bib-vovantuandung-2007" />; <xref ref="bib-vudinhhoa-2010" /> — cách dùng phổ biến.</p></li>
-        <li><p><term>trường hợp cơ sở</term> <xref ref="bib-leanhvinh-2020" /> (tr. 17); <xref ref="bib-doxuanloi-2006" /> (tr. 55); <xref ref="bib-nguyenhuudien-2019" /> (tr. 35).</p></li>
-      </ul>
-      <p>Ví dụ: Khi chứng minh <m>1 + 2 + \cdots + n = \frac{n(n+1)}{2}</m> bằng quy nạp, bước cơ sở là kiểm tra <m>P(1)</m>, tức là <m>1 = \frac{1 \cdot 2}{2} = 1</m>, đúng.</p>
-    </statement>
-  </definition>
-  <definition xml:id="def-best-case-complexity">
-    <title>best-case complexity (d.t.) — độ phức tạp trường hợp tốt nhất</title>
-    <idx><h>best-case complexity</h></idx>
-    <idx><h>thời gian tính tốt nhất</h></idx>
-    <idx><h>trường hợp tốt nhất</h></idx>
-    <idx><h>độ phức tạp trường hợp tốt nhất</h></idx>
-    <idx><h>độ phức tạp tốt nhất</h></idx>
-    <statement>
-      <p>Độ phức tạp trường hợp tốt nhất của một thuật toán là số phép toán ít nhất mà thuật toán cần thực hiện trên mọi đầu vào có cùng kích thước <m>n</m>. Nếu kích thước đầu vào là <m>n</m> thì độ phức tạp này là hàm theo <m>n</m> cho biết chi phí nhỏ nhất trong tất cả các đầu vào kích thước <m>n</m> (theo <xref ref="bib-rosen-2019" />, Rosen §3.3).</p>
-      <p>Thuật ngữ tiếng Việt tương ứng:</p>
-      <ul>
-        <li><p><term>độ phức tạp trường hợp tốt nhất</term> <em>(thuật ngữ chuẩn; chưa truy được trong kho văn bản)</em> — cách dùng phổ biến.</p></li>
-        <li><p><term>thời gian tính tốt nhất</term> <xref ref="bib-nguyenducnghia-2006" />; <xref ref="bib-vovantuandung-2007" />.</p></li>
-        <li><p><term>trường hợp tốt nhất</term> <xref ref="bib-rosen-2003-vi" /> (tr. 199); <xref ref="bib-doxuanloi-2006" /> (tr. 219); <xref ref="bib-cormen-2001-vi" /> (tr. 26).</p></li>
-        <li><p><term>độ phức tạp tốt nhất</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
-      </ul>
-      <p>Ví dụ: Khi tìm kiếm tuyến tính một phần tử <m>x</m> trong danh sách <m>a_1, a_2, \ldots, a_n</m>, trường hợp tốt nhất xảy ra khi <m>x = a_1</m>, lúc đó thuật toán chỉ cần một phép so sánh, nên độ phức tạp trường hợp tốt nhất là <m>O(1)</m>.</p>
-    </statement>
-  </definition>
-  <definition xml:id="def-bi-implication">
-    <title>bi-implication (d.t.) — mệnh đề tương đương</title>
-    <idx><h>bi-implication</h></idx>
-    <idx><h>mệnh đề tương đương</h></idx>
-    <idx><h>phép kéo theo hai chiều</h></idx>
-    <idx><h>phép tương đương</h></idx>
-    <idx><h>tương đương</h></idx>
-    <statement>
-      <p>Phép tương đương (phép kéo theo hai chiều) của hai mệnh đề <m>p</m> và <m>q</m>, ký hiệu <m>p \leftrightarrow q</m>, là mệnh đề nhận giá trị đúng khi <m>p</m> và <m>q</m> có cùng giá trị chân lý, và nhận giá trị sai trong các trường hợp còn lại. Mệnh đề <m>p \leftrightarrow q</m> được đọc là "<m>p</m> nếu và chỉ nếu <m>q</m>" (theo <xref ref="bib-rosen-2019" />, Rosen §1.1).</p>
-      <p>Thuật ngữ tiếng Việt tương ứng:</p>
-      <ul>
-        <li><p><term>mệnh đề tương đương</term> <xref ref="bib-doducgiao-2009" /> (tr. 329); <xref ref="bib-doducgiao-2008" /> (tr. 78); <xref ref="bib-nguyenhuuanh-2007" />; <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 346) — cách dùng phổ biến.</p></li>
-        <li><p><term>phép kéo theo hai chiều</term> <xref ref="bib-nguyenhuuanh-2007" />.</p></li>
-        <li><p><term>phép tương đương</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 19); <xref ref="bib-vovantuandung-2007" />; <xref ref="bib-vudinhhoa-2010" />.</p></li>
-        <li><p><term>tương đương</term> <xref ref="bib-leanhvinh-2020" /> (tr. 13); <xref ref="bib-nguyenhoangthach-2020" /> (tr. 19); <xref ref="bib-nguyenhuudien-2019" /> (tr. 6); <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 7).</p></li>
-      </ul>
-      <p>Ví dụ: Mệnh đề "Một số nguyên <m>n</m> là chẵn nếu và chỉ nếu <m>n^2</m> là chẵn" có dạng <m>p \leftrightarrow q</m> với <m>p</m> là "<m>n</m> chẵn" và <m>q</m> là "<m>n^2</m> chẵn"; mệnh đề này luôn đúng.</p>
-    </statement>
-  </definition>
-  <definition xml:id="def-binary-operator">
-    <title>binary operator (d.t.) — toán tử hai ngôi</title>
-    <idx><h>binary operator</h></idx>
-    <idx><h>toán tử</h></idx>
-    <idx><h>toán tử hai ngôi</h></idx>
-    <idx><h>toán tử logic</h></idx>
-    <statement>
-      <p>Toán tử hai ngôi là một toán tử logic tác động lên hai toán hạng, tức là kết hợp hai mệnh đề <m>p</m> và <m>q</m> để tạo thành một mệnh đề phức hợp mới. Các toán tử hai ngôi cơ bản trong logic mệnh đề gồm hội (ký hiệu <m>\wedge</m>), tuyển (ký hiệu <m>\vee</m>), tuyển loại trừ (ký hiệu <m>\oplus</m>), kéo theo (ký hiệu <m>\rightarrow</m>) và tương đương (ký hiệu <m>\leftrightarrow</m>) (theo <xref ref="bib-rosen-2019" />, Rosen §1.1).</p>
-      <p>Thuật ngữ tiếng Việt tương ứng:</p>
-      <ul>
-        <li><p><term>toán tử hai ngôi</term> <xref ref="bib-rosen-2003-vi" /> (tr. 658) — cách dùng phổ biến.</p></li>
-        <li><p><term>toán tử</term> <xref ref="bib-leanhvinh-2020" /> (tr. 81); <xref ref="bib-nguyenhuudien-2019" /> (tr. 13); <xref ref="bib-sierpinski-2012" />; <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 6).</p></li>
-        <li><p><term>toán tử logic</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 19); <xref ref="bib-vovantuandung-2007" />; <xref ref="bib-vudinhhoa-2010" />.</p></li>
-      </ul>
-      <p>Ví dụ: Toán tử hội <m>\wedge</m> là một toán tử hai ngôi: từ hai mệnh đề <m>p</m> và <m>q</m> nó tạo ra mệnh đề <m>p \wedge q</m>, đúng khi và chỉ khi cả <m>p</m> và <m>q</m> đều đúng. Trái lại, phủ định <m>\neg</m> chỉ tác động lên một mệnh đề nên là toán tử một ngôi.</p>
-    </statement>
-  </definition>
-  <definition xml:id="def-binary-numeral-system">
-    <title>binary numeral system (d.t.) — hệ nhị phân</title>
-    <idx><h>binary numeral system</h></idx>
-    <idx><h>biểu diễn cơ số 2</h></idx>
-    <idx><h>biểu diễn nhị phân</h></idx>
-    <idx><h>hệ cơ số $2$ (nhị phân</h></idx>
-    <idx><h>hệ nhị phân</h></idx>
-    <idx><h>hệ đếm nhị phân</h></idx>
-    <idx><h>khai triển nhị phân</h></idx>
-    <statement>
-      <p>Hệ nhị phân (hệ cơ số <m>2</m>) là hệ đếm dùng cơ số <m>b = 2</m> với hai chữ số <m>0</m> và <m>1</m>. Mỗi số nguyên không âm <m>n</m> có duy nhất một khai triển nhị phân <m>n = a_{k-1} 2^{k-1} + \dots + a_1 2^1 + a_0 2^0</m>, trong đó mỗi chữ số <m>a_i \in \{0, 1\}</m>, ký hiệu <m>(a_{k-1} \dots a_1 a_0)_2</m> (theo <xref ref="bib-rosen-2019" />, Rosen §4.2).</p>
-      <p>Thuật ngữ tiếng Việt tương ứng:</p>
-      <ul>
-        <li><p><term>hệ nhị phân</term> <xref ref="bib-doxuanloi-2006" /> (tr. 83); <xref ref="bib-nguyenhuyran-2000" />; <xref ref="bib-cormen-2001-vi" /> (tr. 103); <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 413) — cách dùng phổ biến.</p></li>
-        <li><p><term>biểu diễn cơ số 2</term> <xref ref="bib-rosen-2003-vi" /> (tr. 130); <xref ref="bib-doxuanloi-2006" /> (tr. 84); <xref ref="bib-sierpinski-2012" /> (tr. 180).</p></li>
-        <li><p><term>biểu diễn nhị phân</term> <xref ref="bib-hoangchithanh-2007" /> (tr. 27); <xref ref="bib-hoangchithanh-2011" />; <xref ref="bib-nguyenhuudien-2019" /> (tr. 96); <xref ref="bib-cungkimtien-2004" />.</p></li>
-        <li><p><term>hệ cơ số $2$ (nhị phân</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
-        <li><p><term>hệ đếm nhị phân</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
-        <li><p><term>khai triển nhị phân</term> <xref ref="bib-rosen-2003-vi" /> (tr. 130); <xref ref="bib-nguyenhuudien-2019" /> (tr. 144); <xref ref="bib-nguyenhuyran-2000" />.</p></li>
-      </ul>
-      <p>Ví dụ: Số <m>19</m> có khai triển nhị phân là <m>(10011)_2</m>, vì <m>19 = 1 \cdot 2^4 + 0 \cdot 2^3 + 0 \cdot 2^2 + 1 \cdot 2^1 + 1 \cdot 2^0</m>.</p>
-    </statement>
-  </definition>
-  <definition xml:id="def-boolean-expression">
-    <title>Boolean expression (d.t.) — biểu thức Boole</title>
-    <idx><h>Boolean expression</h></idx>
-    <idx><h>biểu thức Boole</h></idx>
-    <idx><h>biểu thức Boolean</h></idx>
-    <statement>
-      <p>Biểu thức Boole theo các biến <m>x_1, x_2, \ldots, x_n</m> được định nghĩa đệ quy như sau: <m>0</m>, <m>1</m>, <m>x_1</m>, <m>x_2</m>, <m>\ldots</m>, <m>x_n</m> là các biểu thức Boole; và nếu <m>E_1</m> và <m>E_2</m> là các biểu thức Boole thì <m>\overline{E_1}</m>, <m>(E_1 E_2)</m> và <m>(E_1 + E_2)</m> cũng là các biểu thức Boole. Mỗi biểu thức Boole theo <m>n</m> biến biểu diễn một hàm Boole <m>F : B^n \to B</m>, trong đó <m>B = \{0, 1\}</m> (theo <xref ref="bib-rosen-2019" />, Rosen §12.1).</p>
-      <p>Thuật ngữ tiếng Việt tương ứng:</p>
-      <ul>
-        <li><p><term>biểu thức Boole</term> <xref ref="bib-doducgiao-2000" /> (tr. 429); <xref ref="bib-vovantuandung-2007" />; <xref ref="bib-vudinhhoa-2010" /> — cách dùng phổ biến.</p></li>
-        <li><p><term>biểu thức Boolean</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
-      </ul>
-      <p>Ví dụ: Biểu thức <m>x_1 \overline{x_2} + x_3</m> là một biểu thức Boole theo ba biến <m>x_1</m>, <m>x_2</m>, <m>x_3</m>; nó biểu diễn hàm Boole nhận giá trị <m>1</m> khi <m>x_1 = 1</m> và <m>x_2 = 0</m>, hoặc khi <m>x_3 = 1</m>.</p>
-    </statement>
-  </definition>
-  <definition xml:id="def-boolean-product">
-    <title>Boolean product (d.t.) — tích Boole</title>
-    <idx><h>Boolean product</h></idx>
-    <idx><h>tích Boole</h></idx>
-    <idx><h>tích Boolean</h></idx>
-    <statement>
-      <p>Tích Boole của hai ma trận không-một <m>A = [a_{ij}]</m> cỡ <m>m \times k</m> và <m>B = [b_{ij}]</m> cỡ <m>k \times n</m>, ký hiệu là <m>A \odot B</m>, là ma trận không-một <m>C = [c_{ij}]</m> cỡ <m>m \times n</m> với phần tử <m>c_{ij} = (a_{i1} \wedge b_{1j}) \vee (a_{i2} \wedge b_{2j}) \vee \cdots \vee (a_{ik} \wedge b_{kj})</m>, trong đó <m>\vee</m> là tổng Boole và <m>\wedge</m> là tích Boole trên tập <m>\{0, 1\}</m>. Phép tính này tương tự nhân ma trận thông thường nhưng thay phép cộng bằng <m>\vee</m> và phép nhân bằng <m>\wedge</m> (theo <xref ref="bib-rosen-2019" />, Rosen §2.6).</p>
-      <p>Thuật ngữ tiếng Việt tương ứng:</p>
-      <ul>
-        <li><p><term>tích Boole</term> <xref ref="bib-doducgiao-2000" /> (tr. 41); <xref ref="bib-doducgiao-2008" /> (tr. 31); <xref ref="bib-vudinhhoa-2010" /> — cách dùng phổ biến.</p></li>
-        <li><p><term>tích Boolean</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
-      </ul>
-      <p>Ví dụ: Với <m>A = \begin{bmatrix} 1  \amp  0 \\ 0  \amp  1 \\ 1  \amp  0 \end{bmatrix}</m> và <m>B = \begin{bmatrix} 1  \amp  1  \amp  0 \\ 0  \amp  1  \amp  1 \end{bmatrix}</m>, tích Boole là <m>A \odot B = \begin{bmatrix} 1  \amp  1  \amp  0 \\ 0  \amp  1  \amp  1 \\ 1  \amp  1  \amp  0 \end{bmatrix}</m>.</p>
-    </statement>
-  </definition>
-  <definition xml:id="def-boolean-sum">
-    <title>Boolean sum (d.t.) — tổng Boole</title>
-    <idx><h>Boolean sum</h></idx>
-    <idx><h>tổng Boole</h></idx>
-    <idx><h>tổng Boolean</h></idx>
-    <statement>
-      <p>Tổng Boole của hai phần tử <m>x</m> và <m>y</m> trong đại số Boole <m>\{0,1\}</m>, ký hiệu <m>x + y</m> (hoặc OR), nhận giá trị <m>1</m> nếu ít nhất một trong hai phần tử bằng <m>1</m> và nhận giá trị <m>0</m> trong trường hợp ngược lại. Như vậy <m>1+1=1</m>, <m>1+0=1</m>, <m>0+1=1</m> và <m>0+0=0</m> (theo <xref ref="bib-rosen-2019" />, Rosen §12.1).</p>
-      <p>Thuật ngữ tiếng Việt tương ứng:</p>
-      <ul>
-        <li><p><term>tổng Boole</term> <xref ref="bib-rosen-2003-vi" /> (tr. 712); <xref ref="bib-vovantuandung-2007" />; <xref ref="bib-vudinhhoa-2010" /> — cách dùng phổ biến.</p></li>
-        <li><p><term>tổng Boolean</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
-      </ul>
-      <p>Ví dụ: Tổng Boole <m>F+G</m> của hai hàm Boole bậc <m>n</m> được định nghĩa theo từng điểm bởi <m>(F+G)(x_1,\dots,x_n)=F(x_1,\dots,x_n)+G(x_1,\dots,x_n)</m>.</p>
-    </statement>
-  </definition>
-  <definition xml:id="def-boolean-variable">
-    <title>Boolean variable (d.t.) — biến logic</title>
-    <idx><h>Boolean variable</h></idx>
-    <idx><h>biến Boole</h></idx>
-    <idx><h>biến Boolean</h></idx>
-    <idx><h>biến logic</h></idx>
-    <statement>
-      <p>Biến Boole là một biến <m>x</m> chỉ nhận giá trị trong tập <m>B = \{0, 1\}</m> (ký hiệu <m>1</m> cho giá trị đúng và <m>0</m> cho giá trị sai). Các biến Boole kết hợp với các phép toán Boole tạo thành biểu thức Boole (theo <xref ref="bib-rosen-2019" />, Rosen §12.1).</p>
-      <p>Thuật ngữ tiếng Việt tương ứng:</p>
-      <ul>
-        <li><p><term>biến logic</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 14); <xref ref="bib-nguyenhuuanh-2007" />; <xref ref="bib-vudinhhoa-2010" /> — cách dùng phổ biến.</p></li>
-        <li><p><term>biến Boole</term> <xref ref="bib-doducgiao-2000" /> (tr. 429); <xref ref="bib-vovantuandung-2007" />; <xref ref="bib-vudinhhoa-2010" />.</p></li>
-        <li><p><term>biến Boolean</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
-      </ul>
-      <p>Ví dụ: Với <m>B = \{0, 1\}</m>, nếu <m>x</m> là một biến Boole thì <m>x</m> chỉ có thể bằng <m>0</m> hoặc <m>1</m>; chẳng hạn biểu thức <m>x \cdot y + \bar{x}</m> là một hàm theo hai biến Boole <m>x</m> và <m>y</m>.</p>
-    </statement>
-  </definition>
-  <definition xml:id="def-bound-variable">
-    <title>bound variable (d.t.) — biến ràng buộc</title>
-    <idx><h>bound variable</h></idx>
-    <idx><h>biến buộc</h></idx>
-    <idx><h>biến bị ràng buộc</h></idx>
-    <idx><h>biến ràng buộc</h></idx>
-    <statement>
-      <p>Biến ràng buộc là một biến trong hàm mệnh đề được gắn (ràng buộc) bởi một lượng từ hoặc được gán một giá trị cụ thể, do đó nằm trong phạm vi tác động của lượng từ đó. Chẳng hạn, trong biểu thức <m>\forall x\, P(x)</m> biến <m>x</m> là biến ràng buộc, trái ngược với biến tự do không bị bất kỳ lượng từ nào ràng buộc (theo <xref ref="bib-rosen-2019" />, Rosen §1.4).</p>
-      <p>Thuật ngữ tiếng Việt tương ứng:</p>
-      <ul>
-        <li><p><term>biến ràng buộc</term> <xref ref="bib-doducgiao-2000" /> (tr. 403); <xref ref="bib-doducgiao-2008" /> (tr. 104); <xref ref="bib-vudinhhoa-2010" /> — cách dùng phổ biến.</p></li>
-        <li><p><term>biến buộc</term> <xref ref="bib-doantamhoe-2009" />; <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 440).</p></li>
-        <li><p><term>biến bị ràng buộc</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 50); <xref ref="bib-rosen-2003-vi" /> (tr. 39).</p></li>
-      </ul>
-      <p>Ví dụ: Trong biểu thức <m>\forall x\, (P(x) \wedge Q(x, y))</m> biến <m>x</m> là biến ràng buộc vì nó bị lượng từ <m>\forall</m> ràng buộc, còn biến <m>y</m> là biến tự do.</p>
-    </statement>
-  </definition>
-  <definition xml:id="def-balanced-tree">
-    <title>balanced tree (d.t.) — cây cân bằng</title>
-    <idx><h>balanced tree</h></idx>
-    <idx><h>cây cân bằng</h></idx>
-    <statement>
-      <p>Một cây có chiều cao <m>h</m> được gọi là cân bằng nếu mọi lá của nó đều nằm ở mức <m>h</m> hoặc mức <m>h - 1</m>, trong đó <m>h</m> là chiều cao của cây (theo <xref ref="bib-rosen-2019" />, Rosen §11.1).</p>
-      <p>Thuật ngữ tiếng Việt tương ứng:</p>
-      <ul>
-        <li><p><term>cây cân bằng</term> <em>(thuật ngữ chuẩn; chưa truy được trong kho văn bản)</em> — cách dùng phổ biến.</p></li>
-      </ul>
-      <p>Ví dụ: Một cây nhị phân đầy đủ với mọi lá nằm ở mức <m>h</m> là cân bằng; nếu một số lá nằm ở mức <m>h</m> và các lá còn lại nằm ở mức <m>h - 1</m> thì cây vẫn cân bằng, nhưng nếu có một lá nằm ở mức <m>h - 2</m> thì cây không cân bằng.</p>
-      <p>Xem thêm <xref ref="def-height-of-a-tree" text="title" />, <xref ref="def-m-ary-tree" text="title" />, <xref ref="def-full-binary-tree" text="title" />, <xref ref="def-level-of-a-tree" text="title" />.</p>
-    </statement>
-  </definition>
-  <definition xml:id="def-bernoulli-trial">
-    <title>Bernoulli trial (d.t.) — phép thử Bernoulli</title>
-    <idx><h>Bernoulli trial</h></idx>
-    <idx><h>phép thử Bernoulli</h></idx>
-    <statement>
-      <p>Phép thử Bernoulli là một phép thử chỉ có hai kết cục có thể xảy ra. Hai kết cục này thường được gọi là "thành công" và "thất bại" (theo <xref ref="bib-rosen-2019" />, Rosen §7.2).</p>
-      <p>Thuật ngữ tiếng Việt tương ứng:</p>
-      <ul>
-        <li><p><term>phép thử Bernoulli</term> <xref ref="bib-doducthai-2010" /> (tr. 308) — cách dùng phổ biến.</p></li>
-      </ul>
-      <p>Ví dụ: Tung một đồng xu một lần là một phép thử Bernoulli với hai kết cục "mặt ngửa" và "mặt sấp"; nếu xác suất thành công là <m>p</m> thì xác suất thất bại là <m>q = 1 - p</m>.</p>
-    </statement>
-  </definition>
-  <definition xml:id="def-binary-representation">
-    <title>binary representation (d.t.) — biểu diễn nhị phân</title>
-    <idx><h>binary representation</h></idx>
-    <idx><h>biểu diễn nhị phân</h></idx>
-    <statement><p>Xem <xref ref="def-binary-numeral-system" text="title" />.</p></statement>
-  </definition>
-  <definition xml:id="def-binary-search-algorithm">
-    <title>binary search algorithm (d.t.) — thuật toán tìm kiếm nhị phân</title>
-    <idx><h>binary search algorithm</h></idx>
-    <idx><h>thuật toán tìm kiếm nhị phân</h></idx>
-    <idx><h>tìm kiếm nhị phân</h></idx>
-    <statement>
-      <p>Thuật toán tìm kiếm nhị phân là một thủ tục để tìm kiếm một phần tử trong một bảng kê đã được sắp thứ tự bằng cách liên tiếp chia đôi khoảng tìm kiếm. Tại mỗi bước, thuật toán so sánh phần tử cần tìm với phần tử ở giữa khoảng còn lại để loại bỏ một nửa số phần tử, cho tới khi khoảng tìm kiếm chỉ còn một phần tử (theo <xref ref="bib-rosen-2019" />, Rosen §3.1).</p>
-      <p>Thuật ngữ tiếng Việt tương ứng:</p>
-      <ul>
-        <li><p><term>thuật toán tìm kiếm nhị phân</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 134); <xref ref="bib-doducgiao-2008" /> (tr. 17); <xref ref="bib-vovantuandung-2007" /> — cách dùng phổ biến.</p></li>
-        <li><p><term>tìm kiếm nhị phân</term> <xref ref="bib-doducgiao-2009" /> (tr. 206); <xref ref="bib-nguyenhuudien-2019" /> (tr. 100); <xref ref="bib-doducgiao-2008" /> (tr. 7).</p></li>
-      </ul>
-      <p>Ví dụ: Để tìm <m>x = 19</m> trong bảng kê đã sắp thứ tự <m>1, 3, 5, 7, 9, 11, 13, 15, 17, 19</m> gồm <m>10</m> phần tử, ta so sánh <m>x</m> với phần tử giữa rồi loại bỏ nửa bảng kê không chứa <m>x</m> ở mỗi bước; sau khoảng <m>\log_2 n</m> bước, khoảng tìm kiếm thu về một phần tử và ta xác định được vị trí của <m>19</m>.</p>
-      <p>Xem thêm <xref ref="def-algorithm" text="title" />, <xref ref="def-binary-search-tree" text="title" />, <xref ref="def-divide-and-conquer" text="title" />.</p>
-    </statement>
-  </definition>
-  <definition xml:id="def-bit-operation">
-    <title>bit operation (d.t.) — phép toán bit</title>
-    <idx><h>bit operation</h></idx>
-    <idx><h>phép toán bit</h></idx>
-    <idx><h>phép toán thao tác bit</h></idx>
-    <idx><h>phép toán với bit</h></idx>
-    <statement>
-      <p>Phép toán bit là một phép toán thực hiện trên một bit hoặc trên nhiều bit. Các phép toán bit trong máy tính tương ứng với các liên từ logic: thay các giá trị chân lý đúng và sai bằng các bit <m>1</m> và <m>0</m>, ta nhận được các phép toán bit tương ứng với các toán tử <m>\wedge</m>, <m>\vee</m> và <m>\oplus</m> (theo <xref ref="bib-rosen-2019" />, Rosen §1.1).</p>
-      <p>Thuật ngữ tiếng Việt tương ứng:</p>
-      <ul>
-        <li><p><term>phép toán bit</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 144); <xref ref="bib-doducgiao-2008" /> (tr. 31); <xref ref="bib-vudinhhoa-2010" /> — cách dùng phổ biến.</p></li>
-        <li><p><term>phép toán thao tác bit</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
-        <li><p><term>phép toán với bit</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
-      </ul>
-      <p>Ví dụ: Các phép toán bit OR, AND và XOR, ký hiệu lần lượt là <m>\vee</m>, <m>\wedge</m> và <m>\oplus</m>, được định nghĩa trên từng cặp bit theo bảng giá trị của các liên từ logic tương ứng. Chẳng hạn, <m>1 \vee 0 = 1</m>, <m>1 \wedge 0 = 0</m> và <m>1 \oplus 0 = 1</m>. Các phép toán này được mở rộng cho các xâu bit cùng chiều dài bằng cách thực hiện trên từng vị trí: <m>01101 \oplus 11001 = 10100</m>.</p>
-      <p>Xem thêm <xref ref="def-bit" text="title" />, <xref ref="def-xor-bit-operation" text="title" />, <xref ref="def-boolean-variable" text="title" />, <xref ref="def-logical-operator" text="title" />.</p>
-    </statement>
-  </definition>
-  <definition xml:id="def-bit-string">
-    <title>bit string (d.t.) — xâu bit</title>
-    <idx><h>bit string</h></idx>
-    <idx><h>chuỗi bit</h></idx>
-    <idx><h>chuỗi nhị phân</h></idx>
-    <idx><h>dãy bit</h></idx>
-    <idx><h>xâu bit</h></idx>
-    <idx><h>xâu nhị phân</h></idx>
-    <statement>
-      <p>Một xâu bit là một dãy các bit, tức là một dãy hữu hạn các chữ số <m>0</m> và <m>1</m>. Số bit trong dãy được gọi là chiều dài (độ dài) của xâu bit (theo <xref ref="bib-rosen-2019" />, Rosen §1.1).</p>
-      <p>Thuật ngữ tiếng Việt tương ứng:</p>
-      <ul>
-        <li><p><term>xâu bit</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 76); <xref ref="bib-doantamhoe-2009" />; <xref ref="bib-vudinhhoa-2010" /> — cách dùng phổ biến.</p></li>
-        <li><p><term>chuỗi bit</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 81); <xref ref="bib-doantamhoe-2009" />; <xref ref="bib-cormen-2001-vi" /> (tr. 295).</p></li>
-        <li><p><term>chuỗi nhị phân</term> <xref ref="bib-doducgiao-2000" /> (tr. 34); <xref ref="bib-cormen-2001-vi" /> (tr. 124); <xref ref="bib-doducgiao-2008" /> (tr. 25).</p></li>
-        <li><p><term>dãy bit</term> <xref ref="bib-cormen-2001-vi" /> (tr. 715).</p></li>
-        <li><p><term>xâu nhị phân</term> <xref ref="bib-doducgiao-2009" /> (tr. 20); <xref ref="bib-nguyenhuudien-2019" /> (tr. 86); <xref ref="bib-vudinhhoa-2010" />.</p></li>
-      </ul>
-      <p>Ví dụ: Dãy <m>101010011</m> là một xâu bit có chiều dài <m>9</m>. Các phép toán bit như OR, AND và XOR có thể được mở rộng cho hai xâu bit có cùng chiều dài bằng cách thực hiện phép toán trên từng cặp bit tương ứng.</p>
-      <p>Xem thêm <xref ref="def-string" text="title" />, <xref ref="def-binary" text="title" />.</p>
-    </statement>
-  </definition>
-  <definition xml:id="def-bit">
-    <title>bit (d.t.) — bit</title>
-    <idx><h>bit</h></idx>
-    <statement>
-      <p>Một bit là một chữ số nhị phân, nghĩa là nó có giá trị <m>0</m> hoặc <m>1</m>. Bit được dùng để biểu diễn thông tin trong máy tính; chẳng hạn, có thể dùng bit <m>1</m> để biểu diễn giá trị chân lý đúng và bit <m>0</m> để biểu diễn giá trị chân lý sai (theo <xref ref="bib-rosen-2019" />, Rosen §1.1).</p>
-      <p>Thuật ngữ tiếng Việt tương ứng:</p>
-      <ul>
-        <li><p><term>bit</term> <xref ref="bib-rosen-2003-vi" /> (tr. 14); <xref ref="bib-nguyenhuudien-2019" /> (tr. 76) — cách dùng phổ biến.</p></li>
-      </ul>
-      <p>Ví dụ: Một biến Boole nhận một trong hai giá trị đúng hoặc sai, nên có thể được biểu diễn bằng một bit: dùng <m>1</m> cho đúng và <m>0</m> cho sai. Một dãy gồm <m>n</m> bit, gọi là một xâu bit có chiều dài <m>n</m>, có thể biểu diễn một tập con của một tập gồm <m>n</m> phần tử, trong đó bit thứ <m>i</m> bằng <m>1</m> khi và chỉ khi phần tử thứ <m>i</m> thuộc tập con đó.</p>
-      <p>Xem thêm <xref ref="def-boolean-variable" text="title" />, <xref ref="def-binary-representation" text="title" />, <xref ref="def-binary" text="title" />, <xref ref="def-xor-bit-operation" text="title" />.</p>
-    </statement>
-  </definition>
-  <definition xml:id="def-bitwise-operation">
-    <title>bitwise operation (d.t.) — phép toán theo từng bit</title>
-    <idx><h>bitwise operation</h></idx>
-    <idx><h>phép toán theo từng bit</h></idx>
-    <statement><p>Xem <xref ref="def-bit-operation" text="title" />.</p></statement>
-  </definition>
-  <definition xml:id="def-block-cipher">
-    <title>block cipher (d.t.) — mật mã khối</title>
-    <idx><h>block cipher</h></idx>
-    <idx><h>mã hóa khối</h></idx>
-    <idx><h>mã khối</h></idx>
-    <idx><h>mật mã khối</h></idx>
-    <statement>
-      <p>Mật mã khối là một hệ mật mã mã hóa các khối ký tự có độ dài cố định. Thay vì mã hóa từng ký tự một, mỗi khối gồm một số ký tự được mã hóa cùng nhau thành một khối bản mã có độ dài tương ứng (theo <xref ref="bib-rosen-2019" />, Rosen §4.6).</p>
-      <p>Thuật ngữ tiếng Việt tương ứng:</p>
-      <ul>
-        <li><p><term>mật mã khối</term> <em>(thuật ngữ chuẩn; chưa truy được trong kho văn bản)</em> — cách dùng phổ biến.</p></li>
-        <li><p><term>mã hóa khối</term> <xref ref="bib-wikipedia-vi" />.</p></li>
-        <li><p><term>mã khối</term> <xref ref="bib-doxuanloi-2006" /> (tr. 34).</p></li>
-      </ul>
-      <p>Ví dụ: Mật mã chuyển vị theo khối là một ví dụ của mật mã khối: bản rõ được chia thành các khối có cùng độ dài cố định <m>m</m>, và trong mỗi khối các ký tự được hoán vị theo cùng một quy tắc, chẳng hạn theo một hoán vị <m>\sigma</m> của các vị trí <m>\{1, 2, \ldots, m\}</m>.</p>
-      <p>Xem thêm <xref ref="def-private-key-cryptography" text="title" />, <xref ref="def-public-key-cryptography" text="title" />, <xref ref="def-block" text="title" />.</p>
-    </statement>
-  </definition>
-  <definition xml:id="def-binary">
-    <title>binary (t.t.) — nhị phân</title>
-    <idx><h>binary</h></idx>
-    <idx><h>nhị phân</h></idx>
-    <statement>
-      <p>Trong toán rời rạc, <em>nhị phân</em> (binary) chỉ việc dùng hai trạng thái, hai giá trị hoặc cơ số <m>2</m>, và xuất hiện trong nhiều ngữ cảnh khác nhau. Mục này chỉ nêu ý niệm chung; các trường hợp cụ thể được trình bày ở những mục riêng (xem mục Xem thêm).</p>
-      <p>Thuật ngữ tiếng Việt tương ứng:</p>
-      <ul>
-        <li><p><term>nhị phân</term> <xref ref="bib-leanhvinh-2020" /> (tr. 59); <xref ref="bib-nguyenhoangthach-2020" /> (tr. 12); <xref ref="bib-nguyenhuudien-2019" /> (tr. 8); <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 31) — cách dùng phổ biến.</p></li>
-      </ul>
-      <p>Ví dụ: Một vài ví dụ: hệ nhị phân và số nhị phân dùng cơ số <m>2</m>; cây nhị phân, trong đó mỗi đỉnh có tối đa hai con; trong khi đó "binary" ở quan hệ hai ngôi và toán tử hai ngôi lại được dịch là "hai ngôi".</p>
-      <p>Xem thêm <xref ref="def-binary-numeral-system" text="title" />, <xref ref="def-binary-representation" text="title" />, <xref ref="def-binary-tree" text="title" />, <xref ref="def-binary-relation" text="title" />, <xref ref="def-binary-operator" text="title" />.</p>
     </statement>
   </definition>
 </chapter>

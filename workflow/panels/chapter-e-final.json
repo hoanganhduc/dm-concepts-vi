@@ -13,6 +13,129 @@
  "deferred_note": "Applied the panel's clearly-correct fixes. eulerian-graph (HIGH correctness): restated the biconditional so connectedness explicitly governs it, per Rosen Theorem 1 / corpus (ngodactan-2004 p.201): 'Với $$G$$ liên thông và có ít nhất hai đỉnh, $$G$$ có chu trình Euler khi và chỉ khi mọi đỉnh đều có bậc chẵn.' edge-coloring (MED correctness): removed the false claim that $$C_4$$ edges are pairwise adjacent; the example now says consecutive edges along the cycle are adjacent, keeping $$\\chi'(C_4)=2$$. edge-connectivity (MED correctness): stated the $$|V(G)| \\geq 2$$ boundary assumption under which the minimum-edge-cut form and the 'largest $$k$$ that is $$k$$-liên thông cạnh' form coincide. expected-value (HIGH terminology): dropped the three verified=false empty-citation placeholders ('kỳ vọng', 'giá trị kỳ vọng', 'giá trị trung bình'); their orthographic note and 0-hit rejection are folded into notes. expected-value (MED terminology): promoted the full headword-fidelity phrase 'giá trị kì vọng' (bib-leanhvinh-2020 p.193) to recommended=true and demoted bare 'kì vọng' (p.191) to recommended=false, reordering newest/full-phrase first. Emphasis standardized to \\emph{...} on the recommended head term in every definition_vi: converted Markdown '*...*' (edge-coloring, euler-path) and kept \\emph{...} (equivalence-class), and applied \\emph{...} to the recommended head term in the remaining entries for chapter-wide uniformity. endpoint: reduced the notation field from a full sentence to bare tokens 'e = uv = \\{u,v\\};\\ (u,v)' and removed the in-definition synonym gloss '(cung)'. equivalence-relation: removed the in-definition synonym gloss '(bắc cầu)', keeping 'truyền' and recording 'bắc cầu' in notes. expected-value: removed the in-definition synonym gloss '(hay trung bình)'. euler-circuit: deleted the redundant second sentence that merely restated edge coverage. even-integer: removed the redundant trailing parenthetical '(ký hiệu $$n = 2k$$)'. edge: tightened the informal 'một liên kết nối' to standard graph-theory wording. Citation discipline: every verified=true vi_term keeps source_id+pdf_page+page+snippet; no verified=false empty-page term is retained anywhere in chapter E (each entry already has a verified=true recommended term). Cross-chapter see_also forward references (vertex, directed-graph, undirected-graph, directed-edge, loop, multigraph, graph-coloring, chromatic-number, edge-chromatic-number, complete-graph, bipartite-graph, complement-of-a-graph, adjacency-matrix, reflexive-relation, symmetric-relation, transitive-relation, binary-relation, partition-of-a-set, odd-integer, divides, parity, set, subset, cardinality, empty-set, generating-function, hamilton-circuit, hamilton-path, path, circuit, cut-edge, k-connected-graph, vertex-connectivity) are kept to be created in their own letter chapters.",
  "final_entries": [
   {
+   "id": "eccentricity",
+   "letter": "E",
+   "headword_en": "eccentricity",
+   "notation": "e(v)",
+   "rosen_ref": "Rosen §10.4",
+   "definition_vi": "Độ lệch tâm của một đỉnh $$v$$ trong đồ thị liên thông $$G$$, ký hiệu $$e(v)$$, là khoảng cách lớn nhất từ $$v$$ tới mọi đỉnh khác của $$G$$, tức là $$e(v) = \\max_{u \\in V(G)} d(u,v)$$, trong đó $$d(u,v)$$ là độ dài đường đi ngắn nhất giữa $$u$$ và $$v$$.",
+   "example_vi": "Trong đường đi $$P_4$$ với các đỉnh $$v_1, v_2, v_3, v_4$$, ta có $$e(v_1) = 3$$ và $$e(v_2) = 2$$; đỉnh có độ lệch tâm nhỏ nhất là đỉnh trung tâm.",
+   "vi_terms": [
+    {
+     "term": "độ lệch tâm",
+     "source_id": "bib-leanhvinh-2020",
+     "pdf_page": 43,
+     "page": "tr. 44",
+     "snippet": "Định nghĩa 2.8. Cho đồ thị G va đính v € V(G). Độ lệch tam của",
+     "verified": true,
+     "recommended": true
+    },
+    {
+     "term": "tâm sai",
+     "source_id": "bib-ngodactan-2004",
+     "pdf_page": 216,
+     "page": "tr. 216",
+     "snippet": "Tâm sai e(v) của V 6 V là giá tri maxd(u,v).",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "độ lệch tâm",
+     "source_id": "bib-doantamhoe-2009",
+     "page": "",
+     "pdf_page": 122,
+     "snippet": "2. Với cây tự do T, độ lệch tâm của đỉnh x, ký hiệu là E(x), là",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "tâm sai",
+     "source_id": "bib-doducgiao-2009",
+     "page": "tr. 230",
+     "pdf_page": 231,
+     "snippet": "Tâm sai của một đỉnh trong cây khóng gốc là độ dài của đường đi đơn",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "độ lệch",
+     "source_id": "bib-hoangchithanh-2011",
+     "page": "",
+     "pdf_page": 10,
+     "snippet": "độ lệch",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "độ lệch",
+     "source_id": "bib-leanhvinh-2020",
+     "page": "tr. 44",
+     "pdf_page": 43,
+     "snippet": "Định nghĩa 2.8. Cho đồ thị G va đính v € V(G). Độ lệch tam của",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "tâm sai",
+     "source_id": "bib-doducgiao-2008",
+     "page": "tr. 285",
+     "pdf_page": 286,
+     "snippet": "13. Tâm sai của một đỉnh trong cây không gốc là độ dài của đường đi don",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "độ lệch",
+     "source_id": "bib-doducthai-2010",
+     "page": "tr. 5",
+     "pdf_page": 5,
+     "snippet": "Phương sai, độ lệch chuẩn, và các moment . . . . 108",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "tâm sai",
+     "source_id": "bib-cungkimtien-2004",
+     "page": "",
+     "pdf_page": 124,
+     "snippet": "vong tam sai cua elip",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "tâm sai",
+     "source_id": "bib-phan-1976",
+     "page": "tr. 14",
+     "pdf_page": 14,
+     "snippet": "excentric a. of an ellipse góc tâm sai của elip",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "độ lệch",
+     "source_id": "bib-cungkimtien-2004",
+     "page": "",
+     "pdf_page": 8,
+     "snippet": "accumulated deviation độ lệch",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "độ lệch",
+     "source_id": "bib-phan-1976",
+     "page": "tr. 19",
+     "pdf_page": 19,
+     "snippet": "tail a. đuôi phân phối, xác suất các độ lệch lớn",
+     "verified": true,
+     "recommended": false
+    }
+   ],
+   "see_also": [],
+   "notes": "Đỉnh có $$e(v)$$ nhỏ nhất là tâm; giá trị nhỏ nhất là bán kính, lớn nhất là đường kính. Sách dùng các biến thể \"tâm sai\" (Ngô Đắc Tân) và \"độ lệch\" (Hoàng Chí Thành).",
+   "status": "draft",
+   "pos": "d.t."
+  },
+  {
    "id": "edge",
    "letter": "E",
    "headword_en": "edge",
@@ -164,6 +287,39 @@
      "recommended": false
     }
    ],
+   "pos": "d.t."
+  },
+  {
+   "id": "edge-chromatic-number",
+   "letter": "E",
+   "headword_en": "edge chromatic number",
+   "notation": "\\chi'(G)",
+   "rosen_ref": "Rosen §10.8",
+   "definition_vi": "Sắc số cạnh của một đồ thị $$G$$, ký hiệu $$\\chi'(G)$$, là số màu nhỏ nhất cần dùng để tô màu các cạnh của $$G$$ sao cho hai cạnh kề nhau bất kỳ được tô hai màu khác nhau.",
+   "example_vi": "Với đồ thị đầy đủ $$K_4$$ ta có $$\\chi'(K_4) = 3$$; tổng quát, với chu trình $$C_n$$ thì $$\\chi'(C_n) = 2$$ khi $$n$$ chẵn và $$\\chi'(C_n) = 3$$ khi $$n$$ lẻ.",
+   "vi_terms": [
+    {
+     "term": "sắc số cạnh",
+     "source_id": "bib-leanhvinh-2020",
+     "pdf_page": 107,
+     "page": "tr. 108",
+     "snippet": "Sắc số cạnh của một đồ thị Ơ, kí hiệu bởi x'(Ơ), là số màu È nhỏ nhất",
+     "verified": true,
+     "recommended": true
+    },
+    {
+     "term": "sắc số cạnh",
+     "source_id": "bib-ngodactan-2004",
+     "pdf_page": 292,
+     "page": "tr. 292",
+     "snippet": "gọi là sắc số cạnh của G và được ký hiệu là x'(G).",
+     "verified": true,
+     "recommended": false
+    }
+   ],
+   "see_also": [],
+   "notes": "Theo định lý Vizing, mọi đồ thị đơn $$G$$ đều có $$\\Delta(G) \\leq \\chi'(G) \\leq \\Delta(G) + 1$$.",
+   "status": "draft",
    "pos": "d.t."
   },
   {
@@ -329,6 +485,52 @@
    "pos": "d.t."
   },
   {
+   "id": "edge-cover",
+   "letter": "E",
+   "headword_en": "edge cover",
+   "notation": "",
+   "rosen_ref": "",
+   "definition_vi": "\\emph{Phủ cạnh} của một đồ thị $$G$$ không có đỉnh cô lập là một tập cạnh $$C \\subseteq E(G)$$ sao cho mỗi đỉnh của $$G$$ là đầu mút của ít nhất một cạnh thuộc $$C$$. Phủ cạnh có số cạnh nhỏ nhất được gọi là phủ cạnh nhỏ nhất.",
+   "example_vi": "Trong đường đi $$P_3$$ với các đỉnh $$v_1, v_2, v_3$$, tập $$\\{v_1 v_2, v_2 v_3\\}$$ là một phủ cạnh; trong tam giác $$K_3$$, hai cạnh bất kỳ tạo thành một phủ cạnh.",
+   "vi_terms": [
+    {
+     "term": "tập phủ cạnh",
+     "source_id": "bib-leanhvinh-2020",
+     "page": "tr. 81",
+     "pdf_page": 80,
+     "snippet": "Tap phủ cạnh là một tập C C E(G) sao cho mỗi đính của G là đ",
+     "verified": true,
+     "recommended": true
+    }
+   ],
+   "see_also": [
+    "vertex-cover",
+    "cover"
+   ],
+   "notes": "",
+   "status": "panel-approved",
+   "pos": "d.t."
+  },
+  {
+   "id": "edge-cut",
+   "letter": "E",
+   "headword_en": "edge cut",
+   "see_ref": "separating-set-of-edges",
+   "vi_terms": [
+    {
+     "term": "lát cắt cạnh",
+     "verified": false,
+     "recommended": false,
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": ""
+    }
+   ],
+   "status": "draft",
+   "pos": "d.t."
+  },
+  {
    "id": "eigenvalue",
    "letter": "E",
    "headword_en": "eigenvalue",
@@ -396,6 +598,143 @@
      "recommended": false
     }
    ],
+   "pos": "d.t."
+  },
+  {
+   "id": "element",
+   "letter": "E",
+   "headword_en": "element",
+   "notation": "a \\in A",
+   "rosen_ref": "Rosen §2.1",
+   "definition_vi": "\\emph{Phần tử} của một tập hợp $$A$$ là một đối tượng thuộc về $$A$$; ký hiệu $$a \\in A$$ để chỉ rằng $$a$$ là một phần tử của $$A$$, và $$a \\notin A$$ để chỉ rằng $$a$$ không là phần tử của $$A$$.",
+   "example_vi": "Với tập hợp $$A = \\{1, 2, 3\\}$$, ta có $$2 \\in A$$ và $$4 \\notin A$$.",
+   "notes": "Standard term across the entire corpus is \"phần tử\" (universal; attested in all six sources, newest first: leanhvinh-2020 p.49 \"các phần tử thuộc [n]\", nguyenhoangthach-2020 p.16 \"tập hợp S gồm n phần tử\", nguyenhuudien-2019, hoangchithanh-2007, nguyenducnghia-2006, ngodactan-2004). The membership relation $$a \\in A$$ (\"a là phần tử của A\") is defined explicitly in nguyenhuudien-2019 p.72 (\"đối tượng là một phần tử của tập hợp ... ta nói\") and nguyenducnghia-2006 p.12 (\"Để chỉ x là phần tử của X, ta viết x ∈ X\"). Variant \"phần tử của tập hợp\" attested in the 2020 source (nguyenhoangthach-2020 p.19 \"các phần tử của tập hợp đó\") and in nguyenducnghia-2006 p.12; shorter variant \"phần tử của tập\" attested in ngodactan-2004 (p.31) and hoangchithanh-2007 - these are the same head noun \"phần tử\" with a complement, not distinct synonyms. OCR sources leanhvinh-2020 (loose) and hoangchithanh-2007 (p.18 \"Cho một tập hợp X có n phần tử\") both confirm the term. The non-membership symbol $$\\notin$$ is the standard negation of $$\\in$$ and follows directly from the membership relation defined in the sources.",
+   "see_also": [
+    "empty-set",
+    "set",
+    "subset",
+    "cardinality"
+   ],
+   "vi_terms": [
+    {
+     "term": "phần tử",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-nguyenhoangthach-2020",
+     "pdf_page": 16,
+     "page": "tr. 14",
+     "snippet": "tập hợp S gồm n phần tử."
+    },
+    {
+     "term": "phần tử của tập hợp",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhoangthach-2020",
+     "pdf_page": 19,
+     "page": "tr. 17",
+     "snippet": "tự gồm các phần tử của tập hợp đó."
+    },
+    {
+     "term": "phần tử",
+     "source_id": "bib-leanhvinh-2020",
+     "page": "tr. 9",
+     "pdf_page": 8,
+     "snippet": "V gồm các phan tử được gọi là đỉnh của đồ thi va tập cạnh E gồm các",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "phần tử",
+     "source_id": "bib-nguyenhuudien-2019",
+     "page": "tr. 22",
+     "pdf_page": 22,
+     "snippet": "6. Luật về phần tử bù",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "phần tử của tập hợp",
+     "source_id": "bib-nguyenhuudien-2019",
+     "page": "tr. 72",
+     "pdf_page": 72,
+     "snippet": "• Trường hợp 1: đối tượng là một phần tử của tập hợp. Trong trường hợp này ta nói",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "phần tử của tập",
+     "source_id": "bib-hoangchithanh-2011",
+     "page": "",
+     "pdf_page": 68,
+     "snippet": "Tăng dần số phần tử của tập 6n định ngoài và lặp lại phép kiểm tra, dé",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "phần tử của tập",
+     "source_id": "bib-nguyenhoangthach-2020",
+     "page": "tr. 17",
+     "pdf_page": 19,
+     "snippet": "tự gồm các phần tử của tập hợp đó.",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "phần tử của tập",
+     "source_id": "bib-nguyenhuudien-2019",
+     "page": "tr. 72",
+     "pdf_page": 72,
+     "snippet": "• Trường hợp 1: đối tượng là một phần tử của tập hợp. Trong trường hợp này ta nói",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "phần tử của tập hợp",
+     "source_id": "bib-vudinhhoa-2010",
+     "page": "",
+     "pdf_page": 25,
+     "snippet": "Các đối tượng trong cùng một tập hợp được gọi là phần tử của tập hợp đó. Tập",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "phần tử",
+     "source_id": "bib-cungkimtien-2004",
+     "page": "",
+     "pdf_page": 9,
+     "snippet": "acentral element phần tử không",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "phần tử",
+     "source_id": "bib-phan-1976",
+     "page": "tr. 16",
+     "pdf_page": 16,
+     "snippet": "antiacoustic phan tu quang",
+     "verified": true,
+     "recommended": false
+    }
+   ],
+   "pos": "d.t."
+  },
+  {
+   "id": "elementary-subdivision",
+   "letter": "E",
+   "headword_en": "elementary subdivision",
+   "see_ref": "subdivision",
+   "vi_terms": [
+    {
+     "term": "phép phân chia sơ cấp",
+     "verified": false,
+     "recommended": false,
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": ""
+    }
+   ],
+   "status": "draft",
    "pos": "d.t."
   },
   {
@@ -486,6 +825,277 @@
      "recommended": false
     }
    ],
+   "pos": "d.t."
+  },
+  {
+   "id": "empty-set",
+   "letter": "E",
+   "headword_en": "empty set",
+   "notation": "\\emptyset",
+   "rosen_ref": "Rosen §2.1",
+   "definition_vi": "Tập hợp rỗng, ký hiệu $$\\emptyset$$ (hoặc $$\\{\\}$$), là tập hợp không chứa phần tử nào. Tập hợp rỗng là tập con của mọi tập hợp và có số phần tử bằng $$0$$, tức là $$|\\emptyset| = 0$$.",
+   "example_vi": "Tập hợp các số nguyên dương lớn hơn bình phương của chúng là tập hợp rỗng, vì không có số nguyên dương $$n$$ nào thỏa mãn $$n > n^2$$.",
+   "vi_terms": [
+    {
+     "term": "tập hợp rỗng",
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 72,
+     "page": "tr. 72",
+     "snippet": "• Tập hợp rỗng: Tập hợp không có phần tử nào được gọi là tập hợp rỗng, và được ký",
+     "verified": true,
+     "recommended": true
+    },
+    {
+     "term": "tập hợp rỗng",
+     "source_id": "bib-nguyenhoangthach-2020",
+     "pdf_page": 16,
+     "page": "tr. 14",
+     "snippet": "Lời giải: Nếu n = 0, S là tập hợp rỗng và có một tập hợp con duy nhất là",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "tập rỗng",
+     "source_id": "bib-leanhvinh-2020",
+     "pdf_page": 90,
+     "page": "tr. 91",
+     "snippet": "Lưu ý rằng, các tập V; có thể là tập rỗng.",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "tập rỗng",
+     "source_id": "bib-hoangchithanh-2011",
+     "page": "",
+     "pdf_page": 243,
+     "snippet": "Tập rỗng là một cây phân cấp (cây rỗng).",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "tập rỗng",
+     "source_id": "bib-nguyenhuudien-2019",
+     "page": "tr. 252",
+     "pdf_page": 252,
+     "snippet": "Định nghĩa 10.4 — đệ quy. Tập rỗng là một cây phân cấp (cây rỗng).",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "tập hợp rỗng",
+     "source_id": "bib-vudinhhoa-2010",
+     "page": "",
+     "pdf_page": 25,
+     "snippet": "Dac biệt là tap hợp không có phần tử nào được gọi là tập hợp rỗng và ký hiệu",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "tập hợp rỗng",
+     "source_id": "bib-cungkimtien-2004",
+     "page": "",
+     "pdf_page": 130,
+     "snippet": "empty set tập hợp rỗng",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "tập hợp rỗng",
+     "source_id": "bib-phan-1976",
+     "page": "tr. 383",
+     "pdf_page": 383,
+     "snippet": "empty s. tập hợp rỗng",
+     "verified": true,
+     "recommended": false
+    }
+   ],
+   "see_also": [],
+   "notes": "Ký hiệu chuẩn là $$\\emptyset$$ hoặc $$\\{\\}$$. Trong các tài liệu tiếng Việt, khái niệm này xuất hiện dưới hai biến thể: \"tập hợp rỗng\" (theo giáo trình MAT3500) và dạng rút gọn \"tập rỗng\" (dùng trong bản dịch Rosen). Lưu ý $$\\emptyset \\neq \\{\\emptyset\\}$$.",
+   "status": "draft",
+   "pos": "d.t."
+  },
+  {
+   "id": "empty-string",
+   "letter": "E",
+   "headword_en": "empty string",
+   "notation": "\\lambda",
+   "rosen_ref": "Rosen §11.4",
+   "definition_vi": "Xâu rỗng là một xâu có chiều dài bằng không, tức là xâu không chứa số hạng nào. Xâu rỗng thường được ký hiệu là $$\\lambda$$ và có chiều dài $$0$$.",
+   "example_vi": "Xâu rỗng $$\\lambda$$ là xâu duy nhất không có ký tự nào; với mọi xâu $$w$$, ta có $$\\lambda w = w \\lambda = w$$, nên $$\\lambda$$ đóng vai trò phần tử đơn vị đối với phép ghép xâu.",
+   "vi_terms": [
+    {
+     "term": "chuỗi trống",
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": "",
+     "verified": false,
+     "recommended": false
+    },
+    {
+     "term": "xâu rỗng",
+     "source_id": "bib-doducgiao-2009",
+     "page": "tr. 7",
+     "pdf_page": 8,
+     "snippet": "ước xâu rồng là xâu không cố phần tử nào và ký hiệu là A. Độ dài",
+     "verified": true,
+     "recommended": true
+    },
+    {
+     "term": "xâu rỗng",
+     "source_id": "bib-doducgiao-2008",
+     "page": "tr. 8",
+     "pdf_page": 9,
+     "snippet": "2.2. Các A~ quy tắc (a chỉ xâu rỗng)",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "xâu rỗng",
+     "source_id": "bib-vudinhhoa-2010",
+     "page": "",
+     "pdf_page": 23,
+     "snippet": "Ví dụ. Xâu rỗng có đội dài 0, và 01110101 là một xâu nhị phân với chiều dài là 8.",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "chuỗi trống",
+     "source_id": "bib-cormen-2001-vi",
+     "page": "tr. 90",
+     "pdf_page": 88,
+     "snippet": "nhân, nhưng khác với các chuỗi trong trường hợp 1, chuỗi có các số",
+     "verified": true,
+     "recommended": false
+    }
+   ],
+   "see_also": [
+    "string",
+    "alphabet",
+    "word"
+   ],
+   "notes": "Xâu rỗng $$\\lambda$$ là xâu có chiều dài $$0$$, phân biệt với xâu chỉ chứa một ký tự khoảng trắng. Nó là phần tử đơn vị của phép ghép xâu: $$\\lambda w = w \\lambda = w$$ với mọi xâu $$w$$. Một số tài liệu dùng \"chuỗi rỗng\" thay cho \"xâu rỗng\".",
+   "status": "draft",
+   "pos": "d.t."
+  },
+  {
+   "id": "encryption",
+   "letter": "E",
+   "headword_en": "encryption",
+   "notation": "f(p) = (p + k) \\bmod 26",
+   "rosen_ref": "Rosen §4.6",
+   "definition_vi": "Mã hóa là quá trình làm cho một thông điệp trở nên bí mật, tức là biến đổi bản rõ thành dạng mà chỉ người được phép mới đọc hiểu được. Quá trình ngược lại, khôi phục thông điệp gốc từ thông điệp đã mã hóa, được gọi là giải mã.",
+   "example_vi": "Mật mã Caesar mã hóa một thông điệp bằng cách dịch mỗi chữ cái đi $$3$$ vị trí: chữ cái ứng với số $$p$$ với $$0 \\leq p \\leq 25$$ được thay bằng chữ cái ứng với $$f(p) = (p + 3) \\bmod 26$$. Chẳng hạn, dùng phép mã hóa này, từ \"MEET\" trở thành \"PHHW\".",
+   "vi_terms": [
+    {
+     "term": "mã hóa",
+     "source_id": "bib-doantamhoe-2009",
+     "page": "",
+     "pdf_page": 136,
+     "snippet": "bản có thể sẽ ngắn hơn. Nếu mã hoá các ký tự bằng các xâu bit có",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "mã hóa",
+     "source_id": "bib-nguyenhoangthach-2020",
+     "page": "tr. 14",
+     "pdf_page": 16,
+     "snippet": "mã hóa mỗi tập hợp con A của S bằng một từ nhị phân w độ dài n như sau:",
+     "verified": true,
+     "recommended": true
+    },
+    {
+     "term": "mã hóa",
+     "source_id": "bib-vudinhhoa-2010",
+     "page": "",
+     "pdf_page": 150,
+     "snippet": "Mã tiền tố: Là phương pháp mã hóa các chữ cái bang chữ Latin bằng các xau nhị",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "mã hóa",
+     "source_id": "bib-cungkimtien-2004",
+     "page": "",
+     "pdf_page": 30,
+     "snippet": "automatic(al) code sự mã hóa",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "mã hóa",
+     "source_id": "bib-phan-1976",
+     "page": "tr. 55",
+     "pdf_page": 55,
+     "snippet": "coded mã hoá",
+     "verified": true,
+     "recommended": false
+    }
+   ],
+   "see_also": [
+    "character-cipher",
+    "private-key-cryptography",
+    "public-key-cryptography"
+   ],
+   "notes": "Mã hóa (encryption) là quá trình làm cho thông điệp trở nên bí mật; quá trình ngược lại là giải mã (decryption). Bản dịch Rosen (2003) dùng \"mã hóa\" cho quá trình này (tr. 163-164), với ví dụ tiêu biểu là mật mã Caesar. Cần phân biệt \"mã hóa\" (quá trình giữ bí mật thông điệp) với cụm \"mã hóa\" theo nghĩa biểu diễn dữ liệu (chẳng hạn mã hóa tập con bằng xâu nhị phân), vốn không liên quan đến tính bí mật.",
+   "status": "draft",
+   "pos": "d.t."
+  },
+  {
+   "id": "encryption-key",
+   "letter": "E",
+   "headword_en": "encryption key",
+   "notation": "k \\in \\mathcal{K}",
+   "rosen_ref": "Rosen §4.6",
+   "definition_vi": "Khóa mã hóa là một giá trị $$k$$ xác định hàm mã hóa nào trong một họ các hàm mã hóa được sử dụng. Mỗi khóa $$k$$ trong tập khóa $$\\mathcal{K}$$ chọn ra một hàm mã hóa $$E_k$$ tương ứng để biến bản rõ thành bản mã.",
+   "example_vi": "Trong mật mã Caesar, khóa là một số $$k$$ với $$0 \\leq k \\leq 25$$ và xác định hàm mã hóa $$E_k(p) = (p + k) \\bmod 26$$ dùng để dịch mỗi chữ cái đi $$k$$ vị trí. Chẳng hạn, với khóa $$k = 3$$ thì từ \"MEET\" được mã hóa thành \"PHHW\".",
+   "vi_terms": [
+    {
+     "term": "khóa mã hóa",
+     "source_id": "",
+     "pdf_page": 0,
+     "page": "",
+     "snippet": "",
+     "verified": false,
+     "recommended": false
+    },
+    {
+     "term": "khóa",
+     "source_id": "",
+     "pdf_page": 0,
+     "page": "",
+     "snippet": "bằng hàm mã hóa ffp) cho dưới đây, rối sau đó dịch các số đó trở",
+     "verified": false,
+     "recommended": false
+    },
+    {
+     "term": "khóa mật mã hóa",
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": "",
+     "verified": false,
+     "recommended": false
+    },
+    {
+     "term": "khóa mã hóa",
+     "source_id": "bib-cormen-2001-vi",
+     "page": "tr. 927",
+     "pdf_page": 925,
+     "snippet": "một hệ thống như vay, các khóa mã hóa và giải mã là như nhau. Nếu",
+     "verified": true,
+     "recommended": true
+    }
+   ],
+   "see_also": [
+    "cryptosystem",
+    "encryption",
+    "private-key-cryptography",
+    "public-key-cryptography"
+   ],
+   "notes": "Khóa mã hóa (encryption key) là giá trị $$k$$ chọn ra một thành viên cụ thể $$E_k$$ trong họ các hàm mã hóa $$\\mathcal{E}$$ của một hệ thống mật mã (xem cryptosystem, bộ năm $$(\\mathcal{P}, \\mathcal{C}, \\mathcal{K}, \\mathcal{E}, \\mathcal{D})$$). Khái niệm này thuộc Rosen §4.6 và khác với \"key\" (khóa của một quan hệ $$n$$-ngôi / cơ sở dữ liệu, Rosen §9.2). Không có nguồn nào trong sáu nguồn đối chiếu (đều là sách lý thuyết đồ thị và tổ hợp) chứng thực thuật ngữ \"khóa mã hóa\"; bản dịch Rosen (2003) dùng \"khóa\" cho thành phần này nhưng không kèm định từ \"mã hóa\". Vì vậy thuật ngữ khuyến nghị \"khóa mã hóa\" là bản dịch chuẩn, để verified=false với page rỗng. Trong tiếng Việt, từ \"khóa\" đơn lẻ đa nghĩa (khóa của quan hệ, chìa khóa hồ sơ trong hàm băm, khóa học), nên cụm \"khóa mã hóa\" được ưu tiên để tránh nhầm lẫn.",
+   "status": "draft",
    "pos": "d.t."
   },
   {
@@ -723,6 +1333,141 @@
    "pos": "d.t."
   },
   {
+   "id": "enumeration",
+   "letter": "E",
+   "headword_en": "enumeration",
+   "notation": "",
+   "rosen_ref": "Rosen, Discrete Mathematics and Its Applications, ch. on Counting",
+   "definition_vi": "Phép đếm là việc đếm số cách sắp xếp của các đối tượng. Nói cách khác, nó xác định số lượng các cách sắp xếp khác nhau của một tập hợp đối tượng cho trước.",
+   "example_vi": "Số cách sắp xếp $$3$$ đối tượng phân biệt thành một hàng là $$3! = 6$$; việc xác định con số $$6$$ này là một phép đếm.",
+   "vi_terms": [
+    {
+     "term": "phép đếm",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-nguyenhuudien-2019",
+     "page": "tr. 77",
+     "pdf_page": 77,
+     "snippet": "Trong mục này chúng ta sẽ trình bày các qui tắc cơ bản của phép đếm. Chúng sẽ giúp"
+    },
+    {
+     "term": "bài toán đếm",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhoangthach-2020",
+     "page": "tr. 11",
+     "pdf_page": 13,
+     "snippet": "Phần đầu của chương này được dành để giới thiệu về bài toán đếm cùng với"
+    },
+    {
+     "term": "bài toán đếm",
+     "source_id": "bib-nguyenhuudien-2019",
+     "page": "tr. 93",
+     "pdf_page": 93,
+     "snippet": "Trong bài toán đếm, một số phần tử có thể giống nhau. Khi đó cần phải cẩn thận, tránh",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "liệt kê",
+     "source_id": "bib-leanhvinh-2020",
+     "page": "tr. 162",
+     "pdf_page": 161,
+     "snippet": "43< R(5,5) < 48. Bảng 6.1 [83] liệt kê các giá trị và chặn tốt nhất",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "liệt kê",
+     "source_id": "bib-nguyenhoangthach-2020",
+     "page": "tr. 14",
+     "pdf_page": 16,
+     "snippet": "Với n ≥ 1, ta liệt kê các phần tử của S thành một dãy x1 , x2 , · · · , xn . Ta",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "liệt kê",
+     "source_id": "bib-nguyenhuudien-2019",
+     "page": "tr. 16",
+     "pdf_page": 16,
+     "snippet": "đích rộng hơn: liệt kê sự liên hệ chân trị giữa các mệnh với các mệnh đề đơn giản hơn cấu",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "phép đếm",
+     "source_id": "bib-nguyenhuuanh-2007",
+     "page": "",
+     "pdf_page": 4,
+     "snippet": "§3 Phép đếm",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "phép đếm",
+     "source_id": "bib-vudinhhoa-2010",
+     "page": "",
+     "pdf_page": 47,
+     "snippet": "3.1.1 Cơ sở của phép đếm các phan tử của một tập hợp",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "bài toán đếm",
+     "source_id": "bib-vudinhhoa-2010",
+     "page": "",
+     "pdf_page": 46,
+     "snippet": "a) Bài toán đếm",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "phép đếm",
+     "source_id": "bib-cungkimtien-2004",
+     "page": "",
+     "pdf_page": 88,
+     "snippet": "counting operation phép đếm",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "phép đếm",
+     "source_id": "bib-phan-1976",
+     "page": "tr. 311",
+     "pdf_page": 311,
+     "snippet": "counting o. mt. phép đếm",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "liệt kê",
+     "source_id": "bib-cungkimtien-2004",
+     "page": "",
+     "pdf_page": 132,
+     "snippet": "enumerafion sự đếm, sự liệt kê",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "liệt kê",
+     "source_id": "bib-phan-1976",
+     "page": "tr. 148",
+     "pdf_page": 148,
+     "snippet": "enumeration sự đếm, sự liệt kê",
+     "verified": true,
+     "recommended": false
+    }
+   ],
+   "see_also": [
+    "addition-rule",
+    "double-counting-proof"
+   ],
+   "notes": "Phép đếm (enumeration) là việc đếm số cách sắp xếp các đối tượng, gắn với các quy tắc đếm cơ bản (quy tắc cộng, quy tắc nhân). Nguồn Nguyễn Hoàng Thạch (2020) dùng thuật ngữ \"bài toán đếm\" cho lớp bài toán mà đối tượng cần đếm là các cách sắp xếp hoặc cách chọn.",
+   "status": "draft",
+   "pos": "d.t."
+  },
+  {
    "id": "equivalence-class",
    "letter": "E",
    "headword_en": "equivalence class",
@@ -900,6 +1645,108 @@
      "recommended": false
     }
    ],
+   "pos": "d.t."
+  },
+  {
+   "id": "equivalent",
+   "letter": "E",
+   "headword_en": "equivalent",
+   "see_ref": "equivalence-relation",
+   "vi_terms": [
+    {
+     "term": "tương đương",
+     "verified": false,
+     "recommended": false,
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": ""
+    }
+   ],
+   "status": "draft",
+   "pos": "t.t."
+  },
+  {
+   "id": "error-correcting-code",
+   "letter": "E",
+   "headword_en": "error-correcting code",
+   "pos": "d.t.",
+   "notation": "",
+   "ref_bib": "bib-libennowell-2022",
+   "rosen_ref": "",
+   "definition_vi": "Một \\emph{mã sửa lỗi} là một mã cho phép máy thu không chỉ phát hiện mà còn xác định và sửa được các bit sai trong xâu nhận được, thường bằng cách chọn từ mã gần nhất theo khoảng cách Hamming. Một mã sửa được mọi bộ lỗi tối đa $$k$$ bit sai khi và chỉ khi khoảng cách tối thiểu thỏa mãn $$d \\ge 2k+1$$.",
+   "example_vi": "Mã lặp $$C=\\{000, 111\\}$$ có khoảng cách tối thiểu $$3$$ nên sửa được $$1$$ bit sai: nhận $$010$$ thì từ mã gần nhất là $$000$$.",
+   "notes": "",
+   "see_also": [
+    "error-detecting-code",
+    "minimum-distance",
+    "hamming-code"
+   ],
+   "vi_terms": [
+    {
+     "term": "mã sửa lỗi",
+     "recommended": true
+    }
+   ]
+  },
+  {
+   "id": "error-detecting-code",
+   "letter": "E",
+   "headword_en": "error-detecting code",
+   "pos": "d.t.",
+   "notation": "",
+   "ref_bib": "bib-libennowell-2022",
+   "rosen_ref": "",
+   "definition_vi": "Một \\emph{mã phát hiện lỗi} là một mã cho phép máy thu nhận biết xâu nhận được đã bị thay đổi khi truyền, mà không nhất thiết xác định được vị trí lỗi. Một mã phát hiện được mọi bộ lỗi tối đa $$k$$ bit sai khi và chỉ khi khoảng cách tối thiểu của mã thỏa mãn $$d \\ge k+1$$.",
+   "example_vi": "Mã kiểm tra chẵn lẻ thêm một bit chẵn lẻ vào mỗi xâu; mọi lỗi sai một bit đều bị phát hiện vì tính chẵn lẻ thay đổi.",
+   "notes": "",
+   "see_also": [
+    "error-correcting-code",
+    "minimum-distance",
+    "hamming-distance"
+   ],
+   "vi_terms": [
+    {
+     "term": "mã phát hiện lỗi",
+     "recommended": true
+    }
+   ]
+  },
+  {
+   "id": "essential-prime-implicant",
+   "letter": "E",
+   "headword_en": "essential prime implicant",
+   "notation": "",
+   "rosen_ref": "Rosen §12.4",
+   "definition_vi": "Nguyên nhân nguyên tố cốt yếu là một nguyên nhân nguyên tố phủ một tiểu hạng mà không có một nguyên nhân nguyên tố nào khác phủ. Vì mỗi tiểu hạng như vậy chỉ được phủ bởi đúng một nguyên nhân nguyên tố, nên mọi nguyên nhân nguyên tố cốt yếu đều phải có mặt trong dạng khai triển tối thiểu của hàm Boole.",
+   "example_vi": "Trên bìa Karnaugh của một hàm Boole, nếu một ô (ứng với một tiểu hạng) chỉ nằm trong duy nhất một khối phủ ứng với một nguyên nhân nguyên tố, thì nguyên nhân nguyên tố đó là cốt yếu và bắt buộc phải được chọn vào tổng tối thiểu.",
+   "vi_terms": [
+    {
+     "term": "nguyên nhân nguyên tố cốt yếu",
+     "source_id": "bib-nguyenducnghia-2006",
+     "page": "",
+     "pdf_page": 285,
+     "snippet": "Một nguyên nhân nguyên tố được gọi là cốt yếu, nếu thiếu nó thì một hệ các",
+     "verified": true,
+     "recommended": true
+    },
+    {
+     "term": "nguyên nhân nguyên tố cốt yếu",
+     "source_id": "bib-nguyenducnghia-2006",
+     "page": "",
+     "pdf_page": 285,
+     "snippet": "nguyên nhân nguyên tố không thể phủ hàmƒ. Các nguyên nhân nguyên tố cốt yếu được",
+     "verified": true,
+     "recommended": false
+    }
+   ],
+   "see_also": [
+    "minterm",
+    "karnaugh-map",
+    "boolean-function"
+   ],
+   "notes": "Khái niệm \"nguyên nhân nguyên tố\" (prime implicant) và \"nguyên nhân nguyên tố cốt yếu\" (essential prime implicant) được dùng trong bài toán cực tiểu hóa hàm Boole. Một nguyên nhân nguyên tố là cốt yếu khi nó phủ một tiểu hạng mà không nguyên nhân nguyên tố nào khác phủ được; do đó nó luôn xuất hiện trong dạng khai triển tối thiểu. Thuật ngữ \"nguyên nhân\" (implicant) và \"nguyên nhân nguyên tố\" được dùng theo Nguyễn Đức Nghĩa (2006), tr. 274 và tr. 285.",
+   "status": "draft",
    "pos": "d.t."
   },
   {
@@ -1119,609 +1966,6 @@
    "pos": "d.t."
   },
   {
-   "id": "even-integer",
-   "letter": "E",
-   "headword_en": "even integer",
-   "notation": "n = 2k",
-   "rosen_ref": "Rosen §4.1",
-   "definition_vi": "\\emph{Số nguyên chẵn} là một số nguyên $$n$$ chia hết cho $$2$$, nghĩa là $$n = 2k$$ với $$k$$ là một số nguyên nào đó.",
-   "example_vi": "Các số $$-4$$, $$0$$ và $$10$$ là các số nguyên chẵn vì $$-4 = 2 \\cdot (-2)$$, $$0 = 2 \\cdot 0$$ và $$10 = 2 \\cdot 5$$.",
-   "notes": "Concept: an even integer is an integer $$n$$ divisible by $$2$$, that is, $$n = 2k$$ for some integer $$k$$. Two distinct Vietnamese terms denote this concept across the corpus. \"số nguyên chẵn\" is the literal rendering of \"even integer\" and is attested in the 2019 source (bib-nguyenhuudien-2019, tr. 40 (PDF): \"11 là số nguyên chẵn\"); it is set as the recommended term for headword fidelity (the exact translation of \"even integer\"). The tradeoff is explicit: \"số chẵn\" (\"even number\") is the more widely and more recently attested form, appearing in BOTH 2020 sources (bib-leanhvinh-2020, bib-nguyenhoangthach-2020) and in every other source, so the newest-source preference would favour \"số chẵn\"; \"số nguyên chẵn\" is chosen instead for precise headword match. The $$n = 2k$$ phrasing appears with \"số chẵn\" in bib-nguyenhuudien-2019, tr. 58 (PDF): \"m là số chẵn, tức là m = 2k với k là một số nguyên dương.\" Important: that snippet restricts $$k$$ to a positive integer, which would wrongly exclude $$0$$ and negatives; the entry's own definition deliberately uses \"số nguyên nào đó\" (some integer), so the definition is correct and the snippet's restriction is not inherited. The third candidate \"số nguyên chia hết cho 2\" has NO attestation in any source (0 hits, normal and loose) and is dropped per citation hygiene. OCR sources bib-leanhvinh-2020 and bib-hoangchithanh-2007 only attest \"số chẵn\" via --loose (OCR renders \"chẵn\" as \"chan\"/\"chẩn\"/\"chắn\"); neither attests \"số nguyên chẵn\" in normal or loose mode.",
-   "see_also": [],
-   "vi_terms": [
-    {
-     "term": "số nguyên chẵn",
-     "verified": true,
-     "recommended": true,
-     "source_id": "bib-nguyenhuudien-2019",
-     "pdf_page": 40,
-     "page": "tr. 40",
-     "snippet": "a) 11 là số nguyên chẵn."
-    },
-    {
-     "term": "số chẵn",
-     "verified": true,
-     "recommended": false,
-     "source_id": "bib-leanhvinh-2020",
-     "pdf_page": 11,
-     "page": "tr. 12",
-     "snippet": "đồ thị luôn là một số chan. Chứng minh của hệ quả này được dành"
-    },
-    {
-     "term": "số chẵn",
-     "verified": true,
-     "recommended": false,
-     "source_id": "bib-nguyenhoangthach-2020",
-     "pdf_page": 64,
-     "page": "tr. 62",
-     "snippet": "1. Số đỉnh bậc lẻ của G là một số chẵn."
-    },
-    {
-     "term": "số chẵn",
-     "verified": true,
-     "recommended": false,
-     "source_id": "bib-nguyenhuudien-2019",
-     "pdf_page": 58,
-     "page": "tr. 58",
-     "snippet": "(6) m là số chẵn, tức là m = 2k với k là một số nguyên dương."
-    },
-    {
-     "term": "số nguyên chẵn",
-     "source_id": "bib-cormen-2001-vi",
-     "page": "tr. 99",
-     "pdf_page": 97,
-     "snippet": "nghĩa tập hợp các số nguyên chẩn là (x: xe Z và x/2 là một số",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "số nguyên chẵn",
-     "source_id": "bib-sierpinski-2012",
-     "page": "tr. 233",
-     "pdf_page": 247,
-     "snippet": "Định lý 4. Nếu a là số nguyên chẵn, n là số tự nhiên và p là số nguyên tố thỏa mãn p | a  1 thì",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "số chẵn",
-     "source_id": "bib-cungkimtien-2004",
-     "page": "",
-     "pdf_page": 137,
-     "snippet": "evennumber số chắn |",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "số chẵn",
-     "source_id": "bib-phan-1976",
-     "page": "tr. 187",
-     "pdf_page": 187,
-     "snippet": "even-numbered f. công thức có số chắn",
-     "verified": true,
-     "recommended": false
-    }
-   ],
-   "pos": "d.t."
-  },
-  {
-   "id": "element",
-   "letter": "E",
-   "headword_en": "element",
-   "notation": "a \\in A",
-   "rosen_ref": "Rosen §2.1",
-   "definition_vi": "\\emph{Phần tử} của một tập hợp $$A$$ là một đối tượng thuộc về $$A$$; ký hiệu $$a \\in A$$ để chỉ rằng $$a$$ là một phần tử của $$A$$, và $$a \\notin A$$ để chỉ rằng $$a$$ không là phần tử của $$A$$.",
-   "example_vi": "Với tập hợp $$A = \\{1, 2, 3\\}$$, ta có $$2 \\in A$$ và $$4 \\notin A$$.",
-   "notes": "Standard term across the entire corpus is \"phần tử\" (universal; attested in all six sources, newest first: leanhvinh-2020 p.49 \"các phần tử thuộc [n]\", nguyenhoangthach-2020 p.16 \"tập hợp S gồm n phần tử\", nguyenhuudien-2019, hoangchithanh-2007, nguyenducnghia-2006, ngodactan-2004). The membership relation $$a \\in A$$ (\"a là phần tử của A\") is defined explicitly in nguyenhuudien-2019 p.72 (\"đối tượng là một phần tử của tập hợp ... ta nói\") and nguyenducnghia-2006 p.12 (\"Để chỉ x là phần tử của X, ta viết x ∈ X\"). Variant \"phần tử của tập hợp\" attested in the 2020 source (nguyenhoangthach-2020 p.19 \"các phần tử của tập hợp đó\") and in nguyenducnghia-2006 p.12; shorter variant \"phần tử của tập\" attested in ngodactan-2004 (p.31) and hoangchithanh-2007 - these are the same head noun \"phần tử\" with a complement, not distinct synonyms. OCR sources leanhvinh-2020 (loose) and hoangchithanh-2007 (p.18 \"Cho một tập hợp X có n phần tử\") both confirm the term. The non-membership symbol $$\\notin$$ is the standard negation of $$\\in$$ and follows directly from the membership relation defined in the sources.",
-   "see_also": [
-    "empty-set",
-    "set",
-    "subset",
-    "cardinality"
-   ],
-   "vi_terms": [
-    {
-     "term": "phần tử",
-     "verified": true,
-     "recommended": true,
-     "source_id": "bib-nguyenhoangthach-2020",
-     "pdf_page": 16,
-     "page": "tr. 14",
-     "snippet": "tập hợp S gồm n phần tử."
-    },
-    {
-     "term": "phần tử của tập hợp",
-     "verified": true,
-     "recommended": false,
-     "source_id": "bib-nguyenhoangthach-2020",
-     "pdf_page": 19,
-     "page": "tr. 17",
-     "snippet": "tự gồm các phần tử của tập hợp đó."
-    },
-    {
-     "term": "phần tử",
-     "source_id": "bib-leanhvinh-2020",
-     "page": "tr. 9",
-     "pdf_page": 8,
-     "snippet": "V gồm các phan tử được gọi là đỉnh của đồ thi va tập cạnh E gồm các",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "phần tử",
-     "source_id": "bib-nguyenhuudien-2019",
-     "page": "tr. 22",
-     "pdf_page": 22,
-     "snippet": "6. Luật về phần tử bù",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "phần tử của tập hợp",
-     "source_id": "bib-nguyenhuudien-2019",
-     "page": "tr. 72",
-     "pdf_page": 72,
-     "snippet": "• Trường hợp 1: đối tượng là một phần tử của tập hợp. Trong trường hợp này ta nói",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "phần tử của tập",
-     "source_id": "bib-hoangchithanh-2011",
-     "page": "",
-     "pdf_page": 68,
-     "snippet": "Tăng dần số phần tử của tập 6n định ngoài và lặp lại phép kiểm tra, dé",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "phần tử của tập",
-     "source_id": "bib-nguyenhoangthach-2020",
-     "page": "tr. 17",
-     "pdf_page": 19,
-     "snippet": "tự gồm các phần tử của tập hợp đó.",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "phần tử của tập",
-     "source_id": "bib-nguyenhuudien-2019",
-     "page": "tr. 72",
-     "pdf_page": 72,
-     "snippet": "• Trường hợp 1: đối tượng là một phần tử của tập hợp. Trong trường hợp này ta nói",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "phần tử của tập hợp",
-     "source_id": "bib-vudinhhoa-2010",
-     "page": "",
-     "pdf_page": 25,
-     "snippet": "Các đối tượng trong cùng một tập hợp được gọi là phần tử của tập hợp đó. Tập",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "phần tử",
-     "source_id": "bib-cungkimtien-2004",
-     "page": "",
-     "pdf_page": 9,
-     "snippet": "acentral element phần tử không",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "phần tử",
-     "source_id": "bib-phan-1976",
-     "page": "tr. 16",
-     "pdf_page": 16,
-     "snippet": "antiacoustic phan tu quang",
-     "verified": true,
-     "recommended": false
-    }
-   ],
-   "pos": "d.t."
-  },
-  {
-   "id": "expected-value",
-   "letter": "E",
-   "headword_en": "expected value",
-   "notation": "E(X) = \\sum_{s \\in S} p(s)\\,X(s)",
-   "rosen_ref": "Rosen §7.4",
-   "definition_vi": "\\emph{Giá trị kì vọng} của một biến ngẫu nhiên $$X$$ trên không gian mẫu $$S$$ là trung bình có trọng số các giá trị $$X(s)$$ của nó, mỗi giá trị được lấy trọng số bằng xác suất $$p(s)$$ của kết quả $$s$$. Giá trị này được ký hiệu $$E(X)$$ và xác định bởi\n```math\nE(X) = \\sum_{s \\in S} p(s)\\,X(s).\n```",
-   "example_vi": "Khi tung một con xúc xắc cân đối, không gian mẫu là $$S = \\{1,2,3,4,5,6\\}$$ với $$p(s) = \\tfrac{1}{6}$$ cho mỗi $$s$$, và biến ngẫu nhiên $$X(s) = s$$ ghi lại số chấm xuất hiện. Khi đó giá trị kì vọng là $$E(X) = \\sum_{s \\in S} \\tfrac{1}{6}\\,s = \\tfrac{1}{6}(1+2+3+4+5+6) = \\tfrac{7}{2}$$.",
-   "notes": "Concept = giá trị kỳ vọng (trung bình) của một biến ngẫu nhiên $$X$$ trên không gian mẫu $$S$$, tức trung bình có trọng số $$E(X) = \\sum_{s \\in S} p(s)\\,X(s)$$ (Rosen §7.4, hữu hạn/đếm được). The descriptor \"trung bình\" (average) appears naturally inside the definition (\"trung bình có trọng số\") rather than as a synonym gloss. Mining results: in the corpus only bib-leanhvinh-2020 (2020) attests a term denoting THIS concept, and its OCR consistently renders the standard spelling \"kỳ vọng\" as \"kì vọng\" (grave accent on i). The recommended term is the full headword-fidelity phrase \"giá trị kì vọng\" (= \"expected value\"), attested at bib-leanhvinh-2020 pdf_page 193 (\"giá trị kì vọng của số cạnh giữa hai tập đỉnh sẽ\"); the bare partitive \"kì vọng\" (the expectation operation/quantity) is recorded as a short variant at pdf_page 191. All occurrences sit in the probabilistic-method context (expected value of a count of edges/tuples/embeddings). The diacritic-standard forms \"kỳ vọng\" and \"giá trị kỳ vọng\" return zero hits even under --loose, so they are not directly attested; \"kì\" and \"kỳ\" are orthographic variants of the same word (\"kỳ vọng\" the more common modern spelling, \"kì vọng\" the variant actually printed in this source). Those two unverified diacritic variants and the candidate \"giá trị trung bình\" were dropped per citation hygiene (verified=false with empty page); \"giá trị trung bình\" returns zero hits and all \"trung bình\" hits denote \"bậc trung bình\" (average degree) or the averaging operation \"lấy trung bình\", NOT the random-variable expectation. No older source (2004-2007) attests this probabilistic concept under any candidate term (bib-hoangchithanh-2007 returns zero hits for kì/kỳ vọng). see_also is empty: no same-chapter E-terms (e.g. biến ngẫu nhiên / không gian mẫu / phương sai) exist to link, and cross-chapter items would be forward references only.",
-   "see_also": [],
-   "vi_terms": [
-    {
-     "term": "giá trị kì vọng",
-     "verified": true,
-     "recommended": true,
-     "source_id": "bib-leanhvinh-2020",
-     "pdf_page": 193,
-     "page": "tr. 194",
-     "snippet": "tập đỉnh là 1/2 nên giá trị kì vọng của số cạnh giữa hai tập đỉnh sẽ"
-    },
-    {
-     "term": "kì vọng",
-     "verified": true,
-     "recommended": false,
-     "source_id": "bib-leanhvinh-2020",
-     "pdf_page": 191,
-     "page": "tr. 192",
-     "snippet": "Do giá tri kì vọng là ham tuyến tinh, ta có"
-    },
-    {
-     "term": "kỳ vọng toán",
-     "source_id": "",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": "",
-     "verified": false,
-     "recommended": false
-    },
-    {
-     "term": "giá trị mong đợi",
-     "source_id": "",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": "",
-     "verified": false,
-     "recommended": false
-    },
-    {
-     "term": "kì vọng",
-     "source_id": "bib-doducthai-2010",
-     "page": "tr. 289",
-     "pdf_page": 289,
-     "snippet": "Bài tập 2.12. Kì vọng lợi nhuận:",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "kỳ vọng toán",
-     "source_id": "bib-cungkimtien-2004",
-     "page": "",
-     "pdf_page": 242,
-     "snippet": "moral expectation ky vọng toán",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "kỳ vọng toán",
-     "source_id": "bib-phan-1976",
-     "page": "tr. 165",
-     "pdf_page": 165,
-     "snippet": "mathematical e. kỳ vọng toán",
-     "verified": true,
-     "recommended": false
-    }
-   ],
-   "pos": "d.t."
-  },
-  {
-   "id": "exponential-generating-function",
-   "letter": "E",
-   "headword_en": "exponential generating function",
-   "notation": "\\sum_{k=0}^{\\infty} a_k \\frac{x^k}{k!}",
-   "rosen_ref": "Rosen §8.4",
-   "definition_vi": "\\emph{Hàm sinh mũ} của một dãy số thực $$(a_k)_{k \\geq 0}$$ là chuỗi lũy thừa hình thức, ký hiệu $$f(x)$$, được cho bởi $$f(x) = \\sum_{k=0}^{\\infty} a_k \\frac{x^k}{k!}$$.",
-   "example_vi": "Với dãy hằng $$a_k = 1$$ với mọi $$k \\geq 0$$, hàm sinh mũ là $$\\sum_{k=0}^{\\infty} \\frac{x^k}{k!} = e^x$$.",
-   "notes": "Thuật ngữ chuẩn cho khái niệm này là \"hàm sinh mũ\", chỉ được chứng thực trong nguồn cũ nhất phủ khái niệm - bib-ngodactan-2004 (2004), với định nghĩa đầy đủ ở mục 2.3 \"Phương pháp đếm bằng hàm sinh mũ\". Không có nguồn 2019-2020 nào trình bày riêng biến thể hàm sinh mũ: các nguồn mới (bib-nguyenhoangthach-2020, bib-nguyenhuudien-2019) và bib-nguyenducnghia-2006 chỉ trình bày \"hàm sinh\" (hàm sinh thông thường / ordinary generating function nói chung), không phải hàm sinh mũ. Vì vậy thuật ngữ khuyến nghị được chứng thực ở nguồn tốt nhất hiện có (2004); không có nguồn 2019-2020 nào để đáp ứng yêu cầu newest-source. Biến thể ứng viên \"hàm sinh dạng mũ\" không xuất hiện trong bất kỳ nguồn nào (0 hit). Thuật ngữ giống loài \"hàm sinh\" (ordinary generating function) là một khái niệm liên quan nhưng KHÁC, không phải biến thể đồng nghĩa của hàm sinh mũ; nó được liệt kê làm related/genus term và được chứng thực trong các nguồn 2020/2006/2004. Rosen §8.4 trình bày exponential generating function, phù hợp với định nghĩa ở đây; hệ số dãy số thực hẹp hơn một chút so với hệ số tổng quát của Rosen nhưng là chuẩn trong các ví dụ của §8.4.",
-   "see_also": [
-    "generating-function"
-   ],
-   "vi_terms": [
-    {
-     "term": "hàm sinh mũ",
-     "verified": true,
-     "recommended": true,
-     "source_id": "bib-ngodactan-2004",
-     "pdf_page": 97,
-     "page": "tr. 97",
-     "snippet": "Ở mục trước ta đã định nghĩa hàm sinh mũ cho dãy số (aj)ỗ° là chuỗi"
-    },
-    {
-     "term": "hàm sinh mũ",
-     "verified": true,
-     "recommended": false,
-     "source_id": "bib-ngodactan-2004",
-     "pdf_page": 87,
-     "page": "tr. 87",
-     "snippet": "là hàm sinh mũ cho dãy ( d j ) 0°. Như vậy, hàm sinh mũ cho dãy (Ọj)0°"
-    },
-    {
-     "term": "hàm sinh",
-     "verified": true,
-     "recommended": false,
-     "source_id": "bib-nguyenhoangthach-2020",
-     "pdf_page": 45,
-     "page": "tr. 43",
-     "snippet": "3.3 Hàm sinh và một số ứng dụng"
-    },
-    {
-     "term": "hàm sinh",
-     "source_id": "bib-hoangchithanh-2011",
-     "page": "",
-     "pdf_page": 248,
-     "snippet": "Từ dãy số c„ cần tìm, ta đặt hàm sinh: C(x) = Ð`e,„x\".. (12.2)",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "hàm sinh",
-     "source_id": "bib-doducthai-2010",
-     "page": "tr. 5",
-     "pdf_page": 5,
-     "snippet": "Hàm đặc trưng, hàm sinh, và biến đổi Laplace . . 119",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "hàm sinh",
-     "source_id": "bib-cungkimtien-2004",
-     "page": "",
-     "pdf_page": 91,
-     "snippet": "ham sinh tich luy",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "hàm sinh",
-     "source_id": "bib-phan-1976",
-     "page": "tr. 93",
-     "pdf_page": 93,
-     "snippet": "c. of value function hàm sinh",
-     "verified": true,
-     "recommended": false
-    }
-   ],
-   "pos": "d.t."
-  },
-  {
-   "id": "eccentricity",
-   "letter": "E",
-   "headword_en": "eccentricity",
-   "notation": "e(v)",
-   "rosen_ref": "Rosen §10.4",
-   "definition_vi": "Độ lệch tâm của một đỉnh $$v$$ trong đồ thị liên thông $$G$$, ký hiệu $$e(v)$$, là khoảng cách lớn nhất từ $$v$$ tới mọi đỉnh khác của $$G$$, tức là $$e(v) = \\max_{u \\in V(G)} d(u,v)$$, trong đó $$d(u,v)$$ là độ dài đường đi ngắn nhất giữa $$u$$ và $$v$$.",
-   "example_vi": "Trong đường đi $$P_4$$ với các đỉnh $$v_1, v_2, v_3, v_4$$, ta có $$e(v_1) = 3$$ và $$e(v_2) = 2$$; đỉnh có độ lệch tâm nhỏ nhất là đỉnh trung tâm.",
-   "vi_terms": [
-    {
-     "term": "độ lệch tâm",
-     "source_id": "bib-leanhvinh-2020",
-     "pdf_page": 43,
-     "page": "tr. 44",
-     "snippet": "Định nghĩa 2.8. Cho đồ thị G va đính v € V(G). Độ lệch tam của",
-     "verified": true,
-     "recommended": true
-    },
-    {
-     "term": "tâm sai",
-     "source_id": "bib-ngodactan-2004",
-     "pdf_page": 216,
-     "page": "tr. 216",
-     "snippet": "Tâm sai e(v) của V 6 V là giá tri maxd(u,v).",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "độ lệch tâm",
-     "source_id": "bib-doantamhoe-2009",
-     "page": "",
-     "pdf_page": 122,
-     "snippet": "2. Với cây tự do T, độ lệch tâm của đỉnh x, ký hiệu là E(x), là",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "tâm sai",
-     "source_id": "bib-doducgiao-2009",
-     "page": "tr. 230",
-     "pdf_page": 231,
-     "snippet": "Tâm sai của một đỉnh trong cây khóng gốc là độ dài của đường đi đơn",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "độ lệch",
-     "source_id": "bib-hoangchithanh-2011",
-     "page": "",
-     "pdf_page": 10,
-     "snippet": "độ lệch",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "độ lệch",
-     "source_id": "bib-leanhvinh-2020",
-     "page": "tr. 44",
-     "pdf_page": 43,
-     "snippet": "Định nghĩa 2.8. Cho đồ thị G va đính v € V(G). Độ lệch tam của",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "tâm sai",
-     "source_id": "bib-doducgiao-2008",
-     "page": "tr. 285",
-     "pdf_page": 286,
-     "snippet": "13. Tâm sai của một đỉnh trong cây không gốc là độ dài của đường đi don",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "độ lệch",
-     "source_id": "bib-doducthai-2010",
-     "page": "tr. 5",
-     "pdf_page": 5,
-     "snippet": "Phương sai, độ lệch chuẩn, và các moment . . . . 108",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "tâm sai",
-     "source_id": "bib-cungkimtien-2004",
-     "page": "",
-     "pdf_page": 124,
-     "snippet": "vong tam sai cua elip",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "tâm sai",
-     "source_id": "bib-phan-1976",
-     "page": "tr. 14",
-     "pdf_page": 14,
-     "snippet": "excentric a. of an ellipse góc tâm sai của elip",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "độ lệch",
-     "source_id": "bib-cungkimtien-2004",
-     "page": "",
-     "pdf_page": 8,
-     "snippet": "accumulated deviation độ lệch",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "độ lệch",
-     "source_id": "bib-phan-1976",
-     "page": "tr. 19",
-     "pdf_page": 19,
-     "snippet": "tail a. đuôi phân phối, xác suất các độ lệch lớn",
-     "verified": true,
-     "recommended": false
-    }
-   ],
-   "see_also": [],
-   "notes": "Đỉnh có $$e(v)$$ nhỏ nhất là tâm; giá trị nhỏ nhất là bán kính, lớn nhất là đường kính. Sách dùng các biến thể \"tâm sai\" (Ngô Đắc Tân) và \"độ lệch\" (Hoàng Chí Thành).",
-   "status": "draft",
-   "pos": "d.t."
-  },
-  {
-   "id": "edge-chromatic-number",
-   "letter": "E",
-   "headword_en": "edge chromatic number",
-   "notation": "\\chi'(G)",
-   "rosen_ref": "Rosen §10.8",
-   "definition_vi": "Sắc số cạnh của một đồ thị $$G$$, ký hiệu $$\\chi'(G)$$, là số màu nhỏ nhất cần dùng để tô màu các cạnh của $$G$$ sao cho hai cạnh kề nhau bất kỳ được tô hai màu khác nhau.",
-   "example_vi": "Với đồ thị đầy đủ $$K_4$$ ta có $$\\chi'(K_4) = 3$$; tổng quát, với chu trình $$C_n$$ thì $$\\chi'(C_n) = 2$$ khi $$n$$ chẵn và $$\\chi'(C_n) = 3$$ khi $$n$$ lẻ.",
-   "vi_terms": [
-    {
-     "term": "sắc số cạnh",
-     "source_id": "bib-leanhvinh-2020",
-     "pdf_page": 107,
-     "page": "tr. 108",
-     "snippet": "Sắc số cạnh của một đồ thị Ơ, kí hiệu bởi x'(Ơ), là số màu È nhỏ nhất",
-     "verified": true,
-     "recommended": true
-    },
-    {
-     "term": "sắc số cạnh",
-     "source_id": "bib-ngodactan-2004",
-     "pdf_page": 292,
-     "page": "tr. 292",
-     "snippet": "gọi là sắc số cạnh của G và được ký hiệu là x'(G).",
-     "verified": true,
-     "recommended": false
-    }
-   ],
-   "see_also": [],
-   "notes": "Theo định lý Vizing, mọi đồ thị đơn $$G$$ đều có $$\\Delta(G) \\leq \\chi'(G) \\leq \\Delta(G) + 1$$.",
-   "status": "draft",
-   "pos": "d.t."
-  },
-  {
-   "id": "empty-set",
-   "letter": "E",
-   "headword_en": "empty set",
-   "notation": "\\emptyset",
-   "rosen_ref": "Rosen §2.1",
-   "definition_vi": "Tập hợp rỗng, ký hiệu $$\\emptyset$$ (hoặc $$\\{\\}$$), là tập hợp không chứa phần tử nào. Tập hợp rỗng là tập con của mọi tập hợp và có số phần tử bằng $$0$$, tức là $$|\\emptyset| = 0$$.",
-   "example_vi": "Tập hợp các số nguyên dương lớn hơn bình phương của chúng là tập hợp rỗng, vì không có số nguyên dương $$n$$ nào thỏa mãn $$n > n^2$$.",
-   "vi_terms": [
-    {
-     "term": "tập hợp rỗng",
-     "source_id": "bib-nguyenhuudien-2019",
-     "pdf_page": 72,
-     "page": "tr. 72",
-     "snippet": "• Tập hợp rỗng: Tập hợp không có phần tử nào được gọi là tập hợp rỗng, và được ký",
-     "verified": true,
-     "recommended": true
-    },
-    {
-     "term": "tập hợp rỗng",
-     "source_id": "bib-nguyenhoangthach-2020",
-     "pdf_page": 16,
-     "page": "tr. 14",
-     "snippet": "Lời giải: Nếu n = 0, S là tập hợp rỗng và có một tập hợp con duy nhất là",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "tập rỗng",
-     "source_id": "bib-leanhvinh-2020",
-     "pdf_page": 90,
-     "page": "tr. 91",
-     "snippet": "Lưu ý rằng, các tập V; có thể là tập rỗng.",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "tập rỗng",
-     "source_id": "bib-hoangchithanh-2011",
-     "page": "",
-     "pdf_page": 243,
-     "snippet": "Tập rỗng là một cây phân cấp (cây rỗng).",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "tập rỗng",
-     "source_id": "bib-nguyenhuudien-2019",
-     "page": "tr. 252",
-     "pdf_page": 252,
-     "snippet": "Định nghĩa 10.4 — đệ quy. Tập rỗng là một cây phân cấp (cây rỗng).",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "tập hợp rỗng",
-     "source_id": "bib-vudinhhoa-2010",
-     "page": "",
-     "pdf_page": 25,
-     "snippet": "Dac biệt là tap hợp không có phần tử nào được gọi là tập hợp rỗng và ký hiệu",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "tập hợp rỗng",
-     "source_id": "bib-cungkimtien-2004",
-     "page": "",
-     "pdf_page": 130,
-     "snippet": "empty set tập hợp rỗng",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "tập hợp rỗng",
-     "source_id": "bib-phan-1976",
-     "page": "tr. 383",
-     "pdf_page": 383,
-     "snippet": "empty s. tập hợp rỗng",
-     "verified": true,
-     "recommended": false
-    }
-   ],
-   "see_also": [],
-   "notes": "Ký hiệu chuẩn là $$\\emptyset$$ hoặc $$\\{\\}$$. Trong các tài liệu tiếng Việt, khái niệm này xuất hiện dưới hai biến thể: \"tập hợp rỗng\" (theo giáo trình MAT3500) và dạng rút gọn \"tập rỗng\" (dùng trong bản dịch Rosen). Lưu ý $$\\emptyset \\neq \\{\\emptyset\\}$$.",
-   "status": "draft",
-   "pos": "d.t."
-  },
-  {
    "id": "eulerian-path",
    "letter": "E",
    "headword_en": "Eulerian path",
@@ -1856,6 +2100,154 @@
    "pos": "t.t."
   },
   {
+   "id": "even-integer",
+   "letter": "E",
+   "headword_en": "even integer",
+   "notation": "n = 2k",
+   "rosen_ref": "Rosen §4.1",
+   "definition_vi": "\\emph{Số nguyên chẵn} là một số nguyên $$n$$ chia hết cho $$2$$, nghĩa là $$n = 2k$$ với $$k$$ là một số nguyên nào đó.",
+   "example_vi": "Các số $$-4$$, $$0$$ và $$10$$ là các số nguyên chẵn vì $$-4 = 2 \\cdot (-2)$$, $$0 = 2 \\cdot 0$$ và $$10 = 2 \\cdot 5$$.",
+   "notes": "Concept: an even integer is an integer $$n$$ divisible by $$2$$, that is, $$n = 2k$$ for some integer $$k$$. Two distinct Vietnamese terms denote this concept across the corpus. \"số nguyên chẵn\" is the literal rendering of \"even integer\" and is attested in the 2019 source (bib-nguyenhuudien-2019, tr. 40 (PDF): \"11 là số nguyên chẵn\"); it is set as the recommended term for headword fidelity (the exact translation of \"even integer\"). The tradeoff is explicit: \"số chẵn\" (\"even number\") is the more widely and more recently attested form, appearing in BOTH 2020 sources (bib-leanhvinh-2020, bib-nguyenhoangthach-2020) and in every other source, so the newest-source preference would favour \"số chẵn\"; \"số nguyên chẵn\" is chosen instead for precise headword match. The $$n = 2k$$ phrasing appears with \"số chẵn\" in bib-nguyenhuudien-2019, tr. 58 (PDF): \"m là số chẵn, tức là m = 2k với k là một số nguyên dương.\" Important: that snippet restricts $$k$$ to a positive integer, which would wrongly exclude $$0$$ and negatives; the entry's own definition deliberately uses \"số nguyên nào đó\" (some integer), so the definition is correct and the snippet's restriction is not inherited. The third candidate \"số nguyên chia hết cho 2\" has NO attestation in any source (0 hits, normal and loose) and is dropped per citation hygiene. OCR sources bib-leanhvinh-2020 and bib-hoangchithanh-2007 only attest \"số chẵn\" via --loose (OCR renders \"chẵn\" as \"chan\"/\"chẩn\"/\"chắn\"); neither attests \"số nguyên chẵn\" in normal or loose mode.",
+   "see_also": [],
+   "vi_terms": [
+    {
+     "term": "số nguyên chẵn",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 40,
+     "page": "tr. 40",
+     "snippet": "a) 11 là số nguyên chẵn."
+    },
+    {
+     "term": "số chẵn",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-leanhvinh-2020",
+     "pdf_page": 11,
+     "page": "tr. 12",
+     "snippet": "đồ thị luôn là một số chan. Chứng minh của hệ quả này được dành"
+    },
+    {
+     "term": "số chẵn",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhoangthach-2020",
+     "pdf_page": 64,
+     "page": "tr. 62",
+     "snippet": "1. Số đỉnh bậc lẻ của G là một số chẵn."
+    },
+    {
+     "term": "số chẵn",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 58,
+     "page": "tr. 58",
+     "snippet": "(6) m là số chẵn, tức là m = 2k với k là một số nguyên dương."
+    },
+    {
+     "term": "số nguyên chẵn",
+     "source_id": "bib-cormen-2001-vi",
+     "page": "tr. 99",
+     "pdf_page": 97,
+     "snippet": "nghĩa tập hợp các số nguyên chẩn là (x: xe Z và x/2 là một số",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "số nguyên chẵn",
+     "source_id": "bib-sierpinski-2012",
+     "page": "tr. 233",
+     "pdf_page": 247,
+     "snippet": "Định lý 4. Nếu a là số nguyên chẵn, n là số tự nhiên và p là số nguyên tố thỏa mãn p | a  1 thì",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "số chẵn",
+     "source_id": "bib-cungkimtien-2004",
+     "page": "",
+     "pdf_page": 137,
+     "snippet": "evennumber số chắn |",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "số chẵn",
+     "source_id": "bib-phan-1976",
+     "page": "tr. 187",
+     "pdf_page": 187,
+     "snippet": "even-numbered f. công thức có số chắn",
+     "verified": true,
+     "recommended": false
+    }
+   ],
+   "pos": "d.t."
+  },
+  {
+   "id": "event",
+   "letter": "E",
+   "headword_en": "event",
+   "notation": "E",
+   "rosen_ref": "Rosen §7.2",
+   "definition_vi": "Một biến cố là một tập con của không gian mẫu của một phép thử. Nói cách khác, nếu không gian mẫu $$S$$ là tập tất cả các kết cục có thể của phép thử thì mỗi biến cố $$E$$ thỏa mãn $$E \\subseteq S$$.",
+   "example_vi": "Khi gieo một con súc sắc, không gian mẫu là $$S = \\{1, 2, 3, 4, 5, 6\\}$$; biến cố \"số chấm xuất hiện là số chẵn\" là tập con $$E = \\{2, 4, 6\\} \\subseteq S$$.",
+   "vi_terms": [
+    {
+     "term": "biến cố",
+     "source_id": "bib-leanhvinh-2020",
+     "page": "tr. 158",
+     "pdf_page": 157,
+     "snippet": "Xét các biến cố Ái, Ag,..., A, trong một không gian xác suất bất",
+     "verified": true,
+     "recommended": true
+    },
+    {
+     "term": "biến cố",
+     "source_id": "bib-nguyenhuudien-2019",
+     "page": "tr. 48",
+     "pdf_page": 48,
+     "snippet": "vị từ để có một vị từ mới theo các biến còn lại. Chẳng hạn, nếu P( x, y, . . .) là một vị từ",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "biến cố",
+     "source_id": "bib-sierpinski-2012",
+     "page": "tr. 22",
+     "pdf_page": 36,
+     "snippet": "Đối với các phương trình Diophante nhiều biến có một số vấn đề sau đây được đặt ra: phương",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "biến cố",
+     "source_id": "bib-cungkimtien-2004",
+     "page": "",
+     "pdf_page": 22,
+     "snippet": "antithetic(al) events biến cố xung",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "biến cố",
+     "source_id": "bib-phan-1976",
+     "page": "tr. 62",
+     "pdf_page": 62,
+     "snippet": "c. ofan event phần bù của một biến cố; biến đối lập",
+     "verified": true,
+     "recommended": false
+    }
+   ],
+   "see_also": [
+    "expected-value"
+   ],
+   "notes": "Biến cố $$E$$ là một tập con của không gian mẫu $$S$$ (tập mọi kết cục của phép thử). Bản dịch Rosen tiếng Việt dùng đồng thời \"biến cố\" và \"sự kiện\" cho cùng khái niệm này; thuật ngữ \"biến cố\" phổ biến hơn trong tài liệu xác suất. Xác suất của biến cố $$E$$ trong không gian mẫu hữu hạn đồng khả năng là $$p(E) = \\frac{|E|}{|S|}$$.",
+   "status": "draft",
+   "pos": "d.t."
+  },
+  {
    "id": "exclusive-or",
    "letter": "E",
    "headword_en": "exclusive or",
@@ -1921,6 +2313,65 @@
    ],
    "see_also": [],
    "notes": "Khác với phép tuyển (hoặc bao hàm) $$p \\vee q$$: tuyển loại $$p \\oplus q$$ chỉ đúng khi đúng một mệnh đề đúng. Bản dịch Rosen dùng thuật ngữ \"tuyển loại\", trùng với thuật ngữ giáo trình MAT3500.",
+   "status": "draft",
+   "pos": "d.t."
+  },
+  {
+   "id": "exhaustive-enumeration",
+   "letter": "E",
+   "headword_en": "exhaustive enumeration",
+   "pos": "d.t.",
+   "notation": "",
+   "ref_bib": "bib-libennowell-2022",
+   "rosen_ref": "",
+   "definition_vi": "\\emph{Liệt kê vét cạn} là phương pháp giải bài toán bằng cách lần lượt xét tất cả các khả năng (ứng viên) trong không gian lời giải để tìm hoặc kiểm tra lời giải mong muốn. Phương pháp luôn cho kết quả đúng nhưng thường tốn kém khi không gian tìm kiếm lớn.",
+   "example_vi": "Để tìm tất cả tập con của $$\\{1,2,3\\}$$ có tổng bằng $$3$$, ta liệt kê toàn bộ $$2^3=8$$ tập con và kiểm tra từng tập.",
+   "notes": "",
+   "see_also": [
+    "brute-force algorithm",
+    "backtracking"
+   ],
+   "vi_terms": [
+    {
+     "term": "liệt kê vét cạn",
+     "recommended": true
+    }
+   ]
+  },
+  {
+   "id": "exhaustive-proof",
+   "letter": "E",
+   "headword_en": "exhaustive proof",
+   "notation": "",
+   "rosen_ref": "Rosen §1.8",
+   "definition_vi": "Chứng minh vét cạn là một chứng minh thiết lập kết quả bằng cách kiểm tra tất cả các trường hợp có thể. Phương pháp này chỉ dùng được khi số trường hợp cần kiểm tra là hữu hạn và tương đối nhỏ, vì khi đó ta có thể xét lần lượt và kiểm tra trực tiếp từng trường hợp một.",
+   "example_vi": "Để chứng minh rằng $$(n+1)^3 \\geq 3^n$$ với mọi số nguyên dương $$n$$ thỏa $$n \\leq 4$$, ta kiểm tra trực tiếp bốn trường hợp $$n = 1, 2, 3, 4$$ và thấy bất đẳng thức đúng trong mỗi trường hợp; việc kiểm tra hết các trường hợp này là một chứng minh vét cạn.",
+   "vi_terms": [
+    {
+     "term": "chứng minh vét cạn",
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": "",
+     "verified": false,
+     "recommended": true
+    },
+    {
+     "term": "vét cạn",
+     "source_id": "bib-nguyenducnghia-2006",
+     "page": "",
+     "pdf_page": 11,
+     "snippet": "lời giải của nó cần được biểu diễn dưới dạng thuật toán \"vét cạn\" tất cả các cấu hình.",
+     "verified": true,
+     "recommended": false
+    }
+   ],
+   "see_also": [
+    "proof-by-cases",
+    "direct-proof",
+    "proof"
+   ],
+   "notes": "Chứng minh vét cạn là một dạng đặc biệt của chứng minh bằng cách chia trường hợp, trong đó mỗi trường hợp được kiểm tra trực tiếp; do đó nó chỉ áp dụng được khi số trường hợp là hữu hạn và đủ nhỏ. Từ \"vét cạn\" trong bib-nguyenducnghia-2006 chỉ thuật toán duyệt hết mọi cấu hình (vét cạn), khẳng định đây là cách dịch chuẩn của \"exhaustive\"; thuật ngữ \"chứng minh vét cạn\" cho phương pháp chứng minh chưa có dẫn chứng trực tiếp trong kho ngữ liệu nên để recommended với verified=false.",
    "status": "draft",
    "pos": "d.t."
   },
@@ -1996,6 +2447,83 @@
    "pos": "d.t."
   },
   {
+   "id": "expected-value",
+   "letter": "E",
+   "headword_en": "expected value",
+   "notation": "E(X) = \\sum_{s \\in S} p(s)\\,X(s)",
+   "rosen_ref": "Rosen §7.4",
+   "definition_vi": "\\emph{Giá trị kì vọng} của một biến ngẫu nhiên $$X$$ trên không gian mẫu $$S$$ là trung bình có trọng số các giá trị $$X(s)$$ của nó, mỗi giá trị được lấy trọng số bằng xác suất $$p(s)$$ của kết quả $$s$$. Giá trị này được ký hiệu $$E(X)$$ và xác định bởi\n```math\nE(X) = \\sum_{s \\in S} p(s)\\,X(s).\n```",
+   "example_vi": "Khi tung một con xúc xắc cân đối, không gian mẫu là $$S = \\{1,2,3,4,5,6\\}$$ với $$p(s) = \\tfrac{1}{6}$$ cho mỗi $$s$$, và biến ngẫu nhiên $$X(s) = s$$ ghi lại số chấm xuất hiện. Khi đó giá trị kì vọng là $$E(X) = \\sum_{s \\in S} \\tfrac{1}{6}\\,s = \\tfrac{1}{6}(1+2+3+4+5+6) = \\tfrac{7}{2}$$.",
+   "notes": "Concept = giá trị kỳ vọng (trung bình) của một biến ngẫu nhiên $$X$$ trên không gian mẫu $$S$$, tức trung bình có trọng số $$E(X) = \\sum_{s \\in S} p(s)\\,X(s)$$ (Rosen §7.4, hữu hạn/đếm được). The descriptor \"trung bình\" (average) appears naturally inside the definition (\"trung bình có trọng số\") rather than as a synonym gloss. Mining results: in the corpus only bib-leanhvinh-2020 (2020) attests a term denoting THIS concept, and its OCR consistently renders the standard spelling \"kỳ vọng\" as \"kì vọng\" (grave accent on i). The recommended term is the full headword-fidelity phrase \"giá trị kì vọng\" (= \"expected value\"), attested at bib-leanhvinh-2020 pdf_page 193 (\"giá trị kì vọng của số cạnh giữa hai tập đỉnh sẽ\"); the bare partitive \"kì vọng\" (the expectation operation/quantity) is recorded as a short variant at pdf_page 191. All occurrences sit in the probabilistic-method context (expected value of a count of edges/tuples/embeddings). The diacritic-standard forms \"kỳ vọng\" and \"giá trị kỳ vọng\" return zero hits even under --loose, so they are not directly attested; \"kì\" and \"kỳ\" are orthographic variants of the same word (\"kỳ vọng\" the more common modern spelling, \"kì vọng\" the variant actually printed in this source). Those two unverified diacritic variants and the candidate \"giá trị trung bình\" were dropped per citation hygiene (verified=false with empty page); \"giá trị trung bình\" returns zero hits and all \"trung bình\" hits denote \"bậc trung bình\" (average degree) or the averaging operation \"lấy trung bình\", NOT the random-variable expectation. No older source (2004-2007) attests this probabilistic concept under any candidate term (bib-hoangchithanh-2007 returns zero hits for kì/kỳ vọng). see_also is empty: no same-chapter E-terms (e.g. biến ngẫu nhiên / không gian mẫu / phương sai) exist to link, and cross-chapter items would be forward references only.",
+   "see_also": [],
+   "vi_terms": [
+    {
+     "term": "giá trị kì vọng",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-leanhvinh-2020",
+     "pdf_page": 193,
+     "page": "tr. 194",
+     "snippet": "tập đỉnh là 1/2 nên giá trị kì vọng của số cạnh giữa hai tập đỉnh sẽ"
+    },
+    {
+     "term": "kì vọng",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-leanhvinh-2020",
+     "pdf_page": 191,
+     "page": "tr. 192",
+     "snippet": "Do giá tri kì vọng là ham tuyến tinh, ta có"
+    },
+    {
+     "term": "kỳ vọng toán",
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": "",
+     "verified": false,
+     "recommended": false
+    },
+    {
+     "term": "giá trị mong đợi",
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": "",
+     "verified": false,
+     "recommended": false
+    },
+    {
+     "term": "kì vọng",
+     "source_id": "bib-doducthai-2010",
+     "page": "tr. 289",
+     "pdf_page": 289,
+     "snippet": "Bài tập 2.12. Kì vọng lợi nhuận:",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "kỳ vọng toán",
+     "source_id": "bib-cungkimtien-2004",
+     "page": "",
+     "pdf_page": 242,
+     "snippet": "moral expectation ky vọng toán",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "kỳ vọng toán",
+     "source_id": "bib-phan-1976",
+     "page": "tr. 165",
+     "pdf_page": 165,
+     "snippet": "mathematical e. kỳ vọng toán",
+     "verified": true,
+     "recommended": false
+    }
+   ],
+   "pos": "d.t."
+  },
+  {
    "id": "exponential",
    "letter": "E",
    "headword_en": "exponential",
@@ -2056,6 +2584,148 @@
    "pos": "d.t."
   },
   {
+   "id": "exponential-generating-function",
+   "letter": "E",
+   "headword_en": "exponential generating function",
+   "notation": "\\sum_{k=0}^{\\infty} a_k \\frac{x^k}{k!}",
+   "rosen_ref": "Rosen §8.4",
+   "definition_vi": "\\emph{Hàm sinh mũ} của một dãy số thực $$(a_k)_{k \\geq 0}$$ là chuỗi lũy thừa hình thức, ký hiệu $$f(x)$$, được cho bởi $$f(x) = \\sum_{k=0}^{\\infty} a_k \\frac{x^k}{k!}$$.",
+   "example_vi": "Với dãy hằng $$a_k = 1$$ với mọi $$k \\geq 0$$, hàm sinh mũ là $$\\sum_{k=0}^{\\infty} \\frac{x^k}{k!} = e^x$$.",
+   "notes": "Thuật ngữ chuẩn cho khái niệm này là \"hàm sinh mũ\", chỉ được chứng thực trong nguồn cũ nhất phủ khái niệm - bib-ngodactan-2004 (2004), với định nghĩa đầy đủ ở mục 2.3 \"Phương pháp đếm bằng hàm sinh mũ\". Không có nguồn 2019-2020 nào trình bày riêng biến thể hàm sinh mũ: các nguồn mới (bib-nguyenhoangthach-2020, bib-nguyenhuudien-2019) và bib-nguyenducnghia-2006 chỉ trình bày \"hàm sinh\" (hàm sinh thông thường / ordinary generating function nói chung), không phải hàm sinh mũ. Vì vậy thuật ngữ khuyến nghị được chứng thực ở nguồn tốt nhất hiện có (2004); không có nguồn 2019-2020 nào để đáp ứng yêu cầu newest-source. Biến thể ứng viên \"hàm sinh dạng mũ\" không xuất hiện trong bất kỳ nguồn nào (0 hit). Thuật ngữ giống loài \"hàm sinh\" (ordinary generating function) là một khái niệm liên quan nhưng KHÁC, không phải biến thể đồng nghĩa của hàm sinh mũ; nó được liệt kê làm related/genus term và được chứng thực trong các nguồn 2020/2006/2004. Rosen §8.4 trình bày exponential generating function, phù hợp với định nghĩa ở đây; hệ số dãy số thực hẹp hơn một chút so với hệ số tổng quát của Rosen nhưng là chuẩn trong các ví dụ của §8.4.",
+   "see_also": [
+    "generating-function"
+   ],
+   "vi_terms": [
+    {
+     "term": "hàm sinh mũ",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-ngodactan-2004",
+     "pdf_page": 97,
+     "page": "tr. 97",
+     "snippet": "Ở mục trước ta đã định nghĩa hàm sinh mũ cho dãy số (aj)ỗ° là chuỗi"
+    },
+    {
+     "term": "hàm sinh mũ",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-ngodactan-2004",
+     "pdf_page": 87,
+     "page": "tr. 87",
+     "snippet": "là hàm sinh mũ cho dãy ( d j ) 0°. Như vậy, hàm sinh mũ cho dãy (Ọj)0°"
+    },
+    {
+     "term": "hàm sinh",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhoangthach-2020",
+     "pdf_page": 45,
+     "page": "tr. 43",
+     "snippet": "3.3 Hàm sinh và một số ứng dụng"
+    },
+    {
+     "term": "hàm sinh",
+     "source_id": "bib-hoangchithanh-2011",
+     "page": "",
+     "pdf_page": 248,
+     "snippet": "Từ dãy số c„ cần tìm, ta đặt hàm sinh: C(x) = Ð`e,„x\".. (12.2)",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "hàm sinh",
+     "source_id": "bib-doducthai-2010",
+     "page": "tr. 5",
+     "pdf_page": 5,
+     "snippet": "Hàm đặc trưng, hàm sinh, và biến đổi Laplace . . 119",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "hàm sinh",
+     "source_id": "bib-cungkimtien-2004",
+     "page": "",
+     "pdf_page": 91,
+     "snippet": "ham sinh tich luy",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "hàm sinh",
+     "source_id": "bib-phan-1976",
+     "page": "tr. 93",
+     "pdf_page": 93,
+     "snippet": "c. of value function hàm sinh",
+     "verified": true,
+     "recommended": false
+    }
+   ],
+   "pos": "d.t."
+  },
+  {
+   "id": "exponentiation",
+   "letter": "E",
+   "headword_en": "exponentiation",
+   "pos": "d.t.",
+   "notation": "b^n",
+   "ref_bib": "bib-libennowell-2022",
+   "rosen_ref": "",
+   "definition_vi": "\\emph{Phép lũy thừa} là phép toán nâng một cơ số $$b$$ lên số mũ $$n$$, ký hiệu $$b^n$$. Với số mũ nguyên dương, $$b^n$$ là tích của $$n$$ thừa số bằng $$b$$, tức $$\\displaystyle b^n=\\underbrace{b\\cdot b\\cdots b}_{n}$$, với quy ước $$b^0=1$$.",
+   "example_vi": "$$2^{10}=1024$$.",
+   "notes": "",
+   "see_also": [
+    "modular exponentiation",
+    "logarithm"
+   ],
+   "vi_terms": [
+    {
+     "term": "phép lũy thừa",
+     "recommended": true
+    },
+    {
+     "term": "phép lũy thừa",
+     "source_id": "bib-doxuanloi-2006",
+     "page": "",
+     "pdf_page": 83,
+     "snippet": "phép cộng, phép trừ, phép nhân, phép chia, phép luỹ thừa (dấu phép toán",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "phép lũy thừa",
+     "source_id": "bib-ngodactan-2004",
+     "page": "",
+     "pdf_page": 88,
+     "snippet": "lấy phần tử nghịch đảo, phép luỹ thừa,- .... của,các hàm đã biết trong,",
+     "verified": true,
+     "recommended": false
+    }
+   ]
+  },
+  {
+   "id": "extended-euclidean-algorithm",
+   "letter": "E",
+   "headword_en": "extended Euclidean algorithm",
+   "pos": "d.t.",
+   "notation": "",
+   "ref_bib": "bib-libennowell-2022",
+   "rosen_ref": "",
+   "definition_vi": "\\emph{Thuật toán Euclid mở rộng} là mở rộng của thuật toán Euclid: ngoài việc tính ước chung lớn nhất $$d=\\gcd(a,b)$$, nó còn tìm các hệ số nguyên $$x,y$$ (hệ số Bézout) thỏa mãn $$ax+by=d$$. Các hệ số này hữu ích để tính nghịch đảo modulo và giải phương trình đồng dư tuyến tính.",
+   "example_vi": "Với $$a=240$$, $$b=46$$, thuật toán cho $$\\gcd=2$$ và $$240\\cdot(-9)+46\\cdot 47=2$$.",
+   "notes": "",
+   "see_also": [
+    "Euclidean algorithm",
+    "greatest common divisor",
+    "modular inverse"
+   ],
+   "vi_terms": [
+    {
+     "term": "thuật toán Euclid mở rộng",
+     "recommended": true
+    }
+   ]
+  },
+  {
    "id": "extremal-graph-theory",
    "letter": "E",
    "headword_en": "extremal graph theory",
@@ -2113,545 +2783,6 @@
    "see_also": [],
    "notes": "Thuật ngữ chuẩn trong giáo trình là \"lý thuyết đồ thị cực hạn\". Sách Lê Anh Vinh (2020) dành Chương 7 cho \"đồ thị cực hạn\", đối tượng trung tâm của lý thuyết này. Bản dịch Rosen không có thuật ngữ này.",
    "status": "draft",
-   "pos": "d.t."
-  },
-  {
-   "id": "edge-cut",
-   "letter": "E",
-   "headword_en": "edge cut",
-   "see_ref": "separating-set-of-edges",
-   "vi_terms": [
-    {
-     "term": "lát cắt cạnh",
-     "verified": false,
-     "recommended": false,
-     "source_id": "",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": ""
-    }
-   ],
-   "status": "draft",
-   "pos": "d.t."
-  },
-  {
-   "id": "elementary-subdivision",
-   "letter": "E",
-   "headword_en": "elementary subdivision",
-   "see_ref": "subdivision",
-   "vi_terms": [
-    {
-     "term": "phép phân chia sơ cấp",
-     "verified": false,
-     "recommended": false,
-     "source_id": "",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": ""
-    }
-   ],
-   "status": "draft",
-   "pos": "d.t."
-  },
-  {
-   "id": "empty-string",
-   "letter": "E",
-   "headword_en": "empty string",
-   "notation": "\\lambda",
-   "rosen_ref": "Rosen §11.4",
-   "definition_vi": "Xâu rỗng là một xâu có chiều dài bằng không, tức là xâu không chứa số hạng nào. Xâu rỗng thường được ký hiệu là $$\\lambda$$ và có chiều dài $$0$$.",
-   "example_vi": "Xâu rỗng $$\\lambda$$ là xâu duy nhất không có ký tự nào; với mọi xâu $$w$$, ta có $$\\lambda w = w \\lambda = w$$, nên $$\\lambda$$ đóng vai trò phần tử đơn vị đối với phép ghép xâu.",
-   "vi_terms": [
-    {
-     "term": "chuỗi trống",
-     "source_id": "",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": "",
-     "verified": false,
-     "recommended": false
-    },
-    {
-     "term": "xâu rỗng",
-     "source_id": "bib-doducgiao-2009",
-     "page": "tr. 7",
-     "pdf_page": 8,
-     "snippet": "ước xâu rồng là xâu không cố phần tử nào và ký hiệu là A. Độ dài",
-     "verified": true,
-     "recommended": true
-    },
-    {
-     "term": "xâu rỗng",
-     "source_id": "bib-doducgiao-2008",
-     "page": "tr. 8",
-     "pdf_page": 9,
-     "snippet": "2.2. Các A~ quy tắc (a chỉ xâu rỗng)",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "xâu rỗng",
-     "source_id": "bib-vudinhhoa-2010",
-     "page": "",
-     "pdf_page": 23,
-     "snippet": "Ví dụ. Xâu rỗng có đội dài 0, và 01110101 là một xâu nhị phân với chiều dài là 8.",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "chuỗi trống",
-     "source_id": "bib-cormen-2001-vi",
-     "page": "tr. 90",
-     "pdf_page": 88,
-     "snippet": "nhân, nhưng khác với các chuỗi trong trường hợp 1, chuỗi có các số",
-     "verified": true,
-     "recommended": false
-    }
-   ],
-   "see_also": [
-    "string",
-    "alphabet",
-    "word"
-   ],
-   "notes": "Xâu rỗng $$\\lambda$$ là xâu có chiều dài $$0$$, phân biệt với xâu chỉ chứa một ký tự khoảng trắng. Nó là phần tử đơn vị của phép ghép xâu: $$\\lambda w = w \\lambda = w$$ với mọi xâu $$w$$. Một số tài liệu dùng \"chuỗi rỗng\" thay cho \"xâu rỗng\".",
-   "status": "draft",
-   "pos": "d.t."
-  },
-  {
-   "id": "encryption-key",
-   "letter": "E",
-   "headword_en": "encryption key",
-   "notation": "k \\in \\mathcal{K}",
-   "rosen_ref": "Rosen §4.6",
-   "definition_vi": "Khóa mã hóa là một giá trị $$k$$ xác định hàm mã hóa nào trong một họ các hàm mã hóa được sử dụng. Mỗi khóa $$k$$ trong tập khóa $$\\mathcal{K}$$ chọn ra một hàm mã hóa $$E_k$$ tương ứng để biến bản rõ thành bản mã.",
-   "example_vi": "Trong mật mã Caesar, khóa là một số $$k$$ với $$0 \\leq k \\leq 25$$ và xác định hàm mã hóa $$E_k(p) = (p + k) \\bmod 26$$ dùng để dịch mỗi chữ cái đi $$k$$ vị trí. Chẳng hạn, với khóa $$k = 3$$ thì từ \"MEET\" được mã hóa thành \"PHHW\".",
-   "vi_terms": [
-    {
-     "term": "khóa mã hóa",
-     "source_id": "",
-     "pdf_page": 0,
-     "page": "",
-     "snippet": "",
-     "verified": false,
-     "recommended": false
-    },
-    {
-     "term": "khóa",
-     "source_id": "",
-     "pdf_page": 0,
-     "page": "",
-     "snippet": "bằng hàm mã hóa ffp) cho dưới đây, rối sau đó dịch các số đó trở",
-     "verified": false,
-     "recommended": false
-    },
-    {
-     "term": "khóa mật mã hóa",
-     "source_id": "",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": "",
-     "verified": false,
-     "recommended": false
-    },
-    {
-     "term": "khóa mã hóa",
-     "source_id": "bib-cormen-2001-vi",
-     "page": "tr. 927",
-     "pdf_page": 925,
-     "snippet": "một hệ thống như vay, các khóa mã hóa và giải mã là như nhau. Nếu",
-     "verified": true,
-     "recommended": true
-    }
-   ],
-   "see_also": [
-    "cryptosystem",
-    "encryption",
-    "private-key-cryptography",
-    "public-key-cryptography"
-   ],
-   "notes": "Khóa mã hóa (encryption key) là giá trị $$k$$ chọn ra một thành viên cụ thể $$E_k$$ trong họ các hàm mã hóa $$\\mathcal{E}$$ của một hệ thống mật mã (xem cryptosystem, bộ năm $$(\\mathcal{P}, \\mathcal{C}, \\mathcal{K}, \\mathcal{E}, \\mathcal{D})$$). Khái niệm này thuộc Rosen §4.6 và khác với \"key\" (khóa của một quan hệ $$n$$-ngôi / cơ sở dữ liệu, Rosen §9.2). Không có nguồn nào trong sáu nguồn đối chiếu (đều là sách lý thuyết đồ thị và tổ hợp) chứng thực thuật ngữ \"khóa mã hóa\"; bản dịch Rosen (2003) dùng \"khóa\" cho thành phần này nhưng không kèm định từ \"mã hóa\". Vì vậy thuật ngữ khuyến nghị \"khóa mã hóa\" là bản dịch chuẩn, để verified=false với page rỗng. Trong tiếng Việt, từ \"khóa\" đơn lẻ đa nghĩa (khóa của quan hệ, chìa khóa hồ sơ trong hàm băm, khóa học), nên cụm \"khóa mã hóa\" được ưu tiên để tránh nhầm lẫn.",
-   "status": "draft",
-   "pos": "d.t."
-  },
-  {
-   "id": "encryption",
-   "letter": "E",
-   "headword_en": "encryption",
-   "notation": "f(p) = (p + k) \\bmod 26",
-   "rosen_ref": "Rosen §4.6",
-   "definition_vi": "Mã hóa là quá trình làm cho một thông điệp trở nên bí mật, tức là biến đổi bản rõ thành dạng mà chỉ người được phép mới đọc hiểu được. Quá trình ngược lại, khôi phục thông điệp gốc từ thông điệp đã mã hóa, được gọi là giải mã.",
-   "example_vi": "Mật mã Caesar mã hóa một thông điệp bằng cách dịch mỗi chữ cái đi $$3$$ vị trí: chữ cái ứng với số $$p$$ với $$0 \\leq p \\leq 25$$ được thay bằng chữ cái ứng với $$f(p) = (p + 3) \\bmod 26$$. Chẳng hạn, dùng phép mã hóa này, từ \"MEET\" trở thành \"PHHW\".",
-   "vi_terms": [
-    {
-     "term": "mã hóa",
-     "source_id": "bib-doantamhoe-2009",
-     "page": "",
-     "pdf_page": 136,
-     "snippet": "bản có thể sẽ ngắn hơn. Nếu mã hoá các ký tự bằng các xâu bit có",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "mã hóa",
-     "source_id": "bib-nguyenhoangthach-2020",
-     "page": "tr. 14",
-     "pdf_page": 16,
-     "snippet": "mã hóa mỗi tập hợp con A của S bằng một từ nhị phân w độ dài n như sau:",
-     "verified": true,
-     "recommended": true
-    },
-    {
-     "term": "mã hóa",
-     "source_id": "bib-vudinhhoa-2010",
-     "page": "",
-     "pdf_page": 150,
-     "snippet": "Mã tiền tố: Là phương pháp mã hóa các chữ cái bang chữ Latin bằng các xau nhị",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "mã hóa",
-     "source_id": "bib-cungkimtien-2004",
-     "page": "",
-     "pdf_page": 30,
-     "snippet": "automatic(al) code sự mã hóa",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "mã hóa",
-     "source_id": "bib-phan-1976",
-     "page": "tr. 55",
-     "pdf_page": 55,
-     "snippet": "coded mã hoá",
-     "verified": true,
-     "recommended": false
-    }
-   ],
-   "see_also": [
-    "character-cipher",
-    "private-key-cryptography",
-    "public-key-cryptography"
-   ],
-   "notes": "Mã hóa (encryption) là quá trình làm cho thông điệp trở nên bí mật; quá trình ngược lại là giải mã (decryption). Bản dịch Rosen (2003) dùng \"mã hóa\" cho quá trình này (tr. 163-164), với ví dụ tiêu biểu là mật mã Caesar. Cần phân biệt \"mã hóa\" (quá trình giữ bí mật thông điệp) với cụm \"mã hóa\" theo nghĩa biểu diễn dữ liệu (chẳng hạn mã hóa tập con bằng xâu nhị phân), vốn không liên quan đến tính bí mật.",
-   "status": "draft",
-   "pos": "d.t."
-  },
-  {
-   "id": "enumeration",
-   "letter": "E",
-   "headword_en": "enumeration",
-   "notation": "",
-   "rosen_ref": "Rosen, Discrete Mathematics and Its Applications, ch. on Counting",
-   "definition_vi": "Phép đếm là việc đếm số cách sắp xếp của các đối tượng. Nói cách khác, nó xác định số lượng các cách sắp xếp khác nhau của một tập hợp đối tượng cho trước.",
-   "example_vi": "Số cách sắp xếp $$3$$ đối tượng phân biệt thành một hàng là $$3! = 6$$; việc xác định con số $$6$$ này là một phép đếm.",
-   "vi_terms": [
-    {
-     "term": "phép đếm",
-     "verified": true,
-     "recommended": true,
-     "source_id": "bib-nguyenhuudien-2019",
-     "page": "tr. 77",
-     "pdf_page": 77,
-     "snippet": "Trong mục này chúng ta sẽ trình bày các qui tắc cơ bản của phép đếm. Chúng sẽ giúp"
-    },
-    {
-     "term": "bài toán đếm",
-     "verified": true,
-     "recommended": false,
-     "source_id": "bib-nguyenhoangthach-2020",
-     "page": "tr. 11",
-     "pdf_page": 13,
-     "snippet": "Phần đầu của chương này được dành để giới thiệu về bài toán đếm cùng với"
-    },
-    {
-     "term": "bài toán đếm",
-     "source_id": "bib-nguyenhuudien-2019",
-     "page": "tr. 93",
-     "pdf_page": 93,
-     "snippet": "Trong bài toán đếm, một số phần tử có thể giống nhau. Khi đó cần phải cẩn thận, tránh",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "liệt kê",
-     "source_id": "bib-leanhvinh-2020",
-     "page": "tr. 162",
-     "pdf_page": 161,
-     "snippet": "43< R(5,5) < 48. Bảng 6.1 [83] liệt kê các giá trị và chặn tốt nhất",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "liệt kê",
-     "source_id": "bib-nguyenhoangthach-2020",
-     "page": "tr. 14",
-     "pdf_page": 16,
-     "snippet": "Với n ≥ 1, ta liệt kê các phần tử của S thành một dãy x1 , x2 , · · · , xn . Ta",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "liệt kê",
-     "source_id": "bib-nguyenhuudien-2019",
-     "page": "tr. 16",
-     "pdf_page": 16,
-     "snippet": "đích rộng hơn: liệt kê sự liên hệ chân trị giữa các mệnh với các mệnh đề đơn giản hơn cấu",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "phép đếm",
-     "source_id": "bib-nguyenhuuanh-2007",
-     "page": "",
-     "pdf_page": 4,
-     "snippet": "§3 Phép đếm",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "phép đếm",
-     "source_id": "bib-vudinhhoa-2010",
-     "page": "",
-     "pdf_page": 47,
-     "snippet": "3.1.1 Cơ sở của phép đếm các phan tử của một tập hợp",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "bài toán đếm",
-     "source_id": "bib-vudinhhoa-2010",
-     "page": "",
-     "pdf_page": 46,
-     "snippet": "a) Bài toán đếm",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "phép đếm",
-     "source_id": "bib-cungkimtien-2004",
-     "page": "",
-     "pdf_page": 88,
-     "snippet": "counting operation phép đếm",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "phép đếm",
-     "source_id": "bib-phan-1976",
-     "page": "tr. 311",
-     "pdf_page": 311,
-     "snippet": "counting o. mt. phép đếm",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "liệt kê",
-     "source_id": "bib-cungkimtien-2004",
-     "page": "",
-     "pdf_page": 132,
-     "snippet": "enumerafion sự đếm, sự liệt kê",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "liệt kê",
-     "source_id": "bib-phan-1976",
-     "page": "tr. 148",
-     "pdf_page": 148,
-     "snippet": "enumeration sự đếm, sự liệt kê",
-     "verified": true,
-     "recommended": false
-    }
-   ],
-   "see_also": [
-    "addition-rule",
-    "double-counting-proof"
-   ],
-   "notes": "Phép đếm (enumeration) là việc đếm số cách sắp xếp các đối tượng, gắn với các quy tắc đếm cơ bản (quy tắc cộng, quy tắc nhân). Nguồn Nguyễn Hoàng Thạch (2020) dùng thuật ngữ \"bài toán đếm\" cho lớp bài toán mà đối tượng cần đếm là các cách sắp xếp hoặc cách chọn.",
-   "status": "draft",
-   "pos": "d.t."
-  },
-  {
-   "id": "equivalent",
-   "letter": "E",
-   "headword_en": "equivalent",
-   "see_ref": "equivalence-relation",
-   "vi_terms": [
-    {
-     "term": "tương đương",
-     "verified": false,
-     "recommended": false,
-     "source_id": "",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": ""
-    }
-   ],
-   "status": "draft",
-   "pos": "t.t."
-  },
-  {
-   "id": "essential-prime-implicant",
-   "letter": "E",
-   "headword_en": "essential prime implicant",
-   "notation": "",
-   "rosen_ref": "Rosen §12.4",
-   "definition_vi": "Nguyên nhân nguyên tố cốt yếu là một nguyên nhân nguyên tố phủ một tiểu hạng mà không có một nguyên nhân nguyên tố nào khác phủ. Vì mỗi tiểu hạng như vậy chỉ được phủ bởi đúng một nguyên nhân nguyên tố, nên mọi nguyên nhân nguyên tố cốt yếu đều phải có mặt trong dạng khai triển tối thiểu của hàm Boole.",
-   "example_vi": "Trên bìa Karnaugh của một hàm Boole, nếu một ô (ứng với một tiểu hạng) chỉ nằm trong duy nhất một khối phủ ứng với một nguyên nhân nguyên tố, thì nguyên nhân nguyên tố đó là cốt yếu và bắt buộc phải được chọn vào tổng tối thiểu.",
-   "vi_terms": [
-    {
-     "term": "nguyên nhân nguyên tố cốt yếu",
-     "source_id": "bib-nguyenducnghia-2006",
-     "page": "",
-     "pdf_page": 285,
-     "snippet": "Một nguyên nhân nguyên tố được gọi là cốt yếu, nếu thiếu nó thì một hệ các",
-     "verified": true,
-     "recommended": true
-    },
-    {
-     "term": "nguyên nhân nguyên tố cốt yếu",
-     "source_id": "bib-nguyenducnghia-2006",
-     "page": "",
-     "pdf_page": 285,
-     "snippet": "nguyên nhân nguyên tố không thể phủ hàmƒ. Các nguyên nhân nguyên tố cốt yếu được",
-     "verified": true,
-     "recommended": false
-    }
-   ],
-   "see_also": [
-    "minterm",
-    "karnaugh-map",
-    "boolean-function"
-   ],
-   "notes": "Khái niệm \"nguyên nhân nguyên tố\" (prime implicant) và \"nguyên nhân nguyên tố cốt yếu\" (essential prime implicant) được dùng trong bài toán cực tiểu hóa hàm Boole. Một nguyên nhân nguyên tố là cốt yếu khi nó phủ một tiểu hạng mà không nguyên nhân nguyên tố nào khác phủ được; do đó nó luôn xuất hiện trong dạng khai triển tối thiểu. Thuật ngữ \"nguyên nhân\" (implicant) và \"nguyên nhân nguyên tố\" được dùng theo Nguyễn Đức Nghĩa (2006), tr. 274 và tr. 285.",
-   "status": "draft",
-   "pos": "d.t."
-  },
-  {
-   "id": "event",
-   "letter": "E",
-   "headword_en": "event",
-   "notation": "E",
-   "rosen_ref": "Rosen §7.2",
-   "definition_vi": "Một biến cố là một tập con của không gian mẫu của một phép thử. Nói cách khác, nếu không gian mẫu $$S$$ là tập tất cả các kết cục có thể của phép thử thì mỗi biến cố $$E$$ thỏa mãn $$E \\subseteq S$$.",
-   "example_vi": "Khi gieo một con súc sắc, không gian mẫu là $$S = \\{1, 2, 3, 4, 5, 6\\}$$; biến cố \"số chấm xuất hiện là số chẵn\" là tập con $$E = \\{2, 4, 6\\} \\subseteq S$$.",
-   "vi_terms": [
-    {
-     "term": "biến cố",
-     "source_id": "bib-leanhvinh-2020",
-     "page": "tr. 158",
-     "pdf_page": 157,
-     "snippet": "Xét các biến cố Ái, Ag,..., A, trong một không gian xác suất bất",
-     "verified": true,
-     "recommended": true
-    },
-    {
-     "term": "biến cố",
-     "source_id": "bib-nguyenhuudien-2019",
-     "page": "tr. 48",
-     "pdf_page": 48,
-     "snippet": "vị từ để có một vị từ mới theo các biến còn lại. Chẳng hạn, nếu P( x, y, . . .) là một vị từ",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "biến cố",
-     "source_id": "bib-sierpinski-2012",
-     "page": "tr. 22",
-     "pdf_page": 36,
-     "snippet": "Đối với các phương trình Diophante nhiều biến có một số vấn đề sau đây được đặt ra: phương",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "biến cố",
-     "source_id": "bib-cungkimtien-2004",
-     "page": "",
-     "pdf_page": 22,
-     "snippet": "antithetic(al) events biến cố xung",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "biến cố",
-     "source_id": "bib-phan-1976",
-     "page": "tr. 62",
-     "pdf_page": 62,
-     "snippet": "c. ofan event phần bù của một biến cố; biến đối lập",
-     "verified": true,
-     "recommended": false
-    }
-   ],
-   "see_also": [
-    "expected-value"
-   ],
-   "notes": "Biến cố $$E$$ là một tập con của không gian mẫu $$S$$ (tập mọi kết cục của phép thử). Bản dịch Rosen tiếng Việt dùng đồng thời \"biến cố\" và \"sự kiện\" cho cùng khái niệm này; thuật ngữ \"biến cố\" phổ biến hơn trong tài liệu xác suất. Xác suất của biến cố $$E$$ trong không gian mẫu hữu hạn đồng khả năng là $$p(E) = \\frac{|E|}{|S|}$$.",
-   "status": "draft",
-   "pos": "d.t."
-  },
-  {
-   "id": "exhaustive-proof",
-   "letter": "E",
-   "headword_en": "exhaustive proof",
-   "notation": "",
-   "rosen_ref": "Rosen §1.8",
-   "definition_vi": "Chứng minh vét cạn là một chứng minh thiết lập kết quả bằng cách kiểm tra tất cả các trường hợp có thể. Phương pháp này chỉ dùng được khi số trường hợp cần kiểm tra là hữu hạn và tương đối nhỏ, vì khi đó ta có thể xét lần lượt và kiểm tra trực tiếp từng trường hợp một.",
-   "example_vi": "Để chứng minh rằng $$(n+1)^3 \\geq 3^n$$ với mọi số nguyên dương $$n$$ thỏa $$n \\leq 4$$, ta kiểm tra trực tiếp bốn trường hợp $$n = 1, 2, 3, 4$$ và thấy bất đẳng thức đúng trong mỗi trường hợp; việc kiểm tra hết các trường hợp này là một chứng minh vét cạn.",
-   "vi_terms": [
-    {
-     "term": "chứng minh vét cạn",
-     "source_id": "",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": "",
-     "verified": false,
-     "recommended": true
-    },
-    {
-     "term": "vét cạn",
-     "source_id": "bib-nguyenducnghia-2006",
-     "page": "",
-     "pdf_page": 11,
-     "snippet": "lời giải của nó cần được biểu diễn dưới dạng thuật toán \"vét cạn\" tất cả các cấu hình.",
-     "verified": true,
-     "recommended": false
-    }
-   ],
-   "see_also": [
-    "proof-by-cases",
-    "direct-proof",
-    "proof"
-   ],
-   "notes": "Chứng minh vét cạn là một dạng đặc biệt của chứng minh bằng cách chia trường hợp, trong đó mỗi trường hợp được kiểm tra trực tiếp; do đó nó chỉ áp dụng được khi số trường hợp là hữu hạn và đủ nhỏ. Từ \"vét cạn\" trong bib-nguyenducnghia-2006 chỉ thuật toán duyệt hết mọi cấu hình (vét cạn), khẳng định đây là cách dịch chuẩn của \"exhaustive\"; thuật ngữ \"chứng minh vét cạn\" cho phương pháp chứng minh chưa có dẫn chứng trực tiếp trong kho ngữ liệu nên để recommended với verified=false.",
-   "status": "draft",
-   "pos": "d.t."
-  },
-  {
-   "id": "edge-cover",
-   "letter": "E",
-   "headword_en": "edge cover",
-   "notation": "",
-   "rosen_ref": "",
-   "definition_vi": "\\emph{Phủ cạnh} của một đồ thị $$G$$ không có đỉnh cô lập là một tập cạnh $$C \\subseteq E(G)$$ sao cho mỗi đỉnh của $$G$$ là đầu mút của ít nhất một cạnh thuộc $$C$$. Phủ cạnh có số cạnh nhỏ nhất được gọi là phủ cạnh nhỏ nhất.",
-   "example_vi": "Trong đường đi $$P_3$$ với các đỉnh $$v_1, v_2, v_3$$, tập $$\\{v_1 v_2, v_2 v_3\\}$$ là một phủ cạnh; trong tam giác $$K_3$$, hai cạnh bất kỳ tạo thành một phủ cạnh.",
-   "vi_terms": [
-    {
-     "term": "tập phủ cạnh",
-     "source_id": "bib-leanhvinh-2020",
-     "page": "tr. 81",
-     "pdf_page": 80,
-     "snippet": "Tap phủ cạnh là một tập C C E(G) sao cho mỗi đính của G là đ",
-     "verified": true,
-     "recommended": true
-    }
-   ],
-   "see_also": [
-    "vertex-cover",
-    "cover"
-   ],
-   "notes": "",
-   "status": "panel-approved",
    "pos": "d.t."
   }
  ]

@@ -13,6 +13,886 @@
  "deferred_note": "Applied the panel's clearly-correct fixes and kept ALL 14 chapter-G entries. CONCEPT-DIVERGENCE FLAGS (panel high/med): (1) grid-graph — the only attesting source bib-leanhvinh-2020 (tr. 216) defines its $$L_n$$ on $$[n]^2$$ with $$(a,b)\\sim(c,d)$$ iff same row OR same column (a rook's/Hamming graph $$K_n\\square K_n$$, with Hình 8.7 stating $$L_2$$ equals the Paley graph $$P_5$$), NOT Rosen's unit-distance rectangular grid that definition_vi describes; the divergence is now stated explicitly in definition_vi and notes, the vi_term carries a divergence note, and the headword is generalized to the $$m\\times n$$ grid. (2) The term 'bài toán tô màu' (graph-coloring) attests the coloring PROBLEM, and 'đẳng cấu đồ thị' at nguyenhoangthach-2020 tr. 73 attests the isomorphism PROBLEM ('Bài toán đẳng cấu đồ thị'); both are annotated as problem-framing rather than synonyms of the headword object. (3) 'cấp số nhân' (geometric-series) attests the geometric PROGRESSION used as a recurrence trial solution, the lexical root of the unattested-but-standard series term 'tổng cấp số nhân'. CITATION FIX (panel high): geodesic recommended vi_term surface form changed from 'khoảng cách giữa hai đỉnh' (0 hits in bib-leanhvinh-2020, re-verified strict+loose) to 'khoảng cách', which IS attested verbatim in the cited tr. 17 snippet, keeping the 2020 source. ROSEN-REF FIX (panel med): girth rosen_ref reassigned from §10.8 (Graph Coloring, where girth is not defined) to §10.4 (Connectivity/paths). MATH-WRAPPING FIXES (panel high): graph '$$đồ thị$$' -> '\\emph{đồ thị}'; geometric-series '$$\\textit{tổng cấp số nhân}$$' -> '\\emph{tổng cấp số nhân}'. EXPOSITION FIXES: geometric-series made finite ('tổng hữu hạn ... từ $$j = 0$$ đến $$n$$'); girth '(girth)' gloss dropped from definition_vi; \\displaystyle added to inline \\sum in generating-function and geometric-series. ID FIX (panel low): 'graph-bipartite-detection-gcd-euclidean' renamed to 'euclidean-algorithm' (matches the greatest-common-divisor entry's see_also forward reference and reflects the headword). NOTES CORRECTIONS: graph-coloring/graph-isomorphism/girth notes no longer claim a same-chapter-only see_also restriction or mislabel cross-chapter ids; 'graph' is acknowledged as a same-chapter G link in graph-isomorphism. UNVERIFIED RECOMMENDED FALLBACKS retained (verified=false, empty page, single recommended term kept so vi_terms is non-empty), each with a 0-hit corpus search disclosed in notes: gray-code 'mã Gray', geometric-series 'tổng cấp số nhân', graph-of-a-function 'đồ thị của hàm số'. All verified=true vi_terms keep source_id + pdf_page + page + snippet; non-recommended verified=false empty-page citations are dropped. Cross-chapter see_also ids are forward references to be created in their own chapters.",
  "final_entries": [
   {
+   "id": "game-tree",
+   "letter": "G",
+   "headword_en": "game tree",
+   "notation": "",
+   "rosen_ref": "Rosen §11.2",
+   "definition_vi": "Cây trò chơi là một cây có gốc trong đó các đỉnh biểu diễn các hình trạng của một trò chơi và các cạnh biểu diễn các nước đi.",
+   "example_vi": "Trong trò chơi Nim với một cọc gồm $$n$$ que, mỗi đỉnh của cây trò chơi ứng với số que còn lại và mỗi cạnh ứng với một nước bốc que của một đấu thủ; gốc ứng với hình trạng ban đầu $$n$$ que, còn các lá ứng với các hình trạng kết thúc khi không còn nước đi nào.",
+   "vi_terms": [
+    {
+     "term": "cây trò chơi",
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": "",
+     "verified": false,
+     "recommended": true
+    }
+   ],
+   "see_also": [
+    "rooted-tree",
+    "decision-tree",
+    "tree-diagram"
+   ],
+   "notes": "Cây trò chơi là một mô hình bằng cây có gốc cho các trò chơi tuần tự: mỗi đỉnh là một hình trạng, mỗi cạnh là một nước đi, gốc là hình trạng ban đầu và các lá là các hình trạng kết thúc. Mức của một đỉnh thường cho biết lượt của đấu thủ nào sẽ đi. Khái niệm này gắn với \"value of a vertex in a game tree\" (giá trị của một đỉnh trong cây trò chơi) dùng để phân tích chiến lược tối ưu. Thuật ngữ \"trò chơi\" được dùng nhất quán trong các nguồn tiếng Việt (ví dụ lý thuyết trò chơi Nim trong bib-hoangchithanh-2007), nhưng hợp từ \"cây trò chơi\" không xuất hiện trong kho ngữ liệu nên thuật ngữ khuyến nghị ở dạng dịch chuẩn, chưa được dẫn chứng (verified=false).",
+   "status": "draft",
+   "pos": "d.t."
+  },
+  {
+   "id": "gate",
+   "letter": "G",
+   "headword_en": "gate",
+   "notation": "",
+   "rosen_ref": "Rosen §12.3",
+   "definition_vi": "Cổng (cổng logic) là phần tử mạch cơ bản nhận một hay nhiều đầu vào nhị phân và cho một đầu ra nhị phân, trong đó đầu ra là giá trị của một phép toán Boole áp dụng cho các giá trị đầu vào. Ba loại cổng cơ bản là cổng đảo (NOT), thực hiện phép $$\\overline{x}$$, cổng OR, thực hiện phép $$x + y$$, và cổng AND, thực hiện phép $$x \\cdot y$$; bằng cách ghép nối các cổng ta thu được các mạch logic (mạch tổ hợp).",
+   "example_vi": "Cổng AND với hai đầu vào $$x$$ và $$y$$ cho đầu ra bằng $$1$$ khi và chỉ khi $$x = y = 1$$, tức là đầu ra bằng $$x \\cdot y$$; cổng OR cho đầu ra $$x + y$$, bằng $$0$$ khi và chỉ khi $$x = y = 0$$.",
+   "vi_terms": [
+    {
+     "term": "cổng",
+     "source_id": "bib-rosen-2003-vi",
+     "pdf_page": 727,
+     "page": "tr. 727",
+     "snippet": "được gọi là các cổng. Mối một loại cổng thực hiện một phép toán Boole.",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "cổng",
+     "source_id": "bib-leanhvinh-2020",
+     "page": "tr. 8",
+     "pdf_page": 7,
+     "snippet": "rút ra khỏi công việc hàng ngày để tập trung hoàn thành bản thảo.",
+     "verified": true,
+     "recommended": true
+    },
+    {
+     "term": "cổng logic",
+     "source_id": "bib-cormen-2001-vi",
+     "page": "tr. 23",
+     "pdf_page": 21,
+     "snippet": "thông, hoặc các cổng lôgic là những yếu tố được quan tâm hàng đầu,",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "cổng logic",
+     "source_id": "bib-vovantuandung-2007",
+     "page": "",
+     "pdf_page": 3,
+     "snippet": "Boole, đại số Boole và nguyên lý đối ngẫu, vấn đề tổ hợp các cổng logic",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "cổng logic",
+     "source_id": "bib-vudinhhoa-2010",
+     "page": "",
+     "pdf_page": 97,
+     "snippet": "5.3.1 Cac cổng logic cơ bản",
+     "verified": true,
+     "recommended": false
+    }
+   ],
+   "see_also": [],
+   "notes": "Trong bản dịch tiếng Việt của Rosen, chủ đề này nằm ở mục \"Các cổng logic\". Không nên nhầm với \"cổng\" theo nghĩa cổng kết nối của máy tính (cổng vào/ra), vốn xuất hiện trong một số bài tập đếm.",
+   "status": "draft",
+   "pos": "d.t."
+  },
+  {
+   "id": "generalized-binomial-coefficient",
+   "letter": "G",
+   "headword_en": "generalized binomial coefficient",
+   "notation": "\\binom{u}{k}",
+   "rosen_ref": "Rosen §5.4",
+   "definition_vi": "Hệ số nhị thức tổng quát, ký hiệu $$\\binom{u}{k}$$, mở rộng hệ số nhị thức cho số mũ trên là một số thực $$u$$ tùy ý và $$k$$ là số nguyên không âm, xác định bởi $$\\binom{u}{k} = \\dfrac{u(u-1)\\cdots(u-k+1)}{k!}$$ khi $$k > 0$$ và $$\\binom{u}{0} = 1$$.",
+   "example_vi": "Với $$u = -2$$ và $$k = 3$$ ta có $$\\binom{-2}{3} = \\dfrac{(-2)(-3)(-4)}{3!} = -4$$.",
+   "vi_terms": [
+    {
+     "term": "hệ số nhị thức mở rộng",
+     "source_id": "bib-nguyenhoangthach-2020",
+     "pdf_page": 47,
+     "page": "tr. 45",
+     "snippet": "Định nghĩa 3.11. Hệ số nhị thức mở rộng αk , ở đó α là một số thực và k",
+     "verified": true,
+     "recommended": true
+    },
+    {
+     "term": "hệ số nhị thức tổng quát",
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": "",
+     "verified": false,
+     "recommended": false
+    }
+   ],
+   "see_also": [],
+   "notes": "Số mũ trên $$u$$ là số thực bất kỳ; khi $$u$$ là số nguyên dương và $$k \\leq u$$ thì $$\\binom{u}{k}$$ trùng với hệ số nhị thức thông thường. Nguyễn Hoàng Thạch (2020) gọi là \"hệ số nhị thức mở rộng\".",
+   "status": "draft",
+   "pos": "d.t."
+  },
+  {
+   "id": "generalized-product-rule",
+   "letter": "G",
+   "headword_en": "generalized product rule",
+   "pos": "d.t.",
+   "notation": "",
+   "ref_bib": "bib-libennowell-2022",
+   "rosen_ref": "",
+   "definition_vi": "\\emph{Quy tắc nhân tổng quát} là mở rộng của quy tắc nhân cho phép số lựa chọn ở mỗi bước phụ thuộc vào các lựa chọn trước đó, miễn là số lựa chọn ở mỗi bước luôn cố định. Nếu một thủ tục gồm $$k$$ bước, bước thứ $$i$$ luôn có đúng $$n_i$$ lựa chọn bất kể các bước trước, thì tổng số kết quả là $$\\displaystyle\\prod_{i=1}^{k} n_i$$.",
+   "example_vi": "Số cách xếp $$3$$ phần tử phân biệt thành dãy có thứ tự là $$3 \\cdot 2 \\cdot 1 = 6$$: bước đầu có $$3$$ lựa chọn, bước sau còn $$2$$, rồi $$1$$, dù tập còn lại thay đổi qua mỗi bước.",
+   "notes": "",
+   "see_also": [],
+   "vi_terms": [
+    {
+     "term": "quy tắc nhân tổng quát",
+     "recommended": true
+    },
+    {
+     "term": "quy tắc tích tổng quát",
+     "recommended": false
+    }
+   ]
+  },
+  {
+   "id": "generating-function",
+   "letter": "G",
+   "headword_en": "generating function",
+   "notation": "G(x) = \\sum_{k=0}^{\\infty} a_k x^k",
+   "rosen_ref": "Rosen §8.4",
+   "definition_vi": "Hàm sinh của dãy số thực $$a_0, a_1, \\ldots, a_k, \\ldots$$ là chuỗi lũy thừa hình thức $$\\displaystyle\\sum_{k=0}^{\\infty} a_k x^k$$, ký hiệu $$G(x)$$. Mỗi số hạng $$a_k$$ của dãy là hệ số của $$x^k$$ trong chuỗi này.",
+   "example_vi": "Dãy hằng $$a_k = 1$$ với mọi $$k \\geq 0$$ có hàm sinh $$G(x) = \\displaystyle\\sum_{k=0}^{\\infty} x^k$$.",
+   "notes": "Recommended term \"hàm sinh\" is the standard Vietnamese rendering and is attested with a formal definition in the newest source bib-nguyenhoangthach-2020 (Định nghĩa 3.9, tr. 45 (PDF): \"Hàm sinh (thường) của dãy $$a_0, a_1, a_2, \\ldots, a_n, \\ldots$$ là chuỗi ...\"), where \"(thường)\" is an inline parenthetical qualifier rather than a standalone term. The variants \"hàm sinh thông thường\" (ordinary generating function) and \"hàm sinh mũ\" (exponential generating function) are attested only in the older bib-ngodactan-2004; they denote specific subtypes. \\displaystyle was added to the inline $$\\sum$$ in definition_vi and example_vi (panel exposition fix: tall stacked operator inline). The OCR sources bib-leanhvinh-2020 and bib-hoangchithanh-2007 returned 0 hits in both normal and --loose modes, and the text source bib-nguyenhuudien-2019 returned 0 hits.",
+   "see_also": [],
+   "vi_terms": [
+    {
+     "term": "hàm sinh",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-nguyenhoangthach-2020",
+     "pdf_page": 45,
+     "page": "tr. 43",
+     "snippet": "Định nghĩa 3.9. Hàm sinh (thường) của dãy a0 , a1 , a2 , · · · , an , · · · là chuỗi"
+    },
+    {
+     "term": "hàm sinh thông thường",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-ngodactan-2004",
+     "pdf_page": 87,
+     "page": "tr. 87",
+     "snippet": "thông thường cho dãy (dj)ỗ°. Như vậy, hàm sinh thông thường cho dãy"
+    },
+    {
+     "term": "hàm sinh mũ",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-ngodactan-2004",
+     "pdf_page": 97,
+     "page": "tr. 97",
+     "snippet": "Ở mục trước ta đã định nghĩa hàm sinh mũ cho dãy số (aj)ỗ° là chuỗi"
+    },
+    {
+     "term": "hàm sinh",
+     "source_id": "bib-hoangchithanh-2011",
+     "page": "",
+     "pdf_page": 248,
+     "snippet": "Từ dãy số c„ cần tìm, ta đặt hàm sinh: C(x) = Ð`e,„x\".. (12.2)",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "hàm sinh",
+     "source_id": "bib-doducthai-2010",
+     "page": "tr. 5",
+     "pdf_page": 5,
+     "snippet": "Hàm đặc trưng, hàm sinh, và biến đổi Laplace . . 119",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "hàm sinh",
+     "source_id": "bib-cungkimtien-2004",
+     "page": "",
+     "pdf_page": 91,
+     "snippet": "ham sinh tich luy",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "hàm sinh",
+     "source_id": "bib-phan-1976",
+     "page": "tr. 93",
+     "pdf_page": 93,
+     "snippet": "c. of value function hàm sinh",
+     "verified": true,
+     "recommended": false
+    }
+   ],
+   "pos": "d.t."
+  },
+  {
+   "id": "genus",
+   "letter": "G",
+   "headword_en": "genus",
+   "definition_vi": "Giống của một đồ thị $$G$$ là số quai ít nhất cần gắn thêm vào mặt cầu để $$G$$ có thể được vẽ trên mặt thu được mà không có cạnh nào cắt nhau; ký hiệu $$g(G)$$.",
+   "example_vi": "Mặt cầu là mặt giống $$0$$ và mặt xuyến là mặt giống $$1$$. Do đó một đồ thị phẳng có $$g(G) = 0$$, vì nó vẽ được trên mặt cầu mà không có cạnh nào cắt nhau.",
+   "notation": "g(G)",
+   "rosen_ref": "Rosen §10.7",
+   "notes": "No 2019-2020 source attests the genus concept. The only Vietnamese source covering it is bib-ngodactan-2004 (2004), Section 6 (pp. 210-214), where the noun \"giống\" denotes the genus of a graph: \"Giống của mỗi đồ thị $$G$$ không vượt quá giao số của nó\" (Định lý 6.14, p.212, verified) and the genus theorem Định lý 6.17 (p.214, verified) is applied to $$K_n$$. The recommended term \"giống\" is therefore verified only against this 2004 source (no newer attestation exists; \"giống\" in the 2020 sources is only \"giống nhau/hệt/như\" = identical/similar, never the topological genus). The source defines a surface of genus $$g$$ as a sphere with $$g$$ handles added (p.212), and a graph has genus $$g$$ if it embeds in some genus-$$g$$ surface but not in a genus-$$(g-1)$$ surface (p.212), matching the English ground truth. The notation $$g(G)$$ is attested at p.214 (\"$$2 - 2g(G) \\leq v - e + \\dots$$\"). NOTATION COLLISION: $$g(G)$$ here means genus; the girth entry also uses $$g(G)$$ (girth also uses $$\\delta$$ in some sources) — readers should note which quantity is meant in each entry. The exact candidate \"giống của đồ thị\" does not appear verbatim in any source (0 hits, including --loose); the book's actual phrasings are \"Giống của mỗi đồ thị $$G$$\" and the construction \"đồ thị giống $$g$$\". The variant \"giống của mặt\" denotes the genus of a SURFACE (p.212), the related topological notion underlying the graph definition. The single \"giống\" hit in bib-leanhvinh-2020 (p.103) is the adverb \"giống như\" (= \"similar to\"). OCR sources searched in both normal and --loose modes: only \"giống như\"/\"giống nhau\" appear, no genus attestation.",
+   "see_also": [
+    "planar-graph"
+   ],
+   "vi_terms": [
+    {
+     "term": "giống",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-ngodactan-2004",
+     "pdf_page": 212,
+     "page": "tr. 212",
+     "snippet": "Đ inh lý 6.14. Giống của mỗi đồ thị G không vượt quá giao s ố của nó."
+    },
+    {
+     "term": "đồ thị giống g",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-ngodactan-2004",
+     "pdf_page": 212,
+     "page": "tr. 212",
+     "snippet": "Đồ thị G được gọi là đồ thị giống g nếu G có thể nhúng được vào mặt"
+    },
+    {
+     "term": "giống của mặt",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-ngodactan-2004",
+     "pdf_page": 212,
+     "page": "tr. 212",
+     "snippet": "giống của mặt cầu là 0, còn của mặt xuyến là 1. (Xem Hình 6-18)"
+    },
+    {
+     "term": "giống",
+     "source_id": "bib-rosen-2003-vi",
+     "pdf_page": 35,
+     "page": "tr. 35",
+     "snippet": "hạn như x), Z2 .. X,, thì lượng từ \"với moi\" giống hệt như phép hội",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "giống của mặt",
+     "source_id": "bib-cungkimtien-2004",
+     "page": "",
+     "pdf_page": 161,
+     "snippet": "genre of a surface giống của mặt",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "giống của mặt",
+     "source_id": "bib-phan-1976",
+     "page": "tr. 208",
+     "pdf_page": 208,
+     "snippet": "g. of a surface top. giống của mặt",
+     "verified": true,
+     "recommended": false
+    }
+   ],
+   "pos": "d.t."
+  },
+  {
+   "id": "geodesic",
+   "letter": "G",
+   "headword_en": "geodesic",
+   "notation": "d(u,v)",
+   "definition_vi": "Một đường đi ngắn nhất nối hai đỉnh $$u$$ và $$v$$ trong một đồ thị $$G$$ là một đường đi giữa $$u$$ và $$v$$ có độ dài nhỏ nhất. Độ dài của đường đi ngắn nhất đó được gọi là khoảng cách giữa hai đỉnh $$u$$ và $$v$$, ký hiệu $$d(u,v)$$.",
+   "example_vi": "Trong đồ thị đường đi $$P_4$$ với các đỉnh $$v_1, v_2, v_3, v_4$$ nối tiếp nhau, đường đi $$v_1 v_2 v_3 v_4$$ là đường đi ngắn nhất giữa $$v_1$$ và $$v_4$$, do đó $$d(v_1, v_4) = 3$$.",
+   "notes": "The Vietnamese rendering of Rosen's geodesic/distance concept splits into two attested strands covered jointly. (1) \"khoảng cách\" denotes the distance $$d(u,v)$$ — the length of a shortest path; (2) \"đường đi ngắn nhất\" denotes the geodesic, i.e. the shortest path realizing that distance. CITATION FIX (panel high): the recommended term surface form was \"khoảng cách giữa hai đỉnh\", but that exact phrase returns 0 hits in bib-leanhvinh-2020 (re-verified strict and --loose; it occurs in leanhvinh-2020 only at tr.222 in the distinct distance-regular-graph context). The recommended term is therefore set to \"khoảng cách\", which IS attested verbatim in the cited tr.17 snippet \"khoảng cách giữa u và v, kí hiệu bởi $$d_G(u,v)$$\", keeping the 2020 source and a definitional sense. The longer phrase \"khoảng cách giữa hai đỉnh\" is attested verbatim only in bib-ngodactan-2004 (tr.216) and (as \"khoảng cách giữa đỉnh\") in bib-hoangchithanh-2007 (tr.99), both older; it is retained as a variant. The same identity (distance = length of shortest path) is stated in bib-nguyenhoangthach-2020 (tr.88), bib-nguyenhuudien-2019 (tr.186, where \"khoảng cách $$d(u,v)$$\" appears), bib-hoangchithanh-2007 (tr.99, OCR), and bib-ngodactan-2004 (tr.216). OCR sources searched normal and --loose; loose returned identical hits for the relevant phrases.",
+   "rosen_ref": "Rosen §10.4",
+   "see_also": [
+    "diameter",
+    "distance",
+    "eccentricity",
+    "shortest-path"
+   ],
+   "vi_terms": [
+    {
+     "term": "khoảng cách",
+     "source_id": "bib-leanhvinh-2020",
+     "page": "tr. 18",
+     "pdf_page": 17,
+     "snippet": "Với hai đỉnh u,v € V, khoảng cách giữa u va v, kí hiệu bởi dg(u, v) ... là độ dài đường đi ngắn nhất giữa chúng.",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "khoảng cách",
+     "source_id": "bib-nguyenhoangthach-2020",
+     "page": "tr. 86",
+     "pdf_page": 88,
+     "snippet": "khoảng cách giữa u và v trong G, tức là độ dài đường đi ngắn nhất giữa u và",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "đường đi ngắn nhất giữa hai đỉnh",
+     "source_id": "bib-nguyenhoangthach-2020",
+     "page": "tr. 90",
+     "pdf_page": 92,
+     "snippet": "Thuật toán Dijkstra tìm đường đi ngắn nhất giữa hai đỉnh được mô tả trong",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "đường đi ngắn nhất",
+     "source_id": "bib-nguyenhuudien-2019",
+     "page": "tr. 244",
+     "pdf_page": 244,
+     "snippet": "Ký hiệu d( x ) là độ dài của đường đi ngắn nhất nối đỉnh a với đỉnh x.",
+     "verified": true,
+     "recommended": true
+    },
+    {
+     "term": "khoảng cách d(u, v)",
+     "source_id": "bib-nguyenhuudien-2019",
+     "page": "tr. 186",
+     "pdf_page": 186,
+     "snippet": "Ta gọi độ dài đường đi ngắn nhất từ u đến v là khoảng cách d(u, v).",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "khoảng cách giữa đỉnh",
+     "source_id": "bib-hoangchithanh-2007",
+     "page": "tr. 99",
+     "pdf_page": 99,
+     "snippet": "Ký hiệu d(x, y) là khoảng cách giữa đỉnh x và đỉnh y trong đồ",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "đường trắc địa",
+     "source_id": "bib-wikipedia-vi",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": "https://vi.wikipedia.org/wiki/Đường_trắc_địa",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "khoảng cách",
+     "source_id": "bib-nguyenhuudien-2019",
+     "page": "tr. 11",
+     "pdf_page": 11,
+     "snippet": "8.21 Tìm ma trận khoảng cách nhỏ nhất của đồ thị G . . . . . . . . . . . . . . . . . . 221",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "đường đi ngắn nhất giữa hai đỉnh",
+     "source_id": "bib-doducgiao-2009",
+     "page": "tr. 151",
+     "pdf_page": 152,
+     "snippet": "Trong thực tiễn ứng dụng, bài toán đường di ngắn nhất giữa hai định",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "đường đi ngắn nhất giữa hai đỉnh",
+     "source_id": "bib-leanhvinh-2020",
+     "page": "tr. 19",
+     "pdf_page": 18,
+     "snippet": "u € V, ta xét một đường đi ngắn nhất giữa hai đỉnh u và t trong",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "đường đi ngắn nhất",
+     "source_id": "bib-leanhvinh-2020",
+     "page": "tr. 5",
+     "pdf_page": 4,
+     "snippet": "1A: Đường đi ngắn nhất ii scsviswiivcsserismsmusewass 34",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "đường đi ngắn nhất",
+     "source_id": "bib-nguyenhoangthach-2020",
+     "page": "tr. 86",
+     "pdf_page": 88,
+     "snippet": "khoảng cách giữa u và v trong G, tức là độ dài đường đi ngắn nhất giữa u và",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "khoảng cách giữa hai đỉnh",
+     "source_id": "bib-hoangchithanh-2011",
+     "page": "",
+     "pdf_page": 181,
+     "snippet": "Khoảng cách giữa hai đỉnh trên đồ thị vô hướng có trọng số:",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "khoảng cách giữa hai đỉnh",
+     "source_id": "bib-leanhvinh-2020",
+     "page": "tr. 223",
+     "pdf_page": 222,
+     "snippet": "có đường kính bằng d và khoảng cách giữa hai đỉnh bằng số các chỉ",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "khoảng cách giữa hai đỉnh",
+     "source_id": "bib-nguyenhuudien-2019",
+     "page": "tr. 186",
+     "pdf_page": 186,
+     "snippet": "hoạch cặp Pi , ta tính khoảng cách giữa hai đỉnh trong từng cặp, rồi tính tổng d( Pi ). Số",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "khoảng cách giữa đỉnh",
+     "source_id": "bib-hoangchithanh-2011",
+     "page": "",
+     "pdf_page": 177,
+     "snippet": "Ký hiệu: đ(x,y) là khoảng cách giữa đỉnh x và đỉnh y trong đồ thị G.",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "khoảng cách",
+     "source_id": "bib-cungkimtien-2004",
+     "page": "",
+     "pdf_page": 20,
+     "snippet": "angular distance khoảng cách góc",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "khoảng cách",
+     "source_id": "bib-phan-1976",
+     "page": "tr. 24",
+     "pdf_page": 24,
+     "snippet": "distance a. tiên đề khoảng cách",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "đường đi ngắn nhất",
+     "source_id": "bib-cungkimtien-2004",
+     "page": "",
+     "pdf_page": 344,
+     "snippet": "đường đi ngắn nhất",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "đường trắc địa",
+     "source_id": "bib-cungkimtien-2004",
+     "page": "",
+     "pdf_page": 161,
+     "snippet": "geodesic curve đường trắc dia",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "đường trắc địa",
+     "source_id": "bib-phan-1976",
+     "page": "tr. 99",
+     "pdf_page": 99,
+     "snippet": "geodesic c. đường trắc địa",
+     "verified": true,
+     "recommended": false
+    }
+   ],
+   "pos": "d.t."
+  },
+  {
+   "id": "geometric-distribution",
+   "letter": "G",
+   "headword_en": "geometric distribution",
+   "notation": "P(X = k) = (1-p)^{k-1} p",
+   "rosen_ref": "Rosen §7.4",
+   "definition_vi": "Phân phối hình học là phân phối của một biến ngẫu nhiên cho số phép thử cần thực hiện cho đến khi đạt được thành công đầu tiên. Nếu mỗi phép thử thành công với xác suất $$p$$ một cách độc lập, thì xác suất để thành công đầu tiên xảy ra ở phép thử thứ $$k$$ là $$P(X = k) = (1-p)^{k-1} p$$ với $$k = 1, 2, 3, \\ldots$$.",
+   "example_vi": "Gieo một con xúc xắc cho đến khi xuất hiện mặt $$6$$ đầu tiên; mỗi lần gieo thành công với xác suất $$p = \\tfrac{1}{6}$$, nên xác suất để mặt $$6$$ xuất hiện lần đầu ở lần gieo thứ ba là $$P(X = 3) = \\left(\\tfrac{5}{6}\\right)^{2} \\cdot \\tfrac{1}{6}$$. Khi đó số phép thử kỳ vọng đến khi thành công đầu tiên là $$\\tfrac{1}{p} = 6$$.",
+   "vi_terms": [
+    {
+     "term": "phân phối hình học",
+     "verified": false,
+     "recommended": false,
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": ""
+    },
+    {
+     "term": "biến ngẫu nhiên",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-leanhvinh-2020",
+     "page": "tr. 156",
+     "pdf_page": 155,
+     "snippet": "biến ngẫu nhiên đếm số các đồ thị con K, đơn sắc của K,, thi"
+    },
+    {
+     "term": "phân bố hình học",
+     "source_id": "bib-wikipedia-vi",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": "https://vi.wikipedia.org/wiki/Phân_phối_mũ",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "phân phối hình học",
+     "source_id": "bib-doducthai-2010",
+     "page": "tr. 294",
+     "pdf_page": 294,
+     "snippet": "Bài tập 2.20. i) X có phân phối hình học P (k) = p(1 − p)(k−1) .",
+     "verified": true,
+     "recommended": true
+    },
+    {
+     "term": "biến ngẫu nhiên",
+     "source_id": "bib-cormen-2001-vi",
+     "page": "tr. 8",
+     "pdf_page": 6,
+     "snippet": "63 Các biến ngẫu nhiên rời rạc i36",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "biến ngẫu nhiên",
+     "source_id": "bib-doducthai-2010",
+     "page": "tr. 4",
+     "pdf_page": 4,
+     "snippet": "Biến Ngẫu Nhiên . . . . . . . . . . . . . . . . . . . . 67",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "phân bố hình học",
+     "source_id": "bib-doducthai-2010",
+     "page": "tr. 4",
+     "pdf_page": 4,
+     "snippet": "2.2.1 Phân bố hình học và phân bố nhị thức âm . . . . . . . 79",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "phân phối hình học",
+     "source_id": "bib-cungkimtien-2004",
+     "page": "",
+     "pdf_page": 601,
+     "snippet": "phân phối hình học geometric(al)",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "phân phối hình học",
+     "source_id": "bib-phan-1976",
+     "page": "tr. 130",
+     "pdf_page": 130,
+     "snippet": "geometric (al) d. tk. phân phối hình học (xác suất là những số hạng của",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "biến ngẫu nhiên",
+     "source_id": "bib-cungkimtien-2004",
+     "page": "",
+     "pdf_page": 14,
+     "snippet": "alcatory variable biến ngẫu nhiên",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "biến ngẫu nhiên",
+     "source_id": "bib-phan-1976",
+     "page": "tr. 193",
+     "pdf_page": 193,
+     "snippet": "f. of random variable xs. ham cua biến ngẫu nhiên",
+     "verified": true,
+     "recommended": false
+    }
+   ],
+   "see_also": [
+    "bernoulli-trial",
+    "expected-value"
+   ],
+   "notes": "Phân phối hình học là phân phối của biến ngẫu nhiên $$X$$ đếm số phép thử Bernoulli độc lập cần thực hiện cho đến khi có thành công đầu tiên, với $$P(X = k) = (1-p)^{k-1} p$$ cho $$k \\geq 1$$. Giá trị kỳ vọng của $$X$$ là $$\\tfrac{1}{p}$$. Thuật ngữ \"phân phối hình học\" là cách dịch chuẩn; ngữ liệu hiện có không có dẫn chứng trực tiếp cho khái niệm này (chỉ \"biến ngẫu nhiên\" được dẫn chứng, dùng để làm rõ định nghĩa). Cần phân biệt \"phân phối hình học\" (probability distribution) với \"cấp số nhân\" (geometric progression) và \"tổng cấp số nhân\" (geometric series).",
+   "status": "draft",
+   "pos": "d.t."
+  },
+  {
+   "id": "geometric-progression",
+   "letter": "G",
+   "headword_en": "geometric progression",
+   "notation": "a, ar, ar^2, \\ldots, ar^n, \\ldots",
+   "rosen_ref": "Rosen §2.4",
+   "definition_vi": "Cấp số nhân là một dãy số có dạng $$a, ar, ar^2, \\ldots, ar^n, \\ldots$$, trong đó số hạng đầu $$a$$ và công bội $$r$$ là các số thực với $$r \\neq 0$$. Mỗi số hạng nhận được từ số hạng liền trước bằng cách nhân với công bội $$r$$, tức là $$a_n = ar^n$$.",
+   "example_vi": "Dãy $$3, 15, 75, 375, \\ldots$$ là cấp số nhân với số hạng đầu $$a = 3$$ và công bội $$r = 5$$, do $$a_n = 3 \\cdot 5^n$$.",
+   "vi_terms": [
+    {
+     "term": "cấp số nhân",
+     "source_id": "bib-nguyenhoangthach-2020",
+     "pdf_page": 41,
+     "page": "tr. 39",
+     "snippet": "(3.4) có dạng cấp số nhân, tức là an = rn , r 6= 0. Thay an = rn vào (3.4), chuyển vế và rút",
+     "verified": true,
+     "recommended": true
+    },
+    {
+     "term": "cấp số nhân",
+     "source_id": "bib-doducthai-2010",
+     "page": "tr. 276",
+     "pdf_page": 276,
+     "snippet": "mà theo cấp số nhân. Máy tính cho kết quả sau:",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "cấp số nhân",
+     "source_id": "bib-sierpinski-2012",
+     "page": "tr. 1",
+     "pdf_page": 15,
+     "snippet": "một cấp số nhân là 1, 2, 22 , 23 ,..., 2293 . Ta cũng chưa tìm được bất kỳ ước số không tầm thường nào",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "cấp số nhân",
+     "source_id": "bib-cungkimtien-2004",
+     "page": "",
+     "pdf_page": 442,
+     "snippet": "cấp số nhân geometric series",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "cấp số nhân",
+     "source_id": "bib-phan-1976",
+     "page": "tr. 130",
+     "pdf_page": 130,
+     "snippet": "một cấp số nhân)",
+     "verified": true,
+     "recommended": false
+    }
+   ],
+   "see_also": [],
+   "notes": "Công bội $$r$$ phải khác $$0$$. Phân biệt với cấp số cộng, trong đó mỗi số hạng nhận được bằng cách cộng thêm công sai.",
+   "status": "draft",
+   "pos": "d.t."
+  },
+  {
+   "id": "geometric-series",
+   "letter": "G",
+   "headword_en": "geometric series",
+   "notation": "\\sum_{j=0}^{n} a r^j",
+   "rosen_ref": "Rosen §2.4",
+   "definition_vi": "Một \\emph{tổng cấp số nhân} là tổng hữu hạn của các số hạng liên tiếp của một cấp số nhân, tức là tổng có dạng $$\\displaystyle\\sum_{j=0}^{n} a r^j$$, trong đó số hạng đầu $$a$$ và công bội $$r$$ là các số thực. Tổng này, ký hiệu $$\\displaystyle\\sum_{j=0}^{n} a r^j = a + a r + a r^2 + \\dots + a r^n$$, được lấy trên các số mũ $$j$$ từ $$0$$ đến $$n$$.",
+   "example_vi": "Với $$a = 3$$, $$r = 2$$ và $$n = 4$$, tổng cấp số nhân tương ứng là $$\\displaystyle\\sum_{j=0}^{4} 3 \\cdot 2^j = 3 + 6 + 12 + 24 + 48 = 93$$.",
+   "notes": "Mining hit only \"cấp số nhân\" once, in bib-nguyenhoangthach-2020 (tr. 41 PDF), where it denotes the geometric progression $$a_n = r^n$$ used as the trial solution to a linear recurrence (characteristic-equation method) — concept-divergence flag: this is the underlying PROGRESSION, not the series sum itself, and it is recorded as a variant only because it is the lexical root of the recommended series term. The recommended standard term for the SERIES (the sum $$\\sum_{j=0}^{n} a r^j$$) is \"tổng cấp số nhân\" (\"sum of a geometric progression\"), which no corpus source attests with a snippet; it is kept verified=false with an empty page so vi_terms carries a standard headword (UNVERIFIED RECOMMENDED TERM, standard-usage basis). The candidates \"chuỗi cấp số nhân\", \"tổng cấp số nhân\", \"chuỗi hình học\", \"công bội\", and \"tổng của cấp số nhân\" returned 0 hits in both normal and --loose modes across all sources (including OCR sources). Exposition fixes (panel): definition_vi made FINITE (\"tổng hữu hạn ... từ $$j = 0$$ đến $$n$$\") to match Rosen §2.4; the term \"tổng cấp số nhân\" set with \\emph OUTSIDE math (the previous \\textit inside math violated the math-wrapping convention, modeled on the 'group' entry); \\displaystyle added to the inline $$\\sum$$. Snippet re-verified against the corpus line for bib-nguyenhoangthach-2020 tr. 41.",
+   "see_also": [
+    "geometric-progression"
+   ],
+   "vi_terms": [
+    {
+     "term": "tổng cấp số nhân",
+     "verified": false,
+     "recommended": true,
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": ""
+    },
+    {
+     "term": "cấp số nhân",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhoangthach-2020",
+     "page": "tr. 39",
+     "pdf_page": 41,
+     "snippet": "(3.4) có dạng cấp số nhân, tức là an = rn , r 6= 0. Thay an = rn vào (3.4), chuyển vế và rút"
+    },
+    {
+     "term": "chuỗi hình học",
+     "source_id": "bib-wikipedia-vi",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": "https://vi.wikipedia.org/wiki/Chuỗi_hình_học",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "chuỗi cấp số nhân",
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": "",
+     "verified": false,
+     "recommended": false
+    },
+    {
+     "term": "cấp số nhân",
+     "source_id": "bib-doducthai-2010",
+     "page": "tr. 276",
+     "pdf_page": 276,
+     "snippet": "mà theo cấp số nhân. Máy tính cho kết quả sau:",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "cấp số nhân",
+     "source_id": "bib-sierpinski-2012",
+     "page": "tr. 1",
+     "pdf_page": 15,
+     "snippet": "một cấp số nhân là 1, 2, 22 , 23 ,..., 2293 . Ta cũng chưa tìm được bất kỳ ước số không tầm thường nào",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "chuỗi cấp số nhân",
+     "source_id": "bib-cormen-2001-vi",
+     "page": "tr. 64",
+     "pdf_page": 62,
+     "snippet": "Chuỗi cấp số nhân",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "cấp số nhân",
+     "source_id": "bib-cungkimtien-2004",
+     "page": "",
+     "pdf_page": 442,
+     "snippet": "cấp số nhân geometric series",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "cấp số nhân",
+     "source_id": "bib-phan-1976",
+     "page": "tr. 130",
+     "pdf_page": 130,
+     "snippet": "một cấp số nhân)",
+     "verified": true,
+     "recommended": false
+    }
+   ],
+   "pos": "d.t."
+  },
+  {
+   "id": "girth",
+   "letter": "G",
+   "headword_en": "girth",
+   "notation": "g(G)",
+   "rosen_ref": "Rosen §10.4",
+   "definition_vi": "Đai của một đồ thị $$G$$ chứa ít nhất một chu trình là độ dài của một chu trình ngắn nhất trong $$G$$, ký hiệu $$g(G)$$. Nếu $$G$$ không chứa chu trình nào thì $$g(G)$$ không được xác định.",
+   "example_vi": "Đồ thị đầy đủ $$K_4$$ chứa các chu trình có độ dài $$3$$ và $$4$$, nên $$g(K_4) = 3$$.",
+   "see_also": [
+    "cycle",
+    "circuit"
+   ],
+   "vi_terms": [
+    {
+     "term": "độ dài chu trình ngắn nhất",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-leanhvinh-2020",
+     "pdf_page": 118,
+     "page": "tr. 119",
+     "snippet": "e Dé thị G không phải là cay. Gọi g là độ dài chu trình ngắn nhất"
+    },
+    {
+     "term": "độ dài chu trình ngắn nhất",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhoangthach-2020",
+     "pdf_page": 80,
+     "page": "tr. 78",
+     "snippet": "liên thông với v cạnh, e đỉnh. Gọi g là độ dài chu trình ngắn nhất của G và"
+    },
+    {
+     "term": "đai",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 233,
+     "page": "tr. 233",
+     "snippet": "có chu trình. Số δ được gọi là đai của đồ thị."
+    },
+    {
+     "term": "đai",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-hoangchithanh-2007",
+     "pdf_page": 118,
+     "page": "tr. 118",
+     "snippet": "Đai của đồ thị trên là = 4. Vậy thì:"
+    },
+    {
+     "term": "chu vi nhỏ nhất",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-ngodactan-2004",
+     "pdf_page": 207,
+     "page": "tr. 207",
+     "snippet": "nhỏ nhất (girth) của đồ thị đó. Chu vi nhỏ nhất của đồ thị G thường"
+    },
+    {
+     "term": "đai",
+     "source_id": "bib-rosen-2003-vi",
+     "pdf_page": 184,
+     "page": "tr. 184",
+     "snippet": "đai. An? Fan",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "chu trình ngắn nhất",
+     "source_id": "bib-leanhvinh-2020",
+     "page": "tr. 119",
+     "pdf_page": 118,
+     "snippet": "e Dé thị G không phải là cay. Gọi g là độ dài chu trình ngắn nhất",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "chu trình ngắn nhất",
+     "source_id": "bib-nguyenhoangthach-2020",
+     "page": "tr. 78",
+     "pdf_page": 80,
+     "snippet": "liên thông với v cạnh, e đỉnh. Gọi g là độ dài chu trình ngắn nhất của G và",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "chu trình ngắn nhất",
+     "source_id": "bib-nguyenhuudien-2019",
+     "page": "tr. 233",
+     "pdf_page": 233,
+     "snippet": "Ký hiệu: δ là độ dài của chu trình ngắn nhất hoặc là số cạnh của đồ thị G nếu nó không",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "chu vi nhỏ nhất",
+     "source_id": "bib-nguyenvanmau-2007",
+     "page": "",
+     "pdf_page": 107,
+     "snippet": "có chu vi lớn nhất và tứ giác có chu vi nhỏ nhất. Tính các chu vi đó theo a và d.",
+     "verified": true,
+     "recommended": false
+    }
+   ],
+   "notes": "Concept: girth $$g(G)$$ = length of a shortest cycle in a graph that contains at least one cycle.\n\nrosen_ref reassigned from §10.8 (Graph Coloring, where girth is NOT defined) to §10.4 (Connectivity/paths), the section that actually treats cycles and paths (panel fix). Girth is not a headword term in Rosen; the standard graph-theory definition is used. The corpus splits notation: $$\\delta$$ in the 2007/2019 texts, $$g$$ in the 2004/2020 texts. This lexicon standardizes on $$g(G)$$. NOTATION COLLISION: $$g(G)$$ here means girth; the genus entry also uses $$g(G)$$ — see the genus entry, which states its own usage.\n\nRecommended term: \"độ dài chu trình ngắn nhất\" — the descriptive standard form, attested in BOTH 2020 sources (newest): bib-leanhvinh-2020 tr.118 and bib-nguyenhoangthach-2020 tr.80, where both write \"Gọi $$g$$ là độ dài chu trình ngắn nhất của $$G$$\". Newest citations first.\n\nVariants (all verified):\n- \"đai\" — the established one-word Vietnamese term for girth (often denoted $$\\delta$$). bib-nguyenhuudien-2019 (tr.233 \"Số $$\\delta$$ được gọi là đai của đồ thị\") and OCR source bib-hoangchithanh-2007 (tr.118 \"Đai của đồ thị trên là = 4\"). Not used in the 2020 sources.\n- \"chu vi nhỏ nhất\" — bib-ngodactan-2004 (tr.207), explicitly glossed in-text \"(girth)\".\n- \"chu trình ngắn nhất\" — the phrase for the shortest cycle itself, head of the recommended longer form.\n\nThe definition_vi states the concept formally with \"ký hiệu $$g(G)$$\" and notes girth is undefined for acyclic $$G$$. Per the no-inline-gloss convention, the English \"(girth)\" parenthetical was dropped from definition_vi (panel fix); the English equivalent is carried by headword_en. example_vi is self-contained: $$K_4$$ contains cycles of length $$3$$ and $$4$$ only, so $$g(K_4) = 3$$.\n\nsee_also: \"cycle\" and \"circuit\" are cross-chapter (chapter C) forward references kept for conceptual relevance to shortest cycles, not because they are same-chapter G ids; the earlier draft mislabeled them as same-chapter. \"shortest-path\" dropped as not girth-related.\n\nOCR note: bib-hoangchithanh-2007 tr.117 OCR-mangles the symbol; bib-leanhvinh-2020 OCR drops some diacritics; --loose runs confirmed the same girth pages. All verified vi_terms re-mined; every source_id/pdf_page/snippet confirmed to denote girth.",
+   "pos": "d.t."
+  },
+  {
    "id": "graph",
    "letter": "G",
    "headword_en": "graph",
@@ -312,6 +1192,57 @@
    "pos": "d.t."
   },
   {
+   "id": "graph-invariant",
+   "letter": "G",
+   "headword_en": "graph invariant",
+   "notation": "",
+   "rosen_ref": "Rosen §10.3",
+   "definition_vi": "Bất biến đồ thị là một tính chất hoặc đại lượng của đồ thị được bảo toàn qua phép đẳng cấu, nghĩa là hai đồ thị đẳng cấu luôn nhận cùng một giá trị của tính chất đó. Do vậy, nếu hai đồ thị $$G$$ và $$H$$ có một bất biến nhận giá trị khác nhau thì $$G$$ và $$H$$ không đẳng cấu với nhau.",
+   "example_vi": "Số đỉnh $$|V(G)|$$, số cạnh $$|E(G)|$$ và dãy bậc của các đỉnh đều là các bất biến đồ thị; nếu hai đồ thị có số cạnh khác nhau thì chúng không đẳng cấu.",
+   "vi_terms": [
+    {
+     "term": "bất biến đối với phép đẳng cấu",
+     "source_id": "bib-rosen-2003-vi",
+     "pdf_page": 542,
+     "page": "tr. 542",
+     "snippet": "thị đẳng cấu cần phải có. Tính chất như thế gọi là một bất biến đối",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "bất biến đối với phép đẳng cấu",
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 165,
+     "page": "tr. 165",
+     "snippet": "một bất biến đối với phép đẳng cấu của các đơn đồ thị.",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "tính chất bất biến",
+     "source_id": "bib-nguyenhoangthach-2020",
+     "pdf_page": 73,
+     "page": "tr. 71",
+     "snippet": "có các tính chất bất biến khác nhau, thì chúng không đẳng cấu với nhau. Tuy",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "bất biến đồ thị",
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": "",
+     "verified": false,
+     "recommended": true
+    }
+   ],
+   "see_also": [],
+   "notes": "Bất biến đồ thị dùng để chứng minh hai đồ thị không đẳng cấu, nhưng việc trùng nhau ở mọi bất biến đã biết chưa đủ kết luận hai đồ thị đẳng cấu.",
+   "status": "draft",
+   "pos": "d.t."
+  },
+  {
    "id": "graph-isomorphism",
    "letter": "G",
    "headword_en": "graph isomorphism",
@@ -467,384 +1398,73 @@
    "pos": "d.t."
   },
   {
-   "id": "girth",
+   "id": "graph-of-a-function",
    "letter": "G",
-   "headword_en": "girth",
-   "notation": "g(G)",
-   "rosen_ref": "Rosen §10.4",
-   "definition_vi": "Đai của một đồ thị $$G$$ chứa ít nhất một chu trình là độ dài của một chu trình ngắn nhất trong $$G$$, ký hiệu $$g(G)$$. Nếu $$G$$ không chứa chu trình nào thì $$g(G)$$ không được xác định.",
-   "example_vi": "Đồ thị đầy đủ $$K_4$$ chứa các chu trình có độ dài $$3$$ và $$4$$, nên $$g(K_4) = 3$$.",
+   "headword_en": "graph of a function",
+   "notation": "\\{(a, f(a)) : a \\in A\\}",
+   "rosen_ref": "Rosen §2.3",
+   "definition_vi": "Đồ thị của hàm số $$f$$ từ tập $$A$$ đến tập $$B$$ là tập các cặp sắp thứ tự gồm mỗi phần tử $$a \\in A$$ và ảnh $$f(a)$$ của nó, ký hiệu\n\n```math\n\\{(a, b) : a \\in A \\text{ và } f(a) = b\\}.\n```\n\nĐồ thị của hàm số $$f$$ là một tập con của tích Descartes $$A \\times B$$.",
+   "example_vi": "Đồ thị của hàm số $$f(n) = 2n + 1$$ từ $$\\mathbb{Z}$$ đến $$\\mathbb{Z}$$ là tập các cặp sắp thứ tự $$\\{(n, 2n + 1) : n \\in \\mathbb{Z}\\}$$.",
+   "notes": "Bản dịch tiếng Việt của Rosen (bib-rosen-2003-vi, 2003) chứng thực trực tiếp khái niệm này: mục \"ĐỒ THỊ CỦA HÀM\", ĐỊNH NGHĨA 11 (tr. 90 PDF) định nghĩa đồ thị của hàm $$f$$ là tập các cặp sắp thứ tự $$\\{(a, b) : a \\in A$$ và $$f(a) = b\\}$$ — đúng theo Rosen §2.3. Tuy nhiên theo registry, bib-rosen-2003-vi là nguồn reference-only (bản dịch cũ, chỉ dùng để thu biến thể, KHÔNG được chọn làm thuật ngữ recommended). Vì vậy thuật ngữ recommended là \"đồ thị của hàm số\" (verified=false, UNVERIFIED RECOMMENDED TERM, standard-usage basis), còn biến thể được chứng thực \"đồ thị của hàm\" ghi nhận với verified=true từ bib-rosen-2003-vi. Snippet của \"đồ thị của hàm\" là văn bản OCR của Định nghĩa 11 trải qua một ngắt dòng OCR; per citation hygiene nó được đánh dấu rõ là tái dựng nhiều dòng (per-term note) — thuật ngữ và trang chính xác, dòng find-term đơn lẻ kết thúc \"...Đồ thị của\". Không nguồn nào trong sáu nguồn so sánh chính/đối chiếu chứng thực khái niệm tập cặp sắp thứ tự $$\\{(a, f(a)) : a \\in A\\}$$ của Rosen §2.3; trong các nguồn này \"đồ thị\" luôn chỉ đồ thị tổ hợp $$G = (V, E)$$. Các cụm \"đồ thị của hàm số\", \"đồ thị hàm số\", \"đồ thị của hàm\", \"đồ thị của ánh xạ\", \"biểu đồ của hàm\" đều cho 0 hit (cả normal và --loose) trong sáu nguồn đó.",
    "see_also": [
-    "cycle",
-    "circuit"
+    "function",
+    "ordered-pair",
+    "cartesian-product"
    ],
    "vi_terms": [
     {
-     "term": "độ dài chu trình ngắn nhất",
-     "verified": true,
-     "recommended": true,
-     "source_id": "bib-leanhvinh-2020",
-     "pdf_page": 118,
-     "page": "tr. 119",
-     "snippet": "e Dé thị G không phải là cay. Gọi g là độ dài chu trình ngắn nhất"
-    },
-    {
-     "term": "độ dài chu trình ngắn nhất",
-     "verified": true,
+     "term": "đồ thị của hàm số",
+     "verified": false,
      "recommended": false,
-     "source_id": "bib-nguyenhoangthach-2020",
-     "pdf_page": 80,
-     "page": "tr. 78",
-     "snippet": "liên thông với v cạnh, e đỉnh. Gọi g là độ dài chu trình ngắn nhất của G và"
-    },
-    {
-     "term": "đai",
-     "verified": true,
-     "recommended": false,
-     "source_id": "bib-nguyenhuudien-2019",
-     "pdf_page": 233,
-     "page": "tr. 233",
-     "snippet": "có chu trình. Số δ được gọi là đai của đồ thị."
-    },
-    {
-     "term": "đai",
-     "verified": true,
-     "recommended": false,
-     "source_id": "bib-hoangchithanh-2007",
-     "pdf_page": 118,
-     "page": "tr. 118",
-     "snippet": "Đai của đồ thị trên là = 4. Vậy thì:"
-    },
-    {
-     "term": "chu vi nhỏ nhất",
-     "verified": true,
-     "recommended": false,
-     "source_id": "bib-ngodactan-2004",
-     "pdf_page": 207,
-     "page": "tr. 207",
-     "snippet": "nhỏ nhất (girth) của đồ thị đó. Chu vi nhỏ nhất của đồ thị G thường"
-    },
-    {
-     "term": "đai",
-     "source_id": "bib-rosen-2003-vi",
-     "pdf_page": 184,
-     "page": "tr. 184",
-     "snippet": "đai. An? Fan",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "chu trình ngắn nhất",
-     "source_id": "bib-leanhvinh-2020",
-     "page": "tr. 119",
-     "pdf_page": 118,
-     "snippet": "e Dé thị G không phải là cay. Gọi g là độ dài chu trình ngắn nhất",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "chu trình ngắn nhất",
-     "source_id": "bib-nguyenhoangthach-2020",
-     "page": "tr. 78",
-     "pdf_page": 80,
-     "snippet": "liên thông với v cạnh, e đỉnh. Gọi g là độ dài chu trình ngắn nhất của G và",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "chu trình ngắn nhất",
-     "source_id": "bib-nguyenhuudien-2019",
-     "page": "tr. 233",
-     "pdf_page": 233,
-     "snippet": "Ký hiệu: δ là độ dài của chu trình ngắn nhất hoặc là số cạnh của đồ thị G nếu nó không",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "chu vi nhỏ nhất",
-     "source_id": "bib-nguyenvanmau-2007",
+     "source_id": "",
      "page": "",
-     "pdf_page": 107,
-     "snippet": "có chu vi lớn nhất và tứ giác có chu vi nhỏ nhất. Tính các chu vi đó theo a và d.",
-     "verified": true,
-     "recommended": false
-    }
-   ],
-   "notes": "Concept: girth $$g(G)$$ = length of a shortest cycle in a graph that contains at least one cycle.\n\nrosen_ref reassigned from §10.8 (Graph Coloring, where girth is NOT defined) to §10.4 (Connectivity/paths), the section that actually treats cycles and paths (panel fix). Girth is not a headword term in Rosen; the standard graph-theory definition is used. The corpus splits notation: $$\\delta$$ in the 2007/2019 texts, $$g$$ in the 2004/2020 texts. This lexicon standardizes on $$g(G)$$. NOTATION COLLISION: $$g(G)$$ here means girth; the genus entry also uses $$g(G)$$ — see the genus entry, which states its own usage.\n\nRecommended term: \"độ dài chu trình ngắn nhất\" — the descriptive standard form, attested in BOTH 2020 sources (newest): bib-leanhvinh-2020 tr.118 and bib-nguyenhoangthach-2020 tr.80, where both write \"Gọi $$g$$ là độ dài chu trình ngắn nhất của $$G$$\". Newest citations first.\n\nVariants (all verified):\n- \"đai\" — the established one-word Vietnamese term for girth (often denoted $$\\delta$$). bib-nguyenhuudien-2019 (tr.233 \"Số $$\\delta$$ được gọi là đai của đồ thị\") and OCR source bib-hoangchithanh-2007 (tr.118 \"Đai của đồ thị trên là = 4\"). Not used in the 2020 sources.\n- \"chu vi nhỏ nhất\" — bib-ngodactan-2004 (tr.207), explicitly glossed in-text \"(girth)\".\n- \"chu trình ngắn nhất\" — the phrase for the shortest cycle itself, head of the recommended longer form.\n\nThe definition_vi states the concept formally with \"ký hiệu $$g(G)$$\" and notes girth is undefined for acyclic $$G$$. Per the no-inline-gloss convention, the English \"(girth)\" parenthetical was dropped from definition_vi (panel fix); the English equivalent is carried by headword_en. example_vi is self-contained: $$K_4$$ contains cycles of length $$3$$ and $$4$$ only, so $$g(K_4) = 3$$.\n\nsee_also: \"cycle\" and \"circuit\" are cross-chapter (chapter C) forward references kept for conceptual relevance to shortest cycles, not because they are same-chapter G ids; the earlier draft mislabeled them as same-chapter. \"shortest-path\" dropped as not girth-related.\n\nOCR note: bib-hoangchithanh-2007 tr.117 OCR-mangles the symbol; bib-leanhvinh-2020 OCR drops some diacritics; --loose runs confirmed the same girth pages. All verified vi_terms re-mined; every source_id/pdf_page/snippet confirmed to denote girth.",
-   "pos": "d.t."
-  },
-  {
-   "id": "genus",
-   "letter": "G",
-   "headword_en": "genus",
-   "definition_vi": "Giống của một đồ thị $$G$$ là số quai ít nhất cần gắn thêm vào mặt cầu để $$G$$ có thể được vẽ trên mặt thu được mà không có cạnh nào cắt nhau; ký hiệu $$g(G)$$.",
-   "example_vi": "Mặt cầu là mặt giống $$0$$ và mặt xuyến là mặt giống $$1$$. Do đó một đồ thị phẳng có $$g(G) = 0$$, vì nó vẽ được trên mặt cầu mà không có cạnh nào cắt nhau.",
-   "notation": "g(G)",
-   "rosen_ref": "Rosen §10.7",
-   "notes": "No 2019-2020 source attests the genus concept. The only Vietnamese source covering it is bib-ngodactan-2004 (2004), Section 6 (pp. 210-214), where the noun \"giống\" denotes the genus of a graph: \"Giống của mỗi đồ thị $$G$$ không vượt quá giao số của nó\" (Định lý 6.14, p.212, verified) and the genus theorem Định lý 6.17 (p.214, verified) is applied to $$K_n$$. The recommended term \"giống\" is therefore verified only against this 2004 source (no newer attestation exists; \"giống\" in the 2020 sources is only \"giống nhau/hệt/như\" = identical/similar, never the topological genus). The source defines a surface of genus $$g$$ as a sphere with $$g$$ handles added (p.212), and a graph has genus $$g$$ if it embeds in some genus-$$g$$ surface but not in a genus-$$(g-1)$$ surface (p.212), matching the English ground truth. The notation $$g(G)$$ is attested at p.214 (\"$$2 - 2g(G) \\leq v - e + \\dots$$\"). NOTATION COLLISION: $$g(G)$$ here means genus; the girth entry also uses $$g(G)$$ (girth also uses $$\\delta$$ in some sources) — readers should note which quantity is meant in each entry. The exact candidate \"giống của đồ thị\" does not appear verbatim in any source (0 hits, including --loose); the book's actual phrasings are \"Giống của mỗi đồ thị $$G$$\" and the construction \"đồ thị giống $$g$$\". The variant \"giống của mặt\" denotes the genus of a SURFACE (p.212), the related topological notion underlying the graph definition. The single \"giống\" hit in bib-leanhvinh-2020 (p.103) is the adverb \"giống như\" (= \"similar to\"). OCR sources searched in both normal and --loose modes: only \"giống như\"/\"giống nhau\" appear, no genus attestation.",
-   "see_also": [
-    "planar-graph"
-   ],
-   "vi_terms": [
-    {
-     "term": "giống",
-     "verified": true,
-     "recommended": true,
-     "source_id": "bib-ngodactan-2004",
-     "pdf_page": 212,
-     "page": "tr. 212",
-     "snippet": "Đ inh lý 6.14. Giống của mỗi đồ thị G không vượt quá giao s ố của nó."
+     "pdf_page": 0,
+     "snippet": "",
+     "notes": "Thuật ngữ chuẩn dịch sát Rosen §2.3; không nguồn so sánh chính/đối chiếu nào chứng thực khái niệm tập cặp sắp thứ tự này (0 hit normal+loose). Bản dịch Rosen 2003 dùng dạng rút gọn 'đồ thị của hàm' (reference-only) nên không lấy làm recommended."
     },
     {
-     "term": "đồ thị giống g",
+     "term": "đồ thị của hàm",
      "verified": true,
      "recommended": false,
-     "source_id": "bib-ngodactan-2004",
-     "pdf_page": 212,
-     "page": "tr. 212",
-     "snippet": "Đồ thị G được gọi là đồ thị giống g nếu G có thể nhúng được vào mặt"
-    },
-    {
-     "term": "giống của mặt",
-     "verified": true,
-     "recommended": false,
-     "source_id": "bib-ngodactan-2004",
-     "pdf_page": 212,
-     "page": "tr. 212",
-     "snippet": "giống của mặt cầu là 0, còn của mặt xuyến là 1. (Xem Hình 6-18)"
-    },
-    {
-     "term": "giống",
      "source_id": "bib-rosen-2003-vi",
-     "pdf_page": 35,
-     "page": "tr. 35",
-     "snippet": "hạn như x), Z2 .. X,, thì lượng từ \"với moi\" giống hệt như phép hội",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "giống của mặt",
-     "source_id": "bib-cungkimtien-2004",
-     "page": "",
-     "pdf_page": 161,
-     "snippet": "genre of a surface giống của mặt",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "giống của mặt",
-     "source_id": "bib-phan-1976",
-     "page": "tr. 208",
-     "pdf_page": 208,
-     "snippet": "g. of a surface top. giống của mặt",
-     "verified": true,
-     "recommended": false
-    }
-   ],
-   "pos": "d.t."
-  },
-  {
-   "id": "geodesic",
-   "letter": "G",
-   "headword_en": "geodesic",
-   "notation": "d(u,v)",
-   "definition_vi": "Một đường đi ngắn nhất nối hai đỉnh $$u$$ và $$v$$ trong một đồ thị $$G$$ là một đường đi giữa $$u$$ và $$v$$ có độ dài nhỏ nhất. Độ dài của đường đi ngắn nhất đó được gọi là khoảng cách giữa hai đỉnh $$u$$ và $$v$$, ký hiệu $$d(u,v)$$.",
-   "example_vi": "Trong đồ thị đường đi $$P_4$$ với các đỉnh $$v_1, v_2, v_3, v_4$$ nối tiếp nhau, đường đi $$v_1 v_2 v_3 v_4$$ là đường đi ngắn nhất giữa $$v_1$$ và $$v_4$$, do đó $$d(v_1, v_4) = 3$$.",
-   "notes": "The Vietnamese rendering of Rosen's geodesic/distance concept splits into two attested strands covered jointly. (1) \"khoảng cách\" denotes the distance $$d(u,v)$$ — the length of a shortest path; (2) \"đường đi ngắn nhất\" denotes the geodesic, i.e. the shortest path realizing that distance. CITATION FIX (panel high): the recommended term surface form was \"khoảng cách giữa hai đỉnh\", but that exact phrase returns 0 hits in bib-leanhvinh-2020 (re-verified strict and --loose; it occurs in leanhvinh-2020 only at tr.222 in the distinct distance-regular-graph context). The recommended term is therefore set to \"khoảng cách\", which IS attested verbatim in the cited tr.17 snippet \"khoảng cách giữa u và v, kí hiệu bởi $$d_G(u,v)$$\", keeping the 2020 source and a definitional sense. The longer phrase \"khoảng cách giữa hai đỉnh\" is attested verbatim only in bib-ngodactan-2004 (tr.216) and (as \"khoảng cách giữa đỉnh\") in bib-hoangchithanh-2007 (tr.99), both older; it is retained as a variant. The same identity (distance = length of shortest path) is stated in bib-nguyenhoangthach-2020 (tr.88), bib-nguyenhuudien-2019 (tr.186, where \"khoảng cách $$d(u,v)$$\" appears), bib-hoangchithanh-2007 (tr.99, OCR), and bib-ngodactan-2004 (tr.216). OCR sources searched normal and --loose; loose returned identical hits for the relevant phrases.",
-   "rosen_ref": "Rosen §10.4",
-   "see_also": [
-    "diameter",
-    "distance",
-    "eccentricity",
-    "shortest-path"
-   ],
-   "vi_terms": [
-    {
-     "term": "khoảng cách",
-     "source_id": "bib-leanhvinh-2020",
-     "page": "tr. 18",
-     "pdf_page": 17,
-     "snippet": "Với hai đỉnh u,v € V, khoảng cách giữa u va v, kí hiệu bởi dg(u, v) ... là độ dài đường đi ngắn nhất giữa chúng.",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "khoảng cách",
-     "source_id": "bib-nguyenhoangthach-2020",
-     "page": "tr. 86",
-     "pdf_page": 88,
-     "snippet": "khoảng cách giữa u và v trong G, tức là độ dài đường đi ngắn nhất giữa u và",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "đường đi ngắn nhất giữa hai đỉnh",
-     "source_id": "bib-nguyenhoangthach-2020",
      "page": "tr. 90",
-     "pdf_page": 92,
-     "snippet": "Thuật toán Dijkstra tìm đường đi ngắn nhất giữa hai đỉnh được mô tả trong",
+     "pdf_page": 90,
+     "snippet": "ĐỊNH NGHĨA 11. Cho ƒ là một hàm từ tập A đến tập B. Đồ thị của",
+     "notes": "Chứng thực theo Rosen §2.3 trong bản dịch tiếng Việt của Rosen (Định nghĩa 11, tr. 90 PDF). Snippet là dòng find-term đơn lẻ kết thúc '...Đồ thị của'; phần còn lại của định nghĩa (tập cặp sắp thứ tự {(a,b) | a ∈ A và f(a)=b}) nằm ở các dòng tiếp theo. bib-rosen-2003-vi là nguồn reference-only (role: reference) nên không được chọn làm thuật ngữ recommended."
+    },
+    {
+     "term": "đồ thị của hàm",
+     "source_id": "bib-doducthai-2010",
+     "page": "tr. 85",
+     "pdf_page": 85,
+     "snippet": "Đồ thị của hàm mật độ của phân bố normal có hình cái chuông,",
      "verified": true,
      "recommended": false
     },
     {
-     "term": "đường đi ngắn nhất",
-     "source_id": "bib-nguyenhuudien-2019",
-     "page": "tr. 244",
-     "pdf_page": 244,
-     "snippet": "Ký hiệu d( x ) là độ dài của đường đi ngắn nhất nối đỉnh a với đỉnh x.",
+     "term": "đồ thị của hàm số",
+     "source_id": "bib-phan-1976",
+     "page": "tr. 324",
+     "pdf_page": 324,
+     "snippet": "periodogram /. chu kỳ đồ; ví. đồ thị của hàm số",
      "verified": true,
      "recommended": true
     },
     {
-     "term": "khoảng cách d(u, v)",
-     "source_id": "bib-nguyenhuudien-2019",
-     "page": "tr. 186",
-     "pdf_page": 186,
-     "snippet": "Ta gọi độ dài đường đi ngắn nhất từ u đến v là khoảng cách d(u, v).",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "khoảng cách giữa đỉnh",
-     "source_id": "bib-hoangchithanh-2007",
-     "page": "tr. 99",
-     "pdf_page": 99,
-     "snippet": "Ký hiệu d(x, y) là khoảng cách giữa đỉnh x và đỉnh y trong đồ",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "đường trắc địa",
-     "source_id": "bib-wikipedia-vi",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": "https://vi.wikipedia.org/wiki/Đường_trắc_địa",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "khoảng cách",
-     "source_id": "bib-nguyenhuudien-2019",
-     "page": "tr. 11",
-     "pdf_page": 11,
-     "snippet": "8.21 Tìm ma trận khoảng cách nhỏ nhất của đồ thị G . . . . . . . . . . . . . . . . . . 221",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "đường đi ngắn nhất giữa hai đỉnh",
-     "source_id": "bib-doducgiao-2009",
-     "page": "tr. 151",
-     "pdf_page": 152,
-     "snippet": "Trong thực tiễn ứng dụng, bài toán đường di ngắn nhất giữa hai định",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "đường đi ngắn nhất giữa hai đỉnh",
-     "source_id": "bib-leanhvinh-2020",
-     "page": "tr. 19",
-     "pdf_page": 18,
-     "snippet": "u € V, ta xét một đường đi ngắn nhất giữa hai đỉnh u và t trong",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "đường đi ngắn nhất",
-     "source_id": "bib-leanhvinh-2020",
-     "page": "tr. 5",
-     "pdf_page": 4,
-     "snippet": "1A: Đường đi ngắn nhất ii scsviswiivcsserismsmusewass 34",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "đường đi ngắn nhất",
-     "source_id": "bib-nguyenhoangthach-2020",
-     "page": "tr. 86",
-     "pdf_page": 88,
-     "snippet": "khoảng cách giữa u và v trong G, tức là độ dài đường đi ngắn nhất giữa u và",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "khoảng cách giữa hai đỉnh",
-     "source_id": "bib-hoangchithanh-2011",
-     "page": "",
-     "pdf_page": 181,
-     "snippet": "Khoảng cách giữa hai đỉnh trên đồ thị vô hướng có trọng số:",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "khoảng cách giữa hai đỉnh",
-     "source_id": "bib-leanhvinh-2020",
-     "page": "tr. 223",
-     "pdf_page": 222,
-     "snippet": "có đường kính bằng d và khoảng cách giữa hai đỉnh bằng số các chỉ",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "khoảng cách giữa hai đỉnh",
-     "source_id": "bib-nguyenhuudien-2019",
-     "page": "tr. 186",
-     "pdf_page": 186,
-     "snippet": "hoạch cặp Pi , ta tính khoảng cách giữa hai đỉnh trong từng cặp, rồi tính tổng d( Pi ). Số",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "khoảng cách giữa đỉnh",
-     "source_id": "bib-hoangchithanh-2011",
-     "page": "",
-     "pdf_page": 177,
-     "snippet": "Ký hiệu: đ(x,y) là khoảng cách giữa đỉnh x và đỉnh y trong đồ thị G.",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "khoảng cách",
+     "term": "đồ thị của hàm",
      "source_id": "bib-cungkimtien-2004",
      "page": "",
-     "pdf_page": 20,
-     "snippet": "angular distance khoảng cách góc",
+     "pdf_page": 439,
+     "snippet": "cái vẽ đồ thị của hàm function",
      "verified": true,
      "recommended": false
     },
     {
-     "term": "khoảng cách",
+     "term": "đồ thị của hàm",
      "source_id": "bib-phan-1976",
-     "page": "tr. 24",
-     "pdf_page": 24,
-     "snippet": "distance a. tiên đề khoảng cách",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "đường đi ngắn nhất",
-     "source_id": "bib-cungkimtien-2004",
-     "page": "",
-     "pdf_page": 344,
-     "snippet": "đường đi ngắn nhất",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "đường trắc địa",
-     "source_id": "bib-cungkimtien-2004",
-     "page": "",
-     "pdf_page": 161,
-     "snippet": "geodesic curve đường trắc dia",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "đường trắc địa",
-     "source_id": "bib-phan-1976",
-     "page": "tr. 99",
-     "pdf_page": 99,
-     "snippet": "geodesic c. đường trắc địa",
+     "page": "tr. 324",
+     "pdf_page": 324,
+     "snippet": "periodogram /. chu kỳ đồ; ví. đồ thị của hàm số",
      "verified": true,
      "recommended": false
     }
@@ -852,104 +1472,27 @@
    "pos": "d.t."
   },
   {
-   "id": "grid-graph",
+   "id": "gray-code",
    "letter": "G",
-   "headword_en": "grid graph",
-   "definition_vi": "Đồ thị lưới là đồ thị đơn vô hướng mà tập đỉnh gồm các điểm của một lưới chữ nhật $$m \\times n$$ trong mặt phẳng, trong đó hai đỉnh kề nhau khi và chỉ khi chúng cách nhau đúng một đơn vị theo phương ngang hoặc phương dọc. (Lưu ý: trong nguồn tiếng Việt duy nhất chứng thực tên này, ký hiệu $$L_n$$ lại chỉ một đối tượng khác — đồ thị quân xe trên $$[n]^2$$; xem ghi chú.)",
+   "headword_en": "Gray code",
    "notation": "",
-   "rosen_ref": "Rosen §10.2",
-   "example_vi": "Đồ thị lưới $$2 \\times 2$$ có $$4$$ đỉnh nằm tại bốn điểm lưới và $$4$$ cạnh nối các đỉnh cách nhau một đơn vị theo phương ngang hoặc phương dọc, tạo thành một chu trình bốn cạnh.",
-   "notes": "CONCEPT-DIVERGENCE FLAG (panel high). headword_en \"Grid graph\" is Rosen's standard rectangular grid: vertices are the points of an $$m \\times n$$ lattice and two vertices are adjacent iff they differ by exactly one unit horizontally or vertically (the Cartesian product $$P_m \\square P_n$$). The ONLY Vietnamese source attesting both the term \"đồ thị lưới\" and the notation $$L_n$$ is bib-leanhvinh-2020 (2020), tr. 216 (Ví dụ 8.18, Hình 8.7) and tr. 244 (Bài tập 8.11) — but there $$L_n$$ is defined on $$[n]^2$$ with $$(a,b) \\sim (c,d)$$ iff $$a = c$$ HOẶC $$b = d$$ (same row or same column), i.e. the ROOK'S GRAPH / Hamming graph $$K_n \\square K_n$$ (strongly regular), and Hình 8.7 explicitly states $$L_2$$ equals the Paley graph $$P_5$$ — NOT the unit-distance grid (whose $$L_2$$ is a 4-cycle). The source's object is therefore a different graph than the headword. RESOLUTION (panel fix (b)): the standard Rosen grid-graph definition is kept as the headword and generalized to the $$m \\times n$$ grid; the notation field is left empty so $$L_n$$ is NOT presented as if it denoted Rosen's grid; the divergence is stated in definition_vi and here; and the single vi_term \"đồ thị lưới\" stays verified=true (the term IS genuinely attested) but carries a per-term divergence note recording that the source binds it to the rook's graph. No corpus source attests \"đồ thị lưới\" for Rosen's unit-distance rectangular grid; the recommended Vietnamese name is retained because it is the natural rendering and the only attested form, with the divergence disclosed. Candidate \"đồ thị dạng lưới\" returned 0 hits (normal + --loose). The 2004 source (ngodactan) uses \"lưới nguyên\"/\"lưới vuông\"/\"điểm lưới\" for the geometric integer lattice, not as a graph name, so they are not variants here. OCR of bib-leanhvinh-2020 shows \"đỏ thị lưới\"; --loose matched.",
+   "rosen_ref": "Rosen §10.5",
+   "definition_vi": "Mã Gray độ dài $$n$$ là một cách sắp xếp toàn bộ $$2^n$$ xâu bit độ dài $$n$$ thành một dãy sao cho hai xâu liên tiếp bất kỳ chỉ khác nhau đúng tại một vị trí bit, và xâu cuối cũng chỉ khác xâu đầu đúng tại một vị trí bit.",
+   "example_vi": "Với $$n = 2$$, dãy $$00, 01, 11, 10$$ là một mã Gray: mỗi xâu khác xâu liền sau đúng một bit, và xâu cuối $$10$$ cũng chỉ khác xâu đầu $$00$$ đúng một bit.",
    "see_also": [
-    "regular-graph"
+    "n-cube",
+    "hamilton-circuit",
+    "bit-string"
    ],
+   "notes": "No Vietnamese source in the corpus attests the Gray code concept under any candidate term. All three candidates (mã Gray, mã Grây, bộ mã Gray) returned 0 hits in both normal and --loose modes across all six sources. Common alternative names were also searched and returned 0 relevant hits: \"mã vòng\", \"mã phản xạ\", \"mã hóa Gray\", \"mã nhị phân Gray\", \"xâu Gray\", \"chuỗi Gray\", \"phản xạ nhị phân\", and the bare English \"Gray\"/\"Gray code\". The tool was sanity-checked (3747 hits for \"đồ thị\"), confirming the corpus is searchable. OCR-tolerant variants (\"Grei\", \"Grê\", \"Grav\", \"Gtay\") only surfaced unrelated names (Grötzsch graph, Greenwood/Gleason Ramsey results, Graver, \"giấy bạc\"/banknotes), none denoting Gray code. Per the locked conventions, the standard term \"mã Gray\" is kept as recommended with verified=false and page=\"\" so vi_terms is non-empty; the variants \"mã Grây\" and \"bộ mã Gray\" are documented here but dropped from vi_terms (verified=false with empty page). UNVERIFIED RECOMMENDED TERM (standard-usage basis), mirroring the unattested-standard-term precedent in chapter C. see_also entries (n-cube, hamilton-circuit, bit-string) are cross-chapter forward references: Rosen §10.5 builds Gray codes as Hamilton circuits of the n-cube $$Q_n$$ over bit strings.",
    "vi_terms": [
     {
-     "term": "đồ thị lưới",
-     "verified": true,
+     "term": "mã Gray",
+     "verified": false,
      "recommended": true,
-     "source_id": "bib-leanhvinh-2020",
-     "pdf_page": 216,
-     "page": "tr. 217",
-     "snippet": "Vi dụ 8.18. Với n nguyên dương, đỏ thị lưới L,, có tập đỉnh là các ... các đỉnh của L,, là các điểm trên lưới vuông",
-     "notes": "CONCEPT DIVERGENCE: the source binds \"đồ thị lưới $$L_n$$\" to the rook's graph on $$[n]^2$$ (adjacent iff same row or same column; $$L_2 = $$ Paley graph $$P_5$$), NOT to Rosen's unit-distance rectangular grid that this entry's headword/definition describes. Term and page verify verbatim; the object differs."
-    }
-   ],
-   "pos": "d.t."
-  },
-  {
-   "id": "generating-function",
-   "letter": "G",
-   "headword_en": "generating function",
-   "notation": "G(x) = \\sum_{k=0}^{\\infty} a_k x^k",
-   "rosen_ref": "Rosen §8.4",
-   "definition_vi": "Hàm sinh của dãy số thực $$a_0, a_1, \\ldots, a_k, \\ldots$$ là chuỗi lũy thừa hình thức $$\\displaystyle\\sum_{k=0}^{\\infty} a_k x^k$$, ký hiệu $$G(x)$$. Mỗi số hạng $$a_k$$ của dãy là hệ số của $$x^k$$ trong chuỗi này.",
-   "example_vi": "Dãy hằng $$a_k = 1$$ với mọi $$k \\geq 0$$ có hàm sinh $$G(x) = \\displaystyle\\sum_{k=0}^{\\infty} x^k$$.",
-   "notes": "Recommended term \"hàm sinh\" is the standard Vietnamese rendering and is attested with a formal definition in the newest source bib-nguyenhoangthach-2020 (Định nghĩa 3.9, tr. 45 (PDF): \"Hàm sinh (thường) của dãy $$a_0, a_1, a_2, \\ldots, a_n, \\ldots$$ là chuỗi ...\"), where \"(thường)\" is an inline parenthetical qualifier rather than a standalone term. The variants \"hàm sinh thông thường\" (ordinary generating function) and \"hàm sinh mũ\" (exponential generating function) are attested only in the older bib-ngodactan-2004; they denote specific subtypes. \\displaystyle was added to the inline $$\\sum$$ in definition_vi and example_vi (panel exposition fix: tall stacked operator inline). The OCR sources bib-leanhvinh-2020 and bib-hoangchithanh-2007 returned 0 hits in both normal and --loose modes, and the text source bib-nguyenhuudien-2019 returned 0 hits.",
-   "see_also": [],
-   "vi_terms": [
-    {
-     "term": "hàm sinh",
-     "verified": true,
-     "recommended": true,
-     "source_id": "bib-nguyenhoangthach-2020",
-     "pdf_page": 45,
-     "page": "tr. 43",
-     "snippet": "Định nghĩa 3.9. Hàm sinh (thường) của dãy a0 , a1 , a2 , · · · , an , · · · là chuỗi"
-    },
-    {
-     "term": "hàm sinh thông thường",
-     "verified": true,
-     "recommended": false,
-     "source_id": "bib-ngodactan-2004",
-     "pdf_page": 87,
-     "page": "tr. 87",
-     "snippet": "thông thường cho dãy (dj)ỗ°. Như vậy, hàm sinh thông thường cho dãy"
-    },
-    {
-     "term": "hàm sinh mũ",
-     "verified": true,
-     "recommended": false,
-     "source_id": "bib-ngodactan-2004",
-     "pdf_page": 97,
-     "page": "tr. 97",
-     "snippet": "Ở mục trước ta đã định nghĩa hàm sinh mũ cho dãy số (aj)ỗ° là chuỗi"
-    },
-    {
-     "term": "hàm sinh",
-     "source_id": "bib-hoangchithanh-2011",
      "page": "",
-     "pdf_page": 248,
-     "snippet": "Từ dãy số c„ cần tìm, ta đặt hàm sinh: C(x) = Ð`e,„x\".. (12.2)",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "hàm sinh",
-     "source_id": "bib-doducthai-2010",
-     "page": "tr. 5",
-     "pdf_page": 5,
-     "snippet": "Hàm đặc trưng, hàm sinh, và biến đổi Laplace . . 119",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "hàm sinh",
-     "source_id": "bib-cungkimtien-2004",
-     "page": "",
-     "pdf_page": 91,
-     "snippet": "ham sinh tich luy",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "hàm sinh",
-     "source_id": "bib-phan-1976",
-     "page": "tr. 93",
-     "pdf_page": 93,
-     "snippet": "c. of value function hàm sinh",
-     "verified": true,
-     "recommended": false
+     "snippet": "",
+     "source_id": ""
     }
    ],
    "pos": "d.t."
@@ -1057,348 +1600,6 @@
      "page": "tr. 133",
      "pdf_page": 133,
      "snippet": "greatest common d., highest common d. ước chung lớn nhất",
-     "verified": true,
-     "recommended": false
-    }
-   ],
-   "pos": "d.t."
-  },
-  {
-   "id": "gray-code",
-   "letter": "G",
-   "headword_en": "Gray code",
-   "notation": "",
-   "rosen_ref": "Rosen §10.5",
-   "definition_vi": "Mã Gray độ dài $$n$$ là một cách sắp xếp toàn bộ $$2^n$$ xâu bit độ dài $$n$$ thành một dãy sao cho hai xâu liên tiếp bất kỳ chỉ khác nhau đúng tại một vị trí bit, và xâu cuối cũng chỉ khác xâu đầu đúng tại một vị trí bit.",
-   "example_vi": "Với $$n = 2$$, dãy $$00, 01, 11, 10$$ là một mã Gray: mỗi xâu khác xâu liền sau đúng một bit, và xâu cuối $$10$$ cũng chỉ khác xâu đầu $$00$$ đúng một bit.",
-   "see_also": [
-    "n-cube",
-    "hamilton-circuit",
-    "bit-string"
-   ],
-   "notes": "No Vietnamese source in the corpus attests the Gray code concept under any candidate term. All three candidates (mã Gray, mã Grây, bộ mã Gray) returned 0 hits in both normal and --loose modes across all six sources. Common alternative names were also searched and returned 0 relevant hits: \"mã vòng\", \"mã phản xạ\", \"mã hóa Gray\", \"mã nhị phân Gray\", \"xâu Gray\", \"chuỗi Gray\", \"phản xạ nhị phân\", and the bare English \"Gray\"/\"Gray code\". The tool was sanity-checked (3747 hits for \"đồ thị\"), confirming the corpus is searchable. OCR-tolerant variants (\"Grei\", \"Grê\", \"Grav\", \"Gtay\") only surfaced unrelated names (Grötzsch graph, Greenwood/Gleason Ramsey results, Graver, \"giấy bạc\"/banknotes), none denoting Gray code. Per the locked conventions, the standard term \"mã Gray\" is kept as recommended with verified=false and page=\"\" so vi_terms is non-empty; the variants \"mã Grây\" and \"bộ mã Gray\" are documented here but dropped from vi_terms (verified=false with empty page). UNVERIFIED RECOMMENDED TERM (standard-usage basis), mirroring the unattested-standard-term precedent in chapter C. see_also entries (n-cube, hamilton-circuit, bit-string) are cross-chapter forward references: Rosen §10.5 builds Gray codes as Hamilton circuits of the n-cube $$Q_n$$ over bit strings.",
-   "vi_terms": [
-    {
-     "term": "mã Gray",
-     "verified": false,
-     "recommended": true,
-     "page": "",
-     "snippet": "",
-     "source_id": ""
-    }
-   ],
-   "pos": "d.t."
-  },
-  {
-   "id": "greedy-algorithm",
-   "letter": "G",
-   "headword_en": "greedy algorithm",
-   "notation": "",
-   "rosen_ref": "Rosen §3.1",
-   "definition_vi": "Thuật toán tham lam là thuật toán mà tại mỗi bước đều chọn phương án tối ưu cục bộ theo một tiêu chí đã định, với hy vọng đạt được lời giải tối ưu toàn cục.",
-   "example_vi": "Để tìm cây bao trùm nhỏ nhất của một đồ thị liên thông có trọng số, thuật toán tham lam lần lượt thêm vào cây cạnh có trọng số nhỏ nhất trong số các cạnh chưa tạo thành chu trình.",
-   "notes": "Recommended term \"thuật toán tham lam\" is attested in two 2020 sources (newest-first: bib-leanhvinh-2020 tr. 61, where it names the greedy algorithm building a minimum spanning tree by adding edges in turn; and bib-nguyenhoangthach-2020 tr. 93, \"basic example of the greedy algorithm\"). The bare adjective \"tham lam\" appears in bib-leanhvinh-2020 tr. 59 naming the greedy method for the minimum spanning tree. Candidate \"giải thuật tham lam\" returned 0 hits in both normal and --loose searches across all six sources and is recorded here only as an unattested synonym variant (dropped from vi_terms per citation hygiene). In bib-nguyenhoangthach-2020 tr. 88, \"tham lam\" occurs in quotation marks as an adverb describing how DFS explores (\"khám phá một cách 'tham lam'\"), a descriptive use rather than naming the concept, so that hit is not recorded as a term attestation. OCR sources searched both normally and with --loose; the older text sources and bib-hoangchithanh-2007 returned no attestations of any candidate term for this concept. The example draws on the minimum-spanning-tree usage attested in bib-leanhvinh-2020 and is self-contained. see_also is empty: no other letter-G entry is the closest related concept here.",
-   "see_also": [],
-   "vi_terms": [
-    {
-     "term": "thuật toán tham lam",
-     "verified": true,
-     "recommended": true,
-     "source_id": "bib-leanhvinh-2020",
-     "pdf_page": 61,
-     "page": "tr. 62",
-     "snippet": "một thuật toán tham lam trong đó ta sẽ thêm lan lượt các cạnh với"
-    },
-    {
-     "term": "thuật toán tham lam",
-     "verified": true,
-     "recommended": false,
-     "source_id": "bib-nguyenhoangthach-2020",
-     "pdf_page": 93,
-     "page": "tr. 91",
-     "snippet": "dụ cơ bản về thuật toán tham lam."
-    },
-    {
-     "term": "tham lam",
-     "verified": true,
-     "recommended": false,
-     "source_id": "bib-leanhvinh-2020",
-     "pdf_page": 59,
-     "page": "tr. 60",
-     "snippet": "tham lam để tìm cây bao trùm nhỏ nhất của một mạng lưới võ hướng."
-    },
-    {
-     "term": "giải thuật tham lam",
-     "source_id": "bib-wikipedia-vi",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": "https://vi.wikipedia.org/wiki/Giải_thuật_tham_lam",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "tham lam",
-     "source_id": "bib-nguyenhoangthach-2020",
-     "page": "tr. 86",
-     "pdf_page": 88,
-     "snippet": "“tham lam”, ưu tiên đi càng xa càng tốt, đến khi nào không đi được tiếp thì",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "thuật toán tham lam",
-     "source_id": "bib-cormen-2001-vi",
-     "page": "tr. 389",
-     "pdf_page": 387,
-     "snippet": "tiểu, nhưng ở đây ta đưa ra một thuật toán tham làm việc với bất kỳ tạng",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "tham lam",
-     "source_id": "bib-cormen-2001-vi",
-     "page": "tr. 389",
-     "pdf_page": 387,
-     "snippet": "tiểu, nhưng ở đây ta đưa ra một thuật toán tham làm việc với bất kỳ tạng",
-     "verified": true,
-     "recommended": false
-    }
-   ],
-   "pos": "d.t."
-  },
-  {
-   "id": "geometric-series",
-   "letter": "G",
-   "headword_en": "geometric series",
-   "notation": "\\sum_{j=0}^{n} a r^j",
-   "rosen_ref": "Rosen §2.4",
-   "definition_vi": "Một \\emph{tổng cấp số nhân} là tổng hữu hạn của các số hạng liên tiếp của một cấp số nhân, tức là tổng có dạng $$\\displaystyle\\sum_{j=0}^{n} a r^j$$, trong đó số hạng đầu $$a$$ và công bội $$r$$ là các số thực. Tổng này, ký hiệu $$\\displaystyle\\sum_{j=0}^{n} a r^j = a + a r + a r^2 + \\dots + a r^n$$, được lấy trên các số mũ $$j$$ từ $$0$$ đến $$n$$.",
-   "example_vi": "Với $$a = 3$$, $$r = 2$$ và $$n = 4$$, tổng cấp số nhân tương ứng là $$\\displaystyle\\sum_{j=0}^{4} 3 \\cdot 2^j = 3 + 6 + 12 + 24 + 48 = 93$$.",
-   "notes": "Mining hit only \"cấp số nhân\" once, in bib-nguyenhoangthach-2020 (tr. 41 PDF), where it denotes the geometric progression $$a_n = r^n$$ used as the trial solution to a linear recurrence (characteristic-equation method) — concept-divergence flag: this is the underlying PROGRESSION, not the series sum itself, and it is recorded as a variant only because it is the lexical root of the recommended series term. The recommended standard term for the SERIES (the sum $$\\sum_{j=0}^{n} a r^j$$) is \"tổng cấp số nhân\" (\"sum of a geometric progression\"), which no corpus source attests with a snippet; it is kept verified=false with an empty page so vi_terms carries a standard headword (UNVERIFIED RECOMMENDED TERM, standard-usage basis). The candidates \"chuỗi cấp số nhân\", \"tổng cấp số nhân\", \"chuỗi hình học\", \"công bội\", and \"tổng của cấp số nhân\" returned 0 hits in both normal and --loose modes across all sources (including OCR sources). Exposition fixes (panel): definition_vi made FINITE (\"tổng hữu hạn ... từ $$j = 0$$ đến $$n$$\") to match Rosen §2.4; the term \"tổng cấp số nhân\" set with \\emph OUTSIDE math (the previous \\textit inside math violated the math-wrapping convention, modeled on the 'group' entry); \\displaystyle added to the inline $$\\sum$$. Snippet re-verified against the corpus line for bib-nguyenhoangthach-2020 tr. 41.",
-   "see_also": [
-    "geometric-progression"
-   ],
-   "vi_terms": [
-    {
-     "term": "tổng cấp số nhân",
-     "verified": false,
-     "recommended": true,
-     "source_id": "",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": ""
-    },
-    {
-     "term": "cấp số nhân",
-     "verified": true,
-     "recommended": false,
-     "source_id": "bib-nguyenhoangthach-2020",
-     "page": "tr. 39",
-     "pdf_page": 41,
-     "snippet": "(3.4) có dạng cấp số nhân, tức là an = rn , r 6= 0. Thay an = rn vào (3.4), chuyển vế và rút"
-    },
-    {
-     "term": "chuỗi hình học",
-     "source_id": "bib-wikipedia-vi",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": "https://vi.wikipedia.org/wiki/Chuỗi_hình_học",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "chuỗi cấp số nhân",
-     "source_id": "",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": "",
-     "verified": false,
-     "recommended": false
-    },
-    {
-     "term": "cấp số nhân",
-     "source_id": "bib-doducthai-2010",
-     "page": "tr. 276",
-     "pdf_page": 276,
-     "snippet": "mà theo cấp số nhân. Máy tính cho kết quả sau:",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "cấp số nhân",
-     "source_id": "bib-sierpinski-2012",
-     "page": "tr. 1",
-     "pdf_page": 15,
-     "snippet": "một cấp số nhân là 1, 2, 22 , 23 ,..., 2293 . Ta cũng chưa tìm được bất kỳ ước số không tầm thường nào",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "chuỗi cấp số nhân",
-     "source_id": "bib-cormen-2001-vi",
-     "page": "tr. 64",
-     "pdf_page": 62,
-     "snippet": "Chuỗi cấp số nhân",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "cấp số nhân",
-     "source_id": "bib-cungkimtien-2004",
-     "page": "",
-     "pdf_page": 442,
-     "snippet": "cấp số nhân geometric series",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "cấp số nhân",
-     "source_id": "bib-phan-1976",
-     "page": "tr. 130",
-     "pdf_page": 130,
-     "snippet": "một cấp số nhân)",
-     "verified": true,
-     "recommended": false
-    }
-   ],
-   "pos": "d.t."
-  },
-  {
-   "id": "group",
-   "letter": "G",
-   "headword_en": "group",
-   "notation": "(G, \\ast)",
-   "rosen_ref": "Rosen §9.6",
-   "definition_vi": "Một \\emph{nhóm} là một tập hợp $$G$$ cùng với một phép toán hai ngôi $$\\ast$$ trên $$G$$, ký hiệu $$(G, \\ast)$$, thỏa mãn ba điều kiện: phép toán $$\\ast$$ có tính kết hợp, tồn tại phần tử đơn vị $$e \\in G$$ sao cho $$e \\ast a = a \\ast e = a$$ với mọi $$a \\in G$$, và mỗi phần tử $$a \\in G$$ đều có phần tử nghịch đảo $$a' \\in G$$ sao cho $$a \\ast a' = a' \\ast a = e$$.",
-   "example_vi": "Tập các số nguyên $$\\mathbb{Z}$$ với phép cộng $$+$$ là một nhóm: phép cộng có tính kết hợp, $$0$$ là phần tử đơn vị, và mỗi $$a \\in \\mathbb{Z}$$ có nghịch đảo $$-a$$.",
-   "notes": "Standard Vietnamese term for the algebraic group structure $$(G, \\ast)$$ is \"nhóm\", recommended here. The concept (a set with an associative binary operation having an identity and inverses) is NOT attested in any 2019-2020 corpus source: in bib-leanhvinh-2020 (and absent from bib-nguyenhoangthach-2020 / bib-nguyenhuudien-2019) \"nhóm\" appears only in the everyday sense \"nhóm các đỉnh / nhóm người\" (a cluster of vertices/people), not the algebraic structure. The recommended term is therefore attested in the newest available algebraic source, bib-ngodactan-2004 (p.140: \"$$G$$ là một nhóm đối với phép nhân ánh xạ\"; p.139: \"$$e$$ là đơn vị của nhóm $$G$$\"). The candidate \"cấu trúc nhóm\" returned 0 hits in all sources and is dropped. \"nhóm giao hoán\" (abelian/commutative group) is a special case that still denotes a group and is attested in bib-hoangchithanh-2007 p.25 and bib-ngodactan-2004 p.318. Related but distinct concepts (forward references, not this headword): \"nhóm con\" (subgroup), \"nhóm hoán vị\" (permutation group), \"nhóm xyclic\" (cyclic group); \"nửa nhóm\" (semigroup) is explicitly NOT a group.",
-   "see_also": [],
-   "vi_terms": [
-    {
-     "term": "nhóm",
-     "verified": true,
-     "recommended": true,
-     "source_id": "bib-ngodactan-2004",
-     "pdf_page": 140,
-     "page": "tr. 140",
-     "snippet": "G là một nhóm đối với phép nhân ánh xạ. Mỗi tự đẳng cấu của hình"
-    },
-    {
-     "term": "nhóm giao hoán",
-     "verified": true,
-     "recommended": false,
-     "source_id": "bib-hoangchithanh-2007",
-     "pdf_page": 25,
-     "page": "tr. 25",
-     "snippet": "Vậy cặp (N, ®) trở thành một nhóm giao hoán."
-    },
-    {
-     "term": "nhóm",
-     "source_id": "bib-rosen-2003-vi",
-     "pdf_page": 19,
-     "page": "tr. 19",
-     "snippet": "Một nhà thám hiểm bị một nhóm người ăn thịt người bất cóc. Có",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "nhóm giao hoán",
-     "source_id": "bib-hoangchithanh-2011",
-     "page": "",
-     "pdf_page": 49,
-     "snippet": "Vậy thì cặp (N, ®) trở thành một nhóm giao hoán.",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "nhóm giao hoán",
-     "source_id": "bib-ngodactan-2004",
-     "page": "tr. 318",
-     "pdf_page": 318,
-     "snippet": "Đ inh lý 10.16. Giả sử s là nửa nhóm giao hoán vô hạn, L là một",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "nhóm giao hoán",
-     "source_id": "bib-phan-1976",
-     "page": "tr. 214",
-     "pdf_page": 214,
-     "snippet": "Abelian g. nhóm Aben, nhóm giao hoán",
-     "verified": true,
-     "recommended": false
-    }
-   ],
-   "pos": "d.t."
-  },
-  {
-   "id": "graph-of-a-function",
-   "letter": "G",
-   "headword_en": "graph of a function",
-   "notation": "\\{(a, f(a)) : a \\in A\\}",
-   "rosen_ref": "Rosen §2.3",
-   "definition_vi": "Đồ thị của hàm số $$f$$ từ tập $$A$$ đến tập $$B$$ là tập các cặp sắp thứ tự gồm mỗi phần tử $$a \\in A$$ và ảnh $$f(a)$$ của nó, ký hiệu\n\n```math\n\\{(a, b) : a \\in A \\text{ và } f(a) = b\\}.\n```\n\nĐồ thị của hàm số $$f$$ là một tập con của tích Descartes $$A \\times B$$.",
-   "example_vi": "Đồ thị của hàm số $$f(n) = 2n + 1$$ từ $$\\mathbb{Z}$$ đến $$\\mathbb{Z}$$ là tập các cặp sắp thứ tự $$\\{(n, 2n + 1) : n \\in \\mathbb{Z}\\}$$.",
-   "notes": "Bản dịch tiếng Việt của Rosen (bib-rosen-2003-vi, 2003) chứng thực trực tiếp khái niệm này: mục \"ĐỒ THỊ CỦA HÀM\", ĐỊNH NGHĨA 11 (tr. 90 PDF) định nghĩa đồ thị của hàm $$f$$ là tập các cặp sắp thứ tự $$\\{(a, b) : a \\in A$$ và $$f(a) = b\\}$$ — đúng theo Rosen §2.3. Tuy nhiên theo registry, bib-rosen-2003-vi là nguồn reference-only (bản dịch cũ, chỉ dùng để thu biến thể, KHÔNG được chọn làm thuật ngữ recommended). Vì vậy thuật ngữ recommended là \"đồ thị của hàm số\" (verified=false, UNVERIFIED RECOMMENDED TERM, standard-usage basis), còn biến thể được chứng thực \"đồ thị của hàm\" ghi nhận với verified=true từ bib-rosen-2003-vi. Snippet của \"đồ thị của hàm\" là văn bản OCR của Định nghĩa 11 trải qua một ngắt dòng OCR; per citation hygiene nó được đánh dấu rõ là tái dựng nhiều dòng (per-term note) — thuật ngữ và trang chính xác, dòng find-term đơn lẻ kết thúc \"...Đồ thị của\". Không nguồn nào trong sáu nguồn so sánh chính/đối chiếu chứng thực khái niệm tập cặp sắp thứ tự $$\\{(a, f(a)) : a \\in A\\}$$ của Rosen §2.3; trong các nguồn này \"đồ thị\" luôn chỉ đồ thị tổ hợp $$G = (V, E)$$. Các cụm \"đồ thị của hàm số\", \"đồ thị hàm số\", \"đồ thị của hàm\", \"đồ thị của ánh xạ\", \"biểu đồ của hàm\" đều cho 0 hit (cả normal và --loose) trong sáu nguồn đó.",
-   "see_also": [
-    "function",
-    "ordered-pair",
-    "cartesian-product"
-   ],
-   "vi_terms": [
-    {
-     "term": "đồ thị của hàm số",
-     "verified": false,
-     "recommended": false,
-     "source_id": "",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": "",
-     "notes": "Thuật ngữ chuẩn dịch sát Rosen §2.3; không nguồn so sánh chính/đối chiếu nào chứng thực khái niệm tập cặp sắp thứ tự này (0 hit normal+loose). Bản dịch Rosen 2003 dùng dạng rút gọn 'đồ thị của hàm' (reference-only) nên không lấy làm recommended."
-    },
-    {
-     "term": "đồ thị của hàm",
-     "verified": true,
-     "recommended": false,
-     "source_id": "bib-rosen-2003-vi",
-     "page": "tr. 90",
-     "pdf_page": 90,
-     "snippet": "ĐỊNH NGHĨA 11. Cho ƒ là một hàm từ tập A đến tập B. Đồ thị của",
-     "notes": "Chứng thực theo Rosen §2.3 trong bản dịch tiếng Việt của Rosen (Định nghĩa 11, tr. 90 PDF). Snippet là dòng find-term đơn lẻ kết thúc '...Đồ thị của'; phần còn lại của định nghĩa (tập cặp sắp thứ tự {(a,b) | a ∈ A và f(a)=b}) nằm ở các dòng tiếp theo. bib-rosen-2003-vi là nguồn reference-only (role: reference) nên không được chọn làm thuật ngữ recommended."
-    },
-    {
-     "term": "đồ thị của hàm",
-     "source_id": "bib-doducthai-2010",
-     "page": "tr. 85",
-     "pdf_page": 85,
-     "snippet": "Đồ thị của hàm mật độ của phân bố normal có hình cái chuông,",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "đồ thị của hàm số",
-     "source_id": "bib-phan-1976",
-     "page": "tr. 324",
-     "pdf_page": 324,
-     "snippet": "periodogram /. chu kỳ đồ; ví. đồ thị của hàm số",
-     "verified": true,
-     "recommended": true
-    },
-    {
-     "term": "đồ thị của hàm",
-     "source_id": "bib-cungkimtien-2004",
-     "page": "",
-     "pdf_page": 439,
-     "snippet": "cái vẽ đồ thị của hàm function",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "đồ thị của hàm",
-     "source_id": "bib-phan-1976",
-     "page": "tr. 324",
-     "pdf_page": 324,
-     "snippet": "periodogram /. chu kỳ đồ; ví. đồ thị của hàm số",
      "verified": true,
      "recommended": false
     }
@@ -1522,206 +1723,49 @@
    "pos": "d.t."
   },
   {
-   "id": "gate",
+   "id": "greatest-element",
    "letter": "G",
-   "headword_en": "gate",
+   "headword_en": "greatest element",
    "notation": "",
-   "rosen_ref": "Rosen §12.3",
-   "definition_vi": "Cổng (cổng logic) là phần tử mạch cơ bản nhận một hay nhiều đầu vào nhị phân và cho một đầu ra nhị phân, trong đó đầu ra là giá trị của một phép toán Boole áp dụng cho các giá trị đầu vào. Ba loại cổng cơ bản là cổng đảo (NOT), thực hiện phép $$\\overline{x}$$, cổng OR, thực hiện phép $$x + y$$, và cổng AND, thực hiện phép $$x \\cdot y$$; bằng cách ghép nối các cổng ta thu được các mạch logic (mạch tổ hợp).",
-   "example_vi": "Cổng AND với hai đầu vào $$x$$ và $$y$$ cho đầu ra bằng $$1$$ khi và chỉ khi $$x = y = 1$$, tức là đầu ra bằng $$x \\cdot y$$; cổng OR cho đầu ra $$x + y$$, bằng $$0$$ khi và chỉ khi $$x = y = 0$$.",
+   "rosen_ref": "Rosen §9.6",
+   "definition_vi": "Phần tử lớn nhất của một tập sắp thứ tự (poset) là một phần tử lớn hơn mọi phần tử khác của tập đó. Nói cách khác, phần tử $$a$$ là phần tử lớn nhất nếu $$b \\preceq a$$ với mọi phần tử $$b$$ của tập, và phần tử lớn nhất, nếu có, là duy nhất.",
+   "example_vi": "Trong tập sắp thứ tự $$(\\mathcal{P}(E), \\subseteq)$$ gồm tất cả các tập con của một tập $$E$$ với quan hệ bao hàm, phần tử lớn nhất là chính tập $$E$$, vì mọi tập con của $$E$$ đều là tập con của $$E$$.",
    "vi_terms": [
     {
-     "term": "cổng",
-     "source_id": "bib-rosen-2003-vi",
-     "pdf_page": 727,
-     "page": "tr. 727",
-     "snippet": "được gọi là các cổng. Mối một loại cổng thực hiện một phép toán Boole.",
+     "term": "phần tử lớn nhất",
      "verified": true,
-     "recommended": false
+     "recommended": true,
+     "source_id": "bib-nguyenhuudien-2019",
+     "page": "tr. 119",
+     "pdf_page": 119,
+     "snippet": "Ta gọi một phần tử a ∈ A là một phần tử lớn nhất của tập hợp A nếu và chỉ nếu với mọi"
     },
     {
-     "term": "cổng",
-     "source_id": "bib-leanhvinh-2020",
-     "page": "tr. 8",
-     "pdf_page": 7,
-     "snippet": "rút ra khỏi công việc hàng ngày để tập trung hoàn thành bản thảo.",
+     "term": "phần tử lớn nhất",
      "verified": true,
-     "recommended": true
+     "recommended": false,
+     "source_id": "bib-nguyenhuudien-2019",
+     "page": "tr. 119",
+     "pdf_page": 119,
+     "snippet": "3. Phần tử lớn nhất (nhỏ nhất) của một tập hợp, nếu có, là phần tử tối đại (tối tiểu) duy"
     },
     {
-     "term": "cổng logic",
-     "source_id": "bib-cormen-2001-vi",
-     "page": "tr. 23",
-     "pdf_page": 21,
-     "snippet": "thông, hoặc các cổng lôgic là những yếu tố được quan tâm hàng đầu,",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "cổng logic",
-     "source_id": "bib-vovantuandung-2007",
-     "page": "",
-     "pdf_page": 3,
-     "snippet": "Boole, đại số Boole và nguyên lý đối ngẫu, vấn đề tổ hợp các cổng logic",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "cổng logic",
+     "term": "phần tử lớn nhất",
      "source_id": "bib-vudinhhoa-2010",
      "page": "",
-     "pdf_page": 97,
-     "snippet": "5.3.1 Cac cổng logic cơ bản",
+     "pdf_page": 103,
+     "snippet": ". Mô ta thuật toán tìm phần tử lớn nhất của một day hữu hạn số thực.",
      "verified": true,
      "recommended": false
     }
    ],
-   "see_also": [],
-   "notes": "Trong bản dịch tiếng Việt của Rosen, chủ đề này nằm ở mục \"Các cổng logic\". Không nên nhầm với \"cổng\" theo nghĩa cổng kết nối của máy tính (cổng vào/ra), vốn xuất hiện trong một số bài tập đếm.",
-   "status": "draft",
-   "pos": "d.t."
-  },
-  {
-   "id": "generalized-binomial-coefficient",
-   "letter": "G",
-   "headword_en": "generalized binomial coefficient",
-   "notation": "\\binom{u}{k}",
-   "rosen_ref": "Rosen §5.4",
-   "definition_vi": "Hệ số nhị thức tổng quát, ký hiệu $$\\binom{u}{k}$$, mở rộng hệ số nhị thức cho số mũ trên là một số thực $$u$$ tùy ý và $$k$$ là số nguyên không âm, xác định bởi $$\\binom{u}{k} = \\dfrac{u(u-1)\\cdots(u-k+1)}{k!}$$ khi $$k > 0$$ và $$\\binom{u}{0} = 1$$.",
-   "example_vi": "Với $$u = -2$$ và $$k = 3$$ ta có $$\\binom{-2}{3} = \\dfrac{(-2)(-3)(-4)}{3!} = -4$$.",
-   "vi_terms": [
-    {
-     "term": "hệ số nhị thức mở rộng",
-     "source_id": "bib-nguyenhoangthach-2020",
-     "pdf_page": 47,
-     "page": "tr. 45",
-     "snippet": "Định nghĩa 3.11. Hệ số nhị thức mở rộng αk , ở đó α là một số thực và k",
-     "verified": true,
-     "recommended": true
-    },
-    {
-     "term": "hệ số nhị thức tổng quát",
-     "source_id": "",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": "",
-     "verified": false,
-     "recommended": false
-    }
+   "see_also": [
+    "maximal-element",
+    "minimal-element",
+    "poset",
+    "upper-bound"
    ],
-   "see_also": [],
-   "notes": "Số mũ trên $$u$$ là số thực bất kỳ; khi $$u$$ là số nguyên dương và $$k \\leq u$$ thì $$\\binom{u}{k}$$ trùng với hệ số nhị thức thông thường. Nguyễn Hoàng Thạch (2020) gọi là \"hệ số nhị thức mở rộng\".",
-   "status": "draft",
-   "pos": "d.t."
-  },
-  {
-   "id": "geometric-progression",
-   "letter": "G",
-   "headword_en": "geometric progression",
-   "notation": "a, ar, ar^2, \\ldots, ar^n, \\ldots",
-   "rosen_ref": "Rosen §2.4",
-   "definition_vi": "Cấp số nhân là một dãy số có dạng $$a, ar, ar^2, \\ldots, ar^n, \\ldots$$, trong đó số hạng đầu $$a$$ và công bội $$r$$ là các số thực với $$r \\neq 0$$. Mỗi số hạng nhận được từ số hạng liền trước bằng cách nhân với công bội $$r$$, tức là $$a_n = ar^n$$.",
-   "example_vi": "Dãy $$3, 15, 75, 375, \\ldots$$ là cấp số nhân với số hạng đầu $$a = 3$$ và công bội $$r = 5$$, do $$a_n = 3 \\cdot 5^n$$.",
-   "vi_terms": [
-    {
-     "term": "cấp số nhân",
-     "source_id": "bib-nguyenhoangthach-2020",
-     "pdf_page": 41,
-     "page": "tr. 39",
-     "snippet": "(3.4) có dạng cấp số nhân, tức là an = rn , r 6= 0. Thay an = rn vào (3.4), chuyển vế và rút",
-     "verified": true,
-     "recommended": true
-    },
-    {
-     "term": "cấp số nhân",
-     "source_id": "bib-doducthai-2010",
-     "page": "tr. 276",
-     "pdf_page": 276,
-     "snippet": "mà theo cấp số nhân. Máy tính cho kết quả sau:",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "cấp số nhân",
-     "source_id": "bib-sierpinski-2012",
-     "page": "tr. 1",
-     "pdf_page": 15,
-     "snippet": "một cấp số nhân là 1, 2, 22 , 23 ,..., 2293 . Ta cũng chưa tìm được bất kỳ ước số không tầm thường nào",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "cấp số nhân",
-     "source_id": "bib-cungkimtien-2004",
-     "page": "",
-     "pdf_page": 442,
-     "snippet": "cấp số nhân geometric series",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "cấp số nhân",
-     "source_id": "bib-phan-1976",
-     "page": "tr. 130",
-     "pdf_page": 130,
-     "snippet": "một cấp số nhân)",
-     "verified": true,
-     "recommended": false
-    }
-   ],
-   "see_also": [],
-   "notes": "Công bội $$r$$ phải khác $$0$$. Phân biệt với cấp số cộng, trong đó mỗi số hạng nhận được bằng cách cộng thêm công sai.",
-   "status": "draft",
-   "pos": "d.t."
-  },
-  {
-   "id": "graph-invariant",
-   "letter": "G",
-   "headword_en": "graph invariant",
-   "notation": "",
-   "rosen_ref": "Rosen §10.3",
-   "definition_vi": "Bất biến đồ thị là một tính chất hoặc đại lượng của đồ thị được bảo toàn qua phép đẳng cấu, nghĩa là hai đồ thị đẳng cấu luôn nhận cùng một giá trị của tính chất đó. Do vậy, nếu hai đồ thị $$G$$ và $$H$$ có một bất biến nhận giá trị khác nhau thì $$G$$ và $$H$$ không đẳng cấu với nhau.",
-   "example_vi": "Số đỉnh $$|V(G)|$$, số cạnh $$|E(G)|$$ và dãy bậc của các đỉnh đều là các bất biến đồ thị; nếu hai đồ thị có số cạnh khác nhau thì chúng không đẳng cấu.",
-   "vi_terms": [
-    {
-     "term": "bất biến đối với phép đẳng cấu",
-     "source_id": "bib-rosen-2003-vi",
-     "pdf_page": 542,
-     "page": "tr. 542",
-     "snippet": "thị đẳng cấu cần phải có. Tính chất như thế gọi là một bất biến đối",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "bất biến đối với phép đẳng cấu",
-     "source_id": "bib-nguyenhuudien-2019",
-     "pdf_page": 165,
-     "page": "tr. 165",
-     "snippet": "một bất biến đối với phép đẳng cấu của các đơn đồ thị.",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "tính chất bất biến",
-     "source_id": "bib-nguyenhoangthach-2020",
-     "pdf_page": 73,
-     "page": "tr. 71",
-     "snippet": "có các tính chất bất biến khác nhau, thì chúng không đẳng cấu với nhau. Tuy",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "bất biến đồ thị",
-     "source_id": "",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": "",
-     "verified": false,
-     "recommended": true
-    }
-   ],
-   "see_also": [],
-   "notes": "Bất biến đồ thị dùng để chứng minh hai đồ thị không đẳng cấu, nhưng việc trùng nhau ở mọi bất biến đã biết chưa đủ kết luận hai đồ thị đẳng cấu.",
+   "notes": "Cần phân biệt phần tử lớn nhất (greatest element) với phần tử tối đại (maximal element): phần tử lớn nhất lớn hơn mọi phần tử khác nên là duy nhất nếu tồn tại, trong khi phần tử tối đại chỉ đòi hỏi không có phần tử nào lớn hơn nó và một poset có thể có nhiều phần tử tối đại. Theo nguồn Nguyễn Hữu Điển (2019, tr. 119), phần tử lớn nhất của một tập hợp, nếu có, chính là phần tử tối đại duy nhất.",
    "status": "draft",
    "pos": "d.t."
   },
@@ -1828,6 +1872,288 @@
    "see_also": [],
    "notes": "Hàm phần nguyên chính là hàm sàn $$\\lfloor x \\rfloor$$, đối ngẫu với hàm trần $$\\lceil x \\rceil$$. Một số tài liệu cũ dùng ký hiệu $$[x]$$ và gọi là phần nguyên của $$x$$.",
    "status": "draft",
+   "pos": "d.t."
+  },
+  {
+   "id": "greatest-lower-bound",
+   "letter": "G",
+   "headword_en": "greatest lower bound",
+   "notation": "\\inf(S) \\text{ hay } a \\wedge b",
+   "rosen_ref": "Rosen §9.6",
+   "definition_vi": "Cho một tập con $$S$$ của một tập sắp thứ tự bộ phận. Một phần tử $$x$$ được gọi là \\emph{chặn dưới lớn nhất} của $$S$$ nếu $$x$$ là một chặn dưới của $$S$$ và $$x$$ lớn hơn mọi chặn dưới khác của $$S$$, tức là $$y \\preceq x$$ với mọi chặn dưới $$y$$ của $$S$$.",
+   "example_vi": "Trong tập sắp thứ tự bộ phận $$(\\{1, 2, 3, 4, 6, 12\\}, \\mid)$$ với quan hệ chia hết, xét tập con $$S = \\{4, 6\\}$$. Các chặn dưới của $$S$$ là $$1$$ và $$2$$, trong đó $$2$$ là chặn dưới lớn nhất vì $$1 \\mid 2$$. Trong dàn này, $$2$$ chính là ước chung lớn nhất của $$4$$ và $$6$$.",
+   "vi_terms": [
+    {
+     "term": "chận dưới lớn nhất",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-nguyenhuudien-2019",
+     "page": "tr. 123",
+     "pdf_page": 123,
+     "snippet": "chỉ nếu với mọi a, b ∈ L, tập hợp { a, b} có chận dưới lớn nhất và có chận trên nhỏ nhất; tức là"
+    },
+    {
+     "term": "chận dưới lớn nhất",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhuudien-2019",
+     "page": "tr. 124",
+     "pdf_page": 124,
+     "snippet": "chận dưới lớn nhất chính là ước số chung lớn nhất của chúng. Vậy ( N, |) là một dàn, và ta"
+    },
+    {
+     "term": "cận dưới lớn nhất",
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": "",
+     "verified": false,
+     "recommended": false
+    },
+    {
+     "term": "cận dưới đúng",
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": "",
+     "verified": false,
+     "recommended": false
+    },
+    {
+     "term": "cận dưới lớn nhất",
+     "source_id": "bib-cormen-2001-vi",
+     "page": "tr. 638",
+     "pdf_page": 636,
+     "snippet": "nếu ta nghĩ toán tử min thực tế trả vê cận dưới lớn nhất (cận dưới đúng",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "cận dưới đúng",
+     "source_id": "bib-cormen-2001-vi",
+     "page": "tr. 638",
+     "pdf_page": 636,
+     "snippet": "nếu ta nghĩ toán tử min thực tế trả vê cận dưới lớn nhất (cận dưới đúng",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "cận dưới lớn nhất",
+     "source_id": "bib-cungkimtien-2004",
+     "page": "",
+     "pdf_page": 441,
+     "snippet": "cận dưới lớn nhất greatest lower",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "cận dưới lớn nhất",
+     "source_id": "bib-phan-1976",
+     "page": "tr. 33",
+     "pdf_page": 33,
+     "snippet": "greatest lower b. cận dưới lớn nhất",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "cận dưới đúng",
+     "source_id": "bib-cungkimtien-2004",
+     "page": "",
+     "pdf_page": 188,
+     "snippet": "infimum cận dưới đúng",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "cận dưới đúng",
+     "source_id": "bib-phan-1976",
+     "page": "tr. 237",
+     "pdf_page": 237,
+     "snippet": "infimum cận dưới đúng",
+     "verified": true,
+     "recommended": false
+    }
+   ],
+   "see_also": [
+    "lower-bound",
+    "join-lattice",
+    "lattice",
+    "partial-order",
+    "poset"
+   ],
+   "notes": "Recommended term \"chặn dưới lớn nhất\" là bản dịch chuẩn của \"greatest lower bound\", song đối với \"chặn trên nhỏ nhất\" (least upper bound) đã dùng trong mục join-lattice. Cách viết hiện đại \"chặn dưới lớn nhất\" không có hit chính xác trong corpus (0 hit thường), nên ghi recommended với verified=false/page rỗng. Đúng khái niệm này được chứng thực trong bib-nguyenhuudien-2019 (pp. 123–124) dưới cách viết OCR \"chận dưới lớn nhất\": tr.123 nêu điều kiện một dàn ($$\\{a,b\\}$$ có chận dưới lớn nhất và chận trên nhỏ nhất), tr.124 nêu rõ chận dưới lớn nhất của hai số chính là ước chung lớn nhất (tức $$\\inf(a,b)=a\\wedge b$$). Đây chính là khái niệm greatest lower bound của Rosen (= meet $$a\\wedge b$$, đối ngẫu của join $$a\\vee b$$). Cách viết chặn/chận là biến thể chính tả của cùng một thuật ngữ. Các hit \"cận dưới\" trong bib-rosen-2003-vi (tr.667, 703, 937) đều chỉ chặn dưới của một đại lượng số (độ phức tạp B-cây, số lá), KHÔNG phải chặn dưới lớn nhất theo nghĩa thứ tự, nên không đưa vào làm chứng thực khái niệm. Mục greatest lower bound (meet $$a\\wedge b$$) là đối ngẫu của mục đã có join-lattice (least upper bound, $$a\\vee b$$); hai khái niệm khác nhau nên đây là một mục đầy đủ riêng, không phải tham chiếu đồng nghĩa.",
+   "status": "draft",
+   "pos": "d.t."
+  },
+  {
+   "id": "greedy-algorithm",
+   "letter": "G",
+   "headword_en": "greedy algorithm",
+   "notation": "",
+   "rosen_ref": "Rosen §3.1",
+   "definition_vi": "Thuật toán tham lam là thuật toán mà tại mỗi bước đều chọn phương án tối ưu cục bộ theo một tiêu chí đã định, với hy vọng đạt được lời giải tối ưu toàn cục.",
+   "example_vi": "Để tìm cây bao trùm nhỏ nhất của một đồ thị liên thông có trọng số, thuật toán tham lam lần lượt thêm vào cây cạnh có trọng số nhỏ nhất trong số các cạnh chưa tạo thành chu trình.",
+   "notes": "Recommended term \"thuật toán tham lam\" is attested in two 2020 sources (newest-first: bib-leanhvinh-2020 tr. 61, where it names the greedy algorithm building a minimum spanning tree by adding edges in turn; and bib-nguyenhoangthach-2020 tr. 93, \"basic example of the greedy algorithm\"). The bare adjective \"tham lam\" appears in bib-leanhvinh-2020 tr. 59 naming the greedy method for the minimum spanning tree. Candidate \"giải thuật tham lam\" returned 0 hits in both normal and --loose searches across all six sources and is recorded here only as an unattested synonym variant (dropped from vi_terms per citation hygiene). In bib-nguyenhoangthach-2020 tr. 88, \"tham lam\" occurs in quotation marks as an adverb describing how DFS explores (\"khám phá một cách 'tham lam'\"), a descriptive use rather than naming the concept, so that hit is not recorded as a term attestation. OCR sources searched both normally and with --loose; the older text sources and bib-hoangchithanh-2007 returned no attestations of any candidate term for this concept. The example draws on the minimum-spanning-tree usage attested in bib-leanhvinh-2020 and is self-contained. see_also is empty: no other letter-G entry is the closest related concept here.",
+   "see_also": [],
+   "vi_terms": [
+    {
+     "term": "thuật toán tham lam",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-leanhvinh-2020",
+     "pdf_page": 61,
+     "page": "tr. 62",
+     "snippet": "một thuật toán tham lam trong đó ta sẽ thêm lan lượt các cạnh với"
+    },
+    {
+     "term": "thuật toán tham lam",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhoangthach-2020",
+     "pdf_page": 93,
+     "page": "tr. 91",
+     "snippet": "dụ cơ bản về thuật toán tham lam."
+    },
+    {
+     "term": "tham lam",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-leanhvinh-2020",
+     "pdf_page": 59,
+     "page": "tr. 60",
+     "snippet": "tham lam để tìm cây bao trùm nhỏ nhất của một mạng lưới võ hướng."
+    },
+    {
+     "term": "giải thuật tham lam",
+     "source_id": "bib-wikipedia-vi",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": "https://vi.wikipedia.org/wiki/Giải_thuật_tham_lam",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "tham lam",
+     "source_id": "bib-nguyenhoangthach-2020",
+     "page": "tr. 86",
+     "pdf_page": 88,
+     "snippet": "“tham lam”, ưu tiên đi càng xa càng tốt, đến khi nào không đi được tiếp thì",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "thuật toán tham lam",
+     "source_id": "bib-cormen-2001-vi",
+     "page": "tr. 389",
+     "pdf_page": 387,
+     "snippet": "tiểu, nhưng ở đây ta đưa ra một thuật toán tham làm việc với bất kỳ tạng",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "tham lam",
+     "source_id": "bib-cormen-2001-vi",
+     "page": "tr. 389",
+     "pdf_page": 387,
+     "snippet": "tiểu, nhưng ở đây ta đưa ra một thuật toán tham làm việc với bất kỳ tạng",
+     "verified": true,
+     "recommended": false
+    }
+   ],
+   "pos": "d.t."
+  },
+  {
+   "id": "grid-graph",
+   "letter": "G",
+   "headword_en": "grid graph",
+   "definition_vi": "Đồ thị lưới là đồ thị đơn vô hướng mà tập đỉnh gồm các điểm của một lưới chữ nhật $$m \\times n$$ trong mặt phẳng, trong đó hai đỉnh kề nhau khi và chỉ khi chúng cách nhau đúng một đơn vị theo phương ngang hoặc phương dọc. (Lưu ý: trong nguồn tiếng Việt duy nhất chứng thực tên này, ký hiệu $$L_n$$ lại chỉ một đối tượng khác — đồ thị quân xe trên $$[n]^2$$; xem ghi chú.)",
+   "notation": "",
+   "rosen_ref": "Rosen §10.2",
+   "example_vi": "Đồ thị lưới $$2 \\times 2$$ có $$4$$ đỉnh nằm tại bốn điểm lưới và $$4$$ cạnh nối các đỉnh cách nhau một đơn vị theo phương ngang hoặc phương dọc, tạo thành một chu trình bốn cạnh.",
+   "notes": "CONCEPT-DIVERGENCE FLAG (panel high). headword_en \"Grid graph\" is Rosen's standard rectangular grid: vertices are the points of an $$m \\times n$$ lattice and two vertices are adjacent iff they differ by exactly one unit horizontally or vertically (the Cartesian product $$P_m \\square P_n$$). The ONLY Vietnamese source attesting both the term \"đồ thị lưới\" and the notation $$L_n$$ is bib-leanhvinh-2020 (2020), tr. 216 (Ví dụ 8.18, Hình 8.7) and tr. 244 (Bài tập 8.11) — but there $$L_n$$ is defined on $$[n]^2$$ with $$(a,b) \\sim (c,d)$$ iff $$a = c$$ HOẶC $$b = d$$ (same row or same column), i.e. the ROOK'S GRAPH / Hamming graph $$K_n \\square K_n$$ (strongly regular), and Hình 8.7 explicitly states $$L_2$$ equals the Paley graph $$P_5$$ — NOT the unit-distance grid (whose $$L_2$$ is a 4-cycle). The source's object is therefore a different graph than the headword. RESOLUTION (panel fix (b)): the standard Rosen grid-graph definition is kept as the headword and generalized to the $$m \\times n$$ grid; the notation field is left empty so $$L_n$$ is NOT presented as if it denoted Rosen's grid; the divergence is stated in definition_vi and here; and the single vi_term \"đồ thị lưới\" stays verified=true (the term IS genuinely attested) but carries a per-term divergence note recording that the source binds it to the rook's graph. No corpus source attests \"đồ thị lưới\" for Rosen's unit-distance rectangular grid; the recommended Vietnamese name is retained because it is the natural rendering and the only attested form, with the divergence disclosed. Candidate \"đồ thị dạng lưới\" returned 0 hits (normal + --loose). The 2004 source (ngodactan) uses \"lưới nguyên\"/\"lưới vuông\"/\"điểm lưới\" for the geometric integer lattice, not as a graph name, so they are not variants here. OCR of bib-leanhvinh-2020 shows \"đỏ thị lưới\"; --loose matched.",
+   "see_also": [
+    "regular-graph"
+   ],
+   "vi_terms": [
+    {
+     "term": "đồ thị lưới",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-leanhvinh-2020",
+     "pdf_page": 216,
+     "page": "tr. 217",
+     "snippet": "Vi dụ 8.18. Với n nguyên dương, đỏ thị lưới L,, có tập đỉnh là các ... các đỉnh của L,, là các điểm trên lưới vuông",
+     "notes": "CONCEPT DIVERGENCE: the source binds \"đồ thị lưới $$L_n$$\" to the rook's graph on $$[n]^2$$ (adjacent iff same row or same column; $$L_2 = $$ Paley graph $$P_5$$), NOT to Rosen's unit-distance rectangular grid that this entry's headword/definition describes. Term and page verify verbatim; the object differs."
+    }
+   ],
+   "pos": "d.t."
+  },
+  {
+   "id": "group",
+   "letter": "G",
+   "headword_en": "group",
+   "notation": "(G, \\ast)",
+   "rosen_ref": "Rosen §9.6",
+   "definition_vi": "Một \\emph{nhóm} là một tập hợp $$G$$ cùng với một phép toán hai ngôi $$\\ast$$ trên $$G$$, ký hiệu $$(G, \\ast)$$, thỏa mãn ba điều kiện: phép toán $$\\ast$$ có tính kết hợp, tồn tại phần tử đơn vị $$e \\in G$$ sao cho $$e \\ast a = a \\ast e = a$$ với mọi $$a \\in G$$, và mỗi phần tử $$a \\in G$$ đều có phần tử nghịch đảo $$a' \\in G$$ sao cho $$a \\ast a' = a' \\ast a = e$$.",
+   "example_vi": "Tập các số nguyên $$\\mathbb{Z}$$ với phép cộng $$+$$ là một nhóm: phép cộng có tính kết hợp, $$0$$ là phần tử đơn vị, và mỗi $$a \\in \\mathbb{Z}$$ có nghịch đảo $$-a$$.",
+   "notes": "Standard Vietnamese term for the algebraic group structure $$(G, \\ast)$$ is \"nhóm\", recommended here. The concept (a set with an associative binary operation having an identity and inverses) is NOT attested in any 2019-2020 corpus source: in bib-leanhvinh-2020 (and absent from bib-nguyenhoangthach-2020 / bib-nguyenhuudien-2019) \"nhóm\" appears only in the everyday sense \"nhóm các đỉnh / nhóm người\" (a cluster of vertices/people), not the algebraic structure. The recommended term is therefore attested in the newest available algebraic source, bib-ngodactan-2004 (p.140: \"$$G$$ là một nhóm đối với phép nhân ánh xạ\"; p.139: \"$$e$$ là đơn vị của nhóm $$G$$\"). The candidate \"cấu trúc nhóm\" returned 0 hits in all sources and is dropped. \"nhóm giao hoán\" (abelian/commutative group) is a special case that still denotes a group and is attested in bib-hoangchithanh-2007 p.25 and bib-ngodactan-2004 p.318. Related but distinct concepts (forward references, not this headword): \"nhóm con\" (subgroup), \"nhóm hoán vị\" (permutation group), \"nhóm xyclic\" (cyclic group); \"nửa nhóm\" (semigroup) is explicitly NOT a group.",
+   "see_also": [],
+   "vi_terms": [
+    {
+     "term": "nhóm",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-ngodactan-2004",
+     "pdf_page": 140,
+     "page": "tr. 140",
+     "snippet": "G là một nhóm đối với phép nhân ánh xạ. Mỗi tự đẳng cấu của hình"
+    },
+    {
+     "term": "nhóm giao hoán",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-hoangchithanh-2007",
+     "pdf_page": 25,
+     "page": "tr. 25",
+     "snippet": "Vậy cặp (N, ®) trở thành một nhóm giao hoán."
+    },
+    {
+     "term": "nhóm",
+     "source_id": "bib-rosen-2003-vi",
+     "pdf_page": 19,
+     "page": "tr. 19",
+     "snippet": "Một nhà thám hiểm bị một nhóm người ăn thịt người bất cóc. Có",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "nhóm giao hoán",
+     "source_id": "bib-hoangchithanh-2011",
+     "page": "",
+     "pdf_page": 49,
+     "snippet": "Vậy thì cặp (N, ®) trở thành một nhóm giao hoán.",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "nhóm giao hoán",
+     "source_id": "bib-ngodactan-2004",
+     "page": "tr. 318",
+     "pdf_page": 318,
+     "snippet": "Đ inh lý 10.16. Giả sử s là nửa nhóm giao hoán vô hạn, L là một",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "nhóm giao hoán",
+     "source_id": "bib-phan-1976",
+     "page": "tr. 214",
+     "pdf_page": 214,
+     "snippet": "Abelian g. nhóm Aben, nhóm giao hoán",
+     "verified": true,
+     "recommended": false
+    }
+   ],
    "pos": "d.t."
   },
   {
@@ -1950,309 +2276,6 @@
    ],
    "see_also": [],
    "notes": "Thuật ngữ chuẩn của giáo trình MAT3500 là \"tốc độ tăng trưởng\". Nguyễn Đức Nghĩa (2006) dùng biến thể \"tốc độ tăng\" khi mô tả tốc độ tăng của thời gian tính của thuật toán, còn bản dịch Rosen (2003) dùng \"độ tăng của hàm\" cho cùng khái niệm. Khái niệm này gắn liền với ký hiệu O lớn.",
-   "status": "draft",
-   "pos": "d.t."
-  },
-  {
-   "id": "game-tree",
-   "letter": "G",
-   "headword_en": "game tree",
-   "notation": "",
-   "rosen_ref": "Rosen §11.2",
-   "definition_vi": "Cây trò chơi là một cây có gốc trong đó các đỉnh biểu diễn các hình trạng của một trò chơi và các cạnh biểu diễn các nước đi.",
-   "example_vi": "Trong trò chơi Nim với một cọc gồm $$n$$ que, mỗi đỉnh của cây trò chơi ứng với số que còn lại và mỗi cạnh ứng với một nước bốc que của một đấu thủ; gốc ứng với hình trạng ban đầu $$n$$ que, còn các lá ứng với các hình trạng kết thúc khi không còn nước đi nào.",
-   "vi_terms": [
-    {
-     "term": "cây trò chơi",
-     "source_id": "",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": "",
-     "verified": false,
-     "recommended": true
-    }
-   ],
-   "see_also": [
-    "rooted-tree",
-    "decision-tree",
-    "tree-diagram"
-   ],
-   "notes": "Cây trò chơi là một mô hình bằng cây có gốc cho các trò chơi tuần tự: mỗi đỉnh là một hình trạng, mỗi cạnh là một nước đi, gốc là hình trạng ban đầu và các lá là các hình trạng kết thúc. Mức của một đỉnh thường cho biết lượt của đấu thủ nào sẽ đi. Khái niệm này gắn với \"value of a vertex in a game tree\" (giá trị của một đỉnh trong cây trò chơi) dùng để phân tích chiến lược tối ưu. Thuật ngữ \"trò chơi\" được dùng nhất quán trong các nguồn tiếng Việt (ví dụ lý thuyết trò chơi Nim trong bib-hoangchithanh-2007), nhưng hợp từ \"cây trò chơi\" không xuất hiện trong kho ngữ liệu nên thuật ngữ khuyến nghị ở dạng dịch chuẩn, chưa được dẫn chứng (verified=false).",
-   "status": "draft",
-   "pos": "d.t."
-  },
-  {
-   "id": "geometric-distribution",
-   "letter": "G",
-   "headword_en": "geometric distribution",
-   "notation": "P(X = k) = (1-p)^{k-1} p",
-   "rosen_ref": "Rosen §7.4",
-   "definition_vi": "Phân phối hình học là phân phối của một biến ngẫu nhiên cho số phép thử cần thực hiện cho đến khi đạt được thành công đầu tiên. Nếu mỗi phép thử thành công với xác suất $$p$$ một cách độc lập, thì xác suất để thành công đầu tiên xảy ra ở phép thử thứ $$k$$ là $$P(X = k) = (1-p)^{k-1} p$$ với $$k = 1, 2, 3, \\ldots$$.",
-   "example_vi": "Gieo một con xúc xắc cho đến khi xuất hiện mặt $$6$$ đầu tiên; mỗi lần gieo thành công với xác suất $$p = \\tfrac{1}{6}$$, nên xác suất để mặt $$6$$ xuất hiện lần đầu ở lần gieo thứ ba là $$P(X = 3) = \\left(\\tfrac{5}{6}\\right)^{2} \\cdot \\tfrac{1}{6}$$. Khi đó số phép thử kỳ vọng đến khi thành công đầu tiên là $$\\tfrac{1}{p} = 6$$.",
-   "vi_terms": [
-    {
-     "term": "phân phối hình học",
-     "verified": false,
-     "recommended": false,
-     "source_id": "",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": ""
-    },
-    {
-     "term": "biến ngẫu nhiên",
-     "verified": true,
-     "recommended": false,
-     "source_id": "bib-leanhvinh-2020",
-     "page": "tr. 156",
-     "pdf_page": 155,
-     "snippet": "biến ngẫu nhiên đếm số các đồ thị con K, đơn sắc của K,, thi"
-    },
-    {
-     "term": "phân bố hình học",
-     "source_id": "bib-wikipedia-vi",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": "https://vi.wikipedia.org/wiki/Phân_phối_mũ",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "phân phối hình học",
-     "source_id": "bib-doducthai-2010",
-     "page": "tr. 294",
-     "pdf_page": 294,
-     "snippet": "Bài tập 2.20. i) X có phân phối hình học P (k) = p(1 − p)(k−1) .",
-     "verified": true,
-     "recommended": true
-    },
-    {
-     "term": "biến ngẫu nhiên",
-     "source_id": "bib-cormen-2001-vi",
-     "page": "tr. 8",
-     "pdf_page": 6,
-     "snippet": "63 Các biến ngẫu nhiên rời rạc i36",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "biến ngẫu nhiên",
-     "source_id": "bib-doducthai-2010",
-     "page": "tr. 4",
-     "pdf_page": 4,
-     "snippet": "Biến Ngẫu Nhiên . . . . . . . . . . . . . . . . . . . . 67",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "phân bố hình học",
-     "source_id": "bib-doducthai-2010",
-     "page": "tr. 4",
-     "pdf_page": 4,
-     "snippet": "2.2.1 Phân bố hình học và phân bố nhị thức âm . . . . . . . 79",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "phân phối hình học",
-     "source_id": "bib-cungkimtien-2004",
-     "page": "",
-     "pdf_page": 601,
-     "snippet": "phân phối hình học geometric(al)",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "phân phối hình học",
-     "source_id": "bib-phan-1976",
-     "page": "tr. 130",
-     "pdf_page": 130,
-     "snippet": "geometric (al) d. tk. phân phối hình học (xác suất là những số hạng của",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "biến ngẫu nhiên",
-     "source_id": "bib-cungkimtien-2004",
-     "page": "",
-     "pdf_page": 14,
-     "snippet": "alcatory variable biến ngẫu nhiên",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "biến ngẫu nhiên",
-     "source_id": "bib-phan-1976",
-     "page": "tr. 193",
-     "pdf_page": 193,
-     "snippet": "f. of random variable xs. ham cua biến ngẫu nhiên",
-     "verified": true,
-     "recommended": false
-    }
-   ],
-   "see_also": [
-    "bernoulli-trial",
-    "expected-value"
-   ],
-   "notes": "Phân phối hình học là phân phối của biến ngẫu nhiên $$X$$ đếm số phép thử Bernoulli độc lập cần thực hiện cho đến khi có thành công đầu tiên, với $$P(X = k) = (1-p)^{k-1} p$$ cho $$k \\geq 1$$. Giá trị kỳ vọng của $$X$$ là $$\\tfrac{1}{p}$$. Thuật ngữ \"phân phối hình học\" là cách dịch chuẩn; ngữ liệu hiện có không có dẫn chứng trực tiếp cho khái niệm này (chỉ \"biến ngẫu nhiên\" được dẫn chứng, dùng để làm rõ định nghĩa). Cần phân biệt \"phân phối hình học\" (probability distribution) với \"cấp số nhân\" (geometric progression) và \"tổng cấp số nhân\" (geometric series).",
-   "status": "draft",
-   "pos": "d.t."
-  },
-  {
-   "id": "greatest-element",
-   "letter": "G",
-   "headword_en": "greatest element",
-   "notation": "",
-   "rosen_ref": "Rosen §9.6",
-   "definition_vi": "Phần tử lớn nhất của một tập sắp thứ tự (poset) là một phần tử lớn hơn mọi phần tử khác của tập đó. Nói cách khác, phần tử $$a$$ là phần tử lớn nhất nếu $$b \\preceq a$$ với mọi phần tử $$b$$ của tập, và phần tử lớn nhất, nếu có, là duy nhất.",
-   "example_vi": "Trong tập sắp thứ tự $$(\\mathcal{P}(E), \\subseteq)$$ gồm tất cả các tập con của một tập $$E$$ với quan hệ bao hàm, phần tử lớn nhất là chính tập $$E$$, vì mọi tập con của $$E$$ đều là tập con của $$E$$.",
-   "vi_terms": [
-    {
-     "term": "phần tử lớn nhất",
-     "verified": true,
-     "recommended": true,
-     "source_id": "bib-nguyenhuudien-2019",
-     "page": "tr. 119",
-     "pdf_page": 119,
-     "snippet": "Ta gọi một phần tử a ∈ A là một phần tử lớn nhất của tập hợp A nếu và chỉ nếu với mọi"
-    },
-    {
-     "term": "phần tử lớn nhất",
-     "verified": true,
-     "recommended": false,
-     "source_id": "bib-nguyenhuudien-2019",
-     "page": "tr. 119",
-     "pdf_page": 119,
-     "snippet": "3. Phần tử lớn nhất (nhỏ nhất) của một tập hợp, nếu có, là phần tử tối đại (tối tiểu) duy"
-    },
-    {
-     "term": "phần tử lớn nhất",
-     "source_id": "bib-vudinhhoa-2010",
-     "page": "",
-     "pdf_page": 103,
-     "snippet": ". Mô ta thuật toán tìm phần tử lớn nhất của một day hữu hạn số thực.",
-     "verified": true,
-     "recommended": false
-    }
-   ],
-   "see_also": [
-    "maximal-element",
-    "minimal-element",
-    "poset",
-    "upper-bound"
-   ],
-   "notes": "Cần phân biệt phần tử lớn nhất (greatest element) với phần tử tối đại (maximal element): phần tử lớn nhất lớn hơn mọi phần tử khác nên là duy nhất nếu tồn tại, trong khi phần tử tối đại chỉ đòi hỏi không có phần tử nào lớn hơn nó và một poset có thể có nhiều phần tử tối đại. Theo nguồn Nguyễn Hữu Điển (2019, tr. 119), phần tử lớn nhất của một tập hợp, nếu có, chính là phần tử tối đại duy nhất.",
-   "status": "draft",
-   "pos": "d.t."
-  },
-  {
-   "id": "greatest-lower-bound",
-   "letter": "G",
-   "headword_en": "greatest lower bound",
-   "notation": "\\inf(S) \\text{ hay } a \\wedge b",
-   "rosen_ref": "Rosen §9.6",
-   "definition_vi": "Cho một tập con $$S$$ của một tập sắp thứ tự bộ phận. Một phần tử $$x$$ được gọi là \\emph{chặn dưới lớn nhất} của $$S$$ nếu $$x$$ là một chặn dưới của $$S$$ và $$x$$ lớn hơn mọi chặn dưới khác của $$S$$, tức là $$y \\preceq x$$ với mọi chặn dưới $$y$$ của $$S$$.",
-   "example_vi": "Trong tập sắp thứ tự bộ phận $$(\\{1, 2, 3, 4, 6, 12\\}, \\mid)$$ với quan hệ chia hết, xét tập con $$S = \\{4, 6\\}$$. Các chặn dưới của $$S$$ là $$1$$ và $$2$$, trong đó $$2$$ là chặn dưới lớn nhất vì $$1 \\mid 2$$. Trong dàn này, $$2$$ chính là ước chung lớn nhất của $$4$$ và $$6$$.",
-   "vi_terms": [
-    {
-     "term": "chận dưới lớn nhất",
-     "verified": true,
-     "recommended": true,
-     "source_id": "bib-nguyenhuudien-2019",
-     "page": "tr. 123",
-     "pdf_page": 123,
-     "snippet": "chỉ nếu với mọi a, b ∈ L, tập hợp { a, b} có chận dưới lớn nhất và có chận trên nhỏ nhất; tức là"
-    },
-    {
-     "term": "chận dưới lớn nhất",
-     "verified": true,
-     "recommended": false,
-     "source_id": "bib-nguyenhuudien-2019",
-     "page": "tr. 124",
-     "pdf_page": 124,
-     "snippet": "chận dưới lớn nhất chính là ước số chung lớn nhất của chúng. Vậy ( N, |) là một dàn, và ta"
-    },
-    {
-     "term": "cận dưới lớn nhất",
-     "source_id": "",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": "",
-     "verified": false,
-     "recommended": false
-    },
-    {
-     "term": "cận dưới đúng",
-     "source_id": "",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": "",
-     "verified": false,
-     "recommended": false
-    },
-    {
-     "term": "cận dưới lớn nhất",
-     "source_id": "bib-cormen-2001-vi",
-     "page": "tr. 638",
-     "pdf_page": 636,
-     "snippet": "nếu ta nghĩ toán tử min thực tế trả vê cận dưới lớn nhất (cận dưới đúng",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "cận dưới đúng",
-     "source_id": "bib-cormen-2001-vi",
-     "page": "tr. 638",
-     "pdf_page": 636,
-     "snippet": "nếu ta nghĩ toán tử min thực tế trả vê cận dưới lớn nhất (cận dưới đúng",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "cận dưới lớn nhất",
-     "source_id": "bib-cungkimtien-2004",
-     "page": "",
-     "pdf_page": 441,
-     "snippet": "cận dưới lớn nhất greatest lower",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "cận dưới lớn nhất",
-     "source_id": "bib-phan-1976",
-     "page": "tr. 33",
-     "pdf_page": 33,
-     "snippet": "greatest lower b. cận dưới lớn nhất",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "cận dưới đúng",
-     "source_id": "bib-cungkimtien-2004",
-     "page": "",
-     "pdf_page": 188,
-     "snippet": "infimum cận dưới đúng",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "cận dưới đúng",
-     "source_id": "bib-phan-1976",
-     "page": "tr. 237",
-     "pdf_page": 237,
-     "snippet": "infimum cận dưới đúng",
-     "verified": true,
-     "recommended": false
-    }
-   ],
-   "see_also": [
-    "lower-bound",
-    "join-lattice",
-    "lattice",
-    "partial-order",
-    "poset"
-   ],
-   "notes": "Recommended term \"chặn dưới lớn nhất\" là bản dịch chuẩn của \"greatest lower bound\", song đối với \"chặn trên nhỏ nhất\" (least upper bound) đã dùng trong mục join-lattice. Cách viết hiện đại \"chặn dưới lớn nhất\" không có hit chính xác trong corpus (0 hit thường), nên ghi recommended với verified=false/page rỗng. Đúng khái niệm này được chứng thực trong bib-nguyenhuudien-2019 (pp. 123–124) dưới cách viết OCR \"chận dưới lớn nhất\": tr.123 nêu điều kiện một dàn ($$\\{a,b\\}$$ có chận dưới lớn nhất và chận trên nhỏ nhất), tr.124 nêu rõ chận dưới lớn nhất của hai số chính là ước chung lớn nhất (tức $$\\inf(a,b)=a\\wedge b$$). Đây chính là khái niệm greatest lower bound của Rosen (= meet $$a\\wedge b$$, đối ngẫu của join $$a\\vee b$$). Cách viết chặn/chận là biến thể chính tả của cùng một thuật ngữ. Các hit \"cận dưới\" trong bib-rosen-2003-vi (tr.667, 703, 937) đều chỉ chặn dưới của một đại lượng số (độ phức tạp B-cây, số lá), KHÔNG phải chặn dưới lớn nhất theo nghĩa thứ tự, nên không đưa vào làm chứng thực khái niệm. Mục greatest lower bound (meet $$a\\wedge b$$) là đối ngẫu của mục đã có join-lattice (least upper bound, $$a\\vee b$$); hai khái niệm khác nhau nên đây là một mục đầy đủ riêng, không phải tham chiếu đồng nghĩa.",
    "status": "draft",
    "pos": "d.t."
   }

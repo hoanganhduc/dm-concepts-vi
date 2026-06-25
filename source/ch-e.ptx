@@ -9,6 +9,23 @@
     </p>
   </introduction>
 
+  <definition xml:id="def-eccentricity">
+    <title>eccentricity (d.t.) — độ lệch tâm</title>
+    <idx><h>eccentricity</h></idx>
+    <idx><h>tâm sai</h></idx>
+    <idx><h>độ lệch</h></idx>
+    <idx><h>độ lệch tâm</h></idx>
+    <statement>
+      <p>Độ lệch tâm của một đỉnh <m>v</m> trong đồ thị liên thông <m>G</m>, ký hiệu <m>e(v)</m>, là khoảng cách lớn nhất từ <m>v</m> tới mọi đỉnh khác của <m>G</m>, tức là <m>e(v) = \max_{u \in V(G)} d(u,v)</m>, trong đó <m>d(u,v)</m> là độ dài đường đi ngắn nhất giữa <m>u</m> và <m>v</m> (theo <xref ref="bib-rosen-2019" />, Rosen §10.4).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>độ lệch tâm</term> <xref ref="bib-leanhvinh-2020" /> (tr. 44); <xref ref="bib-doantamhoe-2009" /> — cách dùng phổ biến.</p></li>
+        <li><p><term>tâm sai</term> <xref ref="bib-ngodactan-2004" /> (tr. 216); <xref ref="bib-doducgiao-2009" /> (tr. 230); <xref ref="bib-doducgiao-2008" /> (tr. 285); <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 14).</p></li>
+        <li><p><term>độ lệch</term> <xref ref="bib-hoangchithanh-2011" />; <xref ref="bib-leanhvinh-2020" /> (tr. 44); <xref ref="bib-doducthai-2010" /> (tr. 5); <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 19).</p></li>
+      </ul>
+      <p>Ví dụ: Trong đường đi <m>P_4</m> với các đỉnh <m>v_1, v_2, v_3, v_4</m>, ta có <m>e(v_1) = 3</m> và <m>e(v_2) = 2</m>; đỉnh có độ lệch tâm nhỏ nhất là đỉnh trung tâm.</p>
+    </statement>
+  </definition>
   <definition xml:id="def-edge">
     <title>edge (d.t.) — cạnh</title>
     <idx><h>edge</h></idx>
@@ -29,6 +46,19 @@
       </ul>
       <p>Ví dụ: Trong đồ thị <m>G</m> với tập đỉnh <m>V(G) = \{u, v, w\}</m>, cặp không sắp thứ tự <m>\{u, v\}</m> là một cạnh có hai đầu mút <m>u</m> và <m>v</m>, trong khi <m>\{u, w\}</m> không phải là cạnh của <m>G</m> nếu <m>u</m> và <m>w</m> không được nối với nhau.</p>
       <p>Xem thêm <xref ref="def-vertex" text="title" />, <xref ref="def-endpoint" text="title" />, <xref ref="def-directed-graph" text="title" />, <xref ref="def-undirected-graph" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-edge-chromatic-number">
+    <title>edge chromatic number (d.t.) — sắc số cạnh</title>
+    <idx><h>edge chromatic number</h></idx>
+    <idx><h>sắc số cạnh</h></idx>
+    <statement>
+      <p>Sắc số cạnh của một đồ thị <m>G</m>, ký hiệu <m>\chi'(G)</m>, là số màu nhỏ nhất cần dùng để tô màu các cạnh của <m>G</m> sao cho hai cạnh kề nhau bất kỳ được tô hai màu khác nhau (theo <xref ref="bib-rosen-2019" />, Rosen §10.8).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>sắc số cạnh</term> <xref ref="bib-leanhvinh-2020" /> (tr. 108); <xref ref="bib-ngodactan-2004" /> (tr. 292) — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Với đồ thị đầy đủ <m>K_4</m> ta có <m>\chi'(K_4) = 3</m>; tổng quát, với chu trình <m>C_n</m> thì <m>\chi'(C_n) = 2</m> khi <m>n</m> chẵn và <m>\chi'(C_n) = 3</m> khi <m>n</m> lẻ.</p>
     </statement>
   </definition>
   <definition xml:id="def-edge-coloring">
@@ -67,6 +97,26 @@
       <p>Xem thêm <xref ref="def-vertex-connectivity" text="title" />, <xref ref="def-k-connected-graph" text="title" />, <xref ref="def-cut-edge" text="title" />.</p>
     </statement>
   </definition>
+  <definition xml:id="def-edge-cover">
+    <title>edge cover (d.t.) — tập phủ cạnh</title>
+    <idx><h>edge cover</h></idx>
+    <idx><h>tập phủ cạnh</h></idx>
+    <statement>
+      <p><em>Phủ cạnh</em> của một đồ thị <m>G</m> không có đỉnh cô lập là một tập cạnh <m>C \subseteq E(G)</m> sao cho mỗi đỉnh của <m>G</m> là đầu mút của ít nhất một cạnh thuộc <m>C</m>. Phủ cạnh có số cạnh nhỏ nhất được gọi là phủ cạnh nhỏ nhất.</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>tập phủ cạnh</term> <xref ref="bib-leanhvinh-2020" /> (tr. 81) — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Trong đường đi <m>P_3</m> với các đỉnh <m>v_1, v_2, v_3</m>, tập <m>\{v_1 v_2, v_2 v_3\}</m> là một phủ cạnh; trong tam giác <m>K_3</m>, hai cạnh bất kỳ tạo thành một phủ cạnh.</p>
+      <p>Xem thêm <xref ref="def-vertex-cover" text="title" />, <xref ref="def-cover" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-edge-cut">
+    <title>edge cut (d.t.) — lát cắt cạnh</title>
+    <idx><h>edge cut</h></idx>
+    <idx><h>lát cắt cạnh</h></idx>
+    <statement><p>Xem <xref ref="def-separating-set-of-edges" text="title" />.</p></statement>
+  </definition>
   <definition xml:id="def-eigenvalue">
     <title>eigenvalue (d.t.) — giá trị riêng</title>
     <idx><h>eigenvalue</h></idx>
@@ -82,6 +132,30 @@
       <p>Ví dụ: Với ma trận <m>A = \begin{pmatrix} 0  \amp  1 \\ 1  \amp  0 \end{pmatrix}</m>, số <m>\lambda = 1</m> là một giá trị riêng vì <m>A\mathbf{x} = \mathbf{x}</m> với <m>\mathbf{x} = \begin{pmatrix} 1 \\ 1 \end{pmatrix} \neq \mathbf{0}</m>.</p>
       <p>Xem thêm <xref ref="def-adjacency-matrix" text="title" />.</p>
     </statement>
+  </definition>
+  <definition xml:id="def-element">
+    <title>element (d.t.) — phần tử</title>
+    <idx><h>element</h></idx>
+    <idx><h>phần tử</h></idx>
+    <idx><h>phần tử của tập</h></idx>
+    <idx><h>phần tử của tập hợp</h></idx>
+    <statement>
+      <p><em>Phần tử</em> của một tập hợp <m>A</m> là một đối tượng thuộc về <m>A</m>; ký hiệu <m>a \in A</m> để chỉ rằng <m>a</m> là một phần tử của <m>A</m>, và <m>a \notin A</m> để chỉ rằng <m>a</m> không là phần tử của <m>A</m> (theo <xref ref="bib-rosen-2019" />, Rosen §2.1).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>phần tử</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 14); <xref ref="bib-leanhvinh-2020" /> (tr. 9); <xref ref="bib-nguyenhuudien-2019" /> (tr. 22); <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 16) — cách dùng phổ biến.</p></li>
+        <li><p><term>phần tử của tập</term> <xref ref="bib-hoangchithanh-2011" />; <xref ref="bib-nguyenhoangthach-2020" /> (tr. 17); <xref ref="bib-nguyenhuudien-2019" /> (tr. 72).</p></li>
+        <li><p><term>phần tử của tập hợp</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 17); <xref ref="bib-nguyenhuudien-2019" /> (tr. 72); <xref ref="bib-vudinhhoa-2010" />.</p></li>
+      </ul>
+      <p>Ví dụ: Với tập hợp <m>A = \{1, 2, 3\}</m>, ta có <m>2 \in A</m> và <m>4 \notin A</m>.</p>
+      <p>Xem thêm <xref ref="def-empty-set" text="title" />, <xref ref="def-set" text="title" />, <xref ref="def-subset" text="title" />, <xref ref="def-cardinality" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-elementary-subdivision">
+    <title>elementary subdivision (d.t.) — phép phân chia sơ cấp</title>
+    <idx><h>elementary subdivision</h></idx>
+    <idx><h>phép phân chia sơ cấp</h></idx>
+    <statement><p>Xem <xref ref="def-subdivision" text="title" />.</p></statement>
   </definition>
   <definition xml:id="def-empty-graph">
     <title>empty graph (d.t.) — đồ thị rỗng</title>
@@ -99,6 +173,69 @@
       </ul>
       <p>Ví dụ: Đồ thị <m>\overline{K_3}</m> gồm ba đỉnh và không có cạnh nào; cả ba đỉnh đều là đỉnh cô lập.</p>
       <p>Xem thêm <xref ref="def-complete-graph" text="title" />, <xref ref="def-bipartite-graph" text="title" />, <xref ref="def-complement-of-a-graph" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-empty-set">
+    <title>empty set (d.t.) — tập hợp rỗng</title>
+    <idx><h>empty set</h></idx>
+    <idx><h>tập hợp rỗng</h></idx>
+    <idx><h>tập rỗng</h></idx>
+    <statement>
+      <p>Tập hợp rỗng, ký hiệu <m>\emptyset</m> (hoặc <m>\{\}</m>), là tập hợp không chứa phần tử nào. Tập hợp rỗng là tập con của mọi tập hợp và có số phần tử bằng <m>0</m>, tức là <m>|\emptyset| = 0</m> (theo <xref ref="bib-rosen-2019" />, Rosen §2.1).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>tập hợp rỗng</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 72); <xref ref="bib-nguyenhoangthach-2020" /> (tr. 14); <xref ref="bib-vudinhhoa-2010" />; <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 383) — cách dùng phổ biến.</p></li>
+        <li><p><term>tập rỗng</term> <xref ref="bib-leanhvinh-2020" /> (tr. 91); <xref ref="bib-hoangchithanh-2011" />; <xref ref="bib-nguyenhuudien-2019" /> (tr. 252).</p></li>
+      </ul>
+      <p>Ví dụ: Tập hợp các số nguyên dương lớn hơn bình phương của chúng là tập hợp rỗng, vì không có số nguyên dương <m>n</m> nào thỏa mãn <m>n  \gt  n^2</m>.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-empty-string">
+    <title>empty string (d.t.) — xâu rỗng</title>
+    <idx><h>empty string</h></idx>
+    <idx><h>chuỗi trống</h></idx>
+    <idx><h>xâu rỗng</h></idx>
+    <statement>
+      <p>Xâu rỗng là một xâu có chiều dài bằng không, tức là xâu không chứa số hạng nào. Xâu rỗng thường được ký hiệu là <m>\lambda</m> và có chiều dài <m>0</m> (theo <xref ref="bib-rosen-2019" />, Rosen §11.4).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>xâu rỗng</term> <xref ref="bib-doducgiao-2009" /> (tr. 7); <xref ref="bib-doducgiao-2008" /> (tr. 8); <xref ref="bib-vudinhhoa-2010" /> — cách dùng phổ biến.</p></li>
+        <li><p><term>chuỗi trống</term> <xref ref="bib-cormen-2001-vi" /> (tr. 90).</p></li>
+      </ul>
+      <p>Ví dụ: Xâu rỗng <m>\lambda</m> là xâu duy nhất không có ký tự nào; với mọi xâu <m>w</m>, ta có <m>\lambda w = w \lambda = w</m>, nên <m>\lambda</m> đóng vai trò phần tử đơn vị đối với phép ghép xâu.</p>
+      <p>Xem thêm <xref ref="def-string" text="title" />, <xref ref="def-alphabet" text="title" />, <xref ref="def-word" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-encryption">
+    <title>encryption (d.t.) — mã hóa</title>
+    <idx><h>encryption</h></idx>
+    <idx><h>mã hóa</h></idx>
+    <statement>
+      <p>Mã hóa là quá trình làm cho một thông điệp trở nên bí mật, tức là biến đổi bản rõ thành dạng mà chỉ người được phép mới đọc hiểu được. Quá trình ngược lại, khôi phục thông điệp gốc từ thông điệp đã mã hóa, được gọi là giải mã (theo <xref ref="bib-rosen-2019" />, Rosen §4.6).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>mã hóa</term> <xref ref="bib-doantamhoe-2009" />; <xref ref="bib-nguyenhoangthach-2020" /> (tr. 14); <xref ref="bib-vudinhhoa-2010" />; <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 55) — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Mật mã Caesar mã hóa một thông điệp bằng cách dịch mỗi chữ cái đi <m>3</m> vị trí: chữ cái ứng với số <m>p</m> với <m>0 \leq p \leq 25</m> được thay bằng chữ cái ứng với <m>f(p) = (p + 3) \bmod 26</m>. Chẳng hạn, dùng phép mã hóa này, từ "MEET" trở thành "PHHW".</p>
+      <p>Xem thêm <xref ref="def-character-cipher" text="title" />, <xref ref="def-private-key-cryptography" text="title" />, <xref ref="def-public-key-cryptography" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-encryption-key">
+    <title>encryption key (d.t.) — khóa mã hóa</title>
+    <idx><h>encryption key</h></idx>
+    <idx><h>khóa</h></idx>
+    <idx><h>khóa mã hóa</h></idx>
+    <idx><h>khóa mật mã hóa</h></idx>
+    <statement>
+      <p>Khóa mã hóa là một giá trị <m>k</m> xác định hàm mã hóa nào trong một họ các hàm mã hóa được sử dụng. Mỗi khóa <m>k</m> trong tập khóa <m>\mathcal{K}</m> chọn ra một hàm mã hóa <m>E_k</m> tương ứng để biến bản rõ thành bản mã (theo <xref ref="bib-rosen-2019" />, Rosen §4.6).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>khóa mã hóa</term> <xref ref="bib-cormen-2001-vi" /> (tr. 927) — cách dùng phổ biến.</p></li>
+        <li><p><term>khóa</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
+        <li><p><term>khóa mật mã hóa</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
+      </ul>
+      <p>Ví dụ: Trong mật mã Caesar, khóa là một số <m>k</m> với <m>0 \leq k \leq 25</m> và xác định hàm mã hóa <m>E_k(p) = (p + k) \bmod 26</m> dùng để dịch mỗi chữ cái đi <m>k</m> vị trí. Chẳng hạn, với khóa <m>k = 3</m> thì từ "MEET" được mã hóa thành "PHHW".</p>
+      <p>Xem thêm <xref ref="def-cryptosystem" text="title" />, <xref ref="def-encryption" text="title" />, <xref ref="def-private-key-cryptography" text="title" />, <xref ref="def-public-key-cryptography" text="title" />.</p>
     </statement>
   </definition>
   <definition xml:id="def-endpoint">
@@ -123,6 +260,24 @@
       </ul>
       <p>Ví dụ: Xét cạnh <m>e = uv</m> nối hai đỉnh <m>u</m> và <m>v</m>. Khi đó <m>u</m> và <m>v</m> là hai đầu mút của <m>e</m>. Nếu thay <m>e</m> bằng cạnh có hướng <m>(u,v)</m> thì <m>u</m> là đỉnh đầu và <m>v</m> là đỉnh cuối của cạnh đó.</p>
       <p>Xem thêm <xref ref="def-edge" text="title" />, <xref ref="def-directed-edge" text="title" />, <xref ref="def-loop" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-enumeration">
+    <title>enumeration (d.t.) — phép đếm</title>
+    <idx><h>enumeration</h></idx>
+    <idx><h>bài toán đếm</h></idx>
+    <idx><h>liệt kê</h></idx>
+    <idx><h>phép đếm</h></idx>
+    <statement>
+      <p>Phép đếm là việc đếm số cách sắp xếp của các đối tượng. Nói cách khác, nó xác định số lượng các cách sắp xếp khác nhau của một tập hợp đối tượng cho trước (theo <xref ref="bib-rosen-2019" />, Rosen, Discrete Mathematics and Its Applications, ch. on Counting).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>phép đếm</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 77); <xref ref="bib-nguyenhuuanh-2007" />; <xref ref="bib-vudinhhoa-2010" />; <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 311) — cách dùng phổ biến.</p></li>
+        <li><p><term>bài toán đếm</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 11); <xref ref="bib-nguyenhuudien-2019" /> (tr. 93); <xref ref="bib-vudinhhoa-2010" />.</p></li>
+        <li><p><term>liệt kê</term> <xref ref="bib-leanhvinh-2020" /> (tr. 162); <xref ref="bib-nguyenhoangthach-2020" /> (tr. 14); <xref ref="bib-nguyenhuudien-2019" /> (tr. 16); <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 148).</p></li>
+      </ul>
+      <p>Ví dụ: Số cách sắp xếp <m>3</m> đối tượng phân biệt thành một hàng là <m>3! = 6</m>; việc xác định con số <m>6</m> này là một phép đếm.</p>
+      <p>Xem thêm <xref ref="def-addition-rule" text="title" />, <xref ref="def-double-counting-proof" text="title" />.</p>
     </statement>
   </definition>
   <definition xml:id="def-equivalence-class">
@@ -157,6 +312,54 @@
       </ul>
       <p>Ví dụ: Trên tập số nguyên <m>\mathbb{Z}</m>, quan hệ <m>a \sim b</m> khi và chỉ khi <m>a - b</m> chia hết cho <m>3</m> là một quan hệ tương đương, vì nó phản xạ, đối xứng và truyền.</p>
       <p>Xem thêm <xref ref="def-binary-relation" text="title" />, <xref ref="def-equivalence-class" text="title" />, <xref ref="def-reflexive-relation" text="title" />, <xref ref="def-symmetric-relation" text="title" />, <xref ref="def-transitive-relation" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-equivalent">
+    <title>equivalent (t.t.) — tương đương</title>
+    <idx><h>equivalent</h></idx>
+    <idx><h>tương đương</h></idx>
+    <statement><p>Xem <xref ref="def-equivalence-relation" text="title" />.</p></statement>
+  </definition>
+  <definition xml:id="def-error-correcting-code">
+    <title>error-correcting code (d.t.) — mã sửa lỗi</title>
+    <idx><h>error-correcting code</h></idx>
+    <idx><h>mã sửa lỗi</h></idx>
+    <statement>
+      <p>Một <em>mã sửa lỗi</em> là một mã cho phép máy thu không chỉ phát hiện mà còn xác định và sửa được các bit sai trong xâu nhận được, thường bằng cách chọn từ mã gần nhất theo khoảng cách Hamming. Một mã sửa được mọi bộ lỗi tối đa <m>k</m> bit sai khi và chỉ khi khoảng cách tối thiểu thỏa mãn <m>d \ge 2k+1</m> (theo <xref ref="bib-libennowell-2022" />).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>mã sửa lỗi</term> <em>(thuật ngữ chuẩn; chưa truy được trong kho văn bản)</em> — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Mã lặp <m>C=\{000, 111\}</m> có khoảng cách tối thiểu <m>3</m> nên sửa được <m>1</m> bit sai: nhận <m>010</m> thì từ mã gần nhất là <m>000</m>.</p>
+      <p>Xem thêm <xref ref="def-error-detecting-code" text="title" />, <xref ref="def-minimum-distance" text="title" />, <xref ref="def-hamming-code" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-error-detecting-code">
+    <title>error-detecting code (d.t.) — mã phát hiện lỗi</title>
+    <idx><h>error-detecting code</h></idx>
+    <idx><h>mã phát hiện lỗi</h></idx>
+    <statement>
+      <p>Một <em>mã phát hiện lỗi</em> là một mã cho phép máy thu nhận biết xâu nhận được đã bị thay đổi khi truyền, mà không nhất thiết xác định được vị trí lỗi. Một mã phát hiện được mọi bộ lỗi tối đa <m>k</m> bit sai khi và chỉ khi khoảng cách tối thiểu của mã thỏa mãn <m>d \ge k+1</m> (theo <xref ref="bib-libennowell-2022" />).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>mã phát hiện lỗi</term> <em>(thuật ngữ chuẩn; chưa truy được trong kho văn bản)</em> — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Mã kiểm tra chẵn lẻ thêm một bit chẵn lẻ vào mỗi xâu; mọi lỗi sai một bit đều bị phát hiện vì tính chẵn lẻ thay đổi.</p>
+      <p>Xem thêm <xref ref="def-error-correcting-code" text="title" />, <xref ref="def-minimum-distance" text="title" />, <xref ref="def-hamming-distance" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-essential-prime-implicant">
+    <title>essential prime implicant (d.t.) — nguyên nhân nguyên tố cốt yếu</title>
+    <idx><h>essential prime implicant</h></idx>
+    <idx><h>nguyên nhân nguyên tố cốt yếu</h></idx>
+    <statement>
+      <p>Nguyên nhân nguyên tố cốt yếu là một nguyên nhân nguyên tố phủ một tiểu hạng mà không có một nguyên nhân nguyên tố nào khác phủ. Vì mỗi tiểu hạng như vậy chỉ được phủ bởi đúng một nguyên nhân nguyên tố, nên mọi nguyên nhân nguyên tố cốt yếu đều phải có mặt trong dạng khai triển tối thiểu của hàm Boole (theo <xref ref="bib-rosen-2019" />, Rosen §12.4).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>nguyên nhân nguyên tố cốt yếu</term> <xref ref="bib-nguyenducnghia-2006" />; <xref ref="bib-nguyenducnghia-2006" /> — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Trên bìa Karnaugh của một hàm Boole, nếu một ô (ứng với một tiểu hạng) chỉ nằm trong duy nhất một khối phủ ứng với một nguyên nhân nguyên tố, thì nguyên nhân nguyên tố đó là cốt yếu và bắt buộc phải được chọn vào tổng tối thiểu.</p>
+      <p>Xem thêm <xref ref="def-minterm" text="title" />, <xref ref="def-karnaugh-map" text="title" />, <xref ref="def-boolean-function" text="title" />.</p>
     </statement>
   </definition>
   <definition xml:id="def-euler-circuit">
@@ -209,120 +412,6 @@
       <p>Xem thêm <xref ref="def-euler-circuit" text="title" />, <xref ref="def-euler-path" text="title" />.</p>
     </statement>
   </definition>
-  <definition xml:id="def-even-integer">
-    <title>even integer (d.t.) — số nguyên chẵn</title>
-    <idx><h>even integer</h></idx>
-    <idx><h>số chẵn</h></idx>
-    <idx><h>số nguyên chẵn</h></idx>
-    <statement>
-      <p><em>Số nguyên chẵn</em> là một số nguyên <m>n</m> chia hết cho <m>2</m>, nghĩa là <m>n = 2k</m> với <m>k</m> là một số nguyên nào đó (theo <xref ref="bib-rosen-2019" />, Rosen §4.1).</p>
-      <p>Thuật ngữ tiếng Việt tương ứng:</p>
-      <ul>
-        <li><p><term>số nguyên chẵn</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 40); <xref ref="bib-cormen-2001-vi" /> (tr. 99); <xref ref="bib-sierpinski-2012" /> (tr. 233) — cách dùng phổ biến.</p></li>
-        <li><p><term>số chẵn</term> <xref ref="bib-leanhvinh-2020" /> (tr. 12); <xref ref="bib-nguyenhoangthach-2020" /> (tr. 62); <xref ref="bib-nguyenhuudien-2019" /> (tr. 58); <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 187).</p></li>
-      </ul>
-      <p>Ví dụ: Các số <m>-4</m>, <m>0</m> và <m>10</m> là các số nguyên chẵn vì <m>-4 = 2 \cdot (-2)</m>, <m>0 = 2 \cdot 0</m> và <m>10 = 2 \cdot 5</m>.</p>
-    </statement>
-  </definition>
-  <definition xml:id="def-element">
-    <title>element (d.t.) — phần tử</title>
-    <idx><h>element</h></idx>
-    <idx><h>phần tử</h></idx>
-    <idx><h>phần tử của tập</h></idx>
-    <idx><h>phần tử của tập hợp</h></idx>
-    <statement>
-      <p><em>Phần tử</em> của một tập hợp <m>A</m> là một đối tượng thuộc về <m>A</m>; ký hiệu <m>a \in A</m> để chỉ rằng <m>a</m> là một phần tử của <m>A</m>, và <m>a \notin A</m> để chỉ rằng <m>a</m> không là phần tử của <m>A</m> (theo <xref ref="bib-rosen-2019" />, Rosen §2.1).</p>
-      <p>Thuật ngữ tiếng Việt tương ứng:</p>
-      <ul>
-        <li><p><term>phần tử</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 14); <xref ref="bib-leanhvinh-2020" /> (tr. 9); <xref ref="bib-nguyenhuudien-2019" /> (tr. 22); <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 16) — cách dùng phổ biến.</p></li>
-        <li><p><term>phần tử của tập</term> <xref ref="bib-hoangchithanh-2011" />; <xref ref="bib-nguyenhoangthach-2020" /> (tr. 17); <xref ref="bib-nguyenhuudien-2019" /> (tr. 72).</p></li>
-        <li><p><term>phần tử của tập hợp</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 17); <xref ref="bib-nguyenhuudien-2019" /> (tr. 72); <xref ref="bib-vudinhhoa-2010" />.</p></li>
-      </ul>
-      <p>Ví dụ: Với tập hợp <m>A = \{1, 2, 3\}</m>, ta có <m>2 \in A</m> và <m>4 \notin A</m>.</p>
-      <p>Xem thêm <xref ref="def-empty-set" text="title" />, <xref ref="def-set" text="title" />, <xref ref="def-subset" text="title" />, <xref ref="def-cardinality" text="title" />.</p>
-    </statement>
-  </definition>
-  <definition xml:id="def-expected-value">
-    <title>expected value (d.t.) — giá trị kì vọng</title>
-    <idx><h>expected value</h></idx>
-    <idx><h>giá trị kì vọng</h></idx>
-    <idx><h>giá trị mong đợi</h></idx>
-    <idx><h>kì vọng</h></idx>
-    <idx><h>kỳ vọng toán</h></idx>
-    <statement>
-      <p><em>Giá trị kì vọng</em> của một biến ngẫu nhiên <m>X</m> trên không gian mẫu <m>S</m> là trung bình có trọng số các giá trị <m>X(s)</m> của nó, mỗi giá trị được lấy trọng số bằng xác suất <m>p(s)</m> của kết quả <m>s</m>. Giá trị này được ký hiệu <m>E(X)</m> và xác định bởi
-<me>E(X) = \sum_{s \in S} p(s)\,X(s).</me> (theo <xref ref="bib-rosen-2019" />, Rosen §7.4).</p>
-      <p>Thuật ngữ tiếng Việt tương ứng:</p>
-      <ul>
-        <li><p><term>giá trị kì vọng</term> <xref ref="bib-leanhvinh-2020" /> (tr. 194) — cách dùng phổ biến.</p></li>
-        <li><p><term>giá trị mong đợi</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
-        <li><p><term>kì vọng</term> <xref ref="bib-leanhvinh-2020" /> (tr. 192); <xref ref="bib-doducthai-2010" /> (tr. 289).</p></li>
-        <li><p><term>kỳ vọng toán</term> <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 165).</p></li>
-      </ul>
-      <p>Ví dụ: Khi tung một con xúc xắc cân đối, không gian mẫu là <m>S = \{1,2,3,4,5,6\}</m> với <m>p(s) = \tfrac{1}{6}</m> cho mỗi <m>s</m>, và biến ngẫu nhiên <m>X(s) = s</m> ghi lại số chấm xuất hiện. Khi đó giá trị kì vọng là <m>E(X) = \sum_{s \in S} \tfrac{1}{6}\,s = \tfrac{1}{6}(1+2+3+4+5+6) = \tfrac{7}{2}</m>.</p>
-    </statement>
-  </definition>
-  <definition xml:id="def-exponential-generating-function">
-    <title>exponential generating function (d.t.) — hàm sinh mũ</title>
-    <idx><h>exponential generating function</h></idx>
-    <idx><h>hàm sinh</h></idx>
-    <idx><h>hàm sinh mũ</h></idx>
-    <statement>
-      <p><em>Hàm sinh mũ</em> của một dãy số thực <m>(a_k)_{k \geq 0}</m> là chuỗi lũy thừa hình thức, ký hiệu <m>f(x)</m>, được cho bởi <m>f(x) = \sum_{k=0}^{\infty} a_k \frac{x^k}{k!}</m> (theo <xref ref="bib-rosen-2019" />, Rosen §8.4).</p>
-      <p>Thuật ngữ tiếng Việt tương ứng:</p>
-      <ul>
-        <li><p><term>hàm sinh mũ</term> <xref ref="bib-ngodactan-2004" /> (tr. 97); <xref ref="bib-ngodactan-2004" /> (tr. 87) — cách dùng phổ biến.</p></li>
-        <li><p><term>hàm sinh</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 43); <xref ref="bib-hoangchithanh-2011" />; <xref ref="bib-doducthai-2010" /> (tr. 5); <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 93).</p></li>
-      </ul>
-      <p>Ví dụ: Với dãy hằng <m>a_k = 1</m> với mọi <m>k \geq 0</m>, hàm sinh mũ là <m>\sum_{k=0}^{\infty} \frac{x^k}{k!} = e^x</m>.</p>
-      <p>Xem thêm <xref ref="def-generating-function" text="title" />.</p>
-    </statement>
-  </definition>
-  <definition xml:id="def-eccentricity">
-    <title>eccentricity (d.t.) — độ lệch tâm</title>
-    <idx><h>eccentricity</h></idx>
-    <idx><h>tâm sai</h></idx>
-    <idx><h>độ lệch</h></idx>
-    <idx><h>độ lệch tâm</h></idx>
-    <statement>
-      <p>Độ lệch tâm của một đỉnh <m>v</m> trong đồ thị liên thông <m>G</m>, ký hiệu <m>e(v)</m>, là khoảng cách lớn nhất từ <m>v</m> tới mọi đỉnh khác của <m>G</m>, tức là <m>e(v) = \max_{u \in V(G)} d(u,v)</m>, trong đó <m>d(u,v)</m> là độ dài đường đi ngắn nhất giữa <m>u</m> và <m>v</m> (theo <xref ref="bib-rosen-2019" />, Rosen §10.4).</p>
-      <p>Thuật ngữ tiếng Việt tương ứng:</p>
-      <ul>
-        <li><p><term>độ lệch tâm</term> <xref ref="bib-leanhvinh-2020" /> (tr. 44); <xref ref="bib-doantamhoe-2009" /> — cách dùng phổ biến.</p></li>
-        <li><p><term>tâm sai</term> <xref ref="bib-ngodactan-2004" /> (tr. 216); <xref ref="bib-doducgiao-2009" /> (tr. 230); <xref ref="bib-doducgiao-2008" /> (tr. 285); <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 14).</p></li>
-        <li><p><term>độ lệch</term> <xref ref="bib-hoangchithanh-2011" />; <xref ref="bib-leanhvinh-2020" /> (tr. 44); <xref ref="bib-doducthai-2010" /> (tr. 5); <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 19).</p></li>
-      </ul>
-      <p>Ví dụ: Trong đường đi <m>P_4</m> với các đỉnh <m>v_1, v_2, v_3, v_4</m>, ta có <m>e(v_1) = 3</m> và <m>e(v_2) = 2</m>; đỉnh có độ lệch tâm nhỏ nhất là đỉnh trung tâm.</p>
-    </statement>
-  </definition>
-  <definition xml:id="def-edge-chromatic-number">
-    <title>edge chromatic number (d.t.) — sắc số cạnh</title>
-    <idx><h>edge chromatic number</h></idx>
-    <idx><h>sắc số cạnh</h></idx>
-    <statement>
-      <p>Sắc số cạnh của một đồ thị <m>G</m>, ký hiệu <m>\chi'(G)</m>, là số màu nhỏ nhất cần dùng để tô màu các cạnh của <m>G</m> sao cho hai cạnh kề nhau bất kỳ được tô hai màu khác nhau (theo <xref ref="bib-rosen-2019" />, Rosen §10.8).</p>
-      <p>Thuật ngữ tiếng Việt tương ứng:</p>
-      <ul>
-        <li><p><term>sắc số cạnh</term> <xref ref="bib-leanhvinh-2020" /> (tr. 108); <xref ref="bib-ngodactan-2004" /> (tr. 292) — cách dùng phổ biến.</p></li>
-      </ul>
-      <p>Ví dụ: Với đồ thị đầy đủ <m>K_4</m> ta có <m>\chi'(K_4) = 3</m>; tổng quát, với chu trình <m>C_n</m> thì <m>\chi'(C_n) = 2</m> khi <m>n</m> chẵn và <m>\chi'(C_n) = 3</m> khi <m>n</m> lẻ.</p>
-    </statement>
-  </definition>
-  <definition xml:id="def-empty-set">
-    <title>empty set (d.t.) — tập hợp rỗng</title>
-    <idx><h>empty set</h></idx>
-    <idx><h>tập hợp rỗng</h></idx>
-    <idx><h>tập rỗng</h></idx>
-    <statement>
-      <p>Tập hợp rỗng, ký hiệu <m>\emptyset</m> (hoặc <m>\{\}</m>), là tập hợp không chứa phần tử nào. Tập hợp rỗng là tập con của mọi tập hợp và có số phần tử bằng <m>0</m>, tức là <m>|\emptyset| = 0</m> (theo <xref ref="bib-rosen-2019" />, Rosen §2.1).</p>
-      <p>Thuật ngữ tiếng Việt tương ứng:</p>
-      <ul>
-        <li><p><term>tập hợp rỗng</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 72); <xref ref="bib-nguyenhoangthach-2020" /> (tr. 14); <xref ref="bib-vudinhhoa-2010" />; <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 383) — cách dùng phổ biến.</p></li>
-        <li><p><term>tập rỗng</term> <xref ref="bib-leanhvinh-2020" /> (tr. 91); <xref ref="bib-hoangchithanh-2011" />; <xref ref="bib-nguyenhuudien-2019" /> (tr. 252).</p></li>
-      </ul>
-      <p>Ví dụ: Tập hợp các số nguyên dương lớn hơn bình phương của chúng là tập hợp rỗng, vì không có số nguyên dương <m>n</m> nào thỏa mãn <m>n  \gt  n^2</m>.</p>
-    </statement>
-  </definition>
   <definition xml:id="def-eulerian-path">
     <title>Eulerian path (d.t.) — đường đi Euler, đường đi/chu trình Euler</title>
     <idx><h>Eulerian path</h></idx>
@@ -347,6 +436,35 @@
       <p>Ví dụ: Các số <m>-4, 0, 6, 100</m> là số chẵn vì <m>-4 = 2 \cdot (-2)</m>, <m>0 = 2 \cdot 0</m>, <m>6 = 2 \cdot 3</m> và <m>100 = 2 \cdot 50</m>; còn <m>7</m> là số lẻ vì <m>7 = 2 \cdot 3 + 1</m>.</p>
     </statement>
   </definition>
+  <definition xml:id="def-even-integer">
+    <title>even integer (d.t.) — số nguyên chẵn</title>
+    <idx><h>even integer</h></idx>
+    <idx><h>số chẵn</h></idx>
+    <idx><h>số nguyên chẵn</h></idx>
+    <statement>
+      <p><em>Số nguyên chẵn</em> là một số nguyên <m>n</m> chia hết cho <m>2</m>, nghĩa là <m>n = 2k</m> với <m>k</m> là một số nguyên nào đó (theo <xref ref="bib-rosen-2019" />, Rosen §4.1).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>số nguyên chẵn</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 40); <xref ref="bib-cormen-2001-vi" /> (tr. 99); <xref ref="bib-sierpinski-2012" /> (tr. 233) — cách dùng phổ biến.</p></li>
+        <li><p><term>số chẵn</term> <xref ref="bib-leanhvinh-2020" /> (tr. 12); <xref ref="bib-nguyenhoangthach-2020" /> (tr. 62); <xref ref="bib-nguyenhuudien-2019" /> (tr. 58); <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 187).</p></li>
+      </ul>
+      <p>Ví dụ: Các số <m>-4</m>, <m>0</m> và <m>10</m> là các số nguyên chẵn vì <m>-4 = 2 \cdot (-2)</m>, <m>0 = 2 \cdot 0</m> và <m>10 = 2 \cdot 5</m>.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-event">
+    <title>event (d.t.) — biến cố</title>
+    <idx><h>event</h></idx>
+    <idx><h>biến cố</h></idx>
+    <statement>
+      <p>Một biến cố là một tập con của không gian mẫu của một phép thử. Nói cách khác, nếu không gian mẫu <m>S</m> là tập tất cả các kết cục có thể của phép thử thì mỗi biến cố <m>E</m> thỏa mãn <m>E \subseteq S</m> (theo <xref ref="bib-rosen-2019" />, Rosen §7.2).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>biến cố</term> <xref ref="bib-leanhvinh-2020" /> (tr. 158); <xref ref="bib-nguyenhuudien-2019" /> (tr. 48); <xref ref="bib-sierpinski-2012" /> (tr. 22); <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 62) — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Khi gieo một con súc sắc, không gian mẫu là <m>S = \{1, 2, 3, 4, 5, 6\}</m>; biến cố "số chấm xuất hiện là số chẵn" là tập con <m>E = \{2, 4, 6\} \subseteq S</m>.</p>
+      <p>Xem thêm <xref ref="def-expected-value" text="title" />.</p>
+    </statement>
+  </definition>
   <definition xml:id="def-exclusive-or">
     <title>exclusive or (d.t.) — tuyển loại</title>
     <idx><h>exclusive or</h></idx>
@@ -362,6 +480,36 @@
         <li><p><term>phép tuyển loại trừ</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
       </ul>
       <p>Ví dụ: Với <m>p</m> là "Hôm nay là thứ Hai" và <m>q</m> là "Trời đang mưa", mệnh đề <m>p \oplus q</m> đúng khi đúng một trong hai mệnh đề <m>p</m>, <m>q</m> đúng; nếu cả hai cùng đúng hoặc cùng sai thì <m>p \oplus q</m> sai.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-exhaustive-enumeration">
+    <title>exhaustive enumeration (d.t.) — liệt kê vét cạn</title>
+    <idx><h>exhaustive enumeration</h></idx>
+    <idx><h>liệt kê vét cạn</h></idx>
+    <statement>
+      <p><em>Liệt kê vét cạn</em> là phương pháp giải bài toán bằng cách lần lượt xét tất cả các khả năng (ứng viên) trong không gian lời giải để tìm hoặc kiểm tra lời giải mong muốn. Phương pháp luôn cho kết quả đúng nhưng thường tốn kém khi không gian tìm kiếm lớn (theo <xref ref="bib-libennowell-2022" />).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>liệt kê vét cạn</term> <em>(thuật ngữ chuẩn; chưa truy được trong kho văn bản)</em> — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Để tìm tất cả tập con của <m>\{1,2,3\}</m> có tổng bằng <m>3</m>, ta liệt kê toàn bộ <m>2^3=8</m> tập con và kiểm tra từng tập.</p>
+      <p>Xem thêm <xref ref="def-backtracking" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-exhaustive-proof">
+    <title>exhaustive proof (d.t.) — chứng minh vét cạn</title>
+    <idx><h>exhaustive proof</h></idx>
+    <idx><h>chứng minh vét cạn</h></idx>
+    <idx><h>vét cạn</h></idx>
+    <statement>
+      <p>Chứng minh vét cạn là một chứng minh thiết lập kết quả bằng cách kiểm tra tất cả các trường hợp có thể. Phương pháp này chỉ dùng được khi số trường hợp cần kiểm tra là hữu hạn và tương đối nhỏ, vì khi đó ta có thể xét lần lượt và kiểm tra trực tiếp từng trường hợp một (theo <xref ref="bib-rosen-2019" />, Rosen §1.8).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>chứng minh vét cạn</term> <em>(thuật ngữ chuẩn; chưa truy được trong kho văn bản)</em> — cách dùng phổ biến.</p></li>
+        <li><p><term>vét cạn</term> <xref ref="bib-nguyenducnghia-2006" />.</p></li>
+      </ul>
+      <p>Ví dụ: Để chứng minh rằng <m>(n+1)^3 \geq 3^n</m> với mọi số nguyên dương <m>n</m> thỏa <m>n \leq 4</m>, ta kiểm tra trực tiếp bốn trường hợp <m>n = 1, 2, 3, 4</m> và thấy bất đẳng thức đúng trong mỗi trường hợp; việc kiểm tra hết các trường hợp này là một chứng minh vét cạn.</p>
+      <p>Xem thêm <xref ref="def-proof-by-cases" text="title" />, <xref ref="def-direct-proof" text="title" />, <xref ref="def-proof" text="title" />.</p>
     </statement>
   </definition>
   <definition xml:id="def-existential-generalization">
@@ -396,6 +544,26 @@
       <p>Ví dụ: Từ giả thiết <m>\exists x\, (x^2 = 2)</m> trên miền các số thực, theo khởi tạo hiện sinh ta suy ra tồn tại một số thực cụ thể <m>c</m> sao cho <m>c^2 = 2</m>.</p>
     </statement>
   </definition>
+  <definition xml:id="def-expected-value">
+    <title>expected value (d.t.) — giá trị kì vọng</title>
+    <idx><h>expected value</h></idx>
+    <idx><h>giá trị kì vọng</h></idx>
+    <idx><h>giá trị mong đợi</h></idx>
+    <idx><h>kì vọng</h></idx>
+    <idx><h>kỳ vọng toán</h></idx>
+    <statement>
+      <p><em>Giá trị kì vọng</em> của một biến ngẫu nhiên <m>X</m> trên không gian mẫu <m>S</m> là trung bình có trọng số các giá trị <m>X(s)</m> của nó, mỗi giá trị được lấy trọng số bằng xác suất <m>p(s)</m> của kết quả <m>s</m>. Giá trị này được ký hiệu <m>E(X)</m> và xác định bởi
+<me>E(X) = \sum_{s \in S} p(s)\,X(s).</me> (theo <xref ref="bib-rosen-2019" />, Rosen §7.4).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>giá trị kì vọng</term> <xref ref="bib-leanhvinh-2020" /> (tr. 194) — cách dùng phổ biến.</p></li>
+        <li><p><term>giá trị mong đợi</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
+        <li><p><term>kì vọng</term> <xref ref="bib-leanhvinh-2020" /> (tr. 192); <xref ref="bib-doducthai-2010" /> (tr. 289).</p></li>
+        <li><p><term>kỳ vọng toán</term> <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 165).</p></li>
+      </ul>
+      <p>Ví dụ: Khi tung một con xúc xắc cân đối, không gian mẫu là <m>S = \{1,2,3,4,5,6\}</m> với <m>p(s) = \tfrac{1}{6}</m> cho mỗi <m>s</m>, và biến ngẫu nhiên <m>X(s) = s</m> ghi lại số chấm xuất hiện. Khi đó giá trị kì vọng là <m>E(X) = \sum_{s \in S} \tfrac{1}{6}\,s = \tfrac{1}{6}(1+2+3+4+5+6) = \tfrac{7}{2}</m>.</p>
+    </statement>
+  </definition>
   <definition xml:id="def-exponential">
     <title>exponential (d.t.) — hàm mũ</title>
     <idx><h>exponential</h></idx>
@@ -407,6 +575,49 @@
         <li><p><term>hàm mũ</term> <xref ref="bib-leanhvinh-2020" /> (tr. 98); <xref ref="bib-nguyenhuudien-2019" /> (tr. 141); <xref ref="bib-doducthai-2010" /> (tr. 251); <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 196) — cách dùng phổ biến.</p></li>
       </ul>
       <p>Ví dụ: Hàm <m>f(x) = 2^x</m> là một hàm mũ với cơ số <m>2</m>. Một thuật toán có thời gian chạy <m>O(2^n)</m> có độ phức tạp hàm mũ.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-exponential-generating-function">
+    <title>exponential generating function (d.t.) — hàm sinh mũ</title>
+    <idx><h>exponential generating function</h></idx>
+    <idx><h>hàm sinh</h></idx>
+    <idx><h>hàm sinh mũ</h></idx>
+    <statement>
+      <p><em>Hàm sinh mũ</em> của một dãy số thực <m>(a_k)_{k \geq 0}</m> là chuỗi lũy thừa hình thức, ký hiệu <m>f(x)</m>, được cho bởi <m>f(x) = \sum_{k=0}^{\infty} a_k \frac{x^k}{k!}</m> (theo <xref ref="bib-rosen-2019" />, Rosen §8.4).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>hàm sinh mũ</term> <xref ref="bib-ngodactan-2004" /> (tr. 97); <xref ref="bib-ngodactan-2004" /> (tr. 87) — cách dùng phổ biến.</p></li>
+        <li><p><term>hàm sinh</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 43); <xref ref="bib-hoangchithanh-2011" />; <xref ref="bib-doducthai-2010" /> (tr. 5); <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 93).</p></li>
+      </ul>
+      <p>Ví dụ: Với dãy hằng <m>a_k = 1</m> với mọi <m>k \geq 0</m>, hàm sinh mũ là <m>\sum_{k=0}^{\infty} \frac{x^k}{k!} = e^x</m>.</p>
+      <p>Xem thêm <xref ref="def-generating-function" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-exponentiation">
+    <title>exponentiation (d.t.) — phép lũy thừa</title>
+    <idx><h>exponentiation</h></idx>
+    <idx><h>phép lũy thừa</h></idx>
+    <statement>
+      <p><em>Phép lũy thừa</em> là phép toán nâng một cơ số <m>b</m> lên số mũ <m>n</m>, ký hiệu <m>b^n</m>. Với số mũ nguyên dương, <m>b^n</m> là tích của <m>n</m> thừa số bằng <m>b</m>, tức <m>\displaystyle b^n=\underbrace{b\cdot b\cdots b}_{n}</m>, với quy ước <m>b^0=1</m> (theo <xref ref="bib-libennowell-2022" />).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>phép lũy thừa</term> <xref ref="bib-doxuanloi-2006" />; <xref ref="bib-ngodactan-2004" /> — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: <m>2^{10}=1024</m>.</p>
+      <p>Xem thêm <xref ref="def-logarithm" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-extended-euclidean-algorithm">
+    <title>extended Euclidean algorithm (d.t.) — thuật toán Euclid mở rộng</title>
+    <idx><h>extended Euclidean algorithm</h></idx>
+    <idx><h>thuật toán Euclid mở rộng</h></idx>
+    <statement>
+      <p><em>Thuật toán Euclid mở rộng</em> là mở rộng của thuật toán Euclid: ngoài việc tính ước chung lớn nhất <m>d=\gcd(a,b)</m>, nó còn tìm các hệ số nguyên <m>x,y</m> (hệ số Bézout) thỏa mãn <m>ax+by=d</m>. Các hệ số này hữu ích để tính nghịch đảo modulo và giải phương trình đồng dư tuyến tính (theo <xref ref="bib-libennowell-2022" />).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>thuật toán Euclid mở rộng</term> <em>(thuật ngữ chuẩn; chưa truy được trong kho văn bản)</em> — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Với <m>a=240</m>, <m>b=46</m>, thuật toán cho <m>\gcd=2</m> và <m>240\cdot(-9)+46\cdot 47=2</m>.</p>
     </statement>
   </definition>
   <definition xml:id="def-extremal-graph-theory">
@@ -424,148 +635,6 @@
         <li><p><term>đồ thị cực hạn</term> <xref ref="bib-leanhvinh-2020" /> (tr. 7); <xref ref="bib-leanhvinh-2020" /> (tr. 175); <xref ref="bib-leanhvinh-2020" /> (tr. 181).</p></li>
       </ul>
       <p>Ví dụ: Định lý Turán xác định số cạnh cực đại của một đồ thị <m>n</m> đỉnh không chứa <m>K_r</m> làm đồ thị con, đạt được bởi đồ thị Turán <m>T(n, r-1)</m>.</p>
-    </statement>
-  </definition>
-  <definition xml:id="def-edge-cut">
-    <title>edge cut (d.t.) — lát cắt cạnh</title>
-    <idx><h>edge cut</h></idx>
-    <idx><h>lát cắt cạnh</h></idx>
-    <statement><p>Xem <xref ref="def-separating-set-of-edges" text="title" />.</p></statement>
-  </definition>
-  <definition xml:id="def-elementary-subdivision">
-    <title>elementary subdivision (d.t.) — phép phân chia sơ cấp</title>
-    <idx><h>elementary subdivision</h></idx>
-    <idx><h>phép phân chia sơ cấp</h></idx>
-    <statement><p>Xem <xref ref="def-subdivision" text="title" />.</p></statement>
-  </definition>
-  <definition xml:id="def-empty-string">
-    <title>empty string (d.t.) — xâu rỗng</title>
-    <idx><h>empty string</h></idx>
-    <idx><h>chuỗi trống</h></idx>
-    <idx><h>xâu rỗng</h></idx>
-    <statement>
-      <p>Xâu rỗng là một xâu có chiều dài bằng không, tức là xâu không chứa số hạng nào. Xâu rỗng thường được ký hiệu là <m>\lambda</m> và có chiều dài <m>0</m> (theo <xref ref="bib-rosen-2019" />, Rosen §11.4).</p>
-      <p>Thuật ngữ tiếng Việt tương ứng:</p>
-      <ul>
-        <li><p><term>xâu rỗng</term> <xref ref="bib-doducgiao-2009" /> (tr. 7); <xref ref="bib-doducgiao-2008" /> (tr. 8); <xref ref="bib-vudinhhoa-2010" /> — cách dùng phổ biến.</p></li>
-        <li><p><term>chuỗi trống</term> <xref ref="bib-cormen-2001-vi" /> (tr. 90).</p></li>
-      </ul>
-      <p>Ví dụ: Xâu rỗng <m>\lambda</m> là xâu duy nhất không có ký tự nào; với mọi xâu <m>w</m>, ta có <m>\lambda w = w \lambda = w</m>, nên <m>\lambda</m> đóng vai trò phần tử đơn vị đối với phép ghép xâu.</p>
-      <p>Xem thêm <xref ref="def-string" text="title" />, <xref ref="def-alphabet" text="title" />, <xref ref="def-word" text="title" />.</p>
-    </statement>
-  </definition>
-  <definition xml:id="def-encryption-key">
-    <title>encryption key (d.t.) — khóa mã hóa</title>
-    <idx><h>encryption key</h></idx>
-    <idx><h>khóa</h></idx>
-    <idx><h>khóa mã hóa</h></idx>
-    <idx><h>khóa mật mã hóa</h></idx>
-    <statement>
-      <p>Khóa mã hóa là một giá trị <m>k</m> xác định hàm mã hóa nào trong một họ các hàm mã hóa được sử dụng. Mỗi khóa <m>k</m> trong tập khóa <m>\mathcal{K}</m> chọn ra một hàm mã hóa <m>E_k</m> tương ứng để biến bản rõ thành bản mã (theo <xref ref="bib-rosen-2019" />, Rosen §4.6).</p>
-      <p>Thuật ngữ tiếng Việt tương ứng:</p>
-      <ul>
-        <li><p><term>khóa mã hóa</term> <xref ref="bib-cormen-2001-vi" /> (tr. 927) — cách dùng phổ biến.</p></li>
-        <li><p><term>khóa</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
-        <li><p><term>khóa mật mã hóa</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
-      </ul>
-      <p>Ví dụ: Trong mật mã Caesar, khóa là một số <m>k</m> với <m>0 \leq k \leq 25</m> và xác định hàm mã hóa <m>E_k(p) = (p + k) \bmod 26</m> dùng để dịch mỗi chữ cái đi <m>k</m> vị trí. Chẳng hạn, với khóa <m>k = 3</m> thì từ "MEET" được mã hóa thành "PHHW".</p>
-      <p>Xem thêm <xref ref="def-cryptosystem" text="title" />, <xref ref="def-encryption" text="title" />, <xref ref="def-private-key-cryptography" text="title" />, <xref ref="def-public-key-cryptography" text="title" />.</p>
-    </statement>
-  </definition>
-  <definition xml:id="def-encryption">
-    <title>encryption (d.t.) — mã hóa</title>
-    <idx><h>encryption</h></idx>
-    <idx><h>mã hóa</h></idx>
-    <statement>
-      <p>Mã hóa là quá trình làm cho một thông điệp trở nên bí mật, tức là biến đổi bản rõ thành dạng mà chỉ người được phép mới đọc hiểu được. Quá trình ngược lại, khôi phục thông điệp gốc từ thông điệp đã mã hóa, được gọi là giải mã (theo <xref ref="bib-rosen-2019" />, Rosen §4.6).</p>
-      <p>Thuật ngữ tiếng Việt tương ứng:</p>
-      <ul>
-        <li><p><term>mã hóa</term> <xref ref="bib-doantamhoe-2009" />; <xref ref="bib-nguyenhoangthach-2020" /> (tr. 14); <xref ref="bib-vudinhhoa-2010" />; <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 55) — cách dùng phổ biến.</p></li>
-      </ul>
-      <p>Ví dụ: Mật mã Caesar mã hóa một thông điệp bằng cách dịch mỗi chữ cái đi <m>3</m> vị trí: chữ cái ứng với số <m>p</m> với <m>0 \leq p \leq 25</m> được thay bằng chữ cái ứng với <m>f(p) = (p + 3) \bmod 26</m>. Chẳng hạn, dùng phép mã hóa này, từ "MEET" trở thành "PHHW".</p>
-      <p>Xem thêm <xref ref="def-character-cipher" text="title" />, <xref ref="def-private-key-cryptography" text="title" />, <xref ref="def-public-key-cryptography" text="title" />.</p>
-    </statement>
-  </definition>
-  <definition xml:id="def-enumeration">
-    <title>enumeration (d.t.) — phép đếm</title>
-    <idx><h>enumeration</h></idx>
-    <idx><h>bài toán đếm</h></idx>
-    <idx><h>liệt kê</h></idx>
-    <idx><h>phép đếm</h></idx>
-    <statement>
-      <p>Phép đếm là việc đếm số cách sắp xếp của các đối tượng. Nói cách khác, nó xác định số lượng các cách sắp xếp khác nhau của một tập hợp đối tượng cho trước (theo <xref ref="bib-rosen-2019" />, Rosen, Discrete Mathematics and Its Applications, ch. on Counting).</p>
-      <p>Thuật ngữ tiếng Việt tương ứng:</p>
-      <ul>
-        <li><p><term>phép đếm</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 77); <xref ref="bib-nguyenhuuanh-2007" />; <xref ref="bib-vudinhhoa-2010" />; <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 311) — cách dùng phổ biến.</p></li>
-        <li><p><term>bài toán đếm</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 11); <xref ref="bib-nguyenhuudien-2019" /> (tr. 93); <xref ref="bib-vudinhhoa-2010" />.</p></li>
-        <li><p><term>liệt kê</term> <xref ref="bib-leanhvinh-2020" /> (tr. 162); <xref ref="bib-nguyenhoangthach-2020" /> (tr. 14); <xref ref="bib-nguyenhuudien-2019" /> (tr. 16); <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 148).</p></li>
-      </ul>
-      <p>Ví dụ: Số cách sắp xếp <m>3</m> đối tượng phân biệt thành một hàng là <m>3! = 6</m>; việc xác định con số <m>6</m> này là một phép đếm.</p>
-      <p>Xem thêm <xref ref="def-addition-rule" text="title" />, <xref ref="def-double-counting-proof" text="title" />.</p>
-    </statement>
-  </definition>
-  <definition xml:id="def-equivalent">
-    <title>equivalent (t.t.) — tương đương</title>
-    <idx><h>equivalent</h></idx>
-    <idx><h>tương đương</h></idx>
-    <statement><p>Xem <xref ref="def-equivalence-relation" text="title" />.</p></statement>
-  </definition>
-  <definition xml:id="def-essential-prime-implicant">
-    <title>essential prime implicant (d.t.) — nguyên nhân nguyên tố cốt yếu</title>
-    <idx><h>essential prime implicant</h></idx>
-    <idx><h>nguyên nhân nguyên tố cốt yếu</h></idx>
-    <statement>
-      <p>Nguyên nhân nguyên tố cốt yếu là một nguyên nhân nguyên tố phủ một tiểu hạng mà không có một nguyên nhân nguyên tố nào khác phủ. Vì mỗi tiểu hạng như vậy chỉ được phủ bởi đúng một nguyên nhân nguyên tố, nên mọi nguyên nhân nguyên tố cốt yếu đều phải có mặt trong dạng khai triển tối thiểu của hàm Boole (theo <xref ref="bib-rosen-2019" />, Rosen §12.4).</p>
-      <p>Thuật ngữ tiếng Việt tương ứng:</p>
-      <ul>
-        <li><p><term>nguyên nhân nguyên tố cốt yếu</term> <xref ref="bib-nguyenducnghia-2006" />; <xref ref="bib-nguyenducnghia-2006" /> — cách dùng phổ biến.</p></li>
-      </ul>
-      <p>Ví dụ: Trên bìa Karnaugh của một hàm Boole, nếu một ô (ứng với một tiểu hạng) chỉ nằm trong duy nhất một khối phủ ứng với một nguyên nhân nguyên tố, thì nguyên nhân nguyên tố đó là cốt yếu và bắt buộc phải được chọn vào tổng tối thiểu.</p>
-      <p>Xem thêm <xref ref="def-minterm" text="title" />, <xref ref="def-karnaugh-map" text="title" />, <xref ref="def-boolean-function" text="title" />.</p>
-    </statement>
-  </definition>
-  <definition xml:id="def-event">
-    <title>event (d.t.) — biến cố</title>
-    <idx><h>event</h></idx>
-    <idx><h>biến cố</h></idx>
-    <statement>
-      <p>Một biến cố là một tập con của không gian mẫu của một phép thử. Nói cách khác, nếu không gian mẫu <m>S</m> là tập tất cả các kết cục có thể của phép thử thì mỗi biến cố <m>E</m> thỏa mãn <m>E \subseteq S</m> (theo <xref ref="bib-rosen-2019" />, Rosen §7.2).</p>
-      <p>Thuật ngữ tiếng Việt tương ứng:</p>
-      <ul>
-        <li><p><term>biến cố</term> <xref ref="bib-leanhvinh-2020" /> (tr. 158); <xref ref="bib-nguyenhuudien-2019" /> (tr. 48); <xref ref="bib-sierpinski-2012" /> (tr. 22); <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 62) — cách dùng phổ biến.</p></li>
-      </ul>
-      <p>Ví dụ: Khi gieo một con súc sắc, không gian mẫu là <m>S = \{1, 2, 3, 4, 5, 6\}</m>; biến cố "số chấm xuất hiện là số chẵn" là tập con <m>E = \{2, 4, 6\} \subseteq S</m>.</p>
-      <p>Xem thêm <xref ref="def-expected-value" text="title" />.</p>
-    </statement>
-  </definition>
-  <definition xml:id="def-exhaustive-proof">
-    <title>exhaustive proof (d.t.) — chứng minh vét cạn</title>
-    <idx><h>exhaustive proof</h></idx>
-    <idx><h>chứng minh vét cạn</h></idx>
-    <idx><h>vét cạn</h></idx>
-    <statement>
-      <p>Chứng minh vét cạn là một chứng minh thiết lập kết quả bằng cách kiểm tra tất cả các trường hợp có thể. Phương pháp này chỉ dùng được khi số trường hợp cần kiểm tra là hữu hạn và tương đối nhỏ, vì khi đó ta có thể xét lần lượt và kiểm tra trực tiếp từng trường hợp một (theo <xref ref="bib-rosen-2019" />, Rosen §1.8).</p>
-      <p>Thuật ngữ tiếng Việt tương ứng:</p>
-      <ul>
-        <li><p><term>chứng minh vét cạn</term> <em>(thuật ngữ chuẩn; chưa truy được trong kho văn bản)</em> — cách dùng phổ biến.</p></li>
-        <li><p><term>vét cạn</term> <xref ref="bib-nguyenducnghia-2006" />.</p></li>
-      </ul>
-      <p>Ví dụ: Để chứng minh rằng <m>(n+1)^3 \geq 3^n</m> với mọi số nguyên dương <m>n</m> thỏa <m>n \leq 4</m>, ta kiểm tra trực tiếp bốn trường hợp <m>n = 1, 2, 3, 4</m> và thấy bất đẳng thức đúng trong mỗi trường hợp; việc kiểm tra hết các trường hợp này là một chứng minh vét cạn.</p>
-      <p>Xem thêm <xref ref="def-proof-by-cases" text="title" />, <xref ref="def-direct-proof" text="title" />, <xref ref="def-proof" text="title" />.</p>
-    </statement>
-  </definition>
-  <definition xml:id="def-edge-cover">
-    <title>edge cover (d.t.) — tập phủ cạnh</title>
-    <idx><h>edge cover</h></idx>
-    <idx><h>tập phủ cạnh</h></idx>
-    <statement>
-      <p><em>Phủ cạnh</em> của một đồ thị <m>G</m> không có đỉnh cô lập là một tập cạnh <m>C \subseteq E(G)</m> sao cho mỗi đỉnh của <m>G</m> là đầu mút của ít nhất một cạnh thuộc <m>C</m>. Phủ cạnh có số cạnh nhỏ nhất được gọi là phủ cạnh nhỏ nhất.</p>
-      <p>Thuật ngữ tiếng Việt tương ứng:</p>
-      <ul>
-        <li><p><term>tập phủ cạnh</term> <xref ref="bib-leanhvinh-2020" /> (tr. 81) — cách dùng phổ biến.</p></li>
-      </ul>
-      <p>Ví dụ: Trong đường đi <m>P_3</m> với các đỉnh <m>v_1, v_2, v_3</m>, tập <m>\{v_1 v_2, v_2 v_3\}</m> là một phủ cạnh; trong tam giác <m>K_3</m>, hai cạnh bất kỳ tạo thành một phủ cạnh.</p>
-      <p>Xem thêm <xref ref="def-vertex-cover" text="title" />, <xref ref="def-cover" text="title" />.</p>
     </statement>
   </definition>
 </chapter>

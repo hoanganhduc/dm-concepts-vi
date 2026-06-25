@@ -9,6 +9,48 @@
     </p>
   </introduction>
 
+  <definition xml:id="def-half-adder">
+    <title>half adder (d.t.) — mạch cộng bán phần</title>
+    <idx><h>half adder</h></idx>
+    <idx><h>bộ bán cộng</h></idx>
+    <idx><h>bộ cộng bán phần</h></idx>
+    <idx><h>mạch bán cộng</h></idx>
+    <idx><h>mạch cộng bán phần</h></idx>
+    <statement>
+      <p>Mạch cộng bán phần là mạch logic tổ hợp nhận hai bit đầu vào <m>x</m> và <m>y</m>, rồi tạo ra bit tổng <m>s</m> và bit nhớ <m>c</m>. Bit tổng được tính bằng một cổng XOR, ký hiệu <m>s = x \oplus y</m>, và bit nhớ được tính bằng một cổng AND, ký hiệu <m>c = x \wedge y</m> (theo <xref ref="bib-rosen-2019" />, Rosen §12.3).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>mạch cộng bán phần</term> <em>(thuật ngữ chuẩn; chưa truy được trong kho văn bản)</em> — cách dùng phổ biến.</p></li>
+        <li><p><term>bộ bán cộng</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
+        <li><p><term>bộ cộng bán phần</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
+        <li><p><term>mạch bán cộng</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
+      </ul>
+      <p>Ví dụ: Với hai bit đầu vào <m>x = 1</m> và <m>y = 1</m>, mạch cộng bán phần cho bit tổng <m>s = 1 \oplus 1 = 0</m> và bit nhớ <m>c = 1 \wedge 1 = 1</m>.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-halting-problem">
+    <title>halting problem (d.t.) — bài toán dừng</title>
+    <idx><h>halting problem</h></idx>
+    <idx><h>bài toán dừng</h></idx>
+    <statement>
+      <p><em>Bài toán dừng</em> là bài toán quyết định xem một chương trình tùy ý, với một dữ liệu vào tùy ý, có dừng (kết thúc sau hữu hạn bước) hay chạy mãi. Turing đã chứng minh bài toán dừng là <em>không giải được</em> bằng thuật toán (theo <xref ref="bib-libennowell-2022" />).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>bài toán dừng</term> <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-nguyenvanmau-2007" />; <xref ref="bib-phan-1976" /> (tr. 340); <xref ref="bib-sierpinski-2012" />; <xref ref="bib-vudinhhoa-2003" /> — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Không tồn tại chương trình <m>H</m> nhận đầu vào là cặp (chương trình <m>P</m>, dữ liệu <m>x</m>) và luôn trả lời đúng việc <m>P</m> có dừng trên <m>x</m> hay không.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-hamilton-circuit">
+    <title>Hamilton circuit (d.t.)</title>
+    <idx><h>Hamilton circuit</h></idx>
+    <statement><p>Xem <xref ref="def-hamiltonian-cycle" text="title" />.</p></statement>
+  </definition>
+  <definition xml:id="def-hamilton-path">
+    <title>Hamilton path (d.t.)</title>
+    <idx><h>Hamilton path</h></idx>
+    <statement><p>Xem <xref ref="def-hamiltonian-path" text="title" />.</p></statement>
+  </definition>
   <definition xml:id="def-hamiltonian-cycle">
     <title>Hamiltonian cycle (d.t.) — chu trình Hamilton</title>
     <idx><h>Hamiltonian cycle</h></idx>
@@ -21,22 +63,6 @@
       </ul>
       <p>Ví dụ: Trong đồ thị đầy đủ <m>K_4</m> với các đỉnh <m>a</m>, <m>b</m>, <m>c</m>, <m>d</m>, chu trình <m>a, b, c, d, a</m> đi qua mỗi đỉnh đúng một lần và trở về <m>a</m>, nên nó là một chu trình Hamilton.</p>
       <p>Xem thêm <xref ref="def-hamiltonian-path" text="title" />, <xref ref="def-circuit" text="title" />, <xref ref="def-cycle" text="title" />.</p>
-    </statement>
-  </definition>
-  <definition xml:id="def-hamiltonian-path">
-    <title>Hamiltonian path (d.t.) — đường đi Hamilton</title>
-    <idx><h>Hamiltonian path</h></idx>
-    <idx><h>đường Hamilton</h></idx>
-    <idx><h>đường đi Hamilton</h></idx>
-    <statement>
-      <p>Một <em>đường đi Hamilton</em> của đồ thị <m>G</m> là một đường đi đơn đi qua mỗi đỉnh của <m>G</m> đúng một lần (theo <xref ref="bib-rosen-2019" />, Rosen §10.5).</p>
-      <p>Thuật ngữ tiếng Việt tương ứng:</p>
-      <ul>
-        <li><p><term>đường đi Hamilton</term> <xref ref="bib-leanhvinh-2020" /> (tr. 22); <xref ref="bib-nguyenhoangthach-2020" /> (tr. 76); <xref ref="bib-nguyenhuudien-2019" /> (tr. 189) — cách dùng phổ biến.</p></li>
-        <li><p><term>đường Hamilton</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 192); <xref ref="bib-hoangchithanh-2011" />; <xref ref="bib-vudinhhoa-2010" />.</p></li>
-      </ul>
-      <p>Ví dụ: Trong đồ thị đầy đủ <m>K_4</m> với tập đỉnh <m>\{a, b, c, d\}</m>, dãy đỉnh <m>a, b, c, d</m> là một đường đi Hamilton vì nó là một đường đi đơn đi qua mỗi đỉnh đúng một lần.</p>
-      <p>Xem thêm <xref ref="def-hamiltonian-cycle" text="title" />, <xref ref="def-path" text="title" />, <xref ref="def-euler-path" text="title" />.</p>
     </statement>
   </definition>
   <definition xml:id="def-hamiltonian-graph">
@@ -55,6 +81,83 @@
       <p>Xem thêm <xref ref="def-hamiltonian-cycle" text="title" />, <xref ref="def-hamiltonian-path" text="title" />.</p>
     </statement>
   </definition>
+  <definition xml:id="def-hamiltonian-path">
+    <title>Hamiltonian path (d.t.) — đường đi Hamilton</title>
+    <idx><h>Hamiltonian path</h></idx>
+    <idx><h>đường Hamilton</h></idx>
+    <idx><h>đường đi Hamilton</h></idx>
+    <statement>
+      <p>Một <em>đường đi Hamilton</em> của đồ thị <m>G</m> là một đường đi đơn đi qua mỗi đỉnh của <m>G</m> đúng một lần (theo <xref ref="bib-rosen-2019" />, Rosen §10.5).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>đường đi Hamilton</term> <xref ref="bib-leanhvinh-2020" /> (tr. 22); <xref ref="bib-nguyenhoangthach-2020" /> (tr. 76); <xref ref="bib-nguyenhuudien-2019" /> (tr. 189) — cách dùng phổ biến.</p></li>
+        <li><p><term>đường Hamilton</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 192); <xref ref="bib-hoangchithanh-2011" />; <xref ref="bib-vudinhhoa-2010" />.</p></li>
+      </ul>
+      <p>Ví dụ: Trong đồ thị đầy đủ <m>K_4</m> với tập đỉnh <m>\{a, b, c, d\}</m>, dãy đỉnh <m>a, b, c, d</m> là một đường đi Hamilton vì nó là một đường đi đơn đi qua mỗi đỉnh đúng một lần.</p>
+      <p>Xem thêm <xref ref="def-hamiltonian-cycle" text="title" />, <xref ref="def-path" text="title" />, <xref ref="def-euler-path" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-hamming-code">
+    <title>Hamming code (d.t.) — mã Hamming</title>
+    <idx><h>Hamming code</h></idx>
+    <idx><h>mã Hamming</h></idx>
+    <statement>
+      <p>Một <em>mã Hamming</em> là một họ mã tuyến tính nhị phân sửa được một bit sai, có khoảng cách tối thiểu <m>3</m>. Với mỗi số nguyên <m>r \ge 2</m>, mã có độ dài <m>n = 2^r - 1</m>, gồm <m>2^r - 1 - r</m> bit thông tin và <m>r</m> bit kiểm tra, và là mã hoàn hảo theo nghĩa các quả cầu Hamming bán kính <m>1</m> quanh các từ mã phủ kín không gian (theo <xref ref="bib-libennowell-2022" />).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>mã Hamming</term> <em>(thuật ngữ chuẩn; chưa truy được trong kho văn bản)</em> — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Mã Hamming <m>(7,4)</m> ứng với <m>r=3</m> mã hóa <m>4</m> bit thông tin thành <m>7</m> bit và sửa được một bit sai bất kỳ.</p>
+      <p>Xem thêm <xref ref="def-hamming-distance" text="title" />, <xref ref="def-minimum-distance" text="title" />, <xref ref="def-error-correcting-code" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-hamming-distance">
+    <title>Hamming distance (d.t.) — khoảng cách Hamming</title>
+    <idx><h>Hamming distance</h></idx>
+    <idx><h>khoảng cách Hamming</h></idx>
+    <statement>
+      <p><em>Khoảng cách Hamming</em> giữa hai xâu <m>x</m> và <m>y</m> cùng độ dài, ký hiệu <m>d_H(x,y)</m>, là số vị trí mà tại đó hai xâu có ký tự khác nhau. Đây là một mêtric trên tập các xâu cùng độ dài và bằng số bit cần thay đổi để biến <m>x</m> thành <m>y</m> (theo <xref ref="bib-libennowell-2022" />).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>khoảng cách Hamming</term> <em>(thuật ngữ chuẩn; chưa truy được trong kho văn bản)</em> — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Với <m>x=10110</m> và <m>y=11100</m>, hai xâu khác nhau tại vị trí thứ hai, ba và năm, nên <m>d_H(x,y)=3</m>.</p>
+      <p>Xem thêm <xref ref="def-minimum-distance" text="title" />, <xref ref="def-hamming-code" text="title" />, <xref ref="def-error-correcting-code" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-handshake-theorem">
+    <title>handshake theorem (d.t.) — định lý bắt tay</title>
+    <idx><h>handshake theorem</h></idx>
+    <idx><h>bổ đề bắt tay</h></idx>
+    <idx><h>định lý bắt tay</h></idx>
+    <statement>
+      <p>Định lý bắt tay khẳng định rằng trong một đồ thị vô hướng <m>G = (V, E)</m>, tổng bậc của tất cả các đỉnh bằng hai lần số cạnh, ký hiệu <m>\sum_{v \in V(G)} \deg_G(v) = 2|E(G)|</m>. Hệ quả là số đỉnh có bậc lẻ trong <m>G</m> luôn là một số chẵn (theo <xref ref="bib-rosen-2019" />, Rosen §10.2).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>định lý bắt tay</term> <xref ref="bib-leanhvinh-2020" /> (tr. 12); <xref ref="bib-doducgiao-2009" /> (tr. 183) — cách dùng phổ biến.</p></li>
+        <li><p><term>bổ đề bắt tay</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 62); <xref ref="bib-ngodactan-2004" /> (tr. 335); <xref ref="bib-cormen-2001-vi" /> (tr. 113).</p></li>
+      </ul>
+      <p>Ví dụ: Xét đồ thị vô hướng <m>G</m> với tập đỉnh <m>V = \{a, b, c\}</m> và tập cạnh <m>E = \{ab, bc, ca\}</m>. Khi đó mỗi đỉnh có bậc <m>\deg_G(a) = \deg_G(b) = \deg_G(c) = 2</m>, nên <m>\sum_{v \in V(G)} \deg_G(v) = 2 + 2 + 2 = 6 = 2|E(G)|</m>.</p>
+      <p>Xem thêm <xref ref="def-undirected-graph" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-harmonic-series">
+    <title>harmonic series (d.t.) — số điều hòa</title>
+    <idx><h>harmonic series</h></idx>
+    <idx><h>chuỗi điều hòa</h></idx>
+    <idx><h>số điều hoà</h></idx>
+    <idx><h>số điều hòa</h></idx>
+    <statement>
+      <p>Số điều hòa thứ <m>n</m>, ký hiệu <m>H_n</m>, là tổng hữu hạn <m>H_n = 1 + \frac{1}{2} + \frac{1}{3} + \cdots + \frac{1}{n} = \sum_{k=1}^{n} \frac{1}{k}</m> của các nghịch đảo của <m>n</m> số nguyên dương đầu tiên. Chuỗi điều hòa là tổng vô hạn <m>\sum_{k=1}^{\infty} \frac{1}{k}</m> tương ứng (theo <xref ref="bib-rosen-2019" />, Rosen §2.4).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>số điều hòa</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 69); <xref ref="bib-sierpinski-2012" />; <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 345) — cách dùng phổ biến.</p></li>
+        <li><p><term>chuỗi điều hòa</term> <xref ref="bib-cormen-2001-vi" /> (tr. 64); <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 382).</p></li>
+        <li><p><term>số điều hoà</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 150).</p></li>
+      </ul>
+      <p>Ví dụ: Với <m>n = 4</m>, ta có <m>H_4 = 1 + \frac{1}{2} + \frac{1}{3} + \frac{1}{4} = \frac{25}{12}</m>.</p>
+    </statement>
+  </definition>
   <definition xml:id="def-hasse-diagram">
     <title>Hasse diagram (d.t.) — biểu đồ Hasse</title>
     <idx><h>Hasse diagram</h></idx>
@@ -71,6 +174,20 @@
       <p>Xem thêm <xref ref="def-lattice" text="title" />.</p>
     </statement>
   </definition>
+  <definition xml:id="def-head-of-an-arc">
+    <title>head of an arc (d.t.) — đỉnh cuối, đỉnh cuối của cung</title>
+    <idx><h>head of an arc</h></idx>
+    <idx><h>đỉnh cuối</h></idx>
+    <idx><h>đỉnh cuối của cung</h></idx>
+    <statement><p>Xem <xref ref="def-terminal-vertex" text="title" />.</p></statement>
+  </definition>
+  <definition xml:id="def-height">
+    <title>height (d.t.) — chiều cao, độ cao</title>
+    <idx><h>height</h></idx>
+    <idx><h>chiều cao</h></idx>
+    <idx><h>độ cao</h></idx>
+    <statement><p>Xem <xref ref="def-height-of-a-tree" text="title" />.</p></statement>
+  </definition>
   <definition xml:id="def-height-of-a-tree">
     <title>height of a tree (d.t.) — chiều cao của cây</title>
     <idx><h>height of a tree</h></idx>
@@ -85,6 +202,85 @@
       </ul>
       <p>Ví dụ: Trong một cây có gốc mà gốc nằm ở mức <m>0</m>, mỗi đỉnh con của gốc nằm ở mức <m>1</m>, và mỗi lá nằm ở mức <m>2</m>, chiều cao của cây là <m>h = 2</m>.</p>
       <p>Xem thêm <xref ref="def-level-of-a-vertex" text="title" />, <xref ref="def-rooted-tree" text="title" />, <xref ref="def-leaf" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-hexadecimal">
+    <title>hexadecimal (d.t.) — thập lục phân</title>
+    <idx><h>hexadecimal</h></idx>
+    <idx><h>thập lục phân</h></idx>
+    <statement>
+      <p>Trong toán rời rạc, <em>thập lục phân</em> (hexadecimal) chỉ cách biểu diễn theo cơ số <m>16</m>. Mục này chỉ nêu ý niệm chung; các trường hợp cụ thể được trình bày ở những mục riêng (xem mục Xem thêm).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>thập lục phân</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 82) — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Một vài ví dụ: hệ thập lục phân dùng cơ số <m>16</m> với các chữ số <m>0</m>–<m>9</m> và <m>A</m>–<m>F</m>; và biểu diễn thập lục phân của một số nguyên.</p>
+      <p>Xem thêm <xref ref="def-hexadecimal-numeral-system" text="title" />, <xref ref="def-hexadecimal-representation" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-hexadecimal-numeral-system">
+    <title>hexadecimal numeral system (d.t.) — hệ thập lục phân</title>
+    <idx><h>hexadecimal numeral system</h></idx>
+    <idx><h>hệ thập lục phân</h></idx>
+    <idx><h>hệ đếm cơ số 16</h></idx>
+    <idx><h>thập lục phân</h></idx>
+    <statement>
+      <p>Hệ thập lục phân (hệ cơ số 16) là hệ đếm biểu diễn số nguyên theo cơ số <m>16</m>, dùng <m>16</m> ký số <m>0,1,2,3,4,5,6,7,8,9,A,B,C,D,E,F</m>, trong đó <m>A,B,\dots,F</m> tương ứng với các giá trị từ <m>10</m> đến <m>15</m>. Mỗi số nguyên không âm <m>n</m> có khai triển duy nhất dạng <m>n=\sum_{i=0}^{k-1} a_i\,16^i</m> với <m>0\leq a_i\leq 15</m>, ký hiệu <m>(a_{k-1}\dots a_1 a_0)_{16}</m> (theo <xref ref="bib-rosen-2019" />, Rosen §3.6).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>hệ thập lục phân</term> <em>(thuật ngữ chuẩn; chưa truy được trong kho văn bản)</em> — cách dùng phổ biến.</p></li>
+        <li><p><term>hệ đếm cơ số 16</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
+        <li><p><term>thập lục phân</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 82); <xref ref="bib-rosen-2003-vi" /> (tr. 174).</p></li>
+      </ul>
+      <p>Ví dụ: Số <m>(2AE0B)_{16}</m> có giá trị <m>2\cdot 16^4+10\cdot 16^3+14\cdot 16^2+0\cdot 16+11=175627</m>. Vì mỗi ký số thập lục phân ứng với bốn bit, ta có thể chuyển nhanh giữa biểu diễn thập lục phân và nhị phân.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-hexadecimal-representation">
+    <title>hexadecimal representation (d.t.)</title>
+    <idx><h>hexadecimal representation</h></idx>
+    <statement><p>Xem <xref ref="def-hexadecimal-numeral-system" text="title" />.</p></statement>
+  </definition>
+  <definition xml:id="def-homeomorphic">
+    <title>homeomorphic (t.t.) — đồng cấu, đồng phôi</title>
+    <idx><h>homeomorphic</h></idx>
+    <idx><h>đồng cấu</h></idx>
+    <idx><h>đồng phôi</h></idx>
+    <statement><p>Xem <xref ref="def-homeomorphic-graphs" text="title" />.</p></statement>
+  </definition>
+  <definition xml:id="def-homeomorphic-graphs">
+    <title>homeomorphic graphs (d.t.) — đồng phôi</title>
+    <idx><h>homeomorphic graphs</h></idx>
+    <idx><h>đồng cấu</h></idx>
+    <idx><h>đồng phôi</h></idx>
+    <statement>
+      <p>Một <em>phép chia cạnh</em> của đồ thị <m>G</m> là phép toán thêm một đỉnh mới <m>w</m> và thay cạnh <m>uv \in E(G)</m> bằng hai cạnh mới <m>uw</m> và <m>wv</m>. Hai đồ thị <m>G_1</m> và <m>G_2</m> được gọi là <em>đồng phôi</em> với nhau nếu cả <m>G_1</m> và <m>G_2</m> đều có thể thu được từ cùng một đồ thị <m>G</m> bằng một dãy các phép chia cạnh (theo <xref ref="bib-rosen-2019" />, Rosen §10.7).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>đồng phôi</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 79); <xref ref="bib-doducgiao-2009" /> (tr. 178); <xref ref="bib-nguyenvanmau-2007" />; <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 120) — cách dùng phổ biến.</p></li>
+        <li><p><term>đồng cấu</term> <xref ref="bib-nguyenducnghia-2006" />; <xref ref="bib-doantamhoe-2009" />; <xref ref="bib-nguyenhuudien-2019" /> (tr. 124); <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 16).</p></li>
+      </ul>
+      <p>Ví dụ: Xét đồ thị <m>G</m> gồm hai đỉnh <m>u, v</m> và một cạnh <m>uv</m>. Chia cạnh <m>uv</m> một lần, ta thêm đỉnh <m>w_1</m> và thay <m>uv</m> bằng hai cạnh <m>uw_1</m> và <m>w_1v</m>, thu được đồ thị <m>G_1</m> là một đường đi qua ba đỉnh <m>u, w_1, v</m>. Cũng từ <m>G</m>, chia cạnh <m>uv</m> rồi tiếp tục chia một trong hai cạnh mới, ta thêm hai đỉnh <m>w_1, w_2</m> và thu được đồ thị <m>G_2</m> là một đường đi qua bốn đỉnh. Vì cả <m>G_1</m> và <m>G_2</m> đều thu được từ cùng đồ thị <m>G</m> bằng các phép chia cạnh nên <m>G_1</m> và <m>G_2</m> đồng phôi với nhau.</p>
+      <p>Xem thêm <xref ref="def-planar-graph" text="title" />, <xref ref="def-subgraph" text="title" />, <xref ref="def-graph-isomorphism" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-homogeneous-recurrence-relation">
+    <title>homogeneous recurrence relation (d.t.) — hệ thức truy hồi tuyến tính thuần nhất</title>
+    <idx><h>homogeneous recurrence relation</h></idx>
+    <idx><h>công thức truy hồi tuyến tính thuần nhất</h></idx>
+    <idx><h>hệ thức truy hồi tuyến tính thuần nhất</h></idx>
+    <idx><h>phép truy toán tuyến tính thuần nhất</h></idx>
+    <idx><h>quan hệ truy hồi tuyến tính thuần nhất</h></idx>
+    <statement>
+      <p>Một hệ thức truy hồi tuyến tính thuần nhất bậc <m>k</m> với hệ số hằng số là một hệ thức biểu diễn số hạng <m>a_n</m> dưới dạng một tổ hợp tuyến tính cố định của <m>k</m> số hạng liền trước, <m>a_n = c_1 a_{n-1} + c_2 a_{n-2} + \dots + c_k a_{n-k}</m>, trong đó <m>c_1, c_2, \dots, c_k</m> là các số thực với <m>c_k \neq 0</m>. Hệ thức được gọi là thuần nhất vì không có số hạng nào độc lập với dãy, và được gọi là tuyến tính vì mỗi <m>a_{n-i}</m> chỉ xuất hiện với bậc nhất (theo <xref ref="bib-rosen-2019" />, Rosen §8.2).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>hệ thức truy hồi tuyến tính thuần nhất</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 98); <xref ref="bib-rosen-2003-vi" /> (tr. 387) — cách dùng phổ biến.</p></li>
+        <li><p><term>công thức truy hồi tuyến tính thuần nhất</term> <xref ref="bib-nguyenducnghia-2006" />.</p></li>
+        <li><p><term>phép truy toán tuyến tính thuần nhất</term> <xref ref="bib-ngodactan-2004" /> (tr. 79).</p></li>
+        <li><p><term>quan hệ truy hồi tuyến tính thuần nhất</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 38).</p></li>
+      </ul>
+      <p>Ví dụ: Hệ thức Fibonacci <m>f_n = f_{n-1} + f_{n-2}</m> là một hệ thức truy hồi tuyến tính thuần nhất bậc <m>2</m> với hệ số hằng số, trong đó <m>c_1 = c_2 = 1</m>.</p>
+      <p>Xem thêm <xref ref="def-linear-recurrence-relation" text="title" />, <xref ref="def-recurrence-relation" text="title" />.</p>
     </statement>
   </definition>
   <definition xml:id="def-homomorphism">
@@ -105,20 +301,26 @@
       <p>Xem thêm <xref ref="def-isomorphism" text="title" />.</p>
     </statement>
   </definition>
-  <definition xml:id="def-homeomorphic-graphs">
-    <title>homeomorphic graphs (d.t.) — đồng phôi</title>
-    <idx><h>homeomorphic graphs</h></idx>
-    <idx><h>đồng cấu</h></idx>
-    <idx><h>đồng phôi</h></idx>
+  <definition xml:id="def-huffman-coding">
+    <title>Huffman coding (d.t.) — thuật toán Huffman</title>
+    <idx><h>Huffman coding</h></idx>
+    <idx><h>bộ mã Huffman</h></idx>
+    <idx><h>cây mã Huffman</h></idx>
+    <idx><h>mã Huffman</h></idx>
+    <idx><h>mã hóa Huffman</h></idx>
+    <idx><h>thuật toán Huffman</h></idx>
     <statement>
-      <p>Một <em>phép chia cạnh</em> của đồ thị <m>G</m> là phép toán thêm một đỉnh mới <m>w</m> và thay cạnh <m>uv \in E(G)</m> bằng hai cạnh mới <m>uw</m> và <m>wv</m>. Hai đồ thị <m>G_1</m> và <m>G_2</m> được gọi là <em>đồng phôi</em> với nhau nếu cả <m>G_1</m> và <m>G_2</m> đều có thể thu được từ cùng một đồ thị <m>G</m> bằng một dãy các phép chia cạnh (theo <xref ref="bib-rosen-2019" />, Rosen §10.7).</p>
+      <p><em>Thuật toán Huffman</em> là thuật toán tham lam xây dựng một cây mã tiền tố tối ưu cho một tập ký hiệu <m>A</m>, trong đó mỗi ký hiệu <m>x \in A</m> có tần suất <m>\varphi(x)</m>: thuật toán khởi tạo một rừng gồm các cây một đỉnh được gán nhãn <m>\varphi(x)</m>, rồi lặp lại việc chọn hai cây có gốc mang nhãn nhỏ nhất, gộp chúng dưới một đỉnh mới mang nhãn bằng tổng hai nhãn đó và nối bằng hai cạnh nhãn <m>0</m>, <m>1</m> thành một cây nhị phân, cho đến khi chỉ còn một cây. Cây nhị phân thu được làm cực tiểu độ dài kỳ vọng của mã bản tin (theo <xref ref="bib-rosen-2019" />, Rosen §11.2).</p>
       <p>Thuật ngữ tiếng Việt tương ứng:</p>
       <ul>
-        <li><p><term>đồng phôi</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 79); <xref ref="bib-doducgiao-2009" /> (tr. 178); <xref ref="bib-nguyenvanmau-2007" />; <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 120) — cách dùng phổ biến.</p></li>
-        <li><p><term>đồng cấu</term> <xref ref="bib-nguyenducnghia-2006" />; <xref ref="bib-doantamhoe-2009" />; <xref ref="bib-nguyenhuudien-2019" /> (tr. 124); <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 16).</p></li>
+        <li><p><term>thuật toán Huffman</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 258); <xref ref="bib-hoangchithanh-2011" />; <xref ref="bib-vudinhhoa-2010" /> — cách dùng phổ biến.</p></li>
+        <li><p><term>bộ mã Huffman</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 257); <xref ref="bib-hoangchithanh-2007" /> (tr. 143); <xref ref="bib-hoangchithanh-2011" />.</p></li>
+        <li><p><term>cây mã Huffman</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 256); <xref ref="bib-doantamhoe-2009" />; <xref ref="bib-hoangchithanh-2011" />.</p></li>
+        <li><p><term>mã Huffman</term> <xref ref="bib-hoangchithanh-2011" />; <xref ref="bib-nguyenhuudien-2019" /> (tr. 241); <xref ref="bib-vudinhhoa-2010" />.</p></li>
+        <li><p><term>mã hóa Huffman</term> <xref ref="bib-wikipedia-vi" />; <xref ref="bib-cormen-2001-vi" /> (tr. 386); <xref ref="bib-vudinhhoa-2010" />.</p></li>
       </ul>
-      <p>Ví dụ: Xét đồ thị <m>G</m> gồm hai đỉnh <m>u, v</m> và một cạnh <m>uv</m>. Chia cạnh <m>uv</m> một lần, ta thêm đỉnh <m>w_1</m> và thay <m>uv</m> bằng hai cạnh <m>uw_1</m> và <m>w_1v</m>, thu được đồ thị <m>G_1</m> là một đường đi qua ba đỉnh <m>u, w_1, v</m>. Cũng từ <m>G</m>, chia cạnh <m>uv</m> rồi tiếp tục chia một trong hai cạnh mới, ta thêm hai đỉnh <m>w_1, w_2</m> và thu được đồ thị <m>G_2</m> là một đường đi qua bốn đỉnh. Vì cả <m>G_1</m> và <m>G_2</m> đều thu được từ cùng đồ thị <m>G</m> bằng các phép chia cạnh nên <m>G_1</m> và <m>G_2</m> đồng phôi với nhau.</p>
-      <p>Xem thêm <xref ref="def-planar-graph" text="title" />, <xref ref="def-subgraph" text="title" />, <xref ref="def-graph-isomorphism" text="title" />.</p>
+      <p>Ví dụ: Với tập ký hiệu <m>A = \{a, b, c, d, e\}</m> có tần suất <m>\varphi(a) = 23</m>, <m>\varphi(b) = 44</m>, <m>\varphi(c) = 17</m>, <m>\varphi(d) = 4</m>, <m>\varphi(e) = 12</m>, thuật toán Huffman gộp trước hai cây có nhãn nhỏ nhất là <m>d</m> và <m>e</m> thành một cây con mang nhãn <m>\varphi(d) + \varphi(e) = 16</m>.</p>
+      <p>Xem thêm <xref ref="def-binary-tree" text="title" />, <xref ref="def-greedy-algorithm" text="title" />.</p>
     </statement>
   </definition>
   <definition xml:id="def-hypercube">
@@ -157,138 +359,6 @@
       <p>Xem thêm <xref ref="def-graph" text="title" />, <xref ref="def-subset" text="title" />.</p>
     </statement>
   </definition>
-  <definition xml:id="def-handshake-theorem">
-    <title>handshake theorem (d.t.) — định lý bắt tay</title>
-    <idx><h>handshake theorem</h></idx>
-    <idx><h>bổ đề bắt tay</h></idx>
-    <idx><h>định lý bắt tay</h></idx>
-    <statement>
-      <p>Định lý bắt tay khẳng định rằng trong một đồ thị vô hướng <m>G = (V, E)</m>, tổng bậc của tất cả các đỉnh bằng hai lần số cạnh, ký hiệu <m>\sum_{v \in V(G)} \deg_G(v) = 2|E(G)|</m>. Hệ quả là số đỉnh có bậc lẻ trong <m>G</m> luôn là một số chẵn (theo <xref ref="bib-rosen-2019" />, Rosen §10.2).</p>
-      <p>Thuật ngữ tiếng Việt tương ứng:</p>
-      <ul>
-        <li><p><term>định lý bắt tay</term> <xref ref="bib-leanhvinh-2020" /> (tr. 12); <xref ref="bib-doducgiao-2009" /> (tr. 183) — cách dùng phổ biến.</p></li>
-        <li><p><term>bổ đề bắt tay</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 62); <xref ref="bib-ngodactan-2004" /> (tr. 335); <xref ref="bib-cormen-2001-vi" /> (tr. 113).</p></li>
-      </ul>
-      <p>Ví dụ: Xét đồ thị vô hướng <m>G</m> với tập đỉnh <m>V = \{a, b, c\}</m> và tập cạnh <m>E = \{ab, bc, ca\}</m>. Khi đó mỗi đỉnh có bậc <m>\deg_G(a) = \deg_G(b) = \deg_G(c) = 2</m>, nên <m>\sum_{v \in V(G)} \deg_G(v) = 2 + 2 + 2 = 6 = 2|E(G)|</m>.</p>
-      <p>Xem thêm <xref ref="def-undirected-graph" text="title" />.</p>
-    </statement>
-  </definition>
-  <definition xml:id="def-harmonic-series">
-    <title>harmonic series (d.t.) — số điều hòa</title>
-    <idx><h>harmonic series</h></idx>
-    <idx><h>chuỗi điều hòa</h></idx>
-    <idx><h>số điều hoà</h></idx>
-    <idx><h>số điều hòa</h></idx>
-    <statement>
-      <p>Số điều hòa thứ <m>n</m>, ký hiệu <m>H_n</m>, là tổng hữu hạn <m>H_n = 1 + \frac{1}{2} + \frac{1}{3} + \cdots + \frac{1}{n} = \sum_{k=1}^{n} \frac{1}{k}</m> của các nghịch đảo của <m>n</m> số nguyên dương đầu tiên. Chuỗi điều hòa là tổng vô hạn <m>\sum_{k=1}^{\infty} \frac{1}{k}</m> tương ứng (theo <xref ref="bib-rosen-2019" />, Rosen §2.4).</p>
-      <p>Thuật ngữ tiếng Việt tương ứng:</p>
-      <ul>
-        <li><p><term>số điều hòa</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 69); <xref ref="bib-sierpinski-2012" />; <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 345) — cách dùng phổ biến.</p></li>
-        <li><p><term>chuỗi điều hòa</term> <xref ref="bib-cormen-2001-vi" /> (tr. 64); <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 382).</p></li>
-        <li><p><term>số điều hoà</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 150).</p></li>
-      </ul>
-      <p>Ví dụ: Với <m>n = 4</m>, ta có <m>H_4 = 1 + \frac{1}{2} + \frac{1}{3} + \frac{1}{4} = \frac{25}{12}</m>.</p>
-    </statement>
-  </definition>
-  <definition xml:id="def-head-of-an-arc">
-    <title>head of an arc (d.t.) — đỉnh cuối, đỉnh cuối của cung</title>
-    <idx><h>head of an arc</h></idx>
-    <idx><h>đỉnh cuối</h></idx>
-    <idx><h>đỉnh cuối của cung</h></idx>
-    <statement><p>Xem <xref ref="def-terminal-vertex" text="title" />.</p></statement>
-  </definition>
-  <definition xml:id="def-homogeneous-recurrence-relation">
-    <title>homogeneous recurrence relation (d.t.) — hệ thức truy hồi tuyến tính thuần nhất</title>
-    <idx><h>homogeneous recurrence relation</h></idx>
-    <idx><h>công thức truy hồi tuyến tính thuần nhất</h></idx>
-    <idx><h>hệ thức truy hồi tuyến tính thuần nhất</h></idx>
-    <idx><h>phép truy toán tuyến tính thuần nhất</h></idx>
-    <idx><h>quan hệ truy hồi tuyến tính thuần nhất</h></idx>
-    <statement>
-      <p>Một hệ thức truy hồi tuyến tính thuần nhất bậc <m>k</m> với hệ số hằng số là một hệ thức biểu diễn số hạng <m>a_n</m> dưới dạng một tổ hợp tuyến tính cố định của <m>k</m> số hạng liền trước, <m>a_n = c_1 a_{n-1} + c_2 a_{n-2} + \dots + c_k a_{n-k}</m>, trong đó <m>c_1, c_2, \dots, c_k</m> là các số thực với <m>c_k \neq 0</m>. Hệ thức được gọi là thuần nhất vì không có số hạng nào độc lập với dãy, và được gọi là tuyến tính vì mỗi <m>a_{n-i}</m> chỉ xuất hiện với bậc nhất (theo <xref ref="bib-rosen-2019" />, Rosen §8.2).</p>
-      <p>Thuật ngữ tiếng Việt tương ứng:</p>
-      <ul>
-        <li><p><term>hệ thức truy hồi tuyến tính thuần nhất</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 98); <xref ref="bib-rosen-2003-vi" /> (tr. 387) — cách dùng phổ biến.</p></li>
-        <li><p><term>công thức truy hồi tuyến tính thuần nhất</term> <xref ref="bib-nguyenducnghia-2006" />.</p></li>
-        <li><p><term>phép truy toán tuyến tính thuần nhất</term> <xref ref="bib-ngodactan-2004" /> (tr. 79).</p></li>
-        <li><p><term>quan hệ truy hồi tuyến tính thuần nhất</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 38).</p></li>
-      </ul>
-      <p>Ví dụ: Hệ thức Fibonacci <m>f_n = f_{n-1} + f_{n-2}</m> là một hệ thức truy hồi tuyến tính thuần nhất bậc <m>2</m> với hệ số hằng số, trong đó <m>c_1 = c_2 = 1</m>.</p>
-      <p>Xem thêm <xref ref="def-linear-recurrence-relation" text="title" />, <xref ref="def-recurrence-relation" text="title" />.</p>
-    </statement>
-  </definition>
-  <definition xml:id="def-huffman-coding">
-    <title>Huffman coding (d.t.) — thuật toán Huffman</title>
-    <idx><h>Huffman coding</h></idx>
-    <idx><h>bộ mã Huffman</h></idx>
-    <idx><h>cây mã Huffman</h></idx>
-    <idx><h>mã Huffman</h></idx>
-    <idx><h>mã hóa Huffman</h></idx>
-    <idx><h>thuật toán Huffman</h></idx>
-    <statement>
-      <p><em>Thuật toán Huffman</em> là thuật toán tham lam xây dựng một cây mã tiền tố tối ưu cho một tập ký hiệu <m>A</m>, trong đó mỗi ký hiệu <m>x \in A</m> có tần suất <m>\varphi(x)</m>: thuật toán khởi tạo một rừng gồm các cây một đỉnh được gán nhãn <m>\varphi(x)</m>, rồi lặp lại việc chọn hai cây có gốc mang nhãn nhỏ nhất, gộp chúng dưới một đỉnh mới mang nhãn bằng tổng hai nhãn đó và nối bằng hai cạnh nhãn <m>0</m>, <m>1</m> thành một cây nhị phân, cho đến khi chỉ còn một cây. Cây nhị phân thu được làm cực tiểu độ dài kỳ vọng của mã bản tin (theo <xref ref="bib-rosen-2019" />, Rosen §11.2).</p>
-      <p>Thuật ngữ tiếng Việt tương ứng:</p>
-      <ul>
-        <li><p><term>thuật toán Huffman</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 258); <xref ref="bib-hoangchithanh-2011" />; <xref ref="bib-vudinhhoa-2010" /> — cách dùng phổ biến.</p></li>
-        <li><p><term>bộ mã Huffman</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 257); <xref ref="bib-hoangchithanh-2007" /> (tr. 143); <xref ref="bib-hoangchithanh-2011" />.</p></li>
-        <li><p><term>cây mã Huffman</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 256); <xref ref="bib-doantamhoe-2009" />; <xref ref="bib-hoangchithanh-2011" />.</p></li>
-        <li><p><term>mã Huffman</term> <xref ref="bib-hoangchithanh-2011" />; <xref ref="bib-nguyenhuudien-2019" /> (tr. 241); <xref ref="bib-vudinhhoa-2010" />.</p></li>
-        <li><p><term>mã hóa Huffman</term> <xref ref="bib-wikipedia-vi" />; <xref ref="bib-cormen-2001-vi" /> (tr. 386); <xref ref="bib-vudinhhoa-2010" />.</p></li>
-      </ul>
-      <p>Ví dụ: Với tập ký hiệu <m>A = \{a, b, c, d, e\}</m> có tần suất <m>\varphi(a) = 23</m>, <m>\varphi(b) = 44</m>, <m>\varphi(c) = 17</m>, <m>\varphi(d) = 4</m>, <m>\varphi(e) = 12</m>, thuật toán Huffman gộp trước hai cây có nhãn nhỏ nhất là <m>d</m> và <m>e</m> thành một cây con mang nhãn <m>\varphi(d) + \varphi(e) = 16</m>.</p>
-      <p>Xem thêm <xref ref="def-binary-tree" text="title" />, <xref ref="def-greedy-algorithm" text="title" />.</p>
-    </statement>
-  </definition>
-  <definition xml:id="def-half-adder">
-    <title>half adder (d.t.) — mạch cộng bán phần</title>
-    <idx><h>half adder</h></idx>
-    <idx><h>bộ bán cộng</h></idx>
-    <idx><h>bộ cộng bán phần</h></idx>
-    <idx><h>mạch bán cộng</h></idx>
-    <idx><h>mạch cộng bán phần</h></idx>
-    <statement>
-      <p>Mạch cộng bán phần là mạch logic tổ hợp nhận hai bit đầu vào <m>x</m> và <m>y</m>, rồi tạo ra bit tổng <m>s</m> và bit nhớ <m>c</m>. Bit tổng được tính bằng một cổng XOR, ký hiệu <m>s = x \oplus y</m>, và bit nhớ được tính bằng một cổng AND, ký hiệu <m>c = x \wedge y</m> (theo <xref ref="bib-rosen-2019" />, Rosen §12.3).</p>
-      <p>Thuật ngữ tiếng Việt tương ứng:</p>
-      <ul>
-        <li><p><term>mạch cộng bán phần</term> <em>(thuật ngữ chuẩn; chưa truy được trong kho văn bản)</em> — cách dùng phổ biến.</p></li>
-        <li><p><term>bộ bán cộng</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
-        <li><p><term>bộ cộng bán phần</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
-        <li><p><term>mạch bán cộng</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
-      </ul>
-      <p>Ví dụ: Với hai bit đầu vào <m>x = 1</m> và <m>y = 1</m>, mạch cộng bán phần cho bit tổng <m>s = 1 \oplus 1 = 0</m> và bit nhớ <m>c = 1 \wedge 1 = 1</m>.</p>
-    </statement>
-  </definition>
-  <definition xml:id="def-height">
-    <title>height (d.t.) — chiều cao, độ cao</title>
-    <idx><h>height</h></idx>
-    <idx><h>chiều cao</h></idx>
-    <idx><h>độ cao</h></idx>
-    <statement><p>Xem <xref ref="def-height-of-a-tree" text="title" />.</p></statement>
-  </definition>
-  <definition xml:id="def-hexadecimal-numeral-system">
-    <title>hexadecimal numeral system (d.t.) — hệ thập lục phân</title>
-    <idx><h>hexadecimal numeral system</h></idx>
-    <idx><h>hệ thập lục phân</h></idx>
-    <idx><h>hệ đếm cơ số 16</h></idx>
-    <idx><h>thập lục phân</h></idx>
-    <statement>
-      <p>Hệ thập lục phân (hệ cơ số 16) là hệ đếm biểu diễn số nguyên theo cơ số <m>16</m>, dùng <m>16</m> ký số <m>0,1,2,3,4,5,6,7,8,9,A,B,C,D,E,F</m>, trong đó <m>A,B,\dots,F</m> tương ứng với các giá trị từ <m>10</m> đến <m>15</m>. Mỗi số nguyên không âm <m>n</m> có khai triển duy nhất dạng <m>n=\sum_{i=0}^{k-1} a_i\,16^i</m> với <m>0\leq a_i\leq 15</m>, ký hiệu <m>(a_{k-1}\dots a_1 a_0)_{16}</m> (theo <xref ref="bib-rosen-2019" />, Rosen §3.6).</p>
-      <p>Thuật ngữ tiếng Việt tương ứng:</p>
-      <ul>
-        <li><p><term>hệ thập lục phân</term> <em>(thuật ngữ chuẩn; chưa truy được trong kho văn bản)</em> — cách dùng phổ biến.</p></li>
-        <li><p><term>hệ đếm cơ số 16</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
-        <li><p><term>thập lục phân</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 82); <xref ref="bib-rosen-2003-vi" /> (tr. 174).</p></li>
-      </ul>
-      <p>Ví dụ: Số <m>(2AE0B)_{16}</m> có giá trị <m>2\cdot 16^4+10\cdot 16^3+14\cdot 16^2+0\cdot 16+11=175627</m>. Vì mỗi ký số thập lục phân ứng với bốn bit, ta có thể chuyển nhanh giữa biểu diễn thập lục phân và nhị phân.</p>
-    </statement>
-  </definition>
-  <definition xml:id="def-homeomorphic">
-    <title>homeomorphic (t.t.) — đồng cấu, đồng phôi</title>
-    <idx><h>homeomorphic</h></idx>
-    <idx><h>đồng cấu</h></idx>
-    <idx><h>đồng phôi</h></idx>
-    <statement><p>Xem <xref ref="def-homeomorphic-graphs" text="title" />.</p></statement>
-  </definition>
   <definition xml:id="def-hypothetical-syllogism">
     <title>hypothetical syllogism (d.t.) — tam đoạn luận giả định</title>
     <idx><h>hypothetical syllogism</h></idx>
@@ -302,35 +372,6 @@
         <li><p><term>tam đoạn luận</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 33); <xref ref="bib-doducgiao-2009" /> (tr. 291); <xref ref="bib-vudinhhoa-2010" />; <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 177).</p></li>
       </ul>
       <p>Ví dụ: Từ "Nếu trời mưa thì đường ướt" (<m>p \to q</m>) và "Nếu đường ướt thì xe trơn" (<m>q \to r</m>), theo tam đoạn luận giả định ta suy ra "Nếu trời mưa thì xe trơn" (<m>p \to r</m>).</p>
-    </statement>
-  </definition>
-  <definition xml:id="def-hamilton-circuit">
-    <title>Hamilton circuit (d.t.)</title>
-    <idx><h>Hamilton circuit</h></idx>
-    <statement><p>Xem <xref ref="def-hamiltonian-cycle" text="title" />.</p></statement>
-  </definition>
-  <definition xml:id="def-hamilton-path">
-    <title>Hamilton path (d.t.)</title>
-    <idx><h>Hamilton path</h></idx>
-    <statement><p>Xem <xref ref="def-hamiltonian-path" text="title" />.</p></statement>
-  </definition>
-  <definition xml:id="def-hexadecimal-representation">
-    <title>hexadecimal representation (d.t.)</title>
-    <idx><h>hexadecimal representation</h></idx>
-    <statement><p>Xem <xref ref="def-hexadecimal-numeral-system" text="title" />.</p></statement>
-  </definition>
-  <definition xml:id="def-hexadecimal">
-    <title>hexadecimal (d.t.) — thập lục phân</title>
-    <idx><h>hexadecimal</h></idx>
-    <idx><h>thập lục phân</h></idx>
-    <statement>
-      <p>Trong toán rời rạc, <em>thập lục phân</em> (hexadecimal) chỉ cách biểu diễn theo cơ số <m>16</m>. Mục này chỉ nêu ý niệm chung; các trường hợp cụ thể được trình bày ở những mục riêng (xem mục Xem thêm).</p>
-      <p>Thuật ngữ tiếng Việt tương ứng:</p>
-      <ul>
-        <li><p><term>thập lục phân</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 82) — cách dùng phổ biến.</p></li>
-      </ul>
-      <p>Ví dụ: Một vài ví dụ: hệ thập lục phân dùng cơ số <m>16</m> với các chữ số <m>0</m>–<m>9</m> và <m>A</m>–<m>F</m>; và biểu diễn thập lục phân của một số nguyên.</p>
-      <p>Xem thêm <xref ref="def-hexadecimal-numeral-system" text="title" />, <xref ref="def-hexadecimal-representation" text="title" />.</p>
     </statement>
   </definition>
 </chapter>

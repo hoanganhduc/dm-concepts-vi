@@ -15,6 +15,167 @@
  "deferred_note": "Applied the panel's clearly-correct fixes and kept ALL 15 chapter-M entries. CORRECTNESS FIXES: (1) maximum-flow (MED) and (2) minimum-cut (MED) — Rosen 'Discrete Mathematics and Its Applications' does NOT cover network flow; standard §10.4 is 'Connectivity'. The bogus 'Rosen §10.4' pointer was corrected on both entries to surface provenance honestly: rosen_ref now reads 'Rosen — network flow not covered; anchored to nguyenhuudien-2019 §8.2.2 (luồng cực đại)' for maximum-flow and 'Rosen — network flow/cuts not covered; anchored to nguyenducnghia-2006 §... (lát cắt hẹp nhất)' for minimum-cut, matching the chapter-K precedent of annotating rather than asserting a wrong section. (3) minimum-cut (MED) — the max-flow min-cut equality 'Giá trị này bằng giá trị của luồng cực đại trên $$G$$' was REMOVED from definition_vi (it is the max-flow min-cut THEOREM, a proved consequence, not part of the definition; stating it definitionally risks circularity) and moved to notes with a see_also forward reference to max-flow-min-cut-theorem; the definition now defines a minimum cut purely as the s-t cut of minimum total capacity. (4) multigraph (MED) — added Rosen's distinguishing qualifier: a multigraph allows multiple (parallel) edges between a pair of vertices but does NOT allow loops (không có khuyên), in contrast to a pseudograph, so the multigraph/pseudograph boundary in see_also is explicit (Rosen §10.1). (5) m-ary-tree (LOW) — kept the source convention $$m \\geq 2$$ (from nguyenhoangthach-2020) but added a one-line note that Rosen §11.1 admits $$m \\geq 1$$ (a 1-ary tree is a chain); notation field reconciled to 'm \\geq 2' bare. (6) modular-arithmetic (LOW/MED) — tightened the framing so the headword and defined object match: the definition now states explicitly that modular arithmetic is the arithmetic on congruence classes modulo $$m$$ (on $$\\mathbb{Z}_m$$) built upon the congruence relation $$a \\equiv b \\pmod{m}$$ iff $$m \\mid (a-b)$$, surfacing the term-gap that the corpus only attests 'đồng dư' (congruence) and never names 'modular arithmetic' as a noun (no-invented-terminology rule keeps 'số học đồng dư' out of vi_terms). (7) matrix (LOW) — added the missing rosen_ref 'Rosen §2.6' (Matrices), populated the empty notation field with bare 'A = [a_{ij}]', added a self-contained example_vi (a concrete 2x3 matrix), and added cross-chapter see_also forward references (zero-one-matrix, adjacency-matrix). CITATION-HYGIENE FIX: (8) multinomial-coefficient (HIGH) — the notes asserted a 'second verified occurrence' at ngodactan-2004 p.53 with no matching vi_terms row; that row was MATERIALIZED (term 'hệ số đa thức', verified=true, recommended=false, pdf_page 53, partition-count snippet) so every verification claim maps to a recorded citation. EXPOSITION/CONSISTENCY FIXES: (9) matrix first-concept emphasis converted from markdown '*ma trận*' to LaTeX '\\emph{ma trận}' to match multigraph and the .tex \\emph convention; \\emph added to the first concept token of the other entries' definition_vi. (10) maximal-element poset phrasing unified to 'tập sắp thứ tự bộ phận' to match the sibling minimal-element and the partially-ordered-set id; 'Định nghĩa 4.14' anchor added to the maximal-element recommended snippet for parity with minimal-element. (11) Newest-first ordering corrected: matching reordered so hoangchithanh-2007 (2007) precedes nguyenducnghia-2006 (2006) and ngodactan-2004 (2004); maximum-matching reordered so hoangchithanh-2007 precedes nguyenducnghia-2006; multigraph reordered within the 'đa đồ thị' group so hoangchithanh-2007 precedes nguyenducnghia-2006. (12) notation normalization: multiset/maximum-flow/minimum-cut notation fields stripped of $$ to bare LaTeX. (13) The redundant trailing '; ký hiệu $$M$$' was dropped from matching's definition; maximum-matching's 'tức là...' gloss removed for economy. (14) m-ary-tree example's '...tức là một cây nhị phân' equivalence note retained as a standard, harmless equivalence (binary-tree remains in see_also). NOT APPLIED (out of scope / chapter completeness, flagged for editor-at-large): authoring the missing same-chapter M entries that several see_also lists forward-reference (perfect-matching, complete-matching, maximal-matching, maximum-element, least-element, max-flow-min-cut-theorem, flow-network, cut, source, sink, capacity) — they remain forward references and will not render as links until created; the linking convention is intact. The 'cặp ghép cực đại' (literally 'maximal') vs 'cặp ghép lớn nhất' ('maximum') hazard for maximum-matching is documented in notes for any future maximal-matching cross-link. NOT APPLIED (correct as-is): modular-arithmetic rosen_ref '§4.1' is correct (Rosen §4.1 = Divisibility and Modular Arithmetic), so it was kept; the panel's §4.1 finding was only a framing concern, addressed by the definition tightening. Each entry retains exactly one recommended=true; every verified=true vi_term keeps source_id + pdf_page + page + snippet; no fabricated citations were introduced and no verified=false non-recommended empty-page citations remain.",
  "final_entries": [
   {
+   "id": "m-ary-tree",
+   "letter": "M",
+   "headword_en": "m-ary tree",
+   "notation": "m \\geq 2",
+   "rosen_ref": "Rosen §11.1",
+   "definition_vi": "Một \\emph{cây $$m$$-phân} (với $$m \\geq 2$$) là một cây có gốc trong đó mỗi đỉnh trong có không quá $$m$$ con.",
+   "example_vi": "Cây có gốc trong đó mỗi đỉnh trong có nhiều nhất $$2$$ con là một cây $$2$$-phân, tức là một cây nhị phân.",
+   "vi_terms": [
+    {
+     "term": "cây m-phân",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-nguyenhoangthach-2020",
+     "pdf_page": 85,
+     "page": "tr. 83",
+     "snippet": "Định nghĩa 6.4. Một cây m-phân (m ≥ 2) là một cây mà mỗi đỉnh có không"
+    },
+    {
+     "term": "cây m-phân",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 253,
+     "page": "tr. 253",
+     "snippet": "Định lý 10.6 Giả sử T là một cây m-phân."
+    },
+    {
+     "term": "cây m-phân",
+     "source_id": "bib-hoangchithanh-2011",
+     "page": "",
+     "pdf_page": 244,
+     "snippet": "Khi đó, cây 7 được gọi là cây m-phân.",
+     "verified": true,
+     "recommended": false
+    }
+   ],
+   "see_also": [
+    "rooted-tree",
+    "binary-tree",
+    "tree"
+   ],
+   "notes": "Mining covered all six corpus sources. The term \"cây m-phân\" is attested with a formal definition matching the concept in bib-nguyenhoangthach-2020 (2020, tr. 85 PDF): \"Định nghĩa 6.4. Một cây m-phân (m ≥ 2) là một cây mà mỗi đỉnh có không [quá m con]\" — a tree in which every vertex has at most $$m$$ children. It also appears in bib-nguyenhuudien-2019 (2019, tr. 252-253, 259 PDF). The candidate \"cây m phân\" (with a space instead of a hyphen) returned 0 hits in every source, so it is not recorded as a separate verified variant. The two OCR sources (bib-leanhvinh-2020, bib-hoangchithanh-2007) gave no hits under normal or --loose matching, and the older text sources (bib-nguyenducnghia-2006, bib-ngodactan-2004) gave no hits for any candidate. Recommended term \"cây m-phân\" is attested in both the 2020 and 2019 sources, with the 2020 citation listed first.\n\nROSEN ALIGNMENT (panel LOW fix): the definition keeps the source convention $$m \\geq 2$$ from bib-nguyenhoangthach-2020 (notation field reconciled to \"m \\geq 2\"). Standard Rosen §11.1 admits $$m \\geq 1$$ (a 1-ary tree is a path/chain); the entry follows the Vietnamese source's $$m \\geq 2$$ restriction, which differs from Rosen's $$m \\geq 1$$. The Vietnamese source definition says \"mỗi đỉnh có không quá m con\" (every vertex has at most m children); definition_vi uses \"mỗi đỉnh trong\" (each internal vertex) to align with Rosen's wording, equivalent since a leaf has no children. The example's \"tức là một cây nhị phân\" equivalence ($$2$$-phân = nhị phân) is a standard, harmless identity and binary-tree remains in see_also.",
+   "pos": "d.t."
+  },
+  {
+   "id": "mapping",
+   "letter": "M",
+   "headword_en": "mapping",
+   "notation": "f: A \\to B",
+   "rosen_ref": "Rosen §2.3",
+   "definition_vi": "Một \\emph{ánh xạ} từ tập $$A$$ vào tập $$B$$, ký hiệu $$f: A \\to B$$, là quy tắc gán cho mỗi phần tử $$a \\in A$$ đúng một phần tử $$f(a) \\in B$$. Tập $$A$$ gọi là tập nguồn và tập $$B$$ gọi là tập đích của ánh xạ.",
+   "example_vi": "Quy tắc $$f: \\{1, 2, 3\\} \\to \\{a, b\\}$$ với $$f(1) = a$$, $$f(2) = b$$, $$f(3) = a$$ là một ánh xạ, vì mỗi phần tử của tập nguồn được gán đúng một phần tử của tập đích.",
+   "vi_terms": [
+    {
+     "term": "ánh xạ",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-nguyenhoangthach-2020",
+     "pdf_page": 21,
+     "page": "tr. 19",
+     "snippet": "ánh xạ f : S → T được xác định bởi các ảnh của các phần tử của nó, tức là"
+    },
+    {
+     "term": "ánh xạ",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-leanhvinh-2020",
+     "pdf_page": 48,
+     "page": "tr. 49",
+     "snippet": "dau và điểm kết thúc cho cây, ta có ánh xạ từ một hàm ƒ : [n] = In|"
+    },
+    {
+     "term": "ánh xạ",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 73,
+     "page": "tr. 73",
+     "snippet": "Ghi chú: Phép tương ứng f được nói trên đây chính là một ánh xạ."
+    },
+    {
+     "term": "ánh xạ",
+     "source_id": "bib-cungkimtien-2004",
+     "page": "",
+     "pdf_page": 14,
+     "snippet": "affine mapping . ánh xa afin",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "ánh xạ",
+     "source_id": "bib-phan-1976",
+     "page": "tr. 65",
+     "pdf_page": 65,
+     "snippet": ". of mapping sự hợp thành các ánh xạ",
+     "verified": true,
+     "recommended": false
+    }
+   ],
+   "see_also": [
+    "function",
+    "injection",
+    "surjection",
+    "bijection"
+   ],
+   "notes": "\"ánh xạ\" is the standard Vietnamese term for a mapping (a function assigning to each element of one set exactly one element of another set), attested with the exact notation $$f: A \\to B$$ in the 2020 and 2019 sources; the recommended row is the 2020 source bib-nguyenhoangthach-2020 (p.21). The candidate \"ánh xạ đơn ánh\" returns 0 hits as a phrase; \"đơn ánh\" alone denotes the injective special case (one-to-one mapping), not the general mapping concept, so it is not recorded as a variant of THIS entry (see the separate injection/one-to-one entry). In the corpus \"ánh xạ\" and \"hàm\" are used interchangeably for $$f: A \\to B$$; e.g. bib-leanhvinh-2020 p.48 derives an ánh xạ from a hàm $$f$$. The hoangchithanh-2007 p.6 and ngodactan-2004 p.41 rows attest the word in incidental usage rather than a mapping definition, but the concept still matches. First-concept emphasis marked with \\emph{...}.",
+   "pos": "d.t."
+  },
+  {
+   "id": "mapping-rule",
+   "letter": "M",
+   "headword_en": "mapping rule",
+   "pos": "d.t.",
+   "notation": "",
+   "ref_bib": "bib-libennowell-2022",
+   "rosen_ref": "",
+   "definition_vi": "\\emph{Quy tắc ánh xạ} là nguyên lý đếm dựa trên việc thiết lập một ánh xạ giữa hai tập hữu hạn để so sánh kích thước của chúng. Nếu tồn tại một song ánh giữa hai tập thì chúng có cùng số phần tử; tổng quát hơn, một ánh xạ $$k$$-đối-một từ tập $$A$$ lên tập $$B$$ cho ta $$|A| = k\\,|B|$$.",
+   "example_vi": "Số tập con có $$2$$ phần tử của một tập $$n$$ phần tử bằng $$\\dfrac{n(n-1)}{2}$$ vì mỗi tập con ứng với đúng hai dãy có thứ tự, cho ánh xạ $$2$$-đối-một.",
+   "notes": "",
+   "see_also": [],
+   "vi_terms": [
+    {
+     "term": "quy tắc ánh xạ",
+     "recommended": true
+    }
+   ]
+  },
+  {
+   "id": "master-theorem",
+   "letter": "M",
+   "headword_en": "master theorem",
+   "notation": "T(n) = aT(n/b) + cn^d",
+   "rosen_ref": "Rosen §8.3",
+   "definition_vi": "Định lý thợ là một định lý cho công thức nghiệm tiệm cận của hệ thức truy hồi chia để trị dạng $$T(n) = aT(n/b) + cn^d$$, trong đó $$a \\geq 1$$, $$b > 1$$ là các hằng số nguyên và $$c, d$$ là các hằng số dương. Cận tăng của $$T(n)$$ được xác định theo việc so sánh $$a$$ với $$b^d$$, cụ thể $$T(n)$$ là $$O(n^d)$$ khi $$a < b^d$$, là $$O(n^d \\log n)$$ khi $$a = b^d$$, và là $$O(n^{\\log_b a})$$ khi $$a > b^d$$.",
+   "example_vi": "Với hệ thức truy hồi $$T(n) = 2T(n/2) + n$$ của thuật toán sắp xếp trộn, ta có $$a = b^d$$ (do $$2 = 2^1$$), nên theo định lý thợ $$T(n)$$ là $$O(n \\log n)$$.",
+   "vi_terms": [
+    {
+     "term": "định lý thợ",
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": "",
+     "verified": false,
+     "recommended": true
+    },
+    {
+     "term": "định lý Master",
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": "",
+     "verified": false,
+     "recommended": false
+    }
+   ],
+   "see_also": [],
+   "notes": "Định lý thợ (master theorem) dùng để ước lượng độ phức tạp của các thuật toán chia để trị; không xuất hiện như một kết quả được đặt tên trong các nguồn tiếng Việt đã rà soát.",
+   "status": "draft",
+   "pos": "d.t."
+  },
+  {
    "id": "matching",
    "letter": "M",
    "headword_en": "matching",
@@ -132,59 +293,6 @@
    "pos": "d.t."
   },
   {
-   "id": "maximum-matching",
-   "letter": "M",
-   "headword_en": "maximum matching",
-   "notation": "",
-   "rosen_ref": "Rosen §10.7",
-   "definition_vi": "Một \\emph{cặp ghép lớn nhất} của một đồ thị $$G$$ là cặp ghép có số cạnh nhiều nhất có thể trong $$G$$.",
-   "example_vi": "Trong một đồ thị đường đi $$P_4$$ với các đỉnh $$v_1, v_2, v_3, v_4$$ và các cạnh $$v_1 v_2$$, $$v_2 v_3$$, $$v_3 v_4$$, cặp ghép $$\\{v_1 v_2, v_3 v_4\\}$$ là một cặp ghép lớn nhất vì nó gồm $$2$$ cạnh và không có cặp ghép nào của $$P_4$$ có nhiều hơn $$2$$ cạnh.",
-   "vi_terms": [
-    {
-     "term": "cặp ghép lớn nhất",
-     "verified": true,
-     "recommended": true,
-     "source_id": "bib-leanhvinh-2020",
-     "pdf_page": 76,
-     "page": "tr. 77",
-     "snippet": "toán xác định cặp ghép lớn nhất với độ phức tạp là hàm đa thức theo"
-    },
-    {
-     "term": "cặp ghép cực đại",
-     "verified": true,
-     "recommended": false,
-     "source_id": "bib-leanhvinh-2020",
-     "pdf_page": 67,
-     "page": "tr. 68",
-     "snippet": "là cặp ghép với nhiều cạnh nhất của G. Nếu cặp ghép cực đại"
-    },
-    {
-     "term": "cặp ghép lớn nhất",
-     "verified": true,
-     "recommended": false,
-     "source_id": "bib-nguyenhuudien-2019",
-     "pdf_page": 218,
-     "page": "tr. 218",
-     "snippet": "8.3.3. Bài toán tìm cặp ghép lớn nhất của đồ thị hai phần"
-    },
-    {
-     "term": "cặp ghép lớn nhất",
-     "source_id": "bib-hoangchithanh-2011",
-     "page": "",
-     "pdf_page": 148,
-     "snippet": "và cặp ghép lớn nhất là",
-     "verified": true,
-     "recommended": false
-    }
-   ],
-   "see_also": [
-    "matching",
-    "perfect-matching"
-   ],
-   "notes": "Candidate \"cặp ghép lớn nhất\" (recommended) is the dominant attested term, appearing in the 2020 source bib-leanhvinh-2020 (p76) as well as bib-nguyenhuudien-2019 (p218), bib-hoangchithanh-2007 (p65), and bib-nguyenducnghia-2006 (p263). It matches Rosen's \"largest possible number of edges\" (lớn nhất = largest). The variant \"cặp ghép cực đại\" is the formal definitional term in bib-leanhvinh-2020 p67: \"Cặp ghép cực đại của G là cặp ghép với nhiều cạnh nhất của G\" — i.e. the matching with the MOST edges (maximum), NOT inclusion-maximal. CONCEPT-HAZARD FLAG: \"cực đại\" literally calques to \"maximal\", but here it denotes the most-edges (maximum) matching, as the snippet \"cặp ghép với nhiều cạnh nhất\" confirms; this is preserved so a future maximal-matching cross-link does not misread the citation. Candidates \"bộ ghép lớn nhất\", \"ghép cặp cực đại\", \"bộ ghép cực đại\", and \"đối sánh cực đại\" returned 0 hits in any source (normal and --loose) and are dropped. Note: $$G$$ is rendered as OCR-mangled \"G/Ơ/Š\" in several leanhvinh-2020 snippets (OCR noise), but the term phrasing \"cặp ghép cực đại\"/\"cặp ghép lớn nhất\" is clear. Per book convention, bipartite graphs are written \"đồ thị hai phần\"; the verbatim \"đồ thị hai phía\" in the nguyenducnghia-2006 snippet is raw citation text. EDITOR (chapter M final): vi_terms reordered newest-first (2020 leanhvinh ×2, 2019 nguyenhuudien, 2007 hoangchithanh, 2006 nguyenducnghia); the redundant \"tức là không có cặp ghép nào... lớn hơn\" gloss was removed from definition_vi, keeping the single \"số cạnh nhiều nhất\" formulation. see_also: matching is a same-chapter (M) entry in this batch; perfect-matching and maximal-matching are same-chapter (M) forward references not yet authored.",
-   "pos": "d.t."
-  },
-  {
    "id": "matrix",
    "letter": "M",
    "headword_en": "matrix",
@@ -248,6 +356,129 @@
    "pos": "d.t."
   },
   {
+   "id": "matrix-inverse",
+   "letter": "M",
+   "headword_en": "matrix inverse",
+   "pos": "d.t.",
+   "notation": "$$A^{-1}$$",
+   "ref_bib": "bib-libennowell-2022",
+   "rosen_ref": "",
+   "definition_vi": "\\emph{Ma trận nghịch đảo} của một ma trận vuông $$A$$ là ma trận $$A^{-1}$$ cùng cấp thỏa mãn $$A A^{-1} = A^{-1} A = I$$, với $$I$$ là ma trận đơn vị. Ma trận $$A$$ có nghịch đảo (gọi là khả nghịch) khi và chỉ khi định thức của nó khác $$0$$; khi tồn tại, nghịch đảo là duy nhất.",
+   "example_vi": "Với $$A = \\begin{pmatrix} a & b \\\\ c & d \\end{pmatrix}$$ và $$ad - bc \\neq 0$$, ta có $$A^{-1} = \\dfrac{1}{ad - bc}\\begin{pmatrix} d & -b \\\\ -c & a \\end{pmatrix}$$.",
+   "notes": "",
+   "see_also": [],
+   "vi_terms": [
+    {
+     "term": "ma trận nghịch đảo",
+     "recommended": true
+    },
+    {
+     "term": "ma trận nghịch đảo của",
+     "recommended": false
+    },
+    {
+     "term": "ma trận nghịch đảo",
+     "source_id": "bib-cormen-2001-vi",
+     "page": "",
+     "pdf_page": 847,
+     "snippet": "cũng cần phải tính toán một ma trận nghịch đảo. Trong đoạn này, ta nêu",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "ma trận nghịch đảo",
+     "source_id": "bib-cungkimtien-2004",
+     "page": "",
+     "pdf_page": 561,
+     "snippet": "ma trận nghịch đảo inverse",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "ma trận nghịch đảo",
+     "source_id": "bib-ngodactan-2004",
+     "page": "",
+     "pdf_page": 121,
+     "snippet": "vì A và B là các ma trận nghịch đảo lẫn nhau. Suy ra vn = b-n kUk",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "ma trận nghịch đảo",
+     "source_id": "bib-phan-1976",
+     "page": "tr. 278",
+     "pdf_page": 278,
+     "snippet": "inverse m. ds. ma trận nghịch dao",
+     "verified": true,
+     "recommended": false
+    }
+   ]
+  },
+  {
+   "id": "matrix-multiplication",
+   "letter": "M",
+   "headword_en": "matrix multiplication",
+   "pos": "d.t.",
+   "notation": "AB",
+   "ref_bib": "bib-libennowell-2022",
+   "rosen_ref": "",
+   "definition_vi": "\\emph{Phép nhân ma trận} của ma trận $$A$$ cỡ $$m\\times n$$ với ma trận $$B$$ cỡ $$n\\times p$$ là ma trận $$C=AB$$ cỡ $$m\\times p$$ với phần tử $$\\displaystyle c_{ij}=\\sum_{k=1}^{n}a_{ik}b_{kj}$$. Phép nhân chỉ xác định khi số cột của $$A$$ bằng số hàng của $$B$$.",
+   "example_vi": "Tích của một ma trận $$2\\times 3$$ với một ma trận $$3\\times 2$$ là một ma trận $$2\\times 2$$.",
+   "notes": "",
+   "see_also": [],
+   "vi_terms": [
+    {
+     "term": "phép nhân ma trận",
+     "recommended": true
+    },
+    {
+     "term": "phép nhân ma trận",
+     "source_id": "bib-cormen-2001-vi",
+     "page": "",
+     "pdf_page": 10,
+     "snippet": "phép nhân ma trận bool 832",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "phép nhân ma trận",
+     "source_id": "bib-doducgiao-2000",
+     "page": "",
+     "pdf_page": 77,
+     "snippet": "phép nhân ma trận",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "phép nhân ma trận",
+     "source_id": "bib-doducgiao-2008",
+     "page": "",
+     "pdf_page": 193,
+     "snippet": "Chứng minh: Quy nạp theo /> | và dựa vào định nghĩa phép nhân ma trận.",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "phép nhân ma trận",
+     "source_id": "bib-hoangchithanh-2007",
+     "page": "",
+     "pdf_page": 12,
+     "snippet": "trận kề A như ma trận lôgic và trong phép nhân ma trận tA thay các",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "phép nhân ma trận",
+     "source_id": "bib-hoangchithanh-2011",
+     "page": "",
+     "pdf_page": 19,
+     "snippet": "ma trận logic và trong phép nhân ma trận ta thay các phép toán số học + , *",
+     "verified": true,
+     "recommended": false
+    }
+   ]
+  },
+  {
    "id": "maximal-element",
    "letter": "M",
    "headword_en": "maximal element",
@@ -297,405 +528,6 @@
     "minimal-element"
    ],
    "notes": "Hai biến thể đều được chứng thực: \"phần tử tối đại\" (bib-nguyenhuudien-2019, 2019) và \"phần tử cực đại\" (bib-ngodactan-2004, 2004). Chọn \"phần tử tối đại\" làm thuật ngữ khuyến nghị vì đây là biến thể duy nhất có trong nguồn 2019-2020 và có định nghĩa rõ ràng trong bib-nguyenhuudien-2019 (Định nghĩa 4.14, tr. 119), nơi cùng định nghĩa cả \"phần tử tối tiểu\" (xem minimal-element). Các nguồn OCR (bib-leanhvinh-2020, bib-hoangchithanh-2007) và các nguồn còn lại (bib-nguyenhoangthach-2020, bib-nguyenducnghia-2006) không chứng thực thuật ngữ nào (đã chạy cả tìm thường lẫn --loose cho nguồn OCR). Nguồn không đưa ký hiệu riêng cho phần tử tối đại nên trường notation để trống. Ví dụ lấy từ Ví dụ 4.18 của bib-nguyenhuudien-2019 (đã điều chỉnh để tự chứa). EDITOR (chapter M final): poset phrasing unified to \"tập sắp thứ tự bộ phận\" (matching the sibling minimal-element entry and the partially-ordered-set id, replacing the earlier \"tập hợp có thứ tự (bộ phận)\"); the relation symbol $$\\preceq$$ is used for the partial order; the \"Định nghĩa 4.14\" anchor was added to the recommended snippet for parity with minimal-element, confirming both maximal and minimal are defined together on tr. 119. First-concept emphasis marked with \\emph{...}.",
-   "pos": "d.t."
-  },
-  {
-   "id": "minimal-element",
-   "letter": "M",
-   "headword_en": "minimal element",
-   "notation": "",
-   "rosen_ref": "Rosen §9.6",
-   "definition_vi": "\\emph{Phần tử tối tiểu} của một tập sắp thứ tự bộ phận $$(S, \\preceq)$$ là một phần tử $$a \\in S$$ sao cho không tồn tại phần tử $$b \\in S$$ nào thỏa mãn $$b \\prec a$$, nghĩa là không có phần tử nào của $$S$$ nằm thực sự dưới $$a$$.",
-   "example_vi": "Trong tập sắp thứ tự bộ phận $$(\\{2, 3, 4, 6, 12\\}, \\mid)$$ với quan hệ chia hết, hai phần tử $$2$$ và $$3$$ đều là phần tử tối tiểu vì không có phần tử nào trong tập chia hết chúng một cách thực sự.",
-   "vi_terms": [
-    {
-     "term": "phần tử tối tiểu",
-     "verified": true,
-     "recommended": true,
-     "source_id": "bib-nguyenhuudien-2019",
-     "pdf_page": 119,
-     "page": "tr. 119",
-     "snippet": "Định nghĩa 4.14 Ta gọi một phần tử a ∈ A là một phần tử tối tiểu của tập hợp A nếu"
-    },
-    {
-     "term": "phần tử cực tiểu",
-     "verified": true,
-     "recommended": false,
-     "source_id": "bib-ngodactan-2004",
-     "pdf_page": 275,
-     "page": "tr. 275",
-     "snippet": "rằng Oi là phần từ cực tiểu của c f . Do đó, ta có thể. nối xích Cị với [phần tử cực tiểu]"
-    },
-    {
-     "term": "phần tử tối tiểu",
-     "source_id": "bib-nguyenhuuanh-2007",
-     "page": "",
-     "pdf_page": 99,
-     "snippet": "phần tủ tối tiểu.",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "phần tử tối tiểu",
-     "source_id": "bib-vovantuandung-2007",
-     "page": "",
-     "pdf_page": 108,
-     "snippet": "(phan tử tối tiểu và phân tử tối đại): Xét tap hợp có thứ tự (A, <).",
-     "verified": true,
-     "recommended": false
-    }
-   ],
-   "see_also": [
-    "maximal-element"
-   ],
-   "notes": "Recommended term \"phần tử tối tiểu\" is attested in the formal definition (Định nghĩa 4.14) of bib-nguyenhuudien-2019 (2019), the newest text source covering posets, where it denotes exactly this concept and is paired with \"phần tử tối đại\" (maximal element) on tr. 119. The variant \"phần tử cực tiểu\" appears only in the older bib-ngodactan-2004 (2004): the page-275 in-text hit (loose OCR) reads \"Oi là phần [tử] cực tiểu của c[hain]\" denoting a poset minimal element; a cleaner index entry exists on p.339 (pointer only, not a defining occurrence). The cited p.275 snippet is OCR-garbled (\"phần từ\" for \"phần tử\"); a bracketed clean reading \"[phần tử cực tiểu]\" is appended per the chapter's OCR-normalization practice. NOTE: \"phần tử nhỏ nhất\" (least element) is a DISTINCT concept (unique smallest element), explicitly contrasted with \"tối tiểu\" in bib-nguyenhuudien-2019 p.119 (\"Phần tử lớn nhất (nhỏ nhất)... là phần tử tối đại (tối tiểu) duy nhất\"), so it is excluded from vi_terms for this entry. First-concept emphasis marked with \\emph{...}.",
-   "pos": "d.t."
-  },
-  {
-   "id": "minimum-spanning-tree",
-   "letter": "M",
-   "headword_en": "minimum spanning tree",
-   "notation": "",
-   "rosen_ref": "Rosen §11.5",
-   "definition_vi": "Một \\emph{cây bao trùm nhỏ nhất} của một đồ thị liên thông có trọng số $$G$$ là một cây bao trùm của $$G$$ có tổng trọng số các cạnh nhỏ nhất.",
-   "example_vi": "Trong một đồ thị liên thông có trọng số mô tả mạng lưới đường giữa các thành phố, trong đó trọng số mỗi cạnh là độ dài con đường, một cây bao trùm nhỏ nhất là tập hợp các con đường nối tất cả các thành phố với tổng độ dài nhỏ nhất.",
-   "vi_terms": [
-    {
-     "term": "cây bao trùm nhỏ nhất",
-     "verified": true,
-     "recommended": true,
-     "source_id": "bib-leanhvinh-2020",
-     "pdf_page": 59,
-     "page": "tr. 60",
-     "snippet": "Thuật toán Prim tìm cây bao trùm nhỏ nhất trong mạng lưới"
-    },
-    {
-     "term": "cây bao trùm nhỏ nhất",
-     "verified": true,
-     "recommended": false,
-     "source_id": "bib-nguyenhoangthach-2020",
-     "pdf_page": 93,
-     "page": "tr. 91",
-     "snippet": "7.2 Bài toán tìm cây bao trùm nhỏ nhất"
-    },
-    {
-     "term": "cây bao trùm nhỏ nhất",
-     "verified": true,
-     "recommended": false,
-     "source_id": "bib-nguyenhuudien-2019",
-     "pdf_page": 249,
-     "page": "tr. 249",
-     "snippet": "Bây giờ ta sẽ chứng minh rằng, W là cây bao trùm nhỏ nhất của đồ thị G. Giả sử T là một cây bao trùm nhỏ nhất nào đó của G."
-    },
-    {
-     "term": "cây khung nhỏ nhất",
-     "verified": true,
-     "recommended": false,
-     "source_id": "bib-nguyenhuudien-2019",
-     "pdf_page": 260,
-     "page": "tr. 260",
-     "snippet": "▷ 10.13. Tìm cây khung nhỏ nhất bằng thuật toán Prim của đồ thị gồm các đỉnh"
-    },
-    {
-     "term": "cây khung tối thiểu",
-     "source_id": "bib-wikipedia-vi",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": "https://vi.wikipedia.org/wiki/Cây_bao_trùm",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "cây khung nhỏ nhất",
-     "source_id": "bib-doducgiao-2009",
-     "page": "tr. 243",
-     "pdf_page": 244,
-     "snippet": "Khi đó cây khung nhỏ nhất của G = <X, U> là cây khung có trọng số bé",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "cây khung nhỏ nhất",
-     "source_id": "bib-vudinhhoa-2010",
-     "page": "",
-     "pdf_page": 147,
-     "snippet": "7/5.2 Cây khung nhỏ nhất",
-     "verified": true,
-     "recommended": false
-    }
-   ],
-   "see_also": [
-    "spanning-tree",
-    "tree",
-    "weighted-graph"
-   ],
-   "notes": "Concept: a spanning tree of a connected weighted graph whose total edge weight is minimum (Rosen §11.5). Two standard Vietnamese terms denote this concept and both are well-attested in the corpus.\n\nRecommended term: \"cây bao trùm nhỏ nhất\" — attested in BOTH 2020 sources (bib-leanhvinh-2020 pp. 59, 61, 62; bib-nguyenhoangthach-2020 pp. 93, 95, 96) plus the 2019 source (bib-nguyenhuudien-2019 §10.3, pp. 247-251) and the 2007 source (bib-hoangchithanh-2007 pp. 131-147, §11.3). This is the strongest newest-attested choice.\n\nVariant: \"cây khung nhỏ nhất\" — also a standard term, attested in bib-nguyenhuudien-2019 (pp. 260-261, exercises) and extensively in bib-nguyenducnghia-2006 (§5.4, pp. 206-220, where it is formally defined: \"Cây khung như vậy được gọi là cây khung nhỏ nhất của đồ thị\"). Note: bib-nguyenhuudien-2019 uses BOTH terms — its chapter section 10.3 is titled \"Cây bao trùm nhỏ nhất\" while exercises 10.13 use \"cây khung nhỏ nhất\" — confirming the two are interchangeable synonyms for this concept (mirroring \"cây bao trùm\" vs \"cây khung\" for spanning tree).\n\nOCR sources (bib-leanhvinh-2020, bib-hoangchithanh-2007) checked with both normal and --loose runs; loose confirmed the same hits (e.g. hoangchithanh-2007 p. 131 section heading \"11.3. CAY BAO TRUM NHO NHAT\").\n\nNo hits for either term in bib-ngodactan-2004 (combinatorics+graphs, 2004).\n\nvi_terms ordered newest-source-first: 2020 (leanhvinh, nguyenhoangthach) → 2019 (nguyenhuudien) → 2007 (hoangchithanh) for the recommended term, then the variant 2019 → 2006.\n\ndefinition_vi opens with the recommended term marked \\emph{...}, states it formally with $$G$$ in one sentence. example_vi is self-contained: it introduces the weighted-graph context (road network with edge-length weights) and describes the minimum-total-weight spanning tree without referencing any derived quantity the definition did not introduce.",
-   "pos": "d.t."
-  },
-  {
-   "id": "multigraph",
-   "letter": "M",
-   "headword_en": "multigraph",
-   "notation": "G = (V, E)",
-   "rosen_ref": "Rosen §10.1",
-   "definition_vi": "Một \\emph{đa đồ thị} $$G = (V, E)$$ là một đồ thị trong đó mỗi cặp đỉnh có thể được nối bởi nhiều hơn một cạnh, tức là cho phép tồn tại hai hoặc nhiều cạnh cùng nối một cặp đỉnh, nhưng không cho phép có khuyên (cạnh nối một đỉnh với chính nó). Với hai đỉnh phân biệt $$u, v \\in V(G)$$, tập cạnh $$E$$ có thể chứa nhiều cạnh cùng có hai đầu mút là $$u$$ và $$v$$; đồ thị cho phép cả khuyên được gọi là giả đồ thị.",
-   "example_vi": "Xét $$G = (V, E)$$ với tập đỉnh $$V = \\{u, v\\}$$ và hai cạnh phân biệt $$e_1, e_2$$ cùng nối $$u$$ với $$v$$; khi đó $$G$$ là một đa đồ thị vì cặp đỉnh $$\\{u, v\\}$$ được nối bởi nhiều hơn một cạnh.",
-   "vi_terms": [
-    {
-     "term": "đa đồ thị",
-     "verified": true,
-     "recommended": true,
-     "source_id": "bib-nguyenhoangthach-2020",
-     "pdf_page": 62,
-     "page": "tr. 60",
-     "snippet": "Đồ thị bên phải trong Hình 5.1 là một đa đồ thị với 6 đỉnh và 13 cạnh,"
-    },
-    {
-     "term": "đa đồ thị có hướng",
-     "verified": true,
-     "recommended": false,
-     "source_id": "bib-nguyenhoangthach-2020",
-     "pdf_page": 62,
-     "page": "tr. 60",
-     "snippet": "Các khái niệm đơn đồ thị có hướng, đa đồ thị có hướng và cạnh khuyên"
-    },
-    {
-     "term": "đồ thị đa cạnh",
-     "source_id": "",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": "",
-     "verified": false,
-     "recommended": false
-    },
-    {
-     "term": "đa đồ thị",
-     "source_id": "bib-leanhvinh-2020",
-     "page": "tr. 258",
-     "pdf_page": 257,
-     "snippet": "tựa ngẫu nhiên, 223 đa đỏ thị, 9",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "đa đồ thị",
-     "source_id": "bib-nguyenhuudien-2019",
-     "page": "tr. 9",
-     "pdf_page": 9,
-     "snippet": "6.2 Đa đồ thị . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 155",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "đa đồ thị có hướng",
-     "source_id": "bib-hoangchithanh-2011",
-     "page": "",
-     "pdf_page": 16,
-     "snippet": "Ví dụ 1.12: Da đồ thị có hướng và ma trận kề của nó.",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "đa đồ thị có hướng",
-     "source_id": "bib-nguyenhuudien-2019",
-     "page": "tr. 156",
-     "pdf_page": 156,
-     "snippet": "Định nghĩa 6.5 Một đa đồ thị có hướng G = (V, E) gồm một tập khác rỗng V mà các",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "đa đồ thị vô hướng",
-     "source_id": "bib-doducgiao-2009",
-     "page": "tr. 103",
-     "pdf_page": 104,
-     "snippet": "5, Vẽ đa đồ thị vô hướng được biểu diễn bởi các ma trận sau:",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "đa đồ thị vô hướng",
-     "source_id": "bib-hoangchithanh-2011",
-     "page": "",
-     "pdf_page": 32,
-     "snippet": "đa đô thị vô hướng.",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "đa đồ thị vô hướng",
-     "source_id": "bib-nguyenhoangthach-2020",
-     "page": "tr. 62",
-     "pdf_page": 64,
-     "snippet": "Định lý 5.4 (Bổ đề bắt tay). Giả sử G = (V, E) là một đa đồ thị vô hướng.",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "đa đồ thị",
-     "source_id": "bib-cungkimtien-2004",
-     "page": "",
-     "pdf_page": 243,
-     "snippet": "multigraph đa đồ thị, đa đồ hình",
-     "verified": true,
-     "recommended": false
-    }
-   ],
-   "see_also": [
-    "graph",
-    "simple-graph",
-    "pseudograph",
-    "directed-graph",
-    "loop",
-    "edge",
-    "vertex"
-   ],
-   "notes": "Recommended term \"đa đồ thị\" is the standard Vietnamese rendering of \"multigraph\" and is attested in the newest 2020 source bib-nguyenhoangthach-2020 (p.62, definitional context: a multigraph with 6 vertices and 13 edges), so vi_terms are ordered newest-source first (2020 → 2007 → 2006 → 2004 within the recommended-term grouping). The cleanest defining snippet (multiple — two or more — edges between the same pair of vertices) is bib-nguyenducnghia-2006 p.154. The first introduction of the central concept is marked with \\emph{đa đồ thị} OUTSIDE math (math delimiters wrap only symbols such as $$G$$, $$V$$, $$E$$, $$u$$, $$v$$).\n\nEDITOR (chapter M final): applied the panel's MED correctness fix — added Rosen §10.1's distinguishing qualifier that a multigraph allows multiple parallel edges between a pair of vertices but does NOT allow loops (không có khuyên), in contrast to a pseudograph (which allows loops). This makes the multigraph/pseudograph boundary in see_also explicit. Within the \"đa đồ thị\" recommended group the rows are now ordered newest-first (2020 nguyenhoangthach, 2007 hoangchithanh, 2006 nguyenducnghia).\n\nThe candidate \"đa đồ thị có hướng\" (directed multigraph) is a directed variant; attested in bib-nguyenhoangthach-2020 (p.62), bib-ngodactan-2004 (p.21), and bib-hoangchithanh-2007. The variant \"đa đồ thị vô hướng\" (undirected multigraph) appears in bib-ngodactan-2004 (p.22) and bib-nguyenducnghia-2006 (p.190). These directed/undirected qualified forms attest the root \"đa đồ thị\"; they are NOT alternative names for the bare undirected multigraph, and a future directed-multigraph entry could take them as its own see_also forward reference. bib-leanhvinh-2020 attests \"đa đồ thị\" only as an OCR-mangled index entry (\"đa đỏ thị, 9\" at PDF p.257); not used as a verified citation since the content page could not be confirmed via snippet. The bib-nguyenhuudien-2019 placeholder row (no confirmed page, empty snippet) was dropped per citation hygiene since at least one verified recommended term remains.\n\nsee_also targets are cross-chapter forward references (graph in G, simple-graph/pseudograph in S/P, directed-graph in D, loop in L, edge/vertex in E/V); no other M-chapter entries exist to link as same-chapter references. bib-hoangchithanh-2007 confirmed in both normal and --loose modes (snippet \"...một cạnh thì được gọi là đa đồ thị.\" p.7 is clean). Exactly one recommended=true (2020 source).",
-   "pos": "d.t."
-  },
-  {
-   "id": "multiset",
-   "letter": "M",
-   "headword_en": "multiset",
-   "notation": "\\{a, a, b\\}",
-   "rosen_ref": "Rosen §2.2",
-   "definition_vi": "Một \\emph{đa tập} là một bộ sưu tập không có thứ tự các phần tử, trong đó mỗi phần tử có thể xuất hiện nhiều hơn một lần. Lực lượng của một đa tập $$A$$, ký hiệu $$|A|$$, là số các phần tử của $$A$$ tính cả các lần lặp lại.",
-   "example_vi": "Đa tập $$A = \\{a, a, a, b, c, c\\}$$ có lực lượng $$|A| = 6$$.",
-   "vi_terms": [
-    {
-     "term": "đa tập",
-     "verified": true,
-     "recommended": true,
-     "source_id": "bib-ngodactan-2004",
-     "pdf_page": 31,
-     "page": "tr. 31",
-     "snippet": "cùng một vật), được gọi là đa tập hợp hay ngắn gọn là đa tập. Các vật"
-    },
-    {
-     "term": "đa tập hợp",
-     "verified": true,
-     "recommended": false,
-     "source_id": "bib-ngodactan-2004",
-     "pdf_page": 31,
-     "page": "tr. 31",
-     "snippet": "cùng một vật), được gọi là đa tập hợp hay ngắn gọn là đa tập."
-    },
-    {
-     "term": "đa tập",
-     "source_id": "bib-nguyenducnghia-2006",
-     "page": "",
-     "pdf_page": 54,
-     "snippet": "Trong mục trước. ta đã tập trung chú ý vào việc đếm số các cấu hình tổ hợp (số phần tử",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "đa tập",
-     "source_id": "bib-cormen-2001-vi",
-     "page": "tr. 122",
-     "pdf_page": 120,
-     "snippet": "trong thời kỳ 1874-1895. Cantor đã tập trung chủ yếu vào các tập hợp",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "đa tập",
-     "source_id": "bib-cungkimtien-2004",
-     "page": "",
-     "pdf_page": 5,
-     "snippet": "Abelian variety đa tạp Aben",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "đa tập",
-     "source_id": "bib-phan-1976",
-     "page": "tr. 211",
-     "pdf_page": 211,
-     "snippet": "g. of manifolds hh. sự dán các đa tạp",
-     "verified": true,
-     "recommended": false
-    }
-   ],
-   "see_also": [
-    "set",
-    "cardinality"
-   ],
-   "notes": "Khái niệm \"multiset\" chỉ được chứng thực trong bib-ngodactan-2004 (2004), nơi định nghĩa rõ trên trang 31: \"được gọi là đa tập hợp hay ngắn gọn là đa tập\". Không có nguồn 2019-2020 nào (bib-leanhvinh-2020, bib-nguyenhoangthach-2020, bib-nguyenhuudien-2019) chứng thực bất kỳ thuật ngữ multiset nào (đã xác nhận lại: bib-leanhvinh-2020 cho 0 hit cả ở chế độ thường lẫn --loose), nên thuật ngữ khuyến nghị \"đa tập\" được chứng thực từ nguồn 2004 (không có nguồn mới hơn) — đây là một ngoại lệ về độ mới được nêu rõ theo quy ước. Thuật ngữ khuyến nghị là \"đa tập\" vì chính nguồn dùng nó làm dạng rút gọn (\"ngắn gọn là đa tập\") và dùng nhất quán trong định nghĩa lẫn ví dụ. Hai biến thể \"đa tập\" và \"đa tập hợp\" đến từ cùng một câu định nghĩa (\"đa tập hợp hay ngắn gọn là đa tập\"). Ứng viên \"tập bội\" cho 0 hit (không chứng thực); ứng viên \"bội tập\" cũng cho 0 hit. Ví dụ $$A = \\{a, a, a, b, c, c\\}$$ với $$|A| = 6$$ lấy trực tiếp từ Ví dụ 1.14 trên tr. 31 của nguồn; ký hiệu lực lượng $$|A|$$ được định nghĩa ngay trong mục này nên ví dụ tự chứa. EDITOR (chapter M final): notation field normalized from \"$$\\{a, a, b\\}$$\" to bare LaTeX \"\\{a, a, b\\}\" (encode-chapter.py strips $$); first-concept emphasis marked with \\emph{...}.",
-   "pos": "d.t."
-  },
-  {
-   "id": "multiplication-principle",
-   "letter": "M",
-   "headword_en": "multiplication principle",
-   "see_ref": "the-product-rule",
-   "vi_terms": [
-    {
-     "term": "quy tắc nhân",
-     "verified": false,
-     "recommended": false,
-     "source_id": "",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": ""
-    },
-    {
-     "term": "nguyên lý nhân",
-     "verified": false,
-     "recommended": false,
-     "source_id": "",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": ""
-    }
-   ],
-   "see_also": [],
-   "notes": "Đồng nghĩa với The Product Rule.",
-   "pos": "d.t."
-  },
-  {
-   "id": "m-ary-tree",
-   "letter": "M",
-   "headword_en": "m-ary tree",
-   "notation": "m \\geq 2",
-   "rosen_ref": "Rosen §11.1",
-   "definition_vi": "Một \\emph{cây $$m$$-phân} (với $$m \\geq 2$$) là một cây có gốc trong đó mỗi đỉnh trong có không quá $$m$$ con.",
-   "example_vi": "Cây có gốc trong đó mỗi đỉnh trong có nhiều nhất $$2$$ con là một cây $$2$$-phân, tức là một cây nhị phân.",
-   "vi_terms": [
-    {
-     "term": "cây m-phân",
-     "verified": true,
-     "recommended": true,
-     "source_id": "bib-nguyenhoangthach-2020",
-     "pdf_page": 85,
-     "page": "tr. 83",
-     "snippet": "Định nghĩa 6.4. Một cây m-phân (m ≥ 2) là một cây mà mỗi đỉnh có không"
-    },
-    {
-     "term": "cây m-phân",
-     "verified": true,
-     "recommended": false,
-     "source_id": "bib-nguyenhuudien-2019",
-     "pdf_page": 253,
-     "page": "tr. 253",
-     "snippet": "Định lý 10.6 Giả sử T là một cây m-phân."
-    },
-    {
-     "term": "cây m-phân",
-     "source_id": "bib-hoangchithanh-2011",
-     "page": "",
-     "pdf_page": 244,
-     "snippet": "Khi đó, cây 7 được gọi là cây m-phân.",
-     "verified": true,
-     "recommended": false
-    }
-   ],
-   "see_also": [
-    "rooted-tree",
-    "binary-tree",
-    "tree"
-   ],
-   "notes": "Mining covered all six corpus sources. The term \"cây m-phân\" is attested with a formal definition matching the concept in bib-nguyenhoangthach-2020 (2020, tr. 85 PDF): \"Định nghĩa 6.4. Một cây m-phân (m ≥ 2) là một cây mà mỗi đỉnh có không [quá m con]\" — a tree in which every vertex has at most $$m$$ children. It also appears in bib-nguyenhuudien-2019 (2019, tr. 252-253, 259 PDF). The candidate \"cây m phân\" (with a space instead of a hyphen) returned 0 hits in every source, so it is not recorded as a separate verified variant. The two OCR sources (bib-leanhvinh-2020, bib-hoangchithanh-2007) gave no hits under normal or --loose matching, and the older text sources (bib-nguyenducnghia-2006, bib-ngodactan-2004) gave no hits for any candidate. Recommended term \"cây m-phân\" is attested in both the 2020 and 2019 sources, with the 2020 citation listed first.\n\nROSEN ALIGNMENT (panel LOW fix): the definition keeps the source convention $$m \\geq 2$$ from bib-nguyenhoangthach-2020 (notation field reconciled to \"m \\geq 2\"). Standard Rosen §11.1 admits $$m \\geq 1$$ (a 1-ary tree is a path/chain); the entry follows the Vietnamese source's $$m \\geq 2$$ restriction, which differs from Rosen's $$m \\geq 1$$. The Vietnamese source definition says \"mỗi đỉnh có không quá m con\" (every vertex has at most m children); definition_vi uses \"mỗi đỉnh trong\" (each internal vertex) to align with Rosen's wording, equivalent since a leaf has no children. The example's \"tức là một cây nhị phân\" equivalence ($$2$$-phân = nhị phân) is a standard, harmless identity and binary-tree remains in see_also.",
    "pos": "d.t."
   },
   {
@@ -780,6 +612,461 @@
    "pos": "d.t."
   },
   {
+   "id": "maximum-matching",
+   "letter": "M",
+   "headword_en": "maximum matching",
+   "notation": "",
+   "rosen_ref": "Rosen §10.7",
+   "definition_vi": "Một \\emph{cặp ghép lớn nhất} của một đồ thị $$G$$ là cặp ghép có số cạnh nhiều nhất có thể trong $$G$$.",
+   "example_vi": "Trong một đồ thị đường đi $$P_4$$ với các đỉnh $$v_1, v_2, v_3, v_4$$ và các cạnh $$v_1 v_2$$, $$v_2 v_3$$, $$v_3 v_4$$, cặp ghép $$\\{v_1 v_2, v_3 v_4\\}$$ là một cặp ghép lớn nhất vì nó gồm $$2$$ cạnh và không có cặp ghép nào của $$P_4$$ có nhiều hơn $$2$$ cạnh.",
+   "vi_terms": [
+    {
+     "term": "cặp ghép lớn nhất",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-leanhvinh-2020",
+     "pdf_page": 76,
+     "page": "tr. 77",
+     "snippet": "toán xác định cặp ghép lớn nhất với độ phức tạp là hàm đa thức theo"
+    },
+    {
+     "term": "cặp ghép cực đại",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-leanhvinh-2020",
+     "pdf_page": 67,
+     "page": "tr. 68",
+     "snippet": "là cặp ghép với nhiều cạnh nhất của G. Nếu cặp ghép cực đại"
+    },
+    {
+     "term": "cặp ghép lớn nhất",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 218,
+     "page": "tr. 218",
+     "snippet": "8.3.3. Bài toán tìm cặp ghép lớn nhất của đồ thị hai phần"
+    },
+    {
+     "term": "cặp ghép lớn nhất",
+     "source_id": "bib-hoangchithanh-2011",
+     "page": "",
+     "pdf_page": 148,
+     "snippet": "và cặp ghép lớn nhất là",
+     "verified": true,
+     "recommended": false
+    }
+   ],
+   "see_also": [
+    "matching",
+    "perfect-matching"
+   ],
+   "notes": "Candidate \"cặp ghép lớn nhất\" (recommended) is the dominant attested term, appearing in the 2020 source bib-leanhvinh-2020 (p76) as well as bib-nguyenhuudien-2019 (p218), bib-hoangchithanh-2007 (p65), and bib-nguyenducnghia-2006 (p263). It matches Rosen's \"largest possible number of edges\" (lớn nhất = largest). The variant \"cặp ghép cực đại\" is the formal definitional term in bib-leanhvinh-2020 p67: \"Cặp ghép cực đại của G là cặp ghép với nhiều cạnh nhất của G\" — i.e. the matching with the MOST edges (maximum), NOT inclusion-maximal. CONCEPT-HAZARD FLAG: \"cực đại\" literally calques to \"maximal\", but here it denotes the most-edges (maximum) matching, as the snippet \"cặp ghép với nhiều cạnh nhất\" confirms; this is preserved so a future maximal-matching cross-link does not misread the citation. Candidates \"bộ ghép lớn nhất\", \"ghép cặp cực đại\", \"bộ ghép cực đại\", and \"đối sánh cực đại\" returned 0 hits in any source (normal and --loose) and are dropped. Note: $$G$$ is rendered as OCR-mangled \"G/Ơ/Š\" in several leanhvinh-2020 snippets (OCR noise), but the term phrasing \"cặp ghép cực đại\"/\"cặp ghép lớn nhất\" is clear. Per book convention, bipartite graphs are written \"đồ thị hai phần\"; the verbatim \"đồ thị hai phía\" in the nguyenducnghia-2006 snippet is raw citation text. EDITOR (chapter M final): vi_terms reordered newest-first (2020 leanhvinh ×2, 2019 nguyenhuudien, 2007 hoangchithanh, 2006 nguyenducnghia); the redundant \"tức là không có cặp ghép nào... lớn hơn\" gloss was removed from definition_vi, keeping the single \"số cạnh nhiều nhất\" formulation. see_also: matching is a same-chapter (M) entry in this batch; perfect-matching and maximal-matching are same-chapter (M) forward references not yet authored.",
+   "pos": "d.t."
+  },
+  {
+   "id": "membership-table",
+   "letter": "M",
+   "headword_en": "membership table",
+   "notation": "",
+   "rosen_ref": "Rosen §2.2",
+   "definition_vi": "Bảng tính thuộc là một bảng dùng để chứng minh các hằng đẳng thức tập hợp, trong đó mỗi cột ứng với một biểu thức tập hợp và mỗi dòng ứng với một tổ hợp khả dĩ của tính thuộc các phần tử. Trong bảng, ta dùng số $$1$$ để chỉ một phần tử thuộc tập hợp tương ứng và số $$0$$ để chỉ một phần tử không thuộc tập hợp đó; hằng đẳng thức đúng khi hai cột ứng với hai vế của nó trùng nhau trên mọi dòng.",
+   "example_vi": "Để chứng minh $$A \\cap (B \\cup C) = (A \\cap B) \\cup (A \\cap C)$$, ta lập bảng tính thuộc với $$8$$ dòng ứng với mọi tổ hợp thuộc/không thuộc của một phần tử đối với $$A$$, $$B$$, $$C$$, rồi kiểm tra rằng cột của $$A \\cap (B \\cup C)$$ và cột của $$(A \\cap B) \\cup (A \\cap C)$$ trùng nhau trên mọi dòng.",
+   "vi_terms": [
+    {
+     "term": "bảng tính thuộc",
+     "source_id": "bib-rosen-2003-vi",
+     "pdf_page": 69,
+     "page": "tr. 69",
+     "snippet": "lưu ý sự tương tự giữa bảng tính thuộc và bảng giá trị chân lý}",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "bảng tính thuộc",
+     "source_id": "bib-rosen-2003-vi",
+     "pdf_page": 69,
+     "page": "tr. 69",
+     "snippet": "lưu ý sự tương tự giữa bảng tính thuộc và bảng giá trị chân lý}",
+     "verified": true,
+     "recommended": true
+    },
+    {
+     "term": "bảng thuộc",
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": "",
+     "verified": false,
+     "recommended": false
+    },
+    {
+     "term": "bảng thành viên",
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": "",
+     "verified": false,
+     "recommended": false
+    },
+    {
+     "term": "bảng thuộc",
+     "source_id": "bib-doducthai-2010",
+     "page": "tr. 251",
+     "pdf_page": 251,
+     "snippet": "cảm. Giả sử một người bị cảm mà không chữa bằng thuốc, thì quá",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "bảng thuộc",
+     "source_id": "bib-vudinhhoa-2010",
+     "page": "",
+     "pdf_page": 30,
+     "snippet": "chứng minh nhờ sử dụng bảng thuộc tính. Dé chỉ một phần tử thuộc một tập hợp",
+     "verified": true,
+     "recommended": false
+    }
+   ],
+   "see_also": [],
+   "notes": "Bảng tính thuộc (membership table) tương tự bảng giá trị chân lý của logic mệnh đề: dùng $$1$$/$$0$$ cho thuộc/không thuộc để kiểm tra hằng đẳng thức tập hợp. Trong các nguồn tiếng Việt đã rà soát, chỉ bản dịch Rosen dùng đúng thuật ngữ này.",
+   "status": "draft",
+   "pos": "d.t."
+  },
+  {
+   "id": "mersenne-prime",
+   "letter": "M",
+   "headword_en": "Mersenne prime",
+   "notation": "2^p - 1",
+   "rosen_ref": "Rosen §3.5",
+   "definition_vi": "Số nguyên tố Mersenne là một số nguyên tố có dạng $$2^p - 1$$, trong đó $$p$$ là một số nguyên tố.",
+   "example_vi": "Với $$p = 2, 3, 5, 7$$ ta được các số nguyên tố Mersenne $$2^2 - 1 = 3$$, $$2^3 - 1 = 7$$, $$2^5 - 1 = 31$$ và $$2^7 - 1 = 127$$; tuy nhiên $$2^{11} - 1 = 2047 = 23 \\cdot 89$$ không phải là số nguyên tố mặc dù $$11$$ là số nguyên tố.",
+   "vi_terms": [
+    {
+     "term": "số nguyên tố Mersenne",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-rosen-2003-vi",
+     "page": "tr. 206",
+     "pdf_page": 206,
+     "snippet": "được gọi là các số nguyên tố Mersenne. Hiện nay người ta đã biết"
+    },
+    {
+     "term": "số nguyên tố Mersenne",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-rosen-2003-vi",
+     "page": "tr. 206",
+     "pdf_page": 206,
+     "snippet": "bao nhiêu số nguyên tố Mersenne? Mỗi số trong 10 số Mersenne lớn"
+    },
+    {
+     "term": "số nguyên tố Mersenne",
+     "source_id": "bib-sierpinski-2012",
+     "page": "tr. 227",
+     "pdf_page": 241,
+     "snippet": "nguyên tố Mersenne. Đây là lý do khiến các số nguyên tố Mersenne được quan tâm. Hơn nữa số",
+     "verified": true,
+     "recommended": true
+    }
+   ],
+   "see_also": [
+    "prime-number"
+   ],
+   "notes": "Số nguyên tố Mersenne là số nguyên tố có dạng $$2^p - 1$$ với $$p$$ là số nguyên tố. Điều kiện $$p$$ là số nguyên tố là cần để $$2^p - 1$$ có thể là số nguyên tố: nếu $$p$$ hợp số thì $$2^p - 1$$ cũng là hợp số. Tuy nhiên điều kiện đó chưa đủ, chẳng hạn $$2^{11} - 1 = 2047 = 23 \\cdot 89$$ là hợp số. Thuật ngữ \"số nguyên tố Mersenne\" được dẫn chứng trong bản dịch tiếng Việt của Rosen (tr. 206 PDF); các nguồn dịch chính khác trong ngữ liệu chưa có dẫn chứng trực tiếp cho khái niệm này.",
+   "status": "draft",
+   "pos": "d.t."
+  },
+  {
+   "id": "message",
+   "letter": "M",
+   "headword_en": "message",
+   "pos": "d.t.",
+   "notation": "",
+   "ref_bib": "bib-libennowell-2022",
+   "rosen_ref": "",
+   "definition_vi": "Trong mật mã học, \\emph{thông điệp} (hay bản rõ) là dữ liệu gốc cần truyền đi, thường được biểu diễn dưới dạng một chuỗi ký tự hoặc một dãy số trước khi mã hóa thành \\emph{bản mã}.",
+   "example_vi": "Thông điệp \"$$\\texttt{HELLO}$$\" có thể được mã hóa thành một chuỗi số bằng cách thay mỗi chữ cái bởi vị trí của nó trong bảng chữ cái.",
+   "notes": "",
+   "see_also": [],
+   "vi_terms": [
+    {
+     "term": "thông điệp",
+     "recommended": true
+    },
+    {
+     "term": "bản tin",
+     "recommended": false
+    },
+    {
+     "term": "thông điệp",
+     "source_id": "bib-cormen-2001-vi",
+     "page": "",
+     "pdf_page": 702,
+     "snippet": "những có thể dùng để mã hóa các thông điệp sao cho đối phương không",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "thông điệp",
+     "source_id": "bib-nguyenducnghia-2006",
+     "page": "",
+     "pdf_page": 199,
+     "snippet": "kênh truyền tin, người ta gửi một thông điệp từ máy chủ trong mạng, thông điệp này",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "thông điệp",
+     "source_id": "bib-vudinhhoa-2010",
+     "page": "",
+     "pdf_page": 139,
+     "snippet": "là tối ưu nhất. Hoặc là trong một hệ thống mạng, một máy đơn cần gửi 1 thông điệp",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "bản tin",
+     "source_id": "bib-doantamhoe-2009",
+     "page": "",
+     "pdf_page": 136,
+     "snippet": "bản tin theo một tần suất cho trước. Ta muốn mã các ký hiệu này thành",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "bản tin",
+     "source_id": "bib-hoangchithanh-2007",
+     "page": "",
+     "pdf_page": 143,
+     "snippet": "Gia sử có một bản tin là dãy các ký hiệu lấy trong một tập ký hiệu",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "bản tin",
+     "source_id": "bib-hoangchithanh-2011",
+     "page": "",
+     "pdf_page": 251,
+     "snippet": "Gia sử ta có một ban tin là dãy các ký hiệu lấy trong một tập ký hiệu hữu",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "bản tin",
+     "source_id": "bib-nguyenhuuanh-2007",
+     "page": "",
+     "pdf_page": 71,
+     "snippet": "3. Xét một cơ sở dữ liệu có 500.000 bản tin (record). Hỏi có thể",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "bản tin",
+     "source_id": "bib-nguyenhuudien-2019",
+     "page": "",
+     "pdf_page": 256,
+     "snippet": "Giả sử ta có một bản tin là dãy các ký hiệu lấy trong một tập ký hiệu hữu hạn A. Biết",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "bản tin",
+     "source_id": "bib-vovantuandung-2007",
+     "page": "",
+     "pdf_page": 66,
+     "snippet": "Bài 40 Xét một cơ sở dữ liệu có 500.000 bản tin (record). Hỏi có thể",
+     "verified": true,
+     "recommended": false
+    }
+   ]
+  },
+  {
+   "id": "minimal-element",
+   "letter": "M",
+   "headword_en": "minimal element",
+   "notation": "",
+   "rosen_ref": "Rosen §9.6",
+   "definition_vi": "\\emph{Phần tử tối tiểu} của một tập sắp thứ tự bộ phận $$(S, \\preceq)$$ là một phần tử $$a \\in S$$ sao cho không tồn tại phần tử $$b \\in S$$ nào thỏa mãn $$b \\prec a$$, nghĩa là không có phần tử nào của $$S$$ nằm thực sự dưới $$a$$.",
+   "example_vi": "Trong tập sắp thứ tự bộ phận $$(\\{2, 3, 4, 6, 12\\}, \\mid)$$ với quan hệ chia hết, hai phần tử $$2$$ và $$3$$ đều là phần tử tối tiểu vì không có phần tử nào trong tập chia hết chúng một cách thực sự.",
+   "vi_terms": [
+    {
+     "term": "phần tử tối tiểu",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 119,
+     "page": "tr. 119",
+     "snippet": "Định nghĩa 4.14 Ta gọi một phần tử a ∈ A là một phần tử tối tiểu của tập hợp A nếu"
+    },
+    {
+     "term": "phần tử cực tiểu",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-ngodactan-2004",
+     "pdf_page": 275,
+     "page": "tr. 275",
+     "snippet": "rằng Oi là phần từ cực tiểu của c f . Do đó, ta có thể. nối xích Cị với [phần tử cực tiểu]"
+    },
+    {
+     "term": "phần tử tối tiểu",
+     "source_id": "bib-nguyenhuuanh-2007",
+     "page": "",
+     "pdf_page": 99,
+     "snippet": "phần tủ tối tiểu.",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "phần tử tối tiểu",
+     "source_id": "bib-vovantuandung-2007",
+     "page": "",
+     "pdf_page": 108,
+     "snippet": "(phan tử tối tiểu và phân tử tối đại): Xét tap hợp có thứ tự (A, <).",
+     "verified": true,
+     "recommended": false
+    }
+   ],
+   "see_also": [
+    "maximal-element"
+   ],
+   "notes": "Recommended term \"phần tử tối tiểu\" is attested in the formal definition (Định nghĩa 4.14) of bib-nguyenhuudien-2019 (2019), the newest text source covering posets, where it denotes exactly this concept and is paired with \"phần tử tối đại\" (maximal element) on tr. 119. The variant \"phần tử cực tiểu\" appears only in the older bib-ngodactan-2004 (2004): the page-275 in-text hit (loose OCR) reads \"Oi là phần [tử] cực tiểu của c[hain]\" denoting a poset minimal element; a cleaner index entry exists on p.339 (pointer only, not a defining occurrence). The cited p.275 snippet is OCR-garbled (\"phần từ\" for \"phần tử\"); a bracketed clean reading \"[phần tử cực tiểu]\" is appended per the chapter's OCR-normalization practice. NOTE: \"phần tử nhỏ nhất\" (least element) is a DISTINCT concept (unique smallest element), explicitly contrasted with \"tối tiểu\" in bib-nguyenhuudien-2019 p.119 (\"Phần tử lớn nhất (nhỏ nhất)... là phần tử tối đại (tối tiểu) duy nhất\"), so it is excluded from vi_terms for this entry. First-concept emphasis marked with \\emph{...}.",
+   "pos": "d.t."
+  },
+  {
+   "id": "minimization",
+   "letter": "M",
+   "headword_en": "minimization",
+   "notation": "",
+   "rosen_ref": "Rosen §12.4",
+   "definition_vi": "Rút gọn (mạch) là quá trình tìm một biểu diễn của một hàm Boole bằng tổng các tích (hay tích các tổng) sao cho số số hạng và số biến (literal) xuất hiện là ít nhất có thể. Mục tiêu là thu được một khai triển tổng các tích với số tích và số biến trong mỗi tích nhỏ nhất, từ đó cho một mạch logic đơn giản hơn cài đặt cùng một hàm Boole.",
+   "example_vi": "Khai triển tổng các tích $$xy + x\\bar{y}$$ rút gọn được thành $$x$$, vì $$xy + x\\bar{y} = x(y + \\bar{y}) = x$$. Bản đồ Karnaugh và phương pháp Quine - McCluskey là hai công cụ thường dùng để rút gọn khai triển tổng các tích.",
+   "vi_terms": [
+    {
+     "term": "tối thiểu hoá",
+     "source_id": "bib-nguyenducnghia-2006",
+     "pdf_page": 3,
+     "page": "",
+     "snippet": "sâu vào vấn đề tối thiểu hoá các hàm đại số lôgic và mô tả một số thuật toán quan trọng",
+     "verified": true,
+     "recommended": true
+    },
+    {
+     "term": "dạng tuyển chuẩn tắc tối thiểu",
+     "source_id": "bib-nguyenducnghia-2006",
+     "pdf_page": 274,
+     "page": "",
+     "snippet": "giới thiệu một số phương pháp tìm dạng tuyển chuẩn tắc tối thiểu của một",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "tối giản hóa",
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": "",
+     "verified": false,
+     "recommended": false
+    },
+    {
+     "term": "rút gọn",
+     "source_id": "bib-nguyenhoangthach-2020",
+     "page": "tr. 4",
+     "pdf_page": 6,
+     "snippet": "5.6 Minh họa các phép toán xóa cạnh, xóa đỉnh, rút gọn cạnh. . . . . 70",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "rút gọn",
+     "source_id": "bib-nguyenhuudien-2019",
+     "page": "tr. 31",
+     "pdf_page": 31,
+     "snippet": "1. Qui tắc rút gọn: Cơ sở của qui tắc là hằng đúng",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "tối thiểu hoá",
+     "source_id": "bib-doducgiao-2000",
+     "page": "tr. 429",
+     "pdf_page": 428,
+     "snippet": "the tôi thiểu hóa số các phép toản tổng và tích có mat trong",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "tối thiểu hoá",
+     "source_id": "bib-vovantuandung-2007",
+     "page": "",
+     "pdf_page": 3,
+     "snippet": "theo biểu thức Boole cho trước; vấn đề tối thiểu hoá hàm Boole bằng",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "dạng tuyển chuẩn tắc tối thiểu",
+     "source_id": "bib-vovantuandung-2007",
+     "page": "",
+     "pdf_page": 137,
+     "snippet": "Tìm dạng tuyên chuẩn tắc tôi thiểu của hàm:",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "rút gọn",
+     "source_id": "bib-sierpinski-2012",
+     "page": "tr. 21",
+     "pdf_page": 35,
+     "snippet": "rằng x  0 là nghiệm của phương trình. Các nghiệm khác là nghiệm của phương trình rút gọn",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "rút gọn",
+     "source_id": "bib-cungkimtien-2004",
+     "page": "",
+     "pdf_page": 5,
+     "snippet": "abridge rút gọn, làm tắt",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "rút gọn",
+     "source_id": "bib-phan-1976",
+     "page": "tr. 2",
+     "pdf_page": 2,
+     "snippet": "abridge rút gọn, làm tat",
+     "verified": true,
+     "recommended": false
+    }
+   ],
+   "see_also": [],
+   "notes": "Thuật ngữ chuẩn của giáo trình MAT3500 là \"rút gọn\" (mạch / khai triển tổng các tích). Bản dịch Rosen (2003) dùng đúng \"rút gọn\" trong chương Đại số Boole, tiết về cực tiểu hoá mạch (bản đồ Karnaugh, Quine - McCluskey). Giáo trình Nguyễn Đức Nghĩa (2006) gọi cùng khái niệm là \"tối thiểu hoá hàm đại số lôgic\" và \"dạng tuyển chuẩn tắc tối thiểu\". Các nghĩa khác của \"rút gọn\" trong kho (rút gọn ma trận, rút gọn cạnh, rút gọn bài toán) không thuộc khái niệm này nên không kèm theo.",
+   "status": "draft",
+   "pos": "d.t."
+  },
+  {
+   "id": "minimization-of-a-boolean-function",
+   "letter": "M",
+   "headword_en": "minimization of a Boolean function",
+   "see_ref": "minimization",
+   "vi_terms": [
+    {
+     "term": "tối thiểu hoá hàm Boole",
+     "verified": false,
+     "recommended": false,
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": ""
+    }
+   ],
+   "status": "draft",
+   "pos": "d.t."
+  },
+  {
    "id": "minimum-cut",
    "letter": "M",
    "headword_en": "minimum cut",
@@ -859,67 +1146,274 @@
    "pos": "d.t."
   },
   {
-   "id": "mapping",
+   "id": "minimum-distance",
    "letter": "M",
-   "headword_en": "mapping",
-   "notation": "f: A \\to B",
-   "rosen_ref": "Rosen §2.3",
-   "definition_vi": "Một \\emph{ánh xạ} từ tập $$A$$ vào tập $$B$$, ký hiệu $$f: A \\to B$$, là quy tắc gán cho mỗi phần tử $$a \\in A$$ đúng một phần tử $$f(a) \\in B$$. Tập $$A$$ gọi là tập nguồn và tập $$B$$ gọi là tập đích của ánh xạ.",
-   "example_vi": "Quy tắc $$f: \\{1, 2, 3\\} \\to \\{a, b\\}$$ với $$f(1) = a$$, $$f(2) = b$$, $$f(3) = a$$ là một ánh xạ, vì mỗi phần tử của tập nguồn được gán đúng một phần tử của tập đích.",
+   "headword_en": "minimum distance",
+   "pos": "d.t.",
+   "notation": "d(C)",
+   "ref_bib": "bib-libennowell-2022",
+   "rosen_ref": "",
+   "definition_vi": "\\emph{Khoảng cách tối thiểu} của một mã $$C$$, ký hiệu $$d(C)$$, là khoảng cách Hamming nhỏ nhất giữa hai từ mã phân biệt bất kỳ của $$C$$, tức là $$d(C) = \\min\\{ d_H(x,y) : x,y \\in C,\\ x \\ne y \\}$$. Đại lượng này quyết định khả năng phát hiện và sửa lỗi của mã.",
+   "example_vi": "Mã $$C=\\{000, 011, 101, 110\\}$$ có mọi cặp từ mã phân biệt cách nhau $$2$$, nên $$d(C)=2$$ và mã phát hiện được một bit sai.",
+   "notes": "",
+   "see_also": [
+    "hamming-distance",
+    "error-detecting-code",
+    "error-correcting-code"
+   ],
    "vi_terms": [
     {
-     "term": "ánh xạ",
+     "term": "khoảng cách tối thiểu",
+     "recommended": true
+    }
+   ]
+  },
+  {
+   "id": "minimum-spanning-tree",
+   "letter": "M",
+   "headword_en": "minimum spanning tree",
+   "notation": "",
+   "rosen_ref": "Rosen §11.5",
+   "definition_vi": "Một \\emph{cây bao trùm nhỏ nhất} của một đồ thị liên thông có trọng số $$G$$ là một cây bao trùm của $$G$$ có tổng trọng số các cạnh nhỏ nhất.",
+   "example_vi": "Trong một đồ thị liên thông có trọng số mô tả mạng lưới đường giữa các thành phố, trong đó trọng số mỗi cạnh là độ dài con đường, một cây bao trùm nhỏ nhất là tập hợp các con đường nối tất cả các thành phố với tổng độ dài nhỏ nhất.",
+   "vi_terms": [
+    {
+     "term": "cây bao trùm nhỏ nhất",
      "verified": true,
      "recommended": true,
-     "source_id": "bib-nguyenhoangthach-2020",
-     "pdf_page": 21,
-     "page": "tr. 19",
-     "snippet": "ánh xạ f : S → T được xác định bởi các ảnh của các phần tử của nó, tức là"
+     "source_id": "bib-leanhvinh-2020",
+     "pdf_page": 59,
+     "page": "tr. 60",
+     "snippet": "Thuật toán Prim tìm cây bao trùm nhỏ nhất trong mạng lưới"
     },
     {
-     "term": "ánh xạ",
+     "term": "cây bao trùm nhỏ nhất",
      "verified": true,
      "recommended": false,
-     "source_id": "bib-leanhvinh-2020",
-     "pdf_page": 48,
-     "page": "tr. 49",
-     "snippet": "dau và điểm kết thúc cho cây, ta có ánh xạ từ một hàm ƒ : [n] = In|"
+     "source_id": "bib-nguyenhoangthach-2020",
+     "pdf_page": 93,
+     "page": "tr. 91",
+     "snippet": "7.2 Bài toán tìm cây bao trùm nhỏ nhất"
     },
     {
-     "term": "ánh xạ",
+     "term": "cây bao trùm nhỏ nhất",
      "verified": true,
      "recommended": false,
      "source_id": "bib-nguyenhuudien-2019",
-     "pdf_page": 73,
-     "page": "tr. 73",
-     "snippet": "Ghi chú: Phép tương ứng f được nói trên đây chính là một ánh xạ."
+     "pdf_page": 249,
+     "page": "tr. 249",
+     "snippet": "Bây giờ ta sẽ chứng minh rằng, W là cây bao trùm nhỏ nhất của đồ thị G. Giả sử T là một cây bao trùm nhỏ nhất nào đó của G."
     },
     {
-     "term": "ánh xạ",
-     "source_id": "bib-cungkimtien-2004",
+     "term": "cây khung nhỏ nhất",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 260,
+     "page": "tr. 260",
+     "snippet": "▷ 10.13. Tìm cây khung nhỏ nhất bằng thuật toán Prim của đồ thị gồm các đỉnh"
+    },
+    {
+     "term": "cây khung tối thiểu",
+     "source_id": "bib-wikipedia-vi",
      "page": "",
-     "pdf_page": 14,
-     "snippet": "affine mapping . ánh xa afin",
+     "pdf_page": 0,
+     "snippet": "https://vi.wikipedia.org/wiki/Cây_bao_trùm",
      "verified": true,
      "recommended": false
     },
     {
-     "term": "ánh xạ",
-     "source_id": "bib-phan-1976",
-     "page": "tr. 65",
-     "pdf_page": 65,
-     "snippet": ". of mapping sự hợp thành các ánh xạ",
+     "term": "cây khung nhỏ nhất",
+     "source_id": "bib-doducgiao-2009",
+     "page": "tr. 243",
+     "pdf_page": 244,
+     "snippet": "Khi đó cây khung nhỏ nhất của G = <X, U> là cây khung có trọng số bé",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "cây khung nhỏ nhất",
+     "source_id": "bib-vudinhhoa-2010",
+     "page": "",
+     "pdf_page": 147,
+     "snippet": "7/5.2 Cây khung nhỏ nhất",
      "verified": true,
      "recommended": false
     }
    ],
    "see_also": [
-    "function",
-    "injection",
-    "surjection",
-    "bijection"
+    "spanning-tree",
+    "tree",
+    "weighted-graph"
    ],
-   "notes": "\"ánh xạ\" is the standard Vietnamese term for a mapping (a function assigning to each element of one set exactly one element of another set), attested with the exact notation $$f: A \\to B$$ in the 2020 and 2019 sources; the recommended row is the 2020 source bib-nguyenhoangthach-2020 (p.21). The candidate \"ánh xạ đơn ánh\" returns 0 hits as a phrase; \"đơn ánh\" alone denotes the injective special case (one-to-one mapping), not the general mapping concept, so it is not recorded as a variant of THIS entry (see the separate injection/one-to-one entry). In the corpus \"ánh xạ\" and \"hàm\" are used interchangeably for $$f: A \\to B$$; e.g. bib-leanhvinh-2020 p.48 derives an ánh xạ from a hàm $$f$$. The hoangchithanh-2007 p.6 and ngodactan-2004 p.41 rows attest the word in incidental usage rather than a mapping definition, but the concept still matches. First-concept emphasis marked with \\emph{...}.",
+   "notes": "Concept: a spanning tree of a connected weighted graph whose total edge weight is minimum (Rosen §11.5). Two standard Vietnamese terms denote this concept and both are well-attested in the corpus.\n\nRecommended term: \"cây bao trùm nhỏ nhất\" — attested in BOTH 2020 sources (bib-leanhvinh-2020 pp. 59, 61, 62; bib-nguyenhoangthach-2020 pp. 93, 95, 96) plus the 2019 source (bib-nguyenhuudien-2019 §10.3, pp. 247-251) and the 2007 source (bib-hoangchithanh-2007 pp. 131-147, §11.3). This is the strongest newest-attested choice.\n\nVariant: \"cây khung nhỏ nhất\" — also a standard term, attested in bib-nguyenhuudien-2019 (pp. 260-261, exercises) and extensively in bib-nguyenducnghia-2006 (§5.4, pp. 206-220, where it is formally defined: \"Cây khung như vậy được gọi là cây khung nhỏ nhất của đồ thị\"). Note: bib-nguyenhuudien-2019 uses BOTH terms — its chapter section 10.3 is titled \"Cây bao trùm nhỏ nhất\" while exercises 10.13 use \"cây khung nhỏ nhất\" — confirming the two are interchangeable synonyms for this concept (mirroring \"cây bao trùm\" vs \"cây khung\" for spanning tree).\n\nOCR sources (bib-leanhvinh-2020, bib-hoangchithanh-2007) checked with both normal and --loose runs; loose confirmed the same hits (e.g. hoangchithanh-2007 p. 131 section heading \"11.3. CAY BAO TRUM NHO NHAT\").\n\nNo hits for either term in bib-ngodactan-2004 (combinatorics+graphs, 2004).\n\nvi_terms ordered newest-source-first: 2020 (leanhvinh, nguyenhoangthach) → 2019 (nguyenhuudien) → 2007 (hoangchithanh) for the recommended term, then the variant 2019 → 2006.\n\ndefinition_vi opens with the recommended term marked \\emph{...}, states it formally with $$G$$ in one sentence. example_vi is self-contained: it introduces the weighted-graph context (road network with edge-length weights) and describes the minimum-total-weight spanning tree without referencing any derived quantity the definition did not introduce.",
+   "pos": "d.t."
+  },
+  {
+   "id": "minmax-strategy",
+   "letter": "M",
+   "headword_en": "minmax strategy",
+   "notation": "",
+   "rosen_ref": "Rosen §11.5",
+   "definition_vi": "Chiến lược minmax là chiến lược trong đó mỗi người chơi chọn các nước đi sao cho tối ưu hóa thu hoạch trong trường hợp xấu nhất. Nói cách khác, mỗi người chơi chọn nước đi làm cực đại giá trị thu hoạch nhỏ nhất mà mình có thể nhận được, bất kể đối thủ chơi thế nào.",
+   "example_vi": "Trong một trò chơi hai người có tổng bằng không, người chơi áp dụng chiến lược minmax sẽ chọn nước đi sao cho thu hoạch nhỏ nhất có thể của mình là lớn nhất; chẳng hạn, nếu mỗi nước đi của người chơi thứ nhất dẫn tới các thu hoạch tệ nhất là $$-3$$, $$-1$$ và $$-5$$ tùy theo phản ứng của đối thủ, thì nước đi cho thu hoạch tệ nhất $$-1$$ được chọn vì $$-1 \\geq -3$$ và $$-1 \\geq -5$$.",
+   "vi_terms": [
+    {
+     "term": "chiến lược minmax",
+     "verified": false,
+     "recommended": true,
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": ""
+    },
+    {
+     "term": "chiến lược minimax",
+     "source_id": "bib-wikipedia-vi",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": "https://vi.wikipedia.org/wiki/Thuật_toán_minimax",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "chiến lược",
+     "source_id": "bib-hoangchithanh-2007",
+     "page": "tr. 41",
+     "pdf_page": 41,
+     "snippet": "kết thúc đều nằm trong nhân thì ta có chiến lược chắc chắn thắng",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "chiến lược",
+     "source_id": "bib-hoangchithanh-2011",
+     "page": "",
+     "pdf_page": 68,
+     "snippet": "đều nằm trong nhân thì ta có chiến lược chắc chắn thắng sau đây:",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "chiến lược",
+     "source_id": "bib-vudinhhoa-2010",
+     "page": "",
+     "pdf_page": 104,
+     "snippet": "chiến lược thiết kế thuật toán này là hết sức quan trong và cần thiết, nó giúp ta dé",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "chiến lược",
+     "source_id": "bib-cungkimtien-2004",
+     "page": "",
+     "pdf_page": 119,
+     "snippet": "dominant sírategy chiến lược",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "chiến lược",
+     "source_id": "bib-phan-1976",
+     "page": "tr. 393",
+     "pdf_page": 393,
+     "snippet": "policy s. trchi. không gian các chiến lược",
+     "verified": true,
+     "recommended": false
+    }
+   ],
+   "see_also": [
+    "worst-case-complexity"
+   ],
+   "notes": "Chiến lược minmax (đôi khi gọi là chiến lược tối thiểu hóa tối đa hoặc minimax) gắn với lý thuyết trò chơi: mỗi người chơi tối ưu hóa thu hoạch trong tình huống xấu nhất, tức cực đại hóa thu hoạch nhỏ nhất mà mình bảo đảm được. Thuật ngữ tiếng Việt \"chiến lược minmax\" giữ nguyên phần \"minmax\" theo gốc tiếng Anh; chưa tìm thấy nguồn tiếng Việt nào sử dụng đúng cụm từ đầy đủ này trong các tài liệu đã số hóa.",
+   "status": "draft",
+   "pos": "d.t."
+  },
+  {
+   "id": "minterm",
+   "letter": "M",
+   "headword_en": "minterm",
+   "notation": "x_1 \\wedge x_2 \\wedge \\cdots \\wedge x_n",
+   "rosen_ref": "Rosen §12.4",
+   "definition_vi": "Tiểu hạng (hội sơ cấp đầy đủ) của $$n$$ biến mệnh đề $$x_1, x_2, \\ldots, x_n$$ là một hội (tích lôgic) trong đó mỗi biến xuất hiện đúng một lần, dưới dạng chính nó $$x_i$$ hoặc dưới dạng phủ định $$\\overline{x_i}$$. Như vậy mỗi tiểu hạng là một hội sơ cấp có hạng $$n$$, nhận giá trị $$1$$ tại đúng một bộ giá trị của các biến.",
+   "example_vi": "Với $$3$$ biến $$x, y, z$$, biểu thức $$x \\wedge \\overline{y} \\wedge z$$ là một tiểu hạng; nó chỉ bằng $$1$$ khi $$x = 1$$, $$y = 0$$, $$z = 1$$.",
+   "vi_terms": [
+    {
+     "term": "hội sơ cấp",
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 25,
+     "page": "tr. 25",
+     "snippet": "biến mệnh đề p1 , p2 , . . . , pn được gọi là một biểu thức hội cơ bản (hội sơ cấp) nếu nó có dạng",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "hội cơ bản",
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 25,
+     "page": "tr. 25",
+     "snippet": "Ví dụ 1.21. Biểu thức x ∧ y ∧ z là một biểu thức hội cơ bản theo 3 biến mệnh đề x, y, z.",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "tiểu hạng",
+     "source_id": "bib-rosen-2003-vi",
+     "pdf_page": 722,
+     "page": "tr. 722",
+     "snippet": "Một tiểu hạng có giá trị 1 đối với một và chỉ một tổ hợp giá trị của",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "hội sơ cấp",
+     "source_id": "bib-doducgiao-2009",
+     "page": "tr. 277",
+     "pdf_page": 278,
+     "snippet": "1. Tuyển sơ cấp và hội sơ cấp",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "hội sơ cấp",
+     "source_id": "bib-doducgiao-2008",
+     "page": "tr. 5",
+     "pdf_page": 6,
+     "snippet": "2.1. Tuyển và hội sơ cấp .",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "hội cơ bản",
+     "source_id": "bib-vudinhhoa-2010",
+     "page": "",
+     "pdf_page": 107,
+     "snippet": "Hình 6.1: Các khối cơ bản. él tink toán:",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "tiểu hạng",
+     "source_id": "bib-vovantuandung-2007",
+     "page": "",
+     "pdf_page": 119,
+     "snippet": "các biên Boole được gọi là một tiêu hạng.",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "tiểu hạng",
+     "source_id": "bib-vudinhhoa-2010",
+     "page": "",
+     "pdf_page": 96,
+     "snippet": "tiểu hang) tạo bởi các biến zq,za,....z„ hoặc phần bù của nó (mỗi biến hoặc phe",
+     "verified": true,
+     "recommended": true
+    }
+   ],
+   "see_also": [],
+   "notes": "Tiểu hạng là hội sơ cấp đầy đủ (hạng $$n$$); tuyển của các tiểu hạng cho dạng tuyển chuẩn tắc hoàn toàn (SDNF). Nguyễn Đức Nghĩa (2006) và Nguyễn Hữu Điển (2019) dùng thuật ngữ \"hội sơ cấp\"; bản dịch còn gọi là \"hội cơ bản\".",
+   "status": "draft",
    "pos": "d.t."
   },
   {
@@ -1057,6 +1551,155 @@
    "pos": "d.t."
   },
   {
+   "id": "modulus",
+   "letter": "M",
+   "headword_en": "modulus",
+   "pos": "d.t.",
+   "notation": "m",
+   "ref_bib": "bib-libennowell-2022",
+   "rosen_ref": "",
+   "definition_vi": "\\emph{Mô-đun} là số nguyên dương $$m$$ dùng trong phép toán đồng dư: hai số nguyên $$a$$ và $$b$$ \\emph{đồng dư theo mô-đun} $$m$$, viết $$a\\equiv b \\pmod{m}$$, khi và chỉ khi $$m$$ chia hết hiệu $$a-b$$.",
+   "example_vi": "Với mô-đun $$m=12$$, ta có $$15\\equiv 3 \\pmod{12}$$ vì $$12$$ chia hết $$15-3=12$$.",
+   "notes": "",
+   "see_also": [],
+   "vi_terms": [
+    {
+     "term": "mô-đun",
+     "recommended": true
+    },
+    {
+     "term": "mô-đun",
+     "source_id": "bib-doxuanloi-2006",
+     "page": "",
+     "pdf_page": 18,
+     "snippet": "2.1.1 Mô-đun hoá và việc giải quyết bài toán",
+     "verified": true,
+     "recommended": false
+    }
+   ]
+  },
+  {
+   "id": "multigraph",
+   "letter": "M",
+   "headword_en": "multigraph",
+   "notation": "G = (V, E)",
+   "rosen_ref": "Rosen §10.1",
+   "definition_vi": "Một \\emph{đa đồ thị} $$G = (V, E)$$ là một đồ thị trong đó mỗi cặp đỉnh có thể được nối bởi nhiều hơn một cạnh, tức là cho phép tồn tại hai hoặc nhiều cạnh cùng nối một cặp đỉnh, nhưng không cho phép có khuyên (cạnh nối một đỉnh với chính nó). Với hai đỉnh phân biệt $$u, v \\in V(G)$$, tập cạnh $$E$$ có thể chứa nhiều cạnh cùng có hai đầu mút là $$u$$ và $$v$$; đồ thị cho phép cả khuyên được gọi là giả đồ thị.",
+   "example_vi": "Xét $$G = (V, E)$$ với tập đỉnh $$V = \\{u, v\\}$$ và hai cạnh phân biệt $$e_1, e_2$$ cùng nối $$u$$ với $$v$$; khi đó $$G$$ là một đa đồ thị vì cặp đỉnh $$\\{u, v\\}$$ được nối bởi nhiều hơn một cạnh.",
+   "vi_terms": [
+    {
+     "term": "đa đồ thị",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-nguyenhoangthach-2020",
+     "pdf_page": 62,
+     "page": "tr. 60",
+     "snippet": "Đồ thị bên phải trong Hình 5.1 là một đa đồ thị với 6 đỉnh và 13 cạnh,"
+    },
+    {
+     "term": "đa đồ thị có hướng",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhoangthach-2020",
+     "pdf_page": 62,
+     "page": "tr. 60",
+     "snippet": "Các khái niệm đơn đồ thị có hướng, đa đồ thị có hướng và cạnh khuyên"
+    },
+    {
+     "term": "đồ thị đa cạnh",
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": "",
+     "verified": false,
+     "recommended": false
+    },
+    {
+     "term": "đa đồ thị",
+     "source_id": "bib-leanhvinh-2020",
+     "page": "tr. 258",
+     "pdf_page": 257,
+     "snippet": "tựa ngẫu nhiên, 223 đa đỏ thị, 9",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "đa đồ thị",
+     "source_id": "bib-nguyenhuudien-2019",
+     "page": "tr. 9",
+     "pdf_page": 9,
+     "snippet": "6.2 Đa đồ thị . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 155",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "đa đồ thị có hướng",
+     "source_id": "bib-hoangchithanh-2011",
+     "page": "",
+     "pdf_page": 16,
+     "snippet": "Ví dụ 1.12: Da đồ thị có hướng và ma trận kề của nó.",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "đa đồ thị có hướng",
+     "source_id": "bib-nguyenhuudien-2019",
+     "page": "tr. 156",
+     "pdf_page": 156,
+     "snippet": "Định nghĩa 6.5 Một đa đồ thị có hướng G = (V, E) gồm một tập khác rỗng V mà các",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "đa đồ thị vô hướng",
+     "source_id": "bib-doducgiao-2009",
+     "page": "tr. 103",
+     "pdf_page": 104,
+     "snippet": "5, Vẽ đa đồ thị vô hướng được biểu diễn bởi các ma trận sau:",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "đa đồ thị vô hướng",
+     "source_id": "bib-hoangchithanh-2011",
+     "page": "",
+     "pdf_page": 32,
+     "snippet": "đa đô thị vô hướng.",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "đa đồ thị vô hướng",
+     "source_id": "bib-nguyenhoangthach-2020",
+     "page": "tr. 62",
+     "pdf_page": 64,
+     "snippet": "Định lý 5.4 (Bổ đề bắt tay). Giả sử G = (V, E) là một đa đồ thị vô hướng.",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "đa đồ thị",
+     "source_id": "bib-cungkimtien-2004",
+     "page": "",
+     "pdf_page": 243,
+     "snippet": "multigraph đa đồ thị, đa đồ hình",
+     "verified": true,
+     "recommended": false
+    }
+   ],
+   "see_also": [
+    "graph",
+    "simple-graph",
+    "pseudograph",
+    "directed-graph",
+    "loop",
+    "edge",
+    "vertex"
+   ],
+   "notes": "Recommended term \"đa đồ thị\" is the standard Vietnamese rendering of \"multigraph\" and is attested in the newest 2020 source bib-nguyenhoangthach-2020 (p.62, definitional context: a multigraph with 6 vertices and 13 edges), so vi_terms are ordered newest-source first (2020 → 2007 → 2006 → 2004 within the recommended-term grouping). The cleanest defining snippet (multiple — two or more — edges between the same pair of vertices) is bib-nguyenducnghia-2006 p.154. The first introduction of the central concept is marked with \\emph{đa đồ thị} OUTSIDE math (math delimiters wrap only symbols such as $$G$$, $$V$$, $$E$$, $$u$$, $$v$$).\n\nEDITOR (chapter M final): applied the panel's MED correctness fix — added Rosen §10.1's distinguishing qualifier that a multigraph allows multiple parallel edges between a pair of vertices but does NOT allow loops (không có khuyên), in contrast to a pseudograph (which allows loops). This makes the multigraph/pseudograph boundary in see_also explicit. Within the \"đa đồ thị\" recommended group the rows are now ordered newest-first (2020 nguyenhoangthach, 2007 hoangchithanh, 2006 nguyenducnghia).\n\nThe candidate \"đa đồ thị có hướng\" (directed multigraph) is a directed variant; attested in bib-nguyenhoangthach-2020 (p.62), bib-ngodactan-2004 (p.21), and bib-hoangchithanh-2007. The variant \"đa đồ thị vô hướng\" (undirected multigraph) appears in bib-ngodactan-2004 (p.22) and bib-nguyenducnghia-2006 (p.190). These directed/undirected qualified forms attest the root \"đa đồ thị\"; they are NOT alternative names for the bare undirected multigraph, and a future directed-multigraph entry could take them as its own see_also forward reference. bib-leanhvinh-2020 attests \"đa đồ thị\" only as an OCR-mangled index entry (\"đa đỏ thị, 9\" at PDF p.257); not used as a verified citation since the content page could not be confirmed via snippet. The bib-nguyenhuudien-2019 placeholder row (no confirmed page, empty snippet) was dropped per citation hygiene since at least one verified recommended term remains.\n\nsee_also targets are cross-chapter forward references (graph in G, simple-graph/pseudograph in S/P, directed-graph in D, loop in L, edge/vertex in E/V); no other M-chapter entries exist to link as same-chapter references. bib-hoangchithanh-2007 confirmed in both normal and --loose modes (snippet \"...một cạnh thì được gọi là đa đồ thị.\" p.7 is clean). Exactly one recommended=true (2020 source).",
+   "pos": "d.t."
+  },
+  {
    "id": "multinomial-coefficient",
    "letter": "M",
    "headword_en": "multinomial coefficient",
@@ -1091,309 +1734,6 @@
     "combination"
    ],
    "notes": "Candidate \"hệ số đa thức bậc n\" returned 0 hits in every source (normal and --loose) and is dropped as unattested. The recommended standard term \"hệ số đa thức\" is attested only in bib-ngodactan-2004 (2004); no 2019-2020 source (bib-leanhvinh-2020, bib-nguyenhoangthach-2020) nor the 2019/2006 text sources (bib-nguyenhuudien-2019, bib-nguyenducnghia-2006) attest a Vietnamese name for the multinomial coefficient, so the newest available attestation is from 2004 — a recency exception surfaced per convention. The OCR sources (bib-leanhvinh-2020, bib-hoangchithanh-2007) returned 0 hits under both normal and --loose searches.\n\nCITATION-HYGIENE FIX (panel HIGH): the draft notes asserted a \"second verified occurrence\" at bib-ngodactan-2004 pdf_page 53 with no corresponding vi_terms row. That occurrence is now MATERIALIZED as a real vi_terms row (term \"hệ số đa thức\", verified=true, recommended=false, pdf_page 53, partition-count snippet \"$$|N| = n$$, $$|A_k| = i_k$$ cho $$k = 1, 2, \\ldots, p$$, là hệ số đa thức\"), so every verification claim maps to a recorded citation. In bib-ngodactan-2004 the term is thus defined two ways consistent with Rosen §6.4: pdf_page 47 as the coefficient of $$x_1 x_2 \\ldots x_m$$ in the multinomial expansion (công thức đa thức), and pdf_page 53 as the count of partitions $$(A_1, A_2, \\ldots, A_p)$$ of an $$n$$-set with $$|A_k| = i_k$$.\n\nRelated but distinct concepts found in newer sources: \"tổ hợp lặp\" (combinations with repetition) and \"hoán vị lặp\" (permutations with repetition) — not synonyms for the multinomial coefficient. The definition presents both Rosen §6.4 characterisations (partition count and expansion coefficient) and the closed form $$n!/(n_1! \\cdots n_k!)$$; the example is self-contained, using only the expansion and closed form the definition introduces. see_also targets are cross-chapter forward references (binomial-coefficient, binomial-theorem in chapter B; permutation, combination in chapters P/C). First-concept emphasis marked with \\emph{...}.",
-   "pos": "d.t."
-  },
-  {
-   "id": "master-theorem",
-   "letter": "M",
-   "headword_en": "master theorem",
-   "notation": "T(n) = aT(n/b) + cn^d",
-   "rosen_ref": "Rosen §8.3",
-   "definition_vi": "Định lý thợ là một định lý cho công thức nghiệm tiệm cận của hệ thức truy hồi chia để trị dạng $$T(n) = aT(n/b) + cn^d$$, trong đó $$a \\geq 1$$, $$b > 1$$ là các hằng số nguyên và $$c, d$$ là các hằng số dương. Cận tăng của $$T(n)$$ được xác định theo việc so sánh $$a$$ với $$b^d$$, cụ thể $$T(n)$$ là $$O(n^d)$$ khi $$a < b^d$$, là $$O(n^d \\log n)$$ khi $$a = b^d$$, và là $$O(n^{\\log_b a})$$ khi $$a > b^d$$.",
-   "example_vi": "Với hệ thức truy hồi $$T(n) = 2T(n/2) + n$$ của thuật toán sắp xếp trộn, ta có $$a = b^d$$ (do $$2 = 2^1$$), nên theo định lý thợ $$T(n)$$ là $$O(n \\log n)$$.",
-   "vi_terms": [
-    {
-     "term": "định lý thợ",
-     "source_id": "",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": "",
-     "verified": false,
-     "recommended": true
-    },
-    {
-     "term": "định lý Master",
-     "source_id": "",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": "",
-     "verified": false,
-     "recommended": false
-    }
-   ],
-   "see_also": [],
-   "notes": "Định lý thợ (master theorem) dùng để ước lượng độ phức tạp của các thuật toán chia để trị; không xuất hiện như một kết quả được đặt tên trong các nguồn tiếng Việt đã rà soát.",
-   "status": "draft",
-   "pos": "d.t."
-  },
-  {
-   "id": "membership-table",
-   "letter": "M",
-   "headword_en": "membership table",
-   "notation": "",
-   "rosen_ref": "Rosen §2.2",
-   "definition_vi": "Bảng tính thuộc là một bảng dùng để chứng minh các hằng đẳng thức tập hợp, trong đó mỗi cột ứng với một biểu thức tập hợp và mỗi dòng ứng với một tổ hợp khả dĩ của tính thuộc các phần tử. Trong bảng, ta dùng số $$1$$ để chỉ một phần tử thuộc tập hợp tương ứng và số $$0$$ để chỉ một phần tử không thuộc tập hợp đó; hằng đẳng thức đúng khi hai cột ứng với hai vế của nó trùng nhau trên mọi dòng.",
-   "example_vi": "Để chứng minh $$A \\cap (B \\cup C) = (A \\cap B) \\cup (A \\cap C)$$, ta lập bảng tính thuộc với $$8$$ dòng ứng với mọi tổ hợp thuộc/không thuộc của một phần tử đối với $$A$$, $$B$$, $$C$$, rồi kiểm tra rằng cột của $$A \\cap (B \\cup C)$$ và cột của $$(A \\cap B) \\cup (A \\cap C)$$ trùng nhau trên mọi dòng.",
-   "vi_terms": [
-    {
-     "term": "bảng tính thuộc",
-     "source_id": "bib-rosen-2003-vi",
-     "pdf_page": 69,
-     "page": "tr. 69",
-     "snippet": "lưu ý sự tương tự giữa bảng tính thuộc và bảng giá trị chân lý}",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "bảng tính thuộc",
-     "source_id": "bib-rosen-2003-vi",
-     "pdf_page": 69,
-     "page": "tr. 69",
-     "snippet": "lưu ý sự tương tự giữa bảng tính thuộc và bảng giá trị chân lý}",
-     "verified": true,
-     "recommended": true
-    },
-    {
-     "term": "bảng thuộc",
-     "source_id": "",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": "",
-     "verified": false,
-     "recommended": false
-    },
-    {
-     "term": "bảng thành viên",
-     "source_id": "",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": "",
-     "verified": false,
-     "recommended": false
-    },
-    {
-     "term": "bảng thuộc",
-     "source_id": "bib-doducthai-2010",
-     "page": "tr. 251",
-     "pdf_page": 251,
-     "snippet": "cảm. Giả sử một người bị cảm mà không chữa bằng thuốc, thì quá",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "bảng thuộc",
-     "source_id": "bib-vudinhhoa-2010",
-     "page": "",
-     "pdf_page": 30,
-     "snippet": "chứng minh nhờ sử dụng bảng thuộc tính. Dé chỉ một phần tử thuộc một tập hợp",
-     "verified": true,
-     "recommended": false
-    }
-   ],
-   "see_also": [],
-   "notes": "Bảng tính thuộc (membership table) tương tự bảng giá trị chân lý của logic mệnh đề: dùng $$1$$/$$0$$ cho thuộc/không thuộc để kiểm tra hằng đẳng thức tập hợp. Trong các nguồn tiếng Việt đã rà soát, chỉ bản dịch Rosen dùng đúng thuật ngữ này.",
-   "status": "draft",
-   "pos": "d.t."
-  },
-  {
-   "id": "minimization",
-   "letter": "M",
-   "headword_en": "minimization",
-   "notation": "",
-   "rosen_ref": "Rosen §12.4",
-   "definition_vi": "Rút gọn (mạch) là quá trình tìm một biểu diễn của một hàm Boole bằng tổng các tích (hay tích các tổng) sao cho số số hạng và số biến (literal) xuất hiện là ít nhất có thể. Mục tiêu là thu được một khai triển tổng các tích với số tích và số biến trong mỗi tích nhỏ nhất, từ đó cho một mạch logic đơn giản hơn cài đặt cùng một hàm Boole.",
-   "example_vi": "Khai triển tổng các tích $$xy + x\\bar{y}$$ rút gọn được thành $$x$$, vì $$xy + x\\bar{y} = x(y + \\bar{y}) = x$$. Bản đồ Karnaugh và phương pháp Quine - McCluskey là hai công cụ thường dùng để rút gọn khai triển tổng các tích.",
-   "vi_terms": [
-    {
-     "term": "tối thiểu hoá",
-     "source_id": "bib-nguyenducnghia-2006",
-     "pdf_page": 3,
-     "page": "",
-     "snippet": "sâu vào vấn đề tối thiểu hoá các hàm đại số lôgic và mô tả một số thuật toán quan trọng",
-     "verified": true,
-     "recommended": true
-    },
-    {
-     "term": "dạng tuyển chuẩn tắc tối thiểu",
-     "source_id": "bib-nguyenducnghia-2006",
-     "pdf_page": 274,
-     "page": "",
-     "snippet": "giới thiệu một số phương pháp tìm dạng tuyển chuẩn tắc tối thiểu của một",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "tối giản hóa",
-     "source_id": "",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": "",
-     "verified": false,
-     "recommended": false
-    },
-    {
-     "term": "rút gọn",
-     "source_id": "bib-nguyenhoangthach-2020",
-     "page": "tr. 4",
-     "pdf_page": 6,
-     "snippet": "5.6 Minh họa các phép toán xóa cạnh, xóa đỉnh, rút gọn cạnh. . . . . 70",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "rút gọn",
-     "source_id": "bib-nguyenhuudien-2019",
-     "page": "tr. 31",
-     "pdf_page": 31,
-     "snippet": "1. Qui tắc rút gọn: Cơ sở của qui tắc là hằng đúng",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "tối thiểu hoá",
-     "source_id": "bib-doducgiao-2000",
-     "page": "tr. 429",
-     "pdf_page": 428,
-     "snippet": "the tôi thiểu hóa số các phép toản tổng và tích có mat trong",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "tối thiểu hoá",
-     "source_id": "bib-vovantuandung-2007",
-     "page": "",
-     "pdf_page": 3,
-     "snippet": "theo biểu thức Boole cho trước; vấn đề tối thiểu hoá hàm Boole bằng",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "dạng tuyển chuẩn tắc tối thiểu",
-     "source_id": "bib-vovantuandung-2007",
-     "page": "",
-     "pdf_page": 137,
-     "snippet": "Tìm dạng tuyên chuẩn tắc tôi thiểu của hàm:",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "rút gọn",
-     "source_id": "bib-sierpinski-2012",
-     "page": "tr. 21",
-     "pdf_page": 35,
-     "snippet": "rằng x  0 là nghiệm của phương trình. Các nghiệm khác là nghiệm của phương trình rút gọn",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "rút gọn",
-     "source_id": "bib-cungkimtien-2004",
-     "page": "",
-     "pdf_page": 5,
-     "snippet": "abridge rút gọn, làm tắt",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "rút gọn",
-     "source_id": "bib-phan-1976",
-     "page": "tr. 2",
-     "pdf_page": 2,
-     "snippet": "abridge rút gọn, làm tat",
-     "verified": true,
-     "recommended": false
-    }
-   ],
-   "see_also": [],
-   "notes": "Thuật ngữ chuẩn của giáo trình MAT3500 là \"rút gọn\" (mạch / khai triển tổng các tích). Bản dịch Rosen (2003) dùng đúng \"rút gọn\" trong chương Đại số Boole, tiết về cực tiểu hoá mạch (bản đồ Karnaugh, Quine - McCluskey). Giáo trình Nguyễn Đức Nghĩa (2006) gọi cùng khái niệm là \"tối thiểu hoá hàm đại số lôgic\" và \"dạng tuyển chuẩn tắc tối thiểu\". Các nghĩa khác của \"rút gọn\" trong kho (rút gọn ma trận, rút gọn cạnh, rút gọn bài toán) không thuộc khái niệm này nên không kèm theo.",
-   "status": "draft",
-   "pos": "d.t."
-  },
-  {
-   "id": "minterm",
-   "letter": "M",
-   "headword_en": "minterm",
-   "notation": "x_1 \\wedge x_2 \\wedge \\cdots \\wedge x_n",
-   "rosen_ref": "Rosen §12.4",
-   "definition_vi": "Tiểu hạng (hội sơ cấp đầy đủ) của $$n$$ biến mệnh đề $$x_1, x_2, \\ldots, x_n$$ là một hội (tích lôgic) trong đó mỗi biến xuất hiện đúng một lần, dưới dạng chính nó $$x_i$$ hoặc dưới dạng phủ định $$\\overline{x_i}$$. Như vậy mỗi tiểu hạng là một hội sơ cấp có hạng $$n$$, nhận giá trị $$1$$ tại đúng một bộ giá trị của các biến.",
-   "example_vi": "Với $$3$$ biến $$x, y, z$$, biểu thức $$x \\wedge \\overline{y} \\wedge z$$ là một tiểu hạng; nó chỉ bằng $$1$$ khi $$x = 1$$, $$y = 0$$, $$z = 1$$.",
-   "vi_terms": [
-    {
-     "term": "hội sơ cấp",
-     "source_id": "bib-nguyenhuudien-2019",
-     "pdf_page": 25,
-     "page": "tr. 25",
-     "snippet": "biến mệnh đề p1 , p2 , . . . , pn được gọi là một biểu thức hội cơ bản (hội sơ cấp) nếu nó có dạng",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "hội cơ bản",
-     "source_id": "bib-nguyenhuudien-2019",
-     "pdf_page": 25,
-     "page": "tr. 25",
-     "snippet": "Ví dụ 1.21. Biểu thức x ∧ y ∧ z là một biểu thức hội cơ bản theo 3 biến mệnh đề x, y, z.",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "tiểu hạng",
-     "source_id": "bib-rosen-2003-vi",
-     "pdf_page": 722,
-     "page": "tr. 722",
-     "snippet": "Một tiểu hạng có giá trị 1 đối với một và chỉ một tổ hợp giá trị của",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "hội sơ cấp",
-     "source_id": "bib-doducgiao-2009",
-     "page": "tr. 277",
-     "pdf_page": 278,
-     "snippet": "1. Tuyển sơ cấp và hội sơ cấp",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "hội sơ cấp",
-     "source_id": "bib-doducgiao-2008",
-     "page": "tr. 5",
-     "pdf_page": 6,
-     "snippet": "2.1. Tuyển và hội sơ cấp .",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "hội cơ bản",
-     "source_id": "bib-vudinhhoa-2010",
-     "page": "",
-     "pdf_page": 107,
-     "snippet": "Hình 6.1: Các khối cơ bản. él tink toán:",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "tiểu hạng",
-     "source_id": "bib-vovantuandung-2007",
-     "page": "",
-     "pdf_page": 119,
-     "snippet": "các biên Boole được gọi là một tiêu hạng.",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "tiểu hạng",
-     "source_id": "bib-vudinhhoa-2010",
-     "page": "",
-     "pdf_page": 96,
-     "snippet": "tiểu hang) tạo bởi các biến zq,za,....z„ hoặc phần bù của nó (mỗi biến hoặc phe",
-     "verified": true,
-     "recommended": true
-    }
-   ],
-   "see_also": [],
-   "notes": "Tiểu hạng là hội sơ cấp đầy đủ (hạng $$n$$); tuyển của các tiểu hạng cho dạng tuyển chuẩn tắc hoàn toàn (SDNF). Nguyễn Đức Nghĩa (2006) và Nguyễn Hữu Điển (2019) dùng thuật ngữ \"hội sơ cấp\"; bản dịch còn gọi là \"hội cơ bản\".",
-   "status": "draft",
    "pos": "d.t."
   },
   {
@@ -1471,149 +1811,6 @@
    ],
    "see_also": [],
    "notes": "Thuật ngữ chuẩn của giáo trình MAT3500 là \"bội\". Bản dịch Rosen cũng dùng \"bội\" (đối ngẫu với \"ước số\"); một số tài liệu dùng biến thể đầy đủ \"bội số\" cho cùng khái niệm. Cần phân biệt với \"bội\" theo nghĩa bội của giá trị riêng (multiplicity) và \"cạnh bội\" (multiple edge), là các khái niệm khác.",
-   "status": "draft",
-   "pos": "d.t."
-  },
-  {
-   "id": "mersenne-prime",
-   "letter": "M",
-   "headword_en": "Mersenne prime",
-   "notation": "2^p - 1",
-   "rosen_ref": "Rosen §3.5",
-   "definition_vi": "Số nguyên tố Mersenne là một số nguyên tố có dạng $$2^p - 1$$, trong đó $$p$$ là một số nguyên tố.",
-   "example_vi": "Với $$p = 2, 3, 5, 7$$ ta được các số nguyên tố Mersenne $$2^2 - 1 = 3$$, $$2^3 - 1 = 7$$, $$2^5 - 1 = 31$$ và $$2^7 - 1 = 127$$; tuy nhiên $$2^{11} - 1 = 2047 = 23 \\cdot 89$$ không phải là số nguyên tố mặc dù $$11$$ là số nguyên tố.",
-   "vi_terms": [
-    {
-     "term": "số nguyên tố Mersenne",
-     "verified": true,
-     "recommended": false,
-     "source_id": "bib-rosen-2003-vi",
-     "page": "tr. 206",
-     "pdf_page": 206,
-     "snippet": "được gọi là các số nguyên tố Mersenne. Hiện nay người ta đã biết"
-    },
-    {
-     "term": "số nguyên tố Mersenne",
-     "verified": true,
-     "recommended": false,
-     "source_id": "bib-rosen-2003-vi",
-     "page": "tr. 206",
-     "pdf_page": 206,
-     "snippet": "bao nhiêu số nguyên tố Mersenne? Mỗi số trong 10 số Mersenne lớn"
-    },
-    {
-     "term": "số nguyên tố Mersenne",
-     "source_id": "bib-sierpinski-2012",
-     "page": "tr. 227",
-     "pdf_page": 241,
-     "snippet": "nguyên tố Mersenne. Đây là lý do khiến các số nguyên tố Mersenne được quan tâm. Hơn nữa số",
-     "verified": true,
-     "recommended": true
-    }
-   ],
-   "see_also": [
-    "prime-number"
-   ],
-   "notes": "Số nguyên tố Mersenne là số nguyên tố có dạng $$2^p - 1$$ với $$p$$ là số nguyên tố. Điều kiện $$p$$ là số nguyên tố là cần để $$2^p - 1$$ có thể là số nguyên tố: nếu $$p$$ hợp số thì $$2^p - 1$$ cũng là hợp số. Tuy nhiên điều kiện đó chưa đủ, chẳng hạn $$2^{11} - 1 = 2047 = 23 \\cdot 89$$ là hợp số. Thuật ngữ \"số nguyên tố Mersenne\" được dẫn chứng trong bản dịch tiếng Việt của Rosen (tr. 206 PDF); các nguồn dịch chính khác trong ngữ liệu chưa có dẫn chứng trực tiếp cho khái niệm này.",
-   "status": "draft",
-   "pos": "d.t."
-  },
-  {
-   "id": "minimization-of-a-boolean-function",
-   "letter": "M",
-   "headword_en": "minimization of a Boolean function",
-   "see_ref": "minimization",
-   "vi_terms": [
-    {
-     "term": "tối thiểu hoá hàm Boole",
-     "verified": false,
-     "recommended": false,
-     "source_id": "",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": ""
-    }
-   ],
-   "status": "draft",
-   "pos": "d.t."
-  },
-  {
-   "id": "minmax-strategy",
-   "letter": "M",
-   "headword_en": "minmax strategy",
-   "notation": "",
-   "rosen_ref": "Rosen §11.5",
-   "definition_vi": "Chiến lược minmax là chiến lược trong đó mỗi người chơi chọn các nước đi sao cho tối ưu hóa thu hoạch trong trường hợp xấu nhất. Nói cách khác, mỗi người chơi chọn nước đi làm cực đại giá trị thu hoạch nhỏ nhất mà mình có thể nhận được, bất kể đối thủ chơi thế nào.",
-   "example_vi": "Trong một trò chơi hai người có tổng bằng không, người chơi áp dụng chiến lược minmax sẽ chọn nước đi sao cho thu hoạch nhỏ nhất có thể của mình là lớn nhất; chẳng hạn, nếu mỗi nước đi của người chơi thứ nhất dẫn tới các thu hoạch tệ nhất là $$-3$$, $$-1$$ và $$-5$$ tùy theo phản ứng của đối thủ, thì nước đi cho thu hoạch tệ nhất $$-1$$ được chọn vì $$-1 \\geq -3$$ và $$-1 \\geq -5$$.",
-   "vi_terms": [
-    {
-     "term": "chiến lược minmax",
-     "verified": false,
-     "recommended": true,
-     "source_id": "",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": ""
-    },
-    {
-     "term": "chiến lược minimax",
-     "source_id": "bib-wikipedia-vi",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": "https://vi.wikipedia.org/wiki/Thuật_toán_minimax",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "chiến lược",
-     "source_id": "bib-hoangchithanh-2007",
-     "page": "tr. 41",
-     "pdf_page": 41,
-     "snippet": "kết thúc đều nằm trong nhân thì ta có chiến lược chắc chắn thắng",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "chiến lược",
-     "source_id": "bib-hoangchithanh-2011",
-     "page": "",
-     "pdf_page": 68,
-     "snippet": "đều nằm trong nhân thì ta có chiến lược chắc chắn thắng sau đây:",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "chiến lược",
-     "source_id": "bib-vudinhhoa-2010",
-     "page": "",
-     "pdf_page": 104,
-     "snippet": "chiến lược thiết kế thuật toán này là hết sức quan trong và cần thiết, nó giúp ta dé",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "chiến lược",
-     "source_id": "bib-cungkimtien-2004",
-     "page": "",
-     "pdf_page": 119,
-     "snippet": "dominant sírategy chiến lược",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "chiến lược",
-     "source_id": "bib-phan-1976",
-     "page": "tr. 393",
-     "pdf_page": 393,
-     "snippet": "policy s. trchi. không gian các chiến lược",
-     "verified": true,
-     "recommended": false
-    }
-   ],
-   "see_also": [
-    "worst-case-complexity"
-   ],
-   "notes": "Chiến lược minmax (đôi khi gọi là chiến lược tối thiểu hóa tối đa hoặc minimax) gắn với lý thuyết trò chơi: mỗi người chơi tối ưu hóa thu hoạch trong tình huống xấu nhất, tức cực đại hóa thu hoạch nhỏ nhất mà mình bảo đảm được. Thuật ngữ tiếng Việt \"chiến lược minmax\" giữ nguyên phần \"minmax\" theo gốc tiếng Anh; chưa tìm thấy nguồn tiếng Việt nào sử dụng đúng cụm từ đầy đủ này trong các tài liệu đã số hóa.",
    "status": "draft",
    "pos": "d.t."
   },
@@ -1773,6 +1970,156 @@
    ],
    "notes": "Rosen §10.1 định nghĩa cạnh bội là các cạnh phân biệt cùng nối một cặp đỉnh; đây là khái niệm về các cạnh, KHÁC với \"multigraph\" (đa đồ thị) là loại đồ thị cho phép tồn tại cạnh bội. Vì vậy đây là một mục riêng, không phải biến thể đồng nghĩa của mục multigraph. Thuật ngữ khuyến nghị \"cạnh bội\" lấy từ nguồn mới nhất có dẫn chứng định nghĩa bib-nguyenhoangthach-2020 (tr. 62, ngữ cảnh biểu diễn cạnh bội bằng số bội). Dẫn chứng củng cố: bib-nguyenhuudien-2019 (tr. 154) đưa định nghĩa rõ nhất \"Hai cạnh được gọi là cạnh bội hay song song nếu chúng cùng...\", xác nhận \"cạnh bội\" và \"song song\" là đồng nghĩa; bản dịch Rosen tiếng Việt bib-rosen-2003-vi (tr. 496) cũng định nghĩa \"Các cạnh e1 và e2 được gọi là song song hay cạnh bội nếu f(e1) = f(e2)\"; bib-ngodactan-2004 (tr. 289) là dẫn chứng OCR bổ sung. Biến thể đồng nghĩa \"cạnh song song\" được dẫn chứng từ bib-leanhvinh-2020 (tr. 8), nguồn 2020. Đúng một thuật ngữ recommended=true. Khái niệm có hướng tương ứng nằm ở mục multiple-directed-edges. Khái niệm này không cho phép khuyên; đồ thị cho phép cạnh bội nhưng không có khuyên là đa đồ thị, còn đồ thị cho phép cả khuyên là giả đồ thị (pseudograph).",
    "status": "draft",
+   "pos": "d.t."
+  },
+  {
+   "id": "multiplication-principle",
+   "letter": "M",
+   "headword_en": "multiplication principle",
+   "see_ref": "the-product-rule",
+   "vi_terms": [
+    {
+     "term": "quy tắc nhân",
+     "verified": false,
+     "recommended": false,
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": ""
+    },
+    {
+     "term": "nguyên lý nhân",
+     "verified": false,
+     "recommended": false,
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": ""
+    }
+   ],
+   "see_also": [],
+   "notes": "Đồng nghĩa với The Product Rule.",
+   "pos": "d.t."
+  },
+  {
+   "id": "multiplicative-inverse",
+   "letter": "M",
+   "headword_en": "multiplicative inverse",
+   "pos": "d.t.",
+   "notation": "a^{-1}",
+   "ref_bib": "bib-libennowell-2022",
+   "rosen_ref": "",
+   "definition_vi": "\\emph{Nghịch đảo (phép nhân)} của một phần tử $$a$$ là phần tử $$a^{-1}$$ sao cho $$a\\cdot a^{-1}=1$$, trong đó $$1$$ là phần tử đơn vị của phép nhân. Trong số học mô-đun, nghịch đảo của $$a$$ theo mô-đun $$m$$ là số $$b$$ với $$ab\\equiv 1 \\pmod{m}$$; nó tồn tại khi và chỉ khi $$\\gcd(a,m)=1$$.",
+   "example_vi": "Nghịch đảo của $$3$$ theo mô-đun $$7$$ là $$5$$, vì $$3\\cdot 5=15\\equiv 1 \\pmod{7}$$.",
+   "notes": "",
+   "see_also": [],
+   "vi_terms": [
+    {
+     "term": "nghịch đảo (phép nhân)",
+     "recommended": true
+    },
+    {
+     "term": "phần tử nghịch đảo",
+     "recommended": false
+    },
+    {
+     "term": "phần tử nghịch đảo",
+     "source_id": "bib-cungkimtien-2004",
+     "page": "",
+     "pdf_page": 200,
+     "snippet": "phần tử nghịch dao",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "phần tử nghịch đảo",
+     "source_id": "bib-ngodactan-2004",
+     "page": "",
+     "pdf_page": 62,
+     "snippet": "Nếu a(x) là phần tử khả nghịch của C N . thì phần tử nghịch đảo của",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "phần tử nghịch đảo",
+     "source_id": "bib-phan-1976",
+     "page": "tr. 143",
+     "pdf_page": 143,
+     "snippet": "inverse e., inverting e. phần tử nghịch dao",
+     "verified": true,
+     "recommended": false
+    }
+   ]
+  },
+  {
+   "id": "multiset",
+   "letter": "M",
+   "headword_en": "multiset",
+   "notation": "\\{a, a, b\\}",
+   "rosen_ref": "Rosen §2.2",
+   "definition_vi": "Một \\emph{đa tập} là một bộ sưu tập không có thứ tự các phần tử, trong đó mỗi phần tử có thể xuất hiện nhiều hơn một lần. Lực lượng của một đa tập $$A$$, ký hiệu $$|A|$$, là số các phần tử của $$A$$ tính cả các lần lặp lại.",
+   "example_vi": "Đa tập $$A = \\{a, a, a, b, c, c\\}$$ có lực lượng $$|A| = 6$$.",
+   "vi_terms": [
+    {
+     "term": "đa tập",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-ngodactan-2004",
+     "pdf_page": 31,
+     "page": "tr. 31",
+     "snippet": "cùng một vật), được gọi là đa tập hợp hay ngắn gọn là đa tập. Các vật"
+    },
+    {
+     "term": "đa tập hợp",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-ngodactan-2004",
+     "pdf_page": 31,
+     "page": "tr. 31",
+     "snippet": "cùng một vật), được gọi là đa tập hợp hay ngắn gọn là đa tập."
+    },
+    {
+     "term": "đa tập",
+     "source_id": "bib-nguyenducnghia-2006",
+     "page": "",
+     "pdf_page": 54,
+     "snippet": "Trong mục trước. ta đã tập trung chú ý vào việc đếm số các cấu hình tổ hợp (số phần tử",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "đa tập",
+     "source_id": "bib-cormen-2001-vi",
+     "page": "tr. 122",
+     "pdf_page": 120,
+     "snippet": "trong thời kỳ 1874-1895. Cantor đã tập trung chủ yếu vào các tập hợp",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "đa tập",
+     "source_id": "bib-cungkimtien-2004",
+     "page": "",
+     "pdf_page": 5,
+     "snippet": "Abelian variety đa tạp Aben",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "đa tập",
+     "source_id": "bib-phan-1976",
+     "page": "tr. 211",
+     "pdf_page": 211,
+     "snippet": "g. of manifolds hh. sự dán các đa tạp",
+     "verified": true,
+     "recommended": false
+    }
+   ],
+   "see_also": [
+    "set",
+    "cardinality"
+   ],
+   "notes": "Khái niệm \"multiset\" chỉ được chứng thực trong bib-ngodactan-2004 (2004), nơi định nghĩa rõ trên trang 31: \"được gọi là đa tập hợp hay ngắn gọn là đa tập\". Không có nguồn 2019-2020 nào (bib-leanhvinh-2020, bib-nguyenhoangthach-2020, bib-nguyenhuudien-2019) chứng thực bất kỳ thuật ngữ multiset nào (đã xác nhận lại: bib-leanhvinh-2020 cho 0 hit cả ở chế độ thường lẫn --loose), nên thuật ngữ khuyến nghị \"đa tập\" được chứng thực từ nguồn 2004 (không có nguồn mới hơn) — đây là một ngoại lệ về độ mới được nêu rõ theo quy ước. Thuật ngữ khuyến nghị là \"đa tập\" vì chính nguồn dùng nó làm dạng rút gọn (\"ngắn gọn là đa tập\") và dùng nhất quán trong định nghĩa lẫn ví dụ. Hai biến thể \"đa tập\" và \"đa tập hợp\" đến từ cùng một câu định nghĩa (\"đa tập hợp hay ngắn gọn là đa tập\"). Ứng viên \"tập bội\" cho 0 hit (không chứng thực); ứng viên \"bội tập\" cũng cho 0 hit. Ví dụ $$A = \\{a, a, a, b, c, c\\}$$ với $$|A| = 6$$ lấy trực tiếp từ Ví dụ 1.14 trên tr. 31 của nguồn; ký hiệu lực lượng $$|A|$$ được định nghĩa ngay trong mục này nên ví dụ tự chứa. EDITOR (chapter M final): notation field normalized from \"$$\\{a, a, b\\}$$\" to bare LaTeX \"\\{a, a, b\\}\" (encode-chapter.py strips $$); first-concept emphasis marked with \\emph{...}.",
    "pos": "d.t."
   },
   {

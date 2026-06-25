@@ -9,34 +9,135 @@
     </p>
   </introduction>
 
-  <definition xml:id="def-path">
-    <title>path (d.t.) — đường đi</title>
-    <idx><h>path</h></idx>
-    <idx><h>đường đi</h></idx>
+  <definition xml:id="def-pairwise-independent-events">
+    <title>pairwise independent events (d.t.) — biến cố độc lập đôi một</title>
+    <idx><h>pairwise independent events</h></idx>
+    <idx><h>biến cố</h></idx>
+    <idx><h>biến cố độc lập từng đôi một</h></idx>
+    <idx><h>biến cố độc lập đôi một</h></idx>
     <statement>
-      <p>Một đường đi độ dài <m>n</m> từ đỉnh <m>u</m> tới đỉnh <m>v</m> trong đồ thị <m>G</m> là một dãy gồm <m>n</m> cạnh nối tiếp một dãy đỉnh <m>u = v_0, v_1, \ldots, v_n = v</m>, trong đó mỗi cạnh nối hai đỉnh liên tiếp <m>v_{i-1}</m> và <m>v_i</m> của dãy với mọi <m>1 \leq i \leq n</m>. Số <m>n</m> được gọi là độ dài của đường đi (theo <xref ref="bib-rosen-2019" />, Rosen §10.4).</p>
+      <p>Các biến cố được gọi là độc lập đôi một nếu mọi cặp trong số chúng là độc lập. Nói cách khác, một họ biến cố <m>E_1, E_2, \ldots, E_n</m> là độc lập đôi một nếu với mọi cặp chỉ số <m>i \neq j</m> ta có <m>p(E_i \cap E_j) = p(E_i)p(E_j)</m> (theo <xref ref="bib-rosen-2019" />, Rosen §7.2).</p>
       <p>Thuật ngữ tiếng Việt tương ứng:</p>
       <ul>
-        <li><p><term>đường đi</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 71); <xref ref="bib-leanhvinh-2020" /> (tr. 16); <xref ref="bib-nguyenhuudien-2019" /> (tr. 168); <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 321) — cách dùng phổ biến.</p></li>
+        <li><p><term>biến cố độc lập đôi một</term> <em>(thuật ngữ chuẩn; chưa truy được trong kho văn bản)</em> — cách dùng phổ biến.</p></li>
+        <li><p><term>biến cố</term> <xref ref="bib-leanhvinh-2020" /> (tr. 158); <xref ref="bib-nguyenhuudien-2019" /> (tr. 48); <xref ref="bib-sierpinski-2012" /> (tr. 22); <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 62).</p></li>
+        <li><p><term>biến cố độc lập từng đôi một</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
       </ul>
-      <p>Ví dụ: Trong đồ thị với các cạnh <m>\{a,b\}</m>, <m>\{b,c\}</m>, <m>\{c,d\}</m>, dãy đỉnh <m>a, b, c, d</m> là một đường đi độ dài <m>3</m> từ <m>a</m> tới <m>d</m>, vì mỗi cặp đỉnh liên tiếp được nối bởi một cạnh.</p>
-      <p>Xem thêm <xref ref="def-simple-path" text="title" />, <xref ref="def-circuit" text="title" />, <xref ref="def-cycle" text="title" />, <xref ref="def-connected-graph" text="title" />.</p>
+      <p>Ví dụ: Khi gieo một đồng xu cân đối hai lần, gọi <m>E_1</m> là biến cố "lần gieo đầu ra mặt ngửa", <m>E_2</m> là biến cố "lần gieo thứ hai ra mặt ngửa", và <m>E_3</m> là biến cố "hai lần gieo cho kết quả giống nhau". Mỗi cặp trong ba biến cố này thỏa <m>p(E_i \cap E_j) = \frac{1}{4} = \frac{1}{2} \cdot \frac{1}{2} = p(E_i)p(E_j)</m>, nên chúng độc lập đôi một (mặc dù không độc lập tương hỗ).</p>
+      <p>Xem thêm <xref ref="def-independent-events" text="title" />, <xref ref="def-mutually-independent-events" text="title" />, <xref ref="def-event" text="title" />.</p>
     </statement>
   </definition>
-  <definition xml:id="def-planar-graph">
-    <title>planar graph (d.t.) — đồ thị phẳng</title>
-    <idx><h>planar graph</h></idx>
-    <idx><h>đồ thị không phẳng</h></idx>
-    <idx><h>đồ thị phẳng</h></idx>
+  <definition xml:id="def-pairwise-relatively-prime">
+    <title>pairwise relatively prime (d.t.) — đôi một nguyên tố cùng nhau</title>
+    <idx><h>pairwise relatively prime</h></idx>
+    <idx><h>nguyên tố cùng nhau từng đôi một</h></idx>
+    <idx><h>nguyên tố cùng nhau đôi một</h></idx>
+    <idx><h>đôi một nguyên tố cùng nhau</h></idx>
     <statement>
-      <p>Đồ thị <m>G</m> được gọi là đồ thị phẳng nếu nó có thể được vẽ trên mặt phẳng sao cho không có hai cạnh nào của nó cắt nhau, nghĩa là các cạnh chỉ gặp nhau tại đầu mút chung của chúng. Một cách vẽ như vậy được gọi là một biểu diễn phẳng của <m>G</m> (theo <xref ref="bib-rosen-2019" />, Rosen §10.7).</p>
+      <p>Các số nguyên <m>a_1, a_2, \ldots, a_n</m> được gọi là đôi một nguyên tố cùng nhau nếu mỗi cặp hai số phân biệt trong chúng là nguyên tố cùng nhau, tức là <m>\gcd(a_i, a_j) = 1</m> với mọi <m>1 \leq i  \lt  j \leq n</m> (theo <xref ref="bib-rosen-2019" />, Rosen §3.6).</p>
       <p>Thuật ngữ tiếng Việt tương ứng:</p>
       <ul>
-        <li><p><term>đồ thị phẳng</term> <xref ref="bib-leanhvinh-2020" /> (tr. 115); <xref ref="bib-nguyenhuudien-2019" /> (tr. 235); <xref ref="bib-nguyenhoangthach-2020" /> (tr. 2) — cách dùng phổ biến.</p></li>
-        <li><p><term>đồ thị không phẳng</term> <xref ref="bib-leanhvinh-2020" /> (tr. 127); <xref ref="bib-nguyenhuudien-2019" /> (tr. 233); <xref ref="bib-doantamhoe-2009" />.</p></li>
+        <li><p><term>đôi một nguyên tố cùng nhau</term> <xref ref="bib-rosen-2003-vi" /> (tr. 157); <xref ref="bib-nguyenvanmau-2007" />; <xref ref="bib-sierpinski-2012" /> (tr. 8) — cách dùng phổ biến.</p></li>
+        <li><p><term>nguyên tố cùng nhau từng đôi một</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
+        <li><p><term>nguyên tố cùng nhau đôi một</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 53).</p></li>
       </ul>
-      <p>Ví dụ: Đồ thị <m>K_4</m> là đồ thị phẳng, vì nó có thể được vẽ trên mặt phẳng với một đỉnh nằm bên trong tam giác tạo bởi ba đỉnh còn lại sao cho không có hai cạnh nào cắt nhau.</p>
-      <p>Xem thêm <xref ref="def-bipartite-graph" text="title" />, <xref ref="def-complete-graph" text="title" />, <xref ref="def-chromatic-number" text="title" />.</p>
+      <p>Ví dụ: Các số <m>10</m>, <m>17</m>, <m>21</m> là đôi một nguyên tố cùng nhau vì <m>\gcd(10,17) = \gcd(10,21) = \gcd(17,21) = 1</m>. Trong khi đó <m>10</m>, <m>19</m>, <m>24</m> không đôi một nguyên tố cùng nhau vì <m>\gcd(10,24) = 2 \neq 1</m>.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-pairwise-relatively-prime-integers">
+    <title>pairwise relatively prime integers (d.t.)</title>
+    <idx><h>pairwise relatively prime integers</h></idx>
+    <statement><p>Xem <xref ref="def-pairwise-relatively-prime" text="title" />.</p></statement>
+  </definition>
+  <definition xml:id="def-palindrome">
+    <title>palindrome (d.t.) — chuỗi đối xứng</title>
+    <idx><h>palindrome</h></idx>
+    <idx><h>chuỗi đối xứng</h></idx>
+    <idx><h>xâu đối xứng</h></idx>
+    <statement>
+      <p>Chuỗi đối xứng (palindrome) là một xâu ký tự <m>x_1 x_2 \ldots x_n</m> đọc xuôi và đọc ngược đều như nhau, tức là <m>x_i = x_{n+1-i}</m> với mọi <m>i</m> thỏa <m>1 \leq i \leq n</m> (theo <xref ref="bib-rosen-2019" />, Rosen §App. 2 (chuỗi/xâu ký tự)).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>chuỗi đối xứng</term> <em>(thuật ngữ chuẩn; chưa truy được trong kho văn bản)</em> — cách dùng phổ biến.</p></li>
+        <li><p><term>xâu đối xứng</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
+      </ul>
+      <p>Ví dụ: Các xâu <m>\texttt{racecar}</m> và <m>\texttt{level}</m> là chuỗi đối xứng, còn xâu <m>\texttt{abc}</m> thì không.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-paradox">
+    <title>paradox (d.t.) — nghịch lý</title>
+    <idx><h>paradox</h></idx>
+    <idx><h>nghịch lý</h></idx>
+    <statement>
+      <p>Nghịch lý là một mệnh đề hoặc lập luận tự dẫn đến mâu thuẫn logic, tức là vừa đúng vừa sai. Một ví dụ kinh điển là nghịch lý Russell, xét tập hợp <m>S = \{x \mid x \notin x\}</m> gồm mọi tập hợp không là phần tử của chính nó; khi đó câu hỏi liệu <m>S \in S</m> hay <m>S \notin S</m> đều dẫn đến mâu thuẫn (theo <xref ref="bib-rosen-2019" />, Rosen §2.1).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>nghịch lý</term> <xref ref="bib-doducthai-2010" /> (tr. 4); <xref ref="bib-cormen-2001-vi" /> (tr. 123); <xref ref="bib-nguyenhuuanh-2007" />; <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 16) — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Nghịch lý Russell: với <m>S = \{x \mid x \notin x\}</m>, nếu <m>S \in S</m> thì theo định nghĩa <m>S \notin S</m>, còn nếu <m>S \notin S</m> thì <m>S</m> thỏa điều kiện của <m>S</m> nên <m>S \in S</m>. Cả hai trường hợp đều mâu thuẫn.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-parent">
+    <title>parent (d.t.) — đỉnh cha</title>
+    <idx><h>parent</h></idx>
+    <idx><h>đỉnh cha</h></idx>
+    <statement>
+      <p>Đỉnh cha của một đỉnh <m>v</m> (khác gốc) trong một cây có gốc <m>T</m> là đỉnh duy nhất <m>u</m> sao cho có một cạnh có hướng đi từ <m>u</m> đến <m>v</m>. Mỗi đỉnh khác gốc có duy nhất một đỉnh cha (theo <xref ref="bib-rosen-2019" />, Rosen §10.1).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>đỉnh cha</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 83); <xref ref="bib-nguyenhuudien-2019" /> (tr. 252); <xref ref="bib-leanhvinh-2020" /> (tr. 129) — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Trong cây có gốc <m>a</m> ở Hình 5 của Rosen, đỉnh cha của <m>c</m> là <m>b</m>.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-parity">
+    <title>parity (d.t.) — tính chẵn lẻ</title>
+    <idx><h>parity</h></idx>
+    <idx><h>tính chẵn lẻ</h></idx>
+    <statement>
+      <p><em>Tính chẵn lẻ</em> của một số nguyên là việc nó là số chẵn hay số lẻ. Hai số nguyên <em>cùng tính chẵn lẻ</em> nếu cả hai cùng chẵn hoặc cùng lẻ, và <em>khác tính chẵn lẻ</em> nếu một số chẵn còn số kia lẻ. Tương đương, hai số nguyên cùng tính chẵn lẻ khi và chỉ khi hiệu của chúng là số chẵn (theo <xref ref="bib-libennowell-2022" />).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>tính chẵn lẻ</term> <xref ref="bib-cormen-2001-vi" />; <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-hoangchithanh-2007" />; <xref ref="bib-hoangchithanh-2011" />; <xref ref="bib-leanhvinh-2020" />; <xref ref="bib-ngodactan-2004" />; <xref ref="bib-nguyenhuuanh-2007" />; <xref ref="bib-nguyenhuudien-2019" />; <xref ref="bib-phan-1976" /> (tr. 46); <xref ref="bib-sierpinski-2012" />; <xref ref="bib-vudinhhoa-2003" /> — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: <m>4</m> và <m>10</m> cùng tính chẵn lẻ (đều chẵn); <m>4</m> và <m>7</m> khác tính chẵn lẻ.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-partial-fraction-decomposition">
+    <title>partial fraction decomposition (d.t.) — phân tích thành phân thức đơn giản</title>
+    <idx><h>partial fraction decomposition</h></idx>
+    <idx><h>phân thức đơn giản</h></idx>
+    <idx><h>phân tích phân thức thành tổng của các phân thức</h></idx>
+    <idx><h>phân tích thành phân thức đơn giản</h></idx>
+    <idx><h>phép tách phân thức</h></idx>
+    <statement>
+      <p>Phân tích thành phân số riêng là cách biểu diễn một phân thức hữu tỉ thành tổng của các phân thức đơn giản hơn có mẫu số là lũy thừa của các đa thức bất khả quy. Trong tổ hợp, kỹ thuật này được dùng để khai triển hàm sinh <m>\dfrac{p(x)}{q(x)}</m> thành tổng các phân thức dạng <m>\dfrac{A}{(1 - \alpha x)^k}</m> nhằm tìm hệ số của chuỗi lũy thừa (theo <xref ref="bib-rosen-2019" />, Rosen §8.4).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>phân tích thành phân thức đơn giản</term> <em>(thuật ngữ chuẩn; chưa truy được trong kho văn bản)</em> — cách dùng phổ biến.</p></li>
+        <li><p><term>phân thức đơn giản</term> <xref ref="bib-ngodactan-2004" /> (tr. 89); <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 164).</p></li>
+        <li><p><term>phân tích phân thức thành tổng của các phân thức</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
+        <li><p><term>phép tách phân thức</term> <xref ref="bib-nguyenducnghia-2006" />.</p></li>
+      </ul>
+      <p>Ví dụ: Để tìm hệ số trong khai triển của <m>\dfrac{1}{(1 - x)(1 - 2x)}</m>, ta phân tích thành phân số riêng <m>\dfrac{1}{(1 - x)(1 - 2x)} = \dfrac{-1}{1 - x} + \dfrac{2}{1 - 2x}</m>, từ đó hệ số của <m>x^n</m> bằng <m>2^{n+1} - 1</m>.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-partial-function">
+    <title>partial function (d.t.) — hàm bộ phận</title>
+    <idx><h>partial function</h></idx>
+    <idx><h>hàm bộ phận</h></idx>
+    <idx><h>hàm riêng phần</h></idx>
+    <idx><h>hàm từng phần</h></idx>
+    <statement>
+      <p>Hàm bộ phận <m>f</m> từ tập <m>A</m> đến tập <m>B</m> là phép gán cho mỗi phần tử <m>a</m> thuộc một tập con của <m>A</m>, gọi là miền xác định của <m>f</m>, nhiều nhất một phần tử <m>b</m> thuộc <m>B</m>. Nói cách khác, mỗi phần tử của <m>A</m> được gán không quá một phần tử của <m>B</m>, nên <m>f</m> có thể không xác định tại một số phần tử của <m>A</m> (theo <xref ref="bib-rosen-2019" />, Rosen §1.8).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>hàm bộ phận</term> <xref ref="bib-rosen-2003-vi" /> (tr. 96); <xref ref="bib-rosen-2003-vi" /> (tr. 96); <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 200) — cách dùng phổ biến.</p></li>
+        <li><p><term>hàm riêng phần</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
+        <li><p><term>hàm từng phần</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
+      </ul>
+      <p>Ví dụ: Cho <m>f : \mathbb{Z} \rightharpoonup \mathbb{R}</m> với <m>f(n) = \sqrt{n}</m>. Đây là một hàm bộ phận từ <m>\mathbb{Z}</m> đến <m>\mathbb{R}</m> vì <m>f</m> không xác định khi <m>n  \lt  0</m>; miền xác định của nó là tập các số nguyên không âm. Một hàm bộ phận xác định tại mọi phần tử của <m>A</m> được gọi là hàm toàn phần.</p>
+      <p>Xem thêm <xref ref="def-function" text="title" />, <xref ref="def-domain" text="title" />, <xref ref="def-codomain" text="title" />.</p>
     </statement>
   </definition>
   <definition xml:id="def-partial-order">
@@ -58,6 +159,12 @@
       <p>Ví dụ: Xét tập <m>S = \{1, 2, 3\}</m> và quan hệ "chia hết" <m>\preceq</m> trên <m>S</m>, trong đó <m>a \preceq b</m> khi và chỉ khi <m>a</m> chia hết <m>b</m>. Quan hệ này là một quan hệ thứ tự bộ phận: nó phản xạ vì mỗi số chia hết chính nó, phản đối xứng vì <m>a \mid b</m> và <m>b \mid a</m> kéo theo <m>a = b</m> với <m>a, b</m> nguyên dương, và bắc cầu vì <m>a \mid b</m> cùng <m>b \mid c</m> kéo theo <m>a \mid c</m>.</p>
       <p>Xem thêm <xref ref="def-total-order" text="title" />, <xref ref="def-binary-relation" text="title" />, <xref ref="def-poset" text="title" />, <xref ref="def-order-relation" text="title" />, <xref ref="def-reflexive-relation" text="title" />, <xref ref="def-antisymmetric-relation" text="title" />, <xref ref="def-transitive-relation" text="title" />.</p>
     </statement>
+  </definition>
+  <definition xml:id="def-partial-ordering">
+    <title>partial ordering (d.t.) — quan hệ thứ tự bộ phận</title>
+    <idx><h>partial ordering</h></idx>
+    <idx><h>quan hệ thứ tự bộ phận</h></idx>
+    <statement><p>Xem <xref ref="def-partial-order" text="title" />.</p></statement>
   </definition>
   <definition xml:id="def-partition">
     <title>partition of a set (d.t.) — phân hoạch</title>
@@ -88,6 +195,35 @@
       </ul>
       <p>Ví dụ: Hàng <m>n = 4</m> của tam giác Pascal gồm các phần tử <m>\binom{4}{0}, \binom{4}{1}, \binom{4}{2}, \binom{4}{3}, \binom{4}{4}</m>, tức <m>1, 4, 6, 4, 1</m>; chẳng hạn phần tử bên trong <m>\binom{4}{2} = 6</m> bằng tổng <m>\binom{3}{1} + \binom{3}{2} = 3 + 3</m> của hai phần tử ngay phía trên nó.</p>
       <p>Xem thêm <xref ref="def-binomial-coefficient" text="title" />, <xref ref="def-binomial-theorem" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-path">
+    <title>path (d.t.) — đường đi</title>
+    <idx><h>path</h></idx>
+    <idx><h>đường đi</h></idx>
+    <statement>
+      <p>Một đường đi độ dài <m>n</m> từ đỉnh <m>u</m> tới đỉnh <m>v</m> trong đồ thị <m>G</m> là một dãy gồm <m>n</m> cạnh nối tiếp một dãy đỉnh <m>u = v_0, v_1, \ldots, v_n = v</m>, trong đó mỗi cạnh nối hai đỉnh liên tiếp <m>v_{i-1}</m> và <m>v_i</m> của dãy với mọi <m>1 \leq i \leq n</m>. Số <m>n</m> được gọi là độ dài của đường đi (theo <xref ref="bib-rosen-2019" />, Rosen §10.4).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>đường đi</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 71); <xref ref="bib-leanhvinh-2020" /> (tr. 16); <xref ref="bib-nguyenhuudien-2019" /> (tr. 168); <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 321) — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Trong đồ thị với các cạnh <m>\{a,b\}</m>, <m>\{b,c\}</m>, <m>\{c,d\}</m>, dãy đỉnh <m>a, b, c, d</m> là một đường đi độ dài <m>3</m> từ <m>a</m> tới <m>d</m>, vì mỗi cặp đỉnh liên tiếp được nối bởi một cạnh.</p>
+      <p>Xem thêm <xref ref="def-simple-path" text="title" />, <xref ref="def-circuit" text="title" />, <xref ref="def-cycle" text="title" />, <xref ref="def-connected-graph" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-pendant-vertex">
+    <title>pendant vertex (d.t.) — đỉnh treo</title>
+    <idx><h>pendant vertex</h></idx>
+    <idx><h>đỉnh lá</h></idx>
+    <idx><h>đỉnh treo</h></idx>
+    <statement>
+      <p>Đỉnh treo của một đồ thị <m>G</m> là một đỉnh có bậc đúng bằng <m>1</m>, tức là <m>\deg_G(v) = 1</m>. Cạnh duy nhất kề với một đỉnh treo được gọi là cạnh treo (theo <xref ref="bib-rosen-2019" />, Rosen §10.2).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>đỉnh treo</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 157); <xref ref="bib-nguyenhoangthach-2020" /> (tr. 62); <xref ref="bib-hoangchithanh-2011" /> — cách dùng phổ biến.</p></li>
+        <li><p><term>đỉnh lá</term> <xref ref="bib-leanhvinh-2020" /> (tr. 17); <xref ref="bib-nguyenhoangthach-2020" /> (tr. 63); <xref ref="bib-nguyenhuudien-2019" /> (tr. 28).</p></li>
+      </ul>
+      <p>Ví dụ: Trong đồ thị sao <m>K_{1,n}</m> với đỉnh tâm <m>s</m> có bậc <m>n</m>, mọi đỉnh còn lại đều là đỉnh treo vì mỗi đỉnh đó có bậc <m>1</m>.</p>
     </statement>
   </definition>
   <definition xml:id="def-perfect-matching">
@@ -132,111 +268,6 @@
       <p>Xem thêm <xref ref="def-combination" text="title" />, <xref ref="def-r-combination" text="title" />, <xref ref="def-the-product-rule" text="title" />.</p>
     </statement>
   </definition>
-  <definition xml:id="def-pigeonhole-principle">
-    <title>pigeonhole principle (d.t.) — nguyên lý Dirichlet, nguyên lý chuồng bồ câu, nguyên lý ngăn khéo</title>
-    <idx><h>pigeonhole principle</h></idx>
-    <idx><h>nguyên lý Dirichlet</h></idx>
-    <idx><h>nguyên lý chuồng bồ câu</h></idx>
-    <idx><h>nguyên lý ngăn khéo</h></idx>
-    <statement><p>Xem <xref ref="def-the-pigeonhole-principle" text="title" />.</p></statement>
-  </definition>
-  <definition xml:id="def-poset">
-    <title>poset (partially ordered set) (d.t.) — tập hợp có thứ tự</title>
-    <idx><h>poset (partially ordered set)</h></idx>
-    <idx><h>tập có thứ tự bộ phận</h></idx>
-    <idx><h>tập hợp có thứ tự</h></idx>
-    <idx><h>tập hợp sắp thứ tự một phần</h></idx>
-    <idx><h>tập được sắp bộ phận</h></idx>
-    <idx><h>tập được sắp thứ tự bộ phận</h></idx>
-    <statement>
-      <p>Một <em>tập hợp có thứ tự</em> (poset) là một tập hợp <m>S</m> cùng với một quan hệ thứ tự bộ phận <m>\preceq</m> trên <m>S</m>, tức là quan hệ có tính phản xạ, phản đối xứng và bắc cầu. Tập hợp có thứ tự này được ký hiệu là <m>(S, \preceq)</m> (theo <xref ref="bib-rosen-2019" />, Rosen §9.6).</p>
-      <p>Thuật ngữ tiếng Việt tương ứng:</p>
-      <ul>
-        <li><p><term>tập hợp có thứ tự</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 119); <xref ref="bib-nguyenvanmau-2007" />; <xref ref="bib-nguyenhuuanh-2007" />; <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 384) — cách dùng phổ biến.</p></li>
-        <li><p><term>tập có thứ tự bộ phận</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
-        <li><p><term>tập hợp sắp thứ tự một phần</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
-        <li><p><term>tập được sắp bộ phận</term> <xref ref="bib-ngodactan-2004" /> (tr. 164).</p></li>
-        <li><p><term>tập được sắp thứ tự bộ phận</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
-      </ul>
-      <p>Ví dụ: Tập hợp các số nguyên dương <m>S = \{1, 2, 3, \dots\}</m> cùng với quan hệ chia hết <m>\preceq</m>, trong đó <m>a \preceq b</m> khi và chỉ khi <m>a</m> chia hết <m>b</m>, là một tập hợp có thứ tự <m>(S, \preceq)</m>.</p>
-      <p>Xem thêm <xref ref="def-partial-order" text="title" />, <xref ref="def-hasse-diagram" text="title" />, <xref ref="def-lattice" text="title" />, <xref ref="def-total-order" text="title" />, <xref ref="def-relation" text="title" />.</p>
-    </statement>
-  </definition>
-  <definition xml:id="def-power-set">
-    <title>power set (d.t.) — tập luỹ thừa</title>
-    <idx><h>power set</h></idx>
-    <idx><h>tập luỹ thừa</h></idx>
-    <statement>
-      <p>Tập lũy thừa của một tập <m>S</m>, ký hiệu <m>\mathcal{P}(S)</m>, là tập gồm tất cả các tập con của <m>S</m>. Nói cách khác, <m>\mathcal{P}(S) = \{X : X \subseteq S\}</m> (theo <xref ref="bib-rosen-2019" />, Rosen §2.1).</p>
-      <p>Thuật ngữ tiếng Việt tương ứng:</p>
-      <ul>
-        <li><p><term>tập luỹ thừa</term> <xref ref="bib-ngodactan-2004" /> (tr. 164); <xref ref="bib-rosen-2003-vi" /> (tr. 59); <xref ref="bib-doducgiao-2009" /> (tr. 279) — cách dùng phổ biến.</p></li>
-      </ul>
-      <p>Ví dụ: Với <m>X = \{1, 2, 3\}</m>, tập lũy thừa của <m>X</m> là <m>\mathcal{P}(X) = \{\emptyset, \{1\}, \{2\}, \{3\}, \{1,2\}, \{1,3\}, \{2,3\}, \{1,2,3\}\}</m>.</p>
-      <p>Xem thêm <xref ref="def-subset" text="title" />.</p>
-    </statement>
-  </definition>
-  <definition xml:id="def-predicate">
-    <title>predicate (d.t.) — vị từ</title>
-    <idx><h>predicate</h></idx>
-    <idx><h>vị từ</h></idx>
-    <statement>
-      <p>Một vị từ, ký hiệu <m>P(x)</m>, là một phát biểu phụ thuộc vào các biến lấy giá trị trên các miền xác định cho trước, sao cho khi mỗi biến được gán một giá trị cụ thể thuộc miền của nó thì <m>P(x)</m> trở thành một mệnh đề có giá trị chân lý xác định (theo <xref ref="bib-rosen-2019" />, Rosen §1.4).</p>
-      <p>Thuật ngữ tiếng Việt tương ứng:</p>
-      <ul>
-        <li><p><term>vị từ</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 46) — cách dùng phổ biến.</p></li>
-      </ul>
-      <p>Ví dụ: Xét vị từ <m>P(x)</m> là phát biểu "<m>x  \gt  3</m>" với biến <m>x</m> lấy giá trị trên tập số nguyên. Khi gán <m>x = 4</m>, ta được mệnh đề <m>P(4)</m> là "<m>4  \gt  3</m>", có giá trị chân lý đúng; khi gán <m>x = 2</m>, ta được mệnh đề <m>P(2)</m> là "<m>2  \gt  3</m>", có giá trị chân lý sai.</p>
-      <p>Xem thêm <xref ref="def-domain-of-discourse" text="title" />, <xref ref="def-proposition" text="title" />, <xref ref="def-quantifier" text="title" />, <xref ref="def-universal-quantifier" text="title" />.</p>
-    </statement>
-  </definition>
-  <definition xml:id="def-prime-number">
-    <title>prime number (d.t.) — số nguyên tố</title>
-    <idx><h>prime number</h></idx>
-    <idx><h>nguyên tố</h></idx>
-    <idx><h>số nguyên tố</h></idx>
-    <statement>
-      <p>Một số nguyên <m>p  \gt  1</m> được gọi là số nguyên tố nếu các ước nguyên dương duy nhất của <m>p</m> là <m>1</m> và <m>p</m> (theo <xref ref="bib-rosen-2019" />, Rosen §4.3).</p>
-      <p>Thuật ngữ tiếng Việt tương ứng:</p>
-      <ul>
-        <li><p><term>số nguyên tố</term> <xref ref="bib-leanhvinh-2020" /> (tr. 191); <xref ref="bib-nguyenhuudien-2019" /> (tr. 40); <xref ref="bib-sierpinski-2012" />; <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 257) — cách dùng phổ biến.</p></li>
-        <li><p><term>nguyên tố</term> <xref ref="bib-leanhvinh-2020" /> (tr. 180); <xref ref="bib-nguyenhoangthach-2020" /> (tr. 53); <xref ref="bib-nguyenhuudien-2019" /> (tr. 14); <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 87).</p></li>
-      </ul>
-      <p>Ví dụ: Số <m>23</m> là số nguyên tố vì các ước nguyên dương duy nhất của nó là <m>1</m> và <m>23</m>, trong khi <m>6</m> không phải là số nguyên tố vì <m>6 = 2 \cdot 3</m>.</p>
-    </statement>
-  </definition>
-  <definition xml:id="def-proposition">
-    <title>proposition (d.t.) — mệnh đề</title>
-    <idx><h>proposition</h></idx>
-    <idx><h>mệnh đề</h></idx>
-    <idx><h>mệnh đề toán học</h></idx>
-    <statement>
-      <p>Một <em>mệnh đề</em> là một câu khẳng định nhận đúng một trong hai giá trị đúng hoặc sai, không thể đồng thời vừa đúng vừa sai. Giá trị đúng hoặc sai của một mệnh đề được gọi là <em>chân trị</em> của nó, thường ký hiệu <m>T</m> (true) cho đúng và <m>F</m> (false) cho sai (theo <xref ref="bib-rosen-2019" />, Rosen §1.1).</p>
-      <p>Thuật ngữ tiếng Việt tương ứng:</p>
-      <ul>
-        <li><p><term>mệnh đề</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 14); <xref ref="bib-nguyenhoangthach-2020" /> (tr. 18); <xref ref="bib-sierpinski-2012" /> (tr. 9); <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 9) — cách dùng phổ biến.</p></li>
-        <li><p><term>mệnh đề toán học</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 14); <xref ref="bib-nguyenvanmau-2007" />; <xref ref="bib-vovantuandung-2007" />.</p></li>
-      </ul>
-      <p>Ví dụ: Câu "<m>1 + 1 = 2</m>" là một mệnh đề có chân trị <m>T</m>, còn câu "<m>2</m> là số lẻ" là một mệnh đề có chân trị <m>F</m>. Ngược lại, câu "<m>x + 1 = 2</m>" không phải là mệnh đề vì chân trị của nó phụ thuộc vào giá trị của <m>x</m>.</p>
-      <p>Xem thêm <xref ref="def-compound-proposition" text="title" />, <xref ref="def-predicate" text="title" />, <xref ref="def-tautology" text="title" />, <xref ref="def-truth-value" text="title" />.</p>
-    </statement>
-  </definition>
-  <definition xml:id="def-pseudograph">
-    <title>pseudograph (d.t.) — giả đồ thị</title>
-    <idx><h>pseudograph</h></idx>
-    <idx><h>giả đồ thị</h></idx>
-    <idx><h>đa đồ thị có khuyên</h></idx>
-    <statement>
-      <p>Một <em>giả đồ thị</em> là một đồ thị vô hướng <m>G</m> trong đó cho phép có nhiều cạnh nối cùng một cặp đỉnh, đồng thời cho phép có khuyên, tức là cạnh nối một đỉnh với chính nó. Đây là loại đồ thị vô hướng tổng quát nhất, vì nó có thể chứa cả cạnh bội lẫn khuyên (theo <xref ref="bib-rosen-2019" />, Rosen §10.1).</p>
-      <p>Thuật ngữ tiếng Việt tương ứng:</p>
-      <ul>
-        <li><p><term>giả đồ thị</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 155); <xref ref="bib-doducgiao-2009" /> (tr. 95); <xref ref="bib-doducgiao-2008" /> (tr. 193) — cách dùng phổ biến.</p></li>
-        <li><p><term>đa đồ thị có khuyên</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 60); <xref ref="bib-doducgiao-2009" /> (tr. 96).</p></li>
-      </ul>
-      <p>Ví dụ: Xét đồ thị vô hướng trên tập đỉnh <m>\{a, b, c\}</m> gồm hai cạnh nối <m>a</m> với <m>b</m>, một cạnh nối <m>b</m> với <m>c</m>, và một khuyên tại <m>c</m>. Vì có cặp đỉnh được nối bởi hai cạnh và có một cạnh nối <m>c</m> với chính nó, đồ thị này là một giả đồ thị.</p>
-      <p>Xem thêm <xref ref="def-multigraph" text="title" />, <xref ref="def-simple-graph" text="title" />, <xref ref="def-loop" text="title" />, <xref ref="def-multiple-edges" text="title" />, <xref ref="def-undirected-graph" text="title" />.</p>
-    </statement>
-  </definition>
   <definition xml:id="def-petersen-graph">
     <title>Petersen graph (d.t.) — đồ thị Petersen</title>
     <idx><h>Petersen graph</h></idx>
@@ -251,97 +282,31 @@
       <p>Xem thêm <xref ref="def-regular-graph" text="title" />, <xref ref="def-graph-coloring" text="title" />.</p>
     </statement>
   </definition>
-  <definition xml:id="def-pairwise-relatively-prime">
-    <title>pairwise relatively prime (d.t.) — đôi một nguyên tố cùng nhau</title>
-    <idx><h>pairwise relatively prime</h></idx>
-    <idx><h>nguyên tố cùng nhau từng đôi một</h></idx>
-    <idx><h>nguyên tố cùng nhau đôi một</h></idx>
-    <idx><h>đôi một nguyên tố cùng nhau</h></idx>
+  <definition xml:id="def-phrase-structure-grammar">
+    <title>phrase-structure grammar (d.t.) — văn phạm cấu trúc câu</title>
+    <idx><h>phrase-structure grammar</h></idx>
+    <idx><h>văn phạm cấu trúc câu</h></idx>
+    <idx><h>văn phạm cấu trúc ngữ đoạn</h></idx>
+    <idx><h>văn phạm ngữ cấu</h></idx>
     <statement>
-      <p>Các số nguyên <m>a_1, a_2, \ldots, a_n</m> được gọi là đôi một nguyên tố cùng nhau nếu mỗi cặp hai số phân biệt trong chúng là nguyên tố cùng nhau, tức là <m>\gcd(a_i, a_j) = 1</m> với mọi <m>1 \leq i  \lt  j \leq n</m> (theo <xref ref="bib-rosen-2019" />, Rosen §3.6).</p>
+      <p>Một văn phạm cấu trúc câu mô tả một ngôn ngữ thông qua một bộ từ vựng, các ký hiệu kết thúc, một ký hiệu xuất phát và các quy tắc sản xuất. Cụ thể, một văn phạm cấu trúc câu <m>G = (V, T, S, P)</m> gồm một từ vựng <m>V</m>, một tập con <m>T \subseteq V</m> các ký hiệu kết thúc, một ký hiệu xuất phát <m>S \in V</m> và một tập hợp <m>P</m> các quy tắc sản xuất (theo <xref ref="bib-rosen-2019" />, Rosen §11.4).</p>
       <p>Thuật ngữ tiếng Việt tương ứng:</p>
       <ul>
-        <li><p><term>đôi một nguyên tố cùng nhau</term> <xref ref="bib-rosen-2003-vi" /> (tr. 157); <xref ref="bib-nguyenvanmau-2007" />; <xref ref="bib-sierpinski-2012" /> (tr. 8) — cách dùng phổ biến.</p></li>
-        <li><p><term>nguyên tố cùng nhau từng đôi một</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
-        <li><p><term>nguyên tố cùng nhau đôi một</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 53).</p></li>
+        <li><p><term>văn phạm cấu trúc câu</term> <xref ref="bib-rosen-2003-vi" /> (tr. 770); <xref ref="bib-doducgiao-2009" /> (tr. 8) — cách dùng phổ biến.</p></li>
+        <li><p><term>văn phạm cấu trúc ngữ đoạn</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
+        <li><p><term>văn phạm ngữ cấu</term> <xref ref="bib-doducgiao-2000" /> (tr. 218); <xref ref="bib-doducgiao-2009" /> (tr. 8); <xref ref="bib-doducgiao-2008" /> (tr. 302).</p></li>
       </ul>
-      <p>Ví dụ: Các số <m>10</m>, <m>17</m>, <m>21</m> là đôi một nguyên tố cùng nhau vì <m>\gcd(10,17) = \gcd(10,21) = \gcd(17,21) = 1</m>. Trong khi đó <m>10</m>, <m>19</m>, <m>24</m> không đôi một nguyên tố cùng nhau vì <m>\gcd(10,24) = 2 \neq 1</m>.</p>
+      <p>Ví dụ: Văn phạm <m>G = (V, T, S, P)</m> với từ vựng <m>V = \{S, A, a, b\}</m>, các ký hiệu kết thúc <m>T = \{a, b\}</m>, ký hiệu xuất phát <m>S</m> và các quy tắc sản xuất <m>P = \{S \to aA,\ A \to b\}</m> sinh ra ngôn ngữ <m>L(G) = \{ab\}</m>.</p>
+      <p>Xem thêm <xref ref="def-alphabet" text="title" />, <xref ref="def-string" text="title" />, <xref ref="def-empty-string" text="title" />.</p>
     </statement>
   </definition>
-  <definition xml:id="def-palindrome">
-    <title>palindrome (d.t.) — chuỗi đối xứng</title>
-    <idx><h>palindrome</h></idx>
-    <idx><h>chuỗi đối xứng</h></idx>
-    <idx><h>xâu đối xứng</h></idx>
-    <statement>
-      <p>Chuỗi đối xứng (palindrome) là một xâu ký tự <m>x_1 x_2 \ldots x_n</m> đọc xuôi và đọc ngược đều như nhau, tức là <m>x_i = x_{n+1-i}</m> với mọi <m>i</m> thỏa <m>1 \leq i \leq n</m> (theo <xref ref="bib-rosen-2019" />, Rosen §App. 2 (chuỗi/xâu ký tự)).</p>
-      <p>Thuật ngữ tiếng Việt tương ứng:</p>
-      <ul>
-        <li><p><term>chuỗi đối xứng</term> <em>(thuật ngữ chuẩn; chưa truy được trong kho văn bản)</em> — cách dùng phổ biến.</p></li>
-        <li><p><term>xâu đối xứng</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
-      </ul>
-      <p>Ví dụ: Các xâu <m>\texttt{racecar}</m> và <m>\texttt{level}</m> là chuỗi đối xứng, còn xâu <m>\texttt{abc}</m> thì không.</p>
-    </statement>
-  </definition>
-  <definition xml:id="def-paradox">
-    <title>paradox (d.t.) — nghịch lý</title>
-    <idx><h>paradox</h></idx>
-    <idx><h>nghịch lý</h></idx>
-    <statement>
-      <p>Nghịch lý là một mệnh đề hoặc lập luận tự dẫn đến mâu thuẫn logic, tức là vừa đúng vừa sai. Một ví dụ kinh điển là nghịch lý Russell, xét tập hợp <m>S = \{x \mid x \notin x\}</m> gồm mọi tập hợp không là phần tử của chính nó; khi đó câu hỏi liệu <m>S \in S</m> hay <m>S \notin S</m> đều dẫn đến mâu thuẫn (theo <xref ref="bib-rosen-2019" />, Rosen §2.1).</p>
-      <p>Thuật ngữ tiếng Việt tương ứng:</p>
-      <ul>
-        <li><p><term>nghịch lý</term> <xref ref="bib-doducthai-2010" /> (tr. 4); <xref ref="bib-cormen-2001-vi" /> (tr. 123); <xref ref="bib-nguyenhuuanh-2007" />; <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 16) — cách dùng phổ biến.</p></li>
-      </ul>
-      <p>Ví dụ: Nghịch lý Russell: với <m>S = \{x \mid x \notin x\}</m>, nếu <m>S \in S</m> thì theo định nghĩa <m>S \notin S</m>, còn nếu <m>S \notin S</m> thì <m>S</m> thỏa điều kiện của <m>S</m> nên <m>S \in S</m>. Cả hai trường hợp đều mâu thuẫn.</p>
-    </statement>
-  </definition>
-  <definition xml:id="def-parent">
-    <title>parent (d.t.) — đỉnh cha</title>
-    <idx><h>parent</h></idx>
-    <idx><h>đỉnh cha</h></idx>
-    <statement>
-      <p>Đỉnh cha của một đỉnh <m>v</m> (khác gốc) trong một cây có gốc <m>T</m> là đỉnh duy nhất <m>u</m> sao cho có một cạnh có hướng đi từ <m>u</m> đến <m>v</m>. Mỗi đỉnh khác gốc có duy nhất một đỉnh cha (theo <xref ref="bib-rosen-2019" />, Rosen §10.1).</p>
-      <p>Thuật ngữ tiếng Việt tương ứng:</p>
-      <ul>
-        <li><p><term>đỉnh cha</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 83); <xref ref="bib-nguyenhuudien-2019" /> (tr. 252); <xref ref="bib-leanhvinh-2020" /> (tr. 129) — cách dùng phổ biến.</p></li>
-      </ul>
-      <p>Ví dụ: Trong cây có gốc <m>a</m> ở Hình 5 của Rosen, đỉnh cha của <m>c</m> là <m>b</m>.</p>
-    </statement>
-  </definition>
-  <definition xml:id="def-partial-fraction-decomposition">
-    <title>partial fraction decomposition (d.t.) — phân tích thành phân thức đơn giản</title>
-    <idx><h>partial fraction decomposition</h></idx>
-    <idx><h>phân thức đơn giản</h></idx>
-    <idx><h>phân tích phân thức thành tổng của các phân thức</h></idx>
-    <idx><h>phân tích thành phân thức đơn giản</h></idx>
-    <idx><h>phép tách phân thức</h></idx>
-    <statement>
-      <p>Phân tích thành phân số riêng là cách biểu diễn một phân thức hữu tỉ thành tổng của các phân thức đơn giản hơn có mẫu số là lũy thừa của các đa thức bất khả quy. Trong tổ hợp, kỹ thuật này được dùng để khai triển hàm sinh <m>\dfrac{p(x)}{q(x)}</m> thành tổng các phân thức dạng <m>\dfrac{A}{(1 - \alpha x)^k}</m> nhằm tìm hệ số của chuỗi lũy thừa (theo <xref ref="bib-rosen-2019" />, Rosen §8.4).</p>
-      <p>Thuật ngữ tiếng Việt tương ứng:</p>
-      <ul>
-        <li><p><term>phân tích thành phân thức đơn giản</term> <em>(thuật ngữ chuẩn; chưa truy được trong kho văn bản)</em> — cách dùng phổ biến.</p></li>
-        <li><p><term>phân thức đơn giản</term> <xref ref="bib-ngodactan-2004" /> (tr. 89); <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 164).</p></li>
-        <li><p><term>phân tích phân thức thành tổng của các phân thức</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
-        <li><p><term>phép tách phân thức</term> <xref ref="bib-nguyenducnghia-2006" />.</p></li>
-      </ul>
-      <p>Ví dụ: Để tìm hệ số trong khai triển của <m>\dfrac{1}{(1 - x)(1 - 2x)}</m>, ta phân tích thành phân số riêng <m>\dfrac{1}{(1 - x)(1 - 2x)} = \dfrac{-1}{1 - x} + \dfrac{2}{1 - 2x}</m>, từ đó hệ số của <m>x^n</m> bằng <m>2^{n+1} - 1</m>.</p>
-    </statement>
-  </definition>
-  <definition xml:id="def-pendant-vertex">
-    <title>pendant vertex (d.t.) — đỉnh treo</title>
-    <idx><h>pendant vertex</h></idx>
-    <idx><h>đỉnh lá</h></idx>
-    <idx><h>đỉnh treo</h></idx>
-    <statement>
-      <p>Đỉnh treo của một đồ thị <m>G</m> là một đỉnh có bậc đúng bằng <m>1</m>, tức là <m>\deg_G(v) = 1</m>. Cạnh duy nhất kề với một đỉnh treo được gọi là cạnh treo (theo <xref ref="bib-rosen-2019" />, Rosen §10.2).</p>
-      <p>Thuật ngữ tiếng Việt tương ứng:</p>
-      <ul>
-        <li><p><term>đỉnh treo</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 157); <xref ref="bib-nguyenhoangthach-2020" /> (tr. 62); <xref ref="bib-hoangchithanh-2011" /> — cách dùng phổ biến.</p></li>
-        <li><p><term>đỉnh lá</term> <xref ref="bib-leanhvinh-2020" /> (tr. 17); <xref ref="bib-nguyenhoangthach-2020" /> (tr. 63); <xref ref="bib-nguyenhuudien-2019" /> (tr. 28).</p></li>
-      </ul>
-      <p>Ví dụ: Trong đồ thị sao <m>K_{1,n}</m> với đỉnh tâm <m>s</m> có bậc <m>n</m>, mọi đỉnh còn lại đều là đỉnh treo vì mỗi đỉnh đó có bậc <m>1</m>.</p>
-    </statement>
+  <definition xml:id="def-pigeonhole-principle">
+    <title>pigeonhole principle (d.t.) — nguyên lý Dirichlet, nguyên lý chuồng bồ câu, nguyên lý ngăn khéo</title>
+    <idx><h>pigeonhole principle</h></idx>
+    <idx><h>nguyên lý Dirichlet</h></idx>
+    <idx><h>nguyên lý chuồng bồ câu</h></idx>
+    <idx><h>nguyên lý ngăn khéo</h></idx>
+    <statement><p>Xem <xref ref="def-the-pigeonhole-principle" text="title" />.</p></statement>
   </definition>
   <definition xml:id="def-pivot">
     <title>pivot (d.t.) — chốt</title>
@@ -356,6 +321,36 @@
         <li><p><term>phần tử chốt</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
       </ul>
       <p>Ví dụ: Trong thuật toán sắp xếp nhanh trên danh sách <m>3, 5, 1, 4, 2</m>, nếu chọn chốt là phần tử đầu tiên <m>3</m> thì danh sách được tách thành phần <m>1, 2</m> gồm các phần tử nhỏ hơn <m>3</m> và phần <m>5, 4</m> gồm các phần tử lớn hơn <m>3</m>.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-plaintext">
+    <title>plaintext (d.t.) — bản rõ</title>
+    <idx><h>plaintext</h></idx>
+    <idx><h>bản rõ</h></idx>
+    <statement>
+      <p><em>Bản rõ</em> là thông điệp gốc, ở dạng đọc được và chưa mã hóa, mà người gửi muốn truyền đi một cách bí mật. Qua một phép mã hóa, bản rõ được biến đổi thành bản mã trước khi gửi (theo <xref ref="bib-libennowell-2022" />).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>bản rõ</term> <em>(thuật ngữ chuẩn; chưa truy được trong kho văn bản)</em> — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Với mã Caesar dịch ba vị trí, bản rõ <m>\texttt{HELLO}</m> được mã hóa thành bản mã <m>\texttt{KHOOR}</m>.</p>
+      <p>Xem thêm <xref ref="def-ciphertext" text="title" />, <xref ref="def-public-key" text="title" />, <xref ref="def-private-key" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-planar-graph">
+    <title>planar graph (d.t.) — đồ thị phẳng</title>
+    <idx><h>planar graph</h></idx>
+    <idx><h>đồ thị không phẳng</h></idx>
+    <idx><h>đồ thị phẳng</h></idx>
+    <statement>
+      <p>Đồ thị <m>G</m> được gọi là đồ thị phẳng nếu nó có thể được vẽ trên mặt phẳng sao cho không có hai cạnh nào của nó cắt nhau, nghĩa là các cạnh chỉ gặp nhau tại đầu mút chung của chúng. Một cách vẽ như vậy được gọi là một biểu diễn phẳng của <m>G</m> (theo <xref ref="bib-rosen-2019" />, Rosen §10.7).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>đồ thị phẳng</term> <xref ref="bib-leanhvinh-2020" /> (tr. 115); <xref ref="bib-nguyenhuudien-2019" /> (tr. 235); <xref ref="bib-nguyenhoangthach-2020" /> (tr. 2) — cách dùng phổ biến.</p></li>
+        <li><p><term>đồ thị không phẳng</term> <xref ref="bib-leanhvinh-2020" /> (tr. 127); <xref ref="bib-nguyenhuudien-2019" /> (tr. 233); <xref ref="bib-doantamhoe-2009" />.</p></li>
+      </ul>
+      <p>Ví dụ: Đồ thị <m>K_4</m> là đồ thị phẳng, vì nó có thể được vẽ trên mặt phẳng với một đỉnh nằm bên trong tam giác tạo bởi ba đỉnh còn lại sao cho không có hai cạnh nào cắt nhau.</p>
+      <p>Xem thêm <xref ref="def-bipartite-graph" text="title" />, <xref ref="def-complete-graph" text="title" />, <xref ref="def-chromatic-number" text="title" />.</p>
     </statement>
   </definition>
   <definition xml:id="def-planar-representation">
@@ -398,6 +393,43 @@
         <li><p><term>đa thức</term> <xref ref="bib-leanhvinh-2020" /> (tr. 105); <xref ref="bib-nguyenhoangthach-2020" /> (tr. 41); <xref ref="bib-nguyenhuudien-2019" /> (tr. 137); <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 9) — cách dùng phổ biến.</p></li>
       </ul>
       <p>Ví dụ: Biểu thức <m>f(x) = 3x^2 + 2x + 1</m> là một đa thức bậc <m>2</m>, còn <m>g(x) = x^3 - 1</m> là một đa thức bậc <m>3</m>.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-poset">
+    <title>poset (partially ordered set) (d.t.) — tập hợp có thứ tự</title>
+    <idx><h>poset (partially ordered set)</h></idx>
+    <idx><h>tập có thứ tự bộ phận</h></idx>
+    <idx><h>tập hợp có thứ tự</h></idx>
+    <idx><h>tập hợp sắp thứ tự một phần</h></idx>
+    <idx><h>tập được sắp bộ phận</h></idx>
+    <idx><h>tập được sắp thứ tự bộ phận</h></idx>
+    <statement>
+      <p>Một <em>tập hợp có thứ tự</em> (poset) là một tập hợp <m>S</m> cùng với một quan hệ thứ tự bộ phận <m>\preceq</m> trên <m>S</m>, tức là quan hệ có tính phản xạ, phản đối xứng và bắc cầu. Tập hợp có thứ tự này được ký hiệu là <m>(S, \preceq)</m> (theo <xref ref="bib-rosen-2019" />, Rosen §9.6).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>tập hợp có thứ tự</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 119); <xref ref="bib-nguyenvanmau-2007" />; <xref ref="bib-nguyenhuuanh-2007" />; <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 384) — cách dùng phổ biến.</p></li>
+        <li><p><term>tập có thứ tự bộ phận</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
+        <li><p><term>tập hợp sắp thứ tự một phần</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
+        <li><p><term>tập được sắp bộ phận</term> <xref ref="bib-ngodactan-2004" /> (tr. 164).</p></li>
+        <li><p><term>tập được sắp thứ tự bộ phận</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
+      </ul>
+      <p>Ví dụ: Tập hợp các số nguyên dương <m>S = \{1, 2, 3, \dots\}</m> cùng với quan hệ chia hết <m>\preceq</m>, trong đó <m>a \preceq b</m> khi và chỉ khi <m>a</m> chia hết <m>b</m>, là một tập hợp có thứ tự <m>(S, \preceq)</m>.</p>
+      <p>Xem thêm <xref ref="def-partial-order" text="title" />, <xref ref="def-hasse-diagram" text="title" />, <xref ref="def-lattice" text="title" />, <xref ref="def-total-order" text="title" />, <xref ref="def-relation" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-positive-correlation">
+    <title>positive correlation (d.t.) — tương quan dương</title>
+    <idx><h>positive correlation</h></idx>
+    <idx><h>tương quan dương</h></idx>
+    <idx><h>tương quan thuận</h></idx>
+    <statement>
+      <p>Hai biến cố <m>A</m> và <m>B</m> được gọi là <em>tương quan dương</em> (hay có <em>tương quan thuận</em>) nếu việc xảy ra biến cố này làm tăng khả năng xảy ra biến cố kia, tức là <m>\Pr[A \cap B]  \gt  \Pr[A]\cdot\Pr[B]</m>. Điều này tương đương với <m>\Pr[A \mid B]  \gt  \Pr[A]</m> khi <m>\Pr[B] \gt 0</m>. Nếu xảy ra đẳng thức thì hai biến cố độc lập; nếu bất đẳng thức ngược lại thì chúng tương quan âm (theo <xref ref="bib-libennowell-2022" />).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>tương quan dương</term> <xref ref="bib-phan-1976" /> (tr. 88) — cách dùng phổ biến.</p></li>
+        <li><p><term>tương quan thuận</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
+      </ul>
+      <p>Ví dụ: Khi rút ngẫu nhiên một lá từ bộ bài, biến cố "lá đỏ" và biến cố "lá cơ" tương quan dương vì biết lá là cơ làm tăng khả năng nó màu đỏ.</p>
     </statement>
   </definition>
   <definition xml:id="def-positive-integers">
@@ -451,6 +483,19 @@
       <p>Ví dụ: Khi áp dụng cho cây biểu thức của một biểu thức số học, phép duyệt theo hậu thứ tự cho ra dạng ký pháp Ba Lan đảo (hậu tố) của biểu thức đó.</p>
     </statement>
   </definition>
+  <definition xml:id="def-power">
+    <title>power (d.t.) — lũy thừa</title>
+    <idx><h>power</h></idx>
+    <idx><h>lũy thừa</h></idx>
+    <statement>
+      <p>Lũy thừa bậc <m>n</m> của một phần tử <m>a</m> (số, ma trận, hay quan hệ) đối với một phép toán kết hợp là kết quả của việc áp dụng phép toán đó cho <m>n</m> bản sao của <m>a</m>, ký hiệu <m>a^n</m>. Chẳng hạn với một số thực <m>a</m> và số nguyên dương <m>n</m>, ta có <m>a^n = a \cdot a \cdots a</m> (<m>n</m> thừa số), với quy ước <m>a^0 = 1</m> khi <m>a \neq 0</m> (theo <xref ref="bib-rosen-2019" />, Rosen §9.1).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>lũy thừa</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 147); <xref ref="bib-leanhvinh-2020" /> (tr. 217); <xref ref="bib-nguyenhoangthach-2020" /> (tr. 2); <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 2) — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Lũy thừa của một quan hệ <m>R</m> trên tập <m>A</m> được định nghĩa đệ quy bởi <m>R^1 = R</m> và <m>R^{n+1} = R^n \circ R</m>. Ví dụ, với <m>R = \{(1,1), (2,1), (3,2), (4,3)\}</m> ta có <m>R^2 = R \circ R = \{(1,1), (2,1), (3,1), (4,2)\}</m>.</p>
+    </statement>
+  </definition>
   <definition xml:id="def-power-law">
     <title>power law (d.t.) — luật lũy thừa</title>
     <idx><h>power law</h></idx>
@@ -468,17 +513,32 @@
       <p>Ví dụ: Trong nhiều mạng thực tế như mạng World Wide Web hay mạng xã hội, số đỉnh có bậc <m>k</m> xấp xỉ tỉ lệ với <m>k^{-r}</m>, nên số trang web có rất nhiều liên kết là rất ít, trong khi số trang web có ít liên kết là rất nhiều.</p>
     </statement>
   </definition>
-  <definition xml:id="def-power">
-    <title>power (d.t.) — lũy thừa</title>
-    <idx><h>power</h></idx>
-    <idx><h>lũy thừa</h></idx>
+  <definition xml:id="def-power-set">
+    <title>power set (d.t.) — tập luỹ thừa</title>
+    <idx><h>power set</h></idx>
+    <idx><h>tập luỹ thừa</h></idx>
     <statement>
-      <p>Lũy thừa bậc <m>n</m> của một phần tử <m>a</m> (số, ma trận, hay quan hệ) đối với một phép toán kết hợp là kết quả của việc áp dụng phép toán đó cho <m>n</m> bản sao của <m>a</m>, ký hiệu <m>a^n</m>. Chẳng hạn với một số thực <m>a</m> và số nguyên dương <m>n</m>, ta có <m>a^n = a \cdot a \cdots a</m> (<m>n</m> thừa số), với quy ước <m>a^0 = 1</m> khi <m>a \neq 0</m> (theo <xref ref="bib-rosen-2019" />, Rosen §9.1).</p>
+      <p>Tập lũy thừa của một tập <m>S</m>, ký hiệu <m>\mathcal{P}(S)</m>, là tập gồm tất cả các tập con của <m>S</m>. Nói cách khác, <m>\mathcal{P}(S) = \{X : X \subseteq S\}</m> (theo <xref ref="bib-rosen-2019" />, Rosen §2.1).</p>
       <p>Thuật ngữ tiếng Việt tương ứng:</p>
       <ul>
-        <li><p><term>lũy thừa</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 147); <xref ref="bib-leanhvinh-2020" /> (tr. 217); <xref ref="bib-nguyenhoangthach-2020" /> (tr. 2); <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 2) — cách dùng phổ biến.</p></li>
+        <li><p><term>tập luỹ thừa</term> <xref ref="bib-ngodactan-2004" /> (tr. 164); <xref ref="bib-rosen-2003-vi" /> (tr. 59); <xref ref="bib-doducgiao-2009" /> (tr. 279) — cách dùng phổ biến.</p></li>
       </ul>
-      <p>Ví dụ: Lũy thừa của một quan hệ <m>R</m> trên tập <m>A</m> được định nghĩa đệ quy bởi <m>R^1 = R</m> và <m>R^{n+1} = R^n \circ R</m>. Ví dụ, với <m>R = \{(1,1), (2,1), (3,2), (4,3)\}</m> ta có <m>R^2 = R \circ R = \{(1,1), (2,1), (3,1), (4,2)\}</m>.</p>
+      <p>Ví dụ: Với <m>X = \{1, 2, 3\}</m>, tập lũy thừa của <m>X</m> là <m>\mathcal{P}(X) = \{\emptyset, \{1\}, \{2\}, \{3\}, \{1,2\}, \{1,3\}, \{2,3\}, \{1,2,3\}\}</m>.</p>
+      <p>Xem thêm <xref ref="def-subset" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-predicate">
+    <title>predicate (d.t.) — vị từ</title>
+    <idx><h>predicate</h></idx>
+    <idx><h>vị từ</h></idx>
+    <statement>
+      <p>Một vị từ, ký hiệu <m>P(x)</m>, là một phát biểu phụ thuộc vào các biến lấy giá trị trên các miền xác định cho trước, sao cho khi mỗi biến được gán một giá trị cụ thể thuộc miền của nó thì <m>P(x)</m> trở thành một mệnh đề có giá trị chân lý xác định (theo <xref ref="bib-rosen-2019" />, Rosen §1.4).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>vị từ</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 46) — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Xét vị từ <m>P(x)</m> là phát biểu "<m>x  \gt  3</m>" với biến <m>x</m> lấy giá trị trên tập số nguyên. Khi gán <m>x = 4</m>, ta được mệnh đề <m>P(4)</m> là "<m>4  \gt  3</m>", có giá trị chân lý đúng; khi gán <m>x = 2</m>, ta được mệnh đề <m>P(2)</m> là "<m>2  \gt  3</m>", có giá trị chân lý sai.</p>
+      <p>Xem thêm <xref ref="def-domain-of-discourse" text="title" />, <xref ref="def-proposition" text="title" />, <xref ref="def-quantifier" text="title" />, <xref ref="def-universal-quantifier" text="title" />.</p>
     </statement>
   </definition>
   <definition xml:id="def-preimage">
@@ -494,6 +554,20 @@
         <li><p><term>ảnh ngược</term> <xref ref="bib-hoangchithanh-2007" /> (tr. 83); <xref ref="bib-hoangchithanh-2011" />; <xref ref="bib-doducthai-2010" /> (tr. 223).</p></li>
       </ul>
       <p>Ví dụ: Với ánh xạ <m>f : \mathbb{Z} \to \mathbb{Z}</m> cho bởi <m>f(x) = x^2</m>, ta có <m>f^{-1}(\{4\}) = \{-2, 2\}</m> và <m>f^{-1}(\{3\}) = \emptyset</m>.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-premise">
+    <title>premise (d.t.) — tiền đề</title>
+    <idx><h>premise</h></idx>
+    <idx><h>tiền đề</h></idx>
+    <statement>
+      <p>Tiền đề là một mệnh đề trong một lập luận (hoặc một dạng suy luận) khác với kết luận. Một lập luận gồm một dãy các tiền đề <m>p_1, p_2, \ldots, p_n</m> và một kết luận <m>q</m> được suy ra từ các tiền đề đó (theo <xref ref="bib-rosen-2019" />, Rosen §1.6).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>tiền đề</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 34); <xref ref="bib-leanhvinh-2020" /> (tr. 224); <xref ref="bib-sierpinski-2012" />; <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 24) — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Trong lập luận "Nếu trời mưa thì đường ướt; trời mưa; do đó đường ướt", hai câu đầu "Nếu trời mưa thì đường ướt" và "trời mưa" là các tiền đề, còn "đường ướt" là kết luận.</p>
+      <p>Xem thêm <xref ref="def-logical-argument" text="title" />, <xref ref="def-argument-form" text="title" />, <xref ref="def-valid-argument" text="title" />.</p>
     </statement>
   </definition>
   <definition xml:id="def-preorder-traversal">
@@ -513,6 +587,102 @@
       <p>Ví dụ: Với cây có gốc <m>a</m> và các cây con lần lượt có gốc <m>b, c, d</m> (trong đó cây con gốc <m>b</m> có thêm các đỉnh <m>e, f, g</m>), duyệt tiền thứ tự cho danh sách bắt đầu bằng gốc <m>a</m>, tiếp đến là duyệt tiền thứ tự cây con gốc <m>b</m>, rồi cây con gốc <m>c</m>, rồi cây con gốc <m>d</m>.</p>
     </statement>
   </definition>
+  <definition xml:id="def-primary-key">
+    <title>primary key (d.t.) — khóa chính</title>
+    <idx><h>primary key</h></idx>
+    <idx><h>khóa chính</h></idx>
+    <statement><p>Xem <xref ref="def-key" text="title" />.</p></statement>
+  </definition>
+  <definition xml:id="def-prime">
+    <title>prime (d.t.)</title>
+    <idx><h>prime</h></idx>
+    <statement><p>Xem <xref ref="def-prime-number" text="title" />.</p></statement>
+  </definition>
+  <definition xml:id="def-prime-factorization">
+    <title>prime factorization (d.t.) — phân tích ra thừa số nguyên tố</title>
+    <idx><h>prime factorization</h></idx>
+    <idx><h>phân tích ra thừa số nguyên tố</h></idx>
+    <statement>
+      <p><em>Phân tích ra thừa số nguyên tố</em> của một số nguyên dương <m>n \gt 1</m> là cách viết <m>n</m> thành tích các số nguyên tố, <m>\displaystyle n=p_1^{a_1}p_2^{a_2}\cdots p_k^{a_k}</m>. Theo định lý cơ bản của số học, cách viết này là duy nhất nếu không kể thứ tự (theo <xref ref="bib-libennowell-2022" />).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>phân tích ra thừa số nguyên tố</term> <xref ref="bib-nguyenhuuanh-2007" /> — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: <m>360=2^3\cdot 3^2\cdot 5</m>.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-prime-implicant">
+    <title>prime implicant (d.t.) — nguyên nhân nguyên tố</title>
+    <idx><h>prime implicant</h></idx>
+    <idx><h>nguyên nhân nguyên tố</h></idx>
+    <statement>
+      <p>Một nguyên nhân (implicant) của một hàm Boole là một hội sơ cấp (tích các literal) sao cho mỗi khi hội đó nhận giá trị <m>1</m> thì hàm cũng nhận giá trị <m>1</m>. Một nguyên nhân nguyên tố của hàm là một nguyên nhân không bị kéo theo bởi bất kỳ nguyên nhân nào khác của hàm đó; nói cách khác, không thể bỏ đi literal nào của nó mà vẫn còn là một nguyên nhân của hàm (theo <xref ref="bib-rosen-2019" />, Rosen §12.4).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>nguyên nhân nguyên tố</term> <xref ref="bib-nguyenducnghia-2006" />; <xref ref="bib-nguyenducnghia-2006" /> — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Xét hàm Boole <m>x + y</m> (tức <m>x \vee y</m>). Các hội <m>x</m> và <m>y</m> đều là nguyên nhân nguyên tố của hàm này, vì mỗi khi <m>x = 1</m> hoặc mỗi khi <m>y = 1</m> thì <m>x + y = 1</m>, và không thể bỏ bớt literal nào. Trái lại, hội <m>x \wedge y</m> tuy là một nguyên nhân nhưng không phải nguyên nhân nguyên tố, vì nó bị kéo theo bởi nguyên nhân <m>x</m> (và bởi <m>y</m>).</p>
+      <p>Xem thêm <xref ref="def-minterm" text="title" />, <xref ref="def-boolean-function" text="title" />, <xref ref="def-disjunctive-normal-form" text="title" />, <xref ref="def-karnaugh-map" text="title" />, <xref ref="def-boolean-expression" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-prime-number">
+    <title>prime number (d.t.) — số nguyên tố</title>
+    <idx><h>prime number</h></idx>
+    <idx><h>nguyên tố</h></idx>
+    <idx><h>số nguyên tố</h></idx>
+    <statement>
+      <p>Một số nguyên <m>p  \gt  1</m> được gọi là số nguyên tố nếu các ước nguyên dương duy nhất của <m>p</m> là <m>1</m> và <m>p</m> (theo <xref ref="bib-rosen-2019" />, Rosen §4.3).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>số nguyên tố</term> <xref ref="bib-leanhvinh-2020" /> (tr. 191); <xref ref="bib-nguyenhuudien-2019" /> (tr. 40); <xref ref="bib-sierpinski-2012" />; <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 257) — cách dùng phổ biến.</p></li>
+        <li><p><term>nguyên tố</term> <xref ref="bib-leanhvinh-2020" /> (tr. 180); <xref ref="bib-nguyenhoangthach-2020" /> (tr. 53); <xref ref="bib-nguyenhuudien-2019" /> (tr. 14); <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 87).</p></li>
+      </ul>
+      <p>Ví dụ: Số <m>23</m> là số nguyên tố vì các ước nguyên dương duy nhất của nó là <m>1</m> và <m>23</m>, trong khi <m>6</m> không phải là số nguyên tố vì <m>6 = 2 \cdot 3</m>.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-prime-number-theorem">
+    <title>prime number theorem (d.t.) — định lý số nguyên tố</title>
+    <idx><h>prime number theorem</h></idx>
+    <idx><h>định lý số nguyên tố</h></idx>
+    <statement>
+      <p><em>Định lý số nguyên tố</em> mô tả mật độ phân bố của các số nguyên tố. Gọi <m>\pi(n)</m> là số các số nguyên tố không vượt quá <m>n</m>; định lý khẳng định rằng <m>\pi(n)</m> tiệm cận với <m>\displaystyle \frac{n}{\ln n}</m> khi <m>n\to\infty</m>, tức là <m>\displaystyle \lim_{n\to\infty}\frac{\pi(n)}{n/\ln n}=1</m> (theo <xref ref="bib-libennowell-2022" />).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>định lý số nguyên tố</term> <xref ref="bib-cormen-2001-vi" />; <xref ref="bib-sierpinski-2012" /> — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Với <m>n=10^6</m>, có <m>\pi(n)=78\,498</m> số nguyên tố, còn <m>n/\ln n\approx 72\,382</m>, khá gần nhau.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-primitive-root">
+    <title>primitive root (d.t.) — căn nguyên thủy</title>
+    <idx><h>primitive root</h></idx>
+    <idx><h>căn nguyên thủy</h></idx>
+    <statement>
+      <p>Một căn nguyên thủy modulo một số nguyên tố <m>p</m> là một số nguyên <m>r</m> mà các lũy thừa của nó sinh ra tất cả các thặng dư khác <m>0</m> modulo <m>p</m> (theo <xref ref="bib-rosen-2019" />, Rosen §3.7).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>căn nguyên thủy</term> <xref ref="bib-cormen-2001-vi" /> (tr. 918); <xref ref="bib-sierpinski-2012" />; <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 370) — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Số <m>3</m> là một căn nguyên thủy modulo <m>7</m>, vì các lũy thừa <m>3^1 = 3</m>, <m>3^2 = 2</m>, <m>3^3 = 6</m>, <m>3^4 = 4</m>, <m>3^5 = 5</m>, <m>3^6 = 1</m> (mọi phép tính lấy modulo <m>7</m>) sinh ra tất cả các thặng dư khác <m>0</m> là <m>1, 2, 3, 4, 5, 6</m> modulo <m>7</m>.</p>
+      <p>Xem thêm <xref ref="def-quadratic-residue" text="title" />, <xref ref="def-modular-arithmetic" text="title" />, <xref ref="def-congruence" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-private-key">
+    <title>private key (d.t.) — khóa bí mật</title>
+    <idx><h>private key</h></idx>
+    <idx><h>khóa bí mật</h></idx>
+    <idx><h>khóa riêng</h></idx>
+    <statement>
+      <p><em>Khóa bí mật</em> là khóa được giữ kín bởi chủ sở hữu trong một hệ mật mã khóa công khai, dùng để giải mã các thông điệp được mã hóa bằng khóa công khai tương ứng hoặc để tạo chữ ký số. Tính an toàn của hệ thống phụ thuộc vào việc khóa bí mật không bị tiết lộ (theo <xref ref="bib-libennowell-2022" />).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>khóa bí mật</term> <xref ref="bib-cormen-2001-vi" /> — cách dùng phổ biến.</p></li>
+        <li><p><term>khóa riêng</term> <xref ref="bib-cormen-2001-vi" />.</p></li>
+      </ul>
+      <p>Ví dụ: Trong hệ RSA, khóa bí mật là số mũ <m>d</m> thỏa <m>ed \equiv 1 \pmod{\varphi(n)}</m>; người nhận giải mã bằng <m>m = c^d \bmod n</m>.</p>
+      <p>Xem thêm <xref ref="def-public-key" text="title" />, <xref ref="def-plaintext" text="title" />, <xref ref="def-ciphertext" text="title" />.</p>
+    </statement>
+  </definition>
   <definition xml:id="def-private-key-cryptography">
     <title>private key cryptography (d.t.) — mật mã khóa bí mật</title>
     <idx><h>private key cryptography</h></idx>
@@ -530,307 +700,6 @@
         <li><p><term>mật mã khóa đối xứng</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
       </ul>
       <p>Ví dụ: Mật mã Caesar là một ví dụ của mật mã khóa bí mật: khóa là độ dịch chuyển <m>k</m>, mã hóa theo <m>f(p) = (p + k) \bmod 26</m> và giải mã theo <m>f^{-1}(p) = (p - k) \bmod 26</m>, trong đó cùng một giá trị <m>k</m> được giữ bí mật và dùng cho cả hai chiều.</p>
-    </statement>
-  </definition>
-  <definition xml:id="def-product-of-sums-expansion">
-    <title>product-of-sums expansion (d.t.) — khai triển tích các tổng</title>
-    <idx><h>product-of-sums expansion</h></idx>
-    <idx><h>dạng hội chuẩn tắc</h></idx>
-    <idx><h>dạng tích các tổng</h></idx>
-    <idx><h>khai triển tích các tổng</h></idx>
-    <statement>
-      <p>Khai triển tích các tổng của một hàm Boole là biểu diễn hàm đó dưới dạng tích (phép hội) của các đại hạng, trong đó mỗi đại hạng là một tổng (phép tuyển) chứa đúng một lần mỗi biến hoặc phủ định của nó. Đại hạng tương ứng với một bộ giá trị nhận giá trị <m>0</m> tại đúng bộ đó và bằng <m>1</m> tại mọi bộ còn lại, nên tích các đại hạng ứng với những bộ làm hàm bằng <m>0</m> cho lại chính hàm đã cho (theo <xref ref="bib-rosen-2019" />, Rosen §12.2).</p>
-      <p>Thuật ngữ tiếng Việt tương ứng:</p>
-      <ul>
-        <li><p><term>khai triển tích các tổng</term> <xref ref="bib-rosen-2003-vi" /> (tr. 726) — cách dùng phổ biến.</p></li>
-        <li><p><term>dạng hội chuẩn tắc</term> <xref ref="bib-nguyenducnghia-2006" />.</p></li>
-        <li><p><term>dạng tích các tổng</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
-      </ul>
-      <p>Ví dụ: Hàm Boole <m>F(x, y, z)</m> bằng <m>0</m> đúng tại hai bộ <m>(0, 1, 0)</m> và <m>(1, 0, 0)</m> có khai triển tích các tổng là <m>F(x, y, z) = (x + \bar{y} + z)(\bar{x} + y + z)</m>.</p>
-    </statement>
-  </definition>
-  <definition xml:id="def-product">
-    <title>product (d.t.) — tích</title>
-    <idx><h>product</h></idx>
-    <idx><h>tích</h></idx>
-    <statement>
-      <p>Trong toán rời rạc, <em>tích</em> chỉ kết quả của một phép nhân hay phép ghép theo cặp, và mang nhiều nghĩa tùy ngữ cảnh. Mục này chỉ nêu ý niệm chung; các trường hợp cụ thể được trình bày ở những mục riêng (xem mục Xem thêm) (theo <xref ref="bib-rosen-2019" />, Rosen §2.1).</p>
-      <p>Thuật ngữ tiếng Việt tương ứng:</p>
-      <ul>
-        <li><p><term>tích</term> <em>(thuật ngữ chuẩn; chưa truy được trong kho văn bản)</em> — cách dùng phổ biến.</p></li>
-      </ul>
-      <p>Ví dụ: Một vài ví dụ về tích: tích Đề các <m>A \times B</m> của hai tập hợp (tập các cặp có thứ tự); tích Boole của các biến lôgic; và tích thông thường của các số.</p>
-      <p>Xem thêm <xref ref="def-cartesian-product" text="title" />, <xref ref="def-boolean-product" text="title" />, <xref ref="def-the-product-rule" text="title" />.</p>
-    </statement>
-  </definition>
-  <definition xml:id="def-proof-by-cases">
-    <title>proof by cases (d.t.) — chứng minh bằng cách chia trường hợp</title>
-    <idx><h>proof by cases</h></idx>
-    <idx><h>chứng minh bằng cách chia trường hợp</h></idx>
-    <idx><h>chứng minh bằng cách phân chia trường hợp</h></idx>
-    <statement>
-      <p>Chứng minh bằng cách chia trường hợp là phương pháp chứng minh một mệnh đề điều kiện có giả thiết dạng tuyển <m>p_1 \lor p_2 \lor \cdots \lor p_n</m> bằng cách chứng minh riêng từng kéo theo <m>p_i \to q</m> với mọi <m>i</m>. Vì các trường hợp <m>p_1, p_2, \ldots, p_n</m> vét cạn mọi khả năng nên khi mỗi kéo theo đều đúng thì <m>(p_1 \lor \cdots \lor p_n) \to q</m> cũng đúng (theo <xref ref="bib-rosen-2019" />, Rosen §1.6).</p>
-      <p>Thuật ngữ tiếng Việt tương ứng:</p>
-      <ul>
-        <li><p><term>chứng minh bằng cách chia trường hợp</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 59) — cách dùng phổ biến.</p></li>
-        <li><p><term>chứng minh bằng cách phân chia trường hợp</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
-      </ul>
-      <p>Ví dụ: Để chứng minh rằng với mọi số nguyên <m>n</m>, ta có <m>n^2 \geq n</m>, ta chia thành ba trường hợp <m>n = 0</m>, <m>n \geq 1</m> và <m>n \leq -1</m>, rồi kiểm tra bất đẳng thức trong từng trường hợp.</p>
-    </statement>
-  </definition>
-  <definition xml:id="def-proof-by-contradiction">
-    <title>proof by contradiction (d.t.) — chứng minh phản chứng</title>
-    <idx><h>proof by contradiction</h></idx>
-    <idx><h>chứng minh bằng phản chứng</h></idx>
-    <idx><h>chứng minh phản chứng</h></idx>
-    <idx><h>giả sử phản chứng</h></idx>
-    <idx><h>phương pháp phản chứng</h></idx>
-    <statement>
-      <p>Chứng minh phản chứng là phương pháp chứng minh gián tiếp một mệnh đề <m>p</m>: ta giả sử <m>\neg p</m> đúng rồi suy ra một mâu thuẫn, tức một mệnh đề có dạng <m>r \wedge \neg r</m>. Vì <m>\neg p \rightarrow (r \wedge \neg r)</m> luôn dẫn tới điều vô lý nên <m>\neg p</m> phải sai, do đó <m>p</m> đúng (theo <xref ref="bib-rosen-2019" />, Rosen §1.6).</p>
-      <p>Thuật ngữ tiếng Việt tương ứng:</p>
-      <ul>
-        <li><p><term>chứng minh phản chứng</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 57); <xref ref="bib-nguyenvanmau-2007" />; <xref ref="bib-vovantuandung-2007" /> — cách dùng phổ biến.</p></li>
-        <li><p><term>chứng minh bằng phản chứng</term> <xref ref="bib-hoangchithanh-2011" />; <xref ref="bib-nguyenhuudien-2019" /> (tr. 58); <xref ref="bib-vudinhhoa-2010" />.</p></li>
-        <li><p><term>giả sử phản chứng</term> <xref ref="bib-leanhvinh-2020" /> (tr. 24); <xref ref="bib-nguyenvanmau-2007" />; <xref ref="bib-sierpinski-2012" /> (tr. 13).</p></li>
-        <li><p><term>phương pháp phản chứng</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 39); <xref ref="bib-doducgiao-2008" /> (tr. 83); <xref ref="bib-vudinhhoa-2010" />.</p></li>
-      </ul>
-      <p>Ví dụ: Để chứng minh <m>\sqrt{2}</m> là số vô tỉ, ta giả sử phản chứng rằng <m>\sqrt{2}</m> hữu tỉ, tức <m>\sqrt{2} = a/b</m> với <m>a, b</m> nguyên, <m>b \neq 0</m> và phân số tối giản. Khi đó <m>a^2 = 2b^2</m>, suy ra cả <m>a</m> và <m>b</m> đều chẵn, mâu thuẫn với giả thiết tối giản.</p>
-    </statement>
-  </definition>
-  <definition xml:id="def-proof-by-contraposition">
-    <title>proof by contraposition (d.t.) — chứng minh phản đảo</title>
-    <idx><h>proof by contraposition</h></idx>
-    <idx><h>chứng minh gián tiếp</h></idx>
-    <idx><h>chứng minh phản đảo</h></idx>
-    <idx><h>mệnh đề phản đảo</h></idx>
-    <idx><h>phản đảo</h></idx>
-    <statement>
-      <p>Chứng minh phản đảo (còn gọi là chứng minh gián tiếp) là phương pháp chứng minh mệnh đề kéo theo <m>p \to q</m> bằng cách chứng minh mệnh đề phản đảo của nó là <m>\neg q \to \neg p</m> (ký hiệu <m>\neg q \to \neg p</m>). Phương pháp này hợp lệ vì một mệnh đề kéo theo và mệnh đề phản đảo của nó là tương đương logic, tức là <m>p \to q \equiv \neg q \to \neg p</m> (theo <xref ref="bib-rosen-2019" />, Rosen §1.5).</p>
-      <p>Thuật ngữ tiếng Việt tương ứng:</p>
-      <ul>
-        <li><p><term>chứng minh phản đảo</term> <xref ref="bib-nguyenhuuanh-2007" /> — cách dùng phổ biến.</p></li>
-        <li><p><term>chứng minh gián tiếp</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 59); <xref ref="bib-nguyenvanmau-2007" />; <xref ref="bib-vovantuandung-2007" />; <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 111).</p></li>
-        <li><p><term>mệnh đề phản đảo</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 40); <xref ref="bib-doducgiao-2009" /> (tr. 282); <xref ref="bib-vudinhhoa-2010" />.</p></li>
-        <li><p><term>phản đảo</term> <xref ref="bib-doducgiao-2009" /> (tr. 282); <xref ref="bib-nguyenhuudien-2019" /> (tr. 40); <xref ref="bib-vudinhhoa-2010" />; <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 248).</p></li>
-      </ul>
-      <p>Ví dụ: Để chứng minh "nếu <m>3n + 2</m> lẻ thì <m>n</m> lẻ", ta chứng minh mệnh đề phản đảo "nếu <m>n</m> chẵn thì <m>3n + 2</m> chẵn": giả sử <m>n = 2k</m>, khi đó <m>3n + 2 = 6k + 2 = 2(3k + 1)</m> là số chẵn.</p>
-    </statement>
-  </definition>
-  <definition xml:id="def-proof">
-    <title>proof (d.t.) — chứng minh</title>
-    <idx><h>proof</h></idx>
-    <idx><h>chứng minh</h></idx>
-    <idx><h>phép chứng minh</h></idx>
-    <idx><h>phương pháp chứng minh</h></idx>
-    <statement>
-      <p>Chứng minh của một mệnh đề toán học là một lập luận đúng đắn, gồm một dãy hữu hạn các khẳng định, mỗi khẳng định là tiên đề, giả thiết, hoặc được suy ra từ các khẳng định trước đó bằng các quy tắc suy diễn, nhằm thiết lập rằng mệnh đề đó là đúng. Một định lý đã được chứng minh là đúng được gọi là một định lý, và lập luận thiết lập tính đúng đắn của nó được gọi là chứng minh (theo <xref ref="bib-rosen-2019" />, Rosen §1.6).</p>
-      <p>Thuật ngữ tiếng Việt tương ứng:</p>
-      <ul>
-        <li><p><term>chứng minh</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 28); <xref ref="bib-leanhvinh-2020" /> (tr. 11); <xref ref="bib-nguyenhoangthach-2020" /> (tr. 19); <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 19) — cách dùng phổ biến.</p></li>
-        <li><p><term>phép chứng minh</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 58); <xref ref="bib-nguyenvanmau-2007" />; <xref ref="bib-sierpinski-2012" />; <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 111).</p></li>
-        <li><p><term>phương pháp chứng minh</term> <xref ref="bib-doducgiao-2009" /> (tr. 333); <xref ref="bib-nguyenhuudien-2019" /> (tr. 5); <xref ref="bib-vudinhhoa-2010" />.</p></li>
-      </ul>
-      <p>Ví dụ: Để chứng minh mệnh đề "nếu <m>n</m> là số nguyên lẻ thì <m>n^2</m> là số nguyên lẻ", ta dùng chứng minh trực tiếp: giả sử <m>n = 2k+1</m> với <m>k</m> nguyên, khi đó <m>n^2 = 4k^2 + 4k + 1 = 2(2k^2+2k)+1</m> là số nguyên lẻ.</p>
-    </statement>
-  </definition>
-  <definition xml:id="def-proper-subgraph">
-    <title>proper subgraph (d.t.) — đồ thị con thực sự</title>
-    <idx><h>proper subgraph</h></idx>
-    <idx><h>đồ thị con thực sự</h></idx>
-    <statement>
-      <p>Đồ thị con thực sự của một đồ thị <m>G</m> là một đồ thị con <m>H</m> của <m>G</m> (ký hiệu <m>H \subseteq G</m>) sao cho <m>H \neq G</m>, nghĩa là <m>V(H) \subsetneq V(G)</m> hoặc <m>E(H) \subsetneq E(G)</m>. Khi đó ta viết <m>H \subsetneq G</m> (theo <xref ref="bib-rosen-2019" />, Rosen §10.2).</p>
-      <p>Thuật ngữ tiếng Việt tương ứng:</p>
-      <ul>
-        <li><p><term>đồ thị con thực sự</term> <xref ref="bib-leanhvinh-2020" /> (tr. 92); <xref ref="bib-leanhvinh-2020" /> (tr. 92); <xref ref="bib-leanhvinh-2020" /> (tr. 92) — cách dùng phổ biến.</p></li>
-      </ul>
-      <p>Ví dụ: Với <m>G = K_4</m>, chu trình <m>C_3</m> tạo bởi ba đỉnh bất kỳ là một đồ thị con thực sự của <m>G</m> vì nó thiếu đỉnh thứ tư.</p>
-      <p>Xem thêm <xref ref="def-subgraph" text="title" />, <xref ref="def-induced-subgraph" text="title" />, <xref ref="def-spanning-subgraph" text="title" />.</p>
-    </statement>
-  </definition>
-  <definition xml:id="def-proper-subset">
-    <title>proper subset (d.t.) — tập con thực sự</title>
-    <idx><h>proper subset</h></idx>
-    <idx><h>tập con riêng</h></idx>
-    <idx><h>tập con thật sự</h></idx>
-    <idx><h>tập con thực sự</h></idx>
-    <idx><h>tập hợp con riêng</h></idx>
-    <statement>
-      <p>Tập <m>A</m> được gọi là một tập con thực sự của tập <m>B</m>, ký hiệu <m>A \subset B</m>, nếu <m>A</m> là tập con của <m>B</m> và <m>A \neq B</m>, tức là mọi phần tử của <m>A</m> đều thuộc <m>B</m> nhưng tồn tại ít nhất một phần tử của <m>B</m> không thuộc <m>A</m> (theo <xref ref="bib-rosen-2019" />, Rosen §2.1).</p>
-      <p>Thuật ngữ tiếng Việt tương ứng:</p>
-      <ul>
-        <li><p><term>tập con thực sự</term> <xref ref="bib-leanhvinh-2020" /> (tr. 85); <xref ref="bib-nguyenhuudien-2019" /> (tr. 97); <xref ref="bib-hoangchithanh-2011" /> — cách dùng phổ biến.</p></li>
-        <li><p><term>tập con riêng</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
-        <li><p><term>tập con thật sự</term> <xref ref="bib-vovantuandung-2007" />.</p></li>
-        <li><p><term>tập hợp con riêng</term> <xref ref="bib-cormen-2001-vi" /> (tr. 103).</p></li>
-      </ul>
-      <p>Ví dụ: Với <m>A = \{1, 2\}</m> và <m>B = \{1, 2, 3\}</m>, ta có <m>A \subset B</m> vì <m>A \subseteq B</m> và <m>A \neq B</m>. Tập rỗng <m>\emptyset</m> là tập con thực sự của mọi tập khác rỗng.</p>
-    </statement>
-  </definition>
-  <definition xml:id="def-propositional-function">
-    <title>propositional function (d.t.) — hàm mệnh đề</title>
-    <idx><h>propositional function</h></idx>
-    <idx><h>hàm mệnh đề</h></idx>
-    <idx><h>vị từ</h></idx>
-    <statement>
-      <p>Hàm mệnh đề (vị từ) là một phát biểu <m>P(x_1, x_2, \ldots, x_n)</m> phụ thuộc vào các biến <m>x_1, x_2, \ldots, x_n</m> lấy giá trị trong những miền xác định cho trước. Khi gán mỗi biến một giá trị cụ thể thuộc miền của nó, ta thu được một mệnh đề có giá trị chân lý xác định là đúng hoặc sai (theo <xref ref="bib-rosen-2019" />, Rosen §1.3).</p>
-      <p>Thuật ngữ tiếng Việt tương ứng:</p>
-      <ul>
-        <li><p><term>hàm mệnh đề</term> <xref ref="bib-rosen-2003-vi" /> (tr. 33); <xref ref="bib-vovantuandung-2007" />; <xref ref="bib-vudinhhoa-2010" />; <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 201) — cách dùng phổ biến.</p></li>
-        <li><p><term>vị từ</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 46).</p></li>
-      </ul>
-      <p>Ví dụ: Cho <m>P(x)</m> là hàm mệnh đề "<m>x + 1  \gt  x</m>" trên tập số nguyên. Khi đó <m>P(3)</m> là mệnh đề "<m>3 + 1  \gt  3</m>", có giá trị chân lý là đúng; tổng quát <m>P(x)</m> đúng với mọi <m>x</m>.</p>
-    </statement>
-  </definition>
-  <definition xml:id="def-pseudocode">
-    <title>pseudocode (d.t.) — giả mã</title>
-    <idx><h>pseudocode</h></idx>
-    <idx><h>giả mã</h></idx>
-    <idx><h>mã giả</h></idx>
-    <statement>
-      <p>Giả mã là một cách mô tả thuật toán nằm trung gian giữa ngôn ngữ tự nhiên và ngôn ngữ lập trình, dùng các cấu trúc điều khiển và lệnh gần với ngôn ngữ lập trình nhưng không phụ thuộc cú pháp của một ngôn ngữ cụ thể. Giả mã giúp trình bày các bước của thuật toán một cách rõ ràng và dễ chuyển thành chương trình (theo <xref ref="bib-rosen-2019" />, Rosen §3.1).</p>
-      <p>Thuật ngữ tiếng Việt tương ứng:</p>
-      <ul>
-        <li><p><term>giả mã</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 132); <xref ref="bib-doducgiao-2009" /> (tr. 153); <xref ref="bib-doducgiao-2008" /> (tr. 222) — cách dùng phổ biến.</p></li>
-        <li><p><term>mã giả</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 122); <xref ref="bib-doducthai-2010" /> (tr. 248); <xref ref="bib-sierpinski-2012" /> (tr. 281).</p></li>
-      </ul>
-      <p>Ví dụ: Thuật toán tìm số lớn nhất trong dãy hữu hạn <m>a_1, a_2, \ldots, a_n</m> thường được trình bày dưới dạng giả mã: khởi tạo <m>\mathit{max} := a_1</m>, rồi với mỗi <m>i</m> từ <m>2</m> đến <m>n</m>, nếu <m>\mathit{max}  \lt  a_i</m> thì gán <m>\mathit{max} := a_i</m>.</p>
-    </statement>
-  </definition>
-  <definition xml:id="def-public-key-cryptography">
-    <title>public key cryptography (d.t.) — mật mã khóa công khai</title>
-    <idx><h>public key cryptography</h></idx>
-    <idx><h>hệ mật mã khóa bất đối xứng</h></idx>
-    <idx><h>mã khóa phi đối xứng</h></idx>
-    <idx><h>mật mã khóa bất đối xứng</h></idx>
-    <idx><h>mật mã khóa công khai</h></idx>
-    <statement>
-      <p>Mật mã khóa công khai là hệ mật mã trong đó mỗi người dùng có một cặp khóa: khóa công khai (ký hiệu <m>(n, e)</m>) dùng để mã hóa và được công bố cho mọi người, và khóa bí mật (ký hiệu <m>d</m>) dùng để giải mã và được giữ kín. Biết khóa công khai vẫn không dễ suy ra khóa bí mật, chẳng hạn trong hệ RSA độ an toàn dựa trên việc phân tích số nguyên lớn <m>n = pq</m> thành thừa số nguyên tố là bài toán khó về mặt tính toán (theo <xref ref="bib-rosen-2019" />, Rosen §4.6).</p>
-      <p>Thuật ngữ tiếng Việt tương ứng:</p>
-      <ul>
-        <li><p><term>mật mã khóa công khai</term> <em>(thuật ngữ chuẩn; chưa truy được trong kho văn bản)</em> — cách dùng phổ biến.</p></li>
-        <li><p><term>hệ mật mã khóa bất đối xứng</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
-        <li><p><term>mã khóa phi đối xứng</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
-        <li><p><term>mật mã khóa bất đối xứng</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
-      </ul>
-      <p>Ví dụ: Trong hệ RSA, người nhận chọn hai số nguyên tố lớn <m>p</m> và <m>q</m>, đặt <m>n = pq</m> và chọn số mũ mã hóa <m>e</m> nguyên tố cùng nhau với <m>(p-1)(q-1)</m>. Khóa công khai <m>(n, e)</m> được công bố; bản rõ <m>M</m> được mã hóa thành <m>C \equiv M^{e} \pmod{n}</m>, và chỉ người nắm khóa bí mật <m>d</m> với <m>ed \equiv 1 \pmod{(p-1)(q-1)}</m> mới khôi phục được <m>M \equiv C^{d} \pmod{n}</m>.</p>
-    </statement>
-  </definition>
-  <definition xml:id="def-pairwise-independent-events">
-    <title>pairwise independent events (d.t.) — biến cố độc lập đôi một</title>
-    <idx><h>pairwise independent events</h></idx>
-    <idx><h>biến cố</h></idx>
-    <idx><h>biến cố độc lập từng đôi một</h></idx>
-    <idx><h>biến cố độc lập đôi một</h></idx>
-    <statement>
-      <p>Các biến cố được gọi là độc lập đôi một nếu mọi cặp trong số chúng là độc lập. Nói cách khác, một họ biến cố <m>E_1, E_2, \ldots, E_n</m> là độc lập đôi một nếu với mọi cặp chỉ số <m>i \neq j</m> ta có <m>p(E_i \cap E_j) = p(E_i)p(E_j)</m> (theo <xref ref="bib-rosen-2019" />, Rosen §7.2).</p>
-      <p>Thuật ngữ tiếng Việt tương ứng:</p>
-      <ul>
-        <li><p><term>biến cố độc lập đôi một</term> <em>(thuật ngữ chuẩn; chưa truy được trong kho văn bản)</em> — cách dùng phổ biến.</p></li>
-        <li><p><term>biến cố</term> <xref ref="bib-leanhvinh-2020" /> (tr. 158); <xref ref="bib-nguyenhuudien-2019" /> (tr. 48); <xref ref="bib-sierpinski-2012" /> (tr. 22); <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 62).</p></li>
-        <li><p><term>biến cố độc lập từng đôi một</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
-      </ul>
-      <p>Ví dụ: Khi gieo một đồng xu cân đối hai lần, gọi <m>E_1</m> là biến cố "lần gieo đầu ra mặt ngửa", <m>E_2</m> là biến cố "lần gieo thứ hai ra mặt ngửa", và <m>E_3</m> là biến cố "hai lần gieo cho kết quả giống nhau". Mỗi cặp trong ba biến cố này thỏa <m>p(E_i \cap E_j) = \frac{1}{4} = \frac{1}{2} \cdot \frac{1}{2} = p(E_i)p(E_j)</m>, nên chúng độc lập đôi một (mặc dù không độc lập tương hỗ).</p>
-      <p>Xem thêm <xref ref="def-independent-events" text="title" />, <xref ref="def-mutually-independent-events" text="title" />, <xref ref="def-event" text="title" />.</p>
-    </statement>
-  </definition>
-  <definition xml:id="def-pairwise-relatively-prime-integers">
-    <title>pairwise relatively prime integers (d.t.)</title>
-    <idx><h>pairwise relatively prime integers</h></idx>
-    <statement><p>Xem <xref ref="def-pairwise-relatively-prime" text="title" />.</p></statement>
-  </definition>
-  <definition xml:id="def-partial-function">
-    <title>partial function (d.t.) — hàm bộ phận</title>
-    <idx><h>partial function</h></idx>
-    <idx><h>hàm bộ phận</h></idx>
-    <idx><h>hàm riêng phần</h></idx>
-    <idx><h>hàm từng phần</h></idx>
-    <statement>
-      <p>Hàm bộ phận <m>f</m> từ tập <m>A</m> đến tập <m>B</m> là phép gán cho mỗi phần tử <m>a</m> thuộc một tập con của <m>A</m>, gọi là miền xác định của <m>f</m>, nhiều nhất một phần tử <m>b</m> thuộc <m>B</m>. Nói cách khác, mỗi phần tử của <m>A</m> được gán không quá một phần tử của <m>B</m>, nên <m>f</m> có thể không xác định tại một số phần tử của <m>A</m> (theo <xref ref="bib-rosen-2019" />, Rosen §1.8).</p>
-      <p>Thuật ngữ tiếng Việt tương ứng:</p>
-      <ul>
-        <li><p><term>hàm bộ phận</term> <xref ref="bib-rosen-2003-vi" /> (tr. 96); <xref ref="bib-rosen-2003-vi" /> (tr. 96); <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 200) — cách dùng phổ biến.</p></li>
-        <li><p><term>hàm riêng phần</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
-        <li><p><term>hàm từng phần</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
-      </ul>
-      <p>Ví dụ: Cho <m>f : \mathbb{Z} \rightharpoonup \mathbb{R}</m> với <m>f(n) = \sqrt{n}</m>. Đây là một hàm bộ phận từ <m>\mathbb{Z}</m> đến <m>\mathbb{R}</m> vì <m>f</m> không xác định khi <m>n  \lt  0</m>; miền xác định của nó là tập các số nguyên không âm. Một hàm bộ phận xác định tại mọi phần tử của <m>A</m> được gọi là hàm toàn phần.</p>
-      <p>Xem thêm <xref ref="def-function" text="title" />, <xref ref="def-domain" text="title" />, <xref ref="def-codomain" text="title" />.</p>
-    </statement>
-  </definition>
-  <definition xml:id="def-partial-ordering">
-    <title>partial ordering (d.t.) — quan hệ thứ tự bộ phận</title>
-    <idx><h>partial ordering</h></idx>
-    <idx><h>quan hệ thứ tự bộ phận</h></idx>
-    <statement><p>Xem <xref ref="def-partial-order" text="title" />.</p></statement>
-  </definition>
-  <definition xml:id="def-phrase-structure-grammar">
-    <title>phrase-structure grammar (d.t.) — văn phạm cấu trúc câu</title>
-    <idx><h>phrase-structure grammar</h></idx>
-    <idx><h>văn phạm cấu trúc câu</h></idx>
-    <idx><h>văn phạm cấu trúc ngữ đoạn</h></idx>
-    <idx><h>văn phạm ngữ cấu</h></idx>
-    <statement>
-      <p>Một văn phạm cấu trúc câu mô tả một ngôn ngữ thông qua một bộ từ vựng, các ký hiệu kết thúc, một ký hiệu xuất phát và các quy tắc sản xuất. Cụ thể, một văn phạm cấu trúc câu <m>G = (V, T, S, P)</m> gồm một từ vựng <m>V</m>, một tập con <m>T \subseteq V</m> các ký hiệu kết thúc, một ký hiệu xuất phát <m>S \in V</m> và một tập hợp <m>P</m> các quy tắc sản xuất (theo <xref ref="bib-rosen-2019" />, Rosen §11.4).</p>
-      <p>Thuật ngữ tiếng Việt tương ứng:</p>
-      <ul>
-        <li><p><term>văn phạm cấu trúc câu</term> <xref ref="bib-rosen-2003-vi" /> (tr. 770); <xref ref="bib-doducgiao-2009" /> (tr. 8) — cách dùng phổ biến.</p></li>
-        <li><p><term>văn phạm cấu trúc ngữ đoạn</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
-        <li><p><term>văn phạm ngữ cấu</term> <xref ref="bib-doducgiao-2000" /> (tr. 218); <xref ref="bib-doducgiao-2009" /> (tr. 8); <xref ref="bib-doducgiao-2008" /> (tr. 302).</p></li>
-      </ul>
-      <p>Ví dụ: Văn phạm <m>G = (V, T, S, P)</m> với từ vựng <m>V = \{S, A, a, b\}</m>, các ký hiệu kết thúc <m>T = \{a, b\}</m>, ký hiệu xuất phát <m>S</m> và các quy tắc sản xuất <m>P = \{S \to aA,\ A \to b\}</m> sinh ra ngôn ngữ <m>L(G) = \{ab\}</m>.</p>
-      <p>Xem thêm <xref ref="def-alphabet" text="title" />, <xref ref="def-string" text="title" />, <xref ref="def-empty-string" text="title" />.</p>
-    </statement>
-  </definition>
-  <definition xml:id="def-premise">
-    <title>premise (d.t.) — tiền đề</title>
-    <idx><h>premise</h></idx>
-    <idx><h>tiền đề</h></idx>
-    <statement>
-      <p>Tiền đề là một mệnh đề trong một lập luận (hoặc một dạng suy luận) khác với kết luận. Một lập luận gồm một dãy các tiền đề <m>p_1, p_2, \ldots, p_n</m> và một kết luận <m>q</m> được suy ra từ các tiền đề đó (theo <xref ref="bib-rosen-2019" />, Rosen §1.6).</p>
-      <p>Thuật ngữ tiếng Việt tương ứng:</p>
-      <ul>
-        <li><p><term>tiền đề</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 34); <xref ref="bib-leanhvinh-2020" /> (tr. 224); <xref ref="bib-sierpinski-2012" />; <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 24) — cách dùng phổ biến.</p></li>
-      </ul>
-      <p>Ví dụ: Trong lập luận "Nếu trời mưa thì đường ướt; trời mưa; do đó đường ướt", hai câu đầu "Nếu trời mưa thì đường ướt" và "trời mưa" là các tiền đề, còn "đường ướt" là kết luận.</p>
-      <p>Xem thêm <xref ref="def-logical-argument" text="title" />, <xref ref="def-argument-form" text="title" />, <xref ref="def-valid-argument" text="title" />.</p>
-    </statement>
-  </definition>
-  <definition xml:id="def-primary-key">
-    <title>primary key (d.t.) — khóa chính</title>
-    <idx><h>primary key</h></idx>
-    <idx><h>khóa chính</h></idx>
-    <statement><p>Xem <xref ref="def-key" text="title" />.</p></statement>
-  </definition>
-  <definition xml:id="def-prime-implicant">
-    <title>prime implicant (d.t.) — nguyên nhân nguyên tố</title>
-    <idx><h>prime implicant</h></idx>
-    <idx><h>nguyên nhân nguyên tố</h></idx>
-    <statement>
-      <p>Một nguyên nhân (implicant) của một hàm Boole là một hội sơ cấp (tích các literal) sao cho mỗi khi hội đó nhận giá trị <m>1</m> thì hàm cũng nhận giá trị <m>1</m>. Một nguyên nhân nguyên tố của hàm là một nguyên nhân không bị kéo theo bởi bất kỳ nguyên nhân nào khác của hàm đó; nói cách khác, không thể bỏ đi literal nào của nó mà vẫn còn là một nguyên nhân của hàm (theo <xref ref="bib-rosen-2019" />, Rosen §12.4).</p>
-      <p>Thuật ngữ tiếng Việt tương ứng:</p>
-      <ul>
-        <li><p><term>nguyên nhân nguyên tố</term> <xref ref="bib-nguyenducnghia-2006" />; <xref ref="bib-nguyenducnghia-2006" /> — cách dùng phổ biến.</p></li>
-      </ul>
-      <p>Ví dụ: Xét hàm Boole <m>x + y</m> (tức <m>x \vee y</m>). Các hội <m>x</m> và <m>y</m> đều là nguyên nhân nguyên tố của hàm này, vì mỗi khi <m>x = 1</m> hoặc mỗi khi <m>y = 1</m> thì <m>x + y = 1</m>, và không thể bỏ bớt literal nào. Trái lại, hội <m>x \wedge y</m> tuy là một nguyên nhân nhưng không phải nguyên nhân nguyên tố, vì nó bị kéo theo bởi nguyên nhân <m>x</m> (và bởi <m>y</m>).</p>
-      <p>Xem thêm <xref ref="def-minterm" text="title" />, <xref ref="def-boolean-function" text="title" />, <xref ref="def-disjunctive-normal-form" text="title" />, <xref ref="def-karnaugh-map" text="title" />, <xref ref="def-boolean-expression" text="title" />.</p>
-    </statement>
-  </definition>
-  <definition xml:id="def-prime">
-    <title>prime (d.t.)</title>
-    <idx><h>prime</h></idx>
-    <statement><p>Xem <xref ref="def-prime-number" text="title" />.</p></statement>
-  </definition>
-  <definition xml:id="def-primitive-root">
-    <title>primitive root (d.t.) — căn nguyên thủy</title>
-    <idx><h>primitive root</h></idx>
-    <idx><h>căn nguyên thủy</h></idx>
-    <statement>
-      <p>Một căn nguyên thủy modulo một số nguyên tố <m>p</m> là một số nguyên <m>r</m> mà các lũy thừa của nó sinh ra tất cả các thặng dư khác <m>0</m> modulo <m>p</m> (theo <xref ref="bib-rosen-2019" />, Rosen §3.7).</p>
-      <p>Thuật ngữ tiếng Việt tương ứng:</p>
-      <ul>
-        <li><p><term>căn nguyên thủy</term> <xref ref="bib-cormen-2001-vi" /> (tr. 918); <xref ref="bib-sierpinski-2012" />; <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 370) — cách dùng phổ biến.</p></li>
-      </ul>
-      <p>Ví dụ: Số <m>3</m> là một căn nguyên thủy modulo <m>7</m>, vì các lũy thừa <m>3^1 = 3</m>, <m>3^2 = 2</m>, <m>3^3 = 6</m>, <m>3^4 = 4</m>, <m>3^5 = 5</m>, <m>3^6 = 1</m> (mọi phép tính lấy modulo <m>7</m>) sinh ra tất cả các thặng dư khác <m>0</m> là <m>1, 2, 3, 4, 5, 6</m> modulo <m>7</m>.</p>
-      <p>Xem thêm <xref ref="def-quadratic-residue" text="title" />, <xref ref="def-modular-arithmetic" text="title" />, <xref ref="def-congruence" text="title" />.</p>
     </statement>
   </definition>
   <definition xml:id="def-private-key-encryption">
@@ -904,6 +773,20 @@
       <p>Xem thêm <xref ref="def-sample-space" text="title" />, <xref ref="def-bernoulli-trial" text="title" />.</p>
     </statement>
   </definition>
+  <definition xml:id="def-product">
+    <title>product (d.t.) — tích</title>
+    <idx><h>product</h></idx>
+    <idx><h>tích</h></idx>
+    <statement>
+      <p>Trong toán rời rạc, <em>tích</em> chỉ kết quả của một phép nhân hay phép ghép theo cặp, và mang nhiều nghĩa tùy ngữ cảnh. Mục này chỉ nêu ý niệm chung; các trường hợp cụ thể được trình bày ở những mục riêng (xem mục Xem thêm) (theo <xref ref="bib-rosen-2019" />, Rosen §2.1).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>tích</term> <em>(thuật ngữ chuẩn; chưa truy được trong kho văn bản)</em> — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Một vài ví dụ về tích: tích Đề các <m>A \times B</m> của hai tập hợp (tập các cặp có thứ tự); tích Boole của các biến lôgic; và tích thông thường của các số.</p>
+      <p>Xem thêm <xref ref="def-cartesian-product" text="title" />, <xref ref="def-boolean-product" text="title" />, <xref ref="def-the-product-rule" text="title" />.</p>
+    </statement>
+  </definition>
   <definition xml:id="def-product-rule-for-counting">
     <title>product rule for counting (d.t.)</title>
     <idx><h>product rule for counting</h></idx>
@@ -913,6 +796,23 @@
     <title>product rule for sets (d.t.)</title>
     <idx><h>product rule for sets</h></idx>
     <statement><p>Xem <xref ref="def-the-product-rule" text="title" />.</p></statement>
+  </definition>
+  <definition xml:id="def-product-of-sums-expansion">
+    <title>product-of-sums expansion (d.t.) — khai triển tích các tổng</title>
+    <idx><h>product-of-sums expansion</h></idx>
+    <idx><h>dạng hội chuẩn tắc</h></idx>
+    <idx><h>dạng tích các tổng</h></idx>
+    <idx><h>khai triển tích các tổng</h></idx>
+    <statement>
+      <p>Khai triển tích các tổng của một hàm Boole là biểu diễn hàm đó dưới dạng tích (phép hội) của các đại hạng, trong đó mỗi đại hạng là một tổng (phép tuyển) chứa đúng một lần mỗi biến hoặc phủ định của nó. Đại hạng tương ứng với một bộ giá trị nhận giá trị <m>0</m> tại đúng bộ đó và bằng <m>1</m> tại mọi bộ còn lại, nên tích các đại hạng ứng với những bộ làm hàm bằng <m>0</m> cho lại chính hàm đã cho (theo <xref ref="bib-rosen-2019" />, Rosen §12.2).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>khai triển tích các tổng</term> <xref ref="bib-rosen-2003-vi" /> (tr. 726) — cách dùng phổ biến.</p></li>
+        <li><p><term>dạng hội chuẩn tắc</term> <xref ref="bib-nguyenducnghia-2006" />.</p></li>
+        <li><p><term>dạng tích các tổng</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
+      </ul>
+      <p>Ví dụ: Hàm Boole <m>F(x, y, z)</m> bằng <m>0</m> đúng tại hai bộ <m>(0, 1, 0)</m> và <m>(1, 0, 0)</m> có khai triển tích các tổng là <m>F(x, y, z) = (x + \bar{y} + z)(\bar{x} + y + z)</m>.</p>
+    </statement>
   </definition>
   <definition xml:id="def-projection">
     <title>projection (d.t.) — phép chiếu</title>
@@ -926,6 +826,153 @@
       </ul>
       <p>Ví dụ: Áp dụng phép chiếu <m>P_{1,3}</m> cho bộ 4 phần tử <m>(2, 3, 4, 5)</m> ta thu được bộ 2 phần tử <m>(2, 4)</m>, tức là chỉ giữ lại trường thứ nhất và trường thứ ba và xóa bỏ các trường còn lại.</p>
       <p>Xem thêm <xref ref="def-n-ary-relation" text="title" />, <xref ref="def-relation" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-proof">
+    <title>proof (d.t.) — chứng minh</title>
+    <idx><h>proof</h></idx>
+    <idx><h>chứng minh</h></idx>
+    <idx><h>phép chứng minh</h></idx>
+    <idx><h>phương pháp chứng minh</h></idx>
+    <statement>
+      <p>Chứng minh của một mệnh đề toán học là một lập luận đúng đắn, gồm một dãy hữu hạn các khẳng định, mỗi khẳng định là tiên đề, giả thiết, hoặc được suy ra từ các khẳng định trước đó bằng các quy tắc suy diễn, nhằm thiết lập rằng mệnh đề đó là đúng. Một định lý đã được chứng minh là đúng được gọi là một định lý, và lập luận thiết lập tính đúng đắn của nó được gọi là chứng minh (theo <xref ref="bib-rosen-2019" />, Rosen §1.6).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>chứng minh</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 28); <xref ref="bib-leanhvinh-2020" /> (tr. 11); <xref ref="bib-nguyenhoangthach-2020" /> (tr. 19); <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 19) — cách dùng phổ biến.</p></li>
+        <li><p><term>phép chứng minh</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 58); <xref ref="bib-nguyenvanmau-2007" />; <xref ref="bib-sierpinski-2012" />; <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 111).</p></li>
+        <li><p><term>phương pháp chứng minh</term> <xref ref="bib-doducgiao-2009" /> (tr. 333); <xref ref="bib-nguyenhuudien-2019" /> (tr. 5); <xref ref="bib-vudinhhoa-2010" />.</p></li>
+      </ul>
+      <p>Ví dụ: Để chứng minh mệnh đề "nếu <m>n</m> là số nguyên lẻ thì <m>n^2</m> là số nguyên lẻ", ta dùng chứng minh trực tiếp: giả sử <m>n = 2k+1</m> với <m>k</m> nguyên, khi đó <m>n^2 = 4k^2 + 4k + 1 = 2(2k^2+2k)+1</m> là số nguyên lẻ.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-proof-by-cases">
+    <title>proof by cases (d.t.) — chứng minh bằng cách chia trường hợp</title>
+    <idx><h>proof by cases</h></idx>
+    <idx><h>chứng minh bằng cách chia trường hợp</h></idx>
+    <idx><h>chứng minh bằng cách phân chia trường hợp</h></idx>
+    <statement>
+      <p>Chứng minh bằng cách chia trường hợp là phương pháp chứng minh một mệnh đề điều kiện có giả thiết dạng tuyển <m>p_1 \lor p_2 \lor \cdots \lor p_n</m> bằng cách chứng minh riêng từng kéo theo <m>p_i \to q</m> với mọi <m>i</m>. Vì các trường hợp <m>p_1, p_2, \ldots, p_n</m> vét cạn mọi khả năng nên khi mỗi kéo theo đều đúng thì <m>(p_1 \lor \cdots \lor p_n) \to q</m> cũng đúng (theo <xref ref="bib-rosen-2019" />, Rosen §1.6).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>chứng minh bằng cách chia trường hợp</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 59) — cách dùng phổ biến.</p></li>
+        <li><p><term>chứng minh bằng cách phân chia trường hợp</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
+      </ul>
+      <p>Ví dụ: Để chứng minh rằng với mọi số nguyên <m>n</m>, ta có <m>n^2 \geq n</m>, ta chia thành ba trường hợp <m>n = 0</m>, <m>n \geq 1</m> và <m>n \leq -1</m>, rồi kiểm tra bất đẳng thức trong từng trường hợp.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-proof-by-contradiction">
+    <title>proof by contradiction (d.t.) — chứng minh phản chứng</title>
+    <idx><h>proof by contradiction</h></idx>
+    <idx><h>chứng minh bằng phản chứng</h></idx>
+    <idx><h>chứng minh phản chứng</h></idx>
+    <idx><h>giả sử phản chứng</h></idx>
+    <idx><h>phương pháp phản chứng</h></idx>
+    <statement>
+      <p>Chứng minh phản chứng là phương pháp chứng minh gián tiếp một mệnh đề <m>p</m>: ta giả sử <m>\neg p</m> đúng rồi suy ra một mâu thuẫn, tức một mệnh đề có dạng <m>r \wedge \neg r</m>. Vì <m>\neg p \rightarrow (r \wedge \neg r)</m> luôn dẫn tới điều vô lý nên <m>\neg p</m> phải sai, do đó <m>p</m> đúng (theo <xref ref="bib-rosen-2019" />, Rosen §1.6).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>chứng minh phản chứng</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 57); <xref ref="bib-nguyenvanmau-2007" />; <xref ref="bib-vovantuandung-2007" /> — cách dùng phổ biến.</p></li>
+        <li><p><term>chứng minh bằng phản chứng</term> <xref ref="bib-hoangchithanh-2011" />; <xref ref="bib-nguyenhuudien-2019" /> (tr. 58); <xref ref="bib-vudinhhoa-2010" />.</p></li>
+        <li><p><term>giả sử phản chứng</term> <xref ref="bib-leanhvinh-2020" /> (tr. 24); <xref ref="bib-nguyenvanmau-2007" />; <xref ref="bib-sierpinski-2012" /> (tr. 13).</p></li>
+        <li><p><term>phương pháp phản chứng</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 39); <xref ref="bib-doducgiao-2008" /> (tr. 83); <xref ref="bib-vudinhhoa-2010" />.</p></li>
+      </ul>
+      <p>Ví dụ: Để chứng minh <m>\sqrt{2}</m> là số vô tỉ, ta giả sử phản chứng rằng <m>\sqrt{2}</m> hữu tỉ, tức <m>\sqrt{2} = a/b</m> với <m>a, b</m> nguyên, <m>b \neq 0</m> và phân số tối giản. Khi đó <m>a^2 = 2b^2</m>, suy ra cả <m>a</m> và <m>b</m> đều chẵn, mâu thuẫn với giả thiết tối giản.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-proof-by-contraposition">
+    <title>proof by contraposition (d.t.) — chứng minh phản đảo</title>
+    <idx><h>proof by contraposition</h></idx>
+    <idx><h>chứng minh gián tiếp</h></idx>
+    <idx><h>chứng minh phản đảo</h></idx>
+    <idx><h>mệnh đề phản đảo</h></idx>
+    <idx><h>phản đảo</h></idx>
+    <statement>
+      <p>Chứng minh phản đảo (còn gọi là chứng minh gián tiếp) là phương pháp chứng minh mệnh đề kéo theo <m>p \to q</m> bằng cách chứng minh mệnh đề phản đảo của nó là <m>\neg q \to \neg p</m> (ký hiệu <m>\neg q \to \neg p</m>). Phương pháp này hợp lệ vì một mệnh đề kéo theo và mệnh đề phản đảo của nó là tương đương logic, tức là <m>p \to q \equiv \neg q \to \neg p</m> (theo <xref ref="bib-rosen-2019" />, Rosen §1.5).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>chứng minh phản đảo</term> <xref ref="bib-nguyenhuuanh-2007" /> — cách dùng phổ biến.</p></li>
+        <li><p><term>chứng minh gián tiếp</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 59); <xref ref="bib-nguyenvanmau-2007" />; <xref ref="bib-vovantuandung-2007" />; <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 111).</p></li>
+        <li><p><term>mệnh đề phản đảo</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 40); <xref ref="bib-doducgiao-2009" /> (tr. 282); <xref ref="bib-vudinhhoa-2010" />.</p></li>
+        <li><p><term>phản đảo</term> <xref ref="bib-doducgiao-2009" /> (tr. 282); <xref ref="bib-nguyenhuudien-2019" /> (tr. 40); <xref ref="bib-vudinhhoa-2010" />; <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 248).</p></li>
+      </ul>
+      <p>Ví dụ: Để chứng minh "nếu <m>3n + 2</m> lẻ thì <m>n</m> lẻ", ta chứng minh mệnh đề phản đảo "nếu <m>n</m> chẵn thì <m>3n + 2</m> chẵn": giả sử <m>n = 2k</m>, khi đó <m>3n + 2 = 6k + 2 = 2(3k + 1)</m> là số chẵn.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-proof-by-mathematical-induction">
+    <title>proof by mathematical induction (d.t.) — chứng minh bằng quy nạp toán học</title>
+    <idx><h>proof by mathematical induction</h></idx>
+    <idx><h>chứng minh bằng quy nạp toán học</h></idx>
+    <statement>
+      <p><em>Chứng minh bằng quy nạp toán học</em> là phương pháp chứng minh một mệnh đề <m>P(n)</m> đúng với mọi số nguyên <m>n\ge n_0</m>. Phương pháp gồm hai bước: <em>cơ sở quy nạp</em> chứng minh <m>P(n_0)</m> đúng, và <em>bước quy nạp</em> chứng minh rằng nếu <m>P(k)</m> đúng thì <m>P(k+1)</m> cũng đúng với mọi <m>k\ge n_0</m>. Từ hai bước này suy ra <m>P(n)</m> đúng với mọi <m>n\ge n_0</m> (theo <xref ref="bib-libennowell-2022" />).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>chứng minh bằng quy nạp toán học</term> <em>(thuật ngữ chuẩn; chưa truy được trong kho văn bản)</em> — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Để chứng minh <m>\displaystyle 1+2+\cdots+n=\frac{n(n+1)}{2}</m>, ta kiểm tra với <m>n=1</m> rồi chứng minh công thức cho <m>k+1</m> từ giả thiết nó đúng cho <m>k</m>.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-proper-subgraph">
+    <title>proper subgraph (d.t.) — đồ thị con thực sự</title>
+    <idx><h>proper subgraph</h></idx>
+    <idx><h>đồ thị con thực sự</h></idx>
+    <statement>
+      <p>Đồ thị con thực sự của một đồ thị <m>G</m> là một đồ thị con <m>H</m> của <m>G</m> (ký hiệu <m>H \subseteq G</m>) sao cho <m>H \neq G</m>, nghĩa là <m>V(H) \subsetneq V(G)</m> hoặc <m>E(H) \subsetneq E(G)</m>. Khi đó ta viết <m>H \subsetneq G</m> (theo <xref ref="bib-rosen-2019" />, Rosen §10.2).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>đồ thị con thực sự</term> <xref ref="bib-leanhvinh-2020" /> (tr. 92); <xref ref="bib-leanhvinh-2020" /> (tr. 92); <xref ref="bib-leanhvinh-2020" /> (tr. 92) — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Với <m>G = K_4</m>, chu trình <m>C_3</m> tạo bởi ba đỉnh bất kỳ là một đồ thị con thực sự của <m>G</m> vì nó thiếu đỉnh thứ tư.</p>
+      <p>Xem thêm <xref ref="def-subgraph" text="title" />, <xref ref="def-induced-subgraph" text="title" />, <xref ref="def-spanning-subgraph" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-proper-subset">
+    <title>proper subset (d.t.) — tập con thực sự</title>
+    <idx><h>proper subset</h></idx>
+    <idx><h>tập con riêng</h></idx>
+    <idx><h>tập con thật sự</h></idx>
+    <idx><h>tập con thực sự</h></idx>
+    <idx><h>tập hợp con riêng</h></idx>
+    <statement>
+      <p>Tập <m>A</m> được gọi là một tập con thực sự của tập <m>B</m>, ký hiệu <m>A \subset B</m>, nếu <m>A</m> là tập con của <m>B</m> và <m>A \neq B</m>, tức là mọi phần tử của <m>A</m> đều thuộc <m>B</m> nhưng tồn tại ít nhất một phần tử của <m>B</m> không thuộc <m>A</m> (theo <xref ref="bib-rosen-2019" />, Rosen §2.1).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>tập con thực sự</term> <xref ref="bib-leanhvinh-2020" /> (tr. 85); <xref ref="bib-nguyenhuudien-2019" /> (tr. 97); <xref ref="bib-hoangchithanh-2011" /> — cách dùng phổ biến.</p></li>
+        <li><p><term>tập con riêng</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
+        <li><p><term>tập con thật sự</term> <xref ref="bib-vovantuandung-2007" />.</p></li>
+        <li><p><term>tập hợp con riêng</term> <xref ref="bib-cormen-2001-vi" /> (tr. 103).</p></li>
+      </ul>
+      <p>Ví dụ: Với <m>A = \{1, 2\}</m> và <m>B = \{1, 2, 3\}</m>, ta có <m>A \subset B</m> vì <m>A \subseteq B</m> và <m>A \neq B</m>. Tập rỗng <m>\emptyset</m> là tập con thực sự của mọi tập khác rỗng.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-proposition">
+    <title>proposition (d.t.) — mệnh đề</title>
+    <idx><h>proposition</h></idx>
+    <idx><h>mệnh đề</h></idx>
+    <idx><h>mệnh đề toán học</h></idx>
+    <statement>
+      <p>Một <em>mệnh đề</em> là một câu khẳng định nhận đúng một trong hai giá trị đúng hoặc sai, không thể đồng thời vừa đúng vừa sai. Giá trị đúng hoặc sai của một mệnh đề được gọi là <em>chân trị</em> của nó, thường ký hiệu <m>T</m> (true) cho đúng và <m>F</m> (false) cho sai (theo <xref ref="bib-rosen-2019" />, Rosen §1.1).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>mệnh đề</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 14); <xref ref="bib-nguyenhoangthach-2020" /> (tr. 18); <xref ref="bib-sierpinski-2012" /> (tr. 9); <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 9) — cách dùng phổ biến.</p></li>
+        <li><p><term>mệnh đề toán học</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 14); <xref ref="bib-nguyenvanmau-2007" />; <xref ref="bib-vovantuandung-2007" />.</p></li>
+      </ul>
+      <p>Ví dụ: Câu "<m>1 + 1 = 2</m>" là một mệnh đề có chân trị <m>T</m>, còn câu "<m>2</m> là số lẻ" là một mệnh đề có chân trị <m>F</m>. Ngược lại, câu "<m>x + 1 = 2</m>" không phải là mệnh đề vì chân trị của nó phụ thuộc vào giá trị của <m>x</m>.</p>
+      <p>Xem thêm <xref ref="def-compound-proposition" text="title" />, <xref ref="def-predicate" text="title" />, <xref ref="def-tautology" text="title" />, <xref ref="def-truth-value" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-propositional-function">
+    <title>propositional function (d.t.) — hàm mệnh đề</title>
+    <idx><h>propositional function</h></idx>
+    <idx><h>hàm mệnh đề</h></idx>
+    <idx><h>vị từ</h></idx>
+    <statement>
+      <p>Hàm mệnh đề (vị từ) là một phát biểu <m>P(x_1, x_2, \ldots, x_n)</m> phụ thuộc vào các biến <m>x_1, x_2, \ldots, x_n</m> lấy giá trị trong những miền xác định cho trước. Khi gán mỗi biến một giá trị cụ thể thuộc miền của nó, ta thu được một mệnh đề có giá trị chân lý xác định là đúng hoặc sai (theo <xref ref="bib-rosen-2019" />, Rosen §1.3).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>hàm mệnh đề</term> <xref ref="bib-rosen-2003-vi" /> (tr. 33); <xref ref="bib-vovantuandung-2007" />; <xref ref="bib-vudinhhoa-2010" />; <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 201) — cách dùng phổ biến.</p></li>
+        <li><p><term>vị từ</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 46).</p></li>
+      </ul>
+      <p>Ví dụ: Cho <m>P(x)</m> là hàm mệnh đề "<m>x + 1  \gt  x</m>" trên tập số nguyên. Khi đó <m>P(3)</m> là mệnh đề "<m>3 + 1  \gt  3</m>", có giá trị chân lý là đúng; tổng quát <m>P(x)</m> đúng với mọi <m>x</m>.</p>
     </statement>
   </definition>
   <definition xml:id="def-propositional-variable">
@@ -942,6 +989,37 @@
       <p>Xem thêm <xref ref="def-proposition" text="title" />, <xref ref="def-atomic-proposition" text="title" />, <xref ref="def-boolean-variable" text="title" />, <xref ref="def-variable" text="title" />.</p>
     </statement>
   </definition>
+  <definition xml:id="def-pseudocode">
+    <title>pseudocode (d.t.) — giả mã</title>
+    <idx><h>pseudocode</h></idx>
+    <idx><h>giả mã</h></idx>
+    <idx><h>mã giả</h></idx>
+    <statement>
+      <p>Giả mã là một cách mô tả thuật toán nằm trung gian giữa ngôn ngữ tự nhiên và ngôn ngữ lập trình, dùng các cấu trúc điều khiển và lệnh gần với ngôn ngữ lập trình nhưng không phụ thuộc cú pháp của một ngôn ngữ cụ thể. Giả mã giúp trình bày các bước của thuật toán một cách rõ ràng và dễ chuyển thành chương trình (theo <xref ref="bib-rosen-2019" />, Rosen §3.1).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>giả mã</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 132); <xref ref="bib-doducgiao-2009" /> (tr. 153); <xref ref="bib-doducgiao-2008" /> (tr. 222) — cách dùng phổ biến.</p></li>
+        <li><p><term>mã giả</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 122); <xref ref="bib-doducthai-2010" /> (tr. 248); <xref ref="bib-sierpinski-2012" /> (tr. 281).</p></li>
+      </ul>
+      <p>Ví dụ: Thuật toán tìm số lớn nhất trong dãy hữu hạn <m>a_1, a_2, \ldots, a_n</m> thường được trình bày dưới dạng giả mã: khởi tạo <m>\mathit{max} := a_1</m>, rồi với mỗi <m>i</m> từ <m>2</m> đến <m>n</m>, nếu <m>\mathit{max}  \lt  a_i</m> thì gán <m>\mathit{max} := a_i</m>.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-pseudograph">
+    <title>pseudograph (d.t.) — giả đồ thị</title>
+    <idx><h>pseudograph</h></idx>
+    <idx><h>giả đồ thị</h></idx>
+    <idx><h>đa đồ thị có khuyên</h></idx>
+    <statement>
+      <p>Một <em>giả đồ thị</em> là một đồ thị vô hướng <m>G</m> trong đó cho phép có nhiều cạnh nối cùng một cặp đỉnh, đồng thời cho phép có khuyên, tức là cạnh nối một đỉnh với chính nó. Đây là loại đồ thị vô hướng tổng quát nhất, vì nó có thể chứa cả cạnh bội lẫn khuyên (theo <xref ref="bib-rosen-2019" />, Rosen §10.1).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>giả đồ thị</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 155); <xref ref="bib-doducgiao-2009" /> (tr. 95); <xref ref="bib-doducgiao-2008" /> (tr. 193) — cách dùng phổ biến.</p></li>
+        <li><p><term>đa đồ thị có khuyên</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 60); <xref ref="bib-doducgiao-2009" /> (tr. 96).</p></li>
+      </ul>
+      <p>Ví dụ: Xét đồ thị vô hướng trên tập đỉnh <m>\{a, b, c\}</m> gồm hai cạnh nối <m>a</m> với <m>b</m>, một cạnh nối <m>b</m> với <m>c</m>, và một khuyên tại <m>c</m>. Vì có cặp đỉnh được nối bởi hai cạnh và có một cạnh nối <m>c</m> với chính nó, đồ thị này là một giả đồ thị.</p>
+      <p>Xem thêm <xref ref="def-multigraph" text="title" />, <xref ref="def-simple-graph" text="title" />, <xref ref="def-loop" text="title" />, <xref ref="def-multiple-edges" text="title" />, <xref ref="def-undirected-graph" text="title" />.</p>
+    </statement>
+  </definition>
   <definition xml:id="def-pseudoprime">
     <title>pseudoprime (d.t.) — số giả nguyên tố</title>
     <idx><h>pseudoprime</h></idx>
@@ -954,6 +1032,39 @@
       </ul>
       <p>Ví dụ: Số <m>n = 341 = 11 \cdot 31</m> là một hợp số nhưng thỏa mãn <m>2^{340} \equiv 1 \pmod{341}</m>, nên <m>341</m> là một số giả nguyên tố cơ sở <m>2</m>.</p>
       <p>Xem thêm <xref ref="def-prime-number" text="title" />, <xref ref="def-fermats-little-theorem" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-public-key">
+    <title>public key (d.t.) — khóa công khai</title>
+    <idx><h>public key</h></idx>
+    <idx><h>khóa công khai</h></idx>
+    <statement>
+      <p><em>Khóa công khai</em> là khóa được công bố rộng rãi trong một hệ mật mã khóa công khai, dùng để mã hóa thông điệp hoặc kiểm tra chữ ký số. Khóa công khai được thiết kế sao cho việc suy ra khóa bí mật tương ứng từ nó là không khả thi về mặt tính toán (theo <xref ref="bib-libennowell-2022" />).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>khóa công khai</term> <em>(thuật ngữ chuẩn; chưa truy được trong kho văn bản)</em> — cách dùng phổ biến.</p></li>
+      </ul>
+      <p>Ví dụ: Trong hệ RSA, khóa công khai là cặp <m>(n, e)</m>; người gửi mã hóa bản rõ <m>m</m> thành <m>c = m^e \bmod n</m>.</p>
+      <p>Xem thêm <xref ref="def-private-key" text="title" />, <xref ref="def-plaintext" text="title" />, <xref ref="def-ciphertext" text="title" />.</p>
+    </statement>
+  </definition>
+  <definition xml:id="def-public-key-cryptography">
+    <title>public key cryptography (d.t.) — mật mã khóa công khai</title>
+    <idx><h>public key cryptography</h></idx>
+    <idx><h>hệ mật mã khóa bất đối xứng</h></idx>
+    <idx><h>mã khóa phi đối xứng</h></idx>
+    <idx><h>mật mã khóa bất đối xứng</h></idx>
+    <idx><h>mật mã khóa công khai</h></idx>
+    <statement>
+      <p>Mật mã khóa công khai là hệ mật mã trong đó mỗi người dùng có một cặp khóa: khóa công khai (ký hiệu <m>(n, e)</m>) dùng để mã hóa và được công bố cho mọi người, và khóa bí mật (ký hiệu <m>d</m>) dùng để giải mã và được giữ kín. Biết khóa công khai vẫn không dễ suy ra khóa bí mật, chẳng hạn trong hệ RSA độ an toàn dựa trên việc phân tích số nguyên lớn <m>n = pq</m> thành thừa số nguyên tố là bài toán khó về mặt tính toán (theo <xref ref="bib-rosen-2019" />, Rosen §4.6).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>mật mã khóa công khai</term> <em>(thuật ngữ chuẩn; chưa truy được trong kho văn bản)</em> — cách dùng phổ biến.</p></li>
+        <li><p><term>hệ mật mã khóa bất đối xứng</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
+        <li><p><term>mã khóa phi đối xứng</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
+        <li><p><term>mật mã khóa bất đối xứng</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
+      </ul>
+      <p>Ví dụ: Trong hệ RSA, người nhận chọn hai số nguyên tố lớn <m>p</m> và <m>q</m>, đặt <m>n = pq</m> và chọn số mũ mã hóa <m>e</m> nguyên tố cùng nhau với <m>(p-1)(q-1)</m>. Khóa công khai <m>(n, e)</m> được công bố; bản rõ <m>M</m> được mã hóa thành <m>C \equiv M^{e} \pmod{n}</m>, và chỉ người nắm khóa bí mật <m>d</m> với <m>ed \equiv 1 \pmod{(p-1)(q-1)}</m> mới khôi phục được <m>M \equiv C^{d} \pmod{n}</m>.</p>
     </statement>
   </definition>
   <definition xml:id="def-public-key-encryption">

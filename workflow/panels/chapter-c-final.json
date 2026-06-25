@@ -13,353 +13,25 @@
  "deferred_note": "Dropped all unverifiable citations (verified=false with empty page) per the citation-hygiene rule, EXCEPT countable-set's recommended term 'tập đếm được': it is standard Vietnamese terminology but returns 0 hits in all three text-layer sources (re-verified strict and --loose), and dropping it would empty the required vi_terms field and break the single-recommendation invariant. It is retained as recommended=true / verified=false with an explicit standard-usage caveat in notes. The related form 'vô hạn đếm được' (countably infinite) is attested once at bib-ngodactan-2004 pdf_page 321 but denotes the countably-infinite sub-notion, not a standalone 'countable set', so it is deliberately NOT recorded as a verified hit for this headword. Forward references in see_also that are not yet chapter-C ids (coloring, graph-coloring, closed-walk, walk, trail, euler-circuit, self-complementary-graph, simple-graph, adjacency, bipartite-graph, binomial-coefficient, permutation, countably-infinite-set, finite-set, infinite-set, uncountable-set, edge-connectivity, cut-edge, bridge, subgraph, hamilton-circuit, wheel, path) are kept as cross-chapter forward references to be created in their own letter chapters; 'coloring' vs 'graph-coloring' is flagged for dedup in chapter G.",
  "final_entries": [
   {
-   "id": "chromatic-number",
+   "id": "cantor-diagonalization-argument",
    "letter": "C",
-   "headword_en": "chromatic number",
-   "notation": "\\chi(G)",
-   "rosen_ref": "Rosen §10.8",
-   "definition_vi": "Sắc số của một đồ thị $$G$$, ký hiệu $$\\chi(G)$$, là số màu nhỏ nhất cần dùng để tô màu các đỉnh của $$G$$ sao cho không có hai đỉnh kề nhau nào được tô cùng một màu.",
-   "example_vi": "Sắc số của đồ thị đầy đủ $$K_n$$ là $$\\chi(K_n) = n$$, và sắc số của một đồ thị hai phía có ít nhất một cạnh là $$2$$.",
-   "notes": "Recommended term 'sắc số' verified in all three sources; deferred candidate 'số sắc' (inverted word order) was unverifiable (page empty) and dropped per the citation-hygiene rule. The example conditions the bipartite case on 'có ít nhất một cạnh', which is necessary since a bipartite graph with no edges has sắc số 1. The unvetted gloss '(đồ thị lưỡng phân)' was removed in favor of the book-standard rendering 'đồ thị hai phía'.",
-   "see_also": [
-    "bipartite-graph",
-    "complete-graph",
-    "graph-coloring"
-   ],
-   "vi_terms": [
-    {
-     "term": "sắc số",
-     "verified": true,
-     "recommended": true,
-     "source_id": "bib-leanhvinh-2020",
-     "pdf_page": 90,
-     "page": "tr. 91",
-     "snippet": "Định nghĩa 4.2. Sắc số của đồ thị G, kí hiệu bởi x(G), là số k nhỏ"
-    },
-    {
-     "term": "sắc số",
-     "verified": true,
-     "recommended": false,
-     "source_id": "bib-nguyenhoangthach-2020",
-     "pdf_page": 81,
-     "page": "tr. 79",
-     "snippet": "Sắc số của một đồ thị là số màu ít nhất cần dùng để tô màu đồ thị đó. Sắc"
-    },
-    {
-     "term": "sắc số",
-     "verified": true,
-     "recommended": false,
-     "source_id": "bib-nguyenhuudien-2019",
-     "pdf_page": 228,
-     "page": "tr. 228",
-     "snippet": "Định nghĩa 9.3 Sắc số của một đồ thị chính là số màu ít nhất dùng để tô các đỉnh của"
-    },
-    {
-     "term": "sắc số",
-     "source_id": "bib-cungkimtien-2004",
-     "page": "",
-     "pdf_page": 54,
-     "snippet": "chromatic number sắc số",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "sắc số",
-     "source_id": "bib-phan-1976",
-     "page": "tr. 306",
-     "pdf_page": 306,
-     "snippet": "chromatic n. sắc số",
-     "verified": true,
-     "recommended": false
-    }
-   ],
-   "pos": "d.t."
-  },
-  {
-   "id": "circuit",
-   "letter": "C",
-   "headword_en": "circuit",
+   "headword_en": "Cantor diagonalization argument",
    "notation": "",
-   "rosen_ref": "Rosen §10.4",
-   "definition_vi": "Chu trình đơn trong một đồ thị $$G$$ là một đường đi khép kín có độ dài $$\\geq 1$$, tức là bắt đầu và kết thúc tại cùng một đỉnh, sao cho không có cạnh nào bị lặp lại (các đỉnh có thể được lặp lại). Trong Ngô Đắc Tân (2004), khái niệm này được gọi bằng từ đơn 'mạch'; xem ghi chú.",
-   "example_vi": "Xét đồ thị gồm các cạnh $$ab, bc, ca, bd, de, eb$$. Dãy đỉnh $$a, b, d, e, b, c, a$$ là một chu trình đơn: nó khép kín và không lặp lại cạnh nào (đỉnh $$b$$ được lặp lại). Trái lại, dãy $$a, b, a$$ không phải là chu trình đơn vì cạnh $$ab$$ được dùng lại hai lần.",
-   "notes": "Rosen's 'circuit' is a closed walk of length at least one with no repeated edge (vertices may repeat). In a simple undirected graph an edge has no orientation, so a circuit/no-repeated-edge example must reuse no undirected edge. Source terminology splits two ways. In Ngo Dac Tan (2004) the single-word match for Rosen's circuit is 'mạch': 'Một hành trình khép kín được gọi là mạch nếu mọi cạnh của nó đều khác nhau' (pdf_page 195); in that same source 'chu trình' is reserved for a CYCLE (length >= 3, distinct vertices), so the bare 'chu trình' does NOT denote this concept there. In Nguyen Duc Nghia & Nguyen To Thanh (2006) and Nguyen Huu Dien (2019), 'chu trình' denotes a general closed walk and the circuit concept is named 'chu trình đơn'. 'chu trình đơn' is the most widely used cross-corpus term and is recommended; 'mạch' is the precise single-word match in the strongest graph-theory source and is surfaced in the definition. The bare 'chu trình' and 'chu tuyến' candidates were unverifiable (page empty) and dropped.",
-   "see_also": [
-    "cycle",
-    "euler-circuit",
-    "trail",
-    "walk"
-   ],
+   "rosen_ref": "Rosen §2.5",
+   "definition_vi": "Lập luận đường chéo của Cantor là kỹ thuật chứng minh một tập hợp là không đếm được bằng phản chứng: giả sử tập đó đếm được nên có thể liệt kê các phần tử thành dãy, rồi xây dựng một phần tử mới khác phần tử thứ $$n$$ trong dãy ở thành phần thứ $$n$$ (chẳng hạn ở chữ số thứ $$n$$ của khai triển thập phân), nên phần tử mới này không có mặt trong dãy, dẫn tới mâu thuẫn. Cantor dùng lập luận này để chứng minh tập các số thực $$\\mathbb{R}$$ là không đếm được.",
+   "example_vi": "Để chứng minh tập các số thực trong khoảng $$(0,1)$$ là không đếm được, giả sử liệt kê được chúng thành dãy $$r_1, r_2, r_3, \\ldots$$ với khai triển thập phân $$r_i = 0.d_{i1} d_{i2} d_{i3} \\ldots$$; chọn số $$r = 0.e_1 e_2 e_3 \\ldots$$ với $$e_n \\neq d_{nn}$$, thì $$r$$ khác mọi $$r_n$$, mâu thuẫn với giả thiết liệt kê đầy đủ.",
    "vi_terms": [
     {
-     "term": "chu trình đơn",
-     "verified": true,
-     "recommended": true,
-     "source_id": "bib-nguyenhoangthach-2020",
-     "pdf_page": 73,
-     "page": "tr. 71",
-     "snippet": "cuối trùng nhau. Một đường đi đơn (tương tự, chu trình đơn) là một đường đi (chu trình) không đi qua cạnh nào quá một lần."
-    },
-    {
-     "term": "chu trình đơn",
-     "verified": true,
-     "recommended": false,
-     "source_id": "bib-nguyenhuudien-2019",
-     "pdf_page": 181,
-     "page": "tr. 181",
-     "snippet": "Đường đi hoặc chu trình gọi là đơn nếu nó không chứa cùng một cạnh (hoặc cung) quá [một lần]."
-    },
-    {
-     "term": "mạch",
-     "verified": true,
-     "recommended": false,
-     "source_id": "bib-ngodactan-2004",
-     "pdf_page": 195,
-     "page": "tr. 195",
-     "snippet": "Một hành trình khép kín được gọi là mạch nếu mọi cạnh của nó đều khác nhau."
-    },
-    {
-     "term": "mạch",
-     "source_id": "bib-rosen-2003-vi",
-     "pdf_page": 494,
-     "page": "tr. 494",
-     "snippet": "nhau. Ví dụ, dùng đồ thị để xác định xem có thực hiện một mạch điện",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "chu trình đơn",
-     "source_id": "bib-hoangchithanh-2011",
-     "page": "",
-     "pdf_page": 14,
-     "snippet": "Chu trình được gọi là chu trình don nếu các đỉnh của nó khác nhau từng đôi.",
-     "verified": true,
-     "recommended": false
-    }
-   ],
-   "pos": "d.t."
-  },
-  {
-   "id": "clique",
-   "letter": "C",
-   "headword_en": "clique",
-   "notation": "",
-   "rosen_ref": "Rosen §10.2",
-   "definition_vi": "Một clique của đồ thị $$G$$ là một tập con các đỉnh đôi một kề nhau, tức là một tập con cảm sinh một đồ thị con đầy đủ.",
-   "example_vi": "Trong đồ thị đầy đủ $$K_n$$, toàn bộ tập đỉnh là một clique, vì mọi cặp đỉnh đều kề nhau.",
-   "notes": "In Ngo Dac Tan (2004) the loanword 'clique' is used directly: 'số clique của nó cl(H) = 3 (tức là không có đồ thị con K4)'. This verified hit attests the clique NUMBER cl(H) usage (tying 'clique' to a complete subgraph) rather than a standalone definitional sentence, so the recommendation of the loanword 'clique' rests on usage-grounding. The example was tightened to reference only the defined concept (a clique as a vertex set); the earlier clause 'số clique của K_n bằng n' was removed because it referenced the clique number, an invariant not introduced in the definition. The descriptive forms 'đồ thị con đầy đủ' and 'tập đỉnh đầy đủ' are standard renderings but were not found in the three text sources (0 hits, strict and loose) and were dropped as unverifiable.",
-   "see_also": [
-    "complete-graph"
-   ],
-   "vi_terms": [
-    {
-     "term": "clique",
-     "verified": true,
-     "recommended": true,
-     "source_id": "bib-leanhvinh-2020",
-     "pdf_page": 95,
-     "page": "tr. 96",
-     "snippet": "Cho đồ thi G, số clique của G, kí hiệu bởi w(G), là số t lớn nhất"
-    },
-    {
-     "term": "đồ thị con đầy đủ cực đại",
-     "verified": true,
-     "recommended": false,
-     "source_id": "bib-leanhvinh-2020",
-     "pdf_page": 101,
-     "page": "tr. 102",
-     "snippet": "đồ thị con day đủ cực đại cha Gy. Suy ra |V(L) MN V(G2)| = w(G2)."
-    },
-    {
-     "term": "clique",
-     "verified": true,
-     "recommended": false,
-     "source_id": "bib-ngodactan-2004",
-     "pdf_page": 314,
-     "page": "tr. 314",
-     "snippet": "không một đồ thị H với số clique của nó cl{H) = 3 (tức là không có"
-    },
-    {
-     "term": "bè",
-     "source_id": "bib-wikipedia-vi",
+     "term": "lập luận đường chéo của Cantor",
+     "source_id": "",
      "page": "",
      "pdf_page": 0,
-     "snippet": "https://vi.wikipedia.org/wiki/Lý_thuyết_đồ_thị",
-     "verified": true,
-     "recommended": false
+     "snippet": "",
+     "verified": false,
+     "recommended": true
     },
     {
-     "term": "clique",
-     "source_id": "bib-cormen-2001-vi",
-     "page": "tr. 1053",
-     "pdf_page": 1051,
-     "snippet": "Một bon [clique] trong một đồ thị không hướng G = (V, E) là một tập",
-     "verified": true,
-     "recommended": false
-    }
-   ],
-   "pos": "d.t."
-  },
-  {
-   "id": "complement-of-a-graph",
-   "letter": "C",
-   "headword_en": "complement of a graph",
-   "notation": "\\overline{G}",
-   "rosen_ref": "Rosen §10.2",
-   "definition_vi": "Đồ thị bù của một đơn đồ thị $$G$$, ký hiệu $$\\overline{G}$$, là đồ thị có cùng tập đỉnh với $$G$$, trong đó hai đỉnh phân biệt kề nhau khi và chỉ khi chúng không kề nhau trong $$G$$.",
-   "example_vi": "Đồ thị bù của đồ thị đầy đủ $$K_n$$ là đồ thị rỗng trên $$n$$ đỉnh, vì trong $$K_n$$ mọi cặp đỉnh đều kề nhau nên không có cặp đỉnh nào kề nhau trong $$\\overline{K_n}$$.",
-   "notes": "'đồ thị bù' is the standard Vietnamese term, verified in all three text sources with formal definitions matching Rosen §10.2 (same vertex set; two distinct vertices adjacent in the complement iff not adjacent in G). The candidates 'phần bù' (set complement in the corpus) and 'đồ thị phần bù' (0 hits) do not denote the graph complement and were dropped as unverifiable.",
-   "see_also": [
-    "self-complementary-graph",
-    "simple-graph"
-   ],
-   "vi_terms": [
-    {
-     "term": "đồ thị bù",
-     "verified": true,
-     "recommended": true,
-     "source_id": "bib-leanhvinh-2020",
-     "pdf_page": 101,
-     "page": "tr. 102",
-     "snippet": "Do đó, thay vi làm việc với đồ thị bù của G, ta có thể làm việc với"
-    },
-    {
-     "term": "đồ thị bù",
-     "verified": true,
-     "recommended": false,
-     "source_id": "bib-nguyenhoangthach-2020",
-     "pdf_page": 72,
-     "page": "tr. 70",
-     "snippet": "Đồ thị bù của đồ thị G là đồ thị G = (V, E) sao cho với mọi cặp đỉnh u, v,"
-    },
-    {
-     "term": "đồ thị bù",
-     "verified": true,
-     "recommended": false,
-     "source_id": "bib-nguyenhuudien-2019",
-     "pdf_page": 167,
-     "page": "tr. 167",
-     "snippet": "Định nghĩa 6.17 Đơn đồ thị G ′ = (V, E′ ) được gọi là đồ thị bù của đơn đồ thị G = (V, E)"
-    }
-   ],
-   "pos": "d.t."
-  },
-  {
-   "id": "complete-graph",
-   "letter": "C",
-   "headword_en": "complete graph",
-   "notation": "K_n",
-   "rosen_ref": "Rosen §10.2",
-   "definition_vi": "Đồ thị đầy đủ $$n$$ đỉnh, ký hiệu $$K_n$$, là đơn đồ thị vô hướng mà giữa mọi cặp đỉnh phân biệt đều có một cạnh nối.",
-   "example_vi": "$$K_3$$ là tam giác gồm $$3$$ đỉnh và $$3$$ cạnh, trong đó mỗi cặp trong $$3$$ đỉnh đều được nối với nhau.",
-   "notes": "'đồ thị đầy đủ' is the canonical term, attested in all three sources. The recommended citation is bib-nguyenducnghia-2006 (pdf_page 158); cross-source confirmation added from bib-nguyenhuudien-2019 (pdf_page 159, definition-grade hit 'Đồ thị đầy đủ n đỉnh, ký hiệu là Kn, là đơn đồ thị mà hai đỉnh phân biệt bất kỳ của nó...') and bib-ngodactan-2004 (pdf_page 190, 'n-đồ thị đầy đủ'), bringing variant depth in line with sibling entries.",
-   "see_also": [
-    "chromatic-number",
-    "complete-bipartite-graph",
-    "clique",
-    "complement-of-a-graph"
-   ],
-   "vi_terms": [
-    {
-     "term": "đồ thị đầy đủ",
-     "verified": true,
-     "recommended": true,
-     "source_id": "bib-nguyenhoangthach-2020",
-     "pdf_page": 67,
-     "page": "tr. 65",
-     "snippet": "Đồ thị đầy đủ: Kn , n ≥ 1, có n đỉnh v1 , v2 , . . . , vn và n(n − 1)/2 cạnh nối"
-    },
-    {
-     "term": "đồ thị đầy đủ",
-     "verified": true,
-     "recommended": false,
-     "source_id": "bib-leanhvinh-2020",
-     "pdf_page": 14,
-     "page": "tr. 15",
-     "snippet": "Định nghĩa 1.9. Đồ thị đầy đủ bậc n, kí hiệu bởi K„, là đồ thị gồm"
-    },
-    {
-     "term": "đồ thị đầy đủ",
-     "verified": true,
-     "recommended": false,
-     "source_id": "bib-nguyenhuudien-2019",
-     "pdf_page": 159,
-     "page": "tr. 159",
-     "snippet": "Đồ thị đầy đủ n đỉnh, ký hiệu là Kn , là đơn đồ thị mà hai đỉnh phân biệt bất kỳ của nó"
-    },
-    {
-     "term": "n-đồ thị đầy đủ",
-     "verified": true,
-     "recommended": false,
-     "source_id": "bib-ngodactan-2004",
-     "pdf_page": 190,
-     "page": "tr. 190",
-     "snippet": "cấp n và cỡ m = (2) được gọi là n-đồ thị đầy đủ và thường được ký"
-    }
-   ],
-   "pos": "d.t."
-  },
-  {
-   "id": "complete-bipartite-graph",
-   "letter": "C",
-   "headword_en": "complete bipartite graph",
-   "notation": "K_{m,n}",
-   "rosen_ref": "Rosen §10.2",
-   "definition_vi": "Đồ thị hai phía đầy đủ, ký hiệu $$K_{m,n}$$, là đồ thị đơn có tập đỉnh được phân hoạch thành hai tập rời nhau có kích thước $$m$$ và $$n$$, trong đó mỗi đỉnh thuộc tập này được nối với mọi đỉnh thuộc tập kia bằng đúng một cạnh và không có cạnh nào nối hai đỉnh trong cùng một tập.",
-   "example_vi": "Đồ thị $$K_{2,3}$$ có một tập gồm $$2$$ đỉnh và một tập gồm $$3$$ đỉnh, với tổng cộng $$6$$ cạnh nối mỗi đỉnh của tập thứ nhất tới mỗi đỉnh của tập thứ hai.",
-   "notes": "Three Vietnamese terms are attested, reflecting two translations of 'bipartite': 'hai phía'/'hai phần' (two-sided/two-part) and 'phân đôi' (split-in-two). 'đồ thị hai phía đầy đủ' (Nguyen Duc Nghia & Nguyen To Thanh) is recommended as it matches the book-standard 'hai phía' = bipartite convention; bib-nguyenducnghia-2006 pdf_page 160 carries the definition-grade attestation of 'hai phía' ('Đơn đồ thị G = (V,E) được gọi là hai phía nếu...'), supporting the recommended term with a concept anchor. The page-198 hit for the full phrase required loose search because OCR mangled 'đầy' to 'đây' and K_{m,n} to 'X'. 'đồ thị phân đôi đầy đủ' (Nguyen Huu Dien, pdf_page 160) has the cleanest definitional hit with explicit K_{m,n} notation.",
-   "see_also": [
-    "bipartite-graph",
-    "complete-graph"
-   ],
-   "vi_terms": [
-    {
-     "term": "đồ thị hai phần đầy đủ",
-     "verified": true,
-     "recommended": true,
-     "source_id": "bib-leanhvinh-2020",
-     "pdf_page": 190,
-     "page": "tr. 191",
-     "snippet": "7.3. Đồ thị hai phần đầy đủ"
-    },
-    {
-     "term": "đồ thị hai phần đầy đủ",
-     "verified": true,
-     "recommended": false,
-     "source_id": "bib-nguyenhoangthach-2020",
-     "pdf_page": 67,
-     "page": "tr. 65",
-     "snippet": "Đồ thị hai phần đầy đủ Km,n là một đồ thị đầy đủ mà tập hợp đỉnh của"
-    },
-    {
-     "term": "đồ thị phân đôi đầy đủ",
-     "verified": true,
-     "recommended": false,
-     "source_id": "bib-nguyenhuudien-2019",
-     "pdf_page": 160,
-     "page": "tr. 160",
-     "snippet": "được gọi là đồ thị phân đôi đầy đủ. Nếu |V1 | = m, |V2 | = n thì đồ thị phân đôi đầy đủ G ký"
-    },
-    {
-     "term": "đồ thị hai phần đầy đủ",
-     "verified": true,
-     "recommended": false,
-     "source_id": "bib-nguyenhuudien-2019",
-     "pdf_page": 233,
-     "page": "tr. 233",
-     "snippet": "Hệ quả 9.5 Đồ thị hai phần đầy đủ Km,n là đồ thị phẳng khi và chỉ khi m ≤ 2 hoặc n ≤ 2."
-    },
-    {
-     "term": "đồ thị hai phía đầy đủ",
-     "verified": true,
-     "recommended": false,
-     "source_id": "bib-nguyenducnghia-2006",
-     "pdf_page": 198,
-     "page": "",
-     "snippet": "2. 2) Với những giá trị nào của z và. # đồ thị hai phía đây đủ X „„"
-    },
-    {
-     "term": "đồ thị lưỡng phân đầy đủ",
+     "term": "phương pháp đường chéo",
      "source_id": "",
      "page": "",
      "pdf_page": 0,
@@ -368,728 +40,36 @@
      "recommended": false
     },
     {
-     "term": "đồ thị phân đôi đầy đủ",
-     "source_id": "bib-doantamhoe-2009",
-     "page": "",
-     "pdf_page": 102,
-     "snippet": "thị phân đôi. Đồ thị phân đôi day đủ K„„ là đồ thị phân đôi mà V, có",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "đồ thị phân đôi đầy đủ",
-     "source_id": "bib-doducgiao-2009",
-     "page": "tr. 96",
-     "pdf_page": 97,
-     "snippet": "c) Dé thị phan đôi và đồ thị phân doi đầy đủ",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "đồ thị lưỡng phân đầy đủ",
-     "source_id": "bib-vudinhhoa-2003",
-     "page": "tr. 115",
-     "pdf_page": 116,
-     "snippet": "Bay giờ xét một số n lẻ. Đồ thị lưỡng phân đầy đủ",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "đồ thị lưỡng phân đầy đủ",
+     "term": "phương pháp đường chéo",
      "source_id": "bib-vudinhhoa-2010",
      "page": "",
-     "pdf_page": 137,
-     "snippet": "đủ Ks và đồ thị lưỡng phan đầy đủ X3.",
-     "verified": true,
-     "recommended": false
-    }
-   ],
-   "pos": "d.t."
-  },
-  {
-   "id": "connected-graph",
-   "letter": "C",
-   "headword_en": "connected graph",
-   "notation": "",
-   "rosen_ref": "Rosen §10.4",
-   "definition_vi": "Một đồ thị vô hướng $$G$$ được gọi là đồ thị liên thông nếu giữa mọi cặp đỉnh phân biệt của $$G$$ luôn có một đường đi nối chúng.",
-   "example_vi": "Đồ thị đầy đủ $$K_n$$ với $$n \\geq 1$$ là một đồ thị liên thông, vì giữa hai đỉnh phân biệt bất kỳ luôn có một cạnh nối chúng.",
-   "notes": "'đồ thị liên thông' recommended (definition-grade hit at bib-nguyenhuudien-2019 pdf_page 169); the bare adjective 'liên thông' is the predicate form, kept as a verified deferred variant. see_also populated with in-chapter hub links, since connected-graph is referenced by connected-component, connectivity, and cut-vertex.",
-   "see_also": [
-    "connected-component",
-    "connectivity",
-    "cut-vertex",
-    "complete-graph"
-   ],
-   "vi_terms": [
-    {
-     "term": "đồ thị liên thông",
-     "verified": true,
-     "recommended": true,
-     "source_id": "bib-leanhvinh-2020",
-     "pdf_page": 17,
-     "page": "tr. 18",
-     "snippet": "phan liên thông của G. Rõ ràng, đồ thi G là dé thị liên thông nếu G"
-    },
-    {
-     "term": "đồ thị liên thông",
-     "verified": true,
-     "recommended": false,
-     "source_id": "bib-nguyenhoangthach-2020",
-     "pdf_page": 75,
-     "page": "tr. 73",
-     "snippet": "Định nghĩa 5.32. Giả sử G là một đồ thị liên thông. Một tập hợp đỉnh"
-    },
-    {
-     "term": "liên thông",
-     "verified": true,
-     "recommended": false,
-     "source_id": "bib-nguyenhoangthach-2020",
-     "pdf_page": 74,
-     "page": "tr. 72",
-     "snippet": "Định nghĩa 5.27. Đồ thị G là liên thông nếu giữa hai đỉnh bất kỳ có một"
-    },
-    {
-     "term": "đồ thị liên thông",
-     "verified": true,
-     "recommended": false,
-     "source_id": "bib-nguyenhuudien-2019",
-     "pdf_page": 169,
-     "page": "tr. 169",
-     "snippet": "Mệnh đề 6.4 Giữa mọi cặp đỉnh phân biệt của một đồ thị liên thông luôn có đường đi sơ"
-    },
-    {
-     "term": "liên thông",
-     "verified": true,
-     "recommended": false,
-     "source_id": "bib-nguyenhuudien-2019",
-     "pdf_page": 168,
-     "page": "tr. 168",
-     "snippet": "Định nghĩa 6.19 Một đồ thị (vô hướng) được gọi là liên thông nếu có đường đi giữa mọi"
-    },
-    {
-     "term": "liên thông",
-     "source_id": "bib-leanhvinh-2020",
-     "page": "tr. 7",
-     "pdf_page": 6,
-     "snippet": "trình Euler, chu trình Hamilton, tính liên thông. cây bao trùm, cặp",
+     "pdf_page": 42,
+     "snippet": "thiết được gọi là phương pháp đường chéo chính. Giả sử tồn tại một song ánh",
      "verified": true,
      "recommended": false
     },
     {
-     "term": "liên thông",
+     "term": "phương pháp đường chéo",
      "source_id": "bib-cungkimtien-2004",
      "page": "",
-     "pdf_page": 13,
-     "snippet": "affine connection liên thông afin",
+     "pdf_page": 618,
+     "snippet": "phương pháp đường chéo",
      "verified": true,
      "recommended": false
     },
     {
-     "term": "liên thông",
+     "term": "phương pháp đường chéo",
      "source_id": "bib-phan-1976",
-     "page": "tr. 24",
-     "pdf_page": 24,
-     "snippet": ". of connection tién dé lién thong",
+     "page": "tr. 287",
+     "pdf_page": 287,
+     "snippet": "diagonal m. Jog. phương pháp đường chéo",
      "verified": true,
      "recommended": false
-    }
-   ],
-   "pos": "d.t."
-  },
-  {
-   "id": "connectivity",
-   "letter": "C",
-   "headword_en": "connectivity",
-   "see_ref": "vertex-connectivity",
-   "vi_terms": [
-    {
-     "term": "độ liên thông đỉnh",
-     "verified": false,
-     "recommended": false,
-     "source_id": "",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": ""
-    },
-    {
-     "term": "số liên thông đỉnh",
-     "verified": false,
-     "recommended": false,
-     "source_id": "",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": ""
-    },
-    {
-     "term": "độ liên thông",
-     "verified": false,
-     "recommended": false,
-     "source_id": "",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": ""
-    },
-    {
-     "term": "liên thông đỉnh",
-     "verified": false,
-     "recommended": false,
-     "source_id": "",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": ""
     }
    ],
    "see_also": [],
-   "notes": "Đồng nghĩa với Vertex connectivity.",
-   "pos": "d.t."
-  },
-  {
-   "id": "connected-component",
-   "letter": "C",
-   "headword_en": "connected component",
-   "notation": "",
-   "rosen_ref": "Rosen §10.4",
-   "definition_vi": "Thành phần liên thông của một đồ thị $$G$$ là một đồ thị con liên thông cực đại của $$G$$, tức là một đồ thị con liên thông không chứa trong bất kỳ đồ thị con liên thông nào lớn hơn.",
-   "example_vi": "Đồ thị gồm hai chu trình rời nhau $$C_3$$ và $$C_4$$ có đúng hai thành phần liên thông.",
-   "notes": "'thành phần liên thông' is the dominant standard term (85 hits in Ngo Dac Tan 2004), with the formal definition at pdf_page 196. 'mảng liên thông' (Nguyen Huu Dien 2019, pdf_page 180) is a valid algorithmic-context synonym. The older synonym 'bộ phận liên thông' (0 hits, exact and loose) was unverifiable and dropped.",
-   "see_also": [
-    "connected-graph",
-    "subgraph"
-   ],
-   "vi_terms": [
-    {
-     "term": "thành phần liên thông",
-     "verified": true,
-     "recommended": true,
-     "source_id": "bib-nguyenhoangthach-2020",
-     "pdf_page": 74,
-     "page": "tr. 72",
-     "snippet": "Định nghĩa 5.29. Giả sử G là một đồ thị. Một thành phần liên thông của"
-    },
-    {
-     "term": "thành phần liên thông",
-     "verified": true,
-     "recommended": false,
-     "source_id": "bib-leanhvinh-2020",
-     "pdf_page": 17,
-     "page": "tr. 18",
-     "snippet": "chỉ có một thành phần liên thông."
-    },
-    {
-     "term": "thành phần liên thông",
-     "verified": true,
-     "recommended": false,
-     "source_id": "bib-nguyenhuudien-2019",
-     "pdf_page": 168,
-     "page": "tr. 168",
-     "snippet": "các thành phần liên thông của đồ thị đang xét. Như vậy, một đồ thị là liên thông khi và chỉ"
-    },
-    {
-     "term": "mảng liên thông",
-     "verified": true,
-     "recommended": false,
-     "source_id": "bib-nguyenhuudien-2019",
-     "pdf_page": 180,
-     "page": "tr. 180",
-     "snippet": "Cho đồ thị G , hãy tìm số mảng liên thông p của đồ thị này và xác định xem mỗi mảng"
-    },
-    {
-     "term": "mảng liên thông",
-     "verified": true,
-     "recommended": false,
-     "source_id": "bib-hoangchithanh-2007",
-     "pdf_page": 14,
-     "page": "tr. 14",
-     "snippet": "quan hệ nay được gọi là một mang liên thông (hay thành phần liên"
-    },
-    {
-     "term": "mảng liên thông",
-     "source_id": "bib-hoangchithanh-2011",
-     "page": "",
-     "pdf_page": 11,
-     "snippet": "mảng liên thông",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "thành phần liên thông",
-     "source_id": "bib-cungkimtien-2004",
-     "page": "",
-     "pdf_page": 667,
-     "snippet": "thành phan liên thông của một",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "thành phần liên thông",
-     "source_id": "bib-phan-1976",
-     "page": "tr. 64",
-     "pdf_page": 64,
-     "snippet": ". of a space thành phần liên thông của một không gian",
-     "verified": true,
-     "recommended": false
-    }
-   ],
-   "pos": "d.t."
-  },
-  {
-   "id": "cut-vertex",
-   "letter": "C",
-   "headword_en": "cut vertex",
-   "notation": "",
-   "rosen_ref": "Rosen §10.4",
-   "definition_vi": "Đỉnh cắt của một đồ thị liên thông là đỉnh mà việc xoá nó cùng tất cả các cạnh kề làm cho đồ thị con thu được không liên thông (có nhiều hơn một thành phần liên thông).",
-   "example_vi": "Trong đồ thị đường đi $$P_5$$ với các đỉnh $$v_1, v_2, v_3, v_4, v_5$$, đỉnh $$v_3$$ là một đỉnh cắt vì khi xoá $$v_3$$ thì đồ thị còn lại tách thành hai thành phần liên thông.",
-   "notes": "'đỉnh cắt' is the primary term in both Ngo Dac Tan (2004) and Nguyen Huu Dien (2019); the latter gives 'điểm khớp' as an explicit synonym ('đỉnh cắt hay điểm khớp'), so the recommended snippet co-locates both verified terms. The definition at pdf_page 169 matches Rosen: removing the cut vertex from a connected graph yields a disconnected subgraph. The variant 'đỉnh khớp' was not found in the three sources and was dropped as unverifiable.",
-   "see_also": [
-    "cut-edge",
-    "bridge",
-    "connected-component",
-    "connectivity"
-   ],
-   "vi_terms": [
-    {
-     "term": "đỉnh cắt",
-     "verified": true,
-     "recommended": true,
-     "source_id": "bib-leanhvinh-2020",
-     "pdf_page": 25,
-     "page": "tr. 26",
-     "snippet": "phan liên thong được gọi là đỉnh cắt. Một cạnh phan tách hai đầu mút"
-    },
-    {
-     "term": "đỉnh khớp",
-     "verified": true,
-     "recommended": false,
-     "source_id": "bib-nguyenhoangthach-2020",
-     "pdf_page": 75,
-     "page": "tr. 73",
-     "snippet": "cắt, hayđỉnh khớp, của G nếu G − v có nhiều thành phần liên thông hơn G."
-    },
-    {
-     "term": "đỉnh cắt",
-     "verified": true,
-     "recommended": false,
-     "source_id": "bib-nguyenhuudien-2019",
-     "pdf_page": 169,
-     "page": "tr. 169",
-     "snippet": "đỉnh cắt hay điểm khớp. Việc xoá đỉnh cắt khỏi một đồ thị liên thông sẽ tạo ra một đồ thị con"
-    },
-    {
-     "term": "điểm khớp",
-     "verified": true,
-     "recommended": false,
-     "source_id": "bib-nguyenhuudien-2019",
-     "pdf_page": 170,
-     "page": "tr. 170",
-     "snippet": "Do đó G1 là đồ thị không liên thông hay đỉnh x là điểm khớp của G ."
-    },
-    {
-     "term": "đỉnh rẽ nhánh",
-     "verified": true,
-     "recommended": false,
-     "source_id": "bib-nguyenducnghia-2006",
-     "pdf_page": 157,
-     "page": "",
-     "snippet": "Định nghĩa 5. Đính v được gọi là đỉnh rẽ nhánh nếu việc loại bỏ v cùng với các cạnh"
-    },
-    {
-     "term": "đỉnh cắt",
-     "verified": true,
-     "recommended": false,
-     "source_id": "bib-ngodactan-2004",
-     "pdf_page": 266,
-     "page": "tr. 266",
-     "snippet": "Đỉnh V của đồ thị G = (V, E) được gọi là đinh cắt (cutvertex) nếu"
-    },
-    {
-     "term": "điểm cắt",
-     "source_id": "bib-wikipedia-vi",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": "https://vi.wikipedia.org/wiki/Thuật_ngữ_lý_thuyết_đồ_thị",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "điểm khớp",
-     "source_id": "bib-nguyenhuyran-2000",
-     "page": "",
-     "pdf_page": 6,
-     "snippet": "“analysis sictus \" của nó. Khdi niệm \"điểm khóp\" đã xuất hiện từ lâu",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "đỉnh rẽ nhánh",
-     "source_id": "bib-doducgiao-2009",
-     "page": "tr. 133",
-     "pdf_page": 134,
-     "snippet": "x là đỉnh rẽ nhánh. Còn trong G nếu bỏ cạnh u € U mà số thành phần liên",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "điểm cắt",
-     "source_id": "bib-leanhvinh-2020",
-     "page": "tr. 28",
-     "pdf_page": 27,
-     "snippet": "ngược lại từ v đến u theo Q. Giả sử điểm cất đầu tiên khi đi như vậy",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "điểm cắt",
-     "source_id": "bib-vudinhhoa-2003",
-     "page": "tr. 95",
-     "pdf_page": 96,
-     "snippet": "tại n giao điểm. Các điểm cắt này chia đường thang thứ",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "điểm khớp",
-     "source_id": "bib-cormen-2001-vi",
-     "page": "tr. 555",
-     "pdf_page": 553,
-     "snippet": "23-2 Các điểm khớp nối, các cầu nối, và các thành phan lưỡng thông",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "đỉnh rẽ nhánh",
-     "source_id": "bib-cormen-2001-vi",
-     "page": "tr. 435",
-     "pdf_page": 433,
-     "snippet": "phân, ngoại trừ thay vì thực hiện một quyết định rẽ nhánh nhị phân,",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "điểm cắt",
-     "source_id": "bib-cungkimtien-2004",
-     "page": "",
-     "pdf_page": 93,
-     "snippet": "cut point điểm cắt",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "điểm cắt",
-     "source_id": "bib-phan-1976",
-     "page": "tr. 330",
-     "pdf_page": 330,
-     "snippet": "cut p. điểm cắt",
-     "verified": true,
-     "recommended": false
-    }
-   ],
-   "pos": "d.t."
-  },
-  {
-   "id": "cycle",
-   "letter": "C",
-   "headword_en": "cycle",
-   "notation": "C_n",
-   "rosen_ref": "Rosen §10.2",
-   "definition_vi": "Đồ thị vòng, ký hiệu là $$C_n$$ với $$n \\geq 3$$, là đồ thị gồm $$n$$ đỉnh $$v_1, v_2, \\ldots, v_n$$ và các cạnh $$\\{v_1,v_2\\}, \\{v_2,v_3\\}, \\ldots, \\{v_{n-1},v_n\\}, \\{v_n,v_1\\}$$. Như vậy, mỗi đỉnh của $$C_n$$ có bậc là $$2$$.",
-   "example_vi": "$$C_3$$ là tam giác với ba đỉnh $$v_1, v_2, v_3$$ và ba cạnh $$\\{v_1,v_2\\}, \\{v_2,v_3\\}, \\{v_3,v_1\\}$$.",
-   "notes": "Rosen §10.2 defines C_n as the graph on n vertices with n cyclic edges (n >= 3). 'đồ thị vòng' is the exact match: bib-nguyenducnghia-2006 (pdf_page 159) gives the verbatim Rosen-style definition, and bib-nguyenhuudien-2019 (pdf_page 159) confirms '...được gọi là đồ thị vòng, ký hiệu là C_n. Như vậy, mỗi đỉnh của C_n có bậc là 2.' The candidate 'chu trình' denotes a cycle as a closed walk (not the graph C_n); 'chu trình đơn' denotes a simple cycle/closed walk; 'vòng' appears only as 'vòng tròn'/'vòng hạt'. All three were unverifiable for this concept (empty page) and dropped; the recommended term for the graph C_n is 'đồ thị vòng'.",
-   "see_also": [
-    "path",
-    "wheel",
-    "hamilton-circuit"
-   ],
-   "vi_terms": [
-    {
-     "term": "đồ thị vòng",
-     "verified": true,
-     "recommended": true,
-     "source_id": "bib-nguyenhuudien-2019",
-     "pdf_page": 159,
-     "page": "tr. 159",
-     "snippet": "được gọi là đồ thị vòng, ký hiệu là Cn . Như vậy, mỗi đỉnh của Cn có bậc là 2."
-    },
-    {
-     "term": "đồ thị vòng",
-     "verified": true,
-     "recommended": false,
-     "source_id": "bib-nguyenducnghia-2006",
-     "pdf_page": 159,
-     "page": "",
-     "snippet": "Đồ thị vòng. Đồ thị vòng C„, n >3, gồm n đỉnh v, v,. .. , v„và các cạnh"
-    },
-    {
-     "term": "chu trình",
-     "verified": true,
-     "recommended": false,
-     "source_id": "bib-nguyenhoangthach-2020",
-     "pdf_page": 67,
-     "page": "tr. 65",
-     "snippet": "Chu trình: Cn , n ≥ 3, có n đỉnh v1 , v2 , . . . , vn và n cạnh vi vi+1 , 1 ≤ i ≤ n"
-    },
-    {
-     "term": "đồ thị chu trình",
-     "verified": true,
-     "recommended": false,
-     "source_id": "bib-hoangchithanh-2007",
-     "pdf_page": 43,
-     "page": "tr. 43",
-     "snippet": "32. Đồ thị chu trình C„ là đồ thị có n đỉnh v,, v>, ... v, và n cạnh"
-    },
-    {
-     "term": "chu trình",
-     "source_id": "bib-leanhvinh-2020",
-     "page": "tr. 5",
-     "pdf_page": 4,
-     "snippet": "1.2.-Chu trình ‘Hamilton 6 iesiiscccsnn cae au cana evenwecai eu 22",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "chu trình",
-     "source_id": "bib-nguyenhuudien-2019",
-     "page": "tr. 7",
-     "pdf_page": 7,
-     "snippet": "Chương 7. Đường đi và chu trình . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 175",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "đồ thị chu trình",
-     "source_id": "bib-doducgiao-2009",
-     "page": "tr. 106",
-     "pdf_page": 107,
-     "snippet": "8. Đồ thị chu trình C, ( n 2 3)",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "đồ thị chu trình",
-     "source_id": "bib-hoangchithanh-2011",
-     "page": "",
-     "pdf_page": 71,
-     "snippet": "Đồ thi chu trình C, là đồ thị có n đỉnh vị, vz, ..., v„ van cạnh (vị, v2),",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "đồ thị vòng",
-     "source_id": "bib-cungkimtien-2004",
-     "page": "",
-     "pdf_page": 55,
-     "snippet": "circular graph đồ thị vòng",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "đồ thị vòng",
-     "source_id": "bib-phan-1976",
-     "page": "tr. 212",
-     "pdf_page": 212,
-     "snippet": "circular g. đồ thị vòng",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "chu trình",
-     "source_id": "bib-cungkimtien-2004",
-     "page": "",
-     "pdf_page": 9,
-     "snippet": "accumulation cycle chu trình tích",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "chu trình",
-     "source_id": "bib-phan-1976",
-     "page": "tr. 46",
-     "pdf_page": 46,
-     "snippet": "cyele c. kiểm tra chu trình",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "đồ thị chu trình",
-     "source_id": "bib-cungkimtien-2004",
-     "page": "",
-     "pdf_page": 93,
-     "snippet": "cyclograph đồ thị chu trình",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "đồ thị chu trình",
-     "source_id": "bib-phan-1976",
-     "page": "tr. 102",
-     "pdf_page": 102,
-     "snippet": "cyclograph đồ thị chu trình",
-     "verified": true,
-     "recommended": false
-    }
-   ],
-   "pos": "d.t."
-  },
-  {
-   "id": "combination",
-   "letter": "C",
-   "headword_en": "combination",
-   "notation": "\\binom{n}{r}",
-   "rosen_ref": "Rosen §6.3",
-   "definition_vi": "Một tổ hợp chập $$r$$ của một tập hợp là một cách chọn không có thứ tự $$r$$ phần tử của tập hợp đó. Số tổ hợp chập $$r$$ của một tập hợp gồm $$n$$ phần tử, ký hiệu $$\\binom{n}{r}$$, bằng $$\\binom{n}{r} = \\dfrac{n!}{r!\\,(n-r)!}$$.",
-   "example_vi": "Số tổ hợp chập $$2$$ của tập hợp $$\\{a, b, c, d\\}$$ là $$\\binom{4}{2} = 6$$, ứng với các cách chọn $$\\{a,b\\}, \\{a,c\\}, \\{a,d\\}, \\{b,c\\}, \\{b,d\\}, \\{c,d\\}$$.",
-   "notes": "Recommended term 'tổ hợp' is the canonical short noun; the phrase-level forms 'tổ hợp chập r' (bib-nguyenhuudien-2019 pdf_page 89) and 'tổ hợp chập k của n phần tử' (bib-ngodactan-2004 pdf_page 29) are verified deferred variants of the same concept, consistent with the binomial-coefficient formula in the definition.",
-   "see_also": [
-    "permutation",
-    "binomial-coefficient"
-   ],
-   "vi_terms": [
-    {
-     "term": "tổ hợp",
-     "verified": true,
-     "recommended": true,
-     "source_id": "bib-nguyenhoangthach-2020",
-     "pdf_page": 21,
-     "page": "tr. 19",
-     "snippet": "2.1.2 Tổ hợp"
-    },
-    {
-     "term": "tổ hợp chập k",
-     "verified": true,
-     "recommended": false,
-     "source_id": "bib-nguyenhoangthach-2020",
-     "pdf_page": 21,
-     "page": "tr. 19",
-     "snippet": "nguyên không âm. Một tổ hợp chập k của S là một bộ không sắp thứ tự gồm"
-    },
-    {
-     "term": "tổ hợp chập r",
-     "verified": true,
-     "recommended": false,
-     "source_id": "bib-nguyenhuudien-2019",
-     "pdf_page": 89,
-     "page": "tr. 89",
-     "snippet": "Định nghĩa 3.9 Một tổ hợp chập r của một tập hợp là một cách chọn không có thứ tự r"
-    },
-    {
-     "term": "tổ hợp chập k của n phần tử",
-     "verified": true,
-     "recommended": false,
-     "source_id": "bib-ngodactan-2004",
-     "pdf_page": 29,
-     "page": "tr. 29",
-     "snippet": "Như vậy, một tổ hợp chập k của n phần tử cửa A có thể được xem"
-    },
-    {
-     "term": "tổ hợp không lặp chập k",
-     "verified": true,
-     "recommended": false,
-     "source_id": "bib-ngodactan-2004",
-     "pdf_page": 29,
-     "page": "tr. 29",
-     "snippet": "là một tổ hợp không lặp chập k của n phần tử của A. Tổ hợp không"
-    },
-    {
-     "term": "tổ hợp",
-     "source_id": "bib-leanhvinh-2020",
-     "page": "tr. 138",
-     "pdf_page": 137,
-     "snippet": "bài toán quan trọng của Hình học Tổ hợp, Bài toán khoảng cách đơn",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "tổ hợp",
-     "source_id": "bib-nguyenhuudien-2019",
-     "page": "tr. 3",
-     "pdf_page": 3,
-     "snippet": "trong ba lĩnh vực có nhiều ứng dụng của toán rời rạc là: lý thuyết tổ hợp, lý thuyết đồ thị",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "tổ hợp chập k",
-     "source_id": "bib-nguyenhuudien-2019",
-     "page": "tr. 93",
-     "pdf_page": 93,
-     "snippet": "Do đó số các dãy n − 1 thanh đứng và k ngôi sao chính là số tổ hợp chập k từ tập n + k − 1",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "tổ hợp chập k của n phần tử",
-     "source_id": "bib-nguyenhoangthach-2020",
-     "page": "tr. 19",
-     "pdf_page": 21,
-     "snippet": "Số tổ hợp chập k của n phần tử k",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "tổ hợp chập k",
-     "source_id": "bib-vudinhhoa-2010",
-     "page": "",
-     "pdf_page": 116,
-     "snippet": "Phương pháp xây dựng tổ hợp chập k của n cũng theo một nguyên tắc tương ty.",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "tổ hợp chập r",
-     "source_id": "bib-doducgiao-2008",
-     "page": "tr. 38",
-     "pdf_page": 39,
-     "snippet": "Vì vậy, một tố hợp chập r chính là một tập con r phần tử của tập hợp",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "tổ hợp chập r",
-     "source_id": "bib-vudinhhoa-2010",
-     "page": "",
-     "pdf_page": 116,
-     "snippet": "tổ hợp của một tập hợp A = {1,2,...,n}. Vì mỗi tổ hợp chập r của n là một tập hợp",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "tổ hợp chập k của n phần tử",
-     "source_id": "bib-vudinhhoa-2010",
-     "page": "",
-     "pdf_page": 117,
-     "snippet": "2. Viết chương trình sinh tất cả các tổ hợp chập k của n phần tử.",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "tổ hợp",
-     "source_id": "bib-cungkimtien-2004",
-     "page": "",
-     "pdf_page": 59,
-     "snippet": "code combination tổ hợp mã",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "tổ hợp",
-     "source_id": "bib-phan-1976",
-     "page": "tr. 12",
-     "pdf_page": 12,
-     "snippet": "combinatory a. giải tích tổ hợp",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "tổ hợp chập r",
-     "source_id": "bib-phan-1976",
-     "page": "tr. 59",
-     "pdf_page": 59,
-     "snippet": "c. of n things r at a time ¢k. tổ hợp chập r trong n phần tử",
-     "verified": true,
-     "recommended": false
-    }
-   ],
+   "notes": "Giáo trình MAT3500 dùng thuật ngữ \"lập luận đường chéo của Cantor\". Bản dịch Rosen tiếng Việt trình bày lập luận này ở Ví dụ 12 (tr. 103 PDF) khi chứng minh tập số thực là không đếm được, nhưng không gọi tên kỹ thuật là \"đường chéo\"; các kết quả tìm được cho \"đường chéo\" trong kho ngữ liệu đều chỉ đường chéo hình học hoặc đường chéo ma trận, còn \"Cantor\" trong Rosen chỉ \"khai triển Cantor\" (một khái niệm khác). Do đó không có nguồn ngữ liệu nào chứng thực đúng thuật ngữ này.",
+   "status": "draft",
    "pos": "d.t."
   },
   {
@@ -1291,140 +271,47 @@
    "pos": "d.t."
   },
   {
-   "id": "countable-set",
+   "id": "carmichael-number",
    "letter": "C",
-   "headword_en": "countable set",
+   "headword_en": "Carmichael number",
    "notation": "",
-   "rosen_ref": "Rosen §2.5",
-   "definition_vi": "Một tập hợp được gọi là tập đếm được nếu nó hữu hạn hoặc có cùng lực lượng với tập các số nguyên dương. Khi một tập vô hạn là đếm được, ta nói nó vô hạn đếm được và lực lượng của nó được ký hiệu là $$\\aleph_0$$ (đọc là \"aleph không\").",
-   "example_vi": "Tập các số nguyên dương lẻ là tập đếm được, vì hàm $$f(n) = 2n - 1$$ là một song ánh từ tập các số nguyên dương lên tập đó.",
-   "notes": "UNVERIFIED RECOMMENDED TERM (standard-usage basis). No candidate term ('tập đếm được', 'tập khả đếm', 'tập hợp đếm được') was found in the three text-layer sources, including under diacritics-insensitive (--loose) search (0 hits each, re-verified). 'tập đếm được' is standard Vietnamese terminology and is recommended on that basis, but it is the only chapter-C recommended term with verified=false; this status is surfaced here per the citation-hygiene convention. The related form 'vô hạn đếm được' (countably infinite) is attested once at bib-ngodactan-2004 pdf_page 321 ('các tập con vô hạn đếm được của tập M'), but it denotes the countably-infinite sub-notion rather than a standalone countable set, so it is NOT recorded as a verified hit for this headword. The two non-recommended unverifiable candidates were dropped; 'tập đếm được' is retained to keep the required vi_terms field non-empty and preserve the single-recommendation invariant.",
-   "see_also": [
-    "cardinality",
-    "uncountable-set"
-   ],
+   "rosen_ref": "Rosen §3.5",
+   "definition_vi": "Số Carmichael là một hợp số $$n$$ sao cho $$n$$ là số giả nguyên tố theo mọi cơ sở nguyên tố cùng nhau với $$n$$.",
+   "example_vi": "Số $$561 = 3 \\cdot 11 \\cdot 17$$ là số Carmichael nhỏ nhất: nó là hợp số, nhưng với mọi số nguyên $$b$$ thỏa mãn $$\\gcd(b, 561) = 1$$ ta đều có $$b^{560} \\equiv 1 \\pmod{561}$$, nên $$561$$ là số giả nguyên tố theo mọi cơ sở như vậy.",
    "vi_terms": [
     {
-     "term": "tập đếm được",
-     "verified": false,
+     "term": "số Carmichael",
+     "verified": true,
      "recommended": false,
-     "page": "",
-     "source_id": ""
+     "source_id": "bib-rosen-2003-vi",
+     "page": "tr. 206",
+     "pdf_page": 206,
+     "snippet": "6. Số Carmichael là một số nguyên, nó cũng là một số giả nguyên tố"
     },
     {
-     "term": "tập đếm được",
-     "source_id": "bib-vudinhhoa-2003",
-     "page": "tr. 15",
-     "pdf_page": 16,
-     "snippet": "gọi là tập đếm được. Còn những tập vô hạn không tương ứng",
+     "term": "số Carmichael",
+     "source_id": "bib-sierpinski-2012",
+     "page": "tr. 143",
+     "pdf_page": 157,
+     "snippet": " a, n   1 được gọi là các số Carmichael. Carmichael là người đầu tiên lưu ý sự tồn tại các số như",
      "verified": true,
      "recommended": true
     },
     {
-     "term": "tập hợp đếm được",
-     "source_id": "bib-doducgiao-2000",
-     "page": "tr. 343",
-     "pdf_page": 342,
-     "snippet": "1) Chọn ra một tập hợp đểm được các ký hiệu mà ta sẽ gọi",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "tập hợp đếm được",
-     "source_id": "bib-doducgiao-2008",
-     "page": "tr. 140",
-     "pdf_page": 141,
-     "snippet": "1) Chon ra một tập hợp đếm được các ký hiệu mà ta sẽ gọi là các ký",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "tập hợp đếm được",
-     "source_id": "bib-vudinhhoa-2010",
-     "page": "",
-     "pdf_page": 42,
-     "snippet": "2.5.2 Tap hợp đếm được va tập hợp không đếm được",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "tập hợp đếm được",
-     "source_id": "bib-cungkimtien-2004",
-     "page": "",
-     "pdf_page": 87,
-     "snippet": "countable set tập hợp đếm được",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "tập hợp đếm được",
-     "source_id": "bib-phan-1976",
-     "page": "tr. 7",
-     "pdf_page": 7,
-     "snippet": "countable a. tập hợp đếm được",
+     "term": "số Carmichael",
+     "source_id": "bib-cormen-2001-vi",
+     "page": "tr. 931",
+     "pdf_page": 929,
+     "snippet": "Các số nguyên này được xem là các con số Carmichael. Ba con số",
      "verified": true,
      "recommended": false
     }
    ],
-   "pos": "d.t."
-  },
-  {
-   "id": "cantor-diagonalization-argument",
-   "letter": "C",
-   "headword_en": "Cantor diagonalization argument",
-   "notation": "",
-   "rosen_ref": "Rosen §2.5",
-   "definition_vi": "Lập luận đường chéo của Cantor là kỹ thuật chứng minh một tập hợp là không đếm được bằng phản chứng: giả sử tập đó đếm được nên có thể liệt kê các phần tử thành dãy, rồi xây dựng một phần tử mới khác phần tử thứ $$n$$ trong dãy ở thành phần thứ $$n$$ (chẳng hạn ở chữ số thứ $$n$$ của khai triển thập phân), nên phần tử mới này không có mặt trong dãy, dẫn tới mâu thuẫn. Cantor dùng lập luận này để chứng minh tập các số thực $$\\mathbb{R}$$ là không đếm được.",
-   "example_vi": "Để chứng minh tập các số thực trong khoảng $$(0,1)$$ là không đếm được, giả sử liệt kê được chúng thành dãy $$r_1, r_2, r_3, \\ldots$$ với khai triển thập phân $$r_i = 0.d_{i1} d_{i2} d_{i3} \\ldots$$; chọn số $$r = 0.e_1 e_2 e_3 \\ldots$$ với $$e_n \\neq d_{nn}$$, thì $$r$$ khác mọi $$r_n$$, mâu thuẫn với giả thiết liệt kê đầy đủ.",
-   "vi_terms": [
-    {
-     "term": "lập luận đường chéo của Cantor",
-     "source_id": "",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": "",
-     "verified": false,
-     "recommended": true
-    },
-    {
-     "term": "phương pháp đường chéo",
-     "source_id": "",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": "",
-     "verified": false,
-     "recommended": false
-    },
-    {
-     "term": "phương pháp đường chéo",
-     "source_id": "bib-vudinhhoa-2010",
-     "page": "",
-     "pdf_page": 42,
-     "snippet": "thiết được gọi là phương pháp đường chéo chính. Giả sử tồn tại một song ánh",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "phương pháp đường chéo",
-     "source_id": "bib-cungkimtien-2004",
-     "page": "",
-     "pdf_page": 618,
-     "snippet": "phương pháp đường chéo",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "phương pháp đường chéo",
-     "source_id": "bib-phan-1976",
-     "page": "tr. 287",
-     "pdf_page": 287,
-     "snippet": "diagonal m. Jog. phương pháp đường chéo",
-     "verified": true,
-     "recommended": false
-    }
+   "see_also": [
+    "composite-number",
+    "prime-number"
    ],
-   "see_also": [],
-   "notes": "Giáo trình MAT3500 dùng thuật ngữ \"lập luận đường chéo của Cantor\". Bản dịch Rosen tiếng Việt trình bày lập luận này ở Ví dụ 12 (tr. 103 PDF) khi chứng minh tập số thực là không đếm được, nhưng không gọi tên kỹ thuật là \"đường chéo\"; các kết quả tìm được cho \"đường chéo\" trong kho ngữ liệu đều chỉ đường chéo hình học hoặc đường chéo ma trận, còn \"Cantor\" trong Rosen chỉ \"khai triển Cantor\" (một khái niệm khác). Do đó không có nguồn ngữ liệu nào chứng thực đúng thuật ngữ này.",
+   "notes": "Số Carmichael là hợp số $$n$$ \"giả nguyên tố\" theo mọi cơ sở $$b$$ với $$\\gcd(b, n) = 1$$, tức là $$b^{n-1} \\equiv 1 \\pmod{n}$$ với mọi cơ sở như vậy, dù $$n$$ không phải số nguyên tố. Do đó số Carmichael vượt qua được phép kiểm tra Fermat theo mọi cơ sở nguyên tố cùng nhau với nó. Ba số Carmichael nhỏ nhất là $$561$$, $$1105$$ và $$1729$$. Thuật ngữ \"số Carmichael\" được dùng trong bản dịch tiếng Việt của Rosen (bib-rosen-2003-vi, tr. 206).",
    "status": "draft",
    "pos": "d.t."
   },
@@ -1825,6 +712,152 @@
    "pos": "d.t."
   },
   {
+   "id": "chain-rule",
+   "letter": "C",
+   "headword_en": "chain rule",
+   "pos": "d.t.",
+   "notation": "P(A_1\\cap\\cdots\\cap A_n)=\\prod_{i=1}^{n}P\\!\\left(A_i\\mid A_1\\cap\\cdots\\cap A_{i-1}\\right)",
+   "ref_bib": "bib-libennowell-2022",
+   "rosen_ref": "",
+   "definition_vi": "\\emph{Quy tắc dây chuyền} (trong xác suất) cho phép viết xác suất của giao nhiều biến cố thành tích các xác suất có điều kiện liên tiếp: $$\\displaystyle P(A_1\\cap\\cdots\\cap A_n)=\\prod_{i=1}^{n}P\\!\\left(A_i\\mid A_1\\cap\\cdots\\cap A_{i-1}\\right),$$ với quy ước số hạng đầu là $$P(A_1)$$.",
+   "example_vi": "Với hai biến cố, $$P(A\\cap B)=P(A)\\,P(B\\mid A)$$.",
+   "notes": "Trong giải tích, \\emph{quy tắc dây chuyền} chỉ quy tắc đạo hàm của hàm hợp; ở đây nghĩa được dùng là quy tắc nhân xác suất có điều kiện.",
+   "see_also": [
+    "bayes-rule"
+   ],
+   "vi_terms": [
+    {
+     "term": "quy tắc dây chuyền",
+     "recommended": true
+    },
+    {
+     "term": "quy tắc nhân xác suất",
+     "recommended": false
+    },
+    {
+     "term": "công thức nhân xác suất",
+     "recommended": false
+    },
+    {
+     "term": "quy tắc dây chuyền",
+     "source_id": "bib-phan-1976",
+     "page": "tr. 371",
+     "pdf_page": 371,
+     "snippet": "chain r. quy tắc dây chuyền",
+     "verified": true,
+     "recommended": false
+    }
+   ]
+  },
+  {
+   "id": "character-cipher",
+   "letter": "C",
+   "headword_en": "character cipher",
+   "notation": "",
+   "rosen_ref": "Rosen §4.6",
+   "definition_vi": "Mật mã ký tự là một loại mật mã mã hóa thông điệp bằng cách mã hóa từng ký tự một. Mỗi ký tự của bản rõ được thay thế riêng lẻ bởi một ký tự khác theo một quy tắc cố định, độc lập với các ký tự còn lại.",
+   "example_vi": "Mật mã Caesar là một ví dụ của mật mã ký tự. Mỗi chữ cái được biểu diễn bởi một số $$p$$ với $$0 \\leq p \\leq 25$$ và được mã hóa từng chữ một theo hàm $$f(p) = (p + 3) \\bmod 26$$; chẳng hạn chữ B (ứng với $$p = 1$$) được chuyển thành chữ E (ứng với $$4$$).",
+   "vi_terms": [
+    {
+     "term": "mật mã ký tự",
+     "verified": false,
+     "recommended": true,
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": ""
+    },
+    {
+     "term": "mật mã của Caesar",
+     "source_id": "bib-rosen-2003-vi",
+     "pdf_page": 164,
+     "page": "tr. 164",
+     "snippet": "Ví dụ 20. Dùng mật mã của Caesar chuyển bức thư \"Meet You in the",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "mật mã học",
+     "source_id": "bib-hoangchithanh-2007",
+     "pdf_page": 146,
+     "page": "tr. 146",
+     "snippet": "rai trong mật mã học.",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "mật mã",
+     "source_id": "bib-hoangchithanh-2011",
+     "page": "",
+     "pdf_page": 254,
+     "snippet": "trong mật mã học.",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "mật mã",
+     "source_id": "bib-nguyenhuudien-2019",
+     "page": "tr. 161",
+     "pdf_page": 161,
+     "snippet": "toán rất lớn như bài toán mô phỏng thời tiết, tạo hình trong y học hay phân tích mật mã",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "mật mã học",
+     "source_id": "bib-hoangchithanh-2011",
+     "page": "",
+     "pdf_page": 254,
+     "snippet": "trong mật mã học.",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "mật mã học",
+     "source_id": "bib-nguyenhuudien-2019",
+     "page": "tr. 258",
+     "pdf_page": 258,
+     "snippet": "Cây mã tiền tố tối ưu và thuật toán Huffman được ứng dụng rộng rãi trong mật mã học.",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "mật mã",
+     "source_id": "bib-sierpinski-2012",
+     "page": "",
+     "pdf_page": 9,
+     "snippet": "lý cuối cùng của Fermat mãi tới vài năm sau (kể từ khi chúng tôi nhận được câu đố) mới được giải",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "mật mã",
+     "source_id": "bib-cungkimtien-2004",
+     "page": "",
+     "pdf_page": 90,
+     "snippet": "cryptogram bản mật mã",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "mật mã",
+     "source_id": "bib-phan-1976",
+     "page": "tr. 106",
+     "pdf_page": 106,
+     "snippet": "decipher tk. đọc mật mã, giải mã",
+     "verified": true,
+     "recommended": false
+    }
+   ],
+   "see_also": [
+    "private-key-cryptography",
+    "public-key-cryptography"
+   ],
+   "notes": "Trong Rosen, mật mã ký tự (character cipher) là mật mã mã hóa từng ký tự một; mật mã Caesar và mật mã dịch (shift cipher) là các ví dụ tiêu biểu. Bản dịch Rosen (2003) dùng \"mật mã\" và \"mật mã của Caesar\" (tr. 163-164) nhưng không tách riêng cụm \"mật mã ký tự\" như một thuật ngữ; cụm \"mật mã ký tự\" được dùng làm bản dịch chuẩn được khuyến nghị, với \"mật mã\" và \"mật mã học\" là các dẫn chứng corpus bổ trợ.",
+   "status": "draft",
+   "pos": "d.t."
+  },
+  {
    "id": "characteristic-polynomial",
    "letter": "C",
    "headword_en": "characteristic polynomial",
@@ -2039,6 +1072,758 @@
    "pos": "d.t."
   },
   {
+   "id": "chromatic-number",
+   "letter": "C",
+   "headword_en": "chromatic number",
+   "notation": "\\chi(G)",
+   "rosen_ref": "Rosen §10.8",
+   "definition_vi": "Sắc số của một đồ thị $$G$$, ký hiệu $$\\chi(G)$$, là số màu nhỏ nhất cần dùng để tô màu các đỉnh của $$G$$ sao cho không có hai đỉnh kề nhau nào được tô cùng một màu.",
+   "example_vi": "Sắc số của đồ thị đầy đủ $$K_n$$ là $$\\chi(K_n) = n$$, và sắc số của một đồ thị hai phía có ít nhất một cạnh là $$2$$.",
+   "notes": "Recommended term 'sắc số' verified in all three sources; deferred candidate 'số sắc' (inverted word order) was unverifiable (page empty) and dropped per the citation-hygiene rule. The example conditions the bipartite case on 'có ít nhất một cạnh', which is necessary since a bipartite graph with no edges has sắc số 1. The unvetted gloss '(đồ thị lưỡng phân)' was removed in favor of the book-standard rendering 'đồ thị hai phía'.",
+   "see_also": [
+    "bipartite-graph",
+    "complete-graph",
+    "graph-coloring"
+   ],
+   "vi_terms": [
+    {
+     "term": "sắc số",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-leanhvinh-2020",
+     "pdf_page": 90,
+     "page": "tr. 91",
+     "snippet": "Định nghĩa 4.2. Sắc số của đồ thị G, kí hiệu bởi x(G), là số k nhỏ"
+    },
+    {
+     "term": "sắc số",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhoangthach-2020",
+     "pdf_page": 81,
+     "page": "tr. 79",
+     "snippet": "Sắc số của một đồ thị là số màu ít nhất cần dùng để tô màu đồ thị đó. Sắc"
+    },
+    {
+     "term": "sắc số",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 228,
+     "page": "tr. 228",
+     "snippet": "Định nghĩa 9.3 Sắc số của một đồ thị chính là số màu ít nhất dùng để tô các đỉnh của"
+    },
+    {
+     "term": "sắc số",
+     "source_id": "bib-cungkimtien-2004",
+     "page": "",
+     "pdf_page": 54,
+     "snippet": "chromatic number sắc số",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "sắc số",
+     "source_id": "bib-phan-1976",
+     "page": "tr. 306",
+     "pdf_page": 306,
+     "snippet": "chromatic n. sắc số",
+     "verified": true,
+     "recommended": false
+    }
+   ],
+   "pos": "d.t."
+  },
+  {
+   "id": "ciphertext",
+   "letter": "C",
+   "headword_en": "ciphertext",
+   "pos": "d.t.",
+   "notation": "",
+   "ref_bib": "bib-libennowell-2022",
+   "rosen_ref": "",
+   "definition_vi": "\\emph{Bản mã} là kết quả thu được sau khi áp dụng một phép mã hóa lên bản rõ, ở dạng không đọc được trực tiếp. Chỉ người nắm khóa giải mã thích hợp mới khôi phục được bản rõ từ bản mã.",
+   "example_vi": "Với mã Caesar dịch ba vị trí, bản rõ $$\\texttt{HELLO}$$ cho bản mã $$\\texttt{KHOOR}$$; người nhận dịch ngược ba vị trí để khôi phục.",
+   "notes": "",
+   "see_also": [
+    "plaintext",
+    "public-key",
+    "private-key"
+   ],
+   "vi_terms": [
+    {
+     "term": "bản mã",
+     "recommended": true
+    },
+    {
+     "term": "bản mã",
+     "source_id": "bib-cormen-2001-vi",
+     "page": "",
+     "pdf_page": 643,
+     "snippet": "thuật căn bản mà các thuật toán này sử dụng để giải quyết các bài toán",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "bản mã",
+     "source_id": "bib-doxuanloi-2006",
+     "page": "",
+     "pdf_page": 18,
+     "snippet": "bản mà ta đã biết cách giải quyết. Như vậy:việc tổ chức lời giải của bài toán",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "bản mã",
+     "source_id": "bib-nguyenhuudien-2019",
+     "page": "",
+     "pdf_page": 14,
+     "snippet": "Các đối tượng cơ bản mà chúng ta khảo sát ở đây là các phát biểu hay các mệnh đề. Tuy",
+     "verified": true,
+     "recommended": false
+    }
+   ]
+  },
+  {
+   "id": "circuit",
+   "letter": "C",
+   "headword_en": "circuit",
+   "notation": "",
+   "rosen_ref": "Rosen §10.4",
+   "definition_vi": "Chu trình đơn trong một đồ thị $$G$$ là một đường đi khép kín có độ dài $$\\geq 1$$, tức là bắt đầu và kết thúc tại cùng một đỉnh, sao cho không có cạnh nào bị lặp lại (các đỉnh có thể được lặp lại). Trong Ngô Đắc Tân (2004), khái niệm này được gọi bằng từ đơn 'mạch'; xem ghi chú.",
+   "example_vi": "Xét đồ thị gồm các cạnh $$ab, bc, ca, bd, de, eb$$. Dãy đỉnh $$a, b, d, e, b, c, a$$ là một chu trình đơn: nó khép kín và không lặp lại cạnh nào (đỉnh $$b$$ được lặp lại). Trái lại, dãy $$a, b, a$$ không phải là chu trình đơn vì cạnh $$ab$$ được dùng lại hai lần.",
+   "notes": "Rosen's 'circuit' is a closed walk of length at least one with no repeated edge (vertices may repeat). In a simple undirected graph an edge has no orientation, so a circuit/no-repeated-edge example must reuse no undirected edge. Source terminology splits two ways. In Ngo Dac Tan (2004) the single-word match for Rosen's circuit is 'mạch': 'Một hành trình khép kín được gọi là mạch nếu mọi cạnh của nó đều khác nhau' (pdf_page 195); in that same source 'chu trình' is reserved for a CYCLE (length >= 3, distinct vertices), so the bare 'chu trình' does NOT denote this concept there. In Nguyen Duc Nghia & Nguyen To Thanh (2006) and Nguyen Huu Dien (2019), 'chu trình' denotes a general closed walk and the circuit concept is named 'chu trình đơn'. 'chu trình đơn' is the most widely used cross-corpus term and is recommended; 'mạch' is the precise single-word match in the strongest graph-theory source and is surfaced in the definition. The bare 'chu trình' and 'chu tuyến' candidates were unverifiable (page empty) and dropped.",
+   "see_also": [
+    "cycle",
+    "euler-circuit",
+    "trail",
+    "walk"
+   ],
+   "vi_terms": [
+    {
+     "term": "chu trình đơn",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-nguyenhoangthach-2020",
+     "pdf_page": 73,
+     "page": "tr. 71",
+     "snippet": "cuối trùng nhau. Một đường đi đơn (tương tự, chu trình đơn) là một đường đi (chu trình) không đi qua cạnh nào quá một lần."
+    },
+    {
+     "term": "chu trình đơn",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 181,
+     "page": "tr. 181",
+     "snippet": "Đường đi hoặc chu trình gọi là đơn nếu nó không chứa cùng một cạnh (hoặc cung) quá [một lần]."
+    },
+    {
+     "term": "mạch",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-ngodactan-2004",
+     "pdf_page": 195,
+     "page": "tr. 195",
+     "snippet": "Một hành trình khép kín được gọi là mạch nếu mọi cạnh của nó đều khác nhau."
+    },
+    {
+     "term": "mạch",
+     "source_id": "bib-rosen-2003-vi",
+     "pdf_page": 494,
+     "page": "tr. 494",
+     "snippet": "nhau. Ví dụ, dùng đồ thị để xác định xem có thực hiện một mạch điện",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "chu trình đơn",
+     "source_id": "bib-hoangchithanh-2011",
+     "page": "",
+     "pdf_page": 14,
+     "snippet": "Chu trình được gọi là chu trình don nếu các đỉnh của nó khác nhau từng đôi.",
+     "verified": true,
+     "recommended": false
+    }
+   ],
+   "pos": "d.t."
+  },
+  {
+   "id": "circular-reasoning",
+   "letter": "C",
+   "headword_en": "circular reasoning",
+   "notation": "",
+   "rosen_ref": "Rosen §1.7",
+   "definition_vi": "Suy luận quẩn là kiểu suy luận trong đó một phát biểu được chứng minh bằng cách dùng chính nó. Nói cách khác, một hay nhiều bước trong lập luận dựa trên chính mệnh đề cần chứng minh, nên không cho ta một chứng minh hợp lệ. Thuật ngữ tiếng Việt cho khái niệm này hiện chưa thống nhất.",
+   "example_vi": "Giả sử ta muốn chứng minh mệnh đề \"nếu $$n^2$$ là số chẵn thì $$n$$ là số chẵn\" bằng cách giả thiết \"$$n$$ là số chẵn\" rồi suy ra $$n^2$$ chẵn; khi đó ta đã dùng ngay điều cần chứng minh làm giả thiết, nên đây là một suy luận quẩn.",
+   "vi_terms": [
+    {
+     "term": "lý luận quẩn",
+     "source_id": "bib-rosen-2003-vi",
+     "page": "tr. 214",
+     "pdf_page": 214,
+     "snippet": "chứng tỏ nó là đúng. Đây là lý luận quẩn vì phát biểu này cũng tương",
+     "verified": true,
+     "recommended": true
+    },
+    {
+     "term": "nguỵ biện dùng ngay câu hỏi",
+     "source_id": "bib-rosen-2003-vi",
+     "page": "tr. 214",
+     "pdf_page": 214,
+     "snippet": "Nhiều chứng minh sai vì đã dựa trên nguy biện dùng ngay câu hỏi",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "suy luận quẩn",
+     "source_id": "bib-rosen-2003-vi",
+     "page": "tr. 224",
+     "pdf_page": 224,
+     "snippet": "là do đùng suy luận quẩn. Sai lầm ở đâu ?",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "ngụy biện vòng tròn",
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": "",
+     "verified": false,
+     "recommended": false
+    },
+    {
+     "term": "lập luận vòng tròn",
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": "",
+     "verified": false,
+     "recommended": false
+    },
+    {
+     "term": "lập luận vòng vo",
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": "",
+     "verified": false,
+     "recommended": false
+    },
+    {
+     "term": "lập luận vòng quanh",
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": "",
+     "verified": false,
+     "recommended": false
+    },
+    {
+     "term": "lập luận luẩn quẩn",
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": "",
+     "verified": false,
+     "recommended": false
+    }
+   ],
+   "see_also": [
+    "fallacy",
+    "valid-argument",
+    "proof"
+   ],
+   "notes": "Suy luận quẩn còn gọi là nguỵ biện \"dùng ngay câu hỏi\" (begging the question): lập luận lấy chính điều cần chứng minh làm giả thiết. Đây là một nguỵ biện, khác với một suy luận đúng (valid argument). Nguồn duy nhất có thuật ngữ cho khái niệm này là bản dịch Rosen-VI; các giáo trình tiếng Việt mới hơn trong kho ngữ liệu không đề cập trực tiếp.",
+   "status": "draft",
+   "pos": "d.t."
+  },
+  {
+   "id": "class-p",
+   "letter": "C",
+   "headword_en": "class P",
+   "notation": "\\mathsf{P}",
+   "rosen_ref": "Rosen §3.3",
+   "definition_vi": "Lớp $$\\mathsf{P}$$ là lớp các bài toán giải được trong thời gian đa thức, tức là các bài toán mà tồn tại một thuật toán giải chúng với độ phức tạp thời gian là một hàm đa thức theo kích thước đầu vào.",
+   "example_vi": "Bài toán sắp xếp một bảng kê gồm $$n$$ phần tử thuộc lớp $$\\mathsf{P}$$ vì có thể giải được bằng thuật toán với độ phức tạp $$O(n^2)$$, là một hàm đa thức theo $$n$$; tương tự, bài toán tìm kiếm tuyến tính có độ phức tạp $$O(n)$$ nên cũng thuộc lớp $$\\mathsf{P}$$.",
+   "vi_terms": [
+    {
+     "term": "lớp P",
+     "verified": false,
+     "recommended": true,
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": ""
+    }
+   ],
+   "see_also": [
+    "time-complexity",
+    "complexity",
+    "algorithm-analysis",
+    "polynomial"
+   ],
+   "notes": "Lớp $$\\mathsf{P}$$ gồm các bài toán được xem là dễ xử lý (tractable) vì giải được trong thời gian đa thức, đối lập với các bài toán mà mọi thuật toán đã biết đều có độ phức tạp lớn hơn đa thức. Bản dịch Rosen tiếng Việt thảo luận khái niệm này trong mục về độ phức tạp tính toán, với cụm \"độ phức tạp đa thức\" (bib-rosen-2003-vi, tr. 146 (PDF)). Thuật ngữ \"lớp P\" là bản dịch chuẩn của \"class P\"; chưa tìm thấy dẫn chứng trực tiếp cho cụm \"lớp P\" trong kho ngữ liệu tiếng Việt hiện có.",
+   "status": "draft",
+   "pos": "d.t."
+  },
+  {
+   "id": "clique",
+   "letter": "C",
+   "headword_en": "clique",
+   "notation": "",
+   "rosen_ref": "Rosen §10.2",
+   "definition_vi": "Một clique của đồ thị $$G$$ là một tập con các đỉnh đôi một kề nhau, tức là một tập con cảm sinh một đồ thị con đầy đủ.",
+   "example_vi": "Trong đồ thị đầy đủ $$K_n$$, toàn bộ tập đỉnh là một clique, vì mọi cặp đỉnh đều kề nhau.",
+   "notes": "In Ngo Dac Tan (2004) the loanword 'clique' is used directly: 'số clique của nó cl(H) = 3 (tức là không có đồ thị con K4)'. This verified hit attests the clique NUMBER cl(H) usage (tying 'clique' to a complete subgraph) rather than a standalone definitional sentence, so the recommendation of the loanword 'clique' rests on usage-grounding. The example was tightened to reference only the defined concept (a clique as a vertex set); the earlier clause 'số clique của K_n bằng n' was removed because it referenced the clique number, an invariant not introduced in the definition. The descriptive forms 'đồ thị con đầy đủ' and 'tập đỉnh đầy đủ' are standard renderings but were not found in the three text sources (0 hits, strict and loose) and were dropped as unverifiable.",
+   "see_also": [
+    "complete-graph"
+   ],
+   "vi_terms": [
+    {
+     "term": "clique",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-leanhvinh-2020",
+     "pdf_page": 95,
+     "page": "tr. 96",
+     "snippet": "Cho đồ thi G, số clique của G, kí hiệu bởi w(G), là số t lớn nhất"
+    },
+    {
+     "term": "đồ thị con đầy đủ cực đại",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-leanhvinh-2020",
+     "pdf_page": 101,
+     "page": "tr. 102",
+     "snippet": "đồ thị con day đủ cực đại cha Gy. Suy ra |V(L) MN V(G2)| = w(G2)."
+    },
+    {
+     "term": "clique",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-ngodactan-2004",
+     "pdf_page": 314,
+     "page": "tr. 314",
+     "snippet": "không một đồ thị H với số clique của nó cl{H) = 3 (tức là không có"
+    },
+    {
+     "term": "bè",
+     "source_id": "bib-wikipedia-vi",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": "https://vi.wikipedia.org/wiki/Lý_thuyết_đồ_thị",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "clique",
+     "source_id": "bib-cormen-2001-vi",
+     "page": "tr. 1053",
+     "pdf_page": 1051,
+     "snippet": "Một bon [clique] trong một đồ thị không hướng G = (V, E) là một tập",
+     "verified": true,
+     "recommended": false
+    }
+   ],
+   "pos": "d.t."
+  },
+  {
+   "id": "closed-interval",
+   "letter": "C",
+   "headword_en": "closed interval",
+   "pos": "d.t.",
+   "notation": "[a,b]=\\{x\\in\\mathbb{R}: a\\le x\\le b\\}",
+   "ref_bib": "bib-libennowell-2022",
+   "rosen_ref": "",
+   "definition_vi": "Một \\emph{khoảng đóng} là tập các số thực nằm giữa hai đầu mút $$a$$ và $$b$$ (với $$a\\le b$$), \\emph{kể cả} hai đầu mút đó, ký hiệu $$[a,b]=\\{x\\in\\mathbb{R}: a\\le x\\le b\\}.$$",
+   "example_vi": "Khoảng đóng $$[0,1]$$ gồm mọi số thực $$x$$ với $$0\\le x\\le 1$$, chứa cả $$0$$ và $$1$$.",
+   "notes": "",
+   "see_also": [],
+   "vi_terms": [
+    {
+     "term": "khoảng đóng",
+     "recommended": true
+    },
+    {
+     "term": "đoạn",
+     "recommended": false
+    },
+    {
+     "term": "khoảng đóng",
+     "source_id": "bib-cormen-2001-vi",
+     "page": "",
+     "pdf_page": 129,
+     "snippet": "được định nghĩa trên một khoảng đóng, [a, b] các số thực [reals], ở đó",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "khoảng đóng",
+     "source_id": "bib-cungkimtien-2004",
+     "page": "",
+     "pdf_page": 57,
+     "snippet": "closed interval khoảng đóng",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "khoảng đóng",
+     "source_id": "bib-phan-1976",
+     "page": "tr. 246",
+     "pdf_page": 246,
+     "snippet": "closed i. khoảng đóng",
+     "verified": true,
+     "recommended": false
+    }
+   ]
+  },
+  {
+   "id": "closure",
+   "letter": "C",
+   "headword_en": "closure",
+   "pos": "d.t.",
+   "notation": "",
+   "ref_bib": "bib-libennowell-2022",
+   "rosen_ref": "",
+   "definition_vi": "\\emph{Bao đóng} của một quan hệ $$R$$ ứng với một tính chất $$P$$ (chẳng hạn phản xạ, đối xứng hoặc bắc cầu) là quan hệ nhỏ nhất chứa $$R$$ và thỏa mãn tính chất $$P$$. Nói cách khác, đó là giao của tất cả các quan hệ chứa $$R$$ và có tính chất $$P$$.",
+   "example_vi": "Bao đóng bắc cầu của quan hệ $$\\{(1,2),(2,3)\\}$$ trên $$\\{1,2,3\\}$$ là $$\\{(1,2),(2,3),(1,3)\\}.$$",
+   "notes": "",
+   "see_also": [],
+   "vi_terms": [
+    {
+     "term": "bao đóng",
+     "recommended": true
+    },
+    {
+     "term": "bao đóng quan hệ",
+     "recommended": false
+    },
+    {
+     "term": "bao đóng",
+     "source_id": "bib-cormen-2001-vi",
+     "page": "",
+     "pdf_page": 614,
+     "snippet": "trong thời gian ©(W*). Doan 26.2 cũng dé cập bài toán tìm bao đóng bắc",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "bao đóng",
+     "source_id": "bib-cungkimtien-2004",
+     "page": "",
+     "pdf_page": 11,
+     "snippet": "adherence of a set (cai) bao đóng",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "bao đóng",
+     "source_id": "bib-doantamhoe-2009",
+     "page": "",
+     "pdf_page": 50,
+     "snippet": "- Với tập hợp M bất kỳ, ký hiệu M gọi là bao đóng của M,",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "bao đóng",
+     "source_id": "bib-doducgiao-2000",
+     "page": "",
+     "pdf_page": 60,
+     "snippet": "¡5. BAO ĐÓNG BẮC CAU CUA QUAN HỆ",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "bao đóng",
+     "source_id": "bib-doducgiao-2008",
+     "page": "",
+     "pdf_page": 6,
+     "snippet": "§5. Bao đóng bắc cầu của quan hệ.......",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "bao đóng",
+     "source_id": "bib-doxuanloi-2006",
+     "page": "",
+     "pdf_page": 156,
+     "snippet": "7.4.1 Bài toán bao đóng truyền ứng (trasitive closure)",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "bao đóng",
+     "source_id": "bib-hoangchithanh-2007",
+     "page": "",
+     "pdf_page": 12,
+     "snippet": "1. Ma tran tổng 7 còn được gọi là bao đóng bắc cầu cha ma trận",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "bao đóng",
+     "source_id": "bib-hoangchithanh-2011",
+     "page": "",
+     "pdf_page": 19,
+     "snippet": "1) Ma trận tổng 7 được gọi là bao đóng bắc câu của ma trận ké A.",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "bao đóng",
+     "source_id": "bib-nguyenducnghia-2006",
+     "page": "",
+     "pdf_page": 290,
+     "snippet": "hiệu 1 để kích còi báo động. Ta cần kích còi báo động nếu xảy ra ít nhất một trong các",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "bao đóng",
+     "source_id": "bib-phan-1976",
+     "page": "tr. 6",
+     "pdf_page": 6,
+     "snippet": "a. of a set (cái) bao đóng của một tập hợp",
+     "verified": true,
+     "recommended": false
+    }
+   ]
+  },
+  {
+   "id": "coarsening",
+   "letter": "C",
+   "headword_en": "coarsening",
+   "pos": "d.t.",
+   "notation": "",
+   "ref_bib": "bib-libennowell-2022",
+   "rosen_ref": "",
+   "definition_vi": "Một \\emph{phép làm thô} (hay \\emph{phân hoạch thô hơn}) của một phân hoạch $$P$$ trên tập $$S$$ là một phân hoạch $$Q$$ của $$S$$ sao cho mỗi khối của $$Q$$ là hợp của một số khối của $$P$$. Nói cách khác, $$Q$$ thu được bằng cách gộp một số khối của $$P$$ lại với nhau; khi đó $$P$$ được gọi là \\emph{mịn hơn} $$Q$$.",
+   "example_vi": "Với $$S=\\{1,2,3,4\\}$$, phân hoạch $$\\{\\{1,2\\},\\{3,4\\}\\}$$ là một phép làm thô của $$\\{\\{1\\},\\{2\\},\\{3,4\\}\\}$$.",
+   "notes": "",
+   "see_also": [
+    "partition"
+   ],
+   "vi_terms": [
+    {
+     "term": "phép làm thô",
+     "recommended": true
+    },
+    {
+     "term": "phân hoạch thô hơn",
+     "recommended": false
+    }
+   ]
+  },
+  {
+   "id": "code",
+   "letter": "C",
+   "headword_en": "code",
+   "pos": "d.t.",
+   "notation": "",
+   "ref_bib": "bib-libennowell-2022",
+   "rosen_ref": "",
+   "definition_vi": "Một \\emph{mã} là một tập hợp các xâu (thường có cùng độ dài) trên một bảng chữ cái cho trước, dùng để biểu diễn thông tin sao cho có thể phát hiện hoặc sửa lỗi khi truyền tin. Mỗi phần tử của tập này được gọi là một từ mã; một \\emph{mã} nhị phân độ dài $$n$$ là một tập con của $$\\{0,1\\}^n$$.",
+   "example_vi": "Tập $$C=\\{000, 111\\}$$ là một mã nhị phân độ dài $$3$$ gồm hai từ mã, lặp lại mỗi bit ba lần.",
+   "notes": "",
+   "see_also": [
+    "codeword",
+    "error-detecting-code",
+    "error-correcting-code"
+   ],
+   "vi_terms": [
+    {
+     "term": "mã",
+     "recommended": true
+    }
+   ]
+  },
+  {
+   "id": "codeword",
+   "letter": "C",
+   "headword_en": "codeword",
+   "pos": "d.t.",
+   "notation": "",
+   "ref_bib": "bib-libennowell-2022",
+   "rosen_ref": "",
+   "definition_vi": "Một \\emph{từ mã} là một phần tử của một mã $$C$$, tức là một xâu cụ thể được dùng để biểu diễn một đơn vị thông tin. Khi nhận được một xâu, máy thu so sánh nó với các từ mã của $$C$$ để phát hiện lỗi hoặc khôi phục từ mã gần nhất.",
+   "example_vi": "Trong mã $$C=\\{000, 111\\}$$, các xâu $$000$$ và $$111$$ là các từ mã; xâu nhận được $$101$$ không phải từ mã nên báo hiệu có lỗi.",
+   "notes": "",
+   "see_also": [
+    "code"
+   ],
+   "vi_terms": [
+    {
+     "term": "từ mã",
+     "recommended": true
+    },
+    {
+     "term": "từ mã",
+     "source_id": "bib-cormen-2001-vi",
+     "page": "",
+     "pdf_page": 228,
+     "snippet": "qua đó các đĩa được kéo ra khỏi ngăn xếp nghịch đảo với thứ tự mà",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "từ mã",
+     "source_id": "bib-cungkimtien-2004",
+     "page": "",
+     "pdf_page": 59,
+     "snippet": "coded word từ mã",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "từ mã",
+     "source_id": "bib-doantamhoe-2009",
+     "page": "",
+     "pdf_page": 109,
+     "snippet": "viết lại là 2312. Trên hàng 2. có phần tử mạ, # 0. Vậy ta mở rộng chu",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "từ mã",
+     "source_id": "bib-doducgiao-2000",
+     "page": "",
+     "pdf_page": 47,
+     "snippet": "Rõ rang từ ma tran trên ta dé dang xác định được quan",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "từ mã",
+     "source_id": "bib-doducgiao-2008",
+     "page": "",
+     "pdf_page": 59,
+     "snippet": "Rõ ràng từ ma trận trên ta dé dàng xác định được quan hệ R.",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "từ mã",
+     "source_id": "bib-doducgiao-2009",
+     "page": "",
+     "pdf_page": 107,
+     "snippet": "Kết quả này suy ra từ ma trận My” có n hàng, mỗi hàng có n - 1 số 1,",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "từ mã",
+     "source_id": "bib-doducthai-2010",
+     "page": "",
+     "pdf_page": 95,
+     "snippet": "Nếu không thành công thì mất chi phí đầu tư mà không thu về được",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "từ mã",
+     "source_id": "bib-doxuanloi-2006",
+     "page": "",
+     "pdf_page": 25,
+     "snippet": "writen (nhập phần tử ma tran’);",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "từ mã",
+     "source_id": "bib-leanhvinh-2020",
+     "page": "",
+     "pdf_page": 57,
+     "snippet": "Việc xóa đi một hang và một cột từ ma tran Laplace của dé thị",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "từ mã",
+     "source_id": "bib-ngodactan-2004",
+     "page": "",
+     "pdf_page": 51,
+     "snippet": "và thứ tự mà các tờ tiền được chọn ra là không quan trọng?",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "từ mã",
+     "source_id": "bib-nguyenducnghia-2006",
+     "page": "",
+     "pdf_page": 225,
+     "snippet": "thuật tính toán mà ta có thể mô tả đại thể như sau: từ ma trận trọng số #|u,v], #,v e V,",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "từ mã",
+     "source_id": "bib-nguyenhuuanh-2007",
+     "page": "",
+     "pdf_page": 11,
+     "snippet": "tương tự mà ta gọi là các dạng ménh đề được xây dựng từ:",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "từ mã",
+     "source_id": "bib-nguyenhuudien-2019",
+     "page": "",
+     "pdf_page": 46,
+     "snippet": "từ mà khi thay các biến x, y, . . . bởi các phần tử cụ thể a, b, . . . tương ứng thì ta được mệnh",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "từ mã",
+     "source_id": "bib-nguyenvanmau-2007",
+     "page": "",
+     "pdf_page": 50,
+     "snippet": "Giá sử X = {1,2,...,n}. Hỏi có bao nhiêu tập con A của X có r phần tử mà không",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "từ mã",
+     "source_id": "bib-phan-1976",
+     "page": "tr. 449",
+     "pdf_page": 449,
+     "snippet": "coded w. từ mã",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "từ mã",
+     "source_id": "bib-sierpinski-2012",
+     "page": "",
+     "pdf_page": 130,
+     "snippet": "các hạng tử mà x n xuất hiện. Khi đó các hệ số của các hạng tử trong nhóm thứ n là nhân tử của",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "từ mã",
+     "source_id": "bib-vovantuandung-2007",
+     "page": "",
+     "pdf_page": 51,
+     "snippet": "giữa các phần tử mà thôi.",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "từ mã",
+     "source_id": "bib-vudinhhoa-2010",
+     "page": "",
+     "pdf_page": 108,
+     "snippet": "Tên biến: Là một day kí tự mà kí tự đầu phải là chữ cái.",
+     "verified": true,
+     "recommended": false
+    }
+   ]
+  },
+  {
    "id": "codomain",
    "letter": "C",
    "headword_en": "codomain",
@@ -2240,6 +2025,167 @@
    "pos": "d.t."
   },
   {
+   "id": "combination",
+   "letter": "C",
+   "headword_en": "combination",
+   "notation": "\\binom{n}{r}",
+   "rosen_ref": "Rosen §6.3",
+   "definition_vi": "Một tổ hợp chập $$r$$ của một tập hợp là một cách chọn không có thứ tự $$r$$ phần tử của tập hợp đó. Số tổ hợp chập $$r$$ của một tập hợp gồm $$n$$ phần tử, ký hiệu $$\\binom{n}{r}$$, bằng $$\\binom{n}{r} = \\dfrac{n!}{r!\\,(n-r)!}$$.",
+   "example_vi": "Số tổ hợp chập $$2$$ của tập hợp $$\\{a, b, c, d\\}$$ là $$\\binom{4}{2} = 6$$, ứng với các cách chọn $$\\{a,b\\}, \\{a,c\\}, \\{a,d\\}, \\{b,c\\}, \\{b,d\\}, \\{c,d\\}$$.",
+   "notes": "Recommended term 'tổ hợp' is the canonical short noun; the phrase-level forms 'tổ hợp chập r' (bib-nguyenhuudien-2019 pdf_page 89) and 'tổ hợp chập k của n phần tử' (bib-ngodactan-2004 pdf_page 29) are verified deferred variants of the same concept, consistent with the binomial-coefficient formula in the definition.",
+   "see_also": [
+    "permutation",
+    "binomial-coefficient"
+   ],
+   "vi_terms": [
+    {
+     "term": "tổ hợp",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-nguyenhoangthach-2020",
+     "pdf_page": 21,
+     "page": "tr. 19",
+     "snippet": "2.1.2 Tổ hợp"
+    },
+    {
+     "term": "tổ hợp chập k",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhoangthach-2020",
+     "pdf_page": 21,
+     "page": "tr. 19",
+     "snippet": "nguyên không âm. Một tổ hợp chập k của S là một bộ không sắp thứ tự gồm"
+    },
+    {
+     "term": "tổ hợp chập r",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 89,
+     "page": "tr. 89",
+     "snippet": "Định nghĩa 3.9 Một tổ hợp chập r của một tập hợp là một cách chọn không có thứ tự r"
+    },
+    {
+     "term": "tổ hợp chập k của n phần tử",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-ngodactan-2004",
+     "pdf_page": 29,
+     "page": "tr. 29",
+     "snippet": "Như vậy, một tổ hợp chập k của n phần tử cửa A có thể được xem"
+    },
+    {
+     "term": "tổ hợp không lặp chập k",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-ngodactan-2004",
+     "pdf_page": 29,
+     "page": "tr. 29",
+     "snippet": "là một tổ hợp không lặp chập k của n phần tử của A. Tổ hợp không"
+    },
+    {
+     "term": "tổ hợp",
+     "source_id": "bib-leanhvinh-2020",
+     "page": "tr. 138",
+     "pdf_page": 137,
+     "snippet": "bài toán quan trọng của Hình học Tổ hợp, Bài toán khoảng cách đơn",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "tổ hợp",
+     "source_id": "bib-nguyenhuudien-2019",
+     "page": "tr. 3",
+     "pdf_page": 3,
+     "snippet": "trong ba lĩnh vực có nhiều ứng dụng của toán rời rạc là: lý thuyết tổ hợp, lý thuyết đồ thị",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "tổ hợp chập k",
+     "source_id": "bib-nguyenhuudien-2019",
+     "page": "tr. 93",
+     "pdf_page": 93,
+     "snippet": "Do đó số các dãy n − 1 thanh đứng và k ngôi sao chính là số tổ hợp chập k từ tập n + k − 1",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "tổ hợp chập k của n phần tử",
+     "source_id": "bib-nguyenhoangthach-2020",
+     "page": "tr. 19",
+     "pdf_page": 21,
+     "snippet": "Số tổ hợp chập k của n phần tử k",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "tổ hợp chập k",
+     "source_id": "bib-vudinhhoa-2010",
+     "page": "",
+     "pdf_page": 116,
+     "snippet": "Phương pháp xây dựng tổ hợp chập k của n cũng theo một nguyên tắc tương ty.",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "tổ hợp chập r",
+     "source_id": "bib-doducgiao-2008",
+     "page": "tr. 38",
+     "pdf_page": 39,
+     "snippet": "Vì vậy, một tố hợp chập r chính là một tập con r phần tử của tập hợp",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "tổ hợp chập r",
+     "source_id": "bib-vudinhhoa-2010",
+     "page": "",
+     "pdf_page": 116,
+     "snippet": "tổ hợp của một tập hợp A = {1,2,...,n}. Vì mỗi tổ hợp chập r của n là một tập hợp",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "tổ hợp chập k của n phần tử",
+     "source_id": "bib-vudinhhoa-2010",
+     "page": "",
+     "pdf_page": 117,
+     "snippet": "2. Viết chương trình sinh tất cả các tổ hợp chập k của n phần tử.",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "tổ hợp",
+     "source_id": "bib-cungkimtien-2004",
+     "page": "",
+     "pdf_page": 59,
+     "snippet": "code combination tổ hợp mã",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "tổ hợp",
+     "source_id": "bib-phan-1976",
+     "page": "tr. 12",
+     "pdf_page": 12,
+     "snippet": "combinatory a. giải tích tổ hợp",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "tổ hợp chập r",
+     "source_id": "bib-phan-1976",
+     "page": "tr. 59",
+     "pdf_page": 59,
+     "snippet": "c. of n things r at a time ¢k. tổ hợp chập r trong n phần tử",
+     "verified": true,
+     "recommended": false
+    }
+   ],
+   "pos": "d.t."
+  },
+  {
    "id": "combinatorial-circuit",
    "letter": "C",
    "headword_en": "combinatorial circuit",
@@ -2278,6 +2224,178 @@
    ],
    "see_also": [],
    "notes": "Đối lập với mạch tuần tự (sequential circuit), trong đó đầu ra còn phụ thuộc vào trạng thái trước đó. Chỉ giáo trình Rosen tiếng Việt chứng thực thuật ngữ này trong kho ngữ liệu.",
+   "status": "draft",
+   "pos": "d.t."
+  },
+  {
+   "id": "combinatorial-proof",
+   "letter": "C",
+   "headword_en": "combinatorial proof",
+   "notation": "",
+   "rosen_ref": "Rosen §6.4",
+   "definition_vi": "Chứng minh tổ hợp là một chứng minh sử dụng các lập luận đếm thay vì biến đổi đại số. Thông thường, một đẳng thức được chứng minh bằng cách đếm số phần tử của cùng một tập hợp hữu hạn theo hai cách khác nhau, hoặc bằng cách thiết lập một song ánh giữa hai tập hợp hữu hạn.",
+   "example_vi": "Để chứng minh đẳng thức $$\\binom{n}{k} = \\binom{n}{n-k}$$, ta dùng một chứng minh tổ hợp: việc chọn ra $$k$$ phần tử từ một tập $$n$$ phần tử tương ứng một-một với việc chọn ra $$n-k$$ phần tử bị loại, nên hai vế đếm cùng một số đối tượng.",
+   "vi_terms": [
+    {
+     "term": "chứng minh tổ hợp",
+     "source_id": "bib-nguyenhoangthach-2020",
+     "pdf_page": 85,
+     "page": "tr. 83",
+     "snippet": "Chứng minh. Ta sử dụng một chứng minh tổ hợp. Vì mỗi đỉnh khác gốc đều",
+     "verified": true,
+     "recommended": true
+    },
+    {
+     "term": "chứng minh tổ hợp",
+     "source_id": "bib-nguyenhoangthach-2020",
+     "pdf_page": 23,
+     "page": "tr. 21",
+     "snippet": "thức nk và cách chứng minh tổ hợp của chúng. Đẳng thức đầu tiên là một",
+     "verified": true,
+     "recommended": false
+    }
+   ],
+   "see_also": [
+    "double-counting-proof",
+    "bijection"
+   ],
+   "notes": "Chứng minh tổ hợp là thuật ngữ bao trùm cho các chứng minh dựa trên lập luận đếm; theo Rosen, hai dạng tiêu biểu là phương pháp đếm bằng hai cách (xem double-counting-proof) và chứng minh bằng song ánh (xem bijection). Thuật ngữ \"chứng minh tổ hợp\" có dẫn chứng trực tiếp trong nguồn mới nhất bib-nguyenhoangthach-2020 (tr. 23 và tr. 85 bản PDF).",
+   "status": "draft",
+   "pos": "d.t."
+  },
+  {
+   "id": "combinatorics",
+   "letter": "C",
+   "headword_en": "combinatorics",
+   "notation": "",
+   "rosen_ref": "Rosen §4.1",
+   "definition_vi": "Lý thuyết tổ hợp là ngành nghiên cứu về cách sắp xếp các đối tượng. Nó gắn liền với việc đếm và nghiên cứu các cách bố trí những đối tượng của một tập hợp, có kể tới thứ tự hoặc không.",
+   "example_vi": "Nhiều bài toán có thể diễn đạt dưới dạng sắp xếp các đối tượng của một tập hợp. Chẳng hạn, số cách sắp xếp có thứ tự $$k$$ trong $$n$$ đối tượng khác nhau là $$\\displaystyle\\frac{n!}{(n-k)!}$$, còn số cách chọn không kể thứ tự $$k$$ trong $$n$$ đối tượng là $$\\displaystyle\\binom{n}{k}$$. Việc đếm các sắp xếp như vậy là một bài toán cơ bản của lý thuyết tổ hợp.",
+   "vi_terms": [
+    {
+     "term": "lý thuyết tổ hợp",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-nguyenducnghia-2006",
+     "pdf_page": 10,
+     "page": "",
+     "snippet": "nghĩa nó một cách hình thức. Nói chung, lý thuyết tổ hợp gắn liền với việc nghiên cứu"
+    },
+    {
+     "term": "sắp xếp các đối tượng",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-rosen-2003-vi",
+     "pdf_page": 290,
+     "page": "tr. 290",
+     "snippet": "Chúng ta có thể diễn đạt nhiều bài toán dưới dạng sắp xếp, có kể tới `"
+    },
+    {
+     "term": "toán học tổ hợp",
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": "",
+     "verified": false,
+     "recommended": false
+    },
+    {
+     "term": "lý thuyết tổ hợp",
+     "source_id": "bib-leanhvinh-2020",
+     "page": "tr. 255",
+     "pdf_page": 254,
+     "snippet": "(91] N. D. Tan, Ly thuyết tổ hợp va do thi, NXB Dai học Quốc gia",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "lý thuyết tổ hợp",
+     "source_id": "bib-nguyenhuudien-2019",
+     "page": "tr. 3",
+     "pdf_page": 3,
+     "snippet": "trong ba lĩnh vực có nhiều ứng dụng của toán rời rạc là: lý thuyết tổ hợp, lý thuyết đồ thị",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "toán tổ hợp",
+     "source_id": "bib-nguyenvanmau-2007",
+     "page": "",
+     "pdf_page": 4,
+     "snippet": "Một số phương pháp giải các bài tóan tổ hợp nâng cao",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "sắp xếp các đối tượng",
+     "source_id": "bib-vudinhhoa-2010",
+     "page": "",
+     "pdf_page": 45,
+     "snippet": "rạc, chuyên nghiên cứu sự sắp xếp các đối tượng cũng như mối quan hệ ràng buộc",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "toán tổ hợp",
+     "source_id": "bib-doducthai-2010",
+     "page": "tr. 41",
+     "pdf_page": 41,
+     "snippet": "nó là một ví dụ về sự xuất hiện các phép toán tổ hợp trong xác suất",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "toán tổ hợp",
+     "source_id": "bib-vudinhhoa-2010",
+     "page": "",
+     "pdf_page": 42,
+     "snippet": "của nó cũng là tập hợp hữu hạn. Trong chương các phép toán tổ hợp, chúng ta thay",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "lý thuyết tổ hợp",
+     "source_id": "bib-cungkimtien-2004",
+     "page": "",
+     "pdf_page": 559,
+     "snippet": "lý thuyết tổ hợp theory of",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "lý thuyết tổ hợp",
+     "source_id": "bib-phan-1976",
+     "page": "tr. 422",
+     "pdf_page": 422,
+     "snippet": ". of conbinations lý thuyết tổ hợp",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "toán học tổ hợp",
+     "source_id": "bib-cungkimtien-2004",
+     "page": "",
+     "pdf_page": 62,
+     "snippet": "combinatorics toán học tổ hợp",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "toán học tổ hợp",
+     "source_id": "bib-phan-1976",
+     "page": "tr. 59",
+     "pdf_page": 59,
+     "snippet": "combinatorics toán học tổ hợp",
+     "verified": true,
+     "recommended": false
+    }
+   ],
+   "see_also": [
+    "addition-rule",
+    "combination",
+    "permutation"
+   ],
+   "notes": "Rosen định nghĩa combinatorics là \"the study of arrangements of objects\" (ngành nghiên cứu cách sắp xếp các đối tượng). Trong tài liệu tiếng Việt, thuật ngữ chuẩn cho lĩnh vực này là \"lý thuyết tổ hợp\" (cũng gặp dưới dạng \"toán học tổ hợp\"), được dùng nhất quán trong bib-nguyenducnghia-2006 và bib-ngodactan-2004 để chỉ chính ngành toán này. Cần phân biệt \"lý thuyết tổ hợp\" (cả ngành) với \"tổ hợp\" (combination) — một cách chọn không kể thứ tự $$k$$ phần tử trong $$n$$ phần tử.",
    "status": "draft",
    "pos": "d.t."
   },
@@ -2357,6 +2475,154 @@
    "pos": "d.t."
   },
   {
+   "id": "comparable",
+   "letter": "C",
+   "headword_en": "comparable",
+   "notation": "a \\preceq b \\text{ or } b \\preceq a",
+   "rosen_ref": "",
+   "definition_vi": "Hai phần tử $$a$$ và $$b$$ của một tập sắp thứ tự bộ phận được gọi là so sánh được nếu $$a \\preceq b$$ hoặc $$b \\preceq a$$.",
+   "example_vi": "Trong tập sắp thứ tự bộ phận $$(\\mathbb{Z}^{+}, \\mid)$$ với quan hệ chia hết, hai số $$3$$ và $$9$$ là so sánh được vì $$3 \\mid 9$$, trong khi $$2$$ và $$3$$ không so sánh được vì không số nào chia hết số kia.",
+   "vi_terms": [
+    {
+     "term": "so sánh được",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-ngodactan-2004",
+     "page": "tr. 164",
+     "pdf_page": 164,
+     "snippet": "được gọi là so sánh được với nhau đối với thứ tự bộ phận < nếu hoặc"
+    },
+    {
+     "term": "so sánh được",
+     "source_id": "bib-nguyenhuudien-2019",
+     "page": "tr. 140",
+     "pdf_page": 140,
+     "snippet": "Số các phép so sánh được dùng trong thuật toán này cũng sẽ được xem như thước đo",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "so sánh được",
+     "source_id": "bib-vudinhhoa-2010",
+     "page": "",
+     "pdf_page": 101,
+     "snippet": "Một van đề quan trọng của thuật toán là phải đánh giá và so sánh được các thuật",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "so sánh được",
+     "source_id": "bib-cungkimtien-2004",
+     "page": "",
+     "pdf_page": 64,
+     "snippet": "comparability tính so sánh được",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "so sánh được",
+     "source_id": "bib-phan-1976",
+     "page": "tr. 7",
+     "pdf_page": 7,
+     "snippet": "comparable a. tạp hợp so sánh được",
+     "verified": true,
+     "recommended": false
+    }
+   ],
+   "see_also": [
+    "partial-order",
+    "poset",
+    "total-order"
+   ],
+   "notes": "Nếu $$a$$ và $$b$$ không thỏa mãn $$a \\preceq b$$ và cũng không thỏa mãn $$b \\preceq a$$ thì chúng được gọi là không so sánh được (incomparable). Trong một thứ tự toàn phần, mọi cặp phần tử đều so sánh được.",
+   "status": "draft",
+   "pos": "t.t."
+  },
+  {
+   "id": "compatible-total-ordering",
+   "letter": "C",
+   "headword_en": "compatible total ordering",
+   "see_ref": "topological-sort",
+   "vi_terms": [
+    {
+     "term": "thứ tự toàn phần tương thích",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhuudien-2019",
+     "page": "tr. 121",
+     "pdf_page": 121,
+     "snippet": "Việc xây dựng thứ tự toàn phần tương thích với một thứ tự cho trước được gọi là sắp xếp topo."
+    }
+   ],
+   "status": "draft",
+   "pos": "d.t."
+  },
+  {
+   "id": "complement",
+   "letter": "C",
+   "headword_en": "complement",
+   "notation": "",
+   "rosen_ref": "",
+   "definition_vi": "Trong toán rời rạc, \\emph{phần bù} của một đối tượng là phần \"còn lại\" của nó trong một ngữ cảnh cho trước, và xuất hiện ở nhiều ngữ cảnh khác nhau. Mục này chỉ nêu ý niệm chung; các trường hợp cụ thể được trình bày ở những mục riêng (xem mục Xem thêm).",
+   "example_vi": "Một vài ví dụ về phần bù: phần bù $$\\overline{A}$$ của một tập hợp $$A$$ đối với tập vũ trụ; đồ thị bù $$\\overline{G}$$ của một đồ thị $$G$$; và biểu diễn bù 1, bù 2 của số nguyên trong máy tính.",
+   "vi_terms": [
+    {
+     "term": "phần bù",
+     "source_id": "bib-leanhvinh-2020",
+     "page": "tr. 99",
+     "pdf_page": 98,
+     "snippet": "thị là hoàn hảo khi và chỉ khi phản bù của nó cũng là đồ thị hoàn hảo.",
+     "verified": true,
+     "recommended": true
+    },
+    {
+     "term": "phần bù",
+     "source_id": "bib-nguyenhoangthach-2020",
+     "page": "tr. 20",
+     "pdf_page": 22,
+     "snippet": "phần bù của nó. Bạn đọc có thể dễ dàng kiểm tra rằng đây là một song ánh",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "phần bù",
+     "source_id": "bib-nguyenhuudien-2019",
+     "page": "tr. 75",
+     "pdf_page": 75,
+     "snippet": "Định nghĩa 3.5 Phần bù của tập A (trong U), ký hiệu bởi A, là tập hợp tất cả các phần",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "phần bù",
+     "source_id": "bib-cungkimtien-2004",
+     "page": "",
+     "pdf_page": 15,
+     "snippet": "algebraic complement phần bù",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "phần bù",
+     "source_id": "bib-phan-1976",
+     "page": "tr. 62",
+     "pdf_page": 62,
+     "snippet": "complement phần bù // bổ sung, dùng làm phần bù",
+     "verified": true,
+     "recommended": false
+    }
+   ],
+   "see_also": [
+    "complement-of-a-set",
+    "complement-of-a-graph",
+    "ones-complement-notation",
+    "twos-complement-notation"
+   ],
+   "notes": "",
+   "status": "panel-approved",
+   "pos": "d.t."
+  },
+  {
    "id": "complement-graph",
    "letter": "C",
    "headword_en": "complement graph",
@@ -2374,6 +2640,50 @@
    ],
    "see_also": [],
    "notes": "Đồng nghĩa với Complement of a graph.",
+   "pos": "d.t."
+  },
+  {
+   "id": "complement-of-a-graph",
+   "letter": "C",
+   "headword_en": "complement of a graph",
+   "notation": "\\overline{G}",
+   "rosen_ref": "Rosen §10.2",
+   "definition_vi": "Đồ thị bù của một đơn đồ thị $$G$$, ký hiệu $$\\overline{G}$$, là đồ thị có cùng tập đỉnh với $$G$$, trong đó hai đỉnh phân biệt kề nhau khi và chỉ khi chúng không kề nhau trong $$G$$.",
+   "example_vi": "Đồ thị bù của đồ thị đầy đủ $$K_n$$ là đồ thị rỗng trên $$n$$ đỉnh, vì trong $$K_n$$ mọi cặp đỉnh đều kề nhau nên không có cặp đỉnh nào kề nhau trong $$\\overline{K_n}$$.",
+   "notes": "'đồ thị bù' is the standard Vietnamese term, verified in all three text sources with formal definitions matching Rosen §10.2 (same vertex set; two distinct vertices adjacent in the complement iff not adjacent in G). The candidates 'phần bù' (set complement in the corpus) and 'đồ thị phần bù' (0 hits) do not denote the graph complement and were dropped as unverifiable.",
+   "see_also": [
+    "self-complementary-graph",
+    "simple-graph"
+   ],
+   "vi_terms": [
+    {
+     "term": "đồ thị bù",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-leanhvinh-2020",
+     "pdf_page": 101,
+     "page": "tr. 102",
+     "snippet": "Do đó, thay vi làm việc với đồ thị bù của G, ta có thể làm việc với"
+    },
+    {
+     "term": "đồ thị bù",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhoangthach-2020",
+     "pdf_page": 72,
+     "page": "tr. 70",
+     "snippet": "Đồ thị bù của đồ thị G là đồ thị G = (V, E) sao cho với mọi cặp đỉnh u, v,"
+    },
+    {
+     "term": "đồ thị bù",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 167,
+     "page": "tr. 167",
+     "snippet": "Định nghĩa 6.17 Đơn đồ thị G ′ = (V, E′ ) được gọi là đồ thị bù của đơn đồ thị G = (V, E)"
+    }
+   ],
    "pos": "d.t."
   },
   {
@@ -2434,6 +2744,168 @@
    "see_also": [],
    "notes": "Phần bù được lấy đối với một tập vũ trụ $$U$$ đã cho; ký hiệu khác thường gặp là $$A^{c}$$ hay $$U \\setminus A$$.",
    "status": "draft",
+   "pos": "d.t."
+  },
+  {
+   "id": "complete-bipartite-graph",
+   "letter": "C",
+   "headword_en": "complete bipartite graph",
+   "notation": "K_{m,n}",
+   "rosen_ref": "Rosen §10.2",
+   "definition_vi": "Đồ thị hai phía đầy đủ, ký hiệu $$K_{m,n}$$, là đồ thị đơn có tập đỉnh được phân hoạch thành hai tập rời nhau có kích thước $$m$$ và $$n$$, trong đó mỗi đỉnh thuộc tập này được nối với mọi đỉnh thuộc tập kia bằng đúng một cạnh và không có cạnh nào nối hai đỉnh trong cùng một tập.",
+   "example_vi": "Đồ thị $$K_{2,3}$$ có một tập gồm $$2$$ đỉnh và một tập gồm $$3$$ đỉnh, với tổng cộng $$6$$ cạnh nối mỗi đỉnh của tập thứ nhất tới mỗi đỉnh của tập thứ hai.",
+   "notes": "Three Vietnamese terms are attested, reflecting two translations of 'bipartite': 'hai phía'/'hai phần' (two-sided/two-part) and 'phân đôi' (split-in-two). 'đồ thị hai phía đầy đủ' (Nguyen Duc Nghia & Nguyen To Thanh) is recommended as it matches the book-standard 'hai phía' = bipartite convention; bib-nguyenducnghia-2006 pdf_page 160 carries the definition-grade attestation of 'hai phía' ('Đơn đồ thị G = (V,E) được gọi là hai phía nếu...'), supporting the recommended term with a concept anchor. The page-198 hit for the full phrase required loose search because OCR mangled 'đầy' to 'đây' and K_{m,n} to 'X'. 'đồ thị phân đôi đầy đủ' (Nguyen Huu Dien, pdf_page 160) has the cleanest definitional hit with explicit K_{m,n} notation.",
+   "see_also": [
+    "bipartite-graph",
+    "complete-graph"
+   ],
+   "vi_terms": [
+    {
+     "term": "đồ thị hai phần đầy đủ",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-leanhvinh-2020",
+     "pdf_page": 190,
+     "page": "tr. 191",
+     "snippet": "7.3. Đồ thị hai phần đầy đủ"
+    },
+    {
+     "term": "đồ thị hai phần đầy đủ",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhoangthach-2020",
+     "pdf_page": 67,
+     "page": "tr. 65",
+     "snippet": "Đồ thị hai phần đầy đủ Km,n là một đồ thị đầy đủ mà tập hợp đỉnh của"
+    },
+    {
+     "term": "đồ thị phân đôi đầy đủ",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 160,
+     "page": "tr. 160",
+     "snippet": "được gọi là đồ thị phân đôi đầy đủ. Nếu |V1 | = m, |V2 | = n thì đồ thị phân đôi đầy đủ G ký"
+    },
+    {
+     "term": "đồ thị hai phần đầy đủ",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 233,
+     "page": "tr. 233",
+     "snippet": "Hệ quả 9.5 Đồ thị hai phần đầy đủ Km,n là đồ thị phẳng khi và chỉ khi m ≤ 2 hoặc n ≤ 2."
+    },
+    {
+     "term": "đồ thị hai phía đầy đủ",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenducnghia-2006",
+     "pdf_page": 198,
+     "page": "",
+     "snippet": "2. 2) Với những giá trị nào của z và. # đồ thị hai phía đây đủ X „„"
+    },
+    {
+     "term": "đồ thị lưỡng phân đầy đủ",
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": "",
+     "verified": false,
+     "recommended": false
+    },
+    {
+     "term": "đồ thị phân đôi đầy đủ",
+     "source_id": "bib-doantamhoe-2009",
+     "page": "",
+     "pdf_page": 102,
+     "snippet": "thị phân đôi. Đồ thị phân đôi day đủ K„„ là đồ thị phân đôi mà V, có",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "đồ thị phân đôi đầy đủ",
+     "source_id": "bib-doducgiao-2009",
+     "page": "tr. 96",
+     "pdf_page": 97,
+     "snippet": "c) Dé thị phan đôi và đồ thị phân doi đầy đủ",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "đồ thị lưỡng phân đầy đủ",
+     "source_id": "bib-vudinhhoa-2003",
+     "page": "tr. 115",
+     "pdf_page": 116,
+     "snippet": "Bay giờ xét một số n lẻ. Đồ thị lưỡng phân đầy đủ",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "đồ thị lưỡng phân đầy đủ",
+     "source_id": "bib-vudinhhoa-2010",
+     "page": "",
+     "pdf_page": 137,
+     "snippet": "đủ Ks và đồ thị lưỡng phan đầy đủ X3.",
+     "verified": true,
+     "recommended": false
+    }
+   ],
+   "pos": "d.t."
+  },
+  {
+   "id": "complete-graph",
+   "letter": "C",
+   "headword_en": "complete graph",
+   "notation": "K_n",
+   "rosen_ref": "Rosen §10.2",
+   "definition_vi": "Đồ thị đầy đủ $$n$$ đỉnh, ký hiệu $$K_n$$, là đơn đồ thị vô hướng mà giữa mọi cặp đỉnh phân biệt đều có một cạnh nối.",
+   "example_vi": "$$K_3$$ là tam giác gồm $$3$$ đỉnh và $$3$$ cạnh, trong đó mỗi cặp trong $$3$$ đỉnh đều được nối với nhau.",
+   "notes": "'đồ thị đầy đủ' is the canonical term, attested in all three sources. The recommended citation is bib-nguyenducnghia-2006 (pdf_page 158); cross-source confirmation added from bib-nguyenhuudien-2019 (pdf_page 159, definition-grade hit 'Đồ thị đầy đủ n đỉnh, ký hiệu là Kn, là đơn đồ thị mà hai đỉnh phân biệt bất kỳ của nó...') and bib-ngodactan-2004 (pdf_page 190, 'n-đồ thị đầy đủ'), bringing variant depth in line with sibling entries.",
+   "see_also": [
+    "chromatic-number",
+    "complete-bipartite-graph",
+    "clique",
+    "complement-of-a-graph"
+   ],
+   "vi_terms": [
+    {
+     "term": "đồ thị đầy đủ",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-nguyenhoangthach-2020",
+     "pdf_page": 67,
+     "page": "tr. 65",
+     "snippet": "Đồ thị đầy đủ: Kn , n ≥ 1, có n đỉnh v1 , v2 , . . . , vn và n(n − 1)/2 cạnh nối"
+    },
+    {
+     "term": "đồ thị đầy đủ",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-leanhvinh-2020",
+     "pdf_page": 14,
+     "page": "tr. 15",
+     "snippet": "Định nghĩa 1.9. Đồ thị đầy đủ bậc n, kí hiệu bởi K„, là đồ thị gồm"
+    },
+    {
+     "term": "đồ thị đầy đủ",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 159,
+     "page": "tr. 159",
+     "snippet": "Đồ thị đầy đủ n đỉnh, ký hiệu là Kn , là đơn đồ thị mà hai đỉnh phân biệt bất kỳ của nó"
+    },
+    {
+     "term": "n-đồ thị đầy đủ",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-ngodactan-2004",
+     "pdf_page": 190,
+     "page": "tr. 190",
+     "snippet": "cấp n và cỡ m = (2) được gọi là n-đồ thị đầy đủ và thường được ký"
+    }
+   ],
    "pos": "d.t."
   },
   {
@@ -2611,6 +3083,34 @@
    "pos": "d.t."
   },
   {
+   "id": "composite",
+   "letter": "C",
+   "headword_en": "composite",
+   "see_ref": "composite-number",
+   "vi_terms": [],
+   "status": "draft",
+   "pos": "t.t."
+  },
+  {
+   "id": "composite-key",
+   "letter": "C",
+   "headword_en": "composite key",
+   "see_ref": "key",
+   "vi_terms": [
+    {
+     "term": "khóa phức hợp",
+     "verified": false,
+     "recommended": false,
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": ""
+    }
+   ],
+   "status": "draft",
+   "pos": "d.t."
+  },
+  {
    "id": "composite-number",
    "letter": "C",
    "headword_en": "composite number",
@@ -2729,6 +3229,362 @@
    "notes": "Đối lập với mệnh đề sơ cấp (atomic/elementary). Tên gọi \"mệnh đề phức hợp\" thống nhất giữa giáo trình MAT3500, Nguyễn Hữu Điển (2019) và bản dịch tiếng Việt của Rosen.",
    "status": "draft",
    "pos": "d.t."
+  },
+  {
+   "id": "computable-function",
+   "letter": "C",
+   "headword_en": "computable function",
+   "notation": "",
+   "rosen_ref": "Rosen §3.1",
+   "definition_vi": "Hàm tính được là một hàm mà tồn tại một chương trình máy tính tìm được các giá trị của nó. Nói cách khác, một hàm $$f$$ là tính được nếu có một chương trình máy tính, với mỗi đầu vào thuộc miền xác định, trả về giá trị tương ứng của $$f$$.",
+   "example_vi": "Hàm $$f(n) = n!$$ trên tập số nguyên dương là tính được, vì có một chương trình tính giai thừa trả về giá trị $$f(n)$$ với mọi $$n$$. Ngược lại, có những hàm không tính được, tức là không một chương trình máy tính nào tìm được mọi giá trị của chúng.",
+   "vi_terms": [
+    {
+     "term": "hàm tính được",
+     "source_id": "bib-rosen-2003-vi",
+     "page": "tr. 833",
+     "pdf_page": 833,
+     "snippet": "nhanh hơn một hàm tính được bất kỳ (xem Bài tập 24).",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "hàm tính được",
+     "source_id": "bib-rosen-2003-vi",
+     "page": "tr. 862",
+     "pdf_page": 862,
+     "snippet": "chỉ có một số đếm dude các hàm tính được. VÌ như Bài tập 30 cho thấy có một số",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "hàm số khả tính",
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": "",
+     "verified": false,
+     "recommended": false
+    },
+    {
+     "term": "hàm khả tính",
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": "",
+     "verified": false,
+     "recommended": false
+    },
+    {
+     "term": "hàm tính được",
+     "source_id": "bib-cungkimtien-2004",
+     "page": "",
+     "pdf_page": 520,
+     "snippet": "hàm tính được computable",
+     "verified": true,
+     "recommended": true
+    },
+    {
+     "term": "hàm tính được",
+     "source_id": "bib-phan-1976",
+     "page": "tr. 195",
+     "pdf_page": 195,
+     "snippet": "computable f. Jog. ham tính được",
+     "verified": true,
+     "recommended": false
+    }
+   ],
+   "see_also": [
+    "function",
+    "algorithm",
+    "recursive-function"
+   ],
+   "notes": "Khái niệm hàm tính được khác với hàm định nghĩa bằng đệ quy (recursive function): hàm tính được nói về sự tồn tại của một chương trình máy tính tìm các giá trị của hàm, còn hàm đệ quy nói về cách định nghĩa hàm thông qua chính nó. Thuật ngữ \"hàm tính được\" chỉ có dẫn chứng trực tiếp trong bản dịch Rosen-VI (tr. 833 và tr. 862 bản PDF); bản dịch này còn nêu định nghĩa tương ứng ở tr. 107 (\"một hàm là tính được nếu có một chương trình máy\"). Các giáo trình tiếng Việt mới hơn trong kho ngữ liệu không đề cập trực tiếp khái niệm này.",
+   "status": "draft",
+   "pos": "d.t."
+  },
+  {
+   "id": "concatenation",
+   "letter": "C",
+   "headword_en": "concatenation",
+   "notation": "xy",
+   "rosen_ref": "Rosen §5.3",
+   "definition_vi": "Phép ghép của hai xâu là xâu được tạo nên bằng cách viết các ký hiệu của xâu này nối tiếp vào sau xâu kia. Cụ thể, phép ghép của hai xâu $$x$$ và $$y$$, ký hiệu $$xy$$, là xâu thu được bằng cách thêm các ký hiệu của $$y$$ vào cuối xâu $$x$$.",
+   "example_vi": "Nếu $$x = abra$$ và $$y = cadabra$$ thì phép ghép của chúng là $$xy = abracadabra$$. Ghép một xâu bất kỳ với xâu rỗng $$\\lambda$$ giữ nguyên xâu đó, tức là $$\\lambda x = x \\lambda = x$$.",
+   "vi_terms": [
+    {
+     "term": "ghép các xâu",
+     "source_id": "bib-rosen-2003-vi",
+     "pdf_page": 813,
+     "page": "tr. 813",
+     "snippet": "Phép ghép của A và B, được ký hiệu bởi AB, là tập tất cả các xâu có",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "ghép xâu",
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": "",
+     "verified": false,
+     "recommended": false
+    },
+    {
+     "term": "phép ghép",
+     "source_id": "bib-doxuanloi-2006",
+     "page": "tr. 15",
+     "pdf_page": 13,
+     "snippet": "Nó cho phép ghép nhiều câu lệnh lại để được coi như một câu lệnh.",
+     "verified": true,
+     "recommended": true
+    },
+    {
+     "term": "phép ghép",
+     "source_id": "bib-nguyenducnghia-2006",
+     "page": "",
+     "pdf_page": 13,
+     "snippet": "phép ghép hai tập hợp để được một tập hợp mới, đó là tích Đêcac",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "phép ghép",
+     "source_id": "bib-cormen-2001-vi",
+     "page": "tr. 210",
+     "pdf_page": 208,
+     "snippet": "xuất đã sắp xếp bao gồm phép ghép nối thco thứ tự của các danh sách BỊ01,",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "phép ghép",
+     "source_id": "bib-cungkimtien-2004",
+     "page": "",
+     "pdf_page": 71,
+     "snippet": "concatenation su, phép ghép",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "phép ghép",
+     "source_id": "bib-phan-1976",
+     "page": "tr. 252",
+     "pdf_page": 252,
+     "snippet": "juxtapossition phép ghép, phép nhân ghép",
+     "verified": true,
+     "recommended": false
+    }
+   ],
+   "see_also": [
+    "string"
+   ],
+   "notes": "Khái niệm phép ghép gắn với khái niệm xâu (string). Bản dịch Rosen (2003) dùng \"phép ghép\" cho thao tác nối hai xâu và động từ \"ghép\" cho hành động ghép các xâu; ký hiệu $$xy$$ chỉ kết quả ghép $$x$$ với $$y$$. Phép ghép cũng được mở rộng cho các tập xâu (ngôn ngữ), với $$AB$$ là tập các xâu tạo bởi phép ghép một xâu của $$A$$ với một xâu của $$B$$ (tr. 796).",
+   "status": "draft",
+   "pos": "d.t."
+  },
+  {
+   "id": "conclusion",
+   "letter": "C",
+   "headword_en": "conclusion",
+   "notation": "",
+   "rosen_ref": "Rosen §1.6",
+   "definition_vi": "Kết luận là phát biểu cuối cùng trong một suy luận hoặc một dạng suy luận.",
+   "example_vi": "Trong suy luận \"Nếu trời mưa thì đường ướt; trời mưa; do đó đường ướt\", các phát biểu $$p \\rightarrow q$$ và $$p$$ là các giả thiết, còn phát biểu $$q$$ (\"đường ướt\") là kết luận, tức là phát biểu cuối cùng được rút ra.",
+   "vi_terms": [
+    {
+     "term": "kết luận",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-nguyenhuudien-2019",
+     "page": "tr. 29",
+     "pdf_page": 29,
+     "snippet": "đề), và biểu thức Q được gọi là kết luận. Ở đây chúng ta cũng cần lưu ý rằng lý luận trên"
+    },
+    {
+     "term": "kết luận",
+     "source_id": "bib-leanhvinh-2020",
+     "page": "tr. 186",
+     "pdf_page": 185,
+     "snippet": "‡v_,(n) cạnh, ta có thể kết luận nhiều hơn như vậy. Với r,t nguyên",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "kết luận",
+     "source_id": "bib-nguyenhoangthach-2020",
+     "page": "tr. 25",
+     "pdf_page": 27,
+     "snippet": "được kết luận.",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "kết luận",
+     "source_id": "bib-cungkimtien-2004",
+     "page": "",
+     "pdf_page": 72,
+     "snippet": "conclusion kết luận, sự kết thúc",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "kết luận",
+     "source_id": "bib-phan-1976",
+     "page": "tr. 68",
+     "pdf_page": 68,
+     "snippet": "conclude /og. kết luận, kết thúc",
+     "verified": true,
+     "recommended": false
+    }
+   ],
+   "see_also": [
+    "argument",
+    "argument-form",
+    "valid-argument",
+    "inference-rule"
+   ],
+   "notes": "Kết luận là phát biểu cuối cùng của một suy luận (argument), được rút ra từ các giả thiết (premises). Thuật ngữ \"kết luận\" được dùng nhất quán trong cả giáo trình tiếng Việt mới (Nguyễn Hữu Điển, 2019) và bản dịch Rosen-VI.",
+   "status": "draft",
+   "pos": "d.t."
+  },
+  {
+   "id": "conditional-expectation",
+   "letter": "C",
+   "headword_en": "conditional expectation",
+   "pos": "d.t.",
+   "notation": "E[X\\mid A]",
+   "ref_bib": "bib-libennowell-2022",
+   "rosen_ref": "",
+   "definition_vi": "\\emph{Kỳ vọng có điều kiện} của biến ngẫu nhiên $$X$$ khi biết biến cố $$A$$ đã xảy ra (với $$P(A)>0$$), ký hiệu $$E[X\\mid A]$$, là giá trị trung bình của $$X$$ tính theo phân phối có điều kiện đối với $$A$$, xác định bởi $$\\displaystyle E[X\\mid A]=\\sum_{x} x\\cdot P(X=x\\mid A)$$.",
+   "example_vi": "Tung một con xúc xắc cân đối, kỳ vọng số chấm khi biết kết quả là số chẵn là $$E[X\\mid A]=\\frac{2+4+6}{3}=4$$.",
+   "notes": "",
+   "see_also": [
+    "conditional probability",
+    "expectation"
+   ],
+   "vi_terms": [
+    {
+     "term": "kỳ vọng có điều kiện",
+     "recommended": true
+    },
+    {
+     "term": "kỳ vọng có điều kiện",
+     "source_id": "bib-cungkimtien-2004",
+     "page": "",
+     "pdf_page": 546,
+     "snippet": "kỳ vọng có điều kiện conditional",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "kỳ vọng có điều kiện",
+     "source_id": "bib-doducthai-2010",
+     "page": "",
+     "pdf_page": 6,
+     "snippet": "Phân bố và kỳ vọng có điều kiện . . . . . . . . . 164",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "kỳ vọng có điều kiện",
+     "source_id": "bib-phan-1976",
+     "page": "tr. 165",
+     "pdf_page": 165,
+     "snippet": "conditional e. /. kỳ vọng có điều kiện",
+     "verified": true,
+     "recommended": false
+    }
+   ]
+  },
+  {
+   "id": "conditional-independence",
+   "letter": "C",
+   "headword_en": "conditional independence",
+   "pos": "d.t.",
+   "notation": "",
+   "ref_bib": "bib-libennowell-2022",
+   "rosen_ref": "",
+   "definition_vi": "Hai biến cố $$A$$ và $$B$$ được gọi là \\emph{độc lập có điều kiện} khi biết biến cố $$C$$ (với $$P(C)>0$$) nếu $$P(A\\cap B\\mid C)=P(A\\mid C)\\cdot P(B\\mid C)$$. Khi đó việc biết $$B$$ không cung cấp thêm thông tin về $$A$$ một khi đã biết $$C$$.",
+   "example_vi": "Khi biết trời mưa ($$C$$), việc một người mang ô ($$A$$) và một người khác mang ô ($$B$$) có thể độc lập có điều kiện, dù không độc lập nếu chưa biết thời tiết.",
+   "notes": "",
+   "see_also": [
+    "conditional probability",
+    "independence"
+   ],
+   "vi_terms": [
+    {
+     "term": "độc lập có điều kiện",
+     "recommended": true
+    },
+    {
+     "term": "độc lập có điều kiện",
+     "source_id": "bib-cormen-2001-vi",
+     "page": "",
+     "pdf_page": 133,
+     "snippet": "Hai sự kiện A và B độc lập có điều kiện, căn cứ vào C, nếu",
+     "verified": true,
+     "recommended": false
+    }
+   ]
+  },
+  {
+   "id": "conditional-probability",
+   "letter": "C",
+   "headword_en": "conditional probability",
+   "pos": "d.t.",
+   "notation": "P(A\\mid B)",
+   "ref_bib": "bib-libennowell-2022",
+   "rosen_ref": "",
+   "definition_vi": "\\emph{Xác suất có điều kiện} của biến cố $$A$$ khi biết biến cố $$B$$ đã xảy ra (với $$P(B)>0$$), ký hiệu $$P(A\\mid B)$$, được định nghĩa bởi $$\\displaystyle P(A\\mid B)=\\frac{P(A\\cap B)}{P(B)}$$.",
+   "example_vi": "Tung hai con xúc xắc, xác suất tổng bằng $$8$$ khi biết con thứ nhất ra $$3$$ là $$1/6$$.",
+   "notes": "",
+   "see_also": [
+    "conditional expectation",
+    "independence"
+   ],
+   "vi_terms": [
+    {
+     "term": "xác suất có điều kiện",
+     "recommended": true
+    },
+    {
+     "term": "xác suất có điều kiện",
+     "source_id": "bib-cormen-2001-vi",
+     "page": "",
+     "pdf_page": 129,
+     "snippet": "Xác suất có điều kiện và sự độc lập",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "xác suất có điều kiện",
+     "source_id": "bib-cungkimtien-2004",
+     "page": "",
+     "pdf_page": 711,
+     "snippet": "xác suất có điều kiện conditional",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "xác suất có điều kiện",
+     "source_id": "bib-doducthai-2010",
+     "page": "",
+     "pdf_page": 3,
+     "snippet": "Xác suất có điều kiện . . . . . . . . . . . . . . . . 43",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "xác suất có điều kiện",
+     "source_id": "bib-phan-1976",
+     "page": "tr. 339",
+     "pdf_page": 339,
+     "snippet": "conditional p. xác suất có điều kiện",
+     "verified": true,
+     "recommended": false
+    }
+   ]
   },
   {
    "id": "conditional-statement",
@@ -3262,6 +4118,405 @@
    "pos": "t.t."
   },
   {
+   "id": "connected-component",
+   "letter": "C",
+   "headword_en": "connected component",
+   "notation": "",
+   "rosen_ref": "Rosen §10.4",
+   "definition_vi": "Thành phần liên thông của một đồ thị $$G$$ là một đồ thị con liên thông cực đại của $$G$$, tức là một đồ thị con liên thông không chứa trong bất kỳ đồ thị con liên thông nào lớn hơn.",
+   "example_vi": "Đồ thị gồm hai chu trình rời nhau $$C_3$$ và $$C_4$$ có đúng hai thành phần liên thông.",
+   "notes": "'thành phần liên thông' is the dominant standard term (85 hits in Ngo Dac Tan 2004), with the formal definition at pdf_page 196. 'mảng liên thông' (Nguyen Huu Dien 2019, pdf_page 180) is a valid algorithmic-context synonym. The older synonym 'bộ phận liên thông' (0 hits, exact and loose) was unverifiable and dropped.",
+   "see_also": [
+    "connected-graph",
+    "subgraph"
+   ],
+   "vi_terms": [
+    {
+     "term": "thành phần liên thông",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-nguyenhoangthach-2020",
+     "pdf_page": 74,
+     "page": "tr. 72",
+     "snippet": "Định nghĩa 5.29. Giả sử G là một đồ thị. Một thành phần liên thông của"
+    },
+    {
+     "term": "thành phần liên thông",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-leanhvinh-2020",
+     "pdf_page": 17,
+     "page": "tr. 18",
+     "snippet": "chỉ có một thành phần liên thông."
+    },
+    {
+     "term": "thành phần liên thông",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 168,
+     "page": "tr. 168",
+     "snippet": "các thành phần liên thông của đồ thị đang xét. Như vậy, một đồ thị là liên thông khi và chỉ"
+    },
+    {
+     "term": "mảng liên thông",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 180,
+     "page": "tr. 180",
+     "snippet": "Cho đồ thị G , hãy tìm số mảng liên thông p của đồ thị này và xác định xem mỗi mảng"
+    },
+    {
+     "term": "mảng liên thông",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-hoangchithanh-2007",
+     "pdf_page": 14,
+     "page": "tr. 14",
+     "snippet": "quan hệ nay được gọi là một mang liên thông (hay thành phần liên"
+    },
+    {
+     "term": "mảng liên thông",
+     "source_id": "bib-hoangchithanh-2011",
+     "page": "",
+     "pdf_page": 11,
+     "snippet": "mảng liên thông",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "thành phần liên thông",
+     "source_id": "bib-cungkimtien-2004",
+     "page": "",
+     "pdf_page": 667,
+     "snippet": "thành phan liên thông của một",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "thành phần liên thông",
+     "source_id": "bib-phan-1976",
+     "page": "tr. 64",
+     "pdf_page": 64,
+     "snippet": ". of a space thành phần liên thông của một không gian",
+     "verified": true,
+     "recommended": false
+    }
+   ],
+   "pos": "d.t."
+  },
+  {
+   "id": "connected-graph",
+   "letter": "C",
+   "headword_en": "connected graph",
+   "notation": "",
+   "rosen_ref": "Rosen §10.4",
+   "definition_vi": "Một đồ thị vô hướng $$G$$ được gọi là đồ thị liên thông nếu giữa mọi cặp đỉnh phân biệt của $$G$$ luôn có một đường đi nối chúng.",
+   "example_vi": "Đồ thị đầy đủ $$K_n$$ với $$n \\geq 1$$ là một đồ thị liên thông, vì giữa hai đỉnh phân biệt bất kỳ luôn có một cạnh nối chúng.",
+   "notes": "'đồ thị liên thông' recommended (definition-grade hit at bib-nguyenhuudien-2019 pdf_page 169); the bare adjective 'liên thông' is the predicate form, kept as a verified deferred variant. see_also populated with in-chapter hub links, since connected-graph is referenced by connected-component, connectivity, and cut-vertex.",
+   "see_also": [
+    "connected-component",
+    "connectivity",
+    "cut-vertex",
+    "complete-graph"
+   ],
+   "vi_terms": [
+    {
+     "term": "đồ thị liên thông",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-leanhvinh-2020",
+     "pdf_page": 17,
+     "page": "tr. 18",
+     "snippet": "phan liên thông của G. Rõ ràng, đồ thi G là dé thị liên thông nếu G"
+    },
+    {
+     "term": "đồ thị liên thông",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhoangthach-2020",
+     "pdf_page": 75,
+     "page": "tr. 73",
+     "snippet": "Định nghĩa 5.32. Giả sử G là một đồ thị liên thông. Một tập hợp đỉnh"
+    },
+    {
+     "term": "liên thông",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhoangthach-2020",
+     "pdf_page": 74,
+     "page": "tr. 72",
+     "snippet": "Định nghĩa 5.27. Đồ thị G là liên thông nếu giữa hai đỉnh bất kỳ có một"
+    },
+    {
+     "term": "đồ thị liên thông",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 169,
+     "page": "tr. 169",
+     "snippet": "Mệnh đề 6.4 Giữa mọi cặp đỉnh phân biệt của một đồ thị liên thông luôn có đường đi sơ"
+    },
+    {
+     "term": "liên thông",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 168,
+     "page": "tr. 168",
+     "snippet": "Định nghĩa 6.19 Một đồ thị (vô hướng) được gọi là liên thông nếu có đường đi giữa mọi"
+    },
+    {
+     "term": "liên thông",
+     "source_id": "bib-leanhvinh-2020",
+     "page": "tr. 7",
+     "pdf_page": 6,
+     "snippet": "trình Euler, chu trình Hamilton, tính liên thông. cây bao trùm, cặp",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "liên thông",
+     "source_id": "bib-cungkimtien-2004",
+     "page": "",
+     "pdf_page": 13,
+     "snippet": "affine connection liên thông afin",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "liên thông",
+     "source_id": "bib-phan-1976",
+     "page": "tr. 24",
+     "pdf_page": 24,
+     "snippet": ". of connection tién dé lién thong",
+     "verified": true,
+     "recommended": false
+    }
+   ],
+   "pos": "d.t."
+  },
+  {
+   "id": "connectivity",
+   "letter": "C",
+   "headword_en": "connectivity",
+   "see_ref": "vertex-connectivity",
+   "vi_terms": [
+    {
+     "term": "độ liên thông đỉnh",
+     "verified": false,
+     "recommended": false,
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": ""
+    },
+    {
+     "term": "số liên thông đỉnh",
+     "verified": false,
+     "recommended": false,
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": ""
+    },
+    {
+     "term": "độ liên thông",
+     "verified": false,
+     "recommended": false,
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": ""
+    },
+    {
+     "term": "liên thông đỉnh",
+     "verified": false,
+     "recommended": false,
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": ""
+    }
+   ],
+   "see_also": [],
+   "notes": "Đồng nghĩa với Vertex connectivity.",
+   "pos": "d.t."
+  },
+  {
+   "id": "consistent-compound-propositions",
+   "letter": "C",
+   "headword_en": "consistent compound propositions",
+   "notation": "",
+   "rosen_ref": "Rosen §1.1",
+   "definition_vi": "Một tập các mệnh đề phức hợp được gọi là nhất quán nếu tồn tại một phép gán các giá trị chân lý cho các biến mệnh đề làm cho tất cả các mệnh đề trong tập đó cùng nhận giá trị đúng.",
+   "example_vi": "Hai mệnh đề $$p \\rightarrow q$$ và $$p \\wedge \\neg q$$ là không nhất quán, vì không có phép gán giá trị chân lý nào làm cho cả hai cùng đúng: nếu $$p \\wedge \\neg q$$ đúng thì $$p$$ đúng và $$q$$ sai, khi đó $$p \\rightarrow q$$ sai. Ngược lại, hai mệnh đề $$p \\vee q$$ và $$p \\rightarrow q$$ là nhất quán, vì phép gán $$p$$ đúng và $$q$$ đúng làm cho cả hai cùng đúng.",
+   "vi_terms": [
+    {
+     "term": "nhất quán",
+     "source_id": "bib-doxuanloi-2006",
+     "page": "tr. 117",
+     "pdf_page": 115,
+     "snippet": "Ỉ nút sau nút I. Tuy nhiên để cách biểu diễn được nhất quán đối với mọi nút,",
+     "verified": true,
+     "recommended": true
+    },
+    {
+     "term": "nhất quán",
+     "source_id": "bib-cormen-2001-vi",
+     "page": "tr. 240",
+     "pdf_page": 238,
+     "snippet": "nhất quán với thông lệ thực thi.",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "nhất quán",
+     "source_id": "bib-doducthai-2010",
+     "page": "tr. 3",
+     "pdf_page": 3,
+     "snippet": "1.1.2 Ba tiên đề về sự nhất quán của xác suất . . . . . . . . 18",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "nhất quán",
+     "source_id": "bib-cungkimtien-2004",
+     "page": "",
+     "pdf_page": 78,
+     "snippet": "consistence tính nhất quán; tính",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "nhất quán",
+     "source_id": "bib-phan-1976",
+     "page": "tr. 75",
+     "pdf_page": 75,
+     "snippet": "consistence tính nhất quán, tính phi mâu thuẫn",
+     "verified": true,
+     "recommended": false
+    }
+   ],
+   "see_also": [
+    "compound-proposition",
+    "proposition",
+    "tautology",
+    "contradiction",
+    "truth-table"
+   ],
+   "notes": "Tính nhất quán của một tập mệnh đề phức hợp khác với tính hằng đúng (tautology) của một mệnh đề đơn lẻ: nhất quán chỉ đòi hỏi tồn tại một phép gán giá trị chân lý làm cho tất cả các mệnh đề trong tập cùng đúng, chứ không đòi hỏi chúng đúng với mọi phép gán. Một tập gồm các mệnh đề tự mâu thuẫn không thể nhất quán. Khái niệm này thường được dùng để kiểm tra tính tương thích của các đặc tả hệ thống (system specifications) trong Rosen §1.1. Thuật ngữ \"nhất quán\" chỉ có dẫn chứng trực tiếp trong bản dịch Rosen-VI (tr. 22 bản PDF), tại đúng đoạn nêu định nghĩa; các giáo trình tiếng Việt mới hơn trong kho ngữ liệu không đề cập trực tiếp khái niệm nhất quán của mệnh đề phức hợp.",
+   "status": "draft",
+   "pos": "d.t."
+  },
+  {
+   "id": "constructive-existence-proof",
+   "letter": "C",
+   "headword_en": "constructive existence proof",
+   "notation": "",
+   "rosen_ref": "Rosen §1.7",
+   "definition_vi": "Chứng minh tồn tại kiến thiết là một chứng minh khẳng định rằng tồn tại một phần tử có tính chất mong muốn bằng cách chỉ ra một cách tường minh một phần tử như vậy. Nói cách khác, để chứng minh mệnh đề $$\\exists x P(x)$$, ta tìm được một phần tử $$a$$ và chỉ ra rằng $$P(a)$$ đúng.",
+   "example_vi": "Để chứng minh tồn tại một số nguyên dương biểu diễn được thành tổng các lập phương của các số nguyên dương theo hai cách khác nhau, ta chỉ ra tường minh số $$1729 = 10^3 + 9^3 = 12^3 + 1^3$$; việc trưng ra phần tử cụ thể này là một chứng minh tồn tại kiến thiết.",
+   "vi_terms": [
+    {
+     "term": "chứng minh tồn tại kiến thiết",
+     "source_id": "bib-rosen-2003-vi",
+     "page": "tr. 220",
+     "pdf_page": 220,
+     "snippet": "Ví dụ 20. Chứng minh tồn tại kiến thiết.",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "chứng minh tồn tại kiến thiết",
+     "source_id": "bib-rosen-2003-vi",
+     "page": "tr. 220",
+     "pdf_page": 220,
+     "snippet": "tử a sao cho P(z) đúng. Cách chứng minh tồn tại như vậy gọi là chứng minh kiến thiết.",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "chứng minh tồn tại",
+     "source_id": "bib-nguyenvanmau-2007",
+     "page": "",
+     "pdf_page": 77,
+     "snippet": "b. Chứng minh tôn tại ba bài toán ma có nhiều hơn 5 36 thi sinh dự thi giải được.",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "chứng minh tồn tại kiến thiết",
+     "source_id": "bib-vudinhhoa-2010",
+     "page": "",
+     "pdf_page": 71,
+     "snippet": "chứng minh tồn tại kiến thiết, chúng ta xác dịnh gia trị z thỏa man điều kiện P(z),",
+     "verified": true,
+     "recommended": true
+    },
+    {
+     "term": "chứng minh tồn tại",
+     "source_id": "bib-sierpinski-2012",
+     "page": "tr. 32",
+     "pdf_page": 46,
+     "snippet": "Dễ dàng chứng minh tồn tại vô hạn tam giác Pythagoras có cạnh là hữu tỷ và diện tích của chúng",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "chứng minh tồn tại",
+     "source_id": "bib-vudinhhoa-2010",
+     "page": "",
+     "pdf_page": 70,
+     "snippet": "tồn tại “3zƑP(z)” được gọi là chứng minh tồn tại. Có hai phương pháp chứng minh",
+     "verified": true,
+     "recommended": false
+    }
+   ],
+   "see_also": [
+    "proof",
+    "indirect-proof"
+   ],
+   "notes": "Chứng minh tồn tại mệnh đề $$\\exists x P(x)$$ bằng cách chỉ ra tường minh một phần tử $$a$$ với $$P(a)$$ đúng gọi là chứng minh tồn tại kiến thiết. Cần phân biệt với chứng minh tồn tại không kiến thiết, trong đó ta chứng minh có phần tử thỏa mãn mà không trưng ra một phần tử cụ thể nào.",
+   "status": "draft",
+   "pos": "d.t."
+  },
+  {
+   "id": "constructive-proof",
+   "letter": "C",
+   "headword_en": "constructive proof",
+   "pos": "d.t.",
+   "notation": "",
+   "ref_bib": "bib-libennowell-2022",
+   "rosen_ref": "",
+   "definition_vi": "\\emph{Chứng minh kiến thiết} là chứng minh sự tồn tại của một đối tượng thỏa mãn tính chất cho trước bằng cách chỉ ra (xây dựng) một đối tượng cụ thể như vậy, hoặc đưa ra một thuật toán tạo ra nó. Khác với \\emph{chứng minh không kiến thiết}, vốn chỉ khẳng định sự tồn tại mà không chỉ ra đối tượng cụ thể.",
+   "example_vi": "Để chứng minh tồn tại số nguyên tố lớn hơn $$10$$, ta chỉ ra số $$11$$ là một ví dụ cụ thể.",
+   "notes": "",
+   "see_also": [
+    "existence proof"
+   ],
+   "vi_terms": [
+    {
+     "term": "chứng minh kiến thiết",
+     "recommended": true
+    },
+    {
+     "term": "chứng minh xây dựng",
+     "recommended": false
+    },
+    {
+     "term": "chứng minh kiến thiết",
+     "source_id": "bib-vudinhhoa-2010",
+     "page": "",
+     "pdf_page": 70,
+     "snippet": "tồn tại căn bản là chứng minh kiến thiết và chứng minh không kiến thiết. Trong",
+     "verified": true,
+     "recommended": false
+    }
+   ]
+  },
+  {
    "id": "contingency",
    "letter": "C",
    "headword_en": "contingency",
@@ -3327,6 +4582,52 @@
    ],
    "see_also": [],
    "notes": "Tiếp liên là mệnh đề không phải hằng đúng (tautology) cũng không phải mâu thuẫn (contradiction). Bản dịch Rosen tiếng Việt dùng thuật ngữ \"tiếp liên\".",
+   "status": "draft",
+   "pos": "d.t."
+  },
+  {
+   "id": "continuum-hypothesis",
+   "letter": "C",
+   "headword_en": "continuum hypothesis",
+   "notation": "\\aleph_1 = 2^{\\aleph_0}",
+   "rosen_ref": "Rosen §2.5",
+   "definition_vi": "Giả thuyết continuum là phát biểu khẳng định rằng không có tập hợp nào có lực lượng nằm thực sự giữa lực lượng của tập các số nguyên và lực lượng của tập các số thực.",
+   "example_vi": "Tập các số nguyên $$\\mathbb{Z}$$ có lực lượng $$\\aleph_0$$ và tập các số thực $$\\mathbb{R}$$ có lực lượng $$2^{\\aleph_0}$$; giả thuyết continuum khẳng định không tồn tại tập hợp $$S$$ với $$\\aleph_0 < |S| < 2^{\\aleph_0}$$, tức là $$2^{\\aleph_0} = \\aleph_1$$.",
+   "vi_terms": [
+    {
+     "term": "giả thuyết continuum",
+     "verified": false,
+     "recommended": false,
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": ""
+    },
+    {
+     "term": "giả thuyết liên tục",
+     "source_id": "bib-wikipedia-vi",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": "https://vi.wikipedia.org/wiki/Số_thực",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "giả thuyết continuum",
+     "source_id": "bib-sierpinski-2012",
+     "page": "",
+     "pdf_page": 10,
+     "snippet": "chọn và giả thuyết continuum. Cụ thể ông đã chứng minh được trong hệ tiên đề Zermelo-Fraenkel",
+     "verified": true,
+     "recommended": true
+    }
+   ],
+   "see_also": [
+    "cardinality",
+    "countable-set",
+    "uncountable-set"
+   ],
+   "notes": "Giả thuyết continuum khẳng định không có tập hợp nào có lực lượng nằm thực sự giữa lực lượng $$\\aleph_0$$ của tập số nguyên và lực lượng $$2^{\\aleph_0}$$ của tập số thực, tức là $$2^{\\aleph_0} = \\aleph_1$$. Đây là một trong các bài toán nổi tiếng của Hilbert; Gödel và Cohen đã chứng minh giả thuyết này độc lập với hệ tiên đề ZFC, nghĩa là không thể chứng minh cũng không thể bác bỏ trong ZFC. Thuật ngữ \"giả thuyết continuum\" là cách dịch chuẩn; ngữ liệu hiện có không có dẫn chứng trực tiếp cho khái niệm này, nên thuật ngữ khuyến nghị để verified=false với trang để trống.",
    "status": "draft",
    "pos": "d.t."
   },
@@ -3757,6 +5058,130 @@
    "pos": "d.t."
   },
   {
+   "id": "correlated-events",
+   "letter": "C",
+   "headword_en": "correlated events",
+   "pos": "d.t.",
+   "notation": "",
+   "ref_bib": "bib-libennowell-2022",
+   "rosen_ref": "",
+   "definition_vi": "Hai biến cố $$A$$ và $$B$$ được gọi là \\emph{tương quan} nếu chúng không độc lập, tức là $$P(A\\cap B)\\neq P(A)\\cdot P(B)$$. Chúng \\emph{tương quan dương} nếu $$P(A\\cap B)>P(A)\\cdot P(B)$$ và \\emph{tương quan âm} nếu $$P(A\\cap B)<P(A)\\cdot P(B)$$.",
+   "example_vi": "Biến cố \"trời mưa\" và \"có người mang ô\" thường tương quan dương.",
+   "notes": "",
+   "see_also": [
+    "independence",
+    "conditional probability"
+   ],
+   "vi_terms": [
+    {
+     "term": "biến cố tương quan",
+     "recommended": true
+    }
+   ]
+  },
+  {
+   "id": "count-of-an-itemset",
+   "letter": "C",
+   "headword_en": "count of an itemset",
+   "notation": "",
+   "rosen_ref": "",
+   "definition_vi": "Số đếm của một tập mục là số giao dịch chứa tập mục đó.",
+   "example_vi": "Giả sử ta có các giao dịch $$T_1 = \\{a, b, c\\}$$, $$T_2 = \\{a, c\\}$$, $$T_3 = \\{b, c\\}$$ và $$T_4 = \\{a, b, c\\}$$. Khi đó số đếm của tập mục $$\\{a, c\\}$$ bằng $$3$$, vì có ba giao dịch $$T_1$$, $$T_2$$ và $$T_4$$ chứa cả $$a$$ và $$c$$.",
+   "vi_terms": [
+    {
+     "term": "số đếm của tập mục",
+     "verified": false,
+     "recommended": true,
+     "source_id": "",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": ""
+    }
+   ],
+   "see_also": [],
+   "notes": "Khái niệm thuộc khai phá luật kết hợp (association rule mining): số đếm của tập mục bằng số giao dịch chứa tập mục, còn gọi là số đếm hỗ trợ (support count). Không tìm thấy thuật ngữ tiếng Việt được chứng thực trong kho ngữ liệu; thuật ngữ khuyến nghị dùng bản dịch chuẩn.",
+   "status": "draft",
+   "pos": "d.t."
+  },
+  {
+   "id": "countable-set",
+   "letter": "C",
+   "headword_en": "countable set",
+   "notation": "",
+   "rosen_ref": "Rosen §2.5",
+   "definition_vi": "Một tập hợp được gọi là tập đếm được nếu nó hữu hạn hoặc có cùng lực lượng với tập các số nguyên dương. Khi một tập vô hạn là đếm được, ta nói nó vô hạn đếm được và lực lượng của nó được ký hiệu là $$\\aleph_0$$ (đọc là \"aleph không\").",
+   "example_vi": "Tập các số nguyên dương lẻ là tập đếm được, vì hàm $$f(n) = 2n - 1$$ là một song ánh từ tập các số nguyên dương lên tập đó.",
+   "notes": "UNVERIFIED RECOMMENDED TERM (standard-usage basis). No candidate term ('tập đếm được', 'tập khả đếm', 'tập hợp đếm được') was found in the three text-layer sources, including under diacritics-insensitive (--loose) search (0 hits each, re-verified). 'tập đếm được' is standard Vietnamese terminology and is recommended on that basis, but it is the only chapter-C recommended term with verified=false; this status is surfaced here per the citation-hygiene convention. The related form 'vô hạn đếm được' (countably infinite) is attested once at bib-ngodactan-2004 pdf_page 321 ('các tập con vô hạn đếm được của tập M'), but it denotes the countably-infinite sub-notion rather than a standalone countable set, so it is NOT recorded as a verified hit for this headword. The two non-recommended unverifiable candidates were dropped; 'tập đếm được' is retained to keep the required vi_terms field non-empty and preserve the single-recommendation invariant.",
+   "see_also": [
+    "cardinality",
+    "uncountable-set"
+   ],
+   "vi_terms": [
+    {
+     "term": "tập đếm được",
+     "verified": false,
+     "recommended": false,
+     "page": "",
+     "source_id": ""
+    },
+    {
+     "term": "tập đếm được",
+     "source_id": "bib-vudinhhoa-2003",
+     "page": "tr. 15",
+     "pdf_page": 16,
+     "snippet": "gọi là tập đếm được. Còn những tập vô hạn không tương ứng",
+     "verified": true,
+     "recommended": true
+    },
+    {
+     "term": "tập hợp đếm được",
+     "source_id": "bib-doducgiao-2000",
+     "page": "tr. 343",
+     "pdf_page": 342,
+     "snippet": "1) Chọn ra một tập hợp đểm được các ký hiệu mà ta sẽ gọi",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "tập hợp đếm được",
+     "source_id": "bib-doducgiao-2008",
+     "page": "tr. 140",
+     "pdf_page": 141,
+     "snippet": "1) Chon ra một tập hợp đếm được các ký hiệu mà ta sẽ gọi là các ký",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "tập hợp đếm được",
+     "source_id": "bib-vudinhhoa-2010",
+     "page": "",
+     "pdf_page": 42,
+     "snippet": "2.5.2 Tap hợp đếm được va tập hợp không đếm được",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "tập hợp đếm được",
+     "source_id": "bib-cungkimtien-2004",
+     "page": "",
+     "pdf_page": 87,
+     "snippet": "countable set tập hợp đếm được",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "tập hợp đếm được",
+     "source_id": "bib-phan-1976",
+     "page": "tr. 7",
+     "pdf_page": 7,
+     "snippet": "countable a. tập hợp đếm được",
+     "verified": true,
+     "recommended": false
+    }
+   ],
+   "pos": "d.t."
+  },
+  {
    "id": "counterexample",
    "letter": "C",
    "headword_en": "counterexample",
@@ -3885,1075 +5310,6 @@
     "edge-cover"
    ],
    "notes": "Trong giáo trình MAT3500 dùng \"bao phủ\". Các tài liệu khác dùng \"tập phủ đỉnh\" (vertex cover) và \"tập phủ cạnh\" (edge cover); cần phân biệt với \"phủ định\" (negation) trong logic, không liên quan.",
-   "status": "draft",
-   "pos": "d.t."
-  },
-  {
-   "id": "cut-edge",
-   "letter": "C",
-   "headword_en": "cut edge",
-   "notation": "",
-   "rosen_ref": "Rosen §10.4",
-   "definition_vi": "Cạnh cắt (hay cầu) của một đồ thị $$G$$ là một cạnh $$e$$ mà khi bỏ đi sẽ làm tăng số thành phần liên thông của đồ thị, tức là $$G - e$$ có nhiều thành phần liên thông hơn $$G$$.",
-   "example_vi": "Trong một đường đi $$P_n$$, mọi cạnh đều là cạnh cắt; ngược lại, trong một chu trình $$C_n$$ không có cạnh nào là cạnh cắt.",
-   "vi_terms": [
-    {
-     "term": "cạnh cắt",
-     "source_id": "bib-nguyenhoangthach-2020",
-     "pdf_page": 75,
-     "page": "tr. 73",
-     "snippet": "Một cạnh e được gọi là một cạnh cắt, hay cạnh cầu, của G nếu G − e có nhiều",
-     "verified": true,
-     "recommended": true
-    },
-    {
-     "term": "cạnh cầu",
-     "source_id": "bib-nguyenhoangthach-2020",
-     "pdf_page": 75,
-     "page": "tr. 73",
-     "snippet": "Một cạnh e được gọi là một cạnh cắt, hay cạnh cầu, của G nếu G − e có nhiều",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "cạnh cắt",
-     "source_id": "bib-nguyenhuudien-2019",
-     "pdf_page": 169,
-     "page": "tr. 169",
-     "snippet": "liên thông hơn so với đồ thị xuất phát được gọi là cạnh cắt hay là cầu.",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "cạnh cầu",
-     "source_id": "bib-leanhvinh-2020",
-     "pdf_page": 25,
-     "page": "tr. 26",
-     "snippet": "Hình 1.20: Đỉnh cắt và cạnh cầu của một đồ thị.",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "cầu",
-     "source_id": "bib-leanhvinh-2020",
-     "pdf_page": 25,
-     "page": "tr. 26",
-     "snippet": "của nó được gọi là cầu. Như vậy, các cầu của một đồ thị là các cạnh",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "cầu",
-     "source_id": "bib-rosen-2003-vi",
-     "pdf_page": 14,
-     "page": "tr. 14",
-     "snippet": "logic, nhưng cách mà chúng tôi vừa đưa ra có lẽ đáp ứng được yêu cầu",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "cạnh cắt",
-     "source_id": "bib-leanhvinh-2020",
-     "page": "tr. 137",
-     "pdf_page": 136,
-     "snippet": "Do K,, chứa (2) bản sao của Ag,,-5 và mỗi cặp cạnh cắt nhau sẽ nằm",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "cạnh cầu",
-     "source_id": "bib-doducgiao-2009",
-     "page": "tr. 133",
-     "pdf_page": 134,
-     "snippet": "thông của G tăng lên thì cạnh u được gọi là cạnh cầu.",
-     "verified": true,
-     "recommended": false
-    }
-   ],
-   "see_also": [],
-   "notes": "Cạnh cắt còn được gọi là cạnh cầu hoặc cầu. Một cạnh là cạnh cắt khi và chỉ khi nó không nằm trên một chu trình nào.",
-   "status": "draft",
-   "pos": "d.t."
-  },
-  {
-   "id": "carmichael-number",
-   "letter": "C",
-   "headword_en": "Carmichael number",
-   "notation": "",
-   "rosen_ref": "Rosen §3.5",
-   "definition_vi": "Số Carmichael là một hợp số $$n$$ sao cho $$n$$ là số giả nguyên tố theo mọi cơ sở nguyên tố cùng nhau với $$n$$.",
-   "example_vi": "Số $$561 = 3 \\cdot 11 \\cdot 17$$ là số Carmichael nhỏ nhất: nó là hợp số, nhưng với mọi số nguyên $$b$$ thỏa mãn $$\\gcd(b, 561) = 1$$ ta đều có $$b^{560} \\equiv 1 \\pmod{561}$$, nên $$561$$ là số giả nguyên tố theo mọi cơ sở như vậy.",
-   "vi_terms": [
-    {
-     "term": "số Carmichael",
-     "verified": true,
-     "recommended": false,
-     "source_id": "bib-rosen-2003-vi",
-     "page": "tr. 206",
-     "pdf_page": 206,
-     "snippet": "6. Số Carmichael là một số nguyên, nó cũng là một số giả nguyên tố"
-    },
-    {
-     "term": "số Carmichael",
-     "source_id": "bib-sierpinski-2012",
-     "page": "tr. 143",
-     "pdf_page": 157,
-     "snippet": " a, n   1 được gọi là các số Carmichael. Carmichael là người đầu tiên lưu ý sự tồn tại các số như",
-     "verified": true,
-     "recommended": true
-    },
-    {
-     "term": "số Carmichael",
-     "source_id": "bib-cormen-2001-vi",
-     "page": "tr. 931",
-     "pdf_page": 929,
-     "snippet": "Các số nguyên này được xem là các con số Carmichael. Ba con số",
-     "verified": true,
-     "recommended": false
-    }
-   ],
-   "see_also": [
-    "composite-number",
-    "prime-number"
-   ],
-   "notes": "Số Carmichael là hợp số $$n$$ \"giả nguyên tố\" theo mọi cơ sở $$b$$ với $$\\gcd(b, n) = 1$$, tức là $$b^{n-1} \\equiv 1 \\pmod{n}$$ với mọi cơ sở như vậy, dù $$n$$ không phải số nguyên tố. Do đó số Carmichael vượt qua được phép kiểm tra Fermat theo mọi cơ sở nguyên tố cùng nhau với nó. Ba số Carmichael nhỏ nhất là $$561$$, $$1105$$ và $$1729$$. Thuật ngữ \"số Carmichael\" được dùng trong bản dịch tiếng Việt của Rosen (bib-rosen-2003-vi, tr. 206).",
-   "status": "draft",
-   "pos": "d.t."
-  },
-  {
-   "id": "character-cipher",
-   "letter": "C",
-   "headword_en": "character cipher",
-   "notation": "",
-   "rosen_ref": "Rosen §4.6",
-   "definition_vi": "Mật mã ký tự là một loại mật mã mã hóa thông điệp bằng cách mã hóa từng ký tự một. Mỗi ký tự của bản rõ được thay thế riêng lẻ bởi một ký tự khác theo một quy tắc cố định, độc lập với các ký tự còn lại.",
-   "example_vi": "Mật mã Caesar là một ví dụ của mật mã ký tự. Mỗi chữ cái được biểu diễn bởi một số $$p$$ với $$0 \\leq p \\leq 25$$ và được mã hóa từng chữ một theo hàm $$f(p) = (p + 3) \\bmod 26$$; chẳng hạn chữ B (ứng với $$p = 1$$) được chuyển thành chữ E (ứng với $$4$$).",
-   "vi_terms": [
-    {
-     "term": "mật mã ký tự",
-     "verified": false,
-     "recommended": true,
-     "source_id": "",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": ""
-    },
-    {
-     "term": "mật mã của Caesar",
-     "source_id": "bib-rosen-2003-vi",
-     "pdf_page": 164,
-     "page": "tr. 164",
-     "snippet": "Ví dụ 20. Dùng mật mã của Caesar chuyển bức thư \"Meet You in the",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "mật mã học",
-     "source_id": "bib-hoangchithanh-2007",
-     "pdf_page": 146,
-     "page": "tr. 146",
-     "snippet": "rai trong mật mã học.",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "mật mã",
-     "source_id": "bib-hoangchithanh-2011",
-     "page": "",
-     "pdf_page": 254,
-     "snippet": "trong mật mã học.",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "mật mã",
-     "source_id": "bib-nguyenhuudien-2019",
-     "page": "tr. 161",
-     "pdf_page": 161,
-     "snippet": "toán rất lớn như bài toán mô phỏng thời tiết, tạo hình trong y học hay phân tích mật mã",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "mật mã học",
-     "source_id": "bib-hoangchithanh-2011",
-     "page": "",
-     "pdf_page": 254,
-     "snippet": "trong mật mã học.",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "mật mã học",
-     "source_id": "bib-nguyenhuudien-2019",
-     "page": "tr. 258",
-     "pdf_page": 258,
-     "snippet": "Cây mã tiền tố tối ưu và thuật toán Huffman được ứng dụng rộng rãi trong mật mã học.",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "mật mã",
-     "source_id": "bib-sierpinski-2012",
-     "page": "",
-     "pdf_page": 9,
-     "snippet": "lý cuối cùng của Fermat mãi tới vài năm sau (kể từ khi chúng tôi nhận được câu đố) mới được giải",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "mật mã",
-     "source_id": "bib-cungkimtien-2004",
-     "page": "",
-     "pdf_page": 90,
-     "snippet": "cryptogram bản mật mã",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "mật mã",
-     "source_id": "bib-phan-1976",
-     "page": "tr. 106",
-     "pdf_page": 106,
-     "snippet": "decipher tk. đọc mật mã, giải mã",
-     "verified": true,
-     "recommended": false
-    }
-   ],
-   "see_also": [
-    "private-key-cryptography",
-    "public-key-cryptography"
-   ],
-   "notes": "Trong Rosen, mật mã ký tự (character cipher) là mật mã mã hóa từng ký tự một; mật mã Caesar và mật mã dịch (shift cipher) là các ví dụ tiêu biểu. Bản dịch Rosen (2003) dùng \"mật mã\" và \"mật mã của Caesar\" (tr. 163-164) nhưng không tách riêng cụm \"mật mã ký tự\" như một thuật ngữ; cụm \"mật mã ký tự\" được dùng làm bản dịch chuẩn được khuyến nghị, với \"mật mã\" và \"mật mã học\" là các dẫn chứng corpus bổ trợ.",
-   "status": "draft",
-   "pos": "d.t."
-  },
-  {
-   "id": "circular-reasoning",
-   "letter": "C",
-   "headword_en": "circular reasoning",
-   "notation": "",
-   "rosen_ref": "Rosen §1.7",
-   "definition_vi": "Suy luận quẩn là kiểu suy luận trong đó một phát biểu được chứng minh bằng cách dùng chính nó. Nói cách khác, một hay nhiều bước trong lập luận dựa trên chính mệnh đề cần chứng minh, nên không cho ta một chứng minh hợp lệ. Thuật ngữ tiếng Việt cho khái niệm này hiện chưa thống nhất.",
-   "example_vi": "Giả sử ta muốn chứng minh mệnh đề \"nếu $$n^2$$ là số chẵn thì $$n$$ là số chẵn\" bằng cách giả thiết \"$$n$$ là số chẵn\" rồi suy ra $$n^2$$ chẵn; khi đó ta đã dùng ngay điều cần chứng minh làm giả thiết, nên đây là một suy luận quẩn.",
-   "vi_terms": [
-    {
-     "term": "lý luận quẩn",
-     "source_id": "bib-rosen-2003-vi",
-     "page": "tr. 214",
-     "pdf_page": 214,
-     "snippet": "chứng tỏ nó là đúng. Đây là lý luận quẩn vì phát biểu này cũng tương",
-     "verified": true,
-     "recommended": true
-    },
-    {
-     "term": "nguỵ biện dùng ngay câu hỏi",
-     "source_id": "bib-rosen-2003-vi",
-     "page": "tr. 214",
-     "pdf_page": 214,
-     "snippet": "Nhiều chứng minh sai vì đã dựa trên nguy biện dùng ngay câu hỏi",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "suy luận quẩn",
-     "source_id": "bib-rosen-2003-vi",
-     "page": "tr. 224",
-     "pdf_page": 224,
-     "snippet": "là do đùng suy luận quẩn. Sai lầm ở đâu ?",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "ngụy biện vòng tròn",
-     "source_id": "",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": "",
-     "verified": false,
-     "recommended": false
-    },
-    {
-     "term": "lập luận vòng tròn",
-     "source_id": "",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": "",
-     "verified": false,
-     "recommended": false
-    },
-    {
-     "term": "lập luận vòng vo",
-     "source_id": "",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": "",
-     "verified": false,
-     "recommended": false
-    },
-    {
-     "term": "lập luận vòng quanh",
-     "source_id": "",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": "",
-     "verified": false,
-     "recommended": false
-    },
-    {
-     "term": "lập luận luẩn quẩn",
-     "source_id": "",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": "",
-     "verified": false,
-     "recommended": false
-    }
-   ],
-   "see_also": [
-    "fallacy",
-    "valid-argument",
-    "proof"
-   ],
-   "notes": "Suy luận quẩn còn gọi là nguỵ biện \"dùng ngay câu hỏi\" (begging the question): lập luận lấy chính điều cần chứng minh làm giả thiết. Đây là một nguỵ biện, khác với một suy luận đúng (valid argument). Nguồn duy nhất có thuật ngữ cho khái niệm này là bản dịch Rosen-VI; các giáo trình tiếng Việt mới hơn trong kho ngữ liệu không đề cập trực tiếp.",
-   "status": "draft",
-   "pos": "d.t."
-  },
-  {
-   "id": "class-p",
-   "letter": "C",
-   "headword_en": "class P",
-   "notation": "\\mathsf{P}",
-   "rosen_ref": "Rosen §3.3",
-   "definition_vi": "Lớp $$\\mathsf{P}$$ là lớp các bài toán giải được trong thời gian đa thức, tức là các bài toán mà tồn tại một thuật toán giải chúng với độ phức tạp thời gian là một hàm đa thức theo kích thước đầu vào.",
-   "example_vi": "Bài toán sắp xếp một bảng kê gồm $$n$$ phần tử thuộc lớp $$\\mathsf{P}$$ vì có thể giải được bằng thuật toán với độ phức tạp $$O(n^2)$$, là một hàm đa thức theo $$n$$; tương tự, bài toán tìm kiếm tuyến tính có độ phức tạp $$O(n)$$ nên cũng thuộc lớp $$\\mathsf{P}$$.",
-   "vi_terms": [
-    {
-     "term": "lớp P",
-     "verified": false,
-     "recommended": true,
-     "source_id": "",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": ""
-    }
-   ],
-   "see_also": [
-    "time-complexity",
-    "complexity",
-    "algorithm-analysis",
-    "polynomial"
-   ],
-   "notes": "Lớp $$\\mathsf{P}$$ gồm các bài toán được xem là dễ xử lý (tractable) vì giải được trong thời gian đa thức, đối lập với các bài toán mà mọi thuật toán đã biết đều có độ phức tạp lớn hơn đa thức. Bản dịch Rosen tiếng Việt thảo luận khái niệm này trong mục về độ phức tạp tính toán, với cụm \"độ phức tạp đa thức\" (bib-rosen-2003-vi, tr. 146 (PDF)). Thuật ngữ \"lớp P\" là bản dịch chuẩn của \"class P\"; chưa tìm thấy dẫn chứng trực tiếp cho cụm \"lớp P\" trong kho ngữ liệu tiếng Việt hiện có.",
-   "status": "draft",
-   "pos": "d.t."
-  },
-  {
-   "id": "combinatorial-proof",
-   "letter": "C",
-   "headword_en": "combinatorial proof",
-   "notation": "",
-   "rosen_ref": "Rosen §6.4",
-   "definition_vi": "Chứng minh tổ hợp là một chứng minh sử dụng các lập luận đếm thay vì biến đổi đại số. Thông thường, một đẳng thức được chứng minh bằng cách đếm số phần tử của cùng một tập hợp hữu hạn theo hai cách khác nhau, hoặc bằng cách thiết lập một song ánh giữa hai tập hợp hữu hạn.",
-   "example_vi": "Để chứng minh đẳng thức $$\\binom{n}{k} = \\binom{n}{n-k}$$, ta dùng một chứng minh tổ hợp: việc chọn ra $$k$$ phần tử từ một tập $$n$$ phần tử tương ứng một-một với việc chọn ra $$n-k$$ phần tử bị loại, nên hai vế đếm cùng một số đối tượng.",
-   "vi_terms": [
-    {
-     "term": "chứng minh tổ hợp",
-     "source_id": "bib-nguyenhoangthach-2020",
-     "pdf_page": 85,
-     "page": "tr. 83",
-     "snippet": "Chứng minh. Ta sử dụng một chứng minh tổ hợp. Vì mỗi đỉnh khác gốc đều",
-     "verified": true,
-     "recommended": true
-    },
-    {
-     "term": "chứng minh tổ hợp",
-     "source_id": "bib-nguyenhoangthach-2020",
-     "pdf_page": 23,
-     "page": "tr. 21",
-     "snippet": "thức nk và cách chứng minh tổ hợp của chúng. Đẳng thức đầu tiên là một",
-     "verified": true,
-     "recommended": false
-    }
-   ],
-   "see_also": [
-    "double-counting-proof",
-    "bijection"
-   ],
-   "notes": "Chứng minh tổ hợp là thuật ngữ bao trùm cho các chứng minh dựa trên lập luận đếm; theo Rosen, hai dạng tiêu biểu là phương pháp đếm bằng hai cách (xem double-counting-proof) và chứng minh bằng song ánh (xem bijection). Thuật ngữ \"chứng minh tổ hợp\" có dẫn chứng trực tiếp trong nguồn mới nhất bib-nguyenhoangthach-2020 (tr. 23 và tr. 85 bản PDF).",
-   "status": "draft",
-   "pos": "d.t."
-  },
-  {
-   "id": "combinatorics",
-   "letter": "C",
-   "headword_en": "combinatorics",
-   "notation": "",
-   "rosen_ref": "Rosen §4.1",
-   "definition_vi": "Lý thuyết tổ hợp là ngành nghiên cứu về cách sắp xếp các đối tượng. Nó gắn liền với việc đếm và nghiên cứu các cách bố trí những đối tượng của một tập hợp, có kể tới thứ tự hoặc không.",
-   "example_vi": "Nhiều bài toán có thể diễn đạt dưới dạng sắp xếp các đối tượng của một tập hợp. Chẳng hạn, số cách sắp xếp có thứ tự $$k$$ trong $$n$$ đối tượng khác nhau là $$\\displaystyle\\frac{n!}{(n-k)!}$$, còn số cách chọn không kể thứ tự $$k$$ trong $$n$$ đối tượng là $$\\displaystyle\\binom{n}{k}$$. Việc đếm các sắp xếp như vậy là một bài toán cơ bản của lý thuyết tổ hợp.",
-   "vi_terms": [
-    {
-     "term": "lý thuyết tổ hợp",
-     "verified": true,
-     "recommended": true,
-     "source_id": "bib-nguyenducnghia-2006",
-     "pdf_page": 10,
-     "page": "",
-     "snippet": "nghĩa nó một cách hình thức. Nói chung, lý thuyết tổ hợp gắn liền với việc nghiên cứu"
-    },
-    {
-     "term": "sắp xếp các đối tượng",
-     "verified": true,
-     "recommended": false,
-     "source_id": "bib-rosen-2003-vi",
-     "pdf_page": 290,
-     "page": "tr. 290",
-     "snippet": "Chúng ta có thể diễn đạt nhiều bài toán dưới dạng sắp xếp, có kể tới `"
-    },
-    {
-     "term": "toán học tổ hợp",
-     "source_id": "",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": "",
-     "verified": false,
-     "recommended": false
-    },
-    {
-     "term": "lý thuyết tổ hợp",
-     "source_id": "bib-leanhvinh-2020",
-     "page": "tr. 255",
-     "pdf_page": 254,
-     "snippet": "(91] N. D. Tan, Ly thuyết tổ hợp va do thi, NXB Dai học Quốc gia",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "lý thuyết tổ hợp",
-     "source_id": "bib-nguyenhuudien-2019",
-     "page": "tr. 3",
-     "pdf_page": 3,
-     "snippet": "trong ba lĩnh vực có nhiều ứng dụng của toán rời rạc là: lý thuyết tổ hợp, lý thuyết đồ thị",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "toán tổ hợp",
-     "source_id": "bib-nguyenvanmau-2007",
-     "page": "",
-     "pdf_page": 4,
-     "snippet": "Một số phương pháp giải các bài tóan tổ hợp nâng cao",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "sắp xếp các đối tượng",
-     "source_id": "bib-vudinhhoa-2010",
-     "page": "",
-     "pdf_page": 45,
-     "snippet": "rạc, chuyên nghiên cứu sự sắp xếp các đối tượng cũng như mối quan hệ ràng buộc",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "toán tổ hợp",
-     "source_id": "bib-doducthai-2010",
-     "page": "tr. 41",
-     "pdf_page": 41,
-     "snippet": "nó là một ví dụ về sự xuất hiện các phép toán tổ hợp trong xác suất",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "toán tổ hợp",
-     "source_id": "bib-vudinhhoa-2010",
-     "page": "",
-     "pdf_page": 42,
-     "snippet": "của nó cũng là tập hợp hữu hạn. Trong chương các phép toán tổ hợp, chúng ta thay",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "lý thuyết tổ hợp",
-     "source_id": "bib-cungkimtien-2004",
-     "page": "",
-     "pdf_page": 559,
-     "snippet": "lý thuyết tổ hợp theory of",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "lý thuyết tổ hợp",
-     "source_id": "bib-phan-1976",
-     "page": "tr. 422",
-     "pdf_page": 422,
-     "snippet": ". of conbinations lý thuyết tổ hợp",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "toán học tổ hợp",
-     "source_id": "bib-cungkimtien-2004",
-     "page": "",
-     "pdf_page": 62,
-     "snippet": "combinatorics toán học tổ hợp",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "toán học tổ hợp",
-     "source_id": "bib-phan-1976",
-     "page": "tr. 59",
-     "pdf_page": 59,
-     "snippet": "combinatorics toán học tổ hợp",
-     "verified": true,
-     "recommended": false
-    }
-   ],
-   "see_also": [
-    "addition-rule",
-    "combination",
-    "permutation"
-   ],
-   "notes": "Rosen định nghĩa combinatorics là \"the study of arrangements of objects\" (ngành nghiên cứu cách sắp xếp các đối tượng). Trong tài liệu tiếng Việt, thuật ngữ chuẩn cho lĩnh vực này là \"lý thuyết tổ hợp\" (cũng gặp dưới dạng \"toán học tổ hợp\"), được dùng nhất quán trong bib-nguyenducnghia-2006 và bib-ngodactan-2004 để chỉ chính ngành toán này. Cần phân biệt \"lý thuyết tổ hợp\" (cả ngành) với \"tổ hợp\" (combination) — một cách chọn không kể thứ tự $$k$$ phần tử trong $$n$$ phần tử.",
-   "status": "draft",
-   "pos": "d.t."
-  },
-  {
-   "id": "comparable",
-   "letter": "C",
-   "headword_en": "comparable",
-   "notation": "a \\preceq b \\text{ or } b \\preceq a",
-   "rosen_ref": "",
-   "definition_vi": "Hai phần tử $$a$$ và $$b$$ của một tập sắp thứ tự bộ phận được gọi là so sánh được nếu $$a \\preceq b$$ hoặc $$b \\preceq a$$.",
-   "example_vi": "Trong tập sắp thứ tự bộ phận $$(\\mathbb{Z}^{+}, \\mid)$$ với quan hệ chia hết, hai số $$3$$ và $$9$$ là so sánh được vì $$3 \\mid 9$$, trong khi $$2$$ và $$3$$ không so sánh được vì không số nào chia hết số kia.",
-   "vi_terms": [
-    {
-     "term": "so sánh được",
-     "verified": true,
-     "recommended": true,
-     "source_id": "bib-ngodactan-2004",
-     "page": "tr. 164",
-     "pdf_page": 164,
-     "snippet": "được gọi là so sánh được với nhau đối với thứ tự bộ phận < nếu hoặc"
-    },
-    {
-     "term": "so sánh được",
-     "source_id": "bib-nguyenhuudien-2019",
-     "page": "tr. 140",
-     "pdf_page": 140,
-     "snippet": "Số các phép so sánh được dùng trong thuật toán này cũng sẽ được xem như thước đo",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "so sánh được",
-     "source_id": "bib-vudinhhoa-2010",
-     "page": "",
-     "pdf_page": 101,
-     "snippet": "Một van đề quan trọng của thuật toán là phải đánh giá và so sánh được các thuật",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "so sánh được",
-     "source_id": "bib-cungkimtien-2004",
-     "page": "",
-     "pdf_page": 64,
-     "snippet": "comparability tính so sánh được",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "so sánh được",
-     "source_id": "bib-phan-1976",
-     "page": "tr. 7",
-     "pdf_page": 7,
-     "snippet": "comparable a. tạp hợp so sánh được",
-     "verified": true,
-     "recommended": false
-    }
-   ],
-   "see_also": [
-    "partial-order",
-    "poset",
-    "total-order"
-   ],
-   "notes": "Nếu $$a$$ và $$b$$ không thỏa mãn $$a \\preceq b$$ và cũng không thỏa mãn $$b \\preceq a$$ thì chúng được gọi là không so sánh được (incomparable). Trong một thứ tự toàn phần, mọi cặp phần tử đều so sánh được.",
-   "status": "draft",
-   "pos": "t.t."
-  },
-  {
-   "id": "compatible-total-ordering",
-   "letter": "C",
-   "headword_en": "compatible total ordering",
-   "see_ref": "topological-sort",
-   "vi_terms": [
-    {
-     "term": "thứ tự toàn phần tương thích",
-     "verified": true,
-     "recommended": false,
-     "source_id": "bib-nguyenhuudien-2019",
-     "page": "tr. 121",
-     "pdf_page": 121,
-     "snippet": "Việc xây dựng thứ tự toàn phần tương thích với một thứ tự cho trước được gọi là sắp xếp topo."
-    }
-   ],
-   "status": "draft",
-   "pos": "d.t."
-  },
-  {
-   "id": "composite-key",
-   "letter": "C",
-   "headword_en": "composite key",
-   "see_ref": "key",
-   "vi_terms": [
-    {
-     "term": "khóa phức hợp",
-     "verified": false,
-     "recommended": false,
-     "source_id": "",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": ""
-    }
-   ],
-   "status": "draft",
-   "pos": "d.t."
-  },
-  {
-   "id": "composite",
-   "letter": "C",
-   "headword_en": "composite",
-   "see_ref": "composite-number",
-   "vi_terms": [],
-   "status": "draft",
-   "pos": "t.t."
-  },
-  {
-   "id": "computable-function",
-   "letter": "C",
-   "headword_en": "computable function",
-   "notation": "",
-   "rosen_ref": "Rosen §3.1",
-   "definition_vi": "Hàm tính được là một hàm mà tồn tại một chương trình máy tính tìm được các giá trị của nó. Nói cách khác, một hàm $$f$$ là tính được nếu có một chương trình máy tính, với mỗi đầu vào thuộc miền xác định, trả về giá trị tương ứng của $$f$$.",
-   "example_vi": "Hàm $$f(n) = n!$$ trên tập số nguyên dương là tính được, vì có một chương trình tính giai thừa trả về giá trị $$f(n)$$ với mọi $$n$$. Ngược lại, có những hàm không tính được, tức là không một chương trình máy tính nào tìm được mọi giá trị của chúng.",
-   "vi_terms": [
-    {
-     "term": "hàm tính được",
-     "source_id": "bib-rosen-2003-vi",
-     "page": "tr. 833",
-     "pdf_page": 833,
-     "snippet": "nhanh hơn một hàm tính được bất kỳ (xem Bài tập 24).",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "hàm tính được",
-     "source_id": "bib-rosen-2003-vi",
-     "page": "tr. 862",
-     "pdf_page": 862,
-     "snippet": "chỉ có một số đếm dude các hàm tính được. VÌ như Bài tập 30 cho thấy có một số",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "hàm số khả tính",
-     "source_id": "",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": "",
-     "verified": false,
-     "recommended": false
-    },
-    {
-     "term": "hàm khả tính",
-     "source_id": "",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": "",
-     "verified": false,
-     "recommended": false
-    },
-    {
-     "term": "hàm tính được",
-     "source_id": "bib-cungkimtien-2004",
-     "page": "",
-     "pdf_page": 520,
-     "snippet": "hàm tính được computable",
-     "verified": true,
-     "recommended": true
-    },
-    {
-     "term": "hàm tính được",
-     "source_id": "bib-phan-1976",
-     "page": "tr. 195",
-     "pdf_page": 195,
-     "snippet": "computable f. Jog. ham tính được",
-     "verified": true,
-     "recommended": false
-    }
-   ],
-   "see_also": [
-    "function",
-    "algorithm",
-    "recursive-function"
-   ],
-   "notes": "Khái niệm hàm tính được khác với hàm định nghĩa bằng đệ quy (recursive function): hàm tính được nói về sự tồn tại của một chương trình máy tính tìm các giá trị của hàm, còn hàm đệ quy nói về cách định nghĩa hàm thông qua chính nó. Thuật ngữ \"hàm tính được\" chỉ có dẫn chứng trực tiếp trong bản dịch Rosen-VI (tr. 833 và tr. 862 bản PDF); bản dịch này còn nêu định nghĩa tương ứng ở tr. 107 (\"một hàm là tính được nếu có một chương trình máy\"). Các giáo trình tiếng Việt mới hơn trong kho ngữ liệu không đề cập trực tiếp khái niệm này.",
-   "status": "draft",
-   "pos": "d.t."
-  },
-  {
-   "id": "concatenation",
-   "letter": "C",
-   "headword_en": "concatenation",
-   "notation": "xy",
-   "rosen_ref": "Rosen §5.3",
-   "definition_vi": "Phép ghép của hai xâu là xâu được tạo nên bằng cách viết các ký hiệu của xâu này nối tiếp vào sau xâu kia. Cụ thể, phép ghép của hai xâu $$x$$ và $$y$$, ký hiệu $$xy$$, là xâu thu được bằng cách thêm các ký hiệu của $$y$$ vào cuối xâu $$x$$.",
-   "example_vi": "Nếu $$x = abra$$ và $$y = cadabra$$ thì phép ghép của chúng là $$xy = abracadabra$$. Ghép một xâu bất kỳ với xâu rỗng $$\\lambda$$ giữ nguyên xâu đó, tức là $$\\lambda x = x \\lambda = x$$.",
-   "vi_terms": [
-    {
-     "term": "ghép các xâu",
-     "source_id": "bib-rosen-2003-vi",
-     "pdf_page": 813,
-     "page": "tr. 813",
-     "snippet": "Phép ghép của A và B, được ký hiệu bởi AB, là tập tất cả các xâu có",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "ghép xâu",
-     "source_id": "",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": "",
-     "verified": false,
-     "recommended": false
-    },
-    {
-     "term": "phép ghép",
-     "source_id": "bib-doxuanloi-2006",
-     "page": "tr. 15",
-     "pdf_page": 13,
-     "snippet": "Nó cho phép ghép nhiều câu lệnh lại để được coi như một câu lệnh.",
-     "verified": true,
-     "recommended": true
-    },
-    {
-     "term": "phép ghép",
-     "source_id": "bib-nguyenducnghia-2006",
-     "page": "",
-     "pdf_page": 13,
-     "snippet": "phép ghép hai tập hợp để được một tập hợp mới, đó là tích Đêcac",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "phép ghép",
-     "source_id": "bib-cormen-2001-vi",
-     "page": "tr. 210",
-     "pdf_page": 208,
-     "snippet": "xuất đã sắp xếp bao gồm phép ghép nối thco thứ tự của các danh sách BỊ01,",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "phép ghép",
-     "source_id": "bib-cungkimtien-2004",
-     "page": "",
-     "pdf_page": 71,
-     "snippet": "concatenation su, phép ghép",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "phép ghép",
-     "source_id": "bib-phan-1976",
-     "page": "tr. 252",
-     "pdf_page": 252,
-     "snippet": "juxtapossition phép ghép, phép nhân ghép",
-     "verified": true,
-     "recommended": false
-    }
-   ],
-   "see_also": [
-    "string"
-   ],
-   "notes": "Khái niệm phép ghép gắn với khái niệm xâu (string). Bản dịch Rosen (2003) dùng \"phép ghép\" cho thao tác nối hai xâu và động từ \"ghép\" cho hành động ghép các xâu; ký hiệu $$xy$$ chỉ kết quả ghép $$x$$ với $$y$$. Phép ghép cũng được mở rộng cho các tập xâu (ngôn ngữ), với $$AB$$ là tập các xâu tạo bởi phép ghép một xâu của $$A$$ với một xâu của $$B$$ (tr. 796).",
-   "status": "draft",
-   "pos": "d.t."
-  },
-  {
-   "id": "conclusion",
-   "letter": "C",
-   "headword_en": "conclusion",
-   "notation": "",
-   "rosen_ref": "Rosen §1.6",
-   "definition_vi": "Kết luận là phát biểu cuối cùng trong một suy luận hoặc một dạng suy luận.",
-   "example_vi": "Trong suy luận \"Nếu trời mưa thì đường ướt; trời mưa; do đó đường ướt\", các phát biểu $$p \\rightarrow q$$ và $$p$$ là các giả thiết, còn phát biểu $$q$$ (\"đường ướt\") là kết luận, tức là phát biểu cuối cùng được rút ra.",
-   "vi_terms": [
-    {
-     "term": "kết luận",
-     "verified": true,
-     "recommended": true,
-     "source_id": "bib-nguyenhuudien-2019",
-     "page": "tr. 29",
-     "pdf_page": 29,
-     "snippet": "đề), và biểu thức Q được gọi là kết luận. Ở đây chúng ta cũng cần lưu ý rằng lý luận trên"
-    },
-    {
-     "term": "kết luận",
-     "source_id": "bib-leanhvinh-2020",
-     "page": "tr. 186",
-     "pdf_page": 185,
-     "snippet": "‡v_,(n) cạnh, ta có thể kết luận nhiều hơn như vậy. Với r,t nguyên",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "kết luận",
-     "source_id": "bib-nguyenhoangthach-2020",
-     "page": "tr. 25",
-     "pdf_page": 27,
-     "snippet": "được kết luận.",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "kết luận",
-     "source_id": "bib-cungkimtien-2004",
-     "page": "",
-     "pdf_page": 72,
-     "snippet": "conclusion kết luận, sự kết thúc",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "kết luận",
-     "source_id": "bib-phan-1976",
-     "page": "tr. 68",
-     "pdf_page": 68,
-     "snippet": "conclude /og. kết luận, kết thúc",
-     "verified": true,
-     "recommended": false
-    }
-   ],
-   "see_also": [
-    "argument",
-    "argument-form",
-    "valid-argument",
-    "inference-rule"
-   ],
-   "notes": "Kết luận là phát biểu cuối cùng của một suy luận (argument), được rút ra từ các giả thiết (premises). Thuật ngữ \"kết luận\" được dùng nhất quán trong cả giáo trình tiếng Việt mới (Nguyễn Hữu Điển, 2019) và bản dịch Rosen-VI.",
-   "status": "draft",
-   "pos": "d.t."
-  },
-  {
-   "id": "consistent-compound-propositions",
-   "letter": "C",
-   "headword_en": "consistent compound propositions",
-   "notation": "",
-   "rosen_ref": "Rosen §1.1",
-   "definition_vi": "Một tập các mệnh đề phức hợp được gọi là nhất quán nếu tồn tại một phép gán các giá trị chân lý cho các biến mệnh đề làm cho tất cả các mệnh đề trong tập đó cùng nhận giá trị đúng.",
-   "example_vi": "Hai mệnh đề $$p \\rightarrow q$$ và $$p \\wedge \\neg q$$ là không nhất quán, vì không có phép gán giá trị chân lý nào làm cho cả hai cùng đúng: nếu $$p \\wedge \\neg q$$ đúng thì $$p$$ đúng và $$q$$ sai, khi đó $$p \\rightarrow q$$ sai. Ngược lại, hai mệnh đề $$p \\vee q$$ và $$p \\rightarrow q$$ là nhất quán, vì phép gán $$p$$ đúng và $$q$$ đúng làm cho cả hai cùng đúng.",
-   "vi_terms": [
-    {
-     "term": "nhất quán",
-     "source_id": "bib-doxuanloi-2006",
-     "page": "tr. 117",
-     "pdf_page": 115,
-     "snippet": "Ỉ nút sau nút I. Tuy nhiên để cách biểu diễn được nhất quán đối với mọi nút,",
-     "verified": true,
-     "recommended": true
-    },
-    {
-     "term": "nhất quán",
-     "source_id": "bib-cormen-2001-vi",
-     "page": "tr. 240",
-     "pdf_page": 238,
-     "snippet": "nhất quán với thông lệ thực thi.",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "nhất quán",
-     "source_id": "bib-doducthai-2010",
-     "page": "tr. 3",
-     "pdf_page": 3,
-     "snippet": "1.1.2 Ba tiên đề về sự nhất quán của xác suất . . . . . . . . 18",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "nhất quán",
-     "source_id": "bib-cungkimtien-2004",
-     "page": "",
-     "pdf_page": 78,
-     "snippet": "consistence tính nhất quán; tính",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "nhất quán",
-     "source_id": "bib-phan-1976",
-     "page": "tr. 75",
-     "pdf_page": 75,
-     "snippet": "consistence tính nhất quán, tính phi mâu thuẫn",
-     "verified": true,
-     "recommended": false
-    }
-   ],
-   "see_also": [
-    "compound-proposition",
-    "proposition",
-    "tautology",
-    "contradiction",
-    "truth-table"
-   ],
-   "notes": "Tính nhất quán của một tập mệnh đề phức hợp khác với tính hằng đúng (tautology) của một mệnh đề đơn lẻ: nhất quán chỉ đòi hỏi tồn tại một phép gán giá trị chân lý làm cho tất cả các mệnh đề trong tập cùng đúng, chứ không đòi hỏi chúng đúng với mọi phép gán. Một tập gồm các mệnh đề tự mâu thuẫn không thể nhất quán. Khái niệm này thường được dùng để kiểm tra tính tương thích của các đặc tả hệ thống (system specifications) trong Rosen §1.1. Thuật ngữ \"nhất quán\" chỉ có dẫn chứng trực tiếp trong bản dịch Rosen-VI (tr. 22 bản PDF), tại đúng đoạn nêu định nghĩa; các giáo trình tiếng Việt mới hơn trong kho ngữ liệu không đề cập trực tiếp khái niệm nhất quán của mệnh đề phức hợp.",
-   "status": "draft",
-   "pos": "d.t."
-  },
-  {
-   "id": "constructive-existence-proof",
-   "letter": "C",
-   "headword_en": "constructive existence proof",
-   "notation": "",
-   "rosen_ref": "Rosen §1.7",
-   "definition_vi": "Chứng minh tồn tại kiến thiết là một chứng minh khẳng định rằng tồn tại một phần tử có tính chất mong muốn bằng cách chỉ ra một cách tường minh một phần tử như vậy. Nói cách khác, để chứng minh mệnh đề $$\\exists x P(x)$$, ta tìm được một phần tử $$a$$ và chỉ ra rằng $$P(a)$$ đúng.",
-   "example_vi": "Để chứng minh tồn tại một số nguyên dương biểu diễn được thành tổng các lập phương của các số nguyên dương theo hai cách khác nhau, ta chỉ ra tường minh số $$1729 = 10^3 + 9^3 = 12^3 + 1^3$$; việc trưng ra phần tử cụ thể này là một chứng minh tồn tại kiến thiết.",
-   "vi_terms": [
-    {
-     "term": "chứng minh tồn tại kiến thiết",
-     "source_id": "bib-rosen-2003-vi",
-     "page": "tr. 220",
-     "pdf_page": 220,
-     "snippet": "Ví dụ 20. Chứng minh tồn tại kiến thiết.",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "chứng minh tồn tại kiến thiết",
-     "source_id": "bib-rosen-2003-vi",
-     "page": "tr. 220",
-     "pdf_page": 220,
-     "snippet": "tử a sao cho P(z) đúng. Cách chứng minh tồn tại như vậy gọi là chứng minh kiến thiết.",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "chứng minh tồn tại",
-     "source_id": "bib-nguyenvanmau-2007",
-     "page": "",
-     "pdf_page": 77,
-     "snippet": "b. Chứng minh tôn tại ba bài toán ma có nhiều hơn 5 36 thi sinh dự thi giải được.",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "chứng minh tồn tại kiến thiết",
-     "source_id": "bib-vudinhhoa-2010",
-     "page": "",
-     "pdf_page": 71,
-     "snippet": "chứng minh tồn tại kiến thiết, chúng ta xác dịnh gia trị z thỏa man điều kiện P(z),",
-     "verified": true,
-     "recommended": true
-    },
-    {
-     "term": "chứng minh tồn tại",
-     "source_id": "bib-sierpinski-2012",
-     "page": "tr. 32",
-     "pdf_page": 46,
-     "snippet": "Dễ dàng chứng minh tồn tại vô hạn tam giác Pythagoras có cạnh là hữu tỷ và diện tích của chúng",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "chứng minh tồn tại",
-     "source_id": "bib-vudinhhoa-2010",
-     "page": "",
-     "pdf_page": 70,
-     "snippet": "tồn tại “3zƑP(z)” được gọi là chứng minh tồn tại. Có hai phương pháp chứng minh",
-     "verified": true,
-     "recommended": false
-    }
-   ],
-   "see_also": [
-    "proof",
-    "indirect-proof"
-   ],
-   "notes": "Chứng minh tồn tại mệnh đề $$\\exists x P(x)$$ bằng cách chỉ ra tường minh một phần tử $$a$$ với $$P(a)$$ đúng gọi là chứng minh tồn tại kiến thiết. Cần phân biệt với chứng minh tồn tại không kiến thiết, trong đó ta chứng minh có phần tử thỏa mãn mà không trưng ra một phần tử cụ thể nào.",
-   "status": "draft",
-   "pos": "d.t."
-  },
-  {
-   "id": "continuum-hypothesis",
-   "letter": "C",
-   "headword_en": "continuum hypothesis",
-   "notation": "\\aleph_1 = 2^{\\aleph_0}",
-   "rosen_ref": "Rosen §2.5",
-   "definition_vi": "Giả thuyết continuum là phát biểu khẳng định rằng không có tập hợp nào có lực lượng nằm thực sự giữa lực lượng của tập các số nguyên và lực lượng của tập các số thực.",
-   "example_vi": "Tập các số nguyên $$\\mathbb{Z}$$ có lực lượng $$\\aleph_0$$ và tập các số thực $$\\mathbb{R}$$ có lực lượng $$2^{\\aleph_0}$$; giả thuyết continuum khẳng định không tồn tại tập hợp $$S$$ với $$\\aleph_0 < |S| < 2^{\\aleph_0}$$, tức là $$2^{\\aleph_0} = \\aleph_1$$.",
-   "vi_terms": [
-    {
-     "term": "giả thuyết continuum",
-     "verified": false,
-     "recommended": false,
-     "source_id": "",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": ""
-    },
-    {
-     "term": "giả thuyết liên tục",
-     "source_id": "bib-wikipedia-vi",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": "https://vi.wikipedia.org/wiki/Số_thực",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "giả thuyết continuum",
-     "source_id": "bib-sierpinski-2012",
-     "page": "",
-     "pdf_page": 10,
-     "snippet": "chọn và giả thuyết continuum. Cụ thể ông đã chứng minh được trong hệ tiên đề Zermelo-Fraenkel",
-     "verified": true,
-     "recommended": true
-    }
-   ],
-   "see_also": [
-    "cardinality",
-    "countable-set",
-    "uncountable-set"
-   ],
-   "notes": "Giả thuyết continuum khẳng định không có tập hợp nào có lực lượng nằm thực sự giữa lực lượng $$\\aleph_0$$ của tập số nguyên và lực lượng $$2^{\\aleph_0}$$ của tập số thực, tức là $$2^{\\aleph_0} = \\aleph_1$$. Đây là một trong các bài toán nổi tiếng của Hilbert; Gödel và Cohen đã chứng minh giả thuyết này độc lập với hệ tiên đề ZFC, nghĩa là không thể chứng minh cũng không thể bác bỏ trong ZFC. Thuật ngữ \"giả thuyết continuum\" là cách dịch chuẩn; ngữ liệu hiện có không có dẫn chứng trực tiếp cho khái niệm này, nên thuật ngữ khuyến nghị để verified=false với trang để trống.",
-   "status": "draft",
-   "pos": "d.t."
-  },
-  {
-   "id": "count-of-an-itemset",
-   "letter": "C",
-   "headword_en": "count of an itemset",
-   "notation": "",
-   "rosen_ref": "",
-   "definition_vi": "Số đếm của một tập mục là số giao dịch chứa tập mục đó.",
-   "example_vi": "Giả sử ta có các giao dịch $$T_1 = \\{a, b, c\\}$$, $$T_2 = \\{a, c\\}$$, $$T_3 = \\{b, c\\}$$ và $$T_4 = \\{a, b, c\\}$$. Khi đó số đếm của tập mục $$\\{a, c\\}$$ bằng $$3$$, vì có ba giao dịch $$T_1$$, $$T_2$$ và $$T_4$$ chứa cả $$a$$ và $$c$$.",
-   "vi_terms": [
-    {
-     "term": "số đếm của tập mục",
-     "verified": false,
-     "recommended": true,
-     "source_id": "",
-     "page": "",
-     "pdf_page": 0,
-     "snippet": ""
-    }
-   ],
-   "see_also": [],
-   "notes": "Khái niệm thuộc khai phá luật kết hợp (association rule mining): số đếm của tập mục bằng số giao dịch chứa tập mục, còn gọi là số đếm hỗ trợ (support count). Không tìm thấy thuật ngữ tiếng Việt được chứng thực trong kho ngữ liệu; thuật ngữ khuyến nghị dùng bản dịch chuẩn.",
    "status": "draft",
    "pos": "d.t."
   },
@@ -5148,68 +5504,388 @@
    "pos": "d.t."
   },
   {
-   "id": "complement",
+   "id": "cut-edge",
    "letter": "C",
-   "headword_en": "complement",
+   "headword_en": "cut edge",
    "notation": "",
-   "rosen_ref": "",
-   "definition_vi": "Trong toán rời rạc, \\emph{phần bù} của một đối tượng là phần \"còn lại\" của nó trong một ngữ cảnh cho trước, và xuất hiện ở nhiều ngữ cảnh khác nhau. Mục này chỉ nêu ý niệm chung; các trường hợp cụ thể được trình bày ở những mục riêng (xem mục Xem thêm).",
-   "example_vi": "Một vài ví dụ về phần bù: phần bù $$\\overline{A}$$ của một tập hợp $$A$$ đối với tập vũ trụ; đồ thị bù $$\\overline{G}$$ của một đồ thị $$G$$; và biểu diễn bù 1, bù 2 của số nguyên trong máy tính.",
+   "rosen_ref": "Rosen §10.4",
+   "definition_vi": "Cạnh cắt (hay cầu) của một đồ thị $$G$$ là một cạnh $$e$$ mà khi bỏ đi sẽ làm tăng số thành phần liên thông của đồ thị, tức là $$G - e$$ có nhiều thành phần liên thông hơn $$G$$.",
+   "example_vi": "Trong một đường đi $$P_n$$, mọi cạnh đều là cạnh cắt; ngược lại, trong một chu trình $$C_n$$ không có cạnh nào là cạnh cắt.",
    "vi_terms": [
     {
-     "term": "phần bù",
-     "source_id": "bib-leanhvinh-2020",
-     "page": "tr. 99",
-     "pdf_page": 98,
-     "snippet": "thị là hoàn hảo khi và chỉ khi phản bù của nó cũng là đồ thị hoàn hảo.",
+     "term": "cạnh cắt",
+     "source_id": "bib-nguyenhoangthach-2020",
+     "pdf_page": 75,
+     "page": "tr. 73",
+     "snippet": "Một cạnh e được gọi là một cạnh cắt, hay cạnh cầu, của G nếu G − e có nhiều",
      "verified": true,
      "recommended": true
     },
     {
-     "term": "phần bù",
+     "term": "cạnh cầu",
      "source_id": "bib-nguyenhoangthach-2020",
-     "page": "tr. 20",
-     "pdf_page": 22,
-     "snippet": "phần bù của nó. Bạn đọc có thể dễ dàng kiểm tra rằng đây là một song ánh",
-     "verified": true,
-     "recommended": false
-    },
-    {
-     "term": "phần bù",
-     "source_id": "bib-nguyenhuudien-2019",
-     "page": "tr. 75",
      "pdf_page": 75,
-     "snippet": "Định nghĩa 3.5 Phần bù của tập A (trong U), ký hiệu bởi A, là tập hợp tất cả các phần",
+     "page": "tr. 73",
+     "snippet": "Một cạnh e được gọi là một cạnh cắt, hay cạnh cầu, của G nếu G − e có nhiều",
      "verified": true,
      "recommended": false
     },
     {
-     "term": "phần bù",
-     "source_id": "bib-cungkimtien-2004",
-     "page": "",
-     "pdf_page": 15,
-     "snippet": "algebraic complement phần bù",
+     "term": "cạnh cắt",
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 169,
+     "page": "tr. 169",
+     "snippet": "liên thông hơn so với đồ thị xuất phát được gọi là cạnh cắt hay là cầu.",
      "verified": true,
      "recommended": false
     },
     {
-     "term": "phần bù",
-     "source_id": "bib-phan-1976",
-     "page": "tr. 62",
-     "pdf_page": 62,
-     "snippet": "complement phần bù // bổ sung, dùng làm phần bù",
+     "term": "cạnh cầu",
+     "source_id": "bib-leanhvinh-2020",
+     "pdf_page": 25,
+     "page": "tr. 26",
+     "snippet": "Hình 1.20: Đỉnh cắt và cạnh cầu của một đồ thị.",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "cầu",
+     "source_id": "bib-leanhvinh-2020",
+     "pdf_page": 25,
+     "page": "tr. 26",
+     "snippet": "của nó được gọi là cầu. Như vậy, các cầu của một đồ thị là các cạnh",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "cầu",
+     "source_id": "bib-rosen-2003-vi",
+     "pdf_page": 14,
+     "page": "tr. 14",
+     "snippet": "logic, nhưng cách mà chúng tôi vừa đưa ra có lẽ đáp ứng được yêu cầu",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "cạnh cắt",
+     "source_id": "bib-leanhvinh-2020",
+     "page": "tr. 137",
+     "pdf_page": 136,
+     "snippet": "Do K,, chứa (2) bản sao của Ag,,-5 và mỗi cặp cạnh cắt nhau sẽ nằm",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "cạnh cầu",
+     "source_id": "bib-doducgiao-2009",
+     "page": "tr. 133",
+     "pdf_page": 134,
+     "snippet": "thông của G tăng lên thì cạnh u được gọi là cạnh cầu.",
      "verified": true,
      "recommended": false
     }
    ],
+   "see_also": [],
+   "notes": "Cạnh cắt còn được gọi là cạnh cầu hoặc cầu. Một cạnh là cạnh cắt khi và chỉ khi nó không nằm trên một chu trình nào.",
+   "status": "draft",
+   "pos": "d.t."
+  },
+  {
+   "id": "cut-vertex",
+   "letter": "C",
+   "headword_en": "cut vertex",
+   "notation": "",
+   "rosen_ref": "Rosen §10.4",
+   "definition_vi": "Đỉnh cắt của một đồ thị liên thông là đỉnh mà việc xoá nó cùng tất cả các cạnh kề làm cho đồ thị con thu được không liên thông (có nhiều hơn một thành phần liên thông).",
+   "example_vi": "Trong đồ thị đường đi $$P_5$$ với các đỉnh $$v_1, v_2, v_3, v_4, v_5$$, đỉnh $$v_3$$ là một đỉnh cắt vì khi xoá $$v_3$$ thì đồ thị còn lại tách thành hai thành phần liên thông.",
+   "notes": "'đỉnh cắt' is the primary term in both Ngo Dac Tan (2004) and Nguyen Huu Dien (2019); the latter gives 'điểm khớp' as an explicit synonym ('đỉnh cắt hay điểm khớp'), so the recommended snippet co-locates both verified terms. The definition at pdf_page 169 matches Rosen: removing the cut vertex from a connected graph yields a disconnected subgraph. The variant 'đỉnh khớp' was not found in the three sources and was dropped as unverifiable.",
    "see_also": [
-    "complement-of-a-set",
-    "complement-of-a-graph",
-    "ones-complement-notation",
-    "twos-complement-notation"
+    "cut-edge",
+    "bridge",
+    "connected-component",
+    "connectivity"
    ],
-   "notes": "",
-   "status": "panel-approved",
+   "vi_terms": [
+    {
+     "term": "đỉnh cắt",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-leanhvinh-2020",
+     "pdf_page": 25,
+     "page": "tr. 26",
+     "snippet": "phan liên thong được gọi là đỉnh cắt. Một cạnh phan tách hai đầu mút"
+    },
+    {
+     "term": "đỉnh khớp",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhoangthach-2020",
+     "pdf_page": 75,
+     "page": "tr. 73",
+     "snippet": "cắt, hayđỉnh khớp, của G nếu G − v có nhiều thành phần liên thông hơn G."
+    },
+    {
+     "term": "đỉnh cắt",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 169,
+     "page": "tr. 169",
+     "snippet": "đỉnh cắt hay điểm khớp. Việc xoá đỉnh cắt khỏi một đồ thị liên thông sẽ tạo ra một đồ thị con"
+    },
+    {
+     "term": "điểm khớp",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 170,
+     "page": "tr. 170",
+     "snippet": "Do đó G1 là đồ thị không liên thông hay đỉnh x là điểm khớp của G ."
+    },
+    {
+     "term": "đỉnh rẽ nhánh",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenducnghia-2006",
+     "pdf_page": 157,
+     "page": "",
+     "snippet": "Định nghĩa 5. Đính v được gọi là đỉnh rẽ nhánh nếu việc loại bỏ v cùng với các cạnh"
+    },
+    {
+     "term": "đỉnh cắt",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-ngodactan-2004",
+     "pdf_page": 266,
+     "page": "tr. 266",
+     "snippet": "Đỉnh V của đồ thị G = (V, E) được gọi là đinh cắt (cutvertex) nếu"
+    },
+    {
+     "term": "điểm cắt",
+     "source_id": "bib-wikipedia-vi",
+     "page": "",
+     "pdf_page": 0,
+     "snippet": "https://vi.wikipedia.org/wiki/Thuật_ngữ_lý_thuyết_đồ_thị",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "điểm khớp",
+     "source_id": "bib-nguyenhuyran-2000",
+     "page": "",
+     "pdf_page": 6,
+     "snippet": "“analysis sictus \" của nó. Khdi niệm \"điểm khóp\" đã xuất hiện từ lâu",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "đỉnh rẽ nhánh",
+     "source_id": "bib-doducgiao-2009",
+     "page": "tr. 133",
+     "pdf_page": 134,
+     "snippet": "x là đỉnh rẽ nhánh. Còn trong G nếu bỏ cạnh u € U mà số thành phần liên",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "điểm cắt",
+     "source_id": "bib-leanhvinh-2020",
+     "page": "tr. 28",
+     "pdf_page": 27,
+     "snippet": "ngược lại từ v đến u theo Q. Giả sử điểm cất đầu tiên khi đi như vậy",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "điểm cắt",
+     "source_id": "bib-vudinhhoa-2003",
+     "page": "tr. 95",
+     "pdf_page": 96,
+     "snippet": "tại n giao điểm. Các điểm cắt này chia đường thang thứ",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "điểm khớp",
+     "source_id": "bib-cormen-2001-vi",
+     "page": "tr. 555",
+     "pdf_page": 553,
+     "snippet": "23-2 Các điểm khớp nối, các cầu nối, và các thành phan lưỡng thông",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "đỉnh rẽ nhánh",
+     "source_id": "bib-cormen-2001-vi",
+     "page": "tr. 435",
+     "pdf_page": 433,
+     "snippet": "phân, ngoại trừ thay vì thực hiện một quyết định rẽ nhánh nhị phân,",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "điểm cắt",
+     "source_id": "bib-cungkimtien-2004",
+     "page": "",
+     "pdf_page": 93,
+     "snippet": "cut point điểm cắt",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "điểm cắt",
+     "source_id": "bib-phan-1976",
+     "page": "tr. 330",
+     "pdf_page": 330,
+     "snippet": "cut p. điểm cắt",
+     "verified": true,
+     "recommended": false
+    }
+   ],
+   "pos": "d.t."
+  },
+  {
+   "id": "cycle",
+   "letter": "C",
+   "headword_en": "cycle",
+   "notation": "C_n",
+   "rosen_ref": "Rosen §10.2",
+   "definition_vi": "Đồ thị vòng, ký hiệu là $$C_n$$ với $$n \\geq 3$$, là đồ thị gồm $$n$$ đỉnh $$v_1, v_2, \\ldots, v_n$$ và các cạnh $$\\{v_1,v_2\\}, \\{v_2,v_3\\}, \\ldots, \\{v_{n-1},v_n\\}, \\{v_n,v_1\\}$$. Như vậy, mỗi đỉnh của $$C_n$$ có bậc là $$2$$.",
+   "example_vi": "$$C_3$$ là tam giác với ba đỉnh $$v_1, v_2, v_3$$ và ba cạnh $$\\{v_1,v_2\\}, \\{v_2,v_3\\}, \\{v_3,v_1\\}$$.",
+   "notes": "Rosen §10.2 defines C_n as the graph on n vertices with n cyclic edges (n >= 3). 'đồ thị vòng' is the exact match: bib-nguyenducnghia-2006 (pdf_page 159) gives the verbatim Rosen-style definition, and bib-nguyenhuudien-2019 (pdf_page 159) confirms '...được gọi là đồ thị vòng, ký hiệu là C_n. Như vậy, mỗi đỉnh của C_n có bậc là 2.' The candidate 'chu trình' denotes a cycle as a closed walk (not the graph C_n); 'chu trình đơn' denotes a simple cycle/closed walk; 'vòng' appears only as 'vòng tròn'/'vòng hạt'. All three were unverifiable for this concept (empty page) and dropped; the recommended term for the graph C_n is 'đồ thị vòng'.",
+   "see_also": [
+    "path",
+    "wheel",
+    "hamilton-circuit"
+   ],
+   "vi_terms": [
+    {
+     "term": "đồ thị vòng",
+     "verified": true,
+     "recommended": true,
+     "source_id": "bib-nguyenhuudien-2019",
+     "pdf_page": 159,
+     "page": "tr. 159",
+     "snippet": "được gọi là đồ thị vòng, ký hiệu là Cn . Như vậy, mỗi đỉnh của Cn có bậc là 2."
+    },
+    {
+     "term": "đồ thị vòng",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenducnghia-2006",
+     "pdf_page": 159,
+     "page": "",
+     "snippet": "Đồ thị vòng. Đồ thị vòng C„, n >3, gồm n đỉnh v, v,. .. , v„và các cạnh"
+    },
+    {
+     "term": "chu trình",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-nguyenhoangthach-2020",
+     "pdf_page": 67,
+     "page": "tr. 65",
+     "snippet": "Chu trình: Cn , n ≥ 3, có n đỉnh v1 , v2 , . . . , vn và n cạnh vi vi+1 , 1 ≤ i ≤ n"
+    },
+    {
+     "term": "đồ thị chu trình",
+     "verified": true,
+     "recommended": false,
+     "source_id": "bib-hoangchithanh-2007",
+     "pdf_page": 43,
+     "page": "tr. 43",
+     "snippet": "32. Đồ thị chu trình C„ là đồ thị có n đỉnh v,, v>, ... v, và n cạnh"
+    },
+    {
+     "term": "chu trình",
+     "source_id": "bib-leanhvinh-2020",
+     "page": "tr. 5",
+     "pdf_page": 4,
+     "snippet": "1.2.-Chu trình ‘Hamilton 6 iesiiscccsnn cae au cana evenwecai eu 22",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "chu trình",
+     "source_id": "bib-nguyenhuudien-2019",
+     "page": "tr. 7",
+     "pdf_page": 7,
+     "snippet": "Chương 7. Đường đi và chu trình . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 175",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "đồ thị chu trình",
+     "source_id": "bib-doducgiao-2009",
+     "page": "tr. 106",
+     "pdf_page": 107,
+     "snippet": "8. Đồ thị chu trình C, ( n 2 3)",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "đồ thị chu trình",
+     "source_id": "bib-hoangchithanh-2011",
+     "page": "",
+     "pdf_page": 71,
+     "snippet": "Đồ thi chu trình C, là đồ thị có n đỉnh vị, vz, ..., v„ van cạnh (vị, v2),",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "đồ thị vòng",
+     "source_id": "bib-cungkimtien-2004",
+     "page": "",
+     "pdf_page": 55,
+     "snippet": "circular graph đồ thị vòng",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "đồ thị vòng",
+     "source_id": "bib-phan-1976",
+     "page": "tr. 212",
+     "pdf_page": 212,
+     "snippet": "circular g. đồ thị vòng",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "chu trình",
+     "source_id": "bib-cungkimtien-2004",
+     "page": "",
+     "pdf_page": 9,
+     "snippet": "accumulation cycle chu trình tích",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "chu trình",
+     "source_id": "bib-phan-1976",
+     "page": "tr. 46",
+     "pdf_page": 46,
+     "snippet": "cyele c. kiểm tra chu trình",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "đồ thị chu trình",
+     "source_id": "bib-cungkimtien-2004",
+     "page": "",
+     "pdf_page": 93,
+     "snippet": "cyclograph đồ thị chu trình",
+     "verified": true,
+     "recommended": false
+    },
+    {
+     "term": "đồ thị chu trình",
+     "source_id": "bib-phan-1976",
+     "page": "tr. 102",
+     "pdf_page": 102,
+     "snippet": "cyclograph đồ thị chu trình",
+     "verified": true,
+     "recommended": false
+    }
+   ],
    "pos": "d.t."
   }
  ]

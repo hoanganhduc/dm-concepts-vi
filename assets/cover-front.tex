@@ -14,6 +14,11 @@
 \definecolor{faint}{HTML}{C3D0DC}
 \pagestyle{empty}
 \setlength{\parindent}{0pt}
+% Release version on the cover: build-print.sh writes cover-version.tex with the
+% release tag (RELEASE_VERSION in CI); otherwise default to the build date.
+\providecommand{\twodigit}[1]{\ifnum#1<10 0\fi\number#1}
+\IfFileExists{cover-version.tex}{\input{cover-version.tex}}{}
+\providecommand{\coverversion}{\the\year.\twodigit{\month}.\twodigit{\day}}
 \begin{document}
 \begin{tikzpicture}[x=1in,y=1in]
   % background
@@ -49,11 +54,12 @@
     {\fontsize{11}{14}\selectfont\itshape Tra cứu theo bảng chữ cái, đối chiếu Anh\,–\,Việt};
   % bottom band + imprint (date + license; editor credit moved to the top band)
   \fill[accent] (0,1.5) rectangle (8.5,1.56);
-  \node[anchor=west, text=ink!72] at (0.85,1.30)
-    {\fontsize{10.5}{13}\selectfont Last Updated: \today};
-  \node[anchor=west, text=ink!72] at (0.85,1.06)
-    {\fontsize{10.5}{13}\selectfont Cập nhật: Ngày \the\day\ tháng \the\month\ năm \the\year};
-  % official Creative Commons BY-NC-SA 4.0 badge
+  % official Creative Commons BY-NC-SA 4.0 badge (right; bottom-right at y=1.0,
+  % height 0.95in*31/88=0.335in, so its vertical centre is y=1.167)
   \node[anchor=south east] at (7.65,1.0) {\includegraphics[width=0.95in]{cc-by-nc-sa.png}};
+  % release version (left), mirrored to the badge: same 0.85in margin and the
+  % same vertical centre (y=1.167) as the badge.
+  \node[anchor=west, text=ink!72] at (0.85,1.167)
+    {\fontsize{10.5}{13}\selectfont Release \coverversion};
 \end{tikzpicture}
 \end{document}

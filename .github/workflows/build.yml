@@ -90,10 +90,8 @@ jobs:
             > workflow/acknowledgements/merged-prs.json \
             || echo '[]' > workflow/acknowledgements/merged-prs.json
 
-      - name: Build PDF (cover embedded, cross-ref links preserved)
-        run: bash workflow/scripts/build-print.sh
-
-      - name: Release latest PDF as yyyy.mm.dd.N
+      - name: Compute release version (yyyy.mm.dd.N)
+        # Compute the tag BEFORE building so the cover can be stamped with it.
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
@@ -102,10 +100,19 @@ jobs:
           # How many releases already exist for today? Next number = count + 1.
           COUNT=$(gh release list --limit 300 --json tagName \
             --jq "[.[] | select(.tagName | startswith(\"${DATE}.\"))] | length")
-          NUM=$((COUNT + 1))
-          TAG="${DATE}.${NUM}"
+          echo "RELEASE_VERSION=${DATE}.$((COUNT + 1))" >> "$GITHUB_ENV"
+
+      - name: Build PDF (cover stamped with RELEASE_VERSION; links preserved)
+        run: bash workflow/scripts/build-print.sh
+
+      - name: Release latest PDF as yyyy.mm.dd.N
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          TAG="$RELEASE_VERSION"
           ASSET="Mot-so-thuat-ngu-Toan-roi-rac-va-KHMT-${TAG}.pdf"
           cp output/print/main.pdf "$ASSET"
           gh release create "$TAG" "$ASSET" \
             --title "PDF $TAG" \
-            --notes "Bản PDF mới nhất, cập nhật ngày ${DATE} (phiên bản thứ ${NUM} trong ngày). Tạo tự động từ commit ${GITHUB_SHA}."
+            --notes "Bản PDF mới nhất, phiên bản ${TAG}. Tạo tự động từ commit ${GITHUB_SHA}."

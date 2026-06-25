@@ -12,7 +12,9 @@ PYTHON="${PYTHON:-$HOME/.venvs/pretext/bin/python}"
 #    render in Vietnamese; PreTeXt ships no vi locale. Idempotent.
 bash workflow/scripts/install-vi-locale.sh
 
-# 1. Recompile the cover so "Last Update: \today" reflects the current build date.
+# 1. Recompile the cover. Stamp it with the release version (RELEASE_VERSION in
+#    CI, e.g. 2026.06.25.1) or the build date (yyyy.mm.dd) for local builds.
+printf '\\def\\coverversion{%s}\n' "${RELEASE_VERSION:-$(date +%Y.%m.%d)}" > assets/cover-version.tex
 if command -v xelatex >/dev/null && [ -f assets/cover-front.tex ]; then
   ( cd assets && xelatex -interaction=batchmode cover-front.tex >/dev/null 2>&1 ) || \
     echo "WARNING: cover-front.tex recompile failed; using existing cover-front.pdf." >&2

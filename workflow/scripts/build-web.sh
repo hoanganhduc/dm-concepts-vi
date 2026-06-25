@@ -7,8 +7,9 @@ set -e
 cd "$(dirname "$0")/../.."
 PRETEXT="${PRETEXT:-$HOME/.venvs/pretext/bin/pretext}"
 PYTHON="${PYTHON:-$HOME/.venvs/pretext/bin/python}"
-command -v pretext >/dev/null 2>&1 && PRETEXT="$(command -v pretext)"
-command -v python3 >/dev/null 2>&1 && PYTHON="${PYTHON:-python3}"
+# Use the local venv binaries if present (dev), else fall back to PATH (CI).
+[ -x "$PRETEXT" ] || PRETEXT="$(command -v pretext || echo pretext)"
+[ -x "$PYTHON" ]  || PYTHON="$(command -v python3 || echo python3)"
 
 # 0. Vietnamese structural labels (idempotent; also fetches PreTeXt core).
 bash workflow/scripts/install-vi-locale.sh

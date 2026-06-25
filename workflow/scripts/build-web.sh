@@ -27,7 +27,10 @@ bash workflow/scripts/install-vi-locale.sh
 cp assets/search/tra-cuu.html assets/search/lookup.js assets/search/entries.json output/web/
 touch output/web/.nojekyll
 
-# 5. Rewrite acknowledgement channel-icon tokens into FontAwesome glyphs.
+# 5. Bundle FontAwesome locally (no CDN) for the acknowledgement channel icons.
+cp -r assets/fontawesome output/web/fontawesome
+
+# 6. Rewrite acknowledgement channel-icon tokens into FontAwesome glyphs.
 "$PYTHON" workflow/scripts/postprocess-web.py output/web
 
 echo "Built output/web (acknowledgements + search index + channel icons)"

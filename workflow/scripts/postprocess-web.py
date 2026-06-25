@@ -14,11 +14,11 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
-FA_LINK = (
-    '<link rel="stylesheet" '
-    'href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" '
-    'crossorigin="anonymous" referrerpolicy="no-referrer">'
-)
+# FontAwesome is bundled locally (assets/fontawesome -> output/web/fontawesome by
+# build-web.sh) so the web book needs no network/CDN. Relative href works because
+# PreTeXt emits all pages at the site root.
+FA_CSS_HREF = "fontawesome/css/all.min.css"
+FA_LINK = f'<link rel="stylesheet" href="{FA_CSS_HREF}">'
 TOKENS = {
     "@@person@@": '<i class="fa-solid fa-user" aria-hidden="true"></i>',
     "@@github@@": '<i class="fa-brands fa-github" aria-hidden="true"></i>',
@@ -30,7 +30,7 @@ def process(html: str) -> str:
         return html
     for tok, glyph in TOKENS.items():
         html = html.replace(tok, glyph)
-    if "font-awesome" not in html and "</head>" in html:
+    if FA_CSS_HREF not in html and "</head>" in html:
         html = html.replace("</head>", f"  {FA_LINK}\n</head>", 1)
     return html
 

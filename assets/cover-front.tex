@@ -4,9 +4,11 @@
 \usepackage[paperwidth=8.5in,paperheight=11in,margin=0pt]{geometry}
 \usepackage{fontspec}
 \setmainfont{TeX Gyre Termes}
+\setmonofont{TeX Gyre Cursor} % monospace for the GitHub release line
 \usepackage{tikz}
 \usepackage{graphicx}
 \usepackage{xcolor}
+\usepackage{fontawesome5} % GitHub mark on the release line
 \definecolor{ink}{HTML}{0F2A43}
 \definecolor{accent}{HTML}{2C7A7B}
 \definecolor{gold}{HTML}{C9A227}
@@ -60,6 +62,6 @@
   % release version (left), mirrored to the badge: same 0.85in margin and the
   % same vertical centre (y=1.167) as the badge.
   \node[anchor=west, text=ink!72] at (0.85,1.167)
-    {\fontsize{10.5}{13}\selectfont Release \coverversion};
+    {\fontsize{12}{15}\ttfamily\selectfont \faGithub~Release \coverversion};
 \end{tikzpicture}
 \end{document}

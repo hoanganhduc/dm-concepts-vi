@@ -14,9 +14,15 @@ import re, sys
 f = sys.argv[1]
 s = open(f, encoding="utf-8").read()
 
-# 1. Load pdfpages at the end of the preamble.
+# 1. Load pdfpages (cover) and fontawesome5 (acknowledgement channel icons).
 if "\\usepackage{pdfpages}" not in s:
     s = s.replace("\\begin{document}", "\\usepackage{pdfpages}\n\\begin{document}", 1)
+if "\\usepackage{fontawesome5}" not in s:
+    s = s.replace("\\begin{document}", "\\usepackage{fontawesome5}\n\\begin{document}", 1)
+
+# 1b. Rewrite the portable channel-icon tokens emitted by
+#     gen-acknowledgements.py into FontAwesome glyphs (person / GitHub).
+s = s.replace("@@person@@", "\\faUser{}").replace("@@github@@", "\\faGithub{}")
 
 # 2. Replace the half-title block with the embedded cover (page 1).
 s, n1 = re.subn(

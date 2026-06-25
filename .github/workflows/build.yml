@@ -5,9 +5,11 @@ on:
     branches: [main]
   workflow_dispatch:
 
-# Deploying to gh-pages and creating releases both need write access.
+# Deploying to gh-pages and creating releases both need write access;
+# the acknowledgements list reads the repo's merged pull requests.
 permissions:
   contents: write
+  pull-requests: read
 
 concurrency:
   group: dm-concepts-build
@@ -26,26 +28,22 @@ jobs:
       - name: Install PreTeXt + deps
         run: pip install pretext pyyaml
 
-      - name: Install Vietnamese locale
-        # PreTeXt ships no vi locale; install ours so structural labels render
-        # in Vietnamese. The script fetches PreTeXt's core on first run.
-        run: bash workflow/scripts/install-vi-locale.sh
-
       - name: Validate entry data (build-gate)
         run: python3 workflow/scripts/validate-entry.py
 
-      - name: Build web target
-        run: pretext build web
-
-      - name: Build quick-lookup search index
-        # entries.json is gitignored, so regenerate it from data/terms/*.yaml.
-        run: python3 workflow/scripts/build-search-index.py
-
-      - name: Bundle quick-lookup page into the site
+      - name: Fetch merged pull requests (for the acknowledgements list)
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          cp assets/search/tra-cuu.html assets/search/lookup.js assets/search/entries.json output/web/
-          # Stop GitHub Pages' Jekyll from dropping PreTeXt's _static/ directory.
-          touch output/web/.nojekyll
+          gh pr list --repo "$GITHUB_REPOSITORY" --state merged --limit 1000 \
+            --json number,title,author,mergedAt \
+            > workflow/acknowledgements/merged-prs.json \
+            || echo '[]' > workflow/acknowledgements/merged-prs.json
+
+      - name: Build web (locale, acknowledgements, HTML, search index, icons)
+        # Wraps locale install + acknowledgements regen + pretext build web +
+        # search index + quick-lookup bundle + FontAwesome channel icons.
+        run: bash workflow/scripts/build-web.sh
 
       - name: Deploy to gh-pages branch
         uses: peaceiris/actions-gh-pages@v4
@@ -82,6 +80,15 @@ jobs:
 
       - name: Install Vietnamese locale (also fetches PreTeXt core)
         run: bash workflow/scripts/install-vi-locale.sh
+
+      - name: Fetch merged pull requests (for the acknowledgements list)
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh pr list --repo "$GITHUB_REPOSITORY" --state merged --limit 1000 \
+            --json number,title,author,mergedAt \
+            > workflow/acknowledgements/merged-prs.json \
+            || echo '[]' > workflow/acknowledgements/merged-prs.json
 
       - name: Build PDF (cover embedded, cross-ref links preserved)
         run: bash workflow/scripts/build-print.sh

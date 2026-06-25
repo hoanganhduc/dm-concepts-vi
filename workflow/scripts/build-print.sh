@@ -18,6 +18,10 @@ if command -v xelatex >/dev/null && [ -f assets/cover-front.tex ]; then
     echo "WARNING: cover-front.tex recompile failed; using existing cover-front.pdf." >&2
 fi
 
+# 1b. Regenerate the acknowledgements list (email contributors + any merged-PR
+#     data already fetched into workflow/acknowledgements/merged-prs.json).
+"$PYTHON" workflow/scripts/gen-acknowledgements.py
+
 # 2. Generate LaTeX (no compile) so we can patch the preamble/title pages.
 "$PRETEXT" build latex
 

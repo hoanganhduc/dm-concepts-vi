@@ -16,12 +16,14 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  # Decide whether the book content changed. The PDF release is skipped when a
-  # push only touches docs/meta files (README, LICENSE, docs/, .gitignore).
-  changes:
+  # Decide whether the book content changed AND compute the release version to
+  # display. Web and PDF both consume `version`, so they never disagree. The PDF
+  # release is skipped when a push only touches docs/meta files.
+  version:
     runs-on: ubuntu-latest
     outputs:
       book: ${{ steps.f.outputs.book }}
+      version: ${{ steps.v.outputs.version }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -40,8 +42,25 @@ jobs:
           else
             echo "book=false" >> "$GITHUB_OUTPUT"
           fi
+      - id: v
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          DATE=$(date +%Y.%m.%d)
+          if [ "${{ steps.f.outputs.book }}" = "true" ] || [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            # this run creates a new release: the next tag for today
+            COUNT=$(gh release list --limit 300 --json tagName \
+              --jq "[.[] | select(.tagName | startswith(\"${DATE}.\"))] | length")
+            echo "version=${DATE}.$((COUNT + 1))" >> "$GITHUB_OUTPUT"
+          else
+            # docs-only: no new release; show the latest existing one
+            LATEST=$(gh release list --limit 1 --json tagName --jq '.[0].tagName // empty')
+            echo "version=${LATEST:-$DATE}" >> "$GITHUB_OUTPUT"
+          fi
 
   build-deploy:
+    needs: version
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -68,6 +87,9 @@ jobs:
       - name: Build web (locale, acknowledgements, HTML, search index, icons)
         # Wraps locale install + acknowledgements regen + pretext build web +
         # search index + quick-lookup bundle + FontAwesome channel icons.
+        # RELEASE_VERSION makes the web footer match the PDF cover version.
+        env:
+          RELEASE_VERSION: ${{ needs.version.outputs.version }}
         run: bash workflow/scripts/build-web.sh
 
       - name: Deploy to gh-pages branch
@@ -83,9 +105,9 @@ jobs:
   # yyyy.mm.dd.N, where the date is the build (last-updated) date and N is the
   # release count for that day, starting at 1.
   release-pdf:
-    needs: [build-deploy, changes]
+    needs: [build-deploy, version]
     # Only release when the book content changed (skip docs-only pushes).
-    if: needs.changes.outputs.book == 'true' || github.event_name == 'workflow_dispatch'
+    if: needs.version.outputs.book == 'true' || github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -121,24 +143,15 @@ jobs:
             > workflow/acknowledgements/merged-prs.json \
             || echo '[]' > workflow/acknowledgements/merged-prs.json
 
-      - name: Compute release version (yyyy.mm.dd.N)
-        # Compute the tag BEFORE building so the cover can be stamped with it.
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          set -euo pipefail
-          DATE=$(date +%Y.%m.%d)
-          # How many releases already exist for today? Next number = count + 1.
-          COUNT=$(gh release list --limit 300 --json tagName \
-            --jq "[.[] | select(.tagName | startswith(\"${DATE}.\"))] | length")
-          echo "RELEASE_VERSION=${DATE}.$((COUNT + 1))" >> "$GITHUB_ENV"
-
       - name: Build PDF (cover stamped with RELEASE_VERSION; links preserved)
+        env:
+          RELEASE_VERSION: ${{ needs.version.outputs.version }}
         run: bash workflow/scripts/build-print.sh
 
       - name: Release latest PDF as yyyy.mm.dd.N
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          RELEASE_VERSION: ${{ needs.version.outputs.version }}
         run: |
           set -euo pipefail
           TAG="$RELEASE_VERSION"

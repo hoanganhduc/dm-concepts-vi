@@ -132,6 +132,38 @@ actually mean the English headword *in context*?
 must be blind to the English headword to avoid confirmation bias; checker ≠
 translator. ~40 entries/loop is a workable batch for one agent call.
 
+**Checker prompt must be synonym-aware** (learned in Run 3, loop 1). A literal
+checker over-reports: the source is Vietnamese, so the back-translation almost
+never contains the exact English headword, and a strict checker calls every
+paraphrase a `mismatch`. Tell the checker explicitly: *the source is Vietnamese
+text, so the translation usually will NOT contain the exact English term; if the
+context describes the SAME CONCEPT with a synonym or different wording it is
+still `match`* — with concrete pairs: `shortest path`=geodesic; `unrooted
+tree`=free tree; `predicate logic`=first-order logic; `length of the shortest
+cycle`=girth. Only `mismatch` when the context is about a GENUINELY DIFFERENT
+concept. Without this, loop 1 produced 5 false synonym-mismatches and 0 real
+errors; with it, loops 2–5 surfaced 5 real fold-homograph citations + 1 term
+error and almost no synonym noise.
+
+**Operational gotchas (Run 3):**
+- *Build the translator/checker prompt file BEFORE dispatching* — a `dispatch.sh
+  ... &` that races ahead of the `python` writing its prompt file `cat`s an empty
+  file. Sequence: write prompt → then dispatch.
+- *`dispatch.sh` lives in `/tmp/dm-review/`, not in `backtrans/`.* Run dispatch
+  from `/tmp/dm-review` (paths like `backtrans/loopN-*.prompt`), not from inside
+  `backtrans/`, or `bash dispatch.sh` is "No such file or directory".
+- *OpenCode (Gemini) buffers ALL stdout to the end and sometimes stalls* — the
+  output file sits at the ~56-byte startup banner for 8+ minutes with no
+  progress. If it has not produced the JSON array after ~8 min, kill it and
+  re-dispatch the SAME prompt on CodeWhale (reliable for the checker role).
+- *Never `pkill -f "opencode run"` / `pkill -f "codewhale exec"` from a shell
+  whose own command line contains that string* — `pkill -f` matches your current
+  bash process and SIGTERMs it (exit 144). Kill by basename instead:
+  `for p in $(ps -eo pid,comm | awk '$2=="opencode"{print $1}'); do kill $p; done`.
+- *Translators (Codex) and the next loop's checker are different model families*
+  — dispatch loop N+1's translator in parallel with loop N's checker to overlap
+  wall-clock.
+
 ---
 
 ## Verification discipline & known FALSE-POSITIVE patterns
@@ -161,7 +193,15 @@ for these recurring false positives (confirmed across two full runs):
   inverse trap is real: a **fold-homograph** (different word, same folded form)
   is a genuinely spurious citation — `gate`"cổng"←"công việc", `even`"chẵn"←"Chặn
   trên", `centre`"tâm"←"Tam giác". Check exact-vs-folded; ToC/heading/preface
-  snippets are high-risk.
+  snippets are high-risk. Back-translation (Method B) is the strongest detector
+  of these — it reads the actual surrounding passage, so it catches **word-break
+  folds** the term never spanned: `resolution`"hợp giải"←"tập **hợp giải** tích"
+  (analytic set), `witness`"bằng chứng"←"bằng **chứng minh**" (by the proof),
+  `double-sum`"tổng đôi"←"tổng **đối thớ**" (cofibered sum) / "tổng **đối** với
+  tích" (distributive). Also **wrong-sense** folds where the word matches but the
+  meaning differs: `pivot`"chốt"←"đặt **chốt** bảo vệ" (guard post, not the
+  algorithm pivot), `proof-by-contraposition`"chứng minh phản đảo"←"chứng minh
+  **phần đảo**" (prove the converse part, in a Boolean-algebra exercise).
 - **Established subfield terms** that look like conflations but aren't:
   `maximum-flow`="luồng cực đại", `xnor`="phép tương đương" (XNOR = logical
   equivalence), `ball`="hình cầu" (solid ball; sphere surface = "mặt cầu").
@@ -181,6 +221,16 @@ definition opener and example.
 - **Run 2** (re-run, current book): ~11 verified, mostly **residual def/term
   mismatches from Run 1's fixes** + new (root, series, discrete, class-P,
   6 fold-homograph spurious citations). Validates re-running.
+- **Run 3** (Method B — back-translation, 5 loops × 40 = 200 entries): 190
+  confirmed correct in context; **6 verified issues** — 1 term error
+  (`double-sum`: recommended "tổng đôi" had no valid citation, all 4 were folds
+  of "tổng đôi **một**"/"tổng **đối** thớ"; the correctly-cited "tổng kép",
+  Rosen VI tr.100, was `recommended:False` → swap) + 5 spurious citations
+  (`pivot`, `proof-by-contraposition`, `resolution`, `witness`, plus the
+  double-sum cites). Loop 1's literal checker gave 5 false synonym-mismatches
+  and 0 real errors → fixed by the synonym-aware prompt. Lesson: back-translation
+  finds citation-integrity defects the angle review (Method A) misses, because it
+  reads the source passage, not just the snippet.
 - The **existential-instantiation/generalization "hiện sinh"** pair is left
   unchanged by author request — do not "fix" it.
 

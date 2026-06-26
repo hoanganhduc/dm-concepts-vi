@@ -1,0 +1,198 @@
+# Translation-review methodology (multi-agent + independent verification)
+
+How the Vietnamese translations in this book are reviewed for accuracy. Three
+complementary methods, all built on one rule: **never trust an agent's finding;
+verify it independently against the real entry, the cited source, and known
+conventions before accepting it.** This document is the reusable playbook.
+
+## Reviewers (external CLIs)
+
+Three different model families, dispatched read-only. Probe each before a run
+(auth + file-read + output). Exact non-interactive invocations:
+
+| Reviewer | Invocation | Model family |
+|---|---|---|
+| Codex | `codex exec -s read-only --skip-git-repo-check "<prompt>" < /dev/null` | OpenAI |
+| OpenCode | `opencode run "<prompt>" < /dev/null` | Gemini |
+| CodeWhale | `codewhale exec --auto "<prompt>" < /dev/null` | DeepSeek |
+
+Gotchas: `--skip-git-repo-check` (Codex needs a trusted/git dir); `--auto`
+(CodeWhale needs it for file/tool access — plain `exec` is a one-shot reply);
+`< /dev/null` on all (they block reading stdin in the background otherwise).
+Reviewers run with `cwd` = a **read-only copy** of `data/terms/` + `registry.yaml`
++ `references.ptx` so they cannot touch the repo. Capture stdout to a file.
+
+## Scratch infrastructure (`/tmp/dm-review/`, ephemeral — recreate each run)
+
+`dispatch.sh` — uniform dispatch (paths relative to `/tmp/dm-review`):
+
+```bash
+#!/usr/bin/env bash
+# dispatch.sh <agent> <promptfile> <outfile>
+agent="$1"; promptfile="$2"; out="$3"
+case "$promptfile" in /*) ;; *) promptfile="/tmp/dm-review/$promptfile";; esac
+case "$out" in /*) ;; *) out="/tmp/dm-review/$out";; esac
+P="$(cat "$promptfile")" || exit 2
+cd /tmp/dm-review/book || exit 2
+{ case "$agent" in
+  codex)     timeout 1500 codex exec -s read-only --skip-git-repo-check "$P" < /dev/null ;;
+  opencode)  timeout 1500 opencode run "$P" < /dev/null ;;
+  codewhale) timeout 1500 codewhale exec --auto "$P" < /dev/null ;;
+esac ; } > "$out" 2>&1
+```
+
+`extract.py` — pull the findings JSON out of an agent's (noisy/ANSI) stdout.
+Agents often emit a **bare JSON array at the end** without the requested
+markers, so try the marker block first, then fall back to the **last** valid
+JSON array of dicts:
+
+```python
+import sys, re, json
+raw = open(sys.argv[1], encoding="utf-8", errors="replace").read()
+raw = re.sub(r"\x1b\[[0-9;?]*[a-zA-Z]|\x1b\][^\x07]*\x07|\x1b[()][AB0]", "", raw)  # strip ANSI/OSC
+m = re.search(r"<<<FINDINGS_JSON(.*?)FINDINGS_JSON>>>", raw, re.S)
+if m:
+    seg = m.group(1); a, b = seg.find("["), seg.rfind("]")
+    try: print(json.dumps(json.loads(seg[a:b+1]), ensure_ascii=False)); sys.exit(0)
+    except Exception: pass
+ends=[i for i,c in enumerate(raw) if c=="]"]; starts=[i for i,c in enumerate(raw) if c=="["]
+for rb in reversed(ends):
+    for lb in reversed([s for s in starts if s < rb]):
+        try:
+            v=json.loads(raw[lb:rb+1])
+            if isinstance(v,list) and v and isinstance(v[0],dict) and "entry_id" in v[0]:
+                print(json.dumps(v,ensure_ascii=False)); sys.exit(0)
+        except Exception: continue
+print("[]")
+```
+
+Ledger per run: `iterations.jsonl` (one record per loop) + `loopN-confirmed.md`
+(Claude's verified verdicts). Keep a separate dir per run (`run2/`, etc.).
+
+---
+
+## Method A — Multi-agent angle review (5 loops)
+
+Each loop = one **distinct angle**; all three reviewers run it in parallel; the
+prompt forces a **JSON-only** output. Claude then verifies every finding.
+
+The five angles (each loop's prompt says "do NOT re-report prior angles"):
+
+1. **Recommended-term correctness** — is the recommended Vietnamese term the
+   correct/standard translation of the English headword for its specific sense?
+2. **Definition accuracy & completeness** — is `definition_vi` (and `example_vi`)
+   mathematically correct, complete, non-circular? wrong/contradictory examples.
+3. **Citation/source integrity** — does the recommended term's `snippet` actually
+   contain the term? snippet/term/page/source mismatches.
+4. **Semantic precision & concept conflation** — wrong-sense translations,
+   conflated distinct concepts (maximal vs maximum, walk vs path), POS errors.
+5. **Cross-cutting consistency** — same English term translated inconsistently;
+   one Vietnamese term reused for different English concepts; see_also/notation.
+
+Strict prompt template (the JSON contract is essential — without it Codex emits
+hundreds of KB of prose and OpenCode wanders):
+
+```
+You are an expert reviewer of bilingual English–Vietnamese math & CS terminology.
+The cwd holds a READ-ONLY copy: ./data/terms/entries-<letter>.yaml (data model in
+./README-FOR-REVIEWER.md). Do NOT modify any file. Scan broadly; report only
+clear-cut, confident findings (max ~12), precision over recall, each with a
+specific entry id and a concrete reason.
+
+REVIEW ANGLE — <angle text>.
+
+CRITICAL OUTPUT RULES:
+- Do NOT review entries one-by-one in prose. Scan, then report ONLY clear errors.
+- Your ENTIRE answer must be ONLY a JSON array (max 8), nothing before/after, no fences.
+- Each: {"entry_id","headword_en","current_term","issue","why","severity","suggested_fix"}
+- If none, output exactly: []
+```
+
+Per loop: dispatch 3 agents in parallel → `extract.py` each → **Claude verifies
+each finding against the real repo** (the actual YAML, the cited source/corpus,
+domain knowledge, Rosen's conventions) → keep only confirmed → record. After
+loop 5, aggregate deduplicated verified errors.
+
+## Method B — Back-translation grounding (context-faithful citation check)
+
+The deepest check: does the Vietnamese term, **as used in its cited source**,
+actually mean the English headword *in context*?
+
+1. Build candidates: entries whose recommended term is `verified` with a
+   `source_id` + `snippet`; extract a context window from
+   `workflow/corpus/<source_id>.txt` (strip `@@PAGE n@@`) around the snippet.
+2. **Translator agent (blind)** — given `{id, vi_term, context}` (NO English
+   headword), translate the context to English faithfully. Output `[{id, en}]`.
+3. **Checker agent (different agent)** — given `{id, en_headword, vi_term,
+   en_translation}`, judge whether **in context** the Vietnamese term is used
+   with the English headword's meaning: `match | mismatch | unclear` + reason.
+4. **Claude verifies** every `mismatch`/`unclear` against the real source.
+
+"Match" = contextually correct (not just a literal string match). Translator
+must be blind to the English headword to avoid confirmation bias; checker ≠
+translator. ~40 entries/loop is a workable batch for one agent call.
+
+---
+
+## Verification discipline & known FALSE-POSITIVE patterns
+
+Independent verification routinely overturns ~40–60% of agent findings. Watch
+for these recurring false positives (confirmed across two full runs):
+
+- **see-ref stubs flagged as "empty definition" / "empty entry".** Entries with
+  a `see_ref` field are redirects ("Xem <target>") and are empty BY DESIGN
+  (`range`→`range-of-a-function`, `np-complete`→`np-complete-problem`, etc.).
+  Adding a definition would duplicate the target. ~11 of these per run.
+- **`mapping-rule`** ("quy tắc song ánh") is flagged almost every run as needing
+  "quy tắc ánh xạ" — it is the **bijection rule** (deliberately unified), correct.
+- **Rosen-convention vs standard-convention.** The book follows Rosen: "path" =
+  walk, "simple path" = no repeated edge, "circuit" allows repeated vertices,
+  "decreasing" = non-strict. Agents applying the other convention raise false
+  alarms (but Run 2 correctly caught that **`decreasing` had Rosen backwards** —
+  verify the convention, don't assume).
+- **Umbrella/disambiguation entries** (`inverse`, `complement`, `root` has
+  several senses) have intentionally general definitions ("Mục này chỉ nêu ý
+  niệm chung") — not "circular/vague" errors.
+- **Real-but-obscure cited terms** called "hallucinated": e.g. `literal`="tục
+  biến" (18 corpus hits, Đỗ Đức Giáo 2000), `implicant`="nguyên nhân". Check the
+  corpus before rejecting a term as invented.
+- **Citation checks need OCR/diacritic tolerance.** "snippet doesn't contain the
+  term" is usually false — fold diacritics + case before comparing. BUT the
+  inverse trap is real: a **fold-homograph** (different word, same folded form)
+  is a genuinely spurious citation — `gate`"cổng"←"công việc", `even`"chẵn"←"Chặn
+  trên", `centre`"tâm"←"Tam giác". Check exact-vs-folded; ToC/heading/preface
+  snippets are high-risk.
+- **Established subfield terms** that look like conflations but aren't:
+  `maximum-flow`="luồng cực đại", `xnor`="phép tương đương" (XNOR = logical
+  equivalence), `ball`="hình cầu" (solid ball; sphere surface = "mặt cầu").
+
+Also catch **residuals from your own term fixes**: changing a recommended term
+without updating the definition/example leaves the old term in the prose
+(`codomain` def kept "miền giá trị", `contingency` kept "tiếp liên",
+`linear-recurrence` kept "thuần nhất"). After any term change, re-check the
+definition opener and example.
+
+## Run history (for reference)
+
+- **Run 1** (full book): ~90 raw findings → ~35 verified errors fixed; ~45 false
+  positives rejected. Fixed: permutation, existential→"hiện sinh" (left per
+  author), codomain term, prime-implicant reversed implication, dynamic-
+  programming Dijkstra example, broken see_also (headword strings → ids), etc.
+- **Run 2** (re-run, current book): ~11 verified, mostly **residual def/term
+  mismatches from Run 1's fixes** + new (root, series, discrete, class-P,
+  6 fold-homograph spurious citations). Validates re-running.
+- The **existential-instantiation/generalization "hiện sinh"** pair is left
+  unchanged by author request — do not "fix" it.
+
+## How to re-run
+
+1. `mkdir -p /tmp/dm-review/{book/data/terms,book/data/sources,results}`; copy
+   `data/terms/*.yaml`, `data/sources/registry.yaml`, `source/references.ptx`
+   into `book/`; write `book/README-FOR-REVIEWER.md` (the data model). Recreate
+   `dispatch.sh` + `extract.py` (above).
+2. Probe the three CLIs (short file-read prompt).
+3. For each angle: dispatch 3 agents in parallel → extract → Claude verifies →
+   record → next loop. Aggregate after loop 5, then apply fixes (panels →
+   `encode-chapter.py` → `validate-entry.py` → build → commit).
+4. For Method B: build candidates with corpus context, then translator → checker
+   → Claude verifies mismatches.

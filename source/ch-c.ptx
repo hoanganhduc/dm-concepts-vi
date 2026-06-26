@@ -120,7 +120,7 @@
       <p>Tâm của một đồ thị liên thông <m>G</m>, ký hiệu <m>C(G)</m>, là tập hợp các đỉnh có độ lệch tâm nhỏ nhất, nghĩa là các đỉnh <m>v</m> với <m>e(v)</m> bằng bán kính <m>r(G) = \min_{u \in V(G)} e(u)</m>, trong đó độ lệch tâm <m>e(v) = \max_{u \in V(G)} \mathrm{dist}_G(v, u)</m>. Mỗi đỉnh như vậy được gọi là đỉnh tâm của <m>G</m> (theo <xref ref="bib-rosen-2019" />, Rosen §10.4).</p>
       <p>Thuật ngữ tiếng Việt tương ứng:</p>
       <ul>
-        <li><p><term>tâm</term> <xref ref="bib-rosen-2003-vi" /> (tr. 58); <xref ref="bib-leanhvinh-2020" /> (tr. 6) — cách dùng phổ biến.</p></li>
+        <li><p><term>tâm</term> <xref ref="bib-rosen-2003-vi" /> (tr. 58) — cách dùng phổ biến.</p></li>
         <li><p><term>trung tâm</term> <xref ref="bib-leanhvinh-2020" /> (tr. 44); <xref ref="bib-nguyenhoangthach-2020" /> (tr. 38); <xref ref="bib-nguyenhuudien-2019" /> (tr. 102); <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 4).</p></li>
         <li><p><term>tâm của đồ thị</term> <xref ref="bib-hoangchithanh-2007" /> (tr. 100); <xref ref="bib-hoangchithanh-2011" />; <xref ref="bib-leanhvinh-2020" /> (tr. 44).</p></li>
         <li><p><term>đỉnh tâm</term> <xref ref="bib-ngodactan-2004" /> (tr. 216); <xref ref="bib-doantamhoe-2009" />; <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 43).</p></li>
@@ -302,12 +302,12 @@
     <idx><h>class P</h></idx>
     <idx><h>lớp P</h></idx>
     <statement>
-      <p>Lớp <m>\mathsf{P}</m> là lớp các bài toán giải được trong thời gian đa thức, tức là các bài toán mà tồn tại một thuật toán giải chúng với độ phức tạp thời gian là một hàm đa thức theo kích thước đầu vào (theo <xref ref="bib-rosen-2019" />, Rosen §3.3).</p>
+      <p>Lớp <m>\mathsf{P}</m> là lớp các <em>bài toán quyết định</em> (bài toán có câu trả lời đúng/sai) giải được trong thời gian đa thức, tức là các bài toán mà tồn tại một thuật toán giải chúng với độ phức tạp thời gian là một hàm đa thức theo kích thước đầu vào (theo <xref ref="bib-rosen-2019" />, Rosen §3.3).</p>
       <p>Thuật ngữ tiếng Việt tương ứng:</p>
       <ul>
         <li><p><term>lớp P</term> <em>(thuật ngữ chuẩn; chưa truy được trong kho văn bản)</em> — cách dùng phổ biến.</p></li>
       </ul>
-      <p>Ví dụ: Bài toán sắp xếp một bảng kê gồm <m>n</m> phần tử thuộc lớp <m>\mathsf{P}</m> vì có thể giải được bằng thuật toán với độ phức tạp <m>O(n^2)</m>, là một hàm đa thức theo <m>n</m>; tương tự, bài toán tìm kiếm tuyến tính có độ phức tạp <m>O(n)</m> nên cũng thuộc lớp <m>\mathsf{P}</m>.</p>
+      <p>Ví dụ: Bài toán quyết định một đồ thị <m>G</m> có liên thông hay không thuộc lớp <m>\mathsf{P}</m>, vì có thể trả lời bằng một phép duyệt với độ phức tạp đa thức theo kích thước đồ thị.</p>
       <p>Xem thêm <xref ref="def-algorithm-analysis" text="title" />, <xref ref="def-complexity" text="title" />, <xref ref="def-polynomial" text="title" />, <xref ref="def-time-complexity" text="title" />.</p>
     </statement>
   </definition>
@@ -409,14 +409,14 @@
     <idx><h>tập đích</h></idx>
     <idx><h>đối miền</h></idx>
     <statement>
-      <p>Miền giá trị (tập đích) của một hàm <m>f : A \to B</m> là tập hợp <m>B</m> chứa mọi giá trị có thể có của hàm, ký hiệu là <m>B</m>. Với mỗi <m>a \in A</m>, ảnh <m>f(a)</m> là một phần tử của <m>B</m>, nhưng không nhất thiết mọi phần tử của <m>B</m> đều là ảnh của một phần tử nào đó thuộc miền xác định <m>A</m> (theo <xref ref="bib-rosen-2019" />, Rosen §2.3).</p>
+      <p>Tập đích (codomain) của một hàm <m>f : A \to B</m> là tập hợp <m>B</m> chứa mọi giá trị có thể có của hàm, ký hiệu là <m>B</m>. Với mỗi <m>a \in A</m>, ảnh <m>f(a)</m> là một phần tử của <m>B</m>, nhưng không nhất thiết mọi phần tử của <m>B</m> đều là ảnh của một phần tử nào đó thuộc miền xác định <m>A</m> (theo <xref ref="bib-rosen-2019" />, Rosen §2.3).</p>
       <p>Thuật ngữ tiếng Việt tương ứng:</p>
       <ul>
         <li><p><term>tập đích</term> <xref ref="bib-nguyenvanmau-2007" />; <xref ref="bib-vovantuandung-2007" /> — cách dùng phổ biến.</p></li>
         <li><p><term>miền giá trị</term> <xref ref="bib-doducgiao-2009" /> (tr. 366); <xref ref="bib-vovantuandung-2007" />; <xref ref="bib-vudinhhoa-2010" />; <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 355).</p></li>
         <li><p><term>đối miền</term> <xref ref="bib-wikipedia-vi" />.</p></li>
       </ul>
-      <p>Ví dụ: Xét hàm <m>f : \mathbb{Z} \to \mathbb{Z}</m> cho bởi <m>f(x) = x^2</m>. Khi đó miền xác định và miền giá trị (tập đích) đều là <m>\mathbb{Z}</m>, mặc dù ảnh của <m>f</m> chỉ gồm các số chính phương, là tập con thực sự của tập đích <m>\mathbb{Z}</m>.</p>
+      <p>Ví dụ: Xét hàm <m>f : \mathbb{Z} \to \mathbb{Z}</m> cho bởi <m>f(x) = x^2</m>. Khi đó miền xác định và tập đích đều là <m>\mathbb{Z}</m>, mặc dù ảnh của <m>f</m> chỉ gồm các số chính phương, là tập con thực sự của tập đích <m>\mathbb{Z}</m>.</p>
       <p>Xem thêm <xref ref="def-domain" text="title" />, <xref ref="def-function" text="title" />, <xref ref="def-image" text="title" />, <xref ref="def-range" text="title" />.</p>
     </statement>
   </definition>
@@ -995,14 +995,14 @@
     <idx><h>mệnh đề tiếp liên</h></idx>
     <idx><h>tiếp liên</h></idx>
     <statement>
-      <p>Tiếp liên là một mệnh đề phức hợp không phải là hằng đúng cũng không phải là mâu thuẫn, tức là giá trị chân lý của nó phụ thuộc vào giá trị chân lý của các biến mệnh đề thành phần. Nói cách khác, một mệnh đề <m>P</m> là tiếp liên nếu bảng chân trị của nó chứa ít nhất một dòng nhận giá trị đúng và ít nhất một dòng nhận giá trị sai (theo <xref ref="bib-rosen-2019" />, Rosen §1.2).</p>
+      <p>Mệnh đề bất định (tiếp liên) là một mệnh đề phức hợp không phải là hằng đúng cũng không phải là mâu thuẫn, tức là giá trị chân lý của nó phụ thuộc vào giá trị chân lý của các biến mệnh đề thành phần. Nói cách khác, một mệnh đề <m>P</m> là tiếp liên nếu bảng chân trị của nó chứa ít nhất một dòng nhận giá trị đúng và ít nhất một dòng nhận giá trị sai (theo <xref ref="bib-rosen-2019" />, Rosen §1.2).</p>
       <p>Thuật ngữ tiếng Việt tương ứng:</p>
       <ul>
         <li><p><term>mệnh đề bất định</term> <em>(thuật ngữ chuẩn; chưa truy được trong kho văn bản)</em> — cách dùng phổ biến.</p></li>
         <li><p><term>mệnh đề tiếp liên</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
         <li><p><term>tiếp liên</term> <xref ref="bib-doducgiao-2009" /> (tr. 278); <xref ref="bib-doducgiao-2008" /> (tr. 86); <xref ref="bib-vudinhhoa-2010" />; <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 13).</p></li>
       </ul>
-      <p>Ví dụ: Mệnh đề <m>p \vee q</m> là một tiếp liên, vì nó nhận giá trị đúng khi <m>p</m> đúng và nhận giá trị sai khi cả <m>p</m> và <m>q</m> đều sai.</p>
+      <p>Ví dụ: Mệnh đề <m>p \vee q</m> là một mệnh đề bất định, vì nó nhận giá trị đúng khi <m>p</m> đúng và nhận giá trị sai khi cả <m>p</m> và <m>q</m> đều sai.</p>
     </statement>
   </definition>
   <definition xml:id="def-continuum-hypothesis">

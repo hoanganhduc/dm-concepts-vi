@@ -28,9 +28,11 @@ if command -v xelatex >/dev/null && [ -f assets/cover-front.tex ]; then
     git checkout -- assets/cover-front.pdf 2>/dev/null || true
   fi
 fi
-# Refresh the web cover image from the cover PDF (used by the web cover card).
+# Refresh the web cover image (cover card). Crop off the bottom imprint band
+# (the "Release …" line + CC badge): a committed image can't reflect the live
+# release on the web, so the version is shown in the web footer instead.
 command -v pdftoppm >/dev/null && [ -f assets/cover-front.pdf ] && \
-  pdftoppm -png -r 150 -singlefile assets/cover-front.pdf assets/cover-front >/dev/null 2>&1 || true
+  pdftoppm -png -r 150 -x 0 -y 0 -W 1275 -H 1230 -singlefile assets/cover-front.pdf assets/cover-front >/dev/null 2>&1 || true
 
 # 1b. Regenerate the acknowledgements list (email contributors + any merged-PR
 #     data already fetched into workflow/acknowledgements/merged-prs.json).

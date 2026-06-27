@@ -241,7 +241,10 @@ and the LLM review cannot see, because they are *relations between* entries or
 *frequency* facts. None changes the book; each prints a summary and writes a
 JSON report under `workflow/loop/review/`. They came out of a deep-research +
 multi-agent gap analysis (the unused-measures audit; see
-`workflow/loop/review/*-report.json`).
+`workflow/loop/review/*-report.json`). The full catalog of verification methods,
+what the repo already does, and the prioritized list of measures still unused
+(Tier A #4–#8, plus the demoted/covered ones) is in the
+*Method catalog & gap analysis* section at the end of this document.
 
 - **`consistency-report.py`** — bilingual consistency cross-tabs. (A) same
   *recommended* VI term used for >1 distinct EN headword (homonym collision;
@@ -275,3 +278,131 @@ multi-agent gap analysis (the unused-measures audit; see
    `encode-chapter.py` → `validate-entry.py` → build → commit).
 4. For Method B: build candidates with corpus context, then translator → checker
    → Claude verifies mismatches.
+
+---
+
+# Method catalog & gap analysis
+
+The wider landscape behind Methods A/B/C: every method that exists for verifying
+a bilingual term lexicon, which ones the repo already applies, and which remain
+unused — with a priority for the unused ones.
+
+Produced by a deep-research + multi-agent gap analysis: four parallel
+web-grounded research agents (translation-QA frameworks / lexicography &
+terminography / MT-evaluation & tooling / empirical-panel & corpus-statistics)
+→ a multi-agent discussion (Repo-grounder → Synthesizer → Skeptic → Referee).
+
+**Hard rule carried throughout:** a measure counts as "unused" only if a repo
+audit confirms no equivalent already exists, and **frequency ≠ correctness** —
+every candidate defect is verified against the real entry/citation before
+acting. Independent verification routinely overturns flagged candidates (it
+caught that a "consistency error" was a bug in the checker script, and that most
+frequency outliers were correct deliberate choices).
+
+> Sourcing caveat: the ISO / MQM / SAE primary texts are paywalled; framework
+> names and criteria below come from the standards' free scope pages and
+> reputable secondary summaries (W3C MQM CG, Wikipedia, NORDTERM, ACL/WMT
+> papers, vendor docs). Verify exact clause wording against the purchased
+> standard before quoting it as normative.
+
+## Baseline: what the repo already does
+
+- **Methods A / B / C** above (multi-agent angle review, back-translation
+  grounding, scripted gap-checks).
+- **Corpus citation verification with page-match** — `check-citations.py`.
+- **Corpus citation mining / re-mining** — `find-term.py`, `remine-corpus.py`.
+- **Course-terminology cross-check** — `audit-mat3500.py` vs MAT3500 pairs.
+- **Structural build-gate** — `validate-entry.py` in CI.
+- **Bilingual search index** — `build-search-index.py`.
+- **Panel-approval gates + documented SOP** (this file, the false-positive
+  pattern library, run history).
+
+## The catalog
+
+Status legend: **DONE** = implemented · **PARTIAL** = a related mechanism exists ·
+**PENDING** = unused, recommended · **DEMOTE** = unused, low value here ·
+**COVERED** = effectively already done by another mechanism.
+
+### Translation-QA frameworks
+
+| Method | Framework / source | Catches | Repo status |
+|---|---|---|---|
+| Severity-weighted scoring + numeric release gate | MQM / LISA QA / DQF | unprioritized findings; no pass/fail threshold | **PENDING** (HIGH/MED/LOW in prose only, not per-entry/gated) |
+| Fixed error typology (tag set) | MQM Core, SAE J2450 | un-countable, un-trendable findings | DEMOTE (MT-production scale) |
+| Monolingual "review" pass (≠ bilingual revision) | EN 15038 / ISO 17100 | VI fluency/register defects invisible to EN-anchored review | **PENDING** (high value) |
+| Up-front translation specification | ISO 11669 / ASTM F2575 | implicit, taste-based judging | PARTIAL (registry has term-authority/recency; no audience/register) |
+| Recorded second-person revision sign-off | ISO 17100 | no attributable per-entry audit trail | DEMOTE (provenance, not defect-catching) |
+
+### Lexicography / terminography
+
+| Method | Framework / source | Catches | Repo status |
+|---|---|---|---|
+| Definition-adequacy tests (genus–differentia, non-circularity, substitutability, scope) | ISO 704; Suonuuti, NORDTERM | circular/too-wide/too-narrow defs; non-substitutable def | **PENDING** (non-circularity scriptable; rest on LLM harness) |
+| ISO 704 term-formation scoring | ISO 704 | opaque/over-long/loanword recommended terms | DEMOTE (~0 yield on curated entries) |
+| Defining-vocabulary closure | Suonuuti | a def's technical term that is neither a headword nor general-language | DEMOTE (learner-dictionary instrument) |
+| Concept-system / onomasiological coverage map | ISO 1087 | missing siblings (BFS but no DFS), duplicate concepts | DEMOTE→optional (graph over `see_also`) |
+| preferred / admitted / **deprecated** status model | ISO 10241 | usable synonym vs discouraged variant collapsed into one bucket | DEMOTE (binary `recommended` today) |
+| full / partial / **zero** equivalence tag | ISO 12616; Gouws/Wiegand | a confident 1:1 VI term where equivalence is only partial/none | **PENDING** (real risk for a math lexicon) |
+| External dictionary-criticism review (Nielsen) | metalexicography (IJL, Lexikos) | whole-work structural/function defects | DEMOTE (blocked: no external reviewer) |
+| Information-cost / readability of definitions | Nielsen | unfindable / over-dense defs | DEMOTE (VI readability formulas unreliable) |
+
+### MT-evaluation & terminology tooling
+
+| Method | Framework / source | Catches | Repo status |
+|---|---|---|---|
+| Bilingual consistency cross-tabs | WMT *Term Consistency*; Xbench / QA-Distiller | one VI term for two EN concepts; one EN with conflicting VI | **DONE** (`consistency-report.py`) |
+| Variant frequency dominance | corpus keyness (Scott, WordSmith) | recommended term attested but not the *dominant* usage | **DONE** (`variant-frequency.py`) |
+| Rule-based mechanical QA (VI spelling/grammar/spacing) | LanguageTool, Translate-Toolkit `pofilter`, Okapi CheckMate | typos / double-spaces / punctuation | DEMOTE (LanguageTool VI module thin) |
+| Second independent MT-engine cross-check | QE-by-divergence (CometKiwi) | entries where a fresh engine's VI term diverges | **COVERED** (3-engine LLM panel + back-translation) |
+| Reference-based metrics (BLEU, chrF, METEOR, TER) | Papineni 2002; Popović 2015 | surface n-gram divergence vs a reference | DEMOTE (need references; meaningless on term pairs) |
+| Reference-free QE (COMET-QE / CometKiwi) | Rei et al. 2022 | low-confidence entries, no reference | DEMOTE→optional (sentence-trained triage only) |
+| Inter-annotator agreement (κ, Krippendorff α) | Artstein & Poesio 2008 | whether human/LLM verdicts are reproducible | DEMOTE (measures process, not correctness) |
+
+### Empirical / panel / corpus-statistical
+
+| Method | Framework / source | Catches | Repo status |
+|---|---|---|---|
+| Headword coverage / recall vs an authoritative list | precision/recall (Powers); Rosen index | missing high-frequency domain terms | **DONE** (`rosen-coverage.py`: 318/319 exact) |
+| Acceptance / attribute sampling + error rate + CI | ISO 2859 | book-wide error-rate estimate vs ad-hoc review | **PENDING** (best effort-to-evidence ratio) |
+| Cross-check vs national VN terminology dictionaries | ISO 10241-2 / 12616 | divergence from established equivalents | PARTIAL (Cung Kim Tiến dict in corpus; `audit-mat3500.py`) |
+| External expert panel / Delphi / Content-Validity-Index | ISO 704; Lynn 1986, Polit & Beck 2006 | arbitrary recommended choices; quantified SME validity | DEMOTE (blocked: needs human experts) |
+| Reader / look-up usability testing | metalexicography "dictionary use" | entries correct but unusable in a look-up | DEMOTE (needs human subjects) |
+| Corpus keyness / salience | log-likelihood keyness (Rayson) | headwords not actually salient domain terms | DEMOTE→optional (needs domain+reference corpus) |
+| Diachronic / neologism attestation | monitor-corpus neology (Neoveille) | unstable coinages/calques | DEMOTE (low priority for a stable vocabulary) |
+
+## Unused measures — prioritized
+
+**Tier A — worth doing (unused, high-value, solo-feasible):**
+1. Bilingual consistency cross-tabs — **DONE** (`consistency-report.py`).
+2. Variant frequency dominance — **DONE** (`variant-frequency.py`).
+3. Headword recall vs Rosen — **DONE** (`rosen-coverage.py`).
+4. **VI-only monolingual review pass** — PENDING. LLM pass over the VI
+   definition/example with the English hidden; catches register/fluency defects
+   the EN-anchored review is blind to.
+5. **Definition non-circularity + adequacy tests** — PENDING. Non-circularity
+   scriptable; genus-differentia/substitutability on the LLM harness.
+6. **Acceptance sampling + measured error rate + CI** — PENDING. Random sample →
+   book-wide error-rate estimate with a confidence interval.
+7. **full / partial / zero equivalence tag** — PENDING. Schema field flagging EN
+   terms with no true VI equivalent (calque-only).
+8. **Severity field + numeric release gate** — PENDING (extend). Record
+   HIGH/MED/LOW per-entry; block release on unresolved HIGH.
+
+**Tier B — demote (low value here / impractical):** preferred/admitted/deprecated
+status model · concept-system map · LanguageTool/pofilter · κ/α statistics ·
+ISO 704 term-formation scoring · defining-vocabulary closure · MQM/J2450 tagging ·
+readability/information-cost · BLEU/METEOR/TER family · external panel/Delphi/CVI ·
+usability testing · keyness salience · neologism tracking.
+
+**Tier C — already covered / only partial (do NOT call fully unused):** second MT
+engine (covered by the 3-engine panel + back-translation) · VN-dictionary
+cross-check (partial: Cung Kim Tiến + `audit-mat3500.py`) · written spec (partial:
+registry policy) · coverage tooling (the Rosen *recall metric* was the gap, now
+DONE; `extract-rosen-terms.py` already built the gold list).
+
+## Outcome so far
+
+Tier A #1–#3 are Method C. Running them produced two verified, approved content
+fixes: `open interval` recommended `khoảng` → `khoảng mở`; `truth value`
+`giá trị chân trị` → `giá trị chân lý`. Most flagged candidates were verified
+correct and left unchanged. Tier A #4–#8 remain available as the next increment.

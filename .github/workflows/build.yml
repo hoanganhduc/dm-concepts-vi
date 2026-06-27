@@ -122,6 +122,11 @@ jobs:
       credentials:
         username: ${{ github.actor }}
         password: ${{ secrets.GITHUB_TOKEN }}
+    # Inside a container GitHub defaults `run:` steps to sh (dash); force bash so
+    # bashisms like `set -o pipefail` work, matching the non-container jobs.
+    defaults:
+      run:
+        shell: bash
     steps:
       - uses: actions/checkout@v4
 

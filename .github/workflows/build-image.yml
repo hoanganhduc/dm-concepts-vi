@@ -1,0 +1,47 @@
+name: Build and publish TeX build image
+
+# Builds docker/Dockerfile and pushes it to the GitHub Container Registry, where
+# the release-pdf job in build.yml pulls it from. The build env (TeX Live +
+# PreTeXt) changes rarely, so this runs only when the Dockerfile changes or on a
+# manual dispatch — NOT on every book edit.
+on:
+  push:
+    branches: [main]
+    paths:
+      - docker/Dockerfile
+      - .github/workflows/build-image.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  packages: write
+
+jobs:
+  build-image:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # ghcr.io requires a lowercase owner; github.repository_owner is already
+      # lowercase here but normalize defensively.
+      - id: img
+        run: echo "ref=ghcr.io/$(echo '${{ github.repository_owner }}' | tr '[:upper:]' '[:lower:]')/dm-concepts-tex" >> "$GITHUB_OUTPUT"
+
+      - uses: docker/setup-buildx-action@v3
+
+      - uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: docker/build-push-action@v6
+        with:
+          context: docker
+          file: docker/Dockerfile
+          push: true
+          tags: |
+            ${{ steps.img.outputs.ref }}:latest
+            ${{ steps.img.outputs.ref }}:${{ github.sha }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max

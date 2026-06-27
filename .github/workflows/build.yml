@@ -6,10 +6,12 @@ on:
   workflow_dispatch:
 
 # Deploying to gh-pages and creating releases both need write access;
-# the acknowledgements list reads the repo's merged pull requests.
+# the acknowledgements list reads the repo's merged pull requests;
+# release-pdf pulls the prebuilt TeX image from GHCR.
 permissions:
   contents: write
   pull-requests: read
+  packages: read
 
 concurrency:
   group: dm-concepts-build
@@ -36,8 +38,10 @@ jobs:
             echo "book=true" >> "$GITHUB_OUTPUT"; exit 0   # first push / unknown base -> release
           fi
           changed=$(git diff --name-only "$base" "${{ github.sha }}")
-          # book=true if any changed file is NOT a docs/meta-only file
-          if printf '%s\n' "$changed" | grep -qvE '^(README\.md|LICENSE|\.gitignore)$|^docs/'; then
+          # book=true if any changed file is NOT a docs/meta/infra-only file.
+          # docs/, docker/ and .github/ never cut a new PDF release (and so the
+          # CI/image rollout below cannot race or trigger a spurious release).
+          if printf '%s\n' "$changed" | grep -qvE '^(README\.md|LICENSE|\.gitignore)$|^docs/|^docker/|^\.github/'; then
             echo "book=true" >> "$GITHUB_OUTPUT"
           else
             echo "book=false" >> "$GITHUB_OUTPUT"
@@ -109,30 +113,26 @@ jobs:
     # Only release when the book content changed (skip docs-only pushes).
     if: needs.version.outputs.book == 'true' || github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
+    # Run inside the prebuilt image (TeX Live + PreTeXt + fonts baked in), which
+    # replaces ~165s of apt + pip + locale setup with a ~30s image pull. The
+    # image is built/published by build-image.yml; its node:20 base lets the
+    # JavaScript actions/checkout run inside the container.
+    container:
+      image: ghcr.io/hoanganhduc/dm-concepts-tex:latest
+      credentials:
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - uses: actions/checkout@v4
 
-      - uses: actions/setup-python@v5
-        with:
-          python-version: "3.12"
-
-      - name: Install PreTeXt + deps
-        run: pip install pretext pyyaml
-
-      - name: Install TeX Live (XeLaTeX, fonts, polyglossia)
+      - name: Seed PreTeXt core resources (baked into the image)
+        # GitHub overrides $HOME to /github/home for container jobs, so the
+        # image's /root/.ptx is not visible; copy the baked cache into place so
+        # build-print.sh's locale install is instant (no throwaway fetch).
         run: |
-          sudo apt-get update
-          sudo apt-get install -y --no-install-recommends \
-            texlive-xetex texlive-latex-recommended texlive-latex-extra \
-            texlive-pictures texlive-fonts-recommended texlive-fonts-extra \
-            texlive-lang-other latexmk fonts-texgyre
-          # fonts-texgyre registers "TeX Gyre Termes"/"TeX Gyre Cursor" with
-          # fontconfig so the XeLaTeX cover (fontspec, by name) renders its text;
-          # without it the cover compiled with blank text.
-          sudo fc-cache -f
-
-      - name: Install Vietnamese locale (also fetches PreTeXt core)
-        run: bash workflow/scripts/install-vi-locale.sh
+          mkdir -p "$HOME/.ptx"
+          cp -a /opt/ptx-cache/. "$HOME/.ptx/" 2>/dev/null || true
+          git config --global --add safe.directory "$GITHUB_WORKSPACE"
 
       - name: Fetch merged pull requests (for the acknowledgements list)
         env:

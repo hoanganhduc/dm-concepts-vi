@@ -66,15 +66,25 @@ jobs:
   build-deploy:
     needs: version
     runs-on: ubuntu-latest
+    # Run in the prebuilt image: the web build now renders entry figures, which
+    # PreTeXt generates from <latex-image> via LaTeX + poppler — both baked into
+    # the image. node:20 base lets actions/checkout and peaceiris run inside it.
+    container:
+      image: ghcr.io/hoanganhduc/dm-concepts-tex:latest
+      credentials:
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+    defaults:
+      run:
+        shell: bash
     steps:
       - uses: actions/checkout@v4
 
-      - uses: actions/setup-python@v5
-        with:
-          python-version: "3.12"
-
-      - name: Install PreTeXt + deps
-        run: pip install pretext pyyaml
+      - name: Seed PreTeXt core resources (baked into the image)
+        run: |
+          mkdir -p "$HOME/.ptx"
+          cp -a /opt/ptx-cache/. "$HOME/.ptx/" 2>/dev/null || true
+          git config --global --add safe.directory "$GITHUB_WORKSPACE"
 
       - name: Validate entry data (build-gate)
         run: python3 workflow/scripts/validate-entry.py

@@ -79,6 +79,10 @@ def main() -> int:
             if status not in VALID_STATUS:
                 errors.append(f"{where}: invalid status '{status}'")
 
+            equiv = e.get("equivalence")
+            if equiv is not None and equiv not in {"full", "partial", "zero"}:
+                errors.append(f"{where}: invalid equivalence '{equiv}'")
+
             if is_stub:
                 continue
 

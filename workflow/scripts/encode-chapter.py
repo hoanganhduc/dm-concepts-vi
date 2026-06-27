@@ -124,6 +124,18 @@ def render_entry(e, allowed_ids):
         loc = (", " + esc_text(e["rosen_ref"])) if e.get("rosen_ref") else ""
         defn += f' (theo <xref ref="{ref_bib}" />{loc}).'
     lines.append(f"      <p>{defn}</p>")
+    # Equivalence note (ISO 12616): a single italic line for non-full entries —
+    # flags a recommended term kept in English (zero) or an approximation
+    # (partial). full (the default, omitted) renders unchanged.
+    equiv = e.get("equivalence", "full")
+    if equiv in ("partial", "zero"):
+        note = e.get("equivalence_note") or {
+            "partial": "Tiếng Việt chưa có thuật ngữ tương đương trực tiếp; "
+                       "thuật ngữ khuyến nghị là cách diễn đạt gần nghĩa nhất.",
+            "zero": "Thuật ngữ này thường được giữ nguyên dạng tiếng Anh "
+                    "(chưa có thuật ngữ tiếng Việt tương đương trực tiếp).",
+        }[equiv]
+        lines.append(f"      <p><em>Lưu ý:</em> {esc_text(note)}</p>")
     lines.append("      <p>Thuật ngữ tiếng Việt tương ứng:</p>")
     lines.append("      <ul>")
     for g in group_terms(e.get("vi_terms", [])):
@@ -210,6 +222,7 @@ def main():
             } for t in e.get("vi_terms", [])],
             "see_also": e.get("see_also", []), "status": e.get("status", "panel-approved"),
             "see_ref": e.get("see_ref", ""), "notes": e.get("notes", ""),
+            **({"equivalence": e["equivalence"]} if e.get("equivalence") in ("partial", "zero") else {}),
         })
     ypath = os.path.join(ROOT, "data", "terms", f"entries-{letter}.yaml")
     with open(ypath, "w", encoding="utf-8") as fh:

@@ -32,10 +32,10 @@ ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)
 
 
 def fold(s):
-    s = unicodedata.normalize("NFD", s or "")
-    s = "".join(c for c in s if unicodedata.category(c) != "Mn")
-    s = s.replace("đ", "d").replace("Đ", "D").lower()
-    return re.sub(r"\s+", " ", s).strip()
+    # Lowercase + whitespace-collapse, but PRESERVE diacritics: in Vietnamese a
+    # diacritic difference is a different word ("tiền đề" premise vs "tiên đề"
+    # axiom), so term identity must not fold them together.
+    return re.sub(r"\s+", " ", (s or "").strip()).lower()
 
 
 def load_entries():

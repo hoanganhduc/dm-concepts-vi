@@ -595,6 +595,26 @@
         <li><p><term>hàm</term> <xref ref="bib-leanhvinh-2020" /> (tr. 49); <xref ref="bib-rosen-2003-vi" /> (tr. 5).</p></li>
         <li><p><term>ánh xạ</term> <xref ref="bib-leanhvinh-2020" /> (tr. 91); <xref ref="bib-nguyenhoangthach-2020" /> (tr. 19); <xref ref="bib-nguyenhuudien-2019" /> (tr. 46); <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 65).</p></li>
       </ul>
+      <figure xml:id="fig-function">
+        <caption>Một hàm số: mỗi phần tử của <m>X</m> có đúng một ảnh.</caption>
+        <image width="42%">
+          <latex-image>
+\begin{tikzpicture}[d/.style={circle,fill=black,inner sep=1.6pt}]
+  \node[d] (d1) at (-1.4,1.0) {};
+  \node[d] (d2) at (-1.4,0.0) {};
+  \node[d] (d3) at (-1.4,-1.0) {};
+  \node[d] (ca) at (1.4,1.0) {};
+  \node[d] (cb) at (1.4,0.0) {};
+  \node[d] (cc) at (1.4,-1.0) {};
+  \draw[->] (d1) -- (ca);
+  \draw[->] (d2) -- (ca);
+  \draw[->] (d3) -- (cc);
+  \node at (-1.4,1.55) {$X$};
+  \node at (1.4,1.55) {$Y$};
+\end{tikzpicture}
+          </latex-image>
+        </image>
+      </figure>
       <p>Ví dụ: Cho <m>A = \{1, 2, 3\}</m> và <m>B = \{a, b\}</m>. Phép gán <m>f(1) = a</m>, <m>f(2) = b</m>, <m>f(3) = a</m> là một hàm số <m>f : A \to B</m>, vì mỗi phần tử của <m>A</m> được gán với đúng một phần tử của <m>B</m>.</p>
       <p>Xem thêm <xref ref="def-bijection" text="title" />, <xref ref="def-codomain" text="title" />, <xref ref="def-domain" text="title" />, <xref ref="def-injection" text="title" />, <xref ref="def-surjection" text="title" />.</p>
     </statement>

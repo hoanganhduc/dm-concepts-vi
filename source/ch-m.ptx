@@ -434,6 +434,22 @@
         <li><p><term>đa đồ thị vô hướng</term> <xref ref="bib-doducgiao-2009" /> (tr. 103); <xref ref="bib-hoangchithanh-2011" />; <xref ref="bib-nguyenhoangthach-2020" /> (tr. 62).</p></li>
         <li><p><term>đồ thị đa cạnh</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
       </ul>
+      <figure xml:id="fig-multigraph">
+        <caption>Một đa đồ thị: có cạnh bội (giữa <m>a</m> và <m>b</m>) và một khuyên (tại <m>c</m>).</caption>
+        <image width="50%">
+          <latex-image>
+\begin{tikzpicture}[vtx/.style={circle,fill=black,inner sep=1.8pt}]
+  \node[vtx,label=left:$a$] (a) at (0,0) {};
+  \node[vtx,label=above:$b$] (b) at (2.4,0) {};
+  \node[vtx,label=right:$c$] (c) at (4.4,-0.6) {};
+  \draw (a) to[bend left=35] (b);
+  \draw (a) to[bend right=35] (b);
+  \draw (b) -- (c);
+  \draw (c) to[out=-50,in=20,looseness=14] (c);
+\end{tikzpicture}
+          </latex-image>
+        </image>
+      </figure>
       <p>Ví dụ: Xét <m>G = (V, E)</m> với tập đỉnh <m>V = \{u, v\}</m> và hai cạnh phân biệt <m>e_1, e_2</m> cùng nối <m>u</m> với <m>v</m>; khi đó <m>G</m> là một đa đồ thị vì cặp đỉnh <m>\{u, v\}</m> được nối bởi nhiều hơn một cạnh.</p>
       <p>Xem thêm <xref ref="def-directed-graph" text="title" />, <xref ref="def-edge" text="title" />, <xref ref="def-graph" text="title" />, <xref ref="def-loop" text="title" />, <xref ref="def-pseudograph" text="title" />, <xref ref="def-simple-graph" text="title" />, <xref ref="def-vertex" text="title" />.</p>
     </statement>

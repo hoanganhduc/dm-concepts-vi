@@ -362,6 +362,24 @@
         <li><p><term>đồ thị đơn</term> <xref ref="bib-leanhvinh-2020" /> (tr. 9); <xref ref="bib-nguyenhoangthach-2020" /> (tr. 59); <xref ref="bib-sierpinski-2012" /> (tr. 149) — cách dùng phổ biến.</p></li>
         <li><p><term>đơn đồ thị</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 155); <xref ref="bib-hoangchithanh-2011" />; <xref ref="bib-nguyenhoangthach-2020" /> (tr. 4).</p></li>
       </ul>
+      <figure xml:id="fig-simple-graph">
+        <caption>Một đồ thị đơn: không có khuyên hay cạnh bội.</caption>
+        <image width="40%">
+          <latex-image>
+\begin{tikzpicture}[vtx/.style={circle,fill=black,inner sep=1.7pt}]
+  \node[vtx] (n0) at (-0.9899,0.9899) {};
+  \node[vtx] (n1) at (-0.9899,-0.9899) {};
+  \node[vtx] (n2) at (0.9899,-0.9899) {};
+  \node[vtx] (n3) at (0.9899,0.9899) {};
+  \draw (n0) -- (n1);
+  \draw (n1) -- (n2);
+  \draw (n2) -- (n3);
+  \draw (n3) -- (n0);
+  \draw (n0) -- (n2);
+\end{tikzpicture}
+          </latex-image>
+        </image>
+      </figure>
       <p>Ví dụ: Xét <m>V = \{a, b, c\}</m> và <m>E = \{\{a, b\}, \{b, c\}, \{a, c\}\}</m>. Khi đó <m>G = (V, E)</m> là một đồ thị đơn vì mỗi cạnh nối hai đỉnh phân biệt và không có cặp đỉnh nào được nối bởi nhiều hơn một cạnh.</p>
       <p>Xem thêm <xref ref="def-bipartite-graph" text="title" />, <xref ref="def-complete-graph" text="title" />, <xref ref="def-multigraph" text="title" />, <xref ref="def-pseudograph" text="title" />, <xref ref="def-undirected-graph" text="title" />.</p>
     </statement>

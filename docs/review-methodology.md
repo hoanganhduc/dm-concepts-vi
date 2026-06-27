@@ -327,7 +327,7 @@ Status legend: **DONE** = implemented · **PARTIAL** = a related mechanism exist
 
 | Method | Framework / source | Catches | Repo status |
 |---|---|---|---|
-| Severity-weighted scoring + numeric release gate | MQM / LISA QA / DQF | unprioritized findings; no pass/fail threshold | **PENDING** (HIGH/MED/LOW in prose only, not per-entry/gated) |
+| Severity-weighted scoring + numeric release gate | MQM / LISA QA / DQF | unprioritized findings; no pass/fail threshold | **DONE** (per-entry `open_issue`; validate-entry errors on an open HIGH → blocks the CI build/release) |
 | Fixed error typology (tag set) | MQM Core, SAE J2450 | un-countable, un-trendable findings | DEMOTE (MT-production scale) |
 | Monolingual "review" pass (≠ bilingual revision) | EN 15038 / ISO 17100 | VI fluency/register defects invisible to EN-anchored review | **PENDING** (high value) |
 | Up-front translation specification | ISO 11669 / ASTM F2575 | implicit, taste-based judging | PARTIAL (registry has term-authority/recency; no audience/register) |
@@ -385,8 +385,10 @@ Status legend: **DONE** = implemented · **PARTIAL** = a related mechanism exist
    book-wide error-rate estimate with a confidence interval.
 7. **full / partial / zero equivalence tag** — PENDING. Schema field flagging EN
    terms with no true VI equivalent (calque-only).
-8. **Severity field + numeric release gate** — PENDING (extend). Record
-   HIGH/MED/LOW per-entry; block release on unresolved HIGH.
+8. **Severity field + numeric release gate** — **DONE**. An optional per-entry
+   `open_issue: {severity, note}`; `validate-entry.py` errors on an open HIGH
+   (blocks the CI build/deploy/release), warns on medium/low. Resolve by fixing
+   and removing the field.
 
 **Tier B — demote (low value here / impractical):** preferred/admitted/deprecated
 status model · concept-system map · LanguageTool/pofilter · κ/α statistics ·

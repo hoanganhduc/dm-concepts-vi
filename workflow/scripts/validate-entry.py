@@ -83,6 +83,20 @@ def main() -> int:
             if equiv is not None and equiv not in {"full", "partial", "zero"}:
                 errors.append(f"{where}: invalid equivalence '{equiv}'")
 
+            # Severity release gate: a tracked unresolved review finding. An open
+            # HIGH-severity issue is an ERROR (blocks the build / release in CI);
+            # medium/low are warnings. Resolve by fixing it and removing the field.
+            issue = e.get("open_issue")
+            if issue:
+                sev = str(issue.get("severity", "")).lower()
+                msg = f"{where}: OPEN ISSUE [{sev}] {issue.get('note', '')}".rstrip()
+                if sev == "high":
+                    errors.append(msg)
+                elif sev in ("medium", "low"):
+                    warnings.append(msg)
+                else:
+                    errors.append(f"{where}: open_issue has invalid severity '{sev}'")
+
             if is_stub:
                 continue
 

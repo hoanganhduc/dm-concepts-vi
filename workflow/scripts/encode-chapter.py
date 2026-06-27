@@ -242,6 +242,7 @@ def main():
             "see_ref": e.get("see_ref", ""), "notes": e.get("notes", ""),
             **({"equivalence": e["equivalence"]} if e.get("equivalence") in ("partial", "zero") else {}),
             **({"figure": e["figure"]} if e.get("figure") else {}),
+            **({"open_issue": e["open_issue"]} if e.get("open_issue") else {}),
         })
     ypath = os.path.join(ROOT, "data", "terms", f"entries-{letter}.yaml")
     with open(ypath, "w", encoding="utf-8") as fh:

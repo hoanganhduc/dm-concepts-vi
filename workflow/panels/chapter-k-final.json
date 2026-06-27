@@ -676,7 +676,10 @@
      "recommended": false
     }
    ],
-   "see_also": [],
+   "see_also": [
+    "boolean-function",
+    "gray-code"
+   ],
    "pos": "d.t."
   },
   {
@@ -749,7 +752,9 @@
    "rosen_ref": "Rosen §9.2",
    "definition_vi": "Một \\emph{khóa} của một quan hệ $$n$$-ngôi $$R \\subseteq A_1 \\times A_2 \\times \\cdots \\times A_n$$ là một miền $$A_i$$ hoặc một tập các miền sao cho các giá trị trên đó xác định duy nhất mỗi bộ $$n$$ phần tử của $$R$$; nghĩa là, không có hai bộ phân biệt nào của $$R$$ trùng nhau trên tất cả các thành phần thuộc khóa.",
    "example_vi": "Xét quan hệ $$R$$ gồm các bộ ba $$(\\text{Mã số}, \\text{Họ tên}, \\text{Điểm})$$. Nếu mỗi sinh viên có một mã số riêng biệt thì miền $$\\text{Mã số}$$ là một khóa của $$R$$, vì giá trị mã số xác định duy nhất một bộ trong $$R$$.",
-   "see_also": [],
+   "see_also": [
+    "n-tuple"
+   ],
    "vi_terms": [
     {
      "term": "khóa",
@@ -812,7 +817,13 @@
    "definition_vi": "\\emph{Sinh khóa} là quá trình tạo ra các khóa dùng trong một hệ mật mã. Với mật mã khóa đối xứng, quá trình này sinh ra một khóa bí mật dùng chung; với mật mã khóa công khai, nó sinh ra một cặp gồm khóa công khai và khóa riêng có quan hệ toán học với nhau.",
    "example_vi": "Trong hệ RSA, bước sinh khóa chọn hai số nguyên tố lớn $$p$$ và $$q$$, đặt $$n = pq$$, rồi tính cặp số mũ công khai và riêng từ $$\\varphi(n) = (p-1)(q-1)$$.",
    "notes": "",
-   "see_also": [],
+   "see_also": [
+    "public-key-cryptography",
+    "private-key-cryptography",
+    "public-key",
+    "private-key",
+    "cryptosystem"
+   ],
    "vi_terms": [
     {
      "term": "sinh khóa",
@@ -833,7 +844,9 @@
    "definition_vi": "\\emph{Bài toán cái túi} là bài toán tối ưu trong đó cho một cái túi có sức chứa trọng lượng $$D$$ và $$n$$ đồ vật, đồ vật thứ $$j$$ có trọng lượng $$a_j$$ và giá trị $$c_j$$ (với $$j = 1, 2, \\ldots, n$$), yêu cầu chọn một tập con các đồ vật sao cho tổng giá trị là lớn nhất trong khi tổng trọng lượng không vượt quá $$D$$. Mỗi phương án chọn được biểu diễn bởi một vectơ nhị phân $$x = (x_1, x_2, \\ldots, x_n)$$, trong đó $$x_j = 1$$ nghĩa là đồ vật thứ $$j$$ được chọn và $$x_j = 0$$ nghĩa là không chọn, và mục tiêu là cực đại hóa $$\\sum_{j=1}^{n} c_j x_j$$ với ràng buộc $$\\sum_{j=1}^{n} a_j x_j \\leq D$$.",
    "example_vi": "Với sức chứa $$D = 5$$ và ba đồ vật có cặp trọng lượng và giá trị lần lượt là $$(a_1, c_1) = (2, 3)$$, $$(a_2, c_2) = (3, 4)$$, $$(a_3, c_3) = (4, 5)$$, chọn các đồ vật $$1$$ và $$2$$ cho tổng trọng lượng $$2 + 3 = 5 \\leq 5$$ và tổng giá trị $$3 + 4 = 7$$, là phương án có tổng giá trị lớn nhất không vượt quá sức chứa.",
    "notes": "Only \"bài toán cái túi\" is attested for this concept, in bib-nguyenducnghia-2006 (2006), with 11 hits (pp. 115, 116, 119, 121, 122, 123, 124, 150). Page 115 confirms the concept: an explorer carries a bag of capacity at most $$D$$ and there are $$n$$ items, item $$j$$ having weight $$a_j$$ and value $$c_j$$, the goal being to choose a subset of maximum total value within the capacity; the formal optimization form on p. 116 maximizes $$\\sum c_j x_j$$ subject to $$\\sum a_j x_j \\leq D$$ over binary vectors $$x$$. No 2019-2020 source attests any term for this concept, so the recommended term's newest attestation is from 2006. The candidate variants \"bài toán xếp ba lô\", \"bài toán ba lô\", and \"bài toán chiếc túi\" returned zero hits in every source under both normal and loose matching (OCR sources bib-leanhvinh-2020 and bib-hoangchithanh-2007 were searched with --loose). They are common Vietnamese names for the knapsack problem in the wider literature but are unattested in this corpus, so they are listed here in notes only. Note: \"chiếc túi\" appears in bib-ngodactan-2004 (p. 51), but only inside counting/enumeration exercises (\"6 chiếc túi?\", \"12 chiếc túi?\") that do not denote the knapsack optimization problem; those hits were excluded. The example's choice {1,2} (weight 5, value 7) is optimal among feasible subsets: item 3 alone gives 5; subsets {1,3}, {2,3}, {1,2,3} all exceed capacity 5.\n\nEDITOR (chapter K final): rosen_ref left as \"Rosen §8.1\" per the chapter's prior provenance assignment; flagged for editor-at-large to confirm against a Rosen copy, since the knapsack problem in Rosen is typically a dynamic-programming application of recurrences (§8.1 covers applications of recurrence relations) rather than a standalone §8.1 definition. Could not open a Rosen copy in this environment to confirm. Per the chapter-wide see_also forward-reference policy, see_also is left empty because the directly related concepts (optimization problem, dynamic programming, greedy algorithm) are not yet seeded as kebab ids in the corpus index; they would be cross-chapter forward references once created.",
-   "see_also": [],
+   "see_also": [
+    "optimization-problem"
+   ],
    "vi_terms": [
     {
      "term": "bài toán cái túi",
@@ -1026,7 +1039,13 @@
      "recommended": true
     }
    ],
-   "see_also": [],
+   "see_also": [
+    "kuratowskis-theorem",
+    "subgraph",
+    "homeomorphic-graphs",
+    "complete-graph",
+    "complete-bipartite-graph"
+   ],
    "notes": "Thuật ngữ chuẩn của giáo trình MAT3500 là \"đồ thị con Kuratowski\", tức đồ thị con đồng phôi với $$K_5$$ hoặc $$K_{3,3}$$. Các tài liệu tiếng Việt mô tả cùng khái niệm này qua định lý Kuratowski: Nguyễn Hoàng Thạch gọi là \"đồ thị con đồng phôi với $$K_5$$ hoặc $$K_{3,3}$$\", còn Nguyễn Hữu Điển dùng \"cấu hình $$K_5$$ / $$K_{3,3}$$\".",
    "status": "draft",
    "pos": "d.t."

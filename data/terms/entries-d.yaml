@@ -45,7 +45,11 @@ entries:
     verified: true
     pdf_page: 330
     snippet: Bảng 1. Phủ định các lượng từ một biến và giá trị chân lý của nó
-  see_also: []
+  see_also:
+  - quantifier
+  - universal-quantifier
+  - negation
+  - predicate
   status: draft
   see_ref: ''
   notes: Trong Rosen §1.4, đây là các luật De Morgan cho lượng từ (Bảng 2). Nguyễn Hữu Điển (2019) trình
@@ -189,7 +193,9 @@ entries:
     verified: true
     pdf_page: 413
     snippet: decimal s. hệ thập phân
-  see_also: []
+  see_also:
+  - digit
+  - base
   status: draft
   see_ref: ''
   notes: Hệ thập phân là trường hợp cơ số $$b = 10$$ của khai triển cơ số $$b$$ (Rosen §4.2); các hệ thường
@@ -236,7 +242,11 @@ entries:
     verified: true
     pdf_page: 48
     snippet: Ví dụ. Có bao nhiêu số tự nhiên có chín chữ số mà trong biểu diễn thập phan của
-  see_also: []
+  see_also:
+  - decimal-numeral-system
+  - base
+  - digit
+  - positive-integers
   status: draft
   see_ref: ''
   notes: Hệ cơ số $$10$$. Rosen còn dùng biến thể "khai triển thập phân"; bản dịch Rosen cũng có cụm "hệ
@@ -359,7 +369,11 @@ entries:
     verified: true
     pdf_page: 8
     snippet: 3.2. Cây quyết định đối với bài toán 2 .....
-  see_also: []
+  see_also:
+  - rooted-tree
+  - height-of-a-tree
+  - internal-vertices
+  - worst-case-complexity
   status: draft
   see_ref: ''
   notes: Thuật ngữ chuẩn theo Rosen §10.2. Cây quyết định nhị phân được dùng để chứng minh cận dưới về
@@ -406,7 +420,8 @@ entries:
     verified: true
     pdf_page: 9
     snippet: đồ thị G là day d(u),...,d(u„) được sắp rếp theo thứ tự giảm dần. Số
-  see_also: []
+  see_also:
+  - strictly-decreasing
   status: draft
   see_ref: ''
   notes: Thuật ngữ chuẩn của giáo trình MAT3500 là "giảm". Bản dịch Rosen dùng "thực sự giảm" cho hàm
@@ -668,12 +683,12 @@ entries:
   example_vi: Trong cây nhị phân với gốc $$r$$ và con $$a$$ của $$r$$, nút $$a$$ có độ sâu $$1$$.
   vi_terms:
   - term: độ sâu
-    source_id: ''
+    source_id: bib-cormen-2001-vi
     page: ''
     recommended: true
-    verified: false
-    pdf_page: null
-    snippet: ''
+    verified: true
+    pdf_page: 9
+    snippet: Tìm kiếm độ sâu đầu tiên 534
   - term: độ sâu
     source_id: bib-cormen-2001-vi
     page: ''
@@ -1114,7 +1129,10 @@ entries:
     verified: true
     pdf_page: 114
     snippet: descendant con chau (trong quá trình phân nhánh)
-  see_also: []
+  see_also:
+  - ancestor
+  - rooted-tree
+  - child
   status: draft
   see_ref: ''
   notes: Khái niệm đối ngẫu với "tổ tiên" trong cây có gốc. Biến thể "hậu duệ" xuất hiện trong Nguyễn
@@ -1349,7 +1367,10 @@ entries:
     verified: true
     pdf_page: 268
     snippet: seven-place I. lôga với bảy chữ số thập phân
-  see_also: []
+  see_also:
+  - base
+  - decimal-numeral-system
+  - binary-numeral-system
   status: draft
   see_ref: ''
   notes: Thuật ngữ chuẩn của giáo trình MAT3500 là "chữ số". Bản dịch Rosen và các tài liệu khác cũng
@@ -1560,7 +1581,10 @@ entries:
     verified: true
     pdf_page: 111
     snippet: direct d. phép chứng minh trực tiếp
-  see_also: []
+  see_also:
+  - proof
+  - implication
+  - conditional-statement
   status: draft
   see_ref: ''
   notes: Đối lập với chứng minh gián tiếp (chẳng hạn chứng minh phản đảo hoặc phản chứng), trong đó ta
@@ -1630,7 +1654,10 @@ entries:
     verified: true
     pdf_page: 110
     snippet: '[đổ thị có hướng phi chu trình] dé gọi một đề thị như vậy là dag.'
-  see_also: []
+  see_also:
+  - directed-graph
+  - acyclic-graph
+  - cycle
   status: draft
   see_ref: ''
   notes: Thuật ngữ giáo trình MAT3500 là "đồ thị có hướng không có chu trình". Các tài liệu khác dùng
@@ -1697,7 +1724,12 @@ entries:
     verified: true
     pdf_page: 185
     snippet: được gọi là các cung của đồ thị có hướng G. Cụ thề hơn, nếu (a, b) £ E
-  see_also: []
+  see_also:
+  - directed-graph
+  - edge
+  - undirected-edge
+  - terminal-vertex
+  - ordered-pair
   status: draft
   see_ref: ''
   notes: Cạnh có hướng còn được gọi là cung (arc). Cặp có thứ tự $$(u, v)$$ phân biệt với $$(v, u)$$,
@@ -1882,10 +1914,9 @@ entries:
   notation: ''
   rosen_ref: Rosen §10.4
   ref_bib: ''
-  definition_vi: Một đồ thị vô hướng $$G$$ được gọi là không liên thông nếu nó không liên thông, tức là
-    tồn tại hai đỉnh $$u, v \in V(G)$$ sao cho không có đường đi nào trong $$G$$ nối $$u$$ với $$v$$.
-    Khi đó $$G$$ có thể được tách thành hợp của hai hay nhiều đồ thị con liên thông (các thành phần liên
-    thông) rời nhau.
+  definition_vi: Một đồ thị vô hướng $$G$$ được gọi là không liên thông nếu tồn tại hai đỉnh $$u, v \in
+    V(G)$$ sao cho không có đường đi nào trong $$G$$ nối $$u$$ với $$v$$. Khi đó $$G$$ có thể được tách
+    thành hợp của hai hay nhiều đồ thị con liên thông (các thành phần liên thông) rời nhau.
   example_vi: Đồ thị gồm hai tam giác rời nhau, chẳng hạn hợp rời của hai bản sao $$K_3$$, là một đồ thị
     không liên thông vì không có đường đi nào nối một đỉnh của tam giác này với một đỉnh của tam giác
     kia.
@@ -1925,7 +1956,11 @@ entries:
     verified: true
     pdf_page: 125
     snippet: disconnected gián đoạn, không liên thông
-  see_also: []
+  see_also:
+  - connected
+  - connected-component
+  - connected-graph
+  - undirected-graph
   status: draft
   see_ref: ''
   notes: Trái nghĩa với "liên thông". Một đồ thị không liên thông phân rã thành ít nhất hai thành phần
@@ -2000,7 +2035,10 @@ entries:
     verified: true
     pdf_page: 125
     snippet: discontinuos gián đoạn rời rac
-  see_also: []
+  see_also:
+  - discrete-structure
+  - finite-set
+  - distinct
   status: draft
   see_ref: ''
   notes: Thuật ngữ giáo trình MAT3500 dùng là "đối tượng rời rạc" (discrete object). Tính từ "rời rạc"
@@ -2067,7 +2105,11 @@ entries:
     verified: true
     pdf_page: 96
     snippet: '¢ Dé thị là một cấu trúc rời rac gồm tập các đỉnh X # Ø và tập U c Xx X'
-  see_also: []
+  see_also:
+  - discrete
+  - set
+  - permutation
+  - vertex-set
   status: draft
   see_ref: ''
   notes: Thuật ngữ chung chỉ các đối tượng toán học rời rạc như tập hợp, quan hệ, hoán vị, đồ thị và cây;
@@ -2175,7 +2217,9 @@ entries:
     verified: true
     pdf_page: 304
     snippet: non-overlapping không giao nhau, không dẫm lên nhau
-  see_also: []
+  see_also:
+  - disjoint-sets
+  - empty-set
   status: draft
   see_ref: ''
   notes: Thuật ngữ chuẩn của giáo trình MAT3500 là "rời nhau". Bản dịch Rosen và các tài liệu trong nước
@@ -2510,7 +2554,11 @@ entries:
     verified: true
     pdf_page: 185
     snippet: disjunctive normal f. dạng chuẩn tuyển
-  see_also: []
+  see_also:
+  - normal-form
+  - sum-of-products-expansion
+  - minterm
+  - boolean-function
   status: draft
   see_ref: ''
   notes: Còn gọi là khai triển tổng các tích (sum-of-products) của hàm Boole; bib-nguyenhuudien-2019 dùng
@@ -2571,7 +2619,11 @@ entries:
     verified: true
     pdf_page: 21
     snippet: 'Tam đoạn luận rời: được thể hiện bởi hằng đúng'
-  see_also: []
+  see_also:
+  - inference-rule
+  - hypothetical-syllogism
+  - disjunction
+  - tautology
   status: draft
   see_ref: ''
   notes: Trong giáo trình MAT3500 gọi là tam đoạn luận tuyển. Bản dịch Rosen dùng "tam đoạn luận tuyển"
@@ -2885,7 +2937,10 @@ entries:
     verified: true
     pdf_page: 78
     snippet: Phương pháp chia dé trị trong lập trinh-té ra rất có ích khi ứng dụng vào kiểm chứng
-  see_also: []
+  see_also:
+  - recurrence-relation
+  - complexity
+  - algorithm
   status: draft
   see_ref: ''
   notes: Hệ thức truy hồi $$f(n) = a\,f(n/b) + g(n)$$ được gọi là hệ thức chia để trị; định lý thợ (master
@@ -2945,7 +3000,11 @@ entries:
     verified: true
     pdf_page: 132
     snippet: divided số bị chia
-  see_also: []
+  see_also:
+  - division-algorithm
+  - divisor
+  - quotient
+  - remainder
   status: draft
   see_ref: ''
   notes: Trong thuật toán chia $$a = dq + r$$, số bị chia là $$a$$, đối lập với số chia $$d$$.
@@ -2961,12 +3020,12 @@ entries:
   example_vi: $$3\mid 12$$ vì $$12=3\cdot 4$$, nhưng $$5\nmid 12$$.
   vi_terms:
   - term: chia hết
-    source_id: ''
+    source_id: bib-cormen-2001-vi
     page: ''
     recommended: true
-    verified: false
-    pdf_page: null
-    snippet: ''
+    verified: true
+    pdf_page: 888
+    snippet: chia hết, tương đương moduia, và phép thừa số hóa đuy nhất. Doan 33.2
   - term: là ước của
     source_id: ''
     page: ''
@@ -3424,7 +3483,11 @@ entries:
     verified: true
     pdf_page: 9
     snippet: aliquot ước số
-  see_also: []
+  see_also:
+  - dividend
+  - division-algorithm
+  - quotient
+  - remainder
   status: draft
   see_ref: ''
   notes: Số chia ở đây là $$b$$ trong thuật toán chia $$a = bq + r$$. Khác với khái niệm ước số (ước)
@@ -3730,12 +3793,12 @@ entries:
     \mathbf{v} = 1\cdot 4 + 2\cdot 0 + 3\cdot(-1) = 1$$.
   vi_terms:
   - term: tích vô hướng
-    source_id: ''
+    source_id: bib-cungkimtien-2004
     page: ''
     recommended: true
-    verified: false
-    pdf_page: null
-    snippet: ''
+    verified: true
+    pdf_page: 119
+    snippet: dot product tích vô hướng
   - term: tích vô hướng
     source_id: bib-cungkimtien-2004
     page: ''
@@ -3771,7 +3834,8 @@ entries:
     verified: true
     pdf_page: 343
     snippet: dot p. tích vô hướng
-  see_also: []
+  see_also:
+  - vector
   status: panel-approved
   see_ref: ''
   notes: ''
@@ -3787,12 +3851,12 @@ entries:
   example_vi: Đếm số cặp (đỉnh, cạnh kề đỉnh đó) trong đồ thị theo hai cách cho đẳng thức $$\sum_{v}\deg(v)=2|E|$$.
   vi_terms:
   - term: đếm bằng hai cách
-    source_id: ''
+    source_id: bib-leanhvinh-2020
     page: ''
     recommended: true
-    verified: false
-    pdf_page: null
-    snippet: ''
+    verified: true
+    pdf_page: 218
+    snippet: Chứng minh. Với mỗi z € V(G), ta đếm bằng hai cách đại lượng N,
   - term: đếm bằng hai cách
     source_id: bib-leanhvinh-2020
     page: ''
@@ -3846,7 +3910,10 @@ entries:
     verified: false
     pdf_page: 0
     snippet: ''
-  see_also: []
+  see_also:
+  - double-counting
+  - finite-set
+  - cardinality
   status: draft
   see_ref: ''
   notes: Thuật ngữ chuẩn của giáo trình MAT3500 là "phương pháp đếm bằng hai cách". Các nguồn dùng dạng
@@ -3878,7 +3945,8 @@ entries:
     verified: false
     pdf_page: 0
     snippet: ''
-  see_also: []
+  see_also:
+  - nested-summation
   status: draft
   see_ref: ''
   notes: Rosen (bản dịch) gọi khái niệm này là "tổng kép" và tính bằng cách khai triển tổng trong trước.
@@ -3996,7 +4064,9 @@ entries:
     verified: true
     pdf_page: 209
     snippet: Sắc số của đồ thị đối ngẫu của bản đồ chính là số màu tối thiểu dùng để
-  see_also: []
+  see_also:
+  - planar-graph
+  - self-loop
   status: panel-approved
   see_ref: ''
   notes: 'Definition completed per Rosen §10.7 so the edge correspondence E(G) <-> E(G*) is a bijection:
@@ -4138,7 +4208,10 @@ entries:
     verified: true
     pdf_page: 258
     snippet: dualization I. luật đối ngẫu
-  see_also: []
+  see_also:
+  - boolean-expression
+  - boolean-function
+  - dual
   status: draft
   see_ref: ''
   notes: Thuật ngữ chuẩn của giáo trình MAT3500 là "Nguyên lý đối ngẫu". Bản dịch Rosen cũng dùng "nguyên

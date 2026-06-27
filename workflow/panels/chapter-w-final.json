@@ -537,7 +537,12 @@
    "definition_vi": "Công thức hợp thức của một ngôn ngữ hình thức là một dãy hữu hạn các ký hiệu được xây dựng theo đúng các quy tắc thành lập cú pháp của ngôn ngữ đó. Các ký hiệu này gồm các biến mệnh đề hoặc biến vị từ, các liên từ logic, các lượng từ và các ký hiệu nhóm như cặp dấu ngoặc. Nhờ tuân theo các quy tắc thành lập này, một công thức hợp thức biểu diễn một biểu thức logic hợp lệ về mặt ngữ pháp và có ý nghĩa xác định.",
    "example_vi": "Với các biến mệnh đề $$p$$, $$q$$, $$r$$, dãy ký hiệu $$(p \\wedge q) \\rightarrow r$$ là một công thức hợp thức vì nó được xây dựng đúng theo các quy tắc thành lập: hai công thức được nối bằng liên từ và đặt trong cặp dấu ngoặc. Ngược lại, dãy ký hiệu $$p \\wedge \\rightarrow q$$ không phải là công thức hợp thức, vì liên từ $$\\rightarrow$$ không có công thức đứng ngay trước nó.",
    "notes": "No candidate term (công thức hợp thức, công thức được thành lập đúng, công thức chỉnh, công thức đúng đắn) nor any fragment (hợp thức, chỉnh dạng, thành lập đúng, công thức logic/tốt/dạng đúng) is attested anywhere in the Vietnamese corpus, on either normal or --loose (OCR) searches across all six sources. This is expected: \"well-formed formula\" is a mathematical-logic concept (Rosen §1.1), but the mined corpus consists exclusively of graph-theory / combinatorics / discrete-math texts. The base word \"công thức\" occurs 327 times, but always meaning a mathematical/counting formula, never the logic-syntax notion of a well-formed formula. The only --loose matches for the fragment \"hợp thức\" are OCR false positives (\"tổ hợp thực tế\"), not the logic term. Per book convention, exactly one standard term (\"công thức hợp thức\", the most common Vietnamese calque for wff in logic literature) is kept as recommended with verified=false and page=\"\" so vi_terms is non-empty. Per the citation-hygiene rule, the three non-recommended verified=false/empty-page calques were DROPPED from vi_terms (they previously appeared there) and are recorded here as alternative candidate forms only: \"công thức được thành lập đúng\", \"công thức chỉnh\", \"công thức đúng đắn\". All are unattested in the corpus. Exposition: the original single long first sentence was split at the symbol-list boundary for readability/traceability (the list of propositional/predicate variables, connectives, quantifiers and grouping symbols is now a separate sentence). No sibling W-chapter entries currently exist for these logic concepts, so see_also is empty; related logic concepts (proposition, connective, quantifier, predicate) would be cross-chapter forward references.",
-   "see_also": [],
+   "see_also": [
+    "formula",
+    "well-formed-formulae",
+    "language",
+    "propositional-variable"
+   ],
    "vi_terms": [
     {
      "term": "công thức hợp thức",
@@ -887,7 +892,11 @@
      "recommended": false
     }
    ],
-   "see_also": [],
+   "see_also": [
+    "underlying-undirected-graph",
+    "directed-graph",
+    "connected-graph"
+   ],
    "notes": "Khái niệm áp dụng cho đồ thị có hướng. Phân biệt với liên thông mạnh: liên thông mạnh kéo theo liên thông yếu, không có chiều ngược lại.",
    "status": "draft",
    "pos": "t.t."
@@ -947,7 +956,10 @@
      "recommended": false
     }
    ],
-   "see_also": [],
+   "see_also": [
+    "weighted-graph",
+    "length"
+   ],
    "notes": "Trọng số gắn với cạnh trong đồ thị có trọng số (đồ thị hai phần có trọng số cũng dùng khái niệm này). Một số tài liệu ký hiệu hàm trọng số là $$c(e)$$ thay cho $$w(e)$$. Tùy ngữ cảnh, trọng số có thể nhận giá trị dương, không âm hoặc thực tùy ý.",
    "status": "draft",
    "pos": "d.t."
@@ -958,8 +970,6 @@
    "headword_en": "well-formed formulae",
    "notation": "",
    "rosen_ref": "Rosen §1.1",
-   "definition_vi": "Một công thức được tạo đúng quy tắc là một biểu thức logic được xây dựng đúng cú pháp từ các biến mệnh đề, các phép toán logic ($$\\neg$$, $$\\wedge$$, $$\\vee$$, $$\\rightarrow$$, $$\\leftrightarrow$$) và các dấu ngoặc theo các quy tắc tạo công thức. Cụ thể, mỗi biến mệnh đề là một công thức được tạo đúng quy tắc, và nếu $$F$$ và $$G$$ là các công thức được tạo đúng quy tắc thì $$(\\neg F)$$, $$(F \\wedge G)$$, $$(F \\vee G)$$, $$(F \\rightarrow G)$$ và $$(F \\leftrightarrow G)$$ cũng là các công thức được tạo đúng quy tắc.",
-   "example_vi": "Biểu thức $$(p \\wedge q) \\rightarrow (\\neg r)$$ là một công thức được tạo đúng quy tắc, trong khi $$p \\wedge \\vee q$$ thì không, vì nó vi phạm quy tắc tạo công thức.",
    "vi_terms": [
     {
      "term": "các công thức được tạo đúng quy tắc",
@@ -986,7 +996,7 @@
      "pdf_page": 0,
      "snippet": "",
      "verified": false,
-     "recommended": true
+     "recommended": false
     },
     {
      "term": "công thức chỉnh",
@@ -1034,10 +1044,15 @@
      "recommended": false
     }
    ],
-   "see_also": [],
-   "notes": "Khái niệm thuộc logic mệnh đề, xác định tính hợp lệ về cú pháp của một biểu thức logic. Không tìm thấy thuật ngữ này trong kho ngữ liệu tham khảo (kể cả bản dịch Rosen), nên chỉ giữ thuật ngữ của giáo trình MAT3500.",
+   "see_also": [
+    "formula",
+    "logical-operator",
+    "propositional-variable"
+   ],
+   "notes": "Đồng nghĩa với well-formed formula.",
    "status": "draft",
-   "pos": "d.t."
+   "pos": "d.t.",
+   "see_ref": "well-formed-formula"
   },
   {
    "id": "wheel",
@@ -1079,15 +1094,18 @@
    "vi_terms": [
     {
      "term": "bằng chứng",
-     "source_id": "",
+     "source_id": "bib-cormen-2001-vi",
      "page": "",
-     "pdf_page": 0,
-     "snippet": "",
-     "verified": false,
+     "pdf_page": 930,
+     "snippet": "“bằng chứng” về tính hợp số của n—nghia là, nếu nó có thể dùng a để",
+     "verified": true,
      "recommended": true
     }
    ],
-   "see_also": [],
+   "see_also": [
+    "composite-number",
+    "prime-number"
+   ],
    "notes": "Trong giáo trình MAT3500, thuật ngữ chỉ một số nguyên chứng tỏ tính hợp số trong kiểm tra tính nguyên tố. Tìm kiếm trong kho ngữ liệu tiếng Việt và bản dịch Rosen không cho kết quả khẳng định nghĩa kỹ thuật này (các lần khớp \"bằng chứng\" đều là cụm thông thường như \"bằng chứng minh\"); do đó chỉ có thuật ngữ giáo trình được dẫn.",
    "status": "draft",
    "pos": "d.t."
@@ -1165,7 +1183,11 @@
      "recommended": false
     }
    ],
-   "see_also": [],
+   "see_also": [
+    "running-time",
+    "complexity",
+    "algorithm"
+   ],
    "notes": "Trường hợp xấu nhất cho cận trên chặt nhất về thời gian chạy; phân biệt với độ phức tạp trường hợp trung bình.",
    "status": "draft",
    "pos": "d.t."
@@ -1316,7 +1338,10 @@
      "recommended": false
     }
    ],
-   "see_also": [],
+   "see_also": [
+    "symmetric-relation",
+    "proof"
+   ],
    "notes": "",
    "status": "draft",
    "pos": "d.t."

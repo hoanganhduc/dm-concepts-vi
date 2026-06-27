@@ -70,7 +70,9 @@ entries:
     verified: true
     pdf_page: 275
     snippet: identification m. ánh xạ đồng nhất hoá
-  see_also: []
+  see_also:
+  - function-composition
+  - bijection
   status: draft
   see_ref: ''
   notes: Hàm đồng nhất gán mỗi phần tử cho chính nó. Bản dịch Rosen dùng ký hiệu $$\iota_A$$ cho hàm đồng
@@ -271,7 +273,9 @@ entries:
     verified: true
     pdf_page: 119
     snippet: Định nghĩa 2.18. Hàm đặc trưng của một biến ngẫu nhiên thực X
-  see_also: []
+  see_also:
+  - correctness
+  - algorithm
   status: draft
   see_ref: ''
   notes: Trong giáo trình MAT3500, "cài đặt" chỉ việc hiện thực một thuật toán thành chương trình chạy
@@ -435,7 +439,10 @@ entries:
     verified: true
     pdf_page: 135
     snippet: drift sự trôi, sự rời, kéo theo
-  see_also: []
+  see_also:
+  - conditional-statement
+  - conclusion
+  - truth-value
   status: draft
   see_ref: ''
   notes: Khái niệm này còn được gọi là "phép kéo theo" (Nguyễn Hữu Điển 2019) hoặc "mệnh đề kéo theo"
@@ -642,7 +649,10 @@ entries:
     verified: true
     pdf_page: 48
     snippet: 2.2.2. Nguyên lý bù trừ
-  see_also: []
+  see_also:
+  - the-subtraction-rule
+  - cardinality
+  - finite-set
   status: draft
   see_ref: ''
   notes: Thuật ngữ giáo trình MAT3500 dùng là "nguyên lý bù trừ". Biến thể "nguyên lý bao hàm và loại
@@ -846,7 +856,10 @@ entries:
     verified: true
     pdf_page: 181
     snippet: gadually varied f. dòng biến đổi dần
-  see_also: []
+  see_also:
+  - strictly-increasing
+  - domain
+  - domain-of-discourse
   status: draft
   see_ref: ''
   notes: Bản dịch Rosen dùng "tăng" cho increasing và "thực sự tăng" cho strictly increasing. Các tài
@@ -1305,7 +1318,9 @@ entries:
     verified: true
     pdf_page: 54
     snippet: number address c. mã có địa chỉ số
-  see_also: []
+  see_also:
+  - index-of-summation
+  - lower-limit
   status: draft
   see_ref: ''
   notes: Thuật ngữ chuẩn của giáo trình MAT3500 là "chỉ số". Bản dịch Rosen dùng "chỉ số lấy tổng" cho
@@ -1360,7 +1375,11 @@ entries:
     verified: true
     pdf_page: 109
     snippet: 'Ngoài ra còn biến chỉ số. Ví dụ: Afi], ở day 7 là các biến nguyên.'
-  see_also: []
+  see_also:
+  - index
+  - lower-limit
+  - summation-notation
+  - summation
   status: draft
   see_ref: ''
   notes: Thuật ngữ chuẩn của giáo trình MAT3500 là "chỉ số lấy tổng". Bản dịch Rosen cũng dùng "chỉ số
@@ -1393,7 +1412,10 @@ entries:
     verified: false
     pdf_page: null
     snippet: ''
-  see_also: []
+  see_also:
+  - random-variable
+  - probability-of-an-event
+  - event
   status: panel-approved
   see_ref: ''
   notes: ''
@@ -1446,7 +1468,10 @@ entries:
     verified: true
     pdf_page: 111
     snippet: indirect d. phép chứng minh gián tiếp
-  see_also: []
+  see_also:
+  - proof-by-contraposition
+  - contrapositive
+  - implication
   status: draft
   see_ref: ''
   notes: Trong Rosen, chứng minh gián tiếp nghĩa là chứng minh theo mệnh đề phản đảo $$\neg q \rightarrow
@@ -1756,16 +1781,13 @@ entries:
   notation: ''
   rosen_ref: ''
   ref_bib: bib-libennowell-2022
-  definition_vi: '\emph{Bước quy nạp} là phần của một chứng minh bằng quy nạp trong đó ta chứng minh:
-    nếu mệnh đề đúng với một (hoặc mọi) trường hợp nhỏ hơn thì nó cũng đúng với trường hợp kế tiếp. Cùng
-    với bước cơ sở, bước quy nạp bảo đảm mệnh đề đúng cho mọi giá trị trong miền xét.'
-  example_vi: Để chứng minh $$\displaystyle\sum_{i=1}^{n} i = \frac{n(n+1)}{2}$$, bước quy nạp giả thiết
-    công thức đúng với $$n$$ rồi suy ra nó đúng với $$n+1$$.
+  definition_vi: ''
+  example_vi: ''
   vi_terms:
   - term: bước quy nạp
     source_id: ''
     page: ''
-    recommended: true
+    recommended: false
     verified: false
     pdf_page: null
     snippet: ''
@@ -1800,8 +1822,8 @@ entries:
   see_also:
   - inductive-hypothesis
   status: panel-approved
-  see_ref: ''
-  notes: ''
+  see_ref: inductive-step
+  notes: Đồng nghĩa với inductive step.
 - id: inductive-hypothesis
   letter: I
   headword_en: inductive hypothesis
@@ -1814,12 +1836,12 @@ entries:
   example_vi: Khi chứng minh $$P(n+1)$$, ta được phép dùng giả thiết quy nạp là $$P(n)$$ đã đúng.
   vi_terms:
   - term: giả thiết quy nạp
-    source_id: ''
+    source_id: bib-cormen-2001-vi
     page: ''
     recommended: true
-    verified: false
-    pdf_page: null
-    snippet: ''
+    verified: true
+    pdf_page: 64
+    snippet: 1, do đó ta lập; giả thiết quy nạp mà nó áp dung cho n và chứng minh
   - term: giả thiết quy nạp
     source_id: bib-cormen-2001-vi
     page: ''
@@ -1999,7 +2021,11 @@ entries:
     verified: true
     pdf_page: 400
     snippet: induction s. bước quy nạp
-  see_also: []
+  see_also:
+  - mathematical-induction
+  - proof-by-mathematical-induction
+  - inductive-hypothesis
+  - inductive-case
   status: draft
   see_ref: ''
   notes: Bước quy nạp đi cùng bước cơ sở trong chứng minh quy nạp toán học. Biến thể chính tả "bước qui
@@ -2052,7 +2078,8 @@ entries:
     verified: true
     pdf_page: 237
     snippet: inequality bất đẳng thức
-  see_also: []
+  see_also:
+  - partial-order
   status: draft
   see_ref: ''
   notes: Thuật ngữ "bất đẳng thức" là chuẩn và thống nhất trong mọi nguồn của bộ ngữ liệu; không có biến
@@ -2140,7 +2167,12 @@ entries:
     verified: true
     pdf_page: 372
     snippet: deducible r. /og. quy tắc suy diễn được
-  see_also: []
+  see_also:
+  - valid-inference-rule
+  - logical-rules-of-inference
+  - tautology
+  - premise
+  - conclusion
   status: draft
   see_ref: ''
   notes: Các giả thiết $$p_1, \ldots, p_n$$ gọi là tiền đề, $$q$$ là kết luận. Một số tài liệu dùng "quy
@@ -2177,7 +2209,9 @@ entries:
     verified: true
     pdf_page: 10
     snippet: đồ thị vô hạn
-  see_also: []
+  see_also:
+  - finite-graph
+  - vertex-set
   status: draft
   see_ref: ''
   notes: Trái nghĩa với đồ thị hữu hạn. Trong giáo trình MAT3500, hầu hết các đồ thị được xét là hữu hạn;
@@ -2377,7 +2411,10 @@ entries:
     verified: true
     pdf_page: 140
     snippet: 'Vi dụ 12. Trong số 100.000.000 số hang đầu tiên của day Fibonacei:'
-  see_also: []
+  see_also:
+  - geometric-progression
+  - initial-conditions
+  - recurrence-relation
   status: draft
   see_ref: ''
   notes: Thuật ngữ chuẩn của giáo trình MAT3500 là "số hạng đầu tiên". Bản dịch Rosen và các tài liệu
@@ -2563,7 +2600,11 @@ entries:
     verified: true
     pdf_page: 255
     snippet: b) Thuật toán duyệt trung thứ tự
-  see_also: []
+  see_also:
+  - ordered-rooted-tree
+  - binary-tree
+  - left-subtree
+  - right-subtree
   status: draft
   see_ref: ''
   notes: Còn gọi là "duyệt theo thứ tự giữa". Với cây nhị phân tìm kiếm, duyệt trung thứ tự cho dãy đỉnh
@@ -2602,7 +2643,10 @@ entries:
     verified: true
     pdf_page: 178
     snippet: kích thước dâu vào của bài toán. Trong các thuật toán trên đồ thị, đầu vào là đồ thị G =
-  see_also: []
+  see_also:
+  - complexity
+  - time-complexity
+  - edge
   status: draft
   see_ref: ''
   notes: Trong các bài toán đồ thị, kích thước đầu vào thường lấy theo số đỉnh và số cạnh của đồ thị $$G$$.
@@ -2674,7 +2718,8 @@ entries:
     verified: true
     pdf_page: 28
     snippet: intergity a. cơ sở nguyên
-  see_also: []
+  see_also:
+  - positive-integers
   status: panel-approved
   see_ref: ''
   notes: 'Recommended term "số nguyên" is the standard Vietnamese rendering, attested in the newest 2020
@@ -2806,7 +2851,10 @@ entries:
     verified: true
     pdf_page: 398
     snippet: intrinsic s. xib. tính ổn định trong
-  see_also: []
+  see_also:
+  - rooted-tree
+  - path
+  - walk
   status: draft
   see_ref: ''
   notes: 'Khái niệm "đỉnh trong" xuất hiện ở hai ngữ cảnh: đỉnh trong của một đường đi (mọi đỉnh trừ hai
@@ -2864,7 +2912,8 @@ entries:
     verified: true
     pdf_page: 30
     snippet: 2.3.2 Phép giao
-  see_also: []
+  see_also:
+  - intersection-of-sets
   status: draft
   see_ref: ''
   notes: Ký hiệu $$A \cap B$$. Nếu $$A \cap B = \emptyset$$ thì hai tập hợp $$A$$ và $$B$$ được gọi là
@@ -3316,7 +3365,10 @@ entries:
     verified: true
     pdf_page: 11
     snippet: feedback a. máy khuếch đại nghịch đảo
-  see_also: []
+  see_also:
+  - converse
+  - implication
+  - logically-equivalent
   status: draft
   see_ref: ''
   notes: Cần phân biệt với mệnh đề đảo ($$q \to p$$, converse) và mệnh đề phản đảo ($$\neg q \to \neg
@@ -3471,7 +3523,9 @@ entries:
     verified: true
     pdf_page: 93
     snippet: computer c. bộ đảo mạch
-  see_also: []
+  see_also:
+  - complement-of-a-set
+  - complement
   status: draft
   see_ref: ''
   notes: 'Thuật ngữ chuẩn của giáo trình MAT3500 là "Bộ đảo". Bản dịch Rosen (2003) dùng đúng thuật ngữ
@@ -3513,7 +3567,10 @@ entries:
     verified: false
     pdf_page: 0
     snippet: ''
-  see_also: []
+  see_also:
+  - inverse-function
+  - bijection
+  - identity-function
   status: draft
   see_ref: ''
   notes: Hàm khả nghịch tương đương với song ánh (vừa đơn ánh vừa toàn ánh). Hàm ngược $$f^{-1}$$, nếu
@@ -3587,7 +3644,9 @@ entries:
     verified: true
     pdf_page: 307
     snippet: irrational n. số vô tỷ
-  see_also: []
+  see_also:
+  - rational-numbers
+  - real-numbers
   status: draft
   see_ref: ''
   notes: Thuật ngữ chuẩn của giáo trình là "số vô tỷ"; biến thể chính tả "số vô tỉ" cũng phổ biến nhưng
@@ -3910,7 +3969,10 @@ entries:
     verified: true
     pdf_page: 250
     snippet: isomorphism phép đẳng cấu
-  see_also: []
+  see_also:
+  - graph-isomorphism
+  - simple-graph
+  - bijection
   status: draft
   see_ref: ''
   notes: Quan hệ đẳng cấu là một quan hệ tương đương (phản xạ, đối xứng, bắc cầu). Phép đẳng cấu từ một

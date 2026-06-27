@@ -51,7 +51,10 @@
    "definition_vi": "\\emph{Lượng từ hóa rỗng} xảy ra khi một mệnh đề được lượng từ hóa trên một miền rỗng, không chứa phần tử nào. Khi đó, mệnh đề với lượng từ phổ dụng $$\\forall x \\in \\varnothing\\, P(x)$$ luôn đúng, còn mệnh đề với lượng từ tồn tại $$\\exists x \\in \\varnothing\\, P(x)$$ luôn sai, bất kể vị từ $$P$$.",
    "example_vi": "Mệnh đề \\\"mọi phần tử của tập rỗng đều là số chẵn\\\" đúng một cách rỗng.",
    "notes": "",
-   "see_also": [],
+   "see_also": [
+    "quantifier",
+    "universal-quantifier"
+   ],
    "vi_terms": [
     {
      "term": "lượng từ hóa rỗng",
@@ -186,7 +189,11 @@
      "recommended": false
     }
    ],
-   "see_also": [],
+   "see_also": [
+    "logical-argument",
+    "tautology",
+    "premise"
+   ],
    "notes": "Trong logic, \"hợp lý\" (valid) chỉ tính đúng của dạng lập luận, không phải nghĩa \"hợp lý\" thông thường. Bản dịch Rosen dùng \"đúng đắn\"; một số tài liệu dùng \"suy luận đúng\".",
    "status": "draft",
    "pos": "t.t."
@@ -391,7 +398,12 @@
      "recommended": false
     }
    ],
-   "see_also": [],
+   "see_also": [
+    "logical-rules-of-inference",
+    "inference-rule",
+    "implication",
+    "tautology"
+   ],
    "notes": "Rosen dùng \"quy tắc suy luận\" (bảng các quy tắc trong §1.5); Nguyễn Hữu Điển dùng \"quy tắc/luật suy diễn\". Tính \"hợp lý\" của quy tắc tương ứng với việc $$(P_1 \\wedge \\cdots \\wedge P_n) \\to Q$$ là hằng đúng.",
    "status": "draft",
    "pos": "d.t."
@@ -587,7 +599,9 @@
      "recommended": false
     }
    ],
-   "see_also": [],
+   "see_also": [
+    "combination"
+   ],
    "notes": "Còn gọi là đồng nhất thức Vandermonde (Ngô Đắc Tân) hay hằng đẳng thức Vandermonde (bản dịch Rosen). Trường hợp $$m=n=r$$ cho $$\\binom{2n}{n}=\\sum_{k=0}^{n}\\binom{n}{k}^{2}$$.",
    "status": "draft",
    "pos": "d.t."
@@ -665,7 +679,11 @@
      "recommended": false
     }
    ],
-   "see_also": [],
+   "see_also": [
+    "domain-of-discourse",
+    "propositional-function",
+    "truth-value"
+   ],
    "notes": "Biến trong giáo trình MAT3500 là ký hiệu thay cho một giá trị chưa xác định. Các trường hợp riêng thường gặp gồm \"biến mệnh đề\" (propositional variable) và \"biến logic\" (logical variable), xem nguyenhuudien-2019, tr. 20–21 (PDF). Cần phân biệt với \"biến ngẫu nhiên\" (random variable) và \"biến cố\" (event) trong xác suất, vốn là khái niệm khác.",
    "status": "draft",
    "pos": "d.t."
@@ -687,7 +705,12 @@
    "vi_terms": [
     {
      "term": "phương sai",
-     "recommended": true
+     "recommended": true,
+     "verified": true,
+     "source_id": "bib-cormen-2001-vi",
+     "pdf_page": 121,
+     "snippet": "cùng với các tính chất của sự dự trù [expectation] và phương sai. Doan",
+     "page": ""
     },
     {
      "term": "phương sai",
@@ -733,8 +756,6 @@
    "headword_en": "variance of a random variable",
    "notation": "V(X)",
    "rosen_ref": "Rosen §7.4",
-   "definition_vi": "Phương sai của một biến ngẫu nhiên $$X$$ là trung bình có trọng số của các bình phương độ lệch của $$X$$ so với giá trị kì vọng $$E(X)$$ của nó. Cụ thể, $$V(X) = \\sum_{s \\in S} (X(s) - E(X))^2\\, p(s)$$, trong đó tổng được lấy theo mọi kết cục $$s$$ trong không gian mẫu $$S$$.",
-   "example_vi": "Xét phép thử tung một con xúc xắc cân đối và gọi $$X$$ là số chấm xuất hiện. Khi đó $$E(X) = 7/2$$ và phương sai là $$V(X) = \\sum_{i=1}^{6} \\frac{1}{6}\\left(i - \\frac{7}{2}\\right)^2 = \\frac{35}{12}$$.",
    "vi_terms": [
     {
      "term": "phương sai",
@@ -761,7 +782,7 @@
      "pdf_page": 5,
      "snippet": "Phương sai, độ lệch chuẩn, và các moment . . . . 108",
      "verified": true,
-     "recommended": true
+     "recommended": false
     },
     {
      "term": "phương sai",
@@ -785,9 +806,10 @@
    "see_also": [
     "expected-value"
    ],
-   "notes": "Phương sai $$V(X)$$ đo mức độ phân tán của biến ngẫu nhiên $$X$$ quanh giá trị kì vọng $$E(X)$$. Công thức tương đương thường dùng là $$V(X) = E(X^2) - E(X)^2$$. Căn bậc hai của phương sai, $$\\sigma(X) = \\sqrt{V(X)}$$, được gọi là độ lệch chuẩn của $$X$$. Thuật ngữ \"phương sai\" là cách dịch chuẩn của \"variance\"; ngữ liệu hiện có (kể cả các nguồn mới nhất và bản dịch Rosen tham chiếu) không có dẫn chứng trực tiếp cho thuật ngữ này.",
+   "notes": "Đồng nghĩa với variance.",
    "status": "draft",
-   "pos": "d.t."
+   "pos": "d.t.",
+   "see_ref": "variance"
   },
   {
    "id": "vector",
@@ -800,11 +822,18 @@
    "definition_vi": "Một \\emph{vectơ} là một bộ có thứ tự gồm hữu hạn phần tử, thường là các số, viết dưới dạng $$\\mathbf{v}=(v_1, v_2, \\ldots, v_n)$$. Một vectơ $$n$$ thành phần là phần tử của không gian $$\\mathbb{R}^n$$ (hay tổng quát hơn của một không gian vectơ), trên đó có các phép cộng theo từng thành phần và nhân với vô hướng.",
    "example_vi": "$$\\mathbf{v}=(1, 0, -2)$$ là một vectơ trong $$\\mathbb{R}^3$$.",
    "notes": "",
-   "see_also": [],
+   "see_also": [
+    "k-tuple"
+   ],
    "vi_terms": [
     {
      "term": "vectơ",
-     "recommended": true
+     "recommended": true,
+     "verified": true,
+     "source_id": "bib-cormen-2001-vi",
+     "pdf_page": 600,
+     "snippet": "một giải pháp khả thi bất kỳ, nghĩa là, bất kỳ vectơ x nào thỏa Ax < b,",
+     "page": ""
     },
     {
      "term": "vectơ",
@@ -925,7 +954,10 @@
    "definition_vi": "Sơ đồ Venn của một họ các tập hợp là một hình biểu diễn trong đó tập hợp vũ trụ (ký hiệu $$U$$) được vẽ thành một hình chữ nhật, còn mỗi tập hợp được vẽ thành một vùng (thường là hình tròn) nằm bên trong hình chữ nhật đó. Sơ đồ Venn được dùng để minh họa quan hệ giữa các tập hợp và các phép toán trên tập hợp.",
    "example_vi": "Với hai tập hợp $$A$$ và $$B$$, vùng nằm trong cả hai hình tròn biểu diễn $$A$$ và $$B$$ chính là giao $$A \\cap B$$, còn toàn bộ vùng được phủ bởi hai hình tròn biểu diễn hợp $$A \\cup B$$.",
    "notes": "Thuật ngữ khuyến nghị là \"sơ đồ Venn\", xuất hiện trong cả hai nguồn mới: nguyenhoangthach-2020 (tr. 17 PDF, minh họa quy tắc trừ trong đếm) và nguyenhuudien-2019 (tr. 73 và 75 PDF, mục biểu diễn tập hợp). Được chọn làm thuật ngữ khuyến nghị (verified=true, có chứng cứ ở nguồn 2020).\n\nBiến thể \"giản đồ Venn\" CÓ chứng cứ trong bib-rosen-2003-vi (bản dịch Rosen 2003, tr. 55 PDF: đoạn định nghĩa \"Trong các giản đồ Venn, tập hợp vũ trụ U ... được biểu diễn bằng một hình chữ nhật\"; còn lặp lại nhiều lần ở tr. 56 trở đi). Đây là nguồn dịch cũ, đã OCR, vai trò \"reference-only\" theo registry (role: reference) nên không bao giờ được chọn làm thuật ngữ khuyến nghị; ghi nhận verified=true, recommended=false.\n\nBiến thể ứng viên \"biểu đồ Venn\" KHÔNG có chứng cứ trong bất kỳ nguồn nào (quét toàn bộ corpus theo từ khóa \"biểu đồ Venn\" cho 0 kết quả, cả thường lẫn --loose), nên do verified=false và không có trang nên không đưa vào vi_terms. see_also để trống vì chương V chưa có mục cùng chương nào khác để liên kết; \"universal-set\" thuộc chương U (tham chiếu chéo, chỉ là forward reference).",
-   "see_also": [],
+   "see_also": [
+    "universal-set",
+    "set"
+   ],
    "vi_terms": [
     {
      "term": "sơ đồ Venn",

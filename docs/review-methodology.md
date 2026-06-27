@@ -234,6 +234,35 @@ definition opener and example.
 - The **existential-instantiation/generalization "hiện sinh"** pair is left
   unchanged by author request — do not "fix" it.
 
+## Method C — Scripted cross-entry / corpus gap-checks (read-only)
+
+Three deterministic reports that catch defect classes the per-entry validation
+and the LLM review cannot see, because they are *relations between* entries or
+*frequency* facts. None changes the book; each prints a summary and writes a
+JSON report under `workflow/loop/review/`. They came out of a deep-research +
+multi-agent gap analysis (the unused-measures audit; see
+`workflow/loop/review/*-report.json`).
+
+- **`consistency-report.py`** — bilingual consistency cross-tabs. (A) same
+  *recommended* VI term used for >1 distinct EN headword (homonym collision;
+  most are legit synonyms — review each); (B) same EN headword across entries
+  recommending divergent VI. Found real cross-entry slips the per-entry passes
+  missed (e.g. `tiên đề` recommended for both *axiom* and *premise*; `khoảng`
+  for both *interval* and *open interval*).
+- **`variant-frequency.py`** — corpus frequency *dominance*. Existing mining
+  proves a variant is *attested*; this counts whole-token occurrences across the
+  corpus (fast one-pass n-gram model; rosen-2003-vi excluded) and flags entries
+  where the recommended term is out-frequented by a **comparable** variant
+  (within 1 token, not a fragment — the length filter is essential, else lone
+  generic words like `tập` swamp precise multi-word terms) or has 0 hits while a
+  variant has some. Surfaces dominance candidates (e.g. `truth value`
+  `giá trị chân trị`(3) vs `giá trị chân lý`(173)). Heuristic — a review aid.
+- **`rosen-coverage.py`** — headword recall vs the Rosen gold list
+  (`data/rosen-master.json`, 319 terms; `--gold data/rosen-key-terms.json` for
+  the 339 chapter key-terms). Normalized exact + whole-word fuzzy match; reports
+  recall and the missing terms. Result: 318/319 exact (99.7%), 100% with fuzzy —
+  full coverage of the Rosen master list.
+
 ## How to re-run
 
 1. `mkdir -p /tmp/dm-review/{book/data/terms,book/data/sources,results}`; copy

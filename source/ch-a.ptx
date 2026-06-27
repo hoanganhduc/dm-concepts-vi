@@ -83,6 +83,21 @@
         <li><p><term>ma trận kế cận</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
         <li><p><term>ma trận liền kề</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 163); <xref ref="bib-doantamhoe-2009" />; <xref ref="bib-vudinhhoa-2010" />.</p></li>
       </ul>
+      <figure xml:id="fig-adjacency-matrix">
+        <caption>Một đồ thị 4 đỉnh và ma trận kề <m>0/1</m> của nó.</caption>
+        <image width="60%">
+          <latex-image>
+\begin{tikzpicture}[vtx/.style={circle,fill=black,inner sep=1.6pt},scale=0.9]
+  \node[vtx,label=above:$1$] (1) at (0,1.4) {};
+  \node[vtx,label=left:$2$] (2) at (-1.2,0) {};
+  \node[vtx,label=right:$3$] (3) at (1.2,0) {};
+  \node[vtx,label=below:$4$] (4) at (0,-1.4) {};
+  \draw (1)--(2); \draw (1)--(3); \draw (2)--(3); \draw (3)--(4);
+  \node at (4.3,0) {$\begin{pmatrix} 0&amp;1&amp;1&amp;0\\ 1&amp;0&amp;1&amp;0\\ 1&amp;1&amp;0&amp;1\\ 0&amp;0&amp;1&amp;0 \end{pmatrix}$};
+\end{tikzpicture}
+          </latex-image>
+        </image>
+      </figure>
       <p>Ví dụ: Xét đồ thị có tập đỉnh <m>\{v_1, v_2, v_3\}</m> với các cạnh <m>v_1 v_2</m> và <m>v_2 v_3</m>. Ma trận kề của nó là
 <me>A = \begin{bmatrix} 0  \amp  1  \amp  0 \\ 1  \amp  0  \amp  1 \\ 0  \amp  1  \amp  0 \end{bmatrix}.</me></p>
       <p>Xem thêm <xref ref="def-adjacency-list" text="title" />, <xref ref="def-adjacent-vertices" text="title" />, <xref ref="def-incidence-matrix" text="title" />.</p>
@@ -447,6 +462,20 @@
         <li><p><term>quan hệ big-O</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 138).</p></li>
         <li><p><term>đánh giá big-O</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 150); <xref ref="bib-rosen-2003-vi" /> (tr. 113).</p></li>
       </ul>
+      <figure xml:id="fig-asymptotic-notation">
+        <caption>Ký hiệu tiệm cận: <m>f(n)\le c\,g(n)</m> với mọi <m>n\ge n_0</m>.</caption>
+        <image width="52%">
+          <latex-image>
+\begin{tikzpicture}[scale=1.0]
+  \draw[->] (0,0) -- (4.4,0) node[right]{$n$};
+  \draw[->] (0,0) -- (0,3.2) node[above]{};
+  \draw[domain=0:3.9,dashed] plot (\x,{0.7*\x}) node[right]{$c\,g(n)$};
+  \draw[domain=0:3.9,thick] plot (\x,{0.35*\x+0.9}) node[right]{$f(n)$};
+  \draw[dotted] (2.57,0) node[below]{$n_0$} -- (2.57,1.8);
+\end{tikzpicture}
+          </latex-image>
+        </image>
+      </figure>
       <p>Ví dụ: Với <m>f(x) = 3x^2 + 2x + 1</m> và <m>g(x) = x^2</m>, ta có <m>f(x) = \Theta(g(x))</m>, vì tồn tại các hằng số dương <m>c_1</m>, <m>c_2</m> và <m>k</m> sao cho <m>c_1 g(x) \leq f(x) \leq c_2 g(x)</m> với mọi <m>x \geq k</m>.</p>
       <p>Xem thêm <xref ref="def-growth-rate" text="title" />.</p>
     </statement>

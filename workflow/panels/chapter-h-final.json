@@ -192,7 +192,13 @@
      "recommended": false
     }
    ],
-   "pos": "d.t."
+   "pos": "d.t.",
+   "figure": {
+    "type": "latex-image",
+    "code": "\\begin{tikzpicture}[scale=1.0,vtx/.style={circle,fill=black,inner sep=1.7pt},vin/.style={circle,draw,fill=white,inner sep=1.2pt}]\n  \\node[vtx] (n0) at (0.0,1.6) {};\n  \\node[vtx] (n1) at (-1.5217,0.4944) {};\n  \\node[vtx] (n2) at (-0.9405,-1.2944) {};\n  \\node[vtx] (n3) at (0.9405,-1.2944) {};\n  \\node[vtx] (n4) at (1.5217,0.4944) {};\n  \\draw[very thick] (n0) -- (n1);\n  \\draw[very thick] (n1) -- (n2);\n  \\draw[very thick] (n2) -- (n3);\n  \\draw[very thick] (n3) -- (n4);\n  \\draw[very thick] (n4) -- (n0);\n  \\draw (n0) -- (n2);\n  \\draw (n1) -- (n3);\n\\end{tikzpicture}",
+    "width": "45%",
+    "caption_vi": "Một chu trình Hamilton (cạnh đậm) đi qua mỗi đỉnh đúng một lần."
+   }
   },
   {
    "id": "hamiltonian-graph",
@@ -610,7 +616,13 @@
     "lattice"
    ],
    "notes": "Definition split into two sentences per the readability fix: the first sentence gives the vertex rule and the upward covering segment, the second states the covering condition ($$a \\prec b$$ with no intermediate $$c$$), and the third notes the omission of reflexive/transitive edges. Two distinct Vietnamese terms denote this concept in the corpus: \"biểu đồ Hasse\" (newest, bib-nguyenhuudien-2019, 2019, tr. 122/124/126 PDF) and \"sơ đồ Hasse\" (bib-ngodactan-2004, 2004, tr. 165/180/274 PDF). Both are confirmed by snippet to denote the drawing of a partially ordered set. Recommended term is \"biểu đồ Hasse\" because it is the newest attestation (2019). The candidate \"giản đồ Hasse\" returned 0 hits across all sources (normal and loose). No 2020 source attests any candidate: bib-leanhvinh-2020 returned 0 hits for both \"biểu đồ Hasse\" and \"sơ đồ Hasse\" in normal and --loose modes; the OCR source bib-hoangchithanh-2007 returned 0 hits (--loose); bib-nguyenhoangthach-2020 and bib-nguyenducnghia-2006 also returned 0. Thus the recommended term is attested only as far back as 2019, the newest available attestation. The definition is grounded on ngodactan-2004 tr. 165 (corpus lines 22053-22062), which describes elements drawn as small circles with a line segment joining $$y$$ to $$x$$ whenever $$y$$ covers $$x$$ and $$x$$ is placed lower — i.e. the covering relation — matching Rosen §9.6; the covering condition is stated explicitly so the example needs no externally derived quantity. The first introduction of the central concept is marked with \\emph{Biểu đồ Hasse} OUTSIDE math (Vietnamese words are never wrapped in $$...$$; only symbols such as $$a$$, $$b$$, $$S$$, $$\\preceq$$ are). The notation field is empty because the Hasse diagram has no standard single symbol. see_also targets (partially-ordered-set, covering-relation, lattice) are cross-chapter forward references; there are no related same-chapter H-terms in the corpus to link.",
-   "pos": "d.t."
+   "pos": "d.t.",
+   "figure": {
+    "type": "latex-image",
+    "code": "\\begin{tikzpicture}[scale=1.0,vtx/.style={circle,fill=black,inner sep=1.7pt}]\n  \\node[circle,draw,fill=white,inner sep=1.3pt] (n1) at (0.0,0.0) {\\scriptsize $1$};\n  \\node[circle,draw,fill=white,inner sep=1.3pt] (n2) at (-0.9,1.6) {\\scriptsize $2$};\n  \\node[circle,draw,fill=white,inner sep=1.3pt] (n3) at (0.9,1.6) {\\scriptsize $3$};\n  \\node[circle,draw,fill=white,inner sep=1.3pt] (n4) at (-0.9,3.2) {\\scriptsize $4$};\n  \\node[circle,draw,fill=white,inner sep=1.3pt] (n6) at (0.9,3.2) {\\scriptsize $6$};\n  \\node[circle,draw,fill=white,inner sep=1.3pt] (n12) at (0.0,4.8) {\\scriptsize $12$};\n  \\draw (n1) -- (n2);\n  \\draw (n1) -- (n3);\n  \\draw (n2) -- (n4);\n  \\draw (n2) -- (n6);\n  \\draw (n3) -- (n6);\n  \\draw (n4) -- (n12);\n  \\draw (n6) -- (n12);\n\\end{tikzpicture}",
+    "width": "50%",
+    "caption_vi": "Sơ đồ Hasse của quan hệ chia hết trên $$\\{1,2,3,4,6,12\\}$$."
+   }
   },
   {
    "id": "head-of-an-arc",
@@ -1416,7 +1428,13 @@
     }
    ],
    "notes": "Notation wrapped to $$Q_n$$ per the math convention (was bare 'Q_n'). Economy fix: the redundant closing sentence 'Đồ thị này được ký hiệu là $$Q_n$$, với $$n \\geq 1$$.' was dropped and the constraint $$n \\geq 1$$ folded into the first sentence, since the symbol $$Q_n$$ is already introduced there. see_also dedup: the self-duplicating id 'hypercube-graph' was removed (this entry IS the hypercube graph; the term 'đồ thị siêu lập phương' = hypercube graph is recorded as a variant), keeping 'n-cube' as the genuine cross-chapter forward reference. Hypercube $$Q_n$$: graph on $$2^n$$ vertices (binary strings of length $$n$$); two vertices adjacent iff their strings differ in exactly one bit. Three distinct attested Vietnamese terms denote this concept.\n\nRECOMMENDED (deliberate newest-source override, panel-confirmed intentional): \"đồ thị lập phương\" (cube graph). Although two 2020 sources attest the concept under different names, \"đồ thị lập phương\" is kept recommended because it is the standard Vietnamese textbook term carrying the full formal definition AND the $$Q_n$$ notation, attested in the 2019 source nguyenhuudien-2019 (tr. 160: \"đồ thị lập phương, ký hiệu là Qn ... mỗi đỉnh của Qn có bậc là n\") and corroborated in nguyenducnghia-2006 (tr. 159-160, full definition + figure \"Đồ thị lập phương Q_n\"). nguyenhuudien-2019 tr. 162 confirms the equivalence: the network \"mạng kiểu siêu khối\" is represented by \"Đồ thị lập phương Qm\". The two 2020 forms are a literal rendering (\"đồ thị siêu lập phương\") and an informal name (\"siêu khối\"). Both 2019 and 2006 occurrences of the recommended term are listed (newest first).\n\nVARIANTS (also attested):\n- \"đồ thị siêu lập phương\" (hypercube graph) — leanhvinh-2020 (2020, OCR source; diacritics mangled, e.g. \"đỏ thị siêu lập phương Q,\"), tr. 58 (Ví dụ 2.27 defines G as this graph on vertex set $$\\mathbb{Z}_2^n$$), tr. 222 (Hình 8.9), tr. 257. This is the most literal rendering of \"hypercube\" and the newest-source variant; verified via both normal and --loose OCR runs.\n- \"siêu khối\" (hypercube) — nguyenhoangthach-2020 (2020) tr. 67 gives the exact Rosen definition (\"Siêu khối: Qn , n ≥ 1, có 2n đỉnh tương ứng với các từ nhị phân độ dài n\"). Also appears in nguyenhuudien-2019 (tr. 162-163) but only in the networking sense \"mạng kiểu siêu khối\" (hypercube-type network), not as the bare graph name.\n\nNOT ATTESTED: candidate \"khối lập phương n chiều\" returned 0 hits in all sources (normal and --loose); dropped.\n\nOCR sources checked with both normal and --loose: leanhvinh-2020 (attests \"đồ thị siêu lập phương\"); hoangchithanh-2007 — no hypercube term found (all \"khối\" hits are unrelated: \"sơ đồ khối\" = block diagram, \"khôi phục\" = recover, \"khối đa diện\" = polyhedron). ngodactan-2004 \"lập phương\" hits refer to the geometric cube (\"hình lập phương\"), not the graph $$Q_n$$; not counted.",
-   "pos": "d.t."
+   "pos": "d.t.",
+   "figure": {
+    "type": "latex-image",
+    "code": "\\begin{tikzpicture}[scale=0.85,vtx/.style={circle,fill=black,inner sep=1.7pt},vin/.style={circle,draw,fill=white,inner sep=1.2pt}]\n  \\node[vtx] (n000) at (-1.4,-1.4) {};\n  \\node[vtx] (n100) at (1.4,-1.4) {};\n  \\node[vtx] (n110) at (1.4,1.4) {};\n  \\node[vtx] (n010) at (-1.4,1.4) {};\n  \\node[vtx] (n001) at (-0.5,-0.5) {};\n  \\node[vtx] (n101) at (2.3,-0.5) {};\n  \\node[vtx] (n111) at (2.3,2.3) {};\n  \\node[vtx] (n011) at (-0.5,2.3) {};\n  \\draw (n000) -- (n100);\n  \\draw (n100) -- (n110);\n  \\draw (n110) -- (n010);\n  \\draw (n010) -- (n000);\n  \\draw (n001) -- (n101);\n  \\draw (n101) -- (n111);\n  \\draw (n111) -- (n011);\n  \\draw (n011) -- (n001);\n  \\draw (n000) -- (n001);\n  \\draw (n100) -- (n101);\n  \\draw (n110) -- (n111);\n  \\draw (n010) -- (n011);\n  \\node[below left=2pt] at (n000) {\\small $000$};\n  \\node[below right=2pt] at (n100) {\\small $100$};\n  \\node[right=2pt] at (n110) {\\small $110$};\n  \\node[left=2pt] at (n010) {\\small $010$};\n  \\node[below=2pt] at (n001) {\\small $001$};\n  \\node[right=2pt] at (n101) {\\small $101$};\n  \\node[above right=2pt] at (n111) {\\small $111$};\n  \\node[above=2pt] at (n011) {\\small $011$};\n\\end{tikzpicture}",
+    "width": "48%",
+    "caption_vi": "Đồ thị siêu lập phương $$Q_3$$; hai đỉnh kề nhau khác nhau đúng một bit."
+   }
   },
   {
    "id": "hypergraph",

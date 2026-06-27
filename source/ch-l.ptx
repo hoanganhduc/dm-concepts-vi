@@ -21,6 +21,27 @@
         <li><p><term>dàn</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 123) — cách dùng phổ biến.</p></li>
         <li><p><term>dàn (lattice)</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
       </ul>
+      <figure xml:id="fig-lattice">
+        <caption>Dàn các tập con của <m>\{a,b\}</m>.</caption>
+        <image width="50%">
+          <latex-image>
+\begin{tikzpicture}[scale=1.0,vtx/.style={circle,fill=black,inner sep=1.7pt}]
+  \node[vtx] (ne) at (0.0,0.0) {};
+  \node[vtx] (na) at (-0.9,1.6) {};
+  \node[vtx] (nb) at (0.9,1.6) {};
+  \node[vtx] (nab) at (0.0,3.2) {};
+  \draw (ne) -- (na);
+  \draw (ne) -- (nb);
+  \draw (na) -- (nab);
+  \draw (nb) -- (nab);
+  \node[below=2pt] at (ne) {\small $\emptyset$};
+  \node[left=2pt] at (na) {\small $\{a\}$};
+  \node[right=2pt] at (nb) {\small $\{b\}$};
+  \node[above=2pt] at (nab) {\small $\{a,b\}$};
+\end{tikzpicture}
+          </latex-image>
+        </image>
+      </figure>
       <p>Ví dụ: Với một tập hợp <m>E</m>, tập các tập con <m>(\mathcal{P}(E), \subseteq)</m> là một dàn: với mọi <m>A, B \in \mathcal{P}(E)</m> ta có <m>A \vee B = A \cup B</m> và <m>A \wedge B = A \cap B</m>.</p>
       <p>Xem thêm <xref ref="def-greatest-lower-bound" text="title" />, <xref ref="def-hasse-diagram" text="title" />, <xref ref="def-least-upper-bound" text="title" />, <xref ref="def-poset" text="title" />.</p>
     </statement>

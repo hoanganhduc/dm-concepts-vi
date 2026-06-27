@@ -671,6 +671,17 @@ entries:
     so it is not a term for this concept on its own. No attestation found in bib-nguyenhoangthach-2020,
     bib-nguyenhuudien-2019, bib-hoangchithanh-2007, or bib-nguyenducnghia-2006 (OCR sources checked with
     --loose).
+  figure:
+    type: latex-image
+    code: "\\begin{tikzpicture}[scale=1.0,vtx/.style={circle,fill=black,inner sep=1.7pt},vin/.style={circle,draw,fill=white,inner\
+      \ sep=1.2pt}]\n  \\node[vtx] (n0) at (0,1.5) {};\n  \\node[vtx] (n1) at (-1.5,0.3) {};\n  \\node[vtx]\
+      \ (n2) at (1.5,0.3) {};\n  \\node[vtx] (n3) at (-0.9,-1.3) {};\n  \\node[vtx] (n4) at (0.9,-1.3)\
+      \ {};\n  \\draw (n0) -- (n1);\n  \\draw (n0) -- (n2);\n  \\draw (n1) -- (n2);\n  \\draw (n1) --\
+      \ (n3);\n  \\draw (n2) -- (n4);\n  \\draw (n3) -- (n4);\n  \\node[above=2pt] at (n0) {\\small $2$};\n\
+      \  \\node[left=2pt] at (n1) {\\small $3$};\n  \\node[right=2pt] at (n2) {\\small $3$};\n  \\node[below=2pt]\
+      \ at (n3) {\\small $2$};\n  \\node[below=2pt] at (n4) {\\small $2$};\n\\end{tikzpicture}"
+    width: 45%
+    caption_vi: Mỗi đỉnh được ghi bậc của nó; dãy bậc là $$(3,3,2,2,2)$$.
 - id: depth
   letter: D
   headword_en: depth
@@ -902,6 +913,18 @@ entries:
     đồ thị theo chiều sâu" heads the DFS section in bib-nguyenhuudien-2019 and bib-hoangchithanh-2007.
     The 2020 graph-theory source bib-leanhvinh-2020 does not attest any DFS candidate term (no hits in
     normal or --loose search). All listed terms denote the same graph traversal concept.
+  figure:
+    type: latex-image
+    code: "\\begin{tikzpicture}[scale=1.0,vtx/.style={circle,fill=black,inner sep=1.7pt},vin/.style={circle,draw,fill=white,inner\
+      \ sep=1.2pt}]\n  \\node[vtx] (n0) at (0,1.6) {};\n  \\node[vtx] (n1) at (-1.4,0.4) {};\n  \\node[vtx]\
+      \ (n2) at (1.4,0.4) {};\n  \\node[vtx] (n3) at (-1.4,-1.1) {};\n  \\node[vtx] (n4) at (1.4,-1.1)\
+      \ {};\n  \\draw[very thick] (n0) -- (n1);\n  \\draw[very thick] (n1) -- (n3);\n  \\draw[very thick]\
+      \ (n0) -- (n2);\n  \\draw[very thick] (n2) -- (n4);\n  \\draw[dashed] (n3) -- (n0);\n  \\draw[dashed]\
+      \ (n4) -- (n1);\n  \\node[above=2pt] at (n0) {\\small $1$};\n  \\node[left=2pt] at (n1) {\\small\
+      \ $2$};\n  \\node[right=2pt] at (n2) {\\small $4$};\n  \\node[below=2pt] at (n3) {\\small $3$};\n\
+      \  \\node[below=2pt] at (n4) {\\small $5$};\n\\end{tikzpicture}"
+    width: 45%
+    caption_vi: 'Tìm kiếm theo chiều sâu: số thứ tự khám phá; cạnh cây đậm, cạnh ngược nét đứt.'
 - id: derangement
   letter: D
   headword_en: derangement
@@ -1862,6 +1885,16 @@ entries:
     Several sources also distinguish "đơn đồ thị có hướng" (simple directed graph) and "đa đồ thị có hướng"
     (directed multigraph); these are refinements of the base term, not separate variant names for the
     plain concept.'
+  figure:
+    type: latex-image
+    code: "\\begin{tikzpicture}[scale=1.0,vtx/.style={circle,fill=black,inner sep=1.7pt},vin/.style={circle,draw,fill=white,inner\
+      \ sep=1.2pt}]\n  \\node[vtx] (n0) at (-0.9899,0.9899) {};\n  \\node[vtx] (n1) at (-0.9899,-0.9899)\
+      \ {};\n  \\node[vtx] (n2) at (0.9899,-0.9899) {};\n  \\node[vtx] (n3) at (0.9899,0.9899) {};\n \
+      \ \\draw[->] (n0) -- (n1);\n  \\draw[->] (n1) -- (n2);\n  \\draw[->] (n2) -- (n3);\n  \\draw[->]\
+      \ (n3) -- (n0);\n  \\draw[->,bend left=25] (n0) to (n2);\n  \\draw[->,bend left=25] (n2) to (n0);\n\
+      \\end{tikzpicture}"
+    width: 45%
+    caption_vi: Một đồ thị có hướng; có một cặp cạnh ngược chiều nhau.
 - id: directed-multigraph
   letter: D
   headword_en: directed multigraph
@@ -2405,6 +2438,13 @@ entries:
     conveys the same emptiness-of-intersection idea but is typically used as a property phrase rather
     than a noun for the sets themselves. OCR sources bib-leanhvinh-2020 and bib-hoangchithanh-2007 were
     checked with both normal and --loose modes; results were identical for the relevant terms.'
+  figure:
+    type: latex-image
+    code: "\\begin{tikzpicture}\n  \\draw (-2.4,-1.4) rectangle (2.4,1.4);\n  \\draw (-1.1,0) circle (0.9);\
+      \ \\draw (1.1,0) circle (0.9);\n  \\node at (-1.1,0) {$A$}; \\node at (1.1,0) {$B$}; \\node at (2.0,1.1)\
+      \ {$U$};\n\\end{tikzpicture}"
+    width: 50%
+    caption_vi: Hai tập rời nhau $$A$$ và $$B$$ trong tập vũ trụ $$U$$.
 - id: disjunction
   letter: D
   headword_en: disjunction

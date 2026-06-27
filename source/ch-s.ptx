@@ -516,6 +516,26 @@
         <li><p><term>cây khung</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 260); <xref ref="bib-doducgiao-2009" /> (tr. 5); <xref ref="bib-vudinhhoa-2010" />.</p></li>
         <li><p><term>cây phủ</term> <xref ref="bib-wikipedia-vi" />.</p></li>
       </ul>
+      <figure xml:id="fig-spanning-tree">
+        <caption>Một cây khung (cạnh đậm); các cạnh không thuộc cây vẽ nét đứt.</caption>
+        <image width="50%">
+          <latex-image>
+\begin{tikzpicture}[scale=1.0,vtx/.style={circle,fill=black,inner sep=1.7pt}]
+  \node[vtx] (n0) at (0.0,1.6) {};
+  \node[vtx] (n1) at (-1.5217,0.4944) {};
+  \node[vtx] (n2) at (-0.9405,-1.2944) {};
+  \node[vtx] (n3) at (0.9405,-1.2944) {};
+  \node[vtx] (n4) at (1.5217,0.4944) {};
+  \draw[very thick] (n0) -- (n1);
+  \draw[very thick] (n1) -- (n2);
+  \draw[very thick] (n2) -- (n3);
+  \draw[very thick] (n3) -- (n4);
+  \draw[dashed] (n4) -- (n0);
+  \draw[dashed] (n1) -- (n3);
+\end{tikzpicture}
+          </latex-image>
+        </image>
+      </figure>
       <p>Ví dụ: Với chu trình <m>C_4</m> có tập đỉnh <m>\{v_1, v_2, v_3, v_4\}</m> và các cạnh <m>v_1v_2, v_2v_3, v_3v_4, v_4v_1</m>, đồ thị con gồm ba cạnh <m>v_1v_2, v_2v_3, v_3v_4</m> là một cây bao trùm của <m>C_4</m>.</p>
       <p>Xem thêm <xref ref="def-spanning-subgraph" text="title" />, <xref ref="def-subgraph" text="title" />.</p>
     </statement>
@@ -811,6 +831,26 @@
         <li><p><term>đồ thị con</term> <xref ref="bib-leanhvinh-2020" /> (tr. 13); <xref ref="bib-nguyenhoangthach-2020" /> (tr. 68); <xref ref="bib-nguyenhuudien-2019" /> (tr. 166); <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 404) — cách dùng phổ biến.</p></li>
         <li><p><term>đồ thị con của</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 68); <xref ref="bib-leanhvinh-2020" /> (tr. 14); <xref ref="bib-nguyenhuudien-2019" /> (tr. 232).</p></li>
       </ul>
+      <figure xml:id="fig-subgraph">
+        <caption>Một đồ thị con (cạnh đậm) của đồ thị chủ.</caption>
+        <image width="45%">
+          <latex-image>
+\begin{tikzpicture}[scale=1.0,vtx/.style={circle,fill=black,inner sep=1.7pt},vin/.style={circle,draw,fill=white,inner sep=1.2pt}]
+  \node[vtx] (n0) at (0.0,1.6) {};
+  \node[vtx] (n1) at (-1.5217,0.4944) {};
+  \node[vtx] (n2) at (-0.9405,-1.2944) {};
+  \node[vtx] (n3) at (0.9405,-1.2944) {};
+  \node[vtx] (n4) at (1.5217,0.4944) {};
+  \draw[very thick] (n0) -- (n1);
+  \draw[very thick] (n1) -- (n2);
+  \draw (n2) -- (n3);
+  \draw (n3) -- (n4);
+  \draw (n4) -- (n0);
+  \draw[very thick] (n0) -- (n2);
+\end{tikzpicture}
+          </latex-image>
+        </image>
+      </figure>
       <p>Ví dụ: Cho <m>G = (V, E)</m> với <m>V = \{a, b, c\}</m> và <m>E = \{ab, bc, ca\}</m>. Khi đó đồ thị <m>H = (W, F)</m> với <m>W = \{a, b\}</m> và <m>F = \{ab\}</m> là một đồ thị con của <m>G</m>, vì <m>W \subseteq V</m>, <m>F \subseteq E</m>, và cạnh <m>ab</m> có cả hai đầu mút <m>a</m> và <m>b</m> thuộc <m>W</m>.</p>
       <p>Xem thêm <xref ref="def-graph" text="title" />, <xref ref="def-induced-subgraph" text="title" />, <xref ref="def-spanning-subgraph" text="title" />.</p>
     </statement>
@@ -981,6 +1021,27 @@
         <li><p><term>hàm toàn ánh</term> <xref ref="bib-ngodactan-2004" /> (tr. 37); <xref ref="bib-rosen-2003-vi" /> (tr. 85); <xref ref="bib-cormen-2001-vi" /> (tr. 107).</p></li>
         <li><p><term>ánh xạ toàn ánh</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
       </ul>
+      <figure xml:id="fig-surjection">
+        <caption>Một toàn ánh: mọi phần tử của <m>Y</m> đều có tạo ảnh.</caption>
+        <image width="50%">
+          <latex-image>
+\begin{tikzpicture}[d/.style={circle,fill=black,inner sep=1.6pt}]
+  \node[d] (d1) at (-1.4,1.5) {};
+  \node[d] (d2) at (-1.4,0.5) {};
+  \node[d] (d3) at (-1.4,-0.5) {};
+  \node[d] (d4) at (-1.4,-1.5) {};
+  \node[d] (ca) at (1.4,0.5) {};
+  \node[d] (cb) at (1.4,-0.5) {};
+  \draw[->] (d1) -- (ca);
+  \draw[->] (d2) -- (ca);
+  \draw[->] (d3) -- (cb);
+  \draw[->] (d4) -- (cb);
+  \node at (-1.4,2.05) {$X$};
+  \node at (1.4,1.05) {$Y$};
+\end{tikzpicture}
+          </latex-image>
+        </image>
+      </figure>
       <p>Ví dụ: Xét hàm <m>f: \mathbb{Z} \to \mathbb{Z}</m> cho bởi <m>f(n) = n + 1</m>. Với mỗi <m>b \in \mathbb{Z}</m>, chọn <m>a = b - 1 \in \mathbb{Z}</m> thì <m>f(a) = b</m>, nên <m>f</m> là một toàn ánh.</p>
       <p>Xem thêm <xref ref="def-bijection" text="title" />, <xref ref="def-function" text="title" />, <xref ref="def-injection" text="title" />.</p>
     </statement>

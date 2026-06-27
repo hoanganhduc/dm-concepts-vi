@@ -377,6 +377,32 @@
         <li><p><term>chu trình Euler</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 74); <xref ref="bib-leanhvinh-2020" /> (tr. 110); <xref ref="bib-nguyenhuudien-2019" /> (tr. 10) — cách dùng phổ biến.</p></li>
         <li><p><term>mạch Euler</term> <xref ref="bib-ngodactan-2004" /> (tr. 200).</p></li>
       </ul>
+      <figure xml:id="fig-euler-circuit">
+        <caption>Một chu trình Euler: mọi đỉnh bậc chẵn; các cạnh đánh số theo chu trình.</caption>
+        <image width="45%">
+          <latex-image>
+\begin{tikzpicture}[scale=1.0,vtx/.style={circle,fill=black,inner sep=1.7pt},vin/.style={circle,draw,fill=white,inner sep=1.2pt}]
+  \node[vtx] (n0) at (0,0) {};
+  \node[vtx] (n1) at (-1.5,1.1) {};
+  \node[vtx] (n2) at (-1.5,-1.1) {};
+  \node[vtx] (n3) at (1.5,1.1) {};
+  \node[vtx] (n4) at (1.5,-1.1) {};
+  \draw (n0) -- (n1);
+  \draw (n1) -- (n2);
+  \draw (n2) -- (n0);
+  \draw (n0) -- (n3);
+  \draw (n3) -- (n4);
+  \draw (n4) -- (n0);
+  \node[fill=white,inner sep=1pt,font=\scriptsize] at ($(n0)!0.5!(n1)$) {1};
+  \node[fill=white,inner sep=1pt,font=\scriptsize] at ($(n1)!0.5!(n2)$) {2};
+  \node[fill=white,inner sep=1pt,font=\scriptsize] at ($(n2)!0.5!(n0)$) {3};
+  \node[fill=white,inner sep=1pt,font=\scriptsize] at ($(n0)!0.5!(n3)$) {4};
+  \node[fill=white,inner sep=1pt,font=\scriptsize] at ($(n3)!0.5!(n4)$) {5};
+  \node[fill=white,inner sep=1pt,font=\scriptsize] at ($(n4)!0.5!(n0)$) {6};
+\end{tikzpicture}
+          </latex-image>
+        </image>
+      </figure>
       <p>Ví dụ: Đồ thị <m>K_3</m> với ba đỉnh <m>u</m>, <m>v</m>, <m>w</m> và ba cạnh <m>uv</m>, <m>vw</m>, <m>wu</m> có chu trình Euler <m>u, v, w, u</m>, vì nó đi qua cả ba cạnh đúng một lần và quay về đỉnh xuất phát <m>u</m>.</p>
       <p>Xem thêm <xref ref="def-circuit" text="title" />, <xref ref="def-euler-path" text="title" />, <xref ref="def-hamilton-circuit" text="title" />.</p>
     </statement>

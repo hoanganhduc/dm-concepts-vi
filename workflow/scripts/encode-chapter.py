@@ -162,8 +162,11 @@ def render_entry(e, allowed_ids):
         if fig.get("type") == "image":
             lines[-1] = f'        <image width="{width}" source="{fig.get("source","")}"/>'
         else:
+            # TikZ body: XML-escape & and < (e.g. pmatrix '&', '<-' arrows);
+            # PreTeXt unescapes them when extracting the picture to LaTeX.
+            code = fig.get("code", "").replace("&", "&amp;").replace("<", "&lt;")
             lines.append("          <latex-image>")
-            lines.append(fig.get("code", ""))   # TikZ body, verbatim (not escaped)
+            lines.append(code)
             lines.append("          </latex-image>")
             lines.append("        </image>")
         lines.append("      </figure>")

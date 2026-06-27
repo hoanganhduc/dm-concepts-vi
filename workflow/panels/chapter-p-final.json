@@ -710,7 +710,13 @@
     "total-order",
     "transitive-relation"
    ],
-   "pos": "d.t."
+   "pos": "d.t.",
+   "figure": {
+    "type": "latex-image",
+    "code": "\\begin{tikzpicture}[scale=1.0,vtx/.style={circle,fill=black,inner sep=1.7pt}]\n  \\node[circle,draw,fill=white,inner sep=1.3pt] (na) at (0.0,0.0) {\\scriptsize $a$};\n  \\node[circle,draw,fill=white,inner sep=1.3pt] (nb) at (-0.9,1.6) {\\scriptsize $b$};\n  \\node[circle,draw,fill=white,inner sep=1.3pt] (nc) at (0.9,1.6) {\\scriptsize $c$};\n  \\node[circle,draw,fill=white,inner sep=1.3pt] (nd) at (0.0,3.2) {\\scriptsize $d$};\n  \\draw (na) -- (nb);\n  \\draw (na) -- (nc);\n  \\draw (nb) -- (nd);\n\\end{tikzpicture}",
+    "width": "50%",
+    "caption_vi": "Sơ đồ Hasse của một thứ tự bộ phận; $$b$$ và $$c$$ không so sánh được."
+   }
   },
   {
    "id": "partial-ordering",
@@ -1294,7 +1300,13 @@
     "regular-graph"
    ],
    "notes": "Only one Vietnamese term denotes this concept across the whole corpus: \"đồ thị Petersen\" (a proper-noun-based name, identical in all sources). It is attested in two older sources: bib-nguyenducnghia-2006 (tr. 167 PDF, labeling a figure for a chromatic-number exercise) and bib-ngodactan-2004 (tr. 195 PDF, \"gọi là đồ thị Petersen\" introducing the graph via Hình 6.9; also tr. 217 and tr. 281). No 2019-2020 source (bib-leanhvinh-2020, bib-nguyenhoangthach-2020, bib-nguyenhuudien-2019) attests the term; both normal and --loose searches for \"Petersen\" returned hits only in the 2004 and 2006 books. The OCR sources (bib-leanhvinh-2020, bib-hoangchithanh-2007) yielded no Petersen hits under either mode. No Vietnamese-transliterated spelling (e.g. \"Pêtécxen\") exists in the corpus. The recommended term is therefore verified=true but its newest attestation is 2006 rather than 2019-2020; this is the standard and only form, so no variant is needed. vi_terms ordered newest-source first (2006 before 2004).\n\nsee_also edit (per panel exposition LOW): the misleading \"bipartite-graph\" link was dropped — the Petersen graph is a standard example of a NON-bipartite graph (girth 5, contains odd cycles). \"regular-graph\" (the definition is 3-regular) and \"graph-coloring\" (the example is chromatic-related) are retained as well-chosen cross-chapter forward references.",
-   "pos": "d.t."
+   "pos": "d.t.",
+   "figure": {
+    "type": "latex-image",
+    "code": "\\begin{tikzpicture}[scale=1.0,vtx/.style={circle,fill=black,inner sep=1.7pt},vin/.style={circle,draw,fill=white,inner sep=1.2pt}]\n  \\node[vtx] (n0) at (0.0,1.8) {};\n  \\node[vtx] (n1) at (-1.7119,0.5562) {};\n  \\node[vtx] (n2) at (-1.058,-1.4562) {};\n  \\node[vtx] (n3) at (1.058,-1.4562) {};\n  \\node[vtx] (n4) at (1.7119,0.5562) {};\n  \\node[vtx] (n5) at (0.0,0.95) {};\n  \\node[vtx] (n6) at (-0.9035,0.2936) {};\n  \\node[vtx] (n7) at (-0.5584,-0.7686) {};\n  \\node[vtx] (n8) at (0.5584,-0.7686) {};\n  \\node[vtx] (n9) at (0.9035,0.2936) {};\n  \\draw (n0) -- (n1);\n  \\draw (n1) -- (n2);\n  \\draw (n2) -- (n3);\n  \\draw (n3) -- (n4);\n  \\draw (n4) -- (n0);\n  \\draw (n5) -- (n7);\n  \\draw (n6) -- (n8);\n  \\draw (n7) -- (n9);\n  \\draw (n8) -- (n5);\n  \\draw (n9) -- (n6);\n  \\draw (n0) -- (n5);\n  \\draw (n1) -- (n6);\n  \\draw (n2) -- (n7);\n  \\draw (n3) -- (n8);\n  \\draw (n4) -- (n9);\n\\end{tikzpicture}",
+    "width": "48%",
+    "caption_vi": "Đồ thị Petersen: chu trình ngoài, ngôi sao trong và các nan hoa."
+   }
   },
   {
    "id": "phrase-structure-grammar",
@@ -1546,7 +1558,13 @@
     "complete-graph"
    ],
    "notes": "Recommended term \"đồ thị phẳng\" (planar graph) is the standard term, attested in the newest 2020 source (bib-leanhvinh-2020 p.114, formal definition) and across all corpus sources (2020, 2019, 2007, 2004). The negated form \"đồ thị không phẳng\" (nonplanar graph) is recorded as a closely related variant denoting graphs that are NOT planar; it is attested in bib-leanhvinh-2020 (p.126), bib-nguyenhuudien-2019 (p.233, theorem on K5), and bib-ngodactan-2004 (p.16). For the OCR sources (bib-hoangchithanh-2007, bib-leanhvinh-2020) both normal and --loose searches were run; loose added no new term forms. The phrase \"biểu diễn phẳng\" (planar representation/embedding) used in definition_vi follows the source wording \"biểu diễn\" in bib-leanhvinh-2020 p.114.\n\nTerminology consistency (per panel exposition finding): bib-nguyenhuudien-2019 renders complete bipartite locally as \"đồ thị phân đôi đầy đủ\", but the book-standard rendering for bipartite is \"đồ thị hai phần\" and \"đồ thị phân đôi\" is a listed variant only; the planar-graph term itself is consistently \"đồ thị phẳng\" in every source.\n\nsee_also: all three ids (bipartite-graph, complete-graph, chromatic-number) are cross-chapter forward references to be created in their own letter chapters, consistent with the path/poset entries which flag forward references.",
-   "pos": "d.t."
+   "pos": "d.t.",
+   "figure": {
+    "type": "latex-image",
+    "code": "\\begin{tikzpicture}[scale=1.0,vtx/.style={circle,fill=black,inner sep=1.7pt},vin/.style={circle,draw,fill=white,inner sep=1.2pt}]\n  \\node[vtx] (n0) at (0,1.6) {};\n  \\node[vtx] (n1) at (-1.5,-1) {};\n  \\node[vtx] (n2) at (1.5,-1) {};\n  \\node[vtx] (n3) at (0,-0.1) {};\n  \\draw (n0) -- (n1);\n  \\draw (n1) -- (n2);\n  \\draw (n2) -- (n0);\n  \\draw (n0) -- (n3);\n  \\draw (n1) -- (n3);\n  \\draw (n2) -- (n3);\n\\end{tikzpicture}",
+    "width": "42%",
+    "caption_vi": "Đồ thị phẳng $$K_4$$ vẽ không có cạnh cắt nhau."
+   }
   },
   {
    "id": "planar-representation",
@@ -1816,7 +1834,13 @@
     "total-order"
    ],
    "notes": "Concept: a poset is a set $$S$$ together with a partial order $$\\preceq$$ (reflexive, antisymmetric, transitive), written $$(S, \\preceq)$$ (Rosen §9.6).\n\nRecommended term \"tập hợp có thứ tự\" is taken from the newest attested order-theory source, bib-nguyenhuudien-2019 (2019), which gives the formal Định nghĩa 4.13 \"Cho $$(X, \\le)$$ là một tập hợp có thứ tự\" with the partial-order axioms (phản xạ, phản đối xứng, bắc cầu) and develops Hasse diagrams and lattices from it (pdf pages 119-125). In this source the \"bộ phận\"/\"partial\" qualifier is left implicit (a \"thứ tự\" satisfying the three axioms), so \"tập hợp có thứ tự\" is the surface form actually attested in 2019.\n\nVariant \"tập được sắp bộ phận\" is the explicit \"partially ordered set\" form from bib-ngodactan-2004 (2004, pdf pages 163-165), where \"thứ tự bộ phận\" (partial order) is defined and the poset is denoted $$\\langle X, \\preceq \\rangle$$ with Hasse-diagram development. The qualifier \"thứ tự bộ phận\" appears ONLY in bib-ngodactan-2004 across the whole corpus.\n\nConsistency with the partial-order entry (per panel finding): definition_vi uses \"quan hệ thứ tự bộ phận $$\\preceq$$\", matching the explicit-partial wording adopted in the partial-order entry's definition_vi so the two P-chapter entries describe the same underlying relation consistently; the recommended Vietnamese term in partial-order remains the attested \"quan hệ thứ tự\". First-concept emphasis was normalized from Markdown \"*...*\" to \\emph{tập hợp có thứ tự}.\n\nCandidate terms \"tập sắp thứ tự bộ phận\" and the full literal \"tập hợp có thứ tự bộ phận\" returned 0 hits in every source (normal and --loose) and are therefore not recorded as verified terms.\n\nThe OCR graph sources bib-leanhvinh-2020 (2020) and bib-hoangchithanh-2007 (2007), and the combinatorics source bib-nguyenhoangthach-2020 (2020), do not cover posets; their only \"sắp thứ tự\"/\"tập được sắp\" hits refer to ordered pairs/directed edges or to exercises \"sắp xếp\" (arranged) by difficulty, not to the partial-order concept. Both OCR sources were searched with --loose as well, with no poset attestation.",
-   "pos": "d.t."
+   "pos": "d.t.",
+   "figure": {
+    "type": "latex-image",
+    "code": "\\begin{tikzpicture}[scale=1.0,vtx/.style={circle,fill=black,inner sep=1.7pt}]\n  \\node[circle,draw,fill=white,inner sep=1.3pt] (n0) at (0.0,0.0) {\\scriptsize $\\emptyset$};\n  \\node[circle,draw,fill=white,inner sep=1.3pt] (na) at (-1.7,1.6) {\\scriptsize $a$};\n  \\node[circle,draw,fill=white,inner sep=1.3pt] (nb) at (0.0,1.6) {\\scriptsize $b$};\n  \\node[circle,draw,fill=white,inner sep=1.3pt] (nc) at (1.7,1.6) {\\scriptsize $c$};\n  \\node[circle,draw,fill=white,inner sep=1.3pt] (nab) at (-1.7,3.2) {\\scriptsize $ab$};\n  \\node[circle,draw,fill=white,inner sep=1.3pt] (nac) at (0.0,3.2) {\\scriptsize $ac$};\n  \\node[circle,draw,fill=white,inner sep=1.3pt] (nbc) at (1.7,3.2) {\\scriptsize $bc$};\n  \\node[circle,draw,fill=white,inner sep=1.3pt] (nabc) at (0.0,4.8) {\\scriptsize $abc$};\n  \\draw (n0) -- (na);\n  \\draw (n0) -- (nb);\n  \\draw (n0) -- (nc);\n  \\draw (na) -- (nab);\n  \\draw (na) -- (nac);\n  \\draw (nb) -- (nab);\n  \\draw (nb) -- (nbc);\n  \\draw (nc) -- (nac);\n  \\draw (nc) -- (nbc);\n  \\draw (nab) -- (nabc);\n  \\draw (nac) -- (nabc);\n  \\draw (nbc) -- (nabc);\n\\end{tikzpicture}",
+    "width": "50%",
+    "caption_vi": "Sơ đồ Hasse của quan hệ bao hàm trên các tập con của $$\\{a,b,c\\}$$."
+   }
   },
   {
    "id": "positive-correlation",

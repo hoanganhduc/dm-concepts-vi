@@ -208,6 +208,26 @@
         <li><p><term>tương ứng 1-1</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 14); <xref ref="bib-nguyenhuudien-2019" /> (tr. 96); <xref ref="bib-vovantuandung-2007" />.</p></li>
         <li><p><term>tương ứng một-một</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 82); <xref ref="bib-ngodactan-2004" /> (tr. 25); <xref ref="bib-sierpinski-2012" /> (tr. 301).</p></li>
       </ul>
+      <figure xml:id="fig-bijection">
+        <caption>Một song ánh: tương ứng một–một và lên.</caption>
+        <image width="50%">
+          <latex-image>
+\begin{tikzpicture}[d/.style={circle,fill=black,inner sep=1.6pt}]
+  \node[d] (d1) at (-1.4,1.0) {};
+  \node[d] (d2) at (-1.4,0.0) {};
+  \node[d] (d3) at (-1.4,-1.0) {};
+  \node[d] (ca) at (1.4,1.0) {};
+  \node[d] (cb) at (1.4,0.0) {};
+  \node[d] (cc) at (1.4,-1.0) {};
+  \draw[->] (d1) -- (cb);
+  \draw[->] (d2) -- (ca);
+  \draw[->] (d3) -- (cc);
+  \node at (-1.4,1.55) {$X$};
+  \node at (1.4,1.55) {$Y$};
+\end{tikzpicture}
+          </latex-image>
+        </image>
+      </figure>
       <p>Ví dụ: Ánh xạ <m>f : \mathbb{Z} \to \mathbb{Z}</m> cho bởi <m>f(x) = x + 1</m> là một song ánh, vì mỗi số nguyên <m>y</m> là ảnh của đúng một số nguyên <m>x = y - 1</m>.</p>
       <p>Xem thêm <xref ref="def-graph-isomorphism" text="title" />, <xref ref="def-injection" text="title" />, <xref ref="def-inverse-function" text="title" />, <xref ref="def-surjection" text="title" />.</p>
     </statement>
@@ -324,6 +344,26 @@
         <li><p><term>cây tìm kiếm nhị phân</term> <xref ref="bib-doducgiao-2000" /> (tr. 191); <xref ref="bib-doducgiao-2009" /> (tr. 206); <xref ref="bib-doducgiao-2008" /> (tr. 7) — cách dùng phổ biến.</p></li>
         <li><p><term>cây nhị phân tìm kiếm</term> <xref ref="bib-doducgiao-2009" /> (tr. 207); <xref ref="bib-doxuanloi-2006" /> (tr. 240); <xref ref="bib-doducgiao-2008" /> (tr. 247).</p></li>
       </ul>
+      <figure xml:id="fig-binary-search-tree">
+        <caption>Cây tìm kiếm nhị phân với các khóa <m>8,3,10,1,6,14</m>.</caption>
+        <image width="50%">
+          <latex-image>
+\begin{tikzpicture}[scale=1.0,vtx/.style={circle,fill=black,inner sep=1.7pt}]
+  \node[circle,draw,fill=white,inner sep=1.3pt] (n1) at (0.0,-3.0) {\scriptsize $1$};
+  \node[circle,draw,fill=white,inner sep=1.3pt] (n6) at (1.5,-3.0) {\scriptsize $6$};
+  \node[circle,draw,fill=white,inner sep=1.3pt] (n3) at (0.75,-1.5) {\scriptsize $3$};
+  \node[circle,draw,fill=white,inner sep=1.3pt] (n14) at (3.0,-3.0) {\scriptsize $14$};
+  \node[circle,draw,fill=white,inner sep=1.3pt] (n10) at (3.0,-1.5) {\scriptsize $10$};
+  \node[circle,draw,fill=white,inner sep=1.3pt] (n8) at (1.875,0.0) {\scriptsize $8$};
+  \draw (n8) -- (n3);
+  \draw (n8) -- (n10);
+  \draw (n3) -- (n1);
+  \draw (n3) -- (n6);
+  \draw (n10) -- (n14);
+\end{tikzpicture}
+          </latex-image>
+        </image>
+      </figure>
       <p>Ví dụ: Với danh sách từ mathematics, physics, geography, zoology theo thứ tự từ điển, lấy mathematics làm khóa của gốc. Vì physics đứng sau mathematics nên physics là khóa của con bên phải gốc. Vì geography đứng trước mathematics nên geography là khóa của con bên trái gốc. Cuối cùng, zoology đứng sau cả mathematics lẫn physics nên là khóa của con bên phải của đỉnh có khóa physics.</p>
       <p>Xem thêm <xref ref="def-binary-tree" text="title" />, <xref ref="def-rooted-tree" text="title" />.</p>
     </statement>
@@ -338,6 +378,28 @@
       <ul>
         <li><p><term>cây nhị phân</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 83); <xref ref="bib-nguyenhuudien-2019" /> (tr. 254); <xref ref="bib-hoangchithanh-2011" /> — cách dùng phổ biến.</p></li>
       </ul>
+      <figure xml:id="fig-binary-tree">
+        <caption>Một cây nhị phân: mỗi đỉnh có tối đa hai con.</caption>
+        <image width="50%">
+          <latex-image>
+\begin{tikzpicture}[scale=1.0,vtx/.style={circle,fill=black,inner sep=1.7pt}]
+  \node[vtx] (n3) at (0.0,-3.0) {};
+  \node[vtx] (n4) at (1.5,-3.0) {};
+  \node[vtx] (n1) at (0.75,-1.5) {};
+  \node[vtx] (n6) at (3.0,-4.5) {};
+  \node[vtx] (n5) at (3.0,-3.0) {};
+  \node[vtx] (n2) at (3.0,-1.5) {};
+  \node[vtx] (n0) at (1.875,0.0) {};
+  \draw (n0) -- (n1);
+  \draw (n0) -- (n2);
+  \draw (n1) -- (n3);
+  \draw (n1) -- (n4);
+  \draw (n2) -- (n5);
+  \draw (n5) -- (n6);
+\end{tikzpicture}
+          </latex-image>
+        </image>
+      </figure>
       <p>Ví dụ: Xét cây có gốc <m>T</m> với gốc <m>r</m>, trong đó <m>r</m> có con trái <m>a</m> và con phải <m>b</m>, đỉnh <m>a</m> có con trái <m>c</m> và không có con phải, còn <m>b</m> là lá. Vì mỗi đỉnh có không quá hai con và mỗi con được phân biệt là con trái hay con phải, <m>T</m> là một cây nhị phân.</p>
       <p>Xem thêm <xref ref="def-full-binary-tree" text="title" />, <xref ref="def-ordered-rooted-tree" text="title" />, <xref ref="def-rooted-tree" text="title" />, <xref ref="def-tree" text="title" />.</p>
     </statement>
@@ -418,6 +480,28 @@
         <li><p><term>đồ thị lưỡng phân</term> <xref ref="bib-wikipedia-vi" />; <xref ref="bib-vudinhhoa-2003" /> (tr. 70); <xref ref="bib-vudinhhoa-2010" />.</p></li>
         <li><p><term>đồ thị phân đôi</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 160); <xref ref="bib-doantamhoe-2009" />; <xref ref="bib-doducgiao-2009" /> (tr. 96).</p></li>
       </ul>
+      <figure xml:id="fig-bipartite-graph">
+        <caption>Đồ thị hai phía với hai phần <m>V_1, V_2</m>; cạnh chỉ nối giữa hai phần.</caption>
+        <image width="42%">
+          <latex-image>
+\begin{tikzpicture}[scale=1.0,vtx/.style={circle,fill=black,inner sep=1.7pt},vin/.style={circle,draw,fill=white,inner sep=1.2pt}]
+  \node[vtx] (n0) at (-1.3,1) {};
+  \node[vtx] (n1) at (-1.3,0) {};
+  \node[vtx] (n2) at (-1.3,-1) {};
+  \node[vtx] (n3) at (1.3,0.6) {};
+  \node[vtx] (n4) at (1.3,-0.6) {};
+  \draw (n0) -- (n3);
+  \draw (n0) -- (n4);
+  \draw (n1) -- (n3);
+  \draw (n2) -- (n4);
+  \draw (n2) -- (n3);
+  \node[draw,ellipse,minimum width=1.1cm,minimum height=3cm] at (-1.3,0) {};
+  \node[draw,ellipse,minimum width=1.1cm,minimum height=2.2cm] at (1.3,0) {};
+  \node at (-1.3,1.7) {$V_1$}; \node at (1.3,1.5) {$V_2$};
+\end{tikzpicture}
+          </latex-image>
+        </image>
+      </figure>
       <p>Ví dụ: Chu trình <m>C_4</m> với các đỉnh <m>a, b, c, d</m> và các cạnh <m>ab, bc, cd, da</m> là đồ thị hai phần, với <m>V_1 = \{a, c\}</m> và <m>V_2 = \{b, d\}</m>, vì mỗi cạnh nối một đỉnh của <m>V_1</m> với một đỉnh của <m>V_2</m>.</p>
       <p>Xem thêm <xref ref="def-complete-bipartite-graph" text="title" />, <xref ref="def-graph" text="title" />, <xref ref="def-matching" text="title" />.</p>
     </statement>
@@ -704,6 +788,34 @@
         <li><p><term>thuật toán loang</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
         <li><p><term>tìm kiếm theo chiều rộng</term> <xref ref="bib-nguyenducnghia-2006" />; <xref ref="bib-doxuanloi-2006" /> (tr. 152); <xref ref="bib-vudinhhoa-2010" />.</p></li>
       </ul>
+      <figure xml:id="fig-breadth-first-search">
+        <caption>Tìm kiếm theo chiều rộng: đỉnh ghi theo mức; cạnh cây vẽ đậm.</caption>
+        <image width="45%">
+          <latex-image>
+\begin{tikzpicture}[scale=1.0,vtx/.style={circle,fill=black,inner sep=1.7pt},vin/.style={circle,draw,fill=white,inner sep=1.2pt}]
+  \node[vtx] (n0) at (0,1.6) {};
+  \node[vtx] (n1) at (-1.4,0.4) {};
+  \node[vtx] (n2) at (1.4,0.4) {};
+  \node[vtx] (n3) at (-1.4,-1.1) {};
+  \node[vtx] (n4) at (0,-1.1) {};
+  \node[vtx] (n5) at (1.4,-1.1) {};
+  \draw[very thick] (n0) -- (n1);
+  \draw[very thick] (n0) -- (n2);
+  \draw[very thick] (n1) -- (n3);
+  \draw[very thick] (n1) -- (n4);
+  \draw[very thick] (n2) -- (n5);
+  \draw[thin] (n3) -- (n4);
+  \draw[thin] (n4) -- (n5);
+  \node[above=2pt] at (n0) {\small $0$};
+  \node[left=2pt] at (n1) {\small $1$};
+  \node[right=2pt] at (n2) {\small $1$};
+  \node[below=2pt] at (n3) {\small $2$};
+  \node[below=2pt] at (n4) {\small $2$};
+  \node[below=2pt] at (n5) {\small $2$};
+\end{tikzpicture}
+          </latex-image>
+        </image>
+      </figure>
       <p>Ví dụ: Trong đồ thị đường đi <m>P_4</m> với các đỉnh <m>v_1, v_2, v_3, v_4</m> và các cạnh <m>v_1v_2</m>, <m>v_2v_3</m>, <m>v_3v_4</m>, phép duyệt theo chiều rộng bắt đầu từ gốc <m>v_1</m> thăm các đỉnh theo thứ tự <m>v_1, v_2, v_3, v_4</m>, ứng với các mức khoảng cách <m>0, 1, 2, 3</m> tới gốc.</p>
       <p>Xem thêm <xref ref="def-depth-first-search" text="title" />, <xref ref="def-rooted-tree" text="title" />, <xref ref="def-spanning-tree" text="title" />, <xref ref="def-tree-traversal" text="title" />.</p>
     </statement>

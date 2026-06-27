@@ -207,6 +207,16 @@ entries:
     were mined both normal and --loose. Both source snippets re-verified in corpus: leanhvinh-2020 ("Định
     nghĩa 1.18. Chu trình Hamilton của ... G là một chu trình", pdf_page 21) and hoangchithanh-2007 ("đồ
     thị đúng một lần. Chu trình Hamilton là chu trình di qua mỗi đỉnh", pdf_page 82).'
+  figure:
+    type: latex-image
+    code: "\\begin{tikzpicture}[scale=1.0,vtx/.style={circle,fill=black,inner sep=1.7pt},vin/.style={circle,draw,fill=white,inner\
+      \ sep=1.2pt}]\n  \\node[vtx] (n0) at (0.0,1.6) {};\n  \\node[vtx] (n1) at (-1.5217,0.4944) {};\n\
+      \  \\node[vtx] (n2) at (-0.9405,-1.2944) {};\n  \\node[vtx] (n3) at (0.9405,-1.2944) {};\n  \\node[vtx]\
+      \ (n4) at (1.5217,0.4944) {};\n  \\draw[very thick] (n0) -- (n1);\n  \\draw[very thick] (n1) --\
+      \ (n2);\n  \\draw[very thick] (n2) -- (n3);\n  \\draw[very thick] (n3) -- (n4);\n  \\draw[very thick]\
+      \ (n4) -- (n0);\n  \\draw (n0) -- (n2);\n  \\draw (n1) -- (n3);\n\\end{tikzpicture}"
+    width: 45%
+    caption_vi: Một chu trình Hamilton (cạnh đậm) đi qua mỗi đỉnh đúng một lần.
 - id: hamiltonian-graph
   letter: H
   headword_en: Hamiltonian graph
@@ -639,6 +649,18 @@ entries:
     because the Hasse diagram has no standard single symbol. see_also targets (partially-ordered-set,
     covering-relation, lattice) are cross-chapter forward references; there are no related same-chapter
     H-terms in the corpus to link.'
+  figure:
+    type: latex-image
+    code: "\\begin{tikzpicture}[scale=1.0,vtx/.style={circle,fill=black,inner sep=1.7pt}]\n  \\node[circle,draw,fill=white,inner\
+      \ sep=1.3pt] (n1) at (0.0,0.0) {\\scriptsize $1$};\n  \\node[circle,draw,fill=white,inner sep=1.3pt]\
+      \ (n2) at (-0.9,1.6) {\\scriptsize $2$};\n  \\node[circle,draw,fill=white,inner sep=1.3pt] (n3)\
+      \ at (0.9,1.6) {\\scriptsize $3$};\n  \\node[circle,draw,fill=white,inner sep=1.3pt] (n4) at (-0.9,3.2)\
+      \ {\\scriptsize $4$};\n  \\node[circle,draw,fill=white,inner sep=1.3pt] (n6) at (0.9,3.2) {\\scriptsize\
+      \ $6$};\n  \\node[circle,draw,fill=white,inner sep=1.3pt] (n12) at (0.0,4.8) {\\scriptsize $12$};\n\
+      \  \\draw (n1) -- (n2);\n  \\draw (n1) -- (n3);\n  \\draw (n2) -- (n4);\n  \\draw (n2) -- (n6);\n\
+      \  \\draw (n3) -- (n6);\n  \\draw (n4) -- (n12);\n  \\draw (n6) -- (n12);\n\\end{tikzpicture}"
+    width: 50%
+    caption_vi: Sơ đồ Hasse của quan hệ chia hết trên $$\{1,2,3,4,6,12\}$$.
 - id: head-of-an-arc
   letter: H
   headword_en: head of an arc
@@ -1451,6 +1473,23 @@ entries:
     hoangchithanh-2007 — no hypercube term found (all "khối" hits are unrelated: "sơ đồ khối" = block
     diagram, "khôi phục" = recover, "khối đa diện" = polyhedron). ngodactan-2004 "lập phương" hits refer
     to the geometric cube ("hình lập phương"), not the graph $$Q_n$$; not counted.'
+  figure:
+    type: latex-image
+    code: "\\begin{tikzpicture}[scale=0.85,vtx/.style={circle,fill=black,inner sep=1.7pt},vin/.style={circle,draw,fill=white,inner\
+      \ sep=1.2pt}]\n  \\node[vtx] (n000) at (-1.4,-1.4) {};\n  \\node[vtx] (n100) at (1.4,-1.4) {};\n\
+      \  \\node[vtx] (n110) at (1.4,1.4) {};\n  \\node[vtx] (n010) at (-1.4,1.4) {};\n  \\node[vtx] (n001)\
+      \ at (-0.5,-0.5) {};\n  \\node[vtx] (n101) at (2.3,-0.5) {};\n  \\node[vtx] (n111) at (2.3,2.3)\
+      \ {};\n  \\node[vtx] (n011) at (-0.5,2.3) {};\n  \\draw (n000) -- (n100);\n  \\draw (n100) -- (n110);\n\
+      \  \\draw (n110) -- (n010);\n  \\draw (n010) -- (n000);\n  \\draw (n001) -- (n101);\n  \\draw (n101)\
+      \ -- (n111);\n  \\draw (n111) -- (n011);\n  \\draw (n011) -- (n001);\n  \\draw (n000) -- (n001);\n\
+      \  \\draw (n100) -- (n101);\n  \\draw (n110) -- (n111);\n  \\draw (n010) -- (n011);\n  \\node[below\
+      \ left=2pt] at (n000) {\\small $000$};\n  \\node[below right=2pt] at (n100) {\\small $100$};\n \
+      \ \\node[right=2pt] at (n110) {\\small $110$};\n  \\node[left=2pt] at (n010) {\\small $010$};\n\
+      \  \\node[below=2pt] at (n001) {\\small $001$};\n  \\node[right=2pt] at (n101) {\\small $101$};\n\
+      \  \\node[above right=2pt] at (n111) {\\small $111$};\n  \\node[above=2pt] at (n011) {\\small $011$};\n\
+      \\end{tikzpicture}"
+    width: 48%
+    caption_vi: Đồ thị siêu lập phương $$Q_3$$; hai đỉnh kề nhau khác nhau đúng một bit.
 - id: hypergraph
   letter: H
   headword_en: hypergraph

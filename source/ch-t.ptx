@@ -189,6 +189,25 @@
         <li><p><term>nguyên lý ngăn khéo</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 51).</p></li>
         <li><p><term>nguyên lý ngăn kéo Dirichlet</term> <xref ref="bib-wikipedia-vi" />.</p></li>
       </ul>
+      <figure xml:id="fig-the-pigeonhole-principle">
+        <caption>Nguyên lý chuồng bồ câu: 5 con trong 4 ngăn, một ngăn chứa hai con.</caption>
+        <image width="62%">
+          <latex-image>
+\begin{tikzpicture}
+  \draw (0.0,0) rectangle (1.1,1.4);
+  \draw (1.4,0) rectangle (2.5,1.4);
+  \draw (2.8,0) rectangle (3.9,1.4);
+  \draw (4.199999999999999,0) rectangle (5.299999999999999,1.4);
+  \node[circle,fill=black,inner sep=2.2pt] at (0.45,0.5) {};
+  \node[circle,fill=black,inner sep=2.2pt] at (0.45,1.0) {};
+  \node[circle,fill=black,inner sep=2.2pt] at (1.95,0.7) {};
+  \node[circle,fill=black,inner sep=2.2pt] at (3.3499999999999996,0.7) {};
+  \node[circle,fill=black,inner sep=2.2pt] at (4.75,0.7) {};
+  \node at (5.9,0.7) {\small 5 con, 4 ngăn};
+\end{tikzpicture}
+          </latex-image>
+        </image>
+      </figure>
       <p>Ví dụ: Trong một nhóm <m>13</m> người luôn có ít nhất hai người sinh cùng một tháng, vì có <m>13</m> người (đồ vật) xếp vào <m>12</m> tháng (hộp) và <m>13 \gt 12</m>.</p>
     </statement>
   </definition>
@@ -388,6 +407,25 @@
         <li><p><term>đấu loại</term> <xref ref="bib-doducgiao-2009" /> (tr. 162); <xref ref="bib-doducgiao-2008" /> (tr. 210); <xref ref="bib-doducthai-2010" /> (tr. 33).</p></li>
         <li><p><term>đồ thị đấu loại</term> <xref ref="bib-nguyenducnghia-2006" />; <xref ref="bib-doducgiao-2009" /> (tr. 162).</p></li>
       </ul>
+      <figure xml:id="fig-tournament">
+        <caption>Một đấu vòng tròn trên 4 đỉnh: mỗi cặp có đúng một cạnh có hướng.</caption>
+        <image width="45%">
+          <latex-image>
+\begin{tikzpicture}[scale=1.0,vtx/.style={circle,fill=black,inner sep=1.7pt},vin/.style={circle,draw,fill=white,inner sep=1.2pt}]
+  \node[vtx] (n0) at (-0.9899,0.9899) {};
+  \node[vtx] (n1) at (-0.9899,-0.9899) {};
+  \node[vtx] (n2) at (0.9899,-0.9899) {};
+  \node[vtx] (n3) at (0.9899,0.9899) {};
+  \draw[->] (n0) -- (n1);
+  \draw[->] (n0) -- (n2);
+  \draw[->,bend left=30] (n0) to (n3);
+  \draw[->] (n1) -- (n2);
+  \draw[->] (n1) -- (n3);
+  \draw[->] (n2) -- (n3);
+\end{tikzpicture}
+          </latex-image>
+        </image>
+      </figure>
       <p>Ví dụ: Với ba đỉnh <m>a, b, c</m>, định hướng ba cạnh của <m>K_3</m> thành các cung <m>(a,b)</m>, <m>(b,c)</m>, <m>(c,a)</m> cho ta một đồ thị có hướng đầy đủ trên ba đỉnh.</p>
       <p>Xem thêm <xref ref="def-complete-graph" text="title" />, <xref ref="def-directed-graph" text="title" />, <xref ref="def-hamiltonian-path" text="title" />.</p>
     </statement>
@@ -495,6 +533,28 @@ Chẳng hạn, phần tử ở vị trí <m>(3,1)</m> của <m>A^{t}</m> bằng 
         <li><p><term>cây</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 81); <xref ref="bib-leanhvinh-2020" /> (tr. 39); <xref ref="bib-nguyenhuudien-2019" /> (tr. 242) — cách dùng phổ biến.</p></li>
         <li><p><term>đồ thị cây</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 83).</p></li>
       </ul>
+      <figure xml:id="fig-tree">
+        <caption>Một cây với 7 đỉnh.</caption>
+        <image width="50%">
+          <latex-image>
+\begin{tikzpicture}[scale=1.0,vtx/.style={circle,fill=black,inner sep=1.7pt}]
+  \node[vtx] (n4) at (0.0,-3.0) {};
+  \node[vtx] (n5) at (1.5,-3.0) {};
+  \node[vtx] (n1) at (0.75,-1.5) {};
+  \node[vtx] (n2) at (3.0,-1.5) {};
+  \node[vtx] (n6) at (4.5,-3.0) {};
+  \node[vtx] (n3) at (4.5,-1.5) {};
+  \node[vtx] (n0) at (2.75,0.0) {};
+  \draw (n0) -- (n1);
+  \draw (n0) -- (n2);
+  \draw (n0) -- (n3);
+  \draw (n1) -- (n4);
+  \draw (n1) -- (n5);
+  \draw (n3) -- (n6);
+\end{tikzpicture}
+          </latex-image>
+        </image>
+      </figure>
       <p>Ví dụ: Đồ thị <m>T = (V, E)</m> với <m>V = \{a, b, c, d\}</m> và <m>E = \{ab, bc, bd\}</m> là một cây, vì nó liên thông và không chứa chu trình đơn nào.</p>
       <p>Xem thêm <xref ref="def-binary-tree" text="title" />, <xref ref="def-forest" text="title" />, <xref ref="def-rooted-tree" text="title" />, <xref ref="def-spanning-tree" text="title" />.</p>
     </statement>
@@ -529,6 +589,24 @@ Chẳng hạn, phần tử ở vị trí <m>(3,1)</m> của <m>A^{t}</m> bằng 
         <li><p><term>duyệt cây</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 253); <xref ref="bib-hoangchithanh-2011" />; <xref ref="bib-vudinhhoa-2010" /> — cách dùng phổ biến.</p></li>
         <li><p><term>các cách duyệt cây</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 253); <xref ref="bib-hoangchithanh-2007" /> (tr. 139); <xref ref="bib-hoangchithanh-2011" />.</p></li>
       </ul>
+      <figure xml:id="fig-tree-traversal">
+        <caption>Số thứ tự duyệt trung tự (inorder) của các đỉnh trong một cây.</caption>
+        <image width="50%">
+          <latex-image>
+\begin{tikzpicture}[scale=1.0,vtx/.style={circle,fill=black,inner sep=1.7pt}]
+  \node[circle,draw,fill=white,inner sep=1.3pt] (n3) at (0.0,-3.0) {\scriptsize $1$};
+  \node[circle,draw,fill=white,inner sep=1.3pt] (n4) at (1.5,-3.0) {\scriptsize $3$};
+  \node[circle,draw,fill=white,inner sep=1.3pt] (n1) at (0.75,-1.5) {\scriptsize $2$};
+  \node[circle,draw,fill=white,inner sep=1.3pt] (n2) at (3.0,-1.5) {\scriptsize $5$};
+  \node[circle,draw,fill=white,inner sep=1.3pt] (n0) at (1.875,0.0) {\scriptsize $4$};
+  \draw (n0) -- (n1);
+  \draw (n0) -- (n2);
+  \draw (n1) -- (n3);
+  \draw (n1) -- (n4);
+\end{tikzpicture}
+          </latex-image>
+        </image>
+      </figure>
       <p>Ví dụ: Xét cây có gốc được sắp thứ tự với gốc <m>r</m> có hai cây con, cây con bên trái gồm đỉnh <m>a</m> và cây con bên phải gồm đỉnh <m>b</m>. Duyệt theo thứ tự trước cho danh sách <m>r, a, b</m>, còn duyệt theo thứ tự sau cho danh sách <m>a, b, r</m>.</p>
       <p>Xem thêm <xref ref="def-inorder-traversal" text="title" />, <xref ref="def-ordered-rooted-tree" text="title" />, <xref ref="def-postorder-traversal" text="title" />, <xref ref="def-preorder-traversal" text="title" />, <xref ref="def-rooted-tree" text="title" />.</p>
     </statement>

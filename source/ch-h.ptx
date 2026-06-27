@@ -63,6 +63,27 @@
       <ul>
         <li><p><term>chu trình Hamilton</term> <xref ref="bib-leanhvinh-2020" /> (tr. 22); <xref ref="bib-nguyenhoangthach-2020" /> (tr. 2); <xref ref="bib-nguyenhuudien-2019" /> (tr. 10) — cách dùng phổ biến.</p></li>
       </ul>
+      <figure xml:id="fig-hamiltonian-cycle">
+        <caption>Một chu trình Hamilton (cạnh đậm) đi qua mỗi đỉnh đúng một lần.</caption>
+        <image width="45%">
+          <latex-image>
+\begin{tikzpicture}[scale=1.0,vtx/.style={circle,fill=black,inner sep=1.7pt},vin/.style={circle,draw,fill=white,inner sep=1.2pt}]
+  \node[vtx] (n0) at (0.0,1.6) {};
+  \node[vtx] (n1) at (-1.5217,0.4944) {};
+  \node[vtx] (n2) at (-0.9405,-1.2944) {};
+  \node[vtx] (n3) at (0.9405,-1.2944) {};
+  \node[vtx] (n4) at (1.5217,0.4944) {};
+  \draw[very thick] (n0) -- (n1);
+  \draw[very thick] (n1) -- (n2);
+  \draw[very thick] (n2) -- (n3);
+  \draw[very thick] (n3) -- (n4);
+  \draw[very thick] (n4) -- (n0);
+  \draw (n0) -- (n2);
+  \draw (n1) -- (n3);
+\end{tikzpicture}
+          </latex-image>
+        </image>
+      </figure>
       <p>Ví dụ: Trong đồ thị đầy đủ <m>K_4</m> với các đỉnh <m>a</m>, <m>b</m>, <m>c</m>, <m>d</m>, chu trình <m>a, b, c, d, a</m> đi qua mỗi đỉnh đúng một lần và trở về <m>a</m>, nên nó là một chu trình Hamilton.</p>
       <p>Xem thêm <xref ref="def-circuit" text="title" />, <xref ref="def-cycle" text="title" />, <xref ref="def-hamiltonian-path" text="title" />.</p>
     </statement>
@@ -173,6 +194,28 @@
         <li><p><term>biểu đồ Hasse</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 122); <xref ref="bib-nguyenhuuanh-2007" />; <xref ref="bib-vovantuandung-2007" /> — cách dùng phổ biến.</p></li>
         <li><p><term>sơ đồ Hasse</term> <xref ref="bib-ngodactan-2004" /> (tr. 165).</p></li>
       </ul>
+      <figure xml:id="fig-hasse-diagram">
+        <caption>Sơ đồ Hasse của quan hệ chia hết trên <m>\{1,2,3,4,6,12\}</m>.</caption>
+        <image width="50%">
+          <latex-image>
+\begin{tikzpicture}[scale=1.0,vtx/.style={circle,fill=black,inner sep=1.7pt}]
+  \node[circle,draw,fill=white,inner sep=1.3pt] (n1) at (0.0,0.0) {\scriptsize $1$};
+  \node[circle,draw,fill=white,inner sep=1.3pt] (n2) at (-0.9,1.6) {\scriptsize $2$};
+  \node[circle,draw,fill=white,inner sep=1.3pt] (n3) at (0.9,1.6) {\scriptsize $3$};
+  \node[circle,draw,fill=white,inner sep=1.3pt] (n4) at (-0.9,3.2) {\scriptsize $4$};
+  \node[circle,draw,fill=white,inner sep=1.3pt] (n6) at (0.9,3.2) {\scriptsize $6$};
+  \node[circle,draw,fill=white,inner sep=1.3pt] (n12) at (0.0,4.8) {\scriptsize $12$};
+  \draw (n1) -- (n2);
+  \draw (n1) -- (n3);
+  \draw (n2) -- (n4);
+  \draw (n2) -- (n6);
+  \draw (n3) -- (n6);
+  \draw (n4) -- (n12);
+  \draw (n6) -- (n12);
+\end{tikzpicture}
+          </latex-image>
+        </image>
+      </figure>
       <p>Ví dụ: Xét tập <m>S = \{1, 2, 4\}</m> với quan hệ chia hết <m>\preceq</m>, trong đó <m>a \preceq b</m> khi và chỉ khi <m>a</m> chia hết <m>b</m>; vì <m>2</m> phủ <m>1</m> và <m>4</m> phủ <m>2</m>, biểu đồ Hasse gồm ba đỉnh <m>1, 2, 4</m> xếp từ dưới lên với đoạn thẳng nối <m>1</m> với <m>2</m> và đoạn thẳng nối <m>2</m> với <m>4</m>.</p>
       <p>Xem thêm <xref ref="def-lattice" text="title" />.</p>
     </statement>
@@ -347,6 +390,43 @@
         <li><p><term>siêu lập phương</term> <xref ref="bib-leanhvinh-2020" /> (tr. 223); <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 226).</p></li>
         <li><p><term>đồ thị siêu lập phương</term> <xref ref="bib-leanhvinh-2020" /> (tr. 59).</p></li>
       </ul>
+      <figure xml:id="fig-hypercube">
+        <caption>Đồ thị siêu lập phương <m>Q_3</m>; hai đỉnh kề nhau khác nhau đúng một bit.</caption>
+        <image width="48%">
+          <latex-image>
+\begin{tikzpicture}[scale=0.85,vtx/.style={circle,fill=black,inner sep=1.7pt},vin/.style={circle,draw,fill=white,inner sep=1.2pt}]
+  \node[vtx] (n000) at (-1.4,-1.4) {};
+  \node[vtx] (n100) at (1.4,-1.4) {};
+  \node[vtx] (n110) at (1.4,1.4) {};
+  \node[vtx] (n010) at (-1.4,1.4) {};
+  \node[vtx] (n001) at (-0.5,-0.5) {};
+  \node[vtx] (n101) at (2.3,-0.5) {};
+  \node[vtx] (n111) at (2.3,2.3) {};
+  \node[vtx] (n011) at (-0.5,2.3) {};
+  \draw (n000) -- (n100);
+  \draw (n100) -- (n110);
+  \draw (n110) -- (n010);
+  \draw (n010) -- (n000);
+  \draw (n001) -- (n101);
+  \draw (n101) -- (n111);
+  \draw (n111) -- (n011);
+  \draw (n011) -- (n001);
+  \draw (n000) -- (n001);
+  \draw (n100) -- (n101);
+  \draw (n110) -- (n111);
+  \draw (n010) -- (n011);
+  \node[below left=2pt] at (n000) {\small $000$};
+  \node[below right=2pt] at (n100) {\small $100$};
+  \node[right=2pt] at (n110) {\small $110$};
+  \node[left=2pt] at (n010) {\small $010$};
+  \node[below=2pt] at (n001) {\small $001$};
+  \node[right=2pt] at (n101) {\small $101$};
+  \node[above right=2pt] at (n111) {\small $111$};
+  \node[above=2pt] at (n011) {\small $011$};
+\end{tikzpicture}
+          </latex-image>
+        </image>
+      </figure>
       <p>Ví dụ: Đồ thị lập phương <m>Q_3</m> có <m>2^3 = 8</m> đỉnh, tương ứng với các xâu <m>000, 001, 010, 011, 100, 101, 110, 111</m>; chẳng hạn, đỉnh <m>000</m> kề với ba đỉnh <m>001</m>, <m>010</m> và <m>100</m> vì mỗi xâu này khác <m>000</m> đúng tại một bit.</p>
       <p>Xem thêm <xref ref="def-n-cube" text="title" />.</p>
     </statement>

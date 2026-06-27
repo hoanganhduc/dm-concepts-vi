@@ -192,6 +192,31 @@
         <li><p><term>dãy bậc</term> <xref ref="bib-leanhvinh-2020" /> (tr. 10); <xref ref="bib-ngodactan-2004" /> (tr. 280) — cách dùng phổ biến.</p></li>
         <li><p><term>dãy bậc của các đỉnh</term> <xref ref="bib-ngodactan-2004" /> (tr. 280).</p></li>
       </ul>
+      <figure xml:id="fig-degree-sequence">
+        <caption>Mỗi đỉnh được ghi bậc của nó; dãy bậc là <m>(3,3,2,2,2)</m>.</caption>
+        <image width="45%">
+          <latex-image>
+\begin{tikzpicture}[scale=1.0,vtx/.style={circle,fill=black,inner sep=1.7pt},vin/.style={circle,draw,fill=white,inner sep=1.2pt}]
+  \node[vtx] (n0) at (0,1.5) {};
+  \node[vtx] (n1) at (-1.5,0.3) {};
+  \node[vtx] (n2) at (1.5,0.3) {};
+  \node[vtx] (n3) at (-0.9,-1.3) {};
+  \node[vtx] (n4) at (0.9,-1.3) {};
+  \draw (n0) -- (n1);
+  \draw (n0) -- (n2);
+  \draw (n1) -- (n2);
+  \draw (n1) -- (n3);
+  \draw (n2) -- (n4);
+  \draw (n3) -- (n4);
+  \node[above=2pt] at (n0) {\small $2$};
+  \node[left=2pt] at (n1) {\small $3$};
+  \node[right=2pt] at (n2) {\small $3$};
+  \node[below=2pt] at (n3) {\small $2$};
+  \node[below=2pt] at (n4) {\small $2$};
+\end{tikzpicture}
+          </latex-image>
+        </image>
+      </figure>
       <p>Ví dụ: Xét đồ thị <m>G</m> có các đỉnh <m>v_1, v_2, v_3, v_4</m> với <m>\deg_G(v_1) = 3</m>, <m>\deg_G(v_2) = 2</m>, <m>\deg_G(v_3) = 2</m>, <m>\deg_G(v_4) = 1</m>. Khi đó dãy bậc của <m>G</m> sắp theo thứ tự không tăng là <m>(3, 2, 2, 1)</m>.</p>
       <p>Xem thêm <xref ref="def-degree" text="title" />, <xref ref="def-graph-isomorphism" text="title" />.</p>
     </statement>
@@ -226,6 +251,31 @@
         <li><p><term>tìm kiếm sâu</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
         <li><p><term>tìm kiếm theo chiều sâu</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 86); <xref ref="bib-nguyenducnghia-2006" />; <xref ref="bib-vudinhhoa-2010" />.</p></li>
       </ul>
+      <figure xml:id="fig-depth-first-search">
+        <caption>Tìm kiếm theo chiều sâu: số thứ tự khám phá; cạnh cây đậm, cạnh ngược nét đứt.</caption>
+        <image width="45%">
+          <latex-image>
+\begin{tikzpicture}[scale=1.0,vtx/.style={circle,fill=black,inner sep=1.7pt},vin/.style={circle,draw,fill=white,inner sep=1.2pt}]
+  \node[vtx] (n0) at (0,1.6) {};
+  \node[vtx] (n1) at (-1.4,0.4) {};
+  \node[vtx] (n2) at (1.4,0.4) {};
+  \node[vtx] (n3) at (-1.4,-1.1) {};
+  \node[vtx] (n4) at (1.4,-1.1) {};
+  \draw[very thick] (n0) -- (n1);
+  \draw[very thick] (n1) -- (n3);
+  \draw[very thick] (n0) -- (n2);
+  \draw[very thick] (n2) -- (n4);
+  \draw[dashed] (n3) -- (n0);
+  \draw[dashed] (n4) -- (n1);
+  \node[above=2pt] at (n0) {\small $1$};
+  \node[left=2pt] at (n1) {\small $2$};
+  \node[right=2pt] at (n2) {\small $4$};
+  \node[below=2pt] at (n3) {\small $3$};
+  \node[below=2pt] at (n4) {\small $5$};
+\end{tikzpicture}
+          </latex-image>
+        </image>
+      </figure>
       <p>Ví dụ: Xét đồ thị <m>G</m> với tập đỉnh <m>V(G)=\{a,b,c,d\}</m> và tập cạnh <m>E(G)=\{ab,bc,bd,cd\}</m>. Bắt đầu duyệt theo chiều sâu tại đỉnh gốc <m>a</m>, ta đi <m>a\to b\to c\to d</m>; tại <m>d</m> mọi đỉnh kề đều đã được thăm nên ta quay lui. Cây khung thu được có tập cạnh <m>\{ab,bc,cd\}</m>.</p>
       <p>Xem thêm <xref ref="def-breadth-first-search" text="title" />, <xref ref="def-spanning-tree" text="title" />, <xref ref="def-tree" text="title" />.</p>
     </statement>
@@ -447,6 +497,25 @@
         <li><p><term>đơn đồ thị có hướng</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 60); <xref ref="bib-hoangchithanh-2011" />; <xref ref="bib-nguyenhuudien-2019" /> (tr. 156).</p></li>
         <li><p><term>đồ thị định hướng</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 226); <xref ref="bib-hoangchithanh-2007" /> (tr. 19); <xref ref="bib-doxuanloi-2006" /> (tr. 148).</p></li>
       </ul>
+      <figure xml:id="fig-directed-graph">
+        <caption>Một đồ thị có hướng; có một cặp cạnh ngược chiều nhau.</caption>
+        <image width="45%">
+          <latex-image>
+\begin{tikzpicture}[scale=1.0,vtx/.style={circle,fill=black,inner sep=1.7pt},vin/.style={circle,draw,fill=white,inner sep=1.2pt}]
+  \node[vtx] (n0) at (-0.9899,0.9899) {};
+  \node[vtx] (n1) at (-0.9899,-0.9899) {};
+  \node[vtx] (n2) at (0.9899,-0.9899) {};
+  \node[vtx] (n3) at (0.9899,0.9899) {};
+  \draw[->] (n0) -- (n1);
+  \draw[->] (n1) -- (n2);
+  \draw[->] (n2) -- (n3);
+  \draw[->] (n3) -- (n0);
+  \draw[->,bend left=25] (n0) to (n2);
+  \draw[->,bend left=25] (n2) to (n0);
+\end{tikzpicture}
+          </latex-image>
+        </image>
+      </figure>
       <p>Ví dụ: Cho tập đỉnh <m>V = \{a, b, c\}</m> và tập cạnh có hướng <m>E = \{(a, b), (b, c), (a, c)\}</m>. Khi đó <m>G = (V, E)</m> là một đồ thị có hướng, trong đó cạnh <m>(a, b)</m> đi từ đỉnh <m>a</m> đến đỉnh <m>b</m>.</p>
       <p>Xem thêm <xref ref="def-digraph" text="title" />, <xref ref="def-directed-edge" text="title" />, <xref ref="def-directed-multigraph" text="title" />, <xref ref="def-graph" text="title" />, <xref ref="def-simple-directed-graph" text="title" />, <xref ref="def-undirected-graph" text="title" />.</p>
     </statement>
@@ -559,6 +628,18 @@
         <li><p><term>tập con rời nhau</term> <xref ref="bib-nguyenducnghia-2006" />; <xref ref="bib-rosen-2003-vi" /> (tr. 478); <xref ref="bib-nguyenhuyran-2000" />.</p></li>
         <li><p><term>tập rời nhau</term> <xref ref="bib-leanhvinh-2020" /> (tr. 38); <xref ref="bib-leanhvinh-2020" /> (tr. 203); <xref ref="bib-ngodactan-2004" /> (tr. 21).</p></li>
       </ul>
+      <figure xml:id="fig-disjoint-sets">
+        <caption>Hai tập rời nhau <m>A</m> và <m>B</m> trong tập vũ trụ <m>U</m>.</caption>
+        <image width="50%">
+          <latex-image>
+\begin{tikzpicture}
+  \draw (-2.4,-1.4) rectangle (2.4,1.4);
+  \draw (-1.1,0) circle (0.9); \draw (1.1,0) circle (0.9);
+  \node at (-1.1,0) {$A$}; \node at (1.1,0) {$B$}; \node at (2.0,1.1) {$U$};
+\end{tikzpicture}
+          </latex-image>
+        </image>
+      </figure>
       <p>Ví dụ: Hai tập hợp <m>A = \{1, 3, 5\}</m> và <m>B = \{2, 4, 6\}</m> là hai tập hợp rời nhau vì <m>A \cap B = \emptyset</m>.</p>
       <p>Xem thêm <xref ref="def-empty-set" text="title" />, <xref ref="def-intersection" text="title" />, <xref ref="def-set" text="title" />, <xref ref="def-union-of-sets" text="title" />.</p>
     </statement>

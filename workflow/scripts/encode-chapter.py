@@ -152,6 +152,21 @@ def render_entry(e, allowed_ids):
             body += " — cách dùng phổ biến"
         lines.append(f"        <li><p>{body}.</p></li>")
     lines.append("      </ul>")
+    fig = e.get("figure")
+    if fig:
+        width = fig.get("width", "60%")
+        cap = to_ptx(fig.get("caption_vi", "")) or "&#160;"
+        lines.append(f'      <figure xml:id="fig-{eid}">')
+        lines.append(f"        <caption>{cap}</caption>")
+        lines.append(f'        <image width="{width}">')
+        if fig.get("type") == "image":
+            lines[-1] = f'        <image width="{width}" source="{fig.get("source","")}"/>'
+        else:
+            lines.append("          <latex-image>")
+            lines.append(fig.get("code", ""))   # TikZ body, verbatim (not escaped)
+            lines.append("          </latex-image>")
+            lines.append("        </image>")
+        lines.append("      </figure>")
     if e.get("example_vi"):
         lines.append(f"      <p>Ví dụ: {to_ptx(e['example_vi'])}</p>")
     seealso = [s for s in (e.get("see_also") or []) if s in allowed_ids and s != eid]
@@ -223,6 +238,7 @@ def main():
             "see_also": e.get("see_also", []), "status": e.get("status", "panel-approved"),
             "see_ref": e.get("see_ref", ""), "notes": e.get("notes", ""),
             **({"equivalence": e["equivalence"]} if e.get("equivalence") in ("partial", "zero") else {}),
+            **({"figure": e["figure"]} if e.get("figure") else {}),
         })
     ypath = os.path.join(ROOT, "data", "terms", f"entries-{letter}.yaml")
     with open(ypath, "w", encoding="utf-8") as fh:

@@ -75,6 +75,37 @@
         <li><p><term>đồ thị bánh xe</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 65); <xref ref="bib-nguyenhuudien-2019" /> (tr. 159); <xref ref="bib-doducgiao-2009" /> (tr. 118) — cách dùng phổ biến.</p></li>
         <li><p><term>đồ thị hình bánh xe</term> <xref ref="bib-rosen-2003-vi" /> (tr. 508).</p></li>
       </ul>
+      <figure xml:id="fig-wheel-graph">
+        <caption>Đồ thị bánh xe <m>W_5</m>.</caption>
+        <image width="55%">
+          <latex-image>
+\begin{tikzpicture}[scale=1.0,vtx/.style={circle,fill=black,inner sep=1.7pt}]
+  \node[vtx] (v0) at (0.0,0.0) {};
+  \node[vtx] (v1) at (0.0,1.6) {};
+  \node[vtx] (v2) at (-1.5217,0.4944) {};
+  \node[vtx] (v3) at (-0.9405,-1.2944) {};
+  \node[vtx] (v4) at (0.9405,-1.2944) {};
+  \node[vtx] (v5) at (1.5217,0.4944) {};
+  \draw (v0) -- (v1);
+  \draw (v0) -- (v2);
+  \draw (v0) -- (v3);
+  \draw (v0) -- (v4);
+  \draw (v0) -- (v5);
+  \draw (v1) -- (v2);
+  \draw (v2) -- (v3);
+  \draw (v3) -- (v4);
+  \draw (v4) -- (v5);
+  \draw (v5) -- (v1);
+  \node[below=2pt] at (v0) {\small $c$};
+  \node at ($(v1)+(90.0:0.33cm)$) {\small $v_1$};
+  \node at ($(v2)+(162.00103199265047:0.33cm)$) {\small $v_2$};
+  \node at ($(v3)+(-126.00183534589507:0.33cm)$) {\small $v_3$};
+  \node at ($(v4)+(-53.99816465410495:0.33cm)$) {\small $v_4$};
+  \node at ($(v5)+(17.998968007349553:0.33cm)$) {\small $v_5$};
+\end{tikzpicture}
+          </latex-image>
+        </image>
+      </figure>
       <p>Ví dụ: Đồ thị bánh xe <m>W_4</m> thu được từ chu trình <m>C_4</m> bằng cách thêm một đỉnh mới nối với cả <m>4</m> đỉnh của <m>C_4</m>, gồm <m>5</m> đỉnh và <m>8</m> cạnh.</p>
       <p>Xem thêm <xref ref="def-complete-graph" text="title" />.</p>
     </statement>

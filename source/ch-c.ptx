@@ -631,6 +631,36 @@
         <li><p><term>đồ thị lưỡng phân đầy đủ</term> <xref ref="bib-vudinhhoa-2003" /> (tr. 115); <xref ref="bib-vudinhhoa-2010" />.</p></li>
         <li><p><term>đồ thị phân đôi đầy đủ</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 160); <xref ref="bib-doantamhoe-2009" />; <xref ref="bib-doducgiao-2009" /> (tr. 96).</p></li>
       </ul>
+      <figure xml:id="fig-complete-bipartite-graph">
+        <caption>Đồ thị hai phía đầy đủ <m>K_{3,3}</m>.</caption>
+        <image width="55%">
+          <latex-image>
+\begin{tikzpicture}[scale=1.0,vtx/.style={circle,fill=black,inner sep=1.7pt}]
+  \node[vtx] (v0) at (-1.6,1.0) {};
+  \node[vtx] (v1) at (0.0,1.0) {};
+  \node[vtx] (v2) at (1.6,1.0) {};
+  \node[vtx] (v3) at (-1.6,-1.0) {};
+  \node[vtx] (v4) at (0.0,-1.0) {};
+  \node[vtx] (v5) at (1.6,-1.0) {};
+  \draw (v0) -- (v3);
+  \draw (v0) -- (v4);
+  \draw (v0) -- (v5);
+  \draw (v1) -- (v3);
+  \draw (v1) -- (v4);
+  \draw (v1) -- (v5);
+  \draw (v2) -- (v3);
+  \draw (v2) -- (v4);
+  \draw (v2) -- (v5);
+  \node[above=3pt] at (v0) {\small $u_1$};
+  \node[above=3pt] at (v1) {\small $u_2$};
+  \node[above=3pt] at (v2) {\small $u_3$};
+  \node[below=3pt] at (v3) {\small $w_1$};
+  \node[below=3pt] at (v4) {\small $w_2$};
+  \node[below=3pt] at (v5) {\small $w_3$};
+\end{tikzpicture}
+          </latex-image>
+        </image>
+      </figure>
       <p>Ví dụ: Đồ thị <m>K_{2,3}</m> có một tập gồm <m>2</m> đỉnh và một tập gồm <m>3</m> đỉnh, với tổng cộng <m>6</m> cạnh nối mỗi đỉnh của tập thứ nhất tới mỗi đỉnh của tập thứ hai.</p>
       <p>Xem thêm <xref ref="def-bipartite-graph" text="title" />, <xref ref="def-complete-graph" text="title" />.</p>
     </statement>
@@ -647,6 +677,35 @@
         <li><p><term>đồ thị đầy đủ</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 65); <xref ref="bib-leanhvinh-2020" /> (tr. 15); <xref ref="bib-nguyenhuudien-2019" /> (tr. 159) — cách dùng phổ biến.</p></li>
         <li><p><term>n-đồ thị đầy đủ</term> <xref ref="bib-ngodactan-2004" /> (tr. 190).</p></li>
       </ul>
+      <figure xml:id="fig-complete-graph">
+        <caption>Đồ thị đầy đủ <m>K_5</m>.</caption>
+        <image width="55%">
+          <latex-image>
+\begin{tikzpicture}[scale=1.0,vtx/.style={circle,fill=black,inner sep=1.7pt}]
+  \node[vtx] (v0) at (0.0,1.6) {};
+  \node[vtx] (v1) at (-1.5217,0.4944) {};
+  \node[vtx] (v2) at (-0.9405,-1.2944) {};
+  \node[vtx] (v3) at (0.9405,-1.2944) {};
+  \node[vtx] (v4) at (1.5217,0.4944) {};
+  \draw (v0) -- (v1);
+  \draw (v0) -- (v2);
+  \draw (v0) -- (v3);
+  \draw (v0) -- (v4);
+  \draw (v1) -- (v2);
+  \draw (v1) -- (v3);
+  \draw (v1) -- (v4);
+  \draw (v2) -- (v3);
+  \draw (v2) -- (v4);
+  \draw (v3) -- (v4);
+  \node at ($(v0)+(90.0:0.33cm)$) {\small $v_1$};
+  \node at ($(v1)+(162.00103199265047:0.33cm)$) {\small $v_2$};
+  \node at ($(v2)+(-126.00183534589507:0.33cm)$) {\small $v_3$};
+  \node at ($(v3)+(-53.99816465410495:0.33cm)$) {\small $v_4$};
+  \node at ($(v4)+(17.998968007349553:0.33cm)$) {\small $v_5$};
+\end{tikzpicture}
+          </latex-image>
+        </image>
+      </figure>
       <p>Ví dụ: <m>K_3</m> là tam giác gồm <m>3</m> đỉnh và <m>3</m> cạnh, trong đó mỗi cặp trong <m>3</m> đỉnh đều được nối với nhau.</p>
       <p>Xem thêm <xref ref="def-chromatic-number" text="title" />, <xref ref="def-clique" text="title" />, <xref ref="def-complement-of-a-graph" text="title" />, <xref ref="def-complete-bipartite-graph" text="title" />.</p>
     </statement>
@@ -1298,6 +1357,33 @@
         <li><p><term>chu trình</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 65); <xref ref="bib-leanhvinh-2020" /> (tr. 5); <xref ref="bib-nguyenhuudien-2019" /> (tr. 7); <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 46).</p></li>
         <li><p><term>đồ thị chu trình</term> <xref ref="bib-hoangchithanh-2007" /> (tr. 43); <xref ref="bib-doducgiao-2009" /> (tr. 106); <xref ref="bib-hoangchithanh-2011" />; <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 102).</p></li>
       </ul>
+      <figure xml:id="fig-cycle">
+        <caption>Đồ thị vòng <m>C_6</m>.</caption>
+        <image width="55%">
+          <latex-image>
+\begin{tikzpicture}[scale=1.0,vtx/.style={circle,fill=black,inner sep=1.7pt}]
+  \node[vtx] (v0) at (0.0,1.6) {};
+  \node[vtx] (v1) at (-1.3856,0.8) {};
+  \node[vtx] (v2) at (-1.3856,-0.8) {};
+  \node[vtx] (v3) at (-0.0,-1.6) {};
+  \node[vtx] (v4) at (1.3856,-0.8) {};
+  \node[vtx] (v5) at (1.3856,0.8) {};
+  \draw (v0) -- (v1);
+  \draw (v1) -- (v2);
+  \draw (v2) -- (v3);
+  \draw (v3) -- (v4);
+  \draw (v4) -- (v5);
+  \draw (v5) -- (v0);
+  \node at ($(v0)+(90.0:0.33cm)$) {\small $v_1$};
+  \node at ($(v1)+(149.99927221917264:0.33cm)$) {\small $v_2$};
+  \node at ($(v2)+(-149.99927221917264:0.33cm)$) {\small $v_3$};
+  \node at ($(v3)+(-90.0:0.33cm)$) {\small $v_4$};
+  \node at ($(v4)+(-30.000727780827372:0.33cm)$) {\small $v_5$};
+  \node at ($(v5)+(30.000727780827372:0.33cm)$) {\small $v_6$};
+\end{tikzpicture}
+          </latex-image>
+        </image>
+      </figure>
       <p>Ví dụ: <m>C_3</m> là tam giác với ba đỉnh <m>v_1, v_2, v_3</m> và ba cạnh <m>\{v_1,v_2\}, \{v_2,v_3\}, \{v_3,v_1\}</m>.</p>
       <p>Xem thêm <xref ref="def-hamilton-circuit" text="title" />, <xref ref="def-path" text="title" />, <xref ref="def-wheel" text="title" />.</p>
     </statement>

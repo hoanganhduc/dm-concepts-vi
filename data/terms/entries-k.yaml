@@ -28,17 +28,16 @@ entries:
   notation: 'c: V(G) \to \{1, 2, \ldots, k\}'
   rosen_ref: Rosen §10.8
   ref_bib: ''
-  definition_vi: 'Một \emph{cách tô màu bằng $$k$$ màu} của một đồ thị đơn $$G$$ là một phép gán cho mỗi
-    đỉnh của $$G$$ một trong $$k$$ màu, tức một hàm $$c: V(G) \to \{1, 2, \ldots, k\}$$ thỏa mãn $$c(u)
-    \neq c(v)$$ với mọi cạnh $$uv \in E(G)$$, nghĩa là không có hai đỉnh kề nhau nào được gán cùng một
-    màu.'
-  example_vi: 'Đồ thị chu trình $$C_4$$ có một cách tô màu bằng $$2$$ màu: tô hai đỉnh đối nhau bằng màu
-    thứ nhất và hai đỉnh còn lại bằng màu thứ hai, khi đó không có hai đỉnh kề nhau nào cùng màu.'
+  definition_vi: 'Một k-tô màu của một đồ thị đơn $$G$$ là một phép gán cho mỗi đỉnh của $$G$$ một trong
+    $$k$$ màu, tức một hàm $$c: V(G) \to \{1, 2, \ldots, k\}$$ thỏa mãn $$c(u) \neq c(v)$$ với mọi cạnh
+    $$uv \in E(G)$$, nghĩa là không có hai đỉnh kề nhau nào được gán cùng một màu.'
+  example_vi: 'Đồ thị chu trình $$C_4$$ có một k-tô màu với $$k = 2$$: tô hai đỉnh đối nhau bằng màu thứ
+    nhất và hai đỉnh còn lại bằng màu thứ hai, khi đó không có hai đỉnh kề nhau nào cùng màu.'
   vi_terms:
   - term: tô màu một đồ thị đơn bằng k màu
     source_id: bib-nguyenhoangthach-2020
     page: tr. 79
-    recommended: true
+    recommended: false
     verified: true
     pdf_page: 81
     snippet: Định nghĩa 5.53. Một cách tô màu một đồ thị đơn bằng k màu là một cách
@@ -66,7 +65,7 @@ entries:
   - term: k-tô màu
     source_id: bib-ngodactan-2004
     page: tr. 283
-    recommended: false
+    recommended: true
     verified: true
     pdf_page: 283
     snippet: gọi là k-tô màu. ... Như vậy, một k-tô màu phân hoạch tập đỉnh của đồ thị thành k lớp
@@ -125,48 +124,10 @@ entries:
   - graph-coloring
   status: panel-approved
   see_ref: ''
-  notes: 'Recommended term "tô màu một đồ thị đơn bằng k màu" is the verbatim 2020 book phrasing, attested
-    as a formal definition in nguyenhoangthach-2020 (tr. 81, Định nghĩa 5.53: "Một cách tô màu một đồ
-    thị đơn bằng k màu là một cách..."). The bare string "tô màu bằng k màu" (with the object removed)
-    returns 0 exact hits in any source (confirmed normal search), so it is NOT recorded as a vi_term and
-    is dropped per citation hygiene; the head phrase "tô màu ... bằng k màu" is attested only with "một
-    đồ thị đơn" inserted between "tô màu" and "bằng k màu".
-
-
-    Strong noun alternative: "k-tô màu" (ngodactan-2004, tr. 283: "gọi là k-tô màu", 18 hits). This is
-    the cleanest single-token noun for a k-coloring and matches Rosen''s "k-coloring" as an object; it
-    formally partitions the vertex set into $$k$$ classes ("một k-tô màu phân hoạch tập đỉnh của đồ thị
-    thành k lớp"). It is only attested in a 2004 source, hence not recommended under the 2019-2020 preference,
-    but recorded as a verified variant.
-
-
-    Newest 2020 formal definitions both use the "bằng/bởi k màu" pattern: nguyenhoangthach-2020 uses "bằng
-    k màu"; leanhvinh-2020 (tr. 90, Định nghĩa 4.1) uses "tô được bởi k màu" / "cách tô màu tốt các đỉnh
-    của G bởi k màu". The 2019 source nguyenhuudien-2019 (tr. 227) uses "tô được bằng k màu". Variant
-    "bởi k màu" vs "bằng k màu" is a preposition difference only.
-
-
-    "tô màu tốt" (leanhvinh-2020) = proper coloring (the no-adjacent-same-color condition); related but
-    a separate sub-concept. "tô màu đồ thị" / "tô màu các đỉnh" denote graph coloring / vertex coloring
-    in general (the broader operation), not specifically a k-coloring; recorded as broader variants.
-
-
-    Candidate "phép tô màu k màu" returned 0 hits (normal and --loose) and is dropped.
-
-
-    Definition follows the book''s formal-function form (Định nghĩa 4.1 of leanhvinh-2020 and the hàm
-    $$c$$ formulation of nguyenhuudien-2019, tr. 227): a k-coloring is a vertex assignment $$c: V(G) \to
-    \{1, \ldots, k\}$$ with $$c(u) \neq c(v)$$ for every edge $$uv$$. The definition is tightened to a
-    single sentence ending in the function form (economy of expression). The example uses only $$C_4$$
-    and the two colors the definition introduces; no derived quantity (e.g. chromatic number) is invoked.
-    Per Rosen §10.8 a k-coloring is a (proper) coloring using $$k$$ colors; the no-adjacent-same-color
-    condition is the proper-coloring requirement and is correctly baked in.
-
-
-    EDITOR (chapter K final): per terminology citation hygiene, dropped the verified=false empty-page
-    non-recommended variant "tô màu bằng k màu" from vi_terms (its 0-hit rationale is preserved above).
-    Trimmed the duplicated English ''Concept:'' gloss that restated the definition. The recommended term
-    remains the verified 2020 form.'
+  notes: Recommended term updated to "k-tô màu" because it is the cleanest noun phrase for the object
+    k-coloring and is attested in bib-ngodactan-2004 (tr. 283, "gọi là k-tô màu"). Longer verbal phrasings
+    such as "tô màu một đồ thị đơn bằng k màu" remain recorded as source variants but are not used as
+    the title term.
 - id: k-connected-graph
   letter: K
   headword_en: k-connected graph
@@ -524,19 +485,19 @@ entries:
   notation: ''
   rosen_ref: Rosen §12.4
   ref_bib: ''
-  definition_vi: \emph{Bìa Karnaugh} của một hàm Boole $$f$$ với một số nhỏ biến (thường nhiều nhất $$4$$
-    biến) là một sơ đồ dạng bảng biểu diễn các giá trị của $$f$$, trong đó các ô được sắp xếp theo mã
-    Gray sao cho hai ô kề nhau (kể cả hai ô ở hai mép đối diện) ứng với hai số hạng chỉ khác nhau ở đúng
-    một biến. Bìa Karnaugh được dùng để tối thiểu hóa $$f$$ bằng cách gộp các ô kề nhau có giá trị $$1$$
-    thành các nhóm.
-  example_vi: Với hàm Boole $$f(x,y)$$, bìa Karnaugh là bảng $$2 \times 2$$ có các ô ứng với các tổ hợp
+  definition_vi: Bảng Karnaugh của một hàm Boole $$f$$ với một số nhỏ biến (thường nhiều nhất $$4$$ biến)
+    là một sơ đồ dạng bảng biểu diễn các giá trị của $$f$$, trong đó các ô được sắp xếp theo mã Gray sao
+    cho hai ô kề nhau (kể cả hai ô ở hai mép đối diện) ứng với hai số hạng chỉ khác nhau ở đúng một biến.
+    Bảng Karnaugh được dùng để tối thiểu hóa $$f$$ bằng cách gộp các ô kề nhau có giá trị $$1$$ thành
+    các nhóm.
+  example_vi: Với hàm Boole $$f(x,y)$$, bảng Karnaugh là bảng $$2 \times 2$$ có các ô ứng với các tổ hợp
     giá trị của $$x$$ và $$y$$; hai ô cùng một hàng hoặc cùng một cột là kề nhau vì chúng chỉ khác nhau
     ở một biến.
   vi_terms:
   - term: bìa Karnaugh
     source_id: ''
     page: ''
-    recommended: true
+    recommended: false
     verified: false
     pdf_page: 0
     snippet: ''
@@ -578,7 +539,7 @@ entries:
   - term: bảng Karnaugh
     source_id: bib-doducgiao-2000
     page: tr. 442
-    recommended: false
+    recommended: true
     verified: true
     pdf_page: 441
     snippet: 4.2. Phương pháp bảng Karnaugh
@@ -594,24 +555,10 @@ entries:
   - gray-code
   status: panel-approved
   see_ref: ''
-  notes: 'Khái niệm "Karnaugh map" thuộc về tối thiểu hóa hàm Boole (logic số), không thuộc lý thuyết
-    đồ thị hay tổ hợp. Không có nguồn tiếng Việt nào trong kho ngữ liệu (bib-leanhvinh-2020, bib-nguyenhoangthach-2020,
-    bib-nguyenhuudien-2019, bib-hoangchithanh-2007, bib-nguyenducnghia-2006, bib-ngodactan-2004) chứng
-    thực thuật ngữ này: tất cả đều là sách đồ thị/tổ hợp/toán rời rạc-đồ thị, không trình bày phần tối
-    thiểu hóa hàm Boole của Rosen §12.4. Đã tìm cả dạng thường lẫn --loose cho hai nguồn OCR, và đã thử
-    các biến thể chuyển tự ("Karnaugh", "Cácnô", "Các-nô", "Karno", "bìa Các-nô", "bảng Karnaugh", "Veitch")
-    cùng "bảng chân lý"; tất cả đều 0 hit. Thuật ngữ chuẩn được giữ lại verified=false/page="" (ngoại
-    lệ một-thuật-ngữ-chuẩn để vi_terms không rỗng). Các biến thể thường gặp trong tài liệu kỹ thuật số
-    tiếng Việt: bìa Karnaugh (phổ biến nhất, được chọn làm thuật ngữ khuyến nghị), bản đồ Karnaugh, biểu
-    đồ Karnaugh, sơ đồ Karnaugh; không biến thể nào được kho ngữ liệu chứng thực, nên chúng chỉ được ghi
-    ở đây trong notes.
-
-
-    EDITOR (chapter K final): applied the panel correctness fix. Rosen §12.4 trình bày bìa Karnaugh cho
-    một số nhỏ biến (2, 3, 4 biến), nên thay "với $$n$$ biến" bằng "với một số nhỏ biến (thường nhiều
-    nhất $$4$$ biến)". Bổ sung tính kề theo mã Gray và tính kề vòng (hai ô ở hai mép đối diện cũng kề
-    nhau) để khái niệm "kề nhau" chính xác. Giữ nguyên một vi_term chuẩn-nhưng-chưa-chứng-thực "bìa Karnaugh"
-    (verified=false, page="") để vi_terms không rỗng, theo đúng quy ước.'
+  notes: 'Recommended term updated to "bảng Karnaugh" after review: it is attested in bib-doducgiao-2000
+    (tr. 442, "Phương pháp bảng Karnaugh") and bib-vovantuandung-2007. The earlier recommended "bìa Karnaugh"
+    is retained only as an unattested variant and is no longer recommended. Definition/example prose now
+    uses "bảng Karnaugh" consistently.'
 - id: kernel-of-a-graph
   letter: K
   headword_en: kernel of a graph

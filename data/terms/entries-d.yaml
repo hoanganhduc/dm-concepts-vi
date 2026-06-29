@@ -701,13 +701,6 @@ entries:
     pdf_page: 9
     snippet: Tìm kiếm độ sâu đầu tiên 534
   - term: độ sâu
-    source_id: bib-cormen-2001-vi
-    page: ''
-    recommended: false
-    verified: true
-    pdf_page: 9
-    snippet: Tìm kiếm độ sâu đầu tiên 534
-  - term: độ sâu
     source_id: bib-cungkimtien-2004
     page: ''
     recommended: false
@@ -1618,15 +1611,14 @@ entries:
   notation: G = (V, E)
   rosen_ref: Rosen §10.5
   ref_bib: ''
-  definition_vi: Đồ thị có hướng không có chu trình là một đồ thị có hướng $$G = (V, E)$$ không chứa bất
-    kỳ chu trình có hướng nào, nghĩa là không tồn tại đường đi có hướng nào xuất phát từ một đỉnh và quay
-    trở lại chính đỉnh đó. Một đồ thị có hướng $$G$$ là không có chu trình khi và chỉ khi có thể đánh
-    số các đỉnh của $$G$$ sao cho mọi cạnh $$(u, v) \in E$$ đều thỏa mãn số thứ tự của $$u$$ nhỏ hơn số
-    thứ tự của $$v$$.
+  definition_vi: Đồ thị có hướng phi chu trình là một đồ thị có hướng $$G = (V, E)$$ không chứa bất kỳ
+    chu trình có hướng nào, nghĩa là không tồn tại đường đi có hướng nào xuất phát từ một đỉnh và quay
+    trở lại chính đỉnh đó. Một đồ thị có hướng $$G$$ là phi chu trình khi và chỉ khi có thể đánh số các
+    đỉnh của $$G$$ sao cho mọi cạnh $$(u, v) \in E$$ đều thỏa mãn số thứ tự của $$u$$ nhỏ hơn số thứ tự
+    của $$v$$.
   example_vi: Trong đồ thị có hướng với các đỉnh $$\{1, 2, 3\}$$ và các cạnh $$(1,2), (2,3), (1,3)$$,
-    không có chu trình có hướng nào nên đây là một đồ thị có hướng không có chu trình; nếu thêm cạnh $$(3,1)$$
-    thì xuất hiện chu trình $$1 \to 2 \to 3 \to 1$$ và đồ thị không còn là đồ thị có hướng không có chu
-    trình.
+    không có chu trình có hướng nào nên đây là một đồ thị có hướng phi chu trình; nếu thêm cạnh $$(3,1)$$
+    thì xuất hiện chu trình $$1 \to 2 \to 3 \to 1$$ và đồ thị không còn phi chu trình.
   vi_terms:
   - term: đồ thị có hướng không chứa chu trình
     source_id: ''
@@ -1652,7 +1644,7 @@ entries:
   - term: đồ thị có hướng không có chu trình
     source_id: ''
     page: ''
-    recommended: true
+    recommended: false
     verified: false
     pdf_page: 0
     snippet: ''
@@ -1673,7 +1665,7 @@ entries:
   - term: đồ thị có hướng phi chu trình
     source_id: bib-cormen-2001-vi
     page: tr. 112
-    recommended: false
+    recommended: true
     verified: true
     pdf_page: 110
     snippet: '[đổ thị có hướng phi chu trình] dé gọi một đề thị như vậy là dag.'
@@ -1683,9 +1675,9 @@ entries:
   - cycle
   status: draft
   see_ref: ''
-  notes: Thuật ngữ giáo trình MAT3500 là "đồ thị có hướng không có chu trình". Các tài liệu khác dùng
-    biến thể "đồ thị định hướng phi chu trình" (Hoàng Chí Thành, Nguyễn Hữu Điển) với cùng nghĩa. Tương
-    ứng tiếng Anh thường viết tắt là DAG.
+  notes: Recommended term updated to "đồ thị có hướng phi chu trình", attested in bib-cormen-2001-vi and
+    aligned with the common DAG rendering. Older/source variants "đồ thị định hướng phi chu trình" and
+    descriptive "đồ thị có hướng không có chu trình" are retained as non-recommended variants.
 - id: directed-edge
   letter: D
   headword_en: directed edge
@@ -2478,13 +2470,6 @@ entries:
     verified: true
     pdf_page: 267
     snippet: hàm g›(x, y) được gọi là tuyển của x và y, ký hiệu x v y
-  - term: tuyển
-    source_id: bib-rosen-2003-vi
-    page: tr. 8
-    recommended: false
-    verified: true
-    pdf_page: 8
-    snippet: các trường hợp còn lại. Mệnh dé p v gq được gọi là tuyển của p và gq.
   - term: phép tuyển
     source_id: bib-doducgiao-2009
     page: tr. 276
@@ -3073,13 +3058,6 @@ entries:
     verified: false
     pdf_page: null
     snippet: ''
-  - term: chia hết
-    source_id: bib-cormen-2001-vi
-    page: ''
-    recommended: false
-    verified: true
-    pdf_page: 888
-    snippet: chia hết, tương đương moduia, và phép thừa số hóa đuy nhất. Doan 33.2
   - term: chia hết
     source_id: bib-cungkimtien-2004
     page: ''
@@ -3840,13 +3818,6 @@ entries:
     pdf_page: 119
     snippet: dot product tích vô hướng
   - term: tích vô hướng
-    source_id: bib-cungkimtien-2004
-    page: ''
-    recommended: false
-    verified: true
-    pdf_page: 119
-    snippet: dot product tích vô hướng
-  - term: tích vô hướng
     source_id: bib-doducthai-2010
     page: ''
     recommended: false
@@ -3897,13 +3868,6 @@ entries:
     verified: true
     pdf_page: 218
     snippet: Chứng minh. Với mỗi z € V(G), ta đếm bằng hai cách đại lượng N,
-  - term: đếm bằng hai cách
-    source_id: bib-leanhvinh-2020
-    page: ''
-    recommended: false
-    verified: true
-    pdf_page: 50
-    snippet: Chứng minh. (Pitman, 1999 - Dem bang hai cách) Xét một cây 7 có
   see_also:
   - combinatorial-proof
   status: panel-approved

@@ -16,7 +16,7 @@
     <statement><p>Xem <xref ref="def-m-ary-tree" text="title" />.</p></statement>
   </definition>
   <definition xml:id="def-k-coloring">
-    <title>k-coloring (d.t.) — tô màu một đồ thị đơn bằng k màu</title>
+    <title>k-coloring (d.t.) — k-tô màu</title>
     <idx><h>k-coloring</h></idx>
     <idx><h>k-tô màu</h></idx>
     <idx><h>tô màu (các đỉnh của G) bởi k màu</h></idx>
@@ -26,18 +26,18 @@
     <idx><h>tô được bằng k màu</h></idx>
     <idx><h>tô được bởi k màu</h></idx>
     <statement>
-      <p>Một \emph{cách tô màu bằng <m>k</m> màu} của một đồ thị đơn <m>G</m> là một phép gán cho mỗi đỉnh của <m>G</m> một trong <m>k</m> màu, tức một hàm <m>c: V(G) \to \{1, 2, \ldots, k\}</m> thỏa mãn <m>c(u) \neq c(v)</m> với mọi cạnh <m>uv \in E(G)</m>, nghĩa là không có hai đỉnh kề nhau nào được gán cùng một màu (theo <xref ref="bib-rosen-2019" />, Rosen §10.8).</p>
+      <p>Một k-tô màu của một đồ thị đơn <m>G</m> là một phép gán cho mỗi đỉnh của <m>G</m> một trong <m>k</m> màu, tức một hàm <m>c: V(G) \to \{1, 2, \ldots, k\}</m> thỏa mãn <m>c(u) \neq c(v)</m> với mọi cạnh <m>uv \in E(G)</m>, nghĩa là không có hai đỉnh kề nhau nào được gán cùng một màu (theo <xref ref="bib-rosen-2019" />, Rosen §10.8).</p>
       <p>Thuật ngữ tiếng Việt tương ứng:</p>
       <ul>
-        <li><p><term>tô màu một đồ thị đơn bằng k màu</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 79) — cách dùng phổ biến.</p></li>
-        <li><p><term>k-tô màu</term> <xref ref="bib-ngodactan-2004" /> (tr. 283).</p></li>
+        <li><p><term>k-tô màu</term> <xref ref="bib-ngodactan-2004" /> (tr. 283) — cách dùng phổ biến.</p></li>
         <li><p><term>tô màu (các đỉnh của G) bởi k màu</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
         <li><p><term>tô màu các đỉnh</term> <xref ref="bib-leanhvinh-2020" /> (tr. 246); <xref ref="bib-hoangchithanh-2011" />; <xref ref="bib-nguyenhuudien-2019" /> (tr. 11).</p></li>
+        <li><p><term>tô màu một đồ thị đơn bằng k màu</term> <xref ref="bib-nguyenhoangthach-2020" /> (tr. 79).</p></li>
         <li><p><term>tô màu đồ thị</term> <xref ref="bib-leanhvinh-2020" /> (tr. 91); <xref ref="bib-nguyenhoangthach-2020" /> (tr. 2); <xref ref="bib-nguyenhuudien-2019" /> (tr. 7).</p></li>
         <li><p><term>tô được bằng k màu</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 227); <xref ref="bib-ngodactan-2004" /> (tr. 296).</p></li>
         <li><p><term>tô được bởi k màu</term> <xref ref="bib-leanhvinh-2020" /> (tr. 91).</p></li>
       </ul>
-      <p>Ví dụ: Đồ thị chu trình <m>C_4</m> có một cách tô màu bằng <m>2</m> màu: tô hai đỉnh đối nhau bằng màu thứ nhất và hai đỉnh còn lại bằng màu thứ hai, khi đó không có hai đỉnh kề nhau nào cùng màu.</p>
+      <p>Ví dụ: Đồ thị chu trình <m>C_4</m> có một k-tô màu với <m>k = 2</m>: tô hai đỉnh đối nhau bằng màu thứ nhất và hai đỉnh còn lại bằng màu thứ hai, khi đó không có hai đỉnh kề nhau nào cùng màu.</p>
       <p>Xem thêm <xref ref="def-chromatic-number" text="title" />, <xref ref="def-graph-coloring" text="title" />.</p>
     </statement>
   </definition>
@@ -144,7 +144,7 @@
     </statement>
   </definition>
   <definition xml:id="def-karnaugh-map">
-    <title>Karnaugh map (d.t.) — bìa Karnaugh</title>
+    <title>Karnaugh map (d.t.) — bảng Karnaugh</title>
     <idx><h>Karnaugh map</h></idx>
     <idx><h>biểu đồ Veitch</h></idx>
     <idx><h>bìa Karnaugh</h></idx>
@@ -153,17 +153,17 @@
     <idx><h>sơ đồ Các-nô</h></idx>
     <idx><h>sơ đồ Karnaugh</h></idx>
     <statement>
-      <p><em>Bìa Karnaugh</em> của một hàm Boole <m>f</m> với một số nhỏ biến (thường nhiều nhất <m>4</m> biến) là một sơ đồ dạng bảng biểu diễn các giá trị của <m>f</m>, trong đó các ô được sắp xếp theo mã Gray sao cho hai ô kề nhau (kể cả hai ô ở hai mép đối diện) ứng với hai số hạng chỉ khác nhau ở đúng một biến. Bìa Karnaugh được dùng để tối thiểu hóa <m>f</m> bằng cách gộp các ô kề nhau có giá trị <m>1</m> thành các nhóm (theo <xref ref="bib-rosen-2019" />, Rosen §12.4).</p>
+      <p>Bảng Karnaugh của một hàm Boole <m>f</m> với một số nhỏ biến (thường nhiều nhất <m>4</m> biến) là một sơ đồ dạng bảng biểu diễn các giá trị của <m>f</m>, trong đó các ô được sắp xếp theo mã Gray sao cho hai ô kề nhau (kể cả hai ô ở hai mép đối diện) ứng với hai số hạng chỉ khác nhau ở đúng một biến. Bảng Karnaugh được dùng để tối thiểu hóa <m>f</m> bằng cách gộp các ô kề nhau có giá trị <m>1</m> thành các nhóm (theo <xref ref="bib-rosen-2019" />, Rosen §12.4).</p>
       <p>Thuật ngữ tiếng Việt tương ứng:</p>
       <ul>
-        <li><p><term>bìa Karnaugh</term> <em>(thuật ngữ chuẩn; chưa truy được trong kho văn bản)</em> — cách dùng phổ biến.</p></li>
+        <li><p><term>bảng Karnaugh</term> <xref ref="bib-doducgiao-2000" /> (tr. 442); <xref ref="bib-vovantuandung-2007" /> — cách dùng phổ biến.</p></li>
         <li><p><term>biểu đồ Veitch</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
+        <li><p><term>bìa Karnaugh</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
         <li><p><term>bản đồ Karnaugh</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
-        <li><p><term>bảng Karnaugh</term> <xref ref="bib-doducgiao-2000" /> (tr. 442); <xref ref="bib-vovantuandung-2007" />.</p></li>
         <li><p><term>sơ đồ Các-nô</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
         <li><p><term>sơ đồ Karnaugh</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
       </ul>
-      <p>Ví dụ: Với hàm Boole <m>f(x,y)</m>, bìa Karnaugh là bảng <m>2 \times 2</m> có các ô ứng với các tổ hợp giá trị của <m>x</m> và <m>y</m>; hai ô cùng một hàng hoặc cùng một cột là kề nhau vì chúng chỉ khác nhau ở một biến.</p>
+      <p>Ví dụ: Với hàm Boole <m>f(x,y)</m>, bảng Karnaugh là bảng <m>2 \times 2</m> có các ô ứng với các tổ hợp giá trị của <m>x</m> và <m>y</m>; hai ô cùng một hàng hoặc cùng một cột là kề nhau vì chúng chỉ khác nhau ở một biến.</p>
       <p>Xem thêm <xref ref="def-boolean-function" text="title" />, <xref ref="def-gray-code" text="title" />.</p>
     </statement>
   </definition>

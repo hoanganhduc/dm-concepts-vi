@@ -475,20 +475,11 @@ entries:
   - shortest-path
   status: panel-approved
   see_ref: ''
-  notes: 'The Vietnamese rendering of Rosen''s geodesic/distance concept splits into two attested strands
-    covered jointly. (1) "khoảng cách" denotes the distance $$d(u,v)$$ — the length of a shortest path;
-    (2) "đường đi ngắn nhất" denotes the geodesic, i.e. the shortest path realizing that distance. CITATION
-    FIX (panel high): the recommended term surface form was "khoảng cách giữa hai đỉnh", but that exact
-    phrase returns 0 hits in bib-leanhvinh-2020 (re-verified strict and --loose; it occurs in leanhvinh-2020
-    only at tr.222 in the distinct distance-regular-graph context). The recommended term is therefore
-    set to "khoảng cách", which IS attested verbatim in the cited tr.17 snippet "khoảng cách giữa u và
-    v, kí hiệu bởi $$d_G(u,v)$$", keeping the 2020 source and a definitional sense. The longer phrase
-    "khoảng cách giữa hai đỉnh" is attested verbatim only in bib-ngodactan-2004 (tr.216) and (as "khoảng
-    cách giữa đỉnh") in bib-hoangchithanh-2007 (tr.99), both older; it is retained as a variant. The same
-    identity (distance = length of shortest path) is stated in bib-nguyenhoangthach-2020 (tr.88), bib-nguyenhuudien-2019
-    (tr.186, where "khoảng cách $$d(u,v)$$" appears), bib-hoangchithanh-2007 (tr.99, OCR), and bib-ngodactan-2004
-    (tr.216). OCR sources searched normal and --loose; loose returned identical hits for the relevant
-    phrases.'
+  notes: 'Recommended term is "đường đi ngắn nhất", attested in bib-nguyenhuudien-2019 and matching the
+    headword geodesic as a shortest path. The related term "khoảng cách" denotes the length of such a
+    shortest path, so it remains a non-recommended variant/evidence strand rather than the title term.
+    The definition states both notions explicitly: the geodesic path first, then its length as distance
+    $$d(u,v)$$.'
 - id: geometric-distribution
   letter: G
   headword_en: geometric distribution
@@ -655,17 +646,16 @@ entries:
   notation: \sum_{j=0}^{n} a r^j
   rosen_ref: Rosen §2.4
   ref_bib: ''
-  definition_vi: Một \emph{tổng cấp số nhân} là tổng hữu hạn của các số hạng liên tiếp của một cấp số
-    nhân, tức là tổng có dạng $$\displaystyle\sum_{j=0}^{n} a r^j$$, trong đó số hạng đầu $$a$$ và công
-    bội $$r$$ là các số thực. Tổng này, ký hiệu $$\displaystyle\sum_{j=0}^{n} a r^j = a + a r + a r^2
-    + \dots + a r^n$$, được lấy trên các số mũ $$j$$ từ $$0$$ đến $$n$$.
-  example_vi: Với $$a = 3$$, $$r = 2$$ và $$n = 4$$, tổng cấp số nhân tương ứng là $$\displaystyle\sum_{j=0}^{4}
+  definition_vi: Chuỗi cấp số nhân là tổng các số hạng liên tiếp của một cấp số nhân. Trong trường hợp
+    hữu hạn, chuỗi này có dạng $$\displaystyle\sum_{j=0}^{n} a r^j = a + a r + a r^2 + \dots + a r^n$$,
+    trong đó số hạng đầu $$a$$ và công bội $$r$$ là các số thực.
+  example_vi: Với $$a = 3$$, $$r = 2$$ và $$n = 4$$, chuỗi cấp số nhân hữu hạn tương ứng là $$\displaystyle\sum_{j=0}^{4}
     3 \cdot 2^j = 3 + 6 + 12 + 24 + 48 = 93$$.
   vi_terms:
   - term: tổng cấp số nhân
     source_id: ''
     page: ''
-    recommended: true
+    recommended: false
     verified: false
     pdf_page: 0
     snippet: ''
@@ -709,7 +699,7 @@ entries:
   - term: chuỗi cấp số nhân
     source_id: bib-cormen-2001-vi
     page: tr. 64
-    recommended: false
+    recommended: true
     verified: true
     pdf_page: 62
     snippet: Chuỗi cấp số nhân
@@ -731,20 +721,9 @@ entries:
   - geometric-progression
   status: panel-approved
   see_ref: ''
-  notes: 'Mining hit only "cấp số nhân" once, in bib-nguyenhoangthach-2020 (tr. 41 PDF), where it denotes
-    the geometric progression $$a_n = r^n$$ used as the trial solution to a linear recurrence (characteristic-equation
-    method) — concept-divergence flag: this is the underlying PROGRESSION, not the series sum itself,
-    and it is recorded as a variant only because it is the lexical root of the recommended series term.
-    The recommended standard term for the SERIES (the sum $$\sum_{j=0}^{n} a r^j$$) is "tổng cấp số nhân"
-    ("sum of a geometric progression"), which no corpus source attests with a snippet; it is kept verified=false
-    with an empty page so vi_terms carries a standard headword (UNVERIFIED RECOMMENDED TERM, standard-usage
-    basis). The candidates "chuỗi cấp số nhân", "tổng cấp số nhân", "chuỗi hình học", "công bội", and
-    "tổng của cấp số nhân" returned 0 hits in both normal and --loose modes across all sources (including
-    OCR sources). Exposition fixes (panel): definition_vi made FINITE ("tổng hữu hạn ... từ $$j = 0$$
-    đến $$n$$") to match Rosen §2.4; the term "tổng cấp số nhân" set with \emph OUTSIDE math (the previous
-    \textit inside math violated the math-wrapping convention, modeled on the ''group'' entry); \displaystyle
-    added to the inline $$\sum$$. Snippet re-verified against the corpus line for bib-nguyenhoangthach-2020
-    tr. 41.'
+  notes: Recommended term updated to "chuỗi cấp số nhân", attested in bib-cormen-2001-vi. The definition
+    now treats geometric series as the sum of terms of a geometric progression and explicitly scopes the
+    displayed formula to the finite case.
 - id: girth
   letter: G
   headword_en: girth
@@ -1721,13 +1700,6 @@ entries:
     pdf_page: 119
     snippet: Ta gọi một phần tử a ∈ A là một phần tử lớn nhất của tập hợp A nếu và chỉ nếu với mọi
   - term: phần tử lớn nhất
-    source_id: bib-nguyenhuudien-2019
-    page: tr. 119
-    recommended: false
-    verified: true
-    pdf_page: 119
-    snippet: 3. Phần tử lớn nhất (nhỏ nhất) của một tập hợp, nếu có, là phần tử tối đại (tối tiểu) duy
-  - term: phần tử lớn nhất
     source_id: bib-vudinhhoa-2010
     page: ''
     recommended: false
@@ -2236,7 +2208,10 @@ entries:
     verified: true
     pdf_page: 355
     snippet: . of growth tk. tốc độ phát triển, tốc độ tăng trưởng
-  see_also: []
+  see_also:
+  - asymptotic-notation
+  - asymptotic-estimate
+  - little-o-notation
   status: draft
   see_ref: ''
   notes: Thuật ngữ chuẩn của giáo trình MAT3500 là "tốc độ tăng trưởng". Nguyễn Đức Nghĩa (2006) dùng

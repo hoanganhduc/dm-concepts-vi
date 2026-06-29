@@ -40,6 +40,10 @@ def load_registry_ids() -> set:
 
 
 def main() -> int:
+    if len(sys.argv) > 1 and sys.argv[1] in ("-h", "--help"):
+        print(__doc__.strip())
+        return 0
+
     source_ids = load_registry_ids()
     all_ids = {e["id"] for f in glob.glob(os.path.join(ROOT, "data", "terms", "entries-*.yaml"))
                for e in (yaml.safe_load(open(f, encoding="utf-8")) or {}).get("entries", []) if e.get("id")}
@@ -101,6 +105,7 @@ def main() -> int:
                 continue
 
             recommended = 0
+            seen_term_cites: set[tuple[str, str, str]] = set()
             for t in e.get("vi_terms", []) or []:
                 term = t.get("term")
                 if not term:
@@ -118,6 +123,15 @@ def main() -> int:
                         errors.append(f"{where}: verified vi_term '{term}' has no source_id")
                     elif sid not in source_ids:
                         errors.append(f"{where}: source_id '{sid}' not in registry")
+                    if sid:
+                        cite_key = (term or "", sid, page)
+                        if cite_key in seen_term_cites:
+                            warnings.append(
+                                f"{where}: duplicate vi_term citation '{term}' {sid}"
+                                + (f" {page}" if page else "")
+                            )
+                        else:
+                            seen_term_cites.add(cite_key)
                 else:
                     # Unverified term: source/page must be absent (no fabrication).
                     if sid and sid not in source_ids:

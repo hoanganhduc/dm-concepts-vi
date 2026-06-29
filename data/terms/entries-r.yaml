@@ -437,11 +437,10 @@ entries:
   notation: \mathbb{Q}
   rosen_ref: Rosen §2.3
   ref_bib: ''
-  definition_vi: Số hữu tỷ là số thực có thể viết dưới dạng thương $$p/q$$ của hai số nguyên $$p$$ và
-    $$q$$ với $$q \neq 0$$. Tập tất cả các số hữu tỷ được ký hiệu là $$\mathbb{Q}$$, và $$\mathbb{Q}$$
-    là một tập đếm được.
-  example_vi: Các số $$1/2$$, $$-3$$ và $$0$$ đều là số hữu tỷ; trong khi $$\sqrt{2}$$ không phải là số
-    hữu tỷ.
+  definition_vi: Tập số hữu tỷ, ký hiệu $$\mathbb{Q}$$, là tập gồm các số có thể viết dưới dạng thương
+    $$p/q$$ của hai số nguyên $$p$$ và $$q$$ với $$q \neq 0$$. Tập $$\mathbb{Q}$$ là một tập đếm được.
+  example_vi: Các số $$1/2$$, $$-3$$ và $$0$$ thuộc tập số hữu tỷ; trong khi $$\sqrt{2}$$ không phải là
+    số hữu tỷ.
   vi_terms:
   - term: số hữu tỉ
     source_id: bib-nguyenhuudien-2019
@@ -2034,13 +2033,35 @@ entries:
     regular-set are same-chapter (R) forward references — the languages/sets a regular expression describes
     (not yet authored in this batch); Kleene star/closure is chapter K (cross-chapter), so it is not linked
     here per the same-chapter see_also rule.'
+- id: regular-grammar
+  letter: R
+  headword_en: regular grammar
+  notation: ''
+  rosen_ref: Rosen §13.1
+  ref_bib: bib-rosen-2019
+  definition_vi: ''
+  example_vi: ''
+  vi_terms:
+  - term: văn phạm chính quy
+    source_id: bib-doducgiao-2009
+    page: tr. 4
+    recommended: true
+    verified: true
+    pdf_page: null
+    snippet: VÀ VĂN PHAM CHÍNH QUY SUY RỘNG
+  see_also:
+  - type-3-grammar
+  status: panel-approved
+  see_ref: type-3-grammar
+  notes: Redirect stub added so the common English headword points to the canonical Chomsky hierarchy
+    entry type-3-grammar.
 - id: regular-graph
   letter: R
   headword_en: regular graph
   notation: \deg_G(v) = k\ \forall v \in V(G)
   rosen_ref: Rosen §10.2
   ref_bib: ''
-  definition_vi: Một đơn đồ thị $$G$$ được gọi là *đồ thị đều bậc $$k$$* nếu mọi đỉnh của nó đều có cùng
+  definition_vi: Một đơn đồ thị $$G$$ được gọi là đồ thị đều bậc $$k$$ nếu mọi đỉnh của nó đều có cùng
     bậc $$k$$, tức là $$\deg_G(v) = k$$ với mọi $$v \in V(G)$$. Số $$k$$ này được gọi là bậc của đồ thị
     đều.
   example_vi: Đồ thị đầy đủ $$K_n$$ là đồ thị đều bậc $$n-1$$, vì mỗi đỉnh kề với tất cả $$n-1$$ đỉnh
@@ -2049,7 +2070,7 @@ entries:
   - term: đồ thị đều bậc k
     source_id: bib-leanhvinh-2020
     page: tr. 90
-    recommended: false
+    recommended: true
     verified: true
     pdf_page: 89
     snippet: ta gọi G là đỏ thị đều bậc d (hay còn được gọi là dé thị d chính quy).
@@ -2112,7 +2133,7 @@ entries:
   - term: đồ thị đều
     source_id: bib-hoangchithanh-2011
     page: ''
-    recommended: true
+    recommended: false
     verified: true
     pdf_page: 39
     snippet: '1.62. Nếu các đỉnh của đồ thị đều có bậc chin thì:'
@@ -2155,19 +2176,20 @@ entries:
   notation: ''
   rosen_ref: Rosen §13.4
   ref_bib: ''
-  definition_vi: 'Một *tập chính quy* là một tập các xâu ký tự được mô tả bởi một biểu thức chính quy.
-    Cụ thể, mỗi biểu thức chính quy trên một bảng chữ cái $$I$$ biểu diễn một tập chính quy: $$\emptyset$$
-    biểu diễn tập rỗng, $$\lambda$$ biểu diễn tập $$\{\lambda\}$$ gồm xâu rỗng, ký hiệu $$x$$ biểu diễn
-    tập $$\{x\}$$, và các phép ghép, hợp cùng bao đóng Kleene của các biểu thức chính quy biểu diễn các
-    tập tương ứng được tạo từ các tập chính quy thành phần.'
-  example_vi: Trên bảng chữ cái $$I = \{0, 1\}$$, biểu thức chính quy $$0^{*}1$$ mô tả tập chính quy gồm
-    các xâu kết thúc bằng đúng một ký hiệu $$1$$ và đứng trước là một số (có thể bằng $$0$$) ký hiệu $$0$$,
-    tức là tập $$\{1, 01, 001, 0001, \ldots\}$$.
+  definition_vi: 'Ngôn ngữ chính quy (theo Rosen còn gọi là tập chính quy) là một tập các xâu ký tự được
+    mô tả bởi một biểu thức chính quy. Cụ thể, mỗi biểu thức chính quy trên một bảng chữ cái $$I$$ biểu
+    diễn một ngôn ngữ chính quy: $$\emptyset$$ biểu diễn tập rỗng, $$\lambda$$ biểu diễn tập $$\{\lambda\}$$
+    gồm xâu rỗng, ký hiệu $$x$$ biểu diễn tập $$\{x\}$$, và các phép ghép, hợp cùng bao đóng Kleene của
+    các biểu thức chính quy biểu diễn các ngôn ngữ tương ứng được tạo từ các ngôn ngữ chính quy thành
+    phần.'
+  example_vi: Trên bảng chữ cái $$I = \{0, 1\}$$, biểu thức chính quy $$0^{*}1$$ mô tả ngôn ngữ chính
+    quy gồm các xâu kết thúc bằng đúng một ký hiệu $$1$$ và đứng trước là một số (có thể bằng $$0$$) ký
+    hiệu $$0$$, tức là tập $$\{1, 01, 001, 0001, \ldots\}$$.
   vi_terms:
   - term: tập chính quy
     source_id: ''
     page: ''
-    recommended: true
+    recommended: false
     verified: false
     pdf_page: 0
     snippet: ''
@@ -2204,7 +2226,7 @@ entries:
   - term: ngôn ngữ chính quy
     source_id: bib-doducgiao-2008
     page: tr. 8
-    recommended: false
+    recommended: true
     verified: true
     pdf_page: 9
     snippet: §2. Ngôn ngữ chính quy và biểu thức chinh-quy.......
@@ -2216,28 +2238,9 @@ entries:
   - string
   status: draft
   see_ref: ''
-  notes: 'Theo Rosen §13.4, tập chính quy (regular set) là tập các xâu được mô tả bởi một biểu thức chính
-    quy; cần phân biệt "tập chính quy" (một tập hợp các xâu) với "biểu thức chính quy" (một xâu mô tả
-    tập đó). Định lý Kleene (1956) cho biết các tập chính quy đúng là các tập được chấp nhận bởi một ôtômat
-    hữu hạn, nên "tập chính quy" trùng với "ngôn ngữ chính quy" (regular language) theo nghĩa của Rosen;
-    hai thuật ngữ này được dùng lẫn nhau trong tài liệu hình thức. Thuật ngữ chuẩn tiếng Việt "tập chính
-    quy" là thuật ngữ chuẩn cho regular set trong văn phạm và ngôn ngữ hình thức. Nó được chứng thực trong
-    kho ngữ liệu CHỈ bởi bib-rosen-2003-vi (bản dịch OCR năm 2003 của Rosen, bao trùm chương mô hình tính
-    toán): tr. 809 mở đầu mục "CÁC TẬP CHÍNH QUY" và định nghĩa các tập chính quy qua các phép ghép, hợp
-    và bao đóng Kleene, còn tr. 810 nói rõ "tập chính quy A" nghĩa là tập được biểu diễn bởi biểu thức
-    chính quy A, đúng Rosen §13.4. CHÍNH SÁCH NGUỒN DẪN ĐẦU (terminology_policy; cùng tiền lệ với entry
-    nondeterministic-finite-automaton của chương N và regular-expression của chương R): bib-rosen-2003-vi
-    có role=reference và công cụ find-term.py giữ nó trong EXCLUDE_DEFAULT (tìm trên mọi nguồn 2004–2020
-    trả về 0 hit cho "tập chính quy", cả thường lẫn --loose; chỉ một lượt bib-rosen-2003-vi tường minh
-    mới trả về 33 hit), nên nó KHÔNG BAO GIỜ được làm thuật ngữ recommended/lead. Theo chính sách đó,
-    thuật ngữ lead "tập chính quy" giữ verified=false (trích dẫn rỗng) còn các chứng thực 2003 được ghi
-    thành các dòng recommended=false, verified=true bổ trợ với snippet tr. 809 và tr. 810; bộ render hạ
-    nguồn sẽ hiển thị các dòng Rosen này làm bằng chứng cho khuyến nghị nên cờ verified=false không bị
-    đọc là "không có căn cứ". Dòng "ngôn ngữ chính quy" (tr. 774) được giữ làm chứng thực bổ trợ verified=true,
-    recommended=false cho khái niệm tương đương theo định lý Kleene. OCR đã làm sai một số dấu và ký tự;
-    snippet đã được chuẩn hóa minh bạch. see_also dẫn tới regular-expression và regular-language (cùng
-    chương R) là các tham chiếu cùng chương; biểu thức chính quy mô tả tập, còn ngôn ngữ chính quy là
-    tên gọi tương đương của cùng tập đó.'
+  notes: Recommended term updated to "ngôn ngữ chính quy" to align the entry with the regular-language
+    terminology used in Vietnamese formal-language sources. Rosen's "tập chính quy" evidence is kept as
+    a source-backed variant because Rosen frames regular sets as sets of strings denoted by regular expressions.
 - id: relation
   letter: R
   headword_en: relation
@@ -2730,24 +2733,24 @@ entries:
   notation: ''
   rosen_ref: Rosen §10.2
   ref_bib: ''
-  definition_vi: Đỉnh con phải của một đỉnh $$v$$ trong một cây nhị phân là con của $$v$$ được phân biệt
-    là nằm ở bên phải. Mỗi đỉnh trong cây nhị phân có nhiều nhất một đỉnh con phải, và cây có gốc tại
-    đỉnh con phải của $$v$$ được gọi là cây con phải của $$v$$.
+  definition_vi: Con phải của một đỉnh $$v$$ trong một cây nhị phân là con của $$v$$ được phân biệt là
+    nằm ở bên phải. Mỗi đỉnh trong cây nhị phân có nhiều nhất một con phải, và cây có gốc tại con phải
+    của $$v$$ được gọi là cây con phải của $$v$$.
   example_vi: Trong một cây nhị phân, nếu đỉnh $$d$$ có hai con thì con thứ nhất là con bên trái và con
     thứ hai là con bên phải; chẳng hạn nếu con bên trái của $$d$$ là $$f$$ và con bên phải của $$d$$ là
-    $$g$$ thì $$g$$ là đỉnh con phải của $$d$$.
+    $$g$$ thì $$g$$ là con phải của $$d$$.
   vi_terms:
   - term: con phải
     source_id: bib-nguyenhuudien-2019
     page: tr. 256
-    recommended: false
+    recommended: true
     verified: true
     pdf_page: 256
     snippet: con phải được gán nhãn 1.
   - term: đỉnh con phải
     source_id: ''
     page: ''
-    recommended: true
+    recommended: false
     verified: false
     pdf_page: 0
     snippet: ''
@@ -2786,13 +2789,6 @@ entries:
     verified: true
     pdf_page: 9
     snippet: cây con phải
-  - term: con phải
-    source_id: bib-leanhvinh-2020
-    page: tr. 109
-    recommended: false
-    verified: true
-    pdf_page: 108
-    snippet: Chứng minh. Do x'(G) > A(G) nên ta chi còn phải chứng minh
   - term: nút con phải
     source_id: bib-doducgiao-2000
     page: tr. 171
@@ -2914,13 +2910,6 @@ entries:
     verified: true
     pdf_page: 61
     snippet: vành có đơn vị mà đồng thời cũng là không gián véc tơ trên K với phép
-  - term: vành
-    source_id: bib-rosen-2003-vi
-    page: tr. 337
-    recommended: false
-    verified: true
-    pdf_page: 337
-    snippet: 31. Trên vành của bánh xe dùng để quay xổ số có gắn 38 con số, trung
   - term: vành giao hoán
     source_id: bib-nguyenhuuanh-2007
     page: ''
@@ -3315,13 +3304,6 @@ entries:
     source_id: bib-doantamhoe-2009
     page: ''
     recommended: true
-    verified: true
-    pdf_page: 64
-    snippet: tất cả các máy và giải tiếp. Nếu với thời gian chạy máy đủ lớn mà k
-  - term: thời gian chạy
-    source_id: bib-doantamhoe-2009
-    page: ''
-    recommended: false
     verified: true
     pdf_page: 64
     snippet: tất cả các máy và giải tiếp. Nếu với thời gian chạy máy đủ lớn mà k

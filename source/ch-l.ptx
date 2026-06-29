@@ -369,6 +369,24 @@
       <p>Xem thêm <xref ref="def-congruence" text="title" />, <xref ref="def-modular-arithmetic" text="title" />.</p>
     </statement>
   </definition>
+  <definition xml:id="def-little-o-notation">
+    <title>little-o notation — ký hiệu o nhỏ</title>
+    <idx><h>little-o notation</h></idx>
+    <idx><h>chữ o nhỏ</h></idx>
+    <idx><h>ký hiệu o nhỏ</h></idx>
+    <idx><h>little-o</h></idx>
+    <statement>
+      <p>Ký hiệu o nhỏ mô tả một quan hệ tăng trưởng chặt hơn ký hiệu O lớn: ta viết <m>f(x)=o(g(x))</m> khi tỉ số <m>f(x)/g(x)</m> tiến tới <m>0</m> khi <m>x \to \infty</m> (với <m>g(x) \neq 0</m> về sau). Khi đó <m>f</m> tăng chậm hơn hẳn <m>g</m> theo nghĩa tiệm cận (theo <xref ref="bib-rosen-2019" />, Rosen §3.2).</p>
+      <p>Thuật ngữ tiếng Việt tương ứng:</p>
+      <ul>
+        <li><p><term>ký hiệu o nhỏ</term> <em>(thuật ngữ chuẩn; chưa truy được trong kho văn bản)</em> — cách dùng phổ biến.</p></li>
+        <li><p><term>chữ o nhỏ</term> <xref ref="bib-rosen-2003-vi" /> (tr. 119).</p></li>
+        <li><p><term>little-o</term> <xref ref="bib-rosen-2003-vi" /> (tr. 119).</p></li>
+      </ul>
+      <p>Ví dụ: Ta có <m>x=o(x^2)</m> vì <m>x/x^2 = 1/x \to 0</m> khi <m>x \to \infty</m>. Ngược lại, <m>x^2</m> không là <m>o(x)</m>.</p>
+      <p>Xem thêm <xref ref="def-asymptotic-notation" text="title" />, <xref ref="def-asymptotic-estimate" text="title" />, <xref ref="def-growth-rate" text="title" />.</p>
+    </statement>
+  </definition>
   <definition xml:id="def-literal">
     <title>literal (d.t.) — tục biến</title>
     <idx><h>literal</h></idx>
@@ -400,7 +418,7 @@
     </statement>
   </definition>
   <definition xml:id="def-logical-argument">
-    <title>logical argument (d.t.) — một lập luận lôgic</title>
+    <title>logical argument (d.t.) — lập luận lôgic</title>
     <idx><h>logical argument</h></idx>
     <idx><h>lập luận</h></idx>
     <idx><h>lập luận lôgic</h></idx>
@@ -410,9 +428,9 @@
       <p>Một lập luận lôgic là một dãy các mệnh đề <m>p_1, p_2, \ldots, p_n</m>, gọi là các tiền đề, cùng với một mệnh đề <m>q</m> ở cuối, gọi là kết luận. Lập luận là hợp lệ (đúng đắn) nếu khi tất cả các tiền đề <m>p_1, p_2, \ldots, p_n</m> đều đúng thì kết luận <m>q</m> cũng đúng, tức là <m>(p_1 \wedge p_2 \wedge \cdots \wedge p_n) \to q</m> là một hằng đúng (theo <xref ref="bib-rosen-2019" />, Rosen §1.5).</p>
       <p>Thuật ngữ tiếng Việt tương ứng:</p>
       <ul>
-        <li><p><term>một lập luận lôgic</term> <em>(thuật ngữ chuẩn; chưa truy được trong kho văn bản)</em> — cách dùng phổ biến.</p></li>
+        <li><p><term>lập luận lôgic</term> <em>(thuật ngữ chuẩn; chưa truy được trong kho văn bản)</em> — cách dùng phổ biến.</p></li>
         <li><p><term>lập luận</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 28); <xref ref="bib-leanhvinh-2020" /> (tr. 75); <xref ref="bib-nguyenhoangthach-2020" /> (tr. 25).</p></li>
-        <li><p><term>lập luận lôgic</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
+        <li><p><term>một lập luận lôgic</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
         <li><p><term>suy luận</term> <xref ref="bib-nguyenhuudien-2019" /> (tr. 30); <xref ref="bib-doducthai-2010" /> (tr. 93); <xref ref="bib-vudinhhoa-2010" />; <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 237).</p></li>
       </ul>
       <p>Ví dụ: Suy luận <m>p \to q</m>, <m>p</m>, do đó <m>q</m> (quy tắc Modus Ponens) là một lập luận lôgic hợp lệ: nếu cả <m>p \to q</m> và <m>p</m> đều đúng thì <m>q</m> đúng.</p>
@@ -504,7 +522,7 @@
         <li><p><term>cận dưới</term> <xref ref="bib-doantamhoe-2009" />; <xref ref="bib-doducgiao-2009" /> (tr. 230); <xref ref="bib-doducgiao-2008" /> (tr. 285); <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-phan-1976" /> (tr. 33).</p></li>
       </ul>
       <p>Ví dụ: Trong tổng <m>\sum_{i=1}^{100} i^2</m>, giới hạn dưới của chỉ số lấy tổng là <m>1</m> và giới hạn trên là <m>100</m>.</p>
-      <p>Xem thêm <xref ref="def-index" text="title" />, <xref ref="def-index-of-summation" text="title" />.</p>
+      <p>Xem thêm <xref ref="def-index" text="title" />, <xref ref="def-index-of-summation" text="title" />, <xref ref="def-upper-limit" text="title" />, <xref ref="def-summation" text="title" />, <xref ref="def-summation-notation" text="title" />.</p>
     </statement>
   </definition>
   <definition xml:id="def-language-recognized-by-an-automaton">

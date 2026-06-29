@@ -61,12 +61,17 @@ def group_terms(vi_terms):
     for t in vi_terms:
         key = t.get("term", "")
         if key not in index:
-            index[key] = {"term": key, "recommended": False, "cites": []}
+            index[key] = {"term": key, "recommended": False, "cites": [], "_seen_cites": set()}
             groups.append(index[key])
         g = index[key]
         g["recommended"] = g["recommended"] or bool(t.get("recommended"))
         if t.get("verified") and t.get("source_id"):
-            g["cites"].append((t["source_id"], str(t.get("page", "")).strip()))
+            cite = (t["source_id"], str(t.get("page", "")).strip())
+            if cite not in g["_seen_cites"]:
+                g["cites"].append(cite)
+                g["_seen_cites"].add(cite)
+    for g in groups:
+        g.pop("_seen_cites", None)
     # recommended term first
     groups.sort(key=lambda g: (not g["recommended"], g["term"]))
     return groups
@@ -120,7 +125,7 @@ def render_entry(e, allowed_ids):
         raw = raw[:-1].rstrip()
     defn = to_ptx(raw)
     if has_src:
-        ref_bib = e.get("ref_bib", "bib-rosen-2019")
+        ref_bib = e.get("ref_bib") or "bib-rosen-2019"
         loc = (", " + esc_text(e["rosen_ref"])) if e.get("rosen_ref") else ""
         defn += f' (theo <xref ref="{ref_bib}" />{loc}).'
     lines.append(f"      <p>{defn}</p>")
@@ -211,6 +216,9 @@ def global_entry_ids():
 
 
 def main():
+    if len(sys.argv) > 1 and sys.argv[1] in ("-h", "--help"):
+        print(__doc__.strip())
+        return 0
     letter = (sys.argv[1] if len(sys.argv) > 1 else "c").lower()
     src = os.path.join(ROOT, "workflow", "panels", f"chapter-{letter}-final.json")
     data = json.load(open(src, encoding="utf-8"))

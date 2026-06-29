@@ -94,22 +94,22 @@
     </statement>
   </definition>
   <definition xml:id="def-ones-complement-notation">
-    <title>one's complement notation (d.t.) — ký hiệu phần bù một</title>
+    <title>one's complement notation (d.t.) — biểu diễn bù 1</title>
     <idx><h>one's complement notation</h></idx>
     <idx><h>biểu diễn bù 1</h></idx>
     <idx><h>bù 1</h></idx>
     <idx><h>ký hiệu phần bù một</h></idx>
     <idx><h>phương pháp bù 1</h></idx>
     <statement>
-      <p>Ký hiệu phần bù một là một cách biểu diễn các số nguyên (cả âm lẫn dương) bằng một xâu bit có độ dài cố định <m>n</m>. Một số nguyên không âm <m>a</m> với <m>a \leq 2^{n-1} - 1</m> được biểu diễn bằng khai triển nhị phân <m>n</m> bit của nó với bit dấu (bit ngoài cùng bên trái) bằng <m>0</m>; số nguyên âm <m>-a</m> được biểu diễn bằng xâu bit thu được từ biểu diễn của <m>a</m> bằng cách đảo từng bit, tức là đổi mỗi <m>0</m> thành <m>1</m> và mỗi <m>1</m> thành <m>0</m> (theo <xref ref="bib-rosen-2019" />, Rosen §4.2).</p>
+      <p>Biểu diễn bù 1 là một cách biểu diễn các số nguyên (cả âm lẫn dương) bằng một xâu bit có độ dài cố định <m>n</m>. Một số nguyên không âm <m>a</m> với <m>a \leq 2^{n-1} - 1</m> được biểu diễn bằng khai triển nhị phân <m>n</m> bit của nó với bit dấu (bit ngoài cùng bên trái) bằng <m>0</m>; số nguyên âm <m>-a</m> được biểu diễn bằng xâu bit thu được từ biểu diễn của <m>a</m> bằng cách đảo từng bit, tức là đổi mỗi <m>0</m> thành <m>1</m> và mỗi <m>1</m> thành <m>0</m> (theo <xref ref="bib-rosen-2019" />, Rosen §4.2).</p>
       <p>Thuật ngữ tiếng Việt tương ứng:</p>
       <ul>
-        <li><p><term>ký hiệu phần bù một</term> <em>(thuật ngữ chuẩn; chưa truy được trong kho văn bản)</em> — cách dùng phổ biến.</p></li>
-        <li><p><term>biểu diễn bù 1</term> <xref ref="bib-wikipedia-vi" />.</p></li>
+        <li><p><term>biểu diễn bù 1</term> <xref ref="bib-wikipedia-vi" /> — cách dùng phổ biến.</p></li>
         <li><p><term>bù 1</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
+        <li><p><term>ký hiệu phần bù một</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
         <li><p><term>phương pháp bù 1</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
       </ul>
-      <p>Ví dụ: Với độ dài <m>n = 8</m> bit, số <m>5</m> được biểu diễn là <m>00000101</m>, còn số <m>-5</m> được biểu diễn bằng phần bù từng bit là <m>11111010</m>.</p>
+      <p>Ví dụ: Với độ dài <m>n = 8</m> bit, số <m>5</m> được biểu diễn là <m>00000101</m>, còn số <m>-5</m> trong biểu diễn bù 1 là <m>11111010</m>.</p>
       <p>Xem thêm <xref ref="def-binary-numeral-system" text="title" />, <xref ref="def-bit-string" text="title" />, <xref ref="def-complement" text="title" />.</p>
     </statement>
   </definition>
@@ -209,14 +209,12 @@
   <definition xml:id="def-or-gate">
     <title>OR gate (d.t.) — cổng OR</title>
     <idx><h>OR gate</h></idx>
-    <idx><h>cổng HOẶC</h></idx>
     <idx><h>cổng OR</h></idx>
     <statement>
       <p>Cổng OR là phần tử mạch logic nhận một hay nhiều đầu vào Boole và tạo ra đầu ra bằng tổng Boole (phép tuyển) của các đầu vào đó, ký hiệu <m>x_1 + x_2 + \cdots + x_n</m>. Đầu ra của cổng OR bằng <m>1</m> khi và chỉ khi có ít nhất một đầu vào bằng <m>1</m>, và bằng <m>0</m> khi tất cả đầu vào đều bằng <m>0</m> (theo <xref ref="bib-rosen-2019" />, Rosen §12.3).</p>
       <p>Thuật ngữ tiếng Việt tương ứng:</p>
       <ul>
         <li><p><term>cổng OR</term> <xref ref="bib-cormen-2001-vi" />; <xref ref="bib-nguyenhuuanh-2007" />; <xref ref="bib-vudinhhoa-2010" /> — cách dùng phổ biến.</p></li>
-        <li><p><term>cổng HOẶC</term> <xref ref="bib-doducgiao-2009" /> (tr. 71); <xref ref="bib-sierpinski-2012" /> (tr. 121); <xref ref="bib-vudinhhoa-2010" />.</p></li>
       </ul>
       <p>Ví dụ: Với hai đầu vào <m>x_1</m> và <m>x_2</m>, cổng OR cho đầu ra <m>x_1 + x_2</m>: nếu <m>x_1 = 1</m> và <m>x_2 = 0</m> thì đầu ra là <m>1</m>; chỉ khi <m>x_1 = x_2 = 0</m> thì đầu ra mới bằng <m>0</m>.</p>
       <p>Xem thêm <xref ref="def-disjunction" text="title" />, <xref ref="def-boolean-sum" text="title" />.</p>
@@ -343,7 +341,7 @@
       <p>Một <em>kết cục</em> (hay <em>kết quả của phép thử</em>) là một phần tử của không gian mẫu, tức là một trong các khả năng có thể xảy ra của một phép thử hay quá trình ngẫu nhiên. Tập tất cả các kết cục tạo thành <em>không gian mẫu</em> <m>S</m>, và một <em>biến cố</em> là một tập con của <m>S</m> (theo <xref ref="bib-libennowell-2022" />).</p>
       <p>Thuật ngữ tiếng Việt tương ứng:</p>
       <ul>
-        <li><p><term>kết cục</term> <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-doducgiao-2000" />; <xref ref="bib-doducgiao-2008" />; <xref ref="bib-doducgiao-2009" />; <xref ref="bib-nguyenhuudien-2019" />; <xref ref="bib-phan-1976" /> (tr. 367) — cách dùng phổ biến.</p></li>
+        <li><p><term>kết cục</term> <xref ref="bib-cungkimtien-2004" />; <xref ref="bib-doducgiao-2000" />; <xref ref="bib-doducgiao-2008" />; <xref ref="bib-doducgiao-2009" />; <xref ref="bib-nguyenhuudien-2019" />; <xref ref="bib-phan-1976" /> (tr. 367) — cách dùng phổ biến.</p></li>
         <li><p><term>kết quả (phép thử)</term> <em>(biến thể, chưa có trích dẫn cụ thể)</em>.</p></li>
       </ul>
       <p>Ví dụ: Khi tung một con xúc xắc sáu mặt, không gian mẫu là <m>S=\{1,2,3,4,5,6\}</m>; mỗi số là một kết cục.</p>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="vi-VN" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: denver                         *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="definition definition-like"><h2 class="heading">
+<span class="type">Định nghĩa</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">14.7</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">nearest-neighbor algorithm (d.t.) — thuật toán láng giềng gần nhất.</span>
+</h2>
+<div class="para">Thuật toán láng giềng gần nhất là một thuật toán heuristic cho bài toán người du lịch trên một đồ thị có trọng số. Xuất phát từ một đỉnh ban đầu, thuật toán lặp lại việc di chuyển từ đỉnh hiện tại tới đỉnh chưa thăm gần nhất (đỉnh nối với đỉnh hiện tại bởi cạnh có trọng số nhỏ nhất), cho đến khi mọi đỉnh đều được thăm rồi quay trở về đỉnh xuất phát để tạo thành một chu trình (theo <a href="references.html#bib-rosen-2019" class="xref" data-knowl="./knowl/xref/bib-rosen-2019.html" data-reveal-label="Hiện" data-close-label="Đóng" title="Mục tài liệu 1">[1]</a>, Rosen §10.6).<div class="autopermalink" data-description="Đoạn"><a href="#def-nearest-neighbor-algorithm-4-1" title="Sao chép tiêu đề và liên kết cho Đoạn" aria-label="Sao chép tiêu đề và liên kết cho Đoạn">🔗</a></div>
+</div> 
+<div class="para">Thuật ngữ tiếng Việt tương ứng:<div class="autopermalink" data-description="Đoạn"><a href="#def-nearest-neighbor-algorithm-4-2" title="Sao chép tiêu đề và liên kết cho Đoạn" aria-label="Sao chép tiêu đề và liên kết cho Đoạn">🔗</a></div>
+</div> 
+<ul class="disc" id="def-nearest-neighbor-algorithm-4-3">
+<li>
+<div class="para">
+<dfn class="terminology">thuật toán láng giềng gần nhất</dfn> <em class="emphasis">(thuật ngữ chuẩn; chưa truy được trong kho văn bản)</em> — cách dùng phổ biến.<div class="autopermalink" data-description="Đoạn"><a href="#def-nearest-neighbor-algorithm-4-3-1-1" title="Sao chép tiêu đề và liên kết cho Đoạn" aria-label="Sao chép tiêu đề và liên kết cho Đoạn">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Mục"><a href="#def-nearest-neighbor-algorithm-4-3-1" title="Sao chép tiêu đề và liên kết cho Mục" aria-label="Sao chép tiêu đề và liên kết cho Mục">🔗</a></div>
+</li>
+</ul> 
+<div class="para">Ví dụ: Xét đồ thị có trọng số với các đỉnh <span class="process-math">\(a\text{,}\)</span> <span class="process-math">\(b\text{,}\)</span> <span class="process-math">\(c\text{,}\)</span> <span class="process-math">\(d\)</span> và các trọng số cạnh <span class="process-math">\(ab = 1\text{,}\)</span> <span class="process-math">\(ac = 4\text{,}\)</span> <span class="process-math">\(ad = 3\text{,}\)</span> <span class="process-math">\(bc = 2\text{,}\)</span> <span class="process-math">\(bd = 5\text{,}\)</span> <span class="process-math">\(cd = 6\text{.}\)</span> Bắt đầu tại <span class="process-math">\(a\text{,}\)</span> đỉnh chưa thăm gần nhất là <span class="process-math">\(b\)</span> (vì <span class="process-math">\(ab = 1\)</span> nhỏ nhất); từ <span class="process-math">\(b\text{,}\)</span> đỉnh chưa thăm gần nhất là <span class="process-math">\(c\)</span> (vì <span class="process-math">\(bc = 2\)</span>); từ <span class="process-math">\(c\text{,}\)</span> đỉnh chưa thăm còn lại là <span class="process-math">\(d\text{;}\)</span> cuối cùng quay về <span class="process-math">\(a\text{,}\)</span> cho chu trình <span class="process-math">\(a, b, c, d, a\text{.}\)</span><div class="autopermalink" data-description="Đoạn"><a href="#def-nearest-neighbor-algorithm-4-4" title="Sao chép tiêu đề và liên kết cho Đoạn" aria-label="Sao chép tiêu đề và liên kết cho Đoạn">🔗</a></div>
+</div> 
+<div class="para">Xem thêm <a href="ch-h.html#def-hamilton-circuit" class="xref" data-knowl="./knowl/xref/def-hamilton-circuit.html" data-reveal-label="Hiện" data-close-label="Đóng" title="Định nghĩa 8.3: Hamilton circuit (d.t.)">Hamilton circuit (d.t.)</a>, <a href="ch-t.html#def-traveling-salesperson-problem" class="xref" data-knowl="./knowl/xref/def-traveling-salesperson-problem.html" data-reveal-label="Hiện" data-close-label="Đóng" title="Định nghĩa 20.32: traveling salesperson problem (d.t.) — bài toán người bán hàng">traveling salesperson problem (d.t.) — bài toán người bán hàng</a>, <a href="ch-w.html#def-weighted-graph" class="xref" data-knowl="./knowl/xref/def-weighted-graph.html" data-reveal-label="Hiện" data-close-label="Đóng" title="Định nghĩa 23.2: weighted graph (d.t.) — đồ thị có trọng số">weighted graph (d.t.) — đồ thị có trọng số</a>.<div class="autopermalink" data-description="Đoạn"><a href="#def-nearest-neighbor-algorithm-4-5" title="Sao chép tiêu đề và liên kết cho Đoạn" aria-label="Sao chép tiêu đề và liên kết cho Đoạn">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Định nghĩa 14.7: nearest-neighbor algorithm (d.t.) — thuật toán láng giềng gần nhất"><a href="#def-nearest-neighbor-algorithm" title="Sao chép tiêu đề và liên kết cho Định nghĩa 14.7: nearest-neighbor algorithm (d.t.) — thuật toán láng giềng gần nhất" aria-label="Sao chép tiêu đề và liên kết cho Định nghĩa 14.7: nearest-neighbor algorithm (d.t.) — thuật toán láng giềng gần nhất">🔗</a></div>
+</article><span class="incontext"><a class="internal" href="ch-n.html#def-nearest-neighbor-algorithm">Trong ngữ cảnh</a></span>
+</body>
+</html>

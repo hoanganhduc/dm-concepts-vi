@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tra cứu nhanh — Một số thuật ngữ trong Toán rời rạc</title>
+  <style>
+    :root { --fg:#1a1a1a; --muted:#666; --accent:#1565c0; --line:#e0e0e0; --bg:#fff; }
+    * { box-sizing: border-box; }
+    body { font-family: system-ui, "Segoe UI", Roboto, sans-serif; color: var(--fg);
+           background: var(--bg); margin: 0; line-height: 1.5; }
+    header { position: sticky; top: 0; background: var(--bg); border-bottom: 1px solid var(--line);
+             padding: 1rem 1.25rem 0.75rem; }
+    h1 { font-size: 1.15rem; margin: 0 0 0.5rem; }
+    h1 small { color: var(--muted); font-weight: normal; font-size: 0.8rem; }
+    #q { width: 100%; font-size: 1.1rem; padding: 0.6rem 0.75rem; border: 1px solid var(--line);
+         border-radius: 8px; outline: none; }
+    #q:focus { border-color: var(--accent); }
+    .meta { display: flex; align-items: center; gap: 0.75rem; margin-top: 0.5rem;
+            flex-wrap: wrap; color: var(--muted); font-size: 0.85rem; }
+    #letters { display: flex; flex-wrap: wrap; gap: 0.25rem; }
+    #letters button { border: 1px solid var(--line); background: #f7f7f7; border-radius: 6px;
+                      padding: 0.1rem 0.5rem; cursor: pointer; font-size: 0.8rem; }
+    #letters button.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+    ul#results { list-style: none; margin: 0; padding: 0.5rem 1.25rem 3rem; }
+    li.entry { padding: 0.7rem 0; border-bottom: 1px solid var(--line); }
+    .hwline { text-decoration: none; color: var(--accent); font-weight: 600; }
+    .hwline:hover { text-decoration: underline; }
+    .nota { color: var(--fg); font-weight: normal; }
+    .vi { color: var(--fg); }
+    .vi::before { content: "→ "; color: var(--muted); }
+    .defn { color: var(--muted); font-size: 0.9rem; margin-top: 0.2rem; }
+    .hint { color: var(--muted); font-size: 0.8rem; }
+  </style>
+  <script>
+    window.MathJax = { tex: { inlineMath: [["\\(", "\\)"]] }, svg: { fontCache: "global" } };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+</head>
+<body>
+  <header>
+    <h1>Tra cứu nhanh
+      <small>Một số thuật ngữ trong Toán rời rạc — gõ tiếng Anh hoặc tiếng Việt, không cần dấu</small>
+    </h1>
+    <input id="q" type="search" autocomplete="off" spellcheck="false"
+           placeholder="Ví dụ: chromatic, sac so, do thi, K_n …" aria-label="Ô tìm kiếm" />
+    <div class="meta">
+      <span id="count">…</span>
+      <span id="letters"></span>
+      <span class="hint">Mẹo: gõ <code>so mau</code> tìm ra <code>số màu</code>. Bấm một mục để mở định nghĩa đầy đủ.</span>
+    </div>
+  </header>
+  <ul id="results"></ul>
+  <script src="lookup.js"></script>
+</body>
+</html>

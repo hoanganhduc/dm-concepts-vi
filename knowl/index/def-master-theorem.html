@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="vi-VN" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: denver                         *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="definition definition-like"><h2 class="heading">
+<span class="type">Định nghĩa</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">13.4</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">master theorem (d.t.) — định lý Master.</span>
+</h2>
+<div class="para">Định lý Master là một định lý cho công thức nghiệm tiệm cận của hệ thức truy hồi chia để trị dạng <span class="process-math">\(T(n) = aT(n/b) + cn^d\text{,}\)</span> trong đó <span class="process-math">\(a \geq 1\text{,}\)</span> <span class="process-math">\(b  \gt  1\)</span> là các hằng số nguyên và <span class="process-math">\(c, d\)</span> là các hằng số dương. Cận tăng của <span class="process-math">\(T(n)\)</span> được xác định theo việc so sánh <span class="process-math">\(a\)</span> với <span class="process-math">\(b^d\text{,}\)</span> cụ thể <span class="process-math">\(T(n)\)</span> là <span class="process-math">\(O(n^d)\)</span> khi <span class="process-math">\(a  \lt  b^d\text{,}\)</span> là <span class="process-math">\(O(n^d \log n)\)</span> khi <span class="process-math">\(a = b^d\text{,}\)</span> và là <span class="process-math">\(O(n^{\log_b a})\)</span> khi <span class="process-math">\(a  \gt  b^d\)</span> (theo <a href="references.html#bib-rosen-2019" class="xref" data-knowl="./knowl/xref/bib-rosen-2019.html" data-reveal-label="Hiện" data-close-label="Đóng" title="Mục tài liệu 1">[1]</a>, Rosen §8.3).<div class="autopermalink" data-description="Đoạn"><a href="#def-master-theorem-5-1" title="Sao chép tiêu đề và liên kết cho Đoạn" aria-label="Sao chép tiêu đề và liên kết cho Đoạn">🔗</a></div>
+</div> 
+<div class="para">Thuật ngữ tiếng Việt tương ứng:<div class="autopermalink" data-description="Đoạn"><a href="#def-master-theorem-5-2" title="Sao chép tiêu đề và liên kết cho Đoạn" aria-label="Sao chép tiêu đề và liên kết cho Đoạn">🔗</a></div>
+</div> 
+<ul class="disc" id="def-master-theorem-5-3">
+<li>
+<div class="para">
+<dfn class="terminology">định lý Master</dfn> <em class="emphasis">(thuật ngữ chuẩn; chưa truy được trong kho văn bản)</em> — cách dùng phổ biến.<div class="autopermalink" data-description="Đoạn"><a href="#def-master-theorem-5-3-1-1" title="Sao chép tiêu đề và liên kết cho Đoạn" aria-label="Sao chép tiêu đề và liên kết cho Đoạn">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Mục"><a href="#def-master-theorem-5-3-1" title="Sao chép tiêu đề và liên kết cho Mục" aria-label="Sao chép tiêu đề và liên kết cho Mục">🔗</a></div>
+</li>
+<li>
+<div class="para">
+<dfn class="terminology">định lý thợ</dfn> <em class="emphasis">(biến thể, chưa có trích dẫn cụ thể)</em>.<div class="autopermalink" data-description="Đoạn"><a href="#def-master-theorem-5-3-2-1" title="Sao chép tiêu đề và liên kết cho Đoạn" aria-label="Sao chép tiêu đề và liên kết cho Đoạn">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Mục"><a href="#def-master-theorem-5-3-2" title="Sao chép tiêu đề và liên kết cho Mục" aria-label="Sao chép tiêu đề và liên kết cho Mục">🔗</a></div>
+</li>
+</ul> 
+<div class="para">Ví dụ: Với hệ thức truy hồi <span class="process-math">\(T(n) = 2T(n/2) + n\)</span> của thuật toán sắp xếp trộn, ta có <span class="process-math">\(a = b^d\)</span> (do <span class="process-math">\(2 = 2^1\)</span>), nên theo định lý Master <span class="process-math">\(T(n)\)</span> là <span class="process-math">\(O(n \log n)\text{.}\)</span><div class="autopermalink" data-description="Đoạn"><a href="#def-master-theorem-5-4" title="Sao chép tiêu đề và liên kết cho Đoạn" aria-label="Sao chép tiêu đề và liên kết cho Đoạn">🔗</a></div>
+</div> 
+<div class="para">Xem thêm <a href="ch-r.html#def-recurrence-relation" class="xref" data-knowl="./knowl/xref/def-recurrence-relation.html" data-reveal-label="Hiện" data-close-label="Đóng" title="Định nghĩa 18.14: recurrence relation (d.t.) — quan hệ truy hồi">recurrence relation (d.t.) — quan hệ truy hồi</a>, <a href="ch-d.html#def-divide-and-conquer" class="xref" data-knowl="./knowl/xref/def-divide-and-conquer.html" data-reveal-label="Hiện" data-close-label="Đóng" title="Định nghĩa 4.44: divide and conquer (d.t.) — chia để trị">divide and conquer (d.t.) — chia để trị</a>.<div class="autopermalink" data-description="Đoạn"><a href="#def-master-theorem-5-5" title="Sao chép tiêu đề và liên kết cho Đoạn" aria-label="Sao chép tiêu đề và liên kết cho Đoạn">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Định nghĩa 13.4: master theorem (d.t.) — định lý Master"><a href="#def-master-theorem" title="Sao chép tiêu đề và liên kết cho Định nghĩa 13.4: master theorem (d.t.) — định lý Master" aria-label="Sao chép tiêu đề và liên kết cho Định nghĩa 13.4: master theorem (d.t.) — định lý Master">🔗</a></div>
+</article><span class="incontext"><a class="internal" href="ch-m.html#def-master-theorem">Trong ngữ cảnh</a></span>
+</body>
+</html>

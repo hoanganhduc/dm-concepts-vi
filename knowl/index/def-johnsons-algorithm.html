@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="vi-VN" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: denver                         *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="definition definition-like"><h2 class="heading">
+<span class="type">Định nghĩa</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">10.6</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Johnson’s algorithm (d.t.) — thuật toán Johnson.</span>
+</h2>
+<div class="para">
+<em class="emphasis">Thuật toán Johnson</em> là thủ tục tìm độ dài đường đi ngắn nhất giữa mọi cặp đỉnh trong một đồ thị có hướng có trọng số <span class="process-math">\(G = (V, E)\)</span> mà trọng số cạnh có thể âm nhưng không chứa chu trình có trọng số âm. Thuật toán dùng thuật toán Bellman–Ford để gán cho mỗi đỉnh <span class="process-math">\(v\)</span> một thế năng <span class="process-math">\(h(v)\text{,}\)</span> rồi đổi trọng số của mỗi cạnh <span class="process-math">\((u, v)\)</span> từ <span class="process-math">\(w(u, v)\)</span> thành <span class="process-math">\(w'(u, v) = w(u, v) + h(u) - h(v) \geq 0\)</span> để mọi trọng số trở thành không âm; sau đó chạy thuật toán Dijkstra từ mỗi đỉnh trên đồ thị đã đổi trọng số và quy đổi kết quả về khoảng cách ban đầu (theo <a href="references.html#bib-rosen-2019" class="xref" data-knowl="./knowl/xref/bib-rosen-2019.html" data-reveal-label="Hiện" data-close-label="Đóng" title="Mục tài liệu 1">[1]</a>, Rosen §10.6).<div class="autopermalink" data-description="Đoạn"><a href="#def-johnsons-algorithm-4-1" title="Sao chép tiêu đề và liên kết cho Đoạn" aria-label="Sao chép tiêu đề và liên kết cho Đoạn">🔗</a></div>
+</div> 
+<div class="para">Thuật ngữ tiếng Việt tương ứng:<div class="autopermalink" data-description="Đoạn"><a href="#def-johnsons-algorithm-4-2" title="Sao chép tiêu đề và liên kết cho Đoạn" aria-label="Sao chép tiêu đề và liên kết cho Đoạn">🔗</a></div>
+</div> 
+<ul class="disc" id="def-johnsons-algorithm-4-3">
+<li>
+<div class="para">
+<dfn class="terminology">thuật toán Johnson</dfn> <a href="references.html#bib-wikipedia-vi" class="xref" data-knowl="./knowl/xref/bib-wikipedia-vi.html" data-reveal-label="Hiện" data-close-label="Đóng" title="Mục tài liệu 30">[30]</a>; <a href="references.html#bib-nguyenducnghia-2006" class="xref" data-knowl="./knowl/xref/bib-nguyenducnghia-2006.html" data-reveal-label="Hiện" data-close-label="Đóng" title="Mục tài liệu 14">[14]</a>; <a href="references.html#bib-cormen-2001-vi" class="xref" data-knowl="./knowl/xref/bib-cormen-2001-vi.html" data-reveal-label="Hiện" data-close-label="Đóng" title="Mục tài liệu 24">[24]</a> (tr. 11) — cách dùng phổ biến.<div class="autopermalink" data-description="Đoạn"><a href="#def-johnsons-algorithm-4-3-1-1" title="Sao chép tiêu đề và liên kết cho Đoạn" aria-label="Sao chép tiêu đề và liên kết cho Đoạn">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Mục"><a href="#def-johnsons-algorithm-4-3-1" title="Sao chép tiêu đề và liên kết cho Mục" aria-label="Sao chép tiêu đề và liên kết cho Mục">🔗</a></div>
+</li>
+</ul> 
+<div class="para">Ví dụ: Xét đồ thị có hướng trên ba đỉnh <span class="process-math">\(\{1,2,3\}\)</span> với các cạnh <span class="process-math">\(w(1,2)=-2\text{,}\)</span> <span class="process-math">\(w(2,3)=3\text{,}\)</span> <span class="process-math">\(w(1,3)=4\text{;}\)</span> đồ thị có một cạnh trọng số âm nhưng không có chu trình trọng số âm. Bellman–Ford cho các thế năng <span class="process-math">\(h(1)=0\text{,}\)</span> <span class="process-math">\(h(2)=-2\text{,}\)</span> <span class="process-math">\(h(3)=0\text{.}\)</span> Khi đó trọng số đổi mới là <span class="process-math">\(w'(1,2)=-2+0-(-2)=0\text{,}\)</span> <span class="process-math">\(w'(2,3)=3+(-2)-0=1\)</span> và <span class="process-math">\(w'(1,3)=4+0-0=4\text{,}\)</span> tất cả đều không âm, nên có thể chạy thuật toán Dijkstra từ mỗi đỉnh trên đồ thị đã đổi trọng số.<div class="autopermalink" data-description="Đoạn"><a href="#def-johnsons-algorithm-4-4" title="Sao chép tiêu đề và liên kết cho Đoạn" aria-label="Sao chép tiêu đề và liên kết cho Đoạn">🔗</a></div>
+</div> 
+<div class="para">Xem thêm <a href="ch-d.html#def-dijkstra-algorithm" class="xref" data-knowl="./knowl/xref/def-dijkstra-algorithm.html" data-reveal-label="Hiện" data-close-label="Đóng" title="Định nghĩa 4.24: Dijkstra’s algorithm (d.t.) — thuật toán Dijkstra">Dijkstra’s algorithm (d.t.) — thuật toán Dijkstra</a>, <a href="ch-s.html#def-shortest-path-problem" class="xref" data-knowl="./knowl/xref/def-shortest-path-problem.html" data-reveal-label="Hiện" data-close-label="Đóng" title="Định nghĩa 19.17: shortest-path problem (d.t.) — bài toán tìm đường đi ngắn nhất">shortest-path problem (d.t.) — bài toán tìm đường đi ngắn nhất</a>.<div class="autopermalink" data-description="Đoạn"><a href="#def-johnsons-algorithm-4-5" title="Sao chép tiêu đề và liên kết cho Đoạn" aria-label="Sao chép tiêu đề và liên kết cho Đoạn">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Định nghĩa 10.6: Johnson’s algorithm (d.t.) — thuật toán Johnson"><a href="#def-johnsons-algorithm" title="Sao chép tiêu đề và liên kết cho Định nghĩa 10.6: Johnson’s algorithm (d.t.) — thuật toán Johnson" aria-label="Sao chép tiêu đề và liên kết cho Định nghĩa 10.6: Johnson’s algorithm (d.t.) — thuật toán Johnson">🔗</a></div>
+</article><span class="incontext"><a class="internal" href="ch-j.html#def-johnsons-algorithm">Trong ngữ cảnh</a></span>
+</body>
+</html>

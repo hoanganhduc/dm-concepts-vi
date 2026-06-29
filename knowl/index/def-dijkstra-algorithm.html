@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="vi-VN" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: denver                         *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="definition definition-like"><h2 class="heading">
+<span class="type">Định nghĩa</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.24</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Dijkstra’s algorithm (d.t.) — thuật toán Dijkstra.</span>
+</h2>
+<div class="para">
+<em class="emphasis">Thuật toán Dijkstra</em> là một thủ tục tham lam tìm độ dài đường đi ngắn nhất giữa hai đỉnh trong một đồ thị liên thông có trọng số với mọi trọng số cạnh không âm. Bắt đầu từ đỉnh nguồn, thuật toán lặp lại việc thêm vào một tập hợp <span class="process-math">\(S\)</span> đỉnh chưa thuộc <span class="process-math">\(S\)</span> có khoảng cách đã biết nhỏ nhất tính từ đỉnh nguồn, cho đến khi đỉnh đích được thêm vào <span class="process-math">\(S\)</span> (theo <a href="references.html#bib-rosen-2019" class="xref" data-knowl="./knowl/xref/bib-rosen-2019.html" data-reveal-label="Hiện" data-close-label="Đóng" title="Mục tài liệu 1">[1]</a>, Rosen §10.6).<div class="autopermalink" data-description="Đoạn"><a href="#def-dijkstra-algorithm-5-1" title="Sao chép tiêu đề và liên kết cho Đoạn" aria-label="Sao chép tiêu đề và liên kết cho Đoạn">🔗</a></div>
+</div> 
+<div class="para">Thuật ngữ tiếng Việt tương ứng:<div class="autopermalink" data-description="Đoạn"><a href="#def-dijkstra-algorithm-5-2" title="Sao chép tiêu đề và liên kết cho Đoạn" aria-label="Sao chép tiêu đề và liên kết cho Đoạn">🔗</a></div>
+</div> 
+<ul class="disc" id="def-dijkstra-algorithm-5-3">
+<li>
+<div class="para">
+<dfn class="terminology">thuật toán Dijkstra</dfn> <a href="references.html#bib-leanhvinh-2020" class="xref" data-knowl="./knowl/xref/bib-leanhvinh-2020.html" data-reveal-label="Hiện" data-close-label="Đóng" title="Mục tài liệu 18">[18]</a> (tr. 35); <a href="references.html#bib-nguyenhoangthach-2020" class="xref" data-knowl="./knowl/xref/bib-nguyenhoangthach-2020.html" data-reveal-label="Hiện" data-close-label="Đóng" title="Mục tài liệu 7">[7]</a> (tr. 90); <a href="references.html#bib-nguyenhuudien-2019" class="xref" data-knowl="./knowl/xref/bib-nguyenhuudien-2019.html" data-reveal-label="Hiện" data-close-label="Đóng" title="Mục tài liệu 11">[11]</a> (tr. 207) — cách dùng phổ biến.<div class="autopermalink" data-description="Đoạn"><a href="#def-dijkstra-algorithm-5-3-1-1" title="Sao chép tiêu đề và liên kết cho Đoạn" aria-label="Sao chép tiêu đề và liên kết cho Đoạn">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Mục"><a href="#def-dijkstra-algorithm-5-3-1" title="Sao chép tiêu đề và liên kết cho Mục" aria-label="Sao chép tiêu đề và liên kết cho Mục">🔗</a></div>
+</li>
+<li>
+<div class="para">
+<dfn class="terminology">thuật toán Dijkstra tìm đường đi ngắn nhất</dfn> <a href="references.html#bib-nguyenhoangthach-2020" class="xref" data-knowl="./knowl/xref/bib-nguyenhoangthach-2020.html" data-reveal-label="Hiện" data-close-label="Đóng" title="Mục tài liệu 7">[7]</a> (tr. 90); <a href="references.html#bib-nguyenhuudien-2019" class="xref" data-knowl="./knowl/xref/bib-nguyenhuudien-2019.html" data-reveal-label="Hiện" data-close-label="Đóng" title="Mục tài liệu 11">[11]</a> (tr. 207); <a href="references.html#bib-leanhvinh-2020" class="xref" data-knowl="./knowl/xref/bib-leanhvinh-2020.html" data-reveal-label="Hiện" data-close-label="Đóng" title="Mục tài liệu 18">[18]</a> (tr. 35).<div class="autopermalink" data-description="Đoạn"><a href="#def-dijkstra-algorithm-5-3-2-1" title="Sao chép tiêu đề và liên kết cho Đoạn" aria-label="Sao chép tiêu đề và liên kết cho Đoạn">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Mục"><a href="#def-dijkstra-algorithm-5-3-2" title="Sao chép tiêu đề và liên kết cho Mục" aria-label="Sao chép tiêu đề và liên kết cho Mục">🔗</a></div>
+</li>
+</ul> 
+<div class="para">Ví dụ: Trong đồ thị có trọng số với các đỉnh <span class="process-math">\(a, b, c\text{,}\)</span> các cạnh <span class="process-math">\(ab\)</span> trọng số <span class="process-math">\(4\text{,}\)</span> <span class="process-math">\(bc\)</span> trọng số <span class="process-math">\(1\text{,}\)</span> và <span class="process-math">\(ac\)</span> trọng số <span class="process-math">\(6\text{,}\)</span> thuật toán Dijkstra xuất phát từ <span class="process-math">\(a\)</span> chọn lần lượt <span class="process-math">\(b\)</span> (khoảng cách <span class="process-math">\(4\)</span>) rồi <span class="process-math">\(c\)</span> (khoảng cách <span class="process-math">\(5\)</span>), cho đường đi ngắn nhất từ <span class="process-math">\(a\)</span> đến <span class="process-math">\(c\)</span> có độ dài <span class="process-math">\(5\text{.}\)</span><div class="autopermalink" data-description="Đoạn"><a href="#def-dijkstra-algorithm-5-4" title="Sao chép tiêu đề và liên kết cho Đoạn" aria-label="Sao chép tiêu đề và liên kết cho Đoạn">🔗</a></div>
+</div> 
+<div class="para">Xem thêm <a href="ch-s.html#def-shortest-path-problem" class="xref" data-knowl="./knowl/xref/def-shortest-path-problem.html" data-reveal-label="Hiện" data-close-label="Đóng" title="Định nghĩa 19.17: shortest-path problem (d.t.) — bài toán tìm đường đi ngắn nhất">shortest-path problem (d.t.) — bài toán tìm đường đi ngắn nhất</a>, <a href="ch-w.html#def-weighted-graph" class="xref" data-knowl="./knowl/xref/def-weighted-graph.html" data-reveal-label="Hiện" data-close-label="Đóng" title="Định nghĩa 23.2: weighted graph (d.t.) — đồ thị có trọng số">weighted graph (d.t.) — đồ thị có trọng số</a>.<div class="autopermalink" data-description="Đoạn"><a href="#def-dijkstra-algorithm-5-5" title="Sao chép tiêu đề và liên kết cho Đoạn" aria-label="Sao chép tiêu đề và liên kết cho Đoạn">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Định nghĩa 4.24: Dijkstra’s algorithm (d.t.) — thuật toán Dijkstra"><a href="#def-dijkstra-algorithm" title="Sao chép tiêu đề và liên kết cho Định nghĩa 4.24: Dijkstra’s algorithm (d.t.) — thuật toán Dijkstra" aria-label="Sao chép tiêu đề và liên kết cho Định nghĩa 4.24: Dijkstra’s algorithm (d.t.) — thuật toán Dijkstra">🔗</a></div>
+</article><span class="incontext"><a class="internal" href="ch-d.html#def-dijkstra-algorithm">Trong ngữ cảnh</a></span>
+</body>
+</html>
